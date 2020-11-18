@@ -5,11 +5,12 @@
   "repository": "nuxt-contrib/un",
   "license": "MIT",
   "sideEffects": false,
+  "types": "lib/*.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "true",
+    "build": "tsc src",
     "lint": "eslint --ext ts .",
     "release": "yarn build && standard-version && npm publish && git push --follow-tags"
   },
@@ -19,5 +20,8 @@
     "eslint": "latest",
     "standard-version": "latest",
     "typescript": "latest"
+  },
+  "dependencies": {
+    "mime": "^2.4.6"
   }
 }
