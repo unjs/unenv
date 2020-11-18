@@ -30,12 +30,12 @@ The goal is that final bundle works consistent regardless of running context yet
 Install un as `devDependency`:
 
 ```bash
-yarn add --dev un
+yarn add --dev @nuxt/un
 # or
 npm i -D @nuxt/un
 ```
 
-You can import modules from `un/lib/`
+You can import modules from `@nuxt/un/lib/`
 
 ## Shims
 
@@ -61,9 +61,9 @@ You can import modules from `un/lib/`
 
 ## Mocks
 
-- [generic](./src/mock/empty.ts): Exports a proxy that can act as a recursive function, calss, object or array
-- [empty](./src/mock/empty.ts): Exports `{}`
-- [noop](./src/mock/noop.ts): Exports `() => {}`
+- [proxy](./src/mock/proxy.ts)
+- [empty](./src/mock/empty.ts)
+- [noop](./src/mock/noop.ts)
 
 ## Packages
 
