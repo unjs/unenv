@@ -8,7 +8,7 @@ And then SSR<sup>2</sup> moved browser code to server
 
 And then Workers<sup>3</sup> moved browser/server code to workers
 
-Workers are neither NodeJS with `process` or browser with `window`
+Workers are neither NodeJS with `process` or Browser with `window`
 
 Yet expected to run code that had to work both of them :}
 
@@ -27,7 +27,7 @@ The goal is that final bundle works consistent regardless of running context yet
 
 ## Install
 
-Install un as `devDependen:
+Install un as `devDependency`:
 
 ```bash
 yarn add --dev un
