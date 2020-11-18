@@ -1,8 +1,8 @@
 import type * as net from 'net'
-import { Callback, BufferEncoding } from 'src/types'
-import { Readable } from 'src/node/stream/readable'
-import { Writable } from 'src/node/stream/writable'
-import { mergeFns } from 'src/utils'
+import { Callback, BufferEncoding } from '../../types'
+import { Readable } from '../stream/readable'
+import { Writable } from '../stream/writable'
+import { mergeFns } from '../../utils'
 
 type ReadableAndWritableT = Readable & Writable
 type ReadableAndWritableC = new () => ReadableAndWritableT

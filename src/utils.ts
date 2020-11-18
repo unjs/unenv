@@ -1,23 +1,18 @@
-import type { HeadersObject } from 'src/types'
+import { Module } from 'module'
+import { resolve, join } from 'upath'
 
-export function rawHeaders (headers: HeadersObject) {
-  const rawHeaders = []
-  for (const key in headers) {
-    if (Array.isArray(headers[key])) {
-      for (const h of headers[key] as any) {
-        rawHeaders.push(key, h)
-      }
-    } else {
-      rawHeaders.push(key, headers[key])
-    }
-  }
-  return rawHeaders
+export const RUNTIME_DIR = resolve(__dirname, '../runtime')
+
+export const NodeBuiltinModules = Module.builtinModules
+
+export function mapArrToVal (val: any, arr: any[]) {
+  return arr.reduce((p, c) => ({ ...p, [c]: val }), {})
 }
 
-export function mergeFns (...functions: Function[]) {
-  return function (...args: any[]) {
-    for (const fn of functions) {
-      fn(...args)
-    }
-  }
+export function r (id: string) {
+  return require.resolve(join(RUNTIME_DIR, id))
+}
+
+export function mockAll (packages: string[]) {
+  return mapArrToVal(r('mock/proxy'), packages)
 }

@@ -1,7 +1,7 @@
 import type http from 'http'
-import { Socket } from 'src/node/net/socket'
-import { Readable } from 'src/node/stream/readable'
-import { rawHeaders } from 'src/utils'
+import { Socket } from '../net/socket'
+import { Readable } from '../stream/readable'
+import { rawHeaders } from '../../utils'
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_incomingmessage
 // Implementation: https://github.com/nodejs/node/blob/master/lib/_http_incoming.js

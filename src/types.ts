@@ -1,3 +1,9 @@
-export type Callback<E = Error | null | undefined> = (error?: E) => void
-export type HeadersObject = { [key: string]: string | string[] | undefined }
-export type BufferEncoding = any // TODO
+export interface Environment {
+  alias: { [key: string]: string }
+  inject: { [key: string]: string | string[] }
+}
+
+export interface Preset {
+  alias?: { [key: string]: string }
+  inject?: { [key: string]: string | string[] }
+}

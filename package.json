@@ -5,23 +5,34 @@
   "repository": "nuxt-contrib/un",
   "license": "MIT",
   "sideEffects": false,
-  "types": "lib/*.d.ts",
+  "main": "./dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc src",
+    "build": "yarn clean && siroc build && yarn build:runtime",
+    "build:runtime": "tsc --build tsconfig.runtime.json",
+    "clean": "rm -rf dist lib",
     "lint": "eslint --ext ts .",
     "release": "yarn build && standard-version && npm publish && git push --follow-tags"
+  },
+  "dependencies": {
+    "buffer": "^6.0.2",
+    "defu": "^3.2.2",
+    "events": "^3.2.0",
+    "inherits": "^2.0.4",
+    "mime": "^2.4.6",
+    "process": "^0.11.10",
+    "upath": "^2.0.1",
+    "util": "^0.12.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/node": "latest",
+    "consola": "^2.15.0",
     "eslint": "latest",
+    "siroc": "^0.4.1",
     "standard-version": "latest",
     "typescript": "latest"
-  },
-  "dependencies": {
-    "mime": "^2.4.6"
   }
 }

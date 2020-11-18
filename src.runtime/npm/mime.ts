@@ -1,7 +1,7 @@
 // https://www.npmjs.com/package/mime
 
 // @ts-ignore
-import mimeLite from 'mime/lite'
+import mimeLite from 'mime/lite.js'
 
 const mime = { ...mimeLite }
 

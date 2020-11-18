@@ -18,7 +18,7 @@ Yet expected to run code that had to work both of them :}
 
 ## What is un?
 
-un is a framework of modules, shims and presets that work perfectly with any Javascript environemnt
+un is a collection of modules, shims and presets that work perfectly with any Javascript environemnt
 including Browsers, Workers, NodeJS or pure JavaScript.
 
 You still need a bundler like [rollup.js](https://rollupjs.org) and un will disapear as soon as is bundled.
@@ -35,10 +35,29 @@ yarn add --dev @nuxt/un
 npm i -D @nuxt/un
 ```
 
-You can import modules from `@nuxt/un/lib/`
+You can import modules from `@nuxt/un/runtime/`
+
+## Env
+
+```js
+import { env, nodeless } from '@nuxt/un'
+
+const { alias, inject } = env(nodeless, {
+  alias: {
+    // custom aliases
+  }
+})
+```
+
+### Presets
+
+- [nodeless](./src/env/presets/nodeless.ts)
+- [vue2](./src/env/presets/vue2.ts)
+- [vue3](./src/env/presets/vue3.ts)
 
 ## Shims
 
+- [fetch](./src/shims/fetch.ts)
 - [process](./src/shims/process.ts)
 
 ## NodeJS
@@ -67,6 +86,7 @@ You can import modules from `@nuxt/un/lib/`
 
 ## Packages
 
+- [consola](./src/npm/consola.ts)
 - [depd](./src/npm/depd.ts)
 - [mime-db](./src/npm/mime-db.ts)
 - [mime](./src/npm/mime.ts)
