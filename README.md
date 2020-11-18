@@ -51,45 +51,45 @@ const { alias, inject } = env(nodeless, {
 
 ### Presets
 
-- [nodeless](./src/env/presets/nodeless.ts)
-- [vue2](./src/env/presets/vue2.ts)
-- [vue3](./src/env/presets/vue3.ts)
+- [nodeless](./src.runtime/env/presets/nodeless.ts)
+- [vue2](./src.runtime/env/presets/vue2.ts)
+- [vue3](./src.runtime/env/presets/vue3.ts)
 
 ## Shims
 
-- [fetch](./src/shims/fetch.ts)
-- [process](./src/shims/process.ts)
+- [fetch](./src.runtime/shims/fetch.ts)
+- [process](./src.runtime/shims/process.ts)
 
 ## NodeJS
 
 ### `http`
 
-- [IncomingMessage](./src/node/http/request.ts)
-- [ServerResponse](./src/node/http/request.ts)
-- [METHODS](./src/node/http/consts.ts)
-- [STATUS_CODES](./src/node/http/consts.ts)
+- [IncomingMessage](./src.runtime/node/http/request.ts)
+- [ServerResponse](./src.runtime/node/http/request.ts)
+- [METHODS](./src.runtime/node/http/consts.ts)
+- [STATUS_CODES](./src.runtime/node/http/consts.ts)
 
 ### `net`
 
-- [Socket](./src/node/net/socket.ts)
+- [Socket](./src.runtime/node/net/socket.ts)
 
 ### `stream`
 
-- [Readable](./src/node/stream/readable.ts)
-- [Writable](./src/node/stream/writable.ts)
+- [Readable](./src.runtime/node/stream/readable.ts)
+- [Writable](./src.runtime/node/stream/writable.ts)
 
 ## Mocks
 
-- [proxy](./src/mock/proxy.ts)
-- [empty](./src/mock/empty.ts)
-- [noop](./src/mock/noop.ts)
+- [proxy](./src.runtime/mock/proxy.ts)
+- [empty](./src.runtime/mock/empty.ts)
+- [noop](./src.runtime/mock/noop.ts)
 
 ## Packages
 
-- [consola](./src/npm/consola.ts)
-- [depd](./src/npm/depd.ts)
-- [mime-db](./src/npm/mime-db.ts)
-- [mime](./src/npm/mime.ts)
+- [consola](./src.runtime/npm/consola.ts)
+- [depd](./src.runtime/npm/depd.ts)
+- [mime-db](./src.runtime/npm/mime-db.ts)
+- [mime](./src.runtime/npm/mime.ts)
 
 ## License
 

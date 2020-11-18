@@ -35,5 +35,8 @@
     "siroc": "^0.4.1",
     "standard-version": "latest",
     "typescript": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
