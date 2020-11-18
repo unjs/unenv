@@ -1,0 +1,23 @@
+{
+  "name": "@nuxt/un",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "nuxt-contrib/un",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "true",
+    "lint": "eslint --ext ts .",
+    "release": "yarn build && standard-version && npm publish && git push --follow-tags"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/node": "latest",
+    "eslint": "latest",
+    "standard-version": "latest",
+    "typescript": "latest"
+  }
+}
