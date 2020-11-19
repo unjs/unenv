@@ -58,6 +58,7 @@ const { alias, inject } = env(nodeless, {
 
 ## polyfills
 
+- [fetch.node](./src.runtime/polyfill/fetch.node.ts)
 - [process](./src.runtime/polyfill/process.ts)
 
 ## NodeJS

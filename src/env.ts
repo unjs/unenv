@@ -3,7 +3,8 @@ import type { Preset, Environment } from './types'
 export function env (...presets: Preset[]) {
   const options: Environment = {
     alias: {},
-    inject: {}
+    inject: {},
+    polyfill: []
   }
 
   for (const preset of presets) {
@@ -12,6 +13,9 @@ export function env (...presets: Preset[]) {
     }
     if (preset.inject) {
       Object.assign(options.inject, preset.inject)
+    }
+    if (preset.polyfill) {
+      options.polyfill.push(...preset.polyfill)
     }
   }
 

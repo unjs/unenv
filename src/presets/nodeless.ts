@@ -26,5 +26,9 @@ export default {
   inject: {
     process: r('polyfill/process'),
     Buffer: ['buffer', 'Buffer']
-  }
+  },
+
+  polyfill: [
+    r('polyfill/process')
+  ]
 } as Preset
