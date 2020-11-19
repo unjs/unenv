@@ -30,6 +30,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/node": "latest",
+    "@types/node-fetch": "^2.5.7",
     "consola": "^2.15.0",
     "eslint": "latest",
     "siroc": "^0.4.1",
