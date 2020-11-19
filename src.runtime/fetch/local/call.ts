@@ -31,7 +31,7 @@ export function createCall (handle: Handle) {
     req.body = context.body || null
 
     return handle(req, res).then(() => ({
-      data: res._data.toString(),
+      body: res._data.toString(),
       headers: res._headers,
       status: res.statusCode,
       statusText: res.statusMessage

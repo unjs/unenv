@@ -10,7 +10,7 @@ export function createFetch (call: CallHandle) {
     }
     try {
       const r = await call({ url, ...init })
-      return new Response(r.data, {
+      return new Response(r.body, {
         status: r.status,
         statusText: r.statusText,
         headers: Object.fromEntries(Object.entries(r.headers).map(
