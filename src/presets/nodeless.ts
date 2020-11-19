@@ -8,6 +8,7 @@ export default {
     // Custom
     http: r('node/http'),
     process: r('shims/process'),
+    _process: require.resolve('process/browser.js'),
 
     // Browserify
     buffer: require.resolve('buffer/index.js'),
@@ -18,7 +19,8 @@ export default {
     // npm
     etag: r('mock/noop'),
     'mime-db': r('npm/mime-db'),
-    mime: r('npm/mime')
+    mime: r('npm/mime'),
+    _mime: require.resolve('mime/lite.js')
   },
 
   inject: {

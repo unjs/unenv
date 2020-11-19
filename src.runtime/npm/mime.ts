@@ -1,9 +1,9 @@
 // https://www.npmjs.com/package/mime
 
 // @ts-ignore
-import mimeLite from 'mime/lite.js'
+import _mime from '_mime'
 
-const mime = { ...mimeLite }
+const mime = { ..._mime }
 
 // Adding v1 compat since rollup mocks flatten dependencies
 // https://www.npmjs.com/package/mime/v/1.6.0
