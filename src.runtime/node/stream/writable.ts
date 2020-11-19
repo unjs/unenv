@@ -64,6 +64,8 @@ export class Writable extends EventEmitter implements stream.Writable {
     }
     this.writableEnded = true
     this.writableFinished = true
+    this.emit('close')
+    this.emit('finish')
   }
 
   cork (): void {
@@ -73,5 +75,6 @@ export class Writable extends EventEmitter implements stream.Writable {
   }
 
   destroy (_error?: Error): void {
+    this.removeAllListeners()
   }
 }

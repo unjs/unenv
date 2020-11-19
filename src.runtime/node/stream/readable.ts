@@ -62,6 +62,7 @@ export class Readable extends EventEmitter implements stream.Readable {
   }
 
   _destroy (_error?: any, _callback?: Callback<any>) {
+    this.removeAllListeners()
   }
 
   destroy (error?: Error) {
