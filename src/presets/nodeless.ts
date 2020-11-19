@@ -7,7 +7,7 @@ export default {
 
     // Custom
     http: r('node/http'),
-    process: r('shims/process'),
+    process: r('polyfill/process'),
     _process: require.resolve('process/browser.js'),
 
     // Browserify
@@ -24,7 +24,7 @@ export default {
   },
 
   inject: {
-    process: r('shims/process'),
+    process: r('polyfill/process'),
     Buffer: ['buffer', 'Buffer']
   }
 } as Preset

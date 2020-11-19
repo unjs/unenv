@@ -18,7 +18,7 @@ Yet expected to run code that had to work both of them :}
 
 ## What is un?
 
-un is a collection of modules, shims and presets that work perfectly with any Javascript environemnt
+un is a collection of modules, polyfills and presets that work perfectly with any Javascript environemnt
 including Browsers, Workers, NodeJS or pure JavaScript.
 
 You still need a bundler like [rollup.js](https://rollupjs.org) and un will disapear as soon as is bundled.
@@ -51,14 +51,14 @@ const { alias, inject } = env(nodeless, {
 
 ### Presets
 
-- [nodeless](./src.runtime/env/presets/nodeless.ts)
-- [vue2](./src.runtime/env/presets/vue2.ts)
-- [vue3](./src.runtime/env/presets/vue3.ts)
+- [node](./src/presets/node.ts)
+- [nodeless](./src/presets/nodeless.ts)
+- [vue2](./src/presets/vue2.ts)
+- [vue3](./src/presets/vue3.ts)
 
-## Shims
+## polyfills
 
-- [fetch](./src.runtime/shims/fetch.ts)
-- [process](./src.runtime/shims/process.ts)
+- [process](./src.runtime/polyfill/process.ts)
 
 ## NodeJS
 

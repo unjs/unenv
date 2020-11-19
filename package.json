@@ -4,7 +4,6 @@
   "description": "",
   "repository": "nuxt-contrib/un",
   "license": "MIT",
-  "sideEffects": false,
   "main": "./dist/index.js",
   "files": [
     "dist",
@@ -23,6 +22,7 @@
     "events": "^3.2.0",
     "inherits": "^2.0.4",
     "mime": "^2.4.6",
+    "node-fetch": "^2.6.1",
     "process": "^0.11.10",
     "upath": "^2.0.1",
     "util": "^0.12.3"

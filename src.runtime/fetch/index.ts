@@ -1,9 +1,10 @@
 import { CallContext, CallHandle } from './call'
+export * from './call'
 
 export type FetchOptions = globalThis.RequestInit & CallContext
 
 export function createFetch (call: CallHandle) {
-  return async function localFetch (input: string | Request, init: FetchOptions): Promise<Response> {
+  return async function fetch (input: string | Request, init: FetchOptions): Promise<Response> {
     const url = input.toString()
     if (!url.startsWith('/')) {
       return fetch(url, init)
