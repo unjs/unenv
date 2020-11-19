@@ -1,4 +1,4 @@
-export default ((typeof globalThis !== 'undefined')
+module.exports = ((typeof globalThis !== 'undefined')
   ? globalThis
   : (typeof self !== 'undefined')
       ? self
