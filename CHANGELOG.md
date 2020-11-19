@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/nuxt-contrib/un/compare/v0.0.3...v0.0.4) (2020-11-19)
+
+
+### Features
+
+* emit close and finish events and remove listeners on destroy ([cc42554](https://github.com/nuxt-contrib/un/commit/cc42554c1579ea48910a75aec7e70103f01087a2))
+* fetch and localFetch ([19a147d](https://github.com/nuxt-contrib/un/commit/19a147dfb707594e33adcab54f4852e9a7dce8bc))
+* use babel to transpile runtime (ts => cjs) ([82dac22](https://github.com/nuxt-contrib/un/commit/82dac22e6eea20bdd9e99e9351db800f9753322a))
+
+
+### Bug Fixes
+
+* use cjs export for exports with alias ([00f911b](https://github.com/nuxt-contrib/un/commit/00f911b9adfeb5b44971585d03e7e23fc3cce8de))
+* use cjs exports for node entries ([5aaed44](https://github.com/nuxt-contrib/un/commit/5aaed44d2878ad42f63e327b10894382e9314351))
+
 ### [0.0.3](https://github.com/nuxt-contrib/un/compare/v0.0.2...v0.0.3) (2020-11-19)
 
 
