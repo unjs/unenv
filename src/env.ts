@@ -11,7 +11,7 @@ export function env (...presets: Preset[]) {
       Object.assign(options.alias, preset.alias)
     }
     if (preset.inject) {
-      Object.assign(options.alias, preset.inject)
+      Object.assign(options.inject, preset.inject)
     }
   }
 
