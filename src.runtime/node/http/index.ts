@@ -1,8 +1,8 @@
-import { METHODS, STATUS_CODES } from './consts'
-import { IncomingMessage } from './request'
-import { ServerResponse } from './response'
+const { METHODS, STATUS_CODES } = require('./consts')
+const { IncomingMessage } = require('./request')
+const { ServerResponse } = require('./response')
 
-export default {
+module.exports = {
   METHODS,
   STATUS_CODES,
   IncomingMessage,

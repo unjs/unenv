@@ -1,7 +1,7 @@
-import { Readable } from './readable'
-import { Writable } from './writable'
+const { Readable } = require('./readable')
+const { Writable } = require('./writable')
 
-export default {
+module.exports = {
   Readable,
   Writable
 }

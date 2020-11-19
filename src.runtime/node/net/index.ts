@@ -1,5 +1,5 @@
-import { Socket } from './socket'
+const { Socket } = require('./socket')
 
-export default {
+module.exports = {
   Socket
 }
