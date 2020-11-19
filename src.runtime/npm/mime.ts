@@ -1,7 +1,6 @@
 // https://www.npmjs.com/package/mime
 
-// @ts-ignore
-import _mime from '_mime'
+const _mime = require('_mime')
 
 const mime = { ..._mime }
 
@@ -15,4 +14,4 @@ mime.load = noop
 mime.default_type = 'application/octet-stream'
 mime.charsets = { lookup: () => 'UTF-8' }
 
-export default mime
+module.exports = mime

@@ -22,4 +22,4 @@ function createMock (name: string, overrides: any = {}): any {
   })
 }
 
-export default createMock('mock')
+module.exports = createMock('mock')
