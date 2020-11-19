@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "yarn clean && siroc build && yarn build:runtime",
-    "build:runtime": "babel --extensions .ts src.runtime --out-dir runtime",
+    "build:runtime": "tsc --build tsconfig.runtime.json",
     "clean": "rm -rf dist lib runtime",
     "lint": "eslint --ext ts .",
     "release": "yarn build && standard-version && npm publish && git push --follow-tags"
@@ -28,10 +28,6 @@
     "util": "^0.12.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-    "@babel/preset-typescript": "^7.12.1",
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/node": "latest",
     "@types/node-fetch": "^2.5.7",
