@@ -75,6 +75,8 @@ export class Writable extends EventEmitter implements stream.Writable {
   }
 
   destroy (_error?: Error): void {
+    this.destroyed = true
+    delete this._data
     this.removeAllListeners()
   }
 }
