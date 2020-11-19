@@ -30,11 +30,18 @@ export function createCall (handle: Handle) {
     // @ts-ignore
     req.body = context.body || null
 
-    return handle(req, res).then(() => ({
-      body: res._data.toString(),
-      headers: res._headers,
-      status: res.statusCode,
-      statusText: res.statusMessage
-    }))
+    return handle(req, res).then(() => {
+      const r = {
+        body: res._data.toString(),
+        headers: res._headers,
+        status: res.statusCode,
+        statusText: res.statusMessage
+      }
+
+      req.destroy()
+      res.destroy()
+
+      return r
+    })
   }
 }
