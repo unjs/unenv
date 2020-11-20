@@ -3,11 +3,11 @@ export * from './call'
 
 export type FetchOptions = globalThis.RequestInit & CallContext
 
-export function createFetch (call: CallHandle) {
-  return async function fetch (input: string | Request, init: FetchOptions): Promise<Response> {
+export function createFetch (call: CallHandle, _fetch = global.fetch) {
+  return async function ufetch (input: string | Request, init: FetchOptions): Promise<Response> {
     const url = input.toString()
     if (!url.startsWith('/')) {
-      return fetch(url, init)
+      return _fetch(url, init)
     }
     try {
       const r = await call({ url, ...init })
