@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/nuxt-contrib/un/compare/v0.0.5...v0.0.6) (2020-11-20)
+
+
+### Features
+
+* node preset and improved fetch ([d982833](https://github.com/nuxt-contrib/un/commit/d98283339b2ab8c78c4cda6932e25e49b8d05bde))
+* support polyfill via env and node.fetch polyfill ([cd392d5](https://github.com/nuxt-contrib/un/commit/cd392d5c5711927cca3ea6f5725c73407be9b21f))
+
 ### [0.0.5](https://github.com/nuxt-contrib/un/compare/v0.0.4...v0.0.5) (2020-11-19)
 
 ### [0.0.4](https://github.com/nuxt-contrib/un/compare/v0.0.3...v0.0.4) (2020-11-19)
