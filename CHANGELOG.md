@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/nuxt-contrib/un/compare/v0.0.6...v0.0.7) (2020-11-20)
+
+
+### Bug Fixes
+
+* get original fetch from global ([bd6b3a8](https://github.com/nuxt-contrib/un/commit/bd6b3a8d016a864423ee4b74e2c8dda537e89bf7))
+
 ### [0.0.6](https://github.com/nuxt-contrib/un/compare/v0.0.5...v0.0.6) (2020-11-20)
 
 
