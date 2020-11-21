@@ -1,9 +1,11 @@
 import type { Preset, Environment } from './types'
-import { resolveRuntime } from './utils'
+import { resolveRuntime, RUNTIME_DIR } from './utils'
 
 export function env (...presets: Preset[]): Environment {
   const _env: Environment = {
-    alias: {},
+    alias: {
+      un: RUNTIME_DIR
+    },
     inject: {},
     polyfill: [],
     external: []
