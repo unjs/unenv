@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/nuxt-contrib/un/compare/v0.0.7...v0.0.8) (2020-11-21)
+
+
+### Features
+
+* improve env support ([b60a52a](https://github.com/nuxt-contrib/un/commit/b60a52a55032824cd46337b2887b9bffa4f35944))
+
 ### [0.0.7](https://github.com/nuxt-contrib/un/compare/v0.0.6...v0.0.7) (2020-11-20)
 
 
