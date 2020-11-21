@@ -7,7 +7,6 @@
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
-    "outDir": "lib",
     "types": [
       "node"
     ]

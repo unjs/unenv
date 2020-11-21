@@ -53,8 +53,6 @@ const { alias, inject } = env(nodeless, {
 
 - [node](./src/presets/node.ts)
 - [nodeless](./src/presets/nodeless.ts)
-- [vue2](./src/presets/vue2.ts)
-- [vue3](./src/presets/vue3.ts)
 
 ## polyfills
 

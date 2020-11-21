@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "runtime",
-    "module": "CommonJS",
+    "module": "CommonJS"
   },
   "include": [
     "src.runtime/**/*.ts"

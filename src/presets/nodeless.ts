@@ -1,34 +1,34 @@
-import { r, NodeBuiltinModules, mockAll } from '../utils'
+import { NodeBuiltinModules, resolveAll } from '../utils'
 import type { Preset } from '../types'
 
 export default {
   alias: {
-    ...mockAll(NodeBuiltinModules),
+    ...resolveAll(NodeBuiltinModules, 'un/mock/proxy'),
 
     // Custom
-    http: r('node/http'),
-    process: r('polyfill/process'),
-    _process: require.resolve('process/browser.js'),
+    http: 'un/node/http',
+    process: 'un/polyfill/process',
+    _process: 'process/browser.js',
 
     // Browserify
-    buffer: require.resolve('buffer/index.js'),
-    util: require.resolve('util/util.js'),
-    events: require.resolve('events/events.js'),
-    inherits: require.resolve('inherits/inherits_browser.js'),
+    buffer: 'buffer/index.js',
+    util: 'util/util.js',
+    events: 'events/events.js',
+    inherits: 'inherits/inherits_browser.js',
 
     // npm
-    etag: r('mock/noop'),
-    'mime-db': r('npm/mime-db'),
-    mime: r('npm/mime'),
-    _mime: require.resolve('mime/lite.js')
+    etag: 'un/mock/noop',
+    'mime-db': 'un/npm/mime-db',
+    mime: 'un/npm/mime',
+    _mime: 'mime/lite.js'
   },
 
   inject: {
-    process: r('polyfill/process'),
+    process: 'un/polyfill/process',
     Buffer: ['buffer', 'Buffer']
   },
 
   polyfill: [
-    r('polyfill/process')
+    'un/polyfill/process'
   ]
 } as Preset

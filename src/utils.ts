@@ -1,5 +1,5 @@
 import { Module } from 'module'
-import { resolve, join } from 'upath'
+import { resolve } from 'upath'
 
 export const RUNTIME_DIR = resolve(__dirname, '../runtime')
 
@@ -9,10 +9,21 @@ export function mapArrToVal (val: any, arr: any[]) {
   return arr.reduce((p, c) => ({ ...p, [c]: val }), {})
 }
 
-export function r (id: string) {
-  return require.resolve(join(RUNTIME_DIR, id))
+export function tryResolve (id: string) : string | undefined {
+  try {
+    return require.resolve(id)
+  } catch (e) {
+    //
+  }
 }
 
-export function mockAll (packages: string[]) {
-  return mapArrToVal(r('mock/proxy'), packages)
+export function resolveRuntime (id: string) {
+  if (id.startsWith('un/')) {
+    id = RUNTIME_DIR + id.substr(2)
+  }
+  return tryResolve(id) || id
+}
+
+export function resolveAll (packages: string[], id: string) {
+  return mapArrToVal(resolveRuntime(id), packages)
 }

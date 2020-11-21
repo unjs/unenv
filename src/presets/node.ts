@@ -1,10 +1,9 @@
-import { r } from '../utils'
-
+import { NodeBuiltinModules } from '../utils'
 import type { Preset } from '../types'
 
 export default {
   alias: {
-    'node-fetch': require.resolve('node-fetch/lib/index.js')
+    'node-fetch': 'node-fetch/lib/index.js'
   },
 
   inject: {
@@ -15,6 +14,10 @@ export default {
   },
 
   polyfill: [
-    r('polyfill/fetch.node')
+    'un/polyfill/fetch.node'
+  ],
+
+  external: [
+    ...NodeBuiltinModules
   ]
 } as Preset
