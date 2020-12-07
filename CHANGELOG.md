@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/nuxt-contrib/un/compare/v0.0.9...v0.0.10) (2020-12-07)
+
+
+### Bug Fixes
+
+* remove node-fetch alias ([8c83e29](https://github.com/nuxt-contrib/un/commit/8c83e29b2d8fd1be810d8490ab873b417b101a08))
+
 ### [0.0.9](https://github.com/nuxt-contrib/un/compare/v0.0.8...v0.0.9) (2020-11-21)
 
 
