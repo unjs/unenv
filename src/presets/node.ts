@@ -2,6 +2,10 @@ import { NodeBuiltinModules } from '../utils'
 import type { Preset } from '../types'
 
 export default {
+  alias: {
+    'node-fetch': 'node-fetch/lib/index.js'
+  },
+
   inject: {
     fetch: 'node-fetch',
     Request: ['node-fetch', 'Request'],
