@@ -11,8 +11,7 @@
     "runtime"
   ],
   "scripts": {
-    "build": "yarn clean && siroc build && yarn build:runtime",
-    "build:runtime": "tsc --build tsconfig.runtime.json",
+    "build": "siroc build && mkdist --src src/runtime --dist runtime --format cjs",
     "clean": "rm -rf dist lib runtime",
     "lint": "eslint --ext ts .",
     "release": "yarn build && standard-version && npm publish && git push --follow-tags"
@@ -31,10 +30,11 @@
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/node": "latest",
-    "@types/node-fetch": "^2.5.7",
-    "consola": "^2.15.0",
+    "@types/node-fetch": "latest",
+    "consola": "latest",
     "eslint": "latest",
-    "siroc": "^0.4.1",
+    "mkdist": "latest",
+    "siroc": "latest",
     "standard-version": "latest",
     "typescript": "latest"
   },
