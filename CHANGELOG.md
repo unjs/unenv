@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/nuxt-contrib/un/compare/v0.0.11...v0.0.12) (2021-01-21)
+
+
+### Features
+
+* use mkdist to generate runtime ([54c0f5d](https://github.com/nuxt-contrib/un/commit/54c0f5d24d4c85698746e37110ad9859e6a0aa26))
+
+
+### Bug Fixes
+
+* de-default node-fetch ([8319815](https://github.com/nuxt-contrib/un/commit/83198153381e4c33a22c02f838524bc9d1804f8f))
+
 ### [0.0.11](https://github.com/nuxt-contrib/un/compare/v0.0.10...v0.0.11) (2020-12-07)
 
 ### [0.0.10](https://github.com/nuxt-contrib/un/compare/v0.0.9...v0.0.10) (2020-12-07)
