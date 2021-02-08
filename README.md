@@ -91,6 +91,7 @@ const { alias, inject } = env(nodeless, {
 - [depd](./src.runtime/npm/depd.ts)
 - [mime-db](./src.runtime/npm/mime-db.ts)
 - [mime](./src.runtime/npm/mime.ts)
+- [debug](./src.runtime/npm/debug.ts)
 
 ## License
 
