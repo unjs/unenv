@@ -58,40 +58,40 @@ const { alias, inject } = env(nodeless, {
 
 ## polyfills
 
-- [fetch.node](./src.runtime/polyfill/fetch.node.ts)
-- [process](./src.runtime/polyfill/process.ts)
+- [fetch.node](./src/runtime/polyfill/fetch.node.ts)
+- [process](./src/runtime/polyfill/process.ts)
 
 ## NodeJS
 
 ### `http`
 
-- [IncomingMessage](./src.runtime/node/http/request.ts)
-- [ServerResponse](./src.runtime/node/http/request.ts)
-- [METHODS](./src.runtime/node/http/consts.ts)
-- [STATUS_CODES](./src.runtime/node/http/consts.ts)
+- [IncomingMessage](./src/runtime/node/http/request.ts)
+- [ServerResponse](./src/runtime/node/http/request.ts)
+- [METHODS](./src/runtime/node/http/consts.ts)
+- [STATUS_CODES](./src/runtime/node/http/consts.ts)
 
 ### `net`
 
-- [Socket](./src.runtime/node/net/socket.ts)
+- [Socket](./src/runtime/node/net/socket.ts)
 
 ### `stream`
 
-- [Readable](./src.runtime/node/stream/readable.ts)
-- [Writable](./src.runtime/node/stream/writable.ts)
+- [Readable](./src/runtime/node/stream/readable.ts)
+- [Writable](./src/runtime/node/stream/writable.ts)
 
 ## Mocks
 
-- [proxy](./src.runtime/mock/proxy.ts)
-- [empty](./src.runtime/mock/empty.ts)
-- [noop](./src.runtime/mock/noop.ts)
+- [proxy](./src/runtime/mock/proxy.ts)
+- [empty](./src/runtime/mock/empty.ts)
+- [noop](./src/runtime/mock/noop.ts)
 
 ## Packages
 
-- [consola](./src.runtime/npm/consola.ts)
-- [depd](./src.runtime/npm/depd.ts)
-- [mime-db](./src.runtime/npm/mime-db.ts)
-- [mime](./src.runtime/npm/mime.ts)
-- [debug](./src.runtime/npm/debug.ts)
+- [consola](./src/runtime/npm/consola.ts)
+- [depd](./src/runtime/npm/depd.ts)
+- [mime-db](./src/runtime/npm/mime-db.ts)
+- [mime](./src/runtime/npm/mime.ts)
+- [debug](./src/runtime/npm/debug.ts)
 
 ## License
 
