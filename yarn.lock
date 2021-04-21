@@ -3301,10 +3301,10 @@ unbox-primitive@^1.0.0:
     has-symbols "^1.0.2"
     which-boxed-primitive "^1.0.2"
 
-unbuild@latest:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/unbuild/-/unbuild-0.2.0.tgz#1374c1b6d63a2e2f1fb1e066692b676af95c7d6c"
-  integrity sha512-fWhvF7QX+x+vPhBAYS2Um9Gy7gDbag48D4F3/6tkX5ECPkgaCBIXXmW4RR4xHafada08AGI8kdrc1BmFFrffOw==
+unbuild@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/unbuild/-/unbuild-0.2.1.tgz#9021c5bdc6566c08fea894caf6c9cea7a5e0118c"
+  integrity sha512-gQDvqvZuMF7rspDWFbABMVxDnu3ORUKv4FdsmD54OAVLrlyiZDNGS/7gG3ncBRizwLAUXizMfeUxmhtYWejong==
   dependencies:
     "@rollup/plugin-alias" "^3.1.2"
     "@rollup/plugin-commonjs" "^18.0.0"
