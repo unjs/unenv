@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/unjs/unev/compare/v0.2.1...v0.2.2) (2021-04-21)
+
+
+### Bug Fixes
+
+* use globalThis for polyfills ([e43a8b4](https://github.com/unjs/unev/commit/e43a8b43a69c5b4b4a7c34d3291cdf93b535f46d))
+
 ### [0.2.1](https://github.com/unjs/unev/compare/v0.2.0...v0.2.1) (2021-04-21)
 
 ## [0.2.0](https://github.com/unjs/unev/compare/v0.1.1...v0.2.0) (2021-04-21)
