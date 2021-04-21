@@ -14,7 +14,7 @@ export default {
   },
 
   polyfill: [
-    'un/polyfill/fetch.node'
+    'unenv/polyfill/fetch.node'
   ],
 
   external: [

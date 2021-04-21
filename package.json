@@ -1,8 +1,8 @@
 {
-  "name": "@nuxt/un",
+  "name": "unenv",
   "version": "0.1.1",
   "description": "",
-  "repository": "nuxt-contrib/un",
+  "repository": "unjs/unev",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -3,11 +3,11 @@ import type { Preset } from '../types'
 
 export default {
   alias: {
-    ...resolveAll(NodeBuiltinModules, 'un/mock/proxy'),
+    ...resolveAll(NodeBuiltinModules, 'unenv/mock/proxy'),
 
     // Custom
-    http: 'un/node/http',
-    process: 'un/polyfill/process',
+    http: 'unenv/node/http',
+    process: 'unenv/polyfill/process',
     _process: 'process/browser.js',
 
     // Browserify
@@ -17,18 +17,18 @@ export default {
     inherits: 'inherits/inherits_browser.js',
 
     // npm
-    etag: 'un/mock/noop',
-    'mime-db': 'un/npm/mime-db',
-    mime: 'un/npm/mime',
+    etag: 'unenv/mock/noop',
+    'mime-db': 'unenv/npm/mime-db',
+    mime: 'unenv/npm/mime',
     _mime: 'mime/lite.js'
   },
 
   inject: {
-    process: 'un/polyfill/process',
+    process: 'unenv/polyfill/process',
     Buffer: ['buffer', 'Buffer']
   },
 
   polyfill: [
-    'un/polyfill/process'
+    'unenv/polyfill/process'
   ]
 } as Preset

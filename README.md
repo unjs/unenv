@@ -1,91 +1,84 @@
-![un](https://user-images.githubusercontent.com/904724/101664001-a16a7980-3a4b-11eb-9801-3c873ed56a51.png)
+<!-- ![un](https://user-images.githubusercontent.com/904724/101664001-a16a7980-3a4b-11eb-9801-3c873ed56a51.png) -->
 
-# un
+# unenv
 
 Once upon a time, one server was all needed to have a website
-
-And then SPAs<sup>1</sup> moved server code to browser
-
-And then SSR<sup>2</sup> moved browser code to server
-
-And then Workers<sup>3</sup> moved browser/server code to workers
-
-Workers are neither NodeJS with `process` or Browser with `window`
-
-Yet expected to run code that had to work both of them :}
+... And then SPAs<sup>1</sup> moved server code to browser
+... And then SSR<sup>2</sup> moved browser code to server
+... And then Workers<sup>3</sup> moved browser/server code to workers
+... Workers are neither NodeJS with `process` or Browser with `window`
+... Yet expected to run code that had to work both of them
 
 **[1]** Single Page Applications
-**[2]**  Server Side Rendering
-**[3]**  https://workers.cloudflare.com
+**[2]** Server Side Rendering
+**[3]** https://workers.cloudflare.com, https://deno.com/deploy
 
-## What is un?
+ ```
+ ¯\_(ツ)_/¯
+ ````
 
-un is a collection of modules, polyfills and presets that work perfectly with any Javascript environemnt
-including Browsers, Workers, NodeJS or pure JavaScript.
+> unenv is a collection of modules, polyfills, shims and presets that work perfectly with any Javascript environemnt including Browsers, Workers, NodeJS or pure JavaScript. Goal is that final bundle works consistent regardless of running context yet not adding excessive polyfills.
 
-You still need a bundler like [rollup.js](https://rollupjs.org) and un will disapear as soon as is bundled.
-
-The goal is that final bundle works consistent regardless of running context yet not adding excessive polyfills.
 
 ## Install
 
 Install un as `devDependency`:
 
 ```bash
-yarn add --dev @nuxt/un
+yarn add --dev unenv
 # or
-npm i -D @nuxt/un
+npm i -D unenv
 ```
 
-You can import modules from `@nuxt/un/runtime/`
+## Usage: Generated env config
 
-## Env
+Using `env` utility and builtin presets ([node](./src/presets/node.ts) and [nodeless](./src/presets/nodeless.ts)), unenv will provide an abstract config that can be used in building pipelines ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc)
 
 ```js
-import { env, nodeless } from '@nuxt/un'
+import { env, node, nodeless } from 'unenv'
 
-const { alias, inject } = env(nodeless, {
-  alias: {
-    // custom aliases
-  }
-})
+const { alias, inject, polyfill, external } = env(...presets)
 ```
 
-### Presets
+## Usage: As a runtime library
 
-- [node](./src/presets/node.ts)
-- [nodeless](./src/presets/nodeless.ts)
+Alternatively, instead of using env generator, you can cherry-pick and combine runtime utilities individually in your source.
 
-## polyfills
+## Runtime library
+
+### NodeJS
 
 - [fetch.node](./src/runtime/polyfill/fetch.node.ts)
 - [process](./src/runtime/polyfill/process.ts)
-
-## NodeJS
-
-### `http`
 
 - [IncomingMessage](./src/runtime/node/http/request.ts)
 - [ServerResponse](./src/runtime/node/http/request.ts)
 - [METHODS](./src/runtime/node/http/consts.ts)
 - [STATUS_CODES](./src/runtime/node/http/consts.ts)
 
-### `net`
+#### `net`
+
+- [IncomingMessage](./src/runtime/node/http/request.ts)
+- [ServerResponse](./src/runtime/node/http/request.ts)
+- [METHODS](./src/runtime/node/http/consts.ts)
+- [STATUS_CODES](./src/runtime/node/http/consts.ts)
+
+#### `stream`
 
 - [Socket](./src/runtime/node/net/socket.ts)
 
-### `stream`
+### Mocking utilities
 
 - [Readable](./src/runtime/node/stream/readable.ts)
 - [Writable](./src/runtime/node/stream/writable.ts)
 
-## Mocks
+### Shims
 
 - [proxy](./src/runtime/mock/proxy.ts)
 - [empty](./src/runtime/mock/empty.ts)
 - [noop](./src/runtime/mock/noop.ts)
 
-## Packages
+### polyfills
 
 - [consola](./src/runtime/npm/consola.ts)
 - [depd](./src/runtime/npm/depd.ts)

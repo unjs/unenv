@@ -18,7 +18,7 @@ export function tryResolve (id: string) : string | undefined {
 }
 
 export function resolveRuntime (id: string) {
-  if (id.startsWith('un/')) {
+  if (id.startsWith('unenv/')) {
     id = RUNTIME_DIR + id.substr(2)
   }
   return tryResolve(id) || id
