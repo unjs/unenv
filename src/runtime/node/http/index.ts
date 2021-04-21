@@ -1,10 +1,3 @@
-const { METHODS, STATUS_CODES } = require('./consts')
-const { IncomingMessage } = require('./request')
-const { ServerResponse } = require('./response')
-
-module.exports = {
-  METHODS,
-  STATUS_CODES,
-  IncomingMessage,
-  ServerResponse
-}
+export { METHODS, STATUS_CODES } from './consts'
+export { IncomingMessage } from './request'
+export { ServerResponse } from './response'

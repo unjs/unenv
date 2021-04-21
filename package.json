@@ -11,10 +11,10 @@
     "runtime"
   ],
   "scripts": {
-    "build": "siroc build && mkdist --src src/runtime --dist runtime --format cjs",
-    "clean": "rm -rf dist lib runtime",
+    "build": "unbuild",
     "lint": "eslint --ext ts .",
-    "release": "yarn build && standard-version && npm publish && git push --follow-tags"
+    "prepack": "unbuild",
+    "release": "standard-version && npm publish && git push --follow-tags"
   },
   "dependencies": {
     "buffer": "^6.0.2",
@@ -33,12 +33,8 @@
     "@types/node-fetch": "latest",
     "consola": "latest",
     "eslint": "latest",
-    "mkdist": "latest",
-    "siroc": "latest",
     "standard-version": "latest",
-    "typescript": "latest"
-  },
-  "publishConfig": {
-    "access": "public"
+    "typescript": "latest",
+    "unbuild": "latest"
   }
 }

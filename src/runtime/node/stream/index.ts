@@ -1,7 +1,2 @@
-const { Readable } = require('./readable')
-const { Writable } = require('./writable')
-
-module.exports = {
-  Readable,
-  Writable
-}
+export { Readable } from './readable'
+export { Writable } from './writable'

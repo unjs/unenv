@@ -1,5 +1,2 @@
-const { Socket } = require('./socket')
+export { Socket } from './socket'
 
-module.exports = {
-  Socket
-}

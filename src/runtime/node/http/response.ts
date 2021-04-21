@@ -1,6 +1,6 @@
 import type http from 'http'
 import type { Socket } from 'net'
-import { Callback, HeadersObject } from '../../types'
+import { Callback, HeadersObject } from '../../_internal/types'
 import { Writable } from '../stream/writable'
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_serverresponse

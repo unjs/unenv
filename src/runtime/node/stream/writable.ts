@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events'
 import type * as stream from 'stream'
-import type { BufferEncoding, Callback } from '../../types'
+import type { BufferEncoding, Callback } from '../../_internal/types'
 
 // Docs: https://nodejs.org/api/stream.html#stream_writable_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/writable.js

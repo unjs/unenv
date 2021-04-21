@@ -1,4 +1,4 @@
-const nodeFetch = require('node-fetch')
+import * as nodeFetch from 'node-fetch'
 
 global.fetch = global.fetch || nodeFetch.default || nodeFetch
 global.Request = global.Request || nodeFetch.Request

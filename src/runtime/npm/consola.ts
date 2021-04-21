@@ -1,5 +1,5 @@
-const mock = require('../mock/proxy')
+import mock from '../mock/proxy'
 
-module.exports = mock.__createMock__('consola', {
+export default mock.__createMock__('consola', {
   ...console
 })

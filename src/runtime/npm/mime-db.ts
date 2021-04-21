@@ -1,6 +1,6 @@
 // https://www.npmjs.com/package/mime-db
 
-module.exports = {
+export default {
   'text/html': {
     source: 'iana',
     compressible: true,

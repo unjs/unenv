@@ -25,4 +25,4 @@ Object.assign(debug, {
   selectColors: noop
 })
 
-module.exports = debug
+export default debug

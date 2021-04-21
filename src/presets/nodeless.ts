@@ -1,13 +1,13 @@
-import { NodeBuiltinModules, resolveAll } from '../utils'
+import { NodeBuiltinModules, mapArrToVal } from '../utils'
 import type { Preset } from '../types'
 
 export default {
   alias: {
-    ...resolveAll(NodeBuiltinModules, 'unenv/mock/proxy'),
+    ...mapArrToVal('unenv/runtime/mock/proxy', NodeBuiltinModules),
 
     // Custom
-    http: 'unenv/node/http',
-    process: 'unenv/polyfill/process',
+    http: 'unenv/runtime/node/http',
+    process: 'unenv/runtime/polyfill/process',
     _process: 'process/browser.js',
 
     // Browserify
@@ -17,18 +17,18 @@ export default {
     inherits: 'inherits/inherits_browser.js',
 
     // npm
-    etag: 'unenv/mock/noop',
-    'mime-db': 'unenv/npm/mime-db',
-    mime: 'unenv/npm/mime',
+    etag: 'unenv/runtime/mock/noop',
+    'mime-db': 'unenv/runtime/npm/mime-db',
+    mime: 'unenv/runtime/npm/mime',
     _mime: 'mime/lite.js'
   },
 
   inject: {
-    process: 'unenv/polyfill/process',
+    process: 'unenv/runtime/polyfill/process',
     Buffer: ['buffer', 'Buffer']
   },
 
   polyfill: [
-    'unenv/polyfill/process'
+    'unenv/runtime/polyfill/process'
   ]
 } as Preset
