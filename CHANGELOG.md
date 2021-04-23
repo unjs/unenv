@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/unjs/unev/compare/v0.2.2...v0.2.3) (2021-04-23)
+
+
+### Bug Fixes
+
+* dual exports for node index ([e28374c](https://github.com/unjs/unev/commit/e28374c9b41bf33fd1651bffda8b7a747bf67c90))
+
 ### [0.2.2](https://github.com/unjs/unev/compare/v0.2.1...v0.2.2) (2021-04-21)
 
 
