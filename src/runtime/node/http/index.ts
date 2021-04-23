@@ -1,3 +1,13 @@
-export { METHODS, STATUS_CODES } from './consts'
-export { IncomingMessage } from './request'
-export { ServerResponse } from './response'
+import * as consts from './consts'
+import * as request from './request'
+import * as response from './response'
+
+export * from './consts'
+export * from './request'
+export * from './response'
+
+export default {
+  ...consts,
+  ...request,
+  ...response
+}
