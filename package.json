@@ -4,6 +4,16 @@
   "description": "",
   "repository": "unjs/unev",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./runtime/*": {
+      "require": "./runtime/*.js",
+      "import": "./runtime/*.mjs"
+    }
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
