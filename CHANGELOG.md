@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/unjs/unev/compare/v0.2.3...v0.3.0) (2021-06-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* add exports field
+
+### Features
+
+* add exports field ([8e8bc1b](https://github.com/unjs/unev/commit/8e8bc1b811df405d30e841abb3a5da66fe05a4ed))
+
 ### [0.2.3](https://github.com/unjs/unev/compare/v0.2.2...v0.2.3) (2021-04-23)
 
 
