@@ -18,14 +18,14 @@
   },
   "dependencies": {
     "buffer": "^6.0.2",
-    "defu": "^3.2.2",
+    "defu": "^5.0.0",
     "events": "^3.2.0",
     "inherits": "^2.0.4",
     "mime": "^2.4.6",
     "node-fetch": "^2.6.1",
     "process": "^0.11.10",
     "upath": "^2.0.1",
-    "util": "^0.12.3"
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
@@ -35,6 +35,6 @@
     "eslint": "latest",
     "standard-version": "latest",
     "typescript": "latest",
-    "unbuild": "^0.2.1"
+    "unbuild": "latest"
   }
 }
