@@ -6,7 +6,7 @@ export default {
     ...mapArrToVal('unenv/runtime/mock/proxy', NodeBuiltinModules),
 
     // Custom
-    http: 'unenv/runtime/node/http',
+    http: 'unenv/runtime/node/http/index',
     process: 'unenv/runtime/polyfill/process',
     _process: 'process/browser.js',
 
