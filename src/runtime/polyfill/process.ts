@@ -1,7 +1,7 @@
 // https://github.com/defunctzombie/node-process/
 // @ts-ignore
 import * as _process from '_process'
-import _global from './global'
+import _global from './globalThis'
 
 _global.process = _global.process || {}
 
