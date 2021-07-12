@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/unjs/unev/compare/v0.3.0...v0.3.1) (2021-07-12)
+
+
+### Bug Fixes
+
+* use subpath import for `node/http` ([#6](https://github.com/unjs/unev/issues/6)) ([1415896](https://github.com/unjs/unev/commit/141589663b0b3cdde341793141a2fdf2e44550b9))
+
 ## [0.3.0](https://github.com/unjs/unev/compare/v0.2.3...v0.3.0) (2021-06-21)
 
 
