@@ -1,5 +1,6 @@
 import { IncomingMessage } from '../node/http/request'
 import { ServerResponse } from '../node/http/response'
+import { EventEmitter } from 'events'
 
 export type Handle = (req: IncomingMessage, res: ServerResponse) => Promise <any>
 
@@ -29,6 +30,16 @@ export function createCall (handle: Handle) {
 
     // @ts-ignore
     req.body = context.body || null
+
+    if (context.body) {
+      // @ts-ignore
+      process.nextTick(() => {
+        const data = new TextEncoder().encode(context.body);
+        (req as EventEmitter).emit('data', data)
+        (req as EventEmitter).emit('end')
+      })
+    }
+    
 
     return handle(req, res).then(() => {
       const r = {
