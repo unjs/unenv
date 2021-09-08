@@ -20,6 +20,7 @@ export default {
     etag: 'unenv/runtime/mock/noop',
     'mime-db': 'unenv/runtime/npm/mime-db',
     mime: 'unenv/runtime/npm/mime',
+    fsevents: 'unenv/runtime/npm/fsevents',
     _mime: 'mime/lite.js'
   },
 
