@@ -7,6 +7,9 @@ export default {
 
     // Custom
     http: 'unenv/runtime/node/http/index',
+    net: 'unenv/runtime/node/net/index',
+    stream: 'unenv/runtime/node/stream/index',
+    url: 'unenv/runtime/node/url/index',
     process: 'unenv/runtime/polyfill/process',
     _process: 'process/browser.js',
 

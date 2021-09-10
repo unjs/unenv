@@ -73,6 +73,10 @@ Alternatively, instead of using env generator, you can cherry-pick and combine r
 
 - [Socket](./src/runtime/node/net/socket.ts)
 
+#### `url`
+
+- [url](./src/runtime/node/url/index.ts)
+
 ### Mocking utilities
 
 - [Readable](./src/runtime/node/stream/readable.ts)
@@ -84,12 +88,13 @@ Alternatively, instead of using env generator, you can cherry-pick and combine r
 - [empty](./src/runtime/mock/empty.ts)
 - [noop](./src/runtime/mock/noop.ts)
 
-### polyfills
+### npm polyfills
 
 - [consola](./src/runtime/npm/consola.ts)
+- [debug](./src/runtime/npm/debug.ts)
+- [fsevents](./src/runtime/npm/fsevents.ts)
 - [mime-db](./src/runtime/npm/mime-db.ts)
 - [mime](./src/runtime/npm/mime.ts)
-- [debug](./src/runtime/npm/debug.ts)
 
 ## License
 
