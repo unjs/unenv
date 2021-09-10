@@ -7,7 +7,7 @@ export const URLSearchParams = globalThis.URLSearchParams
 
 // https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost
 // TODO
-export const parse: typeof url.parse = function (urlString, parseQueryString?, slashesDenoteHost?) {
+export const parse = <typeof url.parse> function (urlString, parseQueryString?, slashesDenoteHost?): URL | url.UrlWithStringQuery {
   const url = new URL(urlString)
   if (!parseQueryString && !slashesDenoteHost) {
     return url
@@ -16,7 +16,7 @@ export const parse: typeof url.parse = function (urlString, parseQueryString?, s
 }
 
 // https://nodejs.org/api/url.html#url_url_resolve_from_to
-export const resolve: typeof url.resolve = function (from, to) {
+export const resolve = <typeof url.resolve>function (from, to) {
   const resolvedUrl = new URL(to, new URL(from, 'resolve://'));
   if (resolvedUrl.protocol === 'resolve:') {
     const { pathname, search, hash } = resolvedUrl;
@@ -26,7 +26,7 @@ export const resolve: typeof url.resolve = function (from, to) {
 }
 
 // https://nodejs.org/api/url.html#url_url_urltohttpoptions_url
-export const urlToHttpOptions: typeof url.urlToHttpOptions = function (url) {
+export const urlToHttpOptions = <typeof url.urlToHttpOptions> function (url) {
   return {
     protocol: url.protocol,
     hostname: url.hostname,
@@ -42,7 +42,7 @@ export const urlToHttpOptions: typeof url.urlToHttpOptions = function (url) {
 
 // https://nodejs.org/api/url.html#url_url_format_urlobject
 // TODO
-export const format: typeof url.format = function (urlInput, options?: url.URLFormatOptions) {
+export const format = <typeof url.format> function (urlInput, options?: url.URLFormatOptions) {
   let url: URL
   if (typeof urlInput === 'string') {
     url = new URL(urlInput)
@@ -70,25 +70,25 @@ export const format: typeof url.format = function (urlInput, options?: url.URLFo
 
 // https://nodejs.org/api/url.html#url_url_domaintoascii_domain
 // TODO
-export const domainToASCII: typeof url.domainToASCII = function (domain) {
+export const domainToASCII = <typeof url.domainToASCII> function (domain) {
   return domain
 }
 
 // https://nodejs.org/api/url.html#url_url_domaintounicode_domain
 // TODO
-export const domainToUnicode: typeof url.domainToUnicode = function (domain) {
+export const domainToUnicode = <typeof url.domainToUnicode> function (domain) {
   return domain
 }
 
 // https://nodejs.org/api/url.html#url_url_pathtofileurl_path
 // TODO
-export const pathToFileURL: typeof url.pathToFileURL = function (path) {
+export const pathToFileURL = <typeof url.pathToFileURL> function (path) {
   return new URL(path)
 }
 
 // https://nodejs.org/api/url.html#url_url_fileurltopath_url
 // TODO
-export const fileURLToPath: typeof url.fileURLToPath = function (url) {
+export const fileURLToPath = <typeof url.fileURLToPath> function (url) {
   if (typeof url === 'string') {
     url = new URL(url)
   }
