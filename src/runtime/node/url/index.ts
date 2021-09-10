@@ -94,3 +94,16 @@ export const fileURLToPath = <typeof url.fileURLToPath> function (url) {
   }
   return url.pathname
 }
+
+export default {
+  URL,
+  URLSearchParams,
+  domainToASCII,
+  domainToUnicode,
+  fileURLToPath,
+  format,
+  parse,
+  pathToFileURL,
+  resolve,
+  urlToHttpOptions
+}
