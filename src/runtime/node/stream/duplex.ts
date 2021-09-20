@@ -1,10 +1,10 @@
+import type * as stream from 'stream'
 import { Readable, Writable } from '.'
 
 // Docs: https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/duplex.js
 
-type DuplexT = Readable & Writable
-type DuplexC = new () => DuplexT
+type DuplexC = new () => stream.Duplex
 
 export const Duplex: DuplexC = class {
   allowHalfOpen: boolean = true
