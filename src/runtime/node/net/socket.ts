@@ -1,24 +1,9 @@
 import type * as net from 'net'
 import { Callback, BufferEncoding } from '../../_internal/types'
-import { Readable } from '../stream/readable'
-import { Writable } from '../stream/writable'
-import { mergeFns } from '../../_internal/utils'
-
-type ReadableAndWritableT = Readable & Writable
-type ReadableAndWritableC = new () => ReadableAndWritableT
-const ReadableAndWritable: ReadableAndWritableC = class {
-  constructor (readable = new Readable(), writable = new Writable()) {
-    Object.assign(this, readable)
-    Object.assign(this, writable)
-    // @ts-ignore
-    this._destroy = mergeFns(readable._destroy, writable._destroy)
-  }
-} as any
-Object.assign(ReadableAndWritable.prototype, Readable.prototype)
-Object.assign(ReadableAndWritable.prototype, Writable.prototype)
+import { Duplex } from '../stream/duplex'
 
 // Docs: https://nodejs.org/api/net.html#net_class_net_socket
-export class Socket extends ReadableAndWritable implements net.Socket {
+export class Socket extends Duplex implements net.Socket {
   readonly bufferSize: number = 0
   readonly bytesRead: number = 0
   readonly bytesWritten: number = 0

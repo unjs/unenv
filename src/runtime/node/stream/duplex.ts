@@ -1,7 +1,6 @@
-import { EventEmitter } from 'events'
 import type * as stream from 'stream'
 import { Readable, Writable } from '.'
-import type { BufferEncoding, Callback } from '../../_internal/types'
+import type { Callback } from '../../_internal/types'
 
 // Docs: https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/duplex.js
@@ -30,13 +29,26 @@ class IO extends Readable implements Writable {
   uncork(): void {}
 }
 
-Object.getOwnPropertyNames(Writable.prototype).forEach(name => {
-  if (name !== 'constructor') {
-    // @ts-ignore
-    IO.prototype[name] = Writable.prototype[name]
+// Assing Writable properties to Duplex and do not overwrite Readable properties
+Object.getOwnPropertyNames(Writable.prototype).forEach((name: string) => {
+  if (name !== 'constructor' && !(IO.prototype as any)[name]) {
+    (IO.prototype as any)[name] = (Writable.prototype as any)[name]
   }
 })
 
 export class Duplex extends IO implements stream.Duplex {
   allowHalfOpen: boolean = true
+
+  constructor(options?: stream.DuplexOptions) {
+    super(options)
+
+    Writable.call(this, options);
+
+    if (options) {
+      this.allowHalfOpen = options.allowHalfOpen !== false;
+    } else {
+      this.allowHalfOpen = true;
+    }
+  }
+  
 }
