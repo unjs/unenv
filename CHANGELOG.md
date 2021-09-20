@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.6](https://github.com/unjs/unev/compare/v0.3.5...v0.3.6) (2021-09-20)
+
+
+### Features
+
+* node stream duplex and transform ([#12](https://github.com/unjs/unev/issues/12)) ([940e72e](https://github.com/unjs/unev/commit/940e72efc2a6468af213f09909cc9c98685ddac8))
+
 ### [0.3.5](https://github.com/unjs/unev/compare/v0.3.4...v0.3.5) (2021-09-10)
 
 
