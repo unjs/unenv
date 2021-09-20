@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.7](https://github.com/unjs/unev/compare/v0.3.6...v0.3.7) (2021-09-20)
+
+
+### Bug Fixes
+
+* **duplex:** avoid cycling reference ([3cd4797](https://github.com/unjs/unev/commit/3cd4797510693c177026d597b691a1ca45beaaa8))
+
 ### [0.3.6](https://github.com/unjs/unev/compare/v0.3.5...v0.3.6) (2021-09-20)
 
 
