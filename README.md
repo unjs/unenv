@@ -95,6 +95,7 @@ Alternatively, instead of using env generator, you can cherry-pick and combine r
 - [fsevents](./src/runtime/npm/fsevents.ts)
 - [mime-db](./src/runtime/npm/mime-db.ts)
 - [mime](./src/runtime/npm/mime.ts)
+- [node-fetch](./src/runtime/npm/node-fetch.ts)
 
 ## License
 
