@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.10](https://github.com/unjs/unev/compare/v0.3.9...v0.3.10) (2021-09-29)
+
+
+### Bug Fixes
+
+* remove `node-fetch` alias from node preset ([#14](https://github.com/unjs/unev/issues/14)) ([9addd4c](https://github.com/unjs/unev/commit/9addd4c41ab4bde4f84bdb835bd2e422ee8262f2))
+
 ### [0.3.9](https://github.com/unjs/unev/compare/v0.3.8...v0.3.9) (2021-09-29)
 
 
