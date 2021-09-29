@@ -24,6 +24,7 @@ export default {
     'mime-db': 'unenv/runtime/npm/mime-db',
     mime: 'unenv/runtime/npm/mime',
     fsevents: 'unenv/runtime/npm/fsevents',
+    'node-fetch': 'unenv/runtime/npm/node-fetch',
     _mime: 'mime/lite.js'
   },
 
