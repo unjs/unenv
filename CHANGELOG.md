@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.9](https://github.com/unjs/unev/compare/v0.3.8...v0.3.9) (2021-09-29)
+
+
+### Features
+
+* add nodeless node-fetch polyfill ([#13](https://github.com/unjs/unev/issues/13)) ([52612ac](https://github.com/unjs/unev/commit/52612acbf4137da73031697bc98ccb0872a09a13))
+
 ### [0.3.8](https://github.com/unjs/unev/compare/v0.3.7...v0.3.8) (2021-09-20)
 
 
