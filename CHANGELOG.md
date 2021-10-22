@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/unjs/unev/compare/v0.3.10...v0.4.0) (2021-10-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pkg:** use explicit `.cjs`
+* update node-fetch to 3.x
+
+### Features
+
+* **pkg:** use explicit `.cjs` ([1ff74b2](https://github.com/unjs/unev/commit/1ff74b267932260ebe9842dbbe559298009afa6c))
+* update node-fetch to 3.x ([5a116aa](https://github.com/unjs/unev/commit/5a116aa7cdc6d2f2fb80a04213ea61e5d6f78c26))
+
 ### [0.3.10](https://github.com/unjs/unev/compare/v0.3.9...v0.3.10) (2021-09-29)
 
 
