@@ -1,9 +1,10 @@
-export default ((typeof globalThis !== 'undefined')
-  ? globalThis
-  : (typeof self !== 'undefined')
-      ? self
-      : (typeof global !== 'undefined')
-          ? global
-          : (typeof window !== 'undefined')
-              ? window
-              : {}) as typeof globalThis
+// ref: https://mathiasbynens.be/notes/globalthis
+const getGlobal = function () {
+    if (typeof globalThis !== 'undefined') { return globalThis }
+    if (typeof self !== 'undefined') { return self }
+    if (typeof window !== 'undefined') { return window }
+    if (typeof global !== 'undefined') { return global }
+    return {}
+}
+
+export default getGlobal() as typeof globalThis;
