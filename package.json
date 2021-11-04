@@ -2,7 +2,7 @@
   "name": "unenv",
   "version": "0.4.0",
   "description": "",
-  "repository": "unjs/unev",
+  "repository": "unjs/unenv",
   "license": "MIT",
   "exports": {
     ".": {
