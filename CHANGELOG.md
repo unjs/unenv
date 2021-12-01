@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/unjs/unenv/compare/v0.4.1...v0.4.2) (2021-12-01)
+
+
+### Features
+
+* global polyfill ([f57dd75](https://github.com/unjs/unenv/commit/f57dd7579a9e7f147ee17e174704ca2321cdba85))
+
+
+### Bug Fixes
+
+* return `this` when calling `setHeader`, `end` and `destroy` ([#20](https://github.com/unjs/unenv/issues/20)) ([4ac95fd](https://github.com/unjs/unenv/commit/4ac95fddd7f56fb6ff864e343ef1f4bb214623fd))
+
 ### [0.4.1](https://github.com/unjs/unenv/compare/v0.4.0...v0.4.1) (2021-11-04)
 
 
