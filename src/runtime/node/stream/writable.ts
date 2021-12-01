@@ -66,6 +66,8 @@ export class Writable extends EventEmitter implements stream.Writable {
     this.writableFinished = true
     this.emit('close')
     this.emit('finish')
+    // TODO: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/57473
+    return this as unknown as void
   }
 
   cork (): void {
@@ -78,5 +80,7 @@ export class Writable extends EventEmitter implements stream.Writable {
     this.destroyed = true
     delete this._data
     this.removeAllListeners()
+    // TODO: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/57473
+    return this as unknown as void
   }
 }
