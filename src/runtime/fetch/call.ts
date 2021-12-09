@@ -32,7 +32,7 @@ export function createCall (handle: Handle) {
 
     return handle(req, res).then(() => {
       const r = {
-        body: res._data.toString(),
+        body: (res._data as any)?.toString() ?? "",
         headers: res._headers,
         status: res.statusCode,
         statusText: res.statusMessage
