@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.3](https://github.com/unjs/unenv/compare/v0.4.2...v0.4.3) (2021-12-14)
+
+
+### Bug Fixes
+
+* handle null or undefined _data ([#22](https://github.com/unjs/unenv/issues/22)) ([5d762aa](https://github.com/unjs/unenv/commit/5d762aa19d64649dae58e1c5679712d684ab987a))
+
 ### [0.4.2](https://github.com/unjs/unenv/compare/v0.4.1...v0.4.2) (2021-12-01)
 
 
