@@ -16,7 +16,7 @@ export class Writable extends EventEmitter implements stream.Writable {
 
   destroyed: boolean = false
 
-  _data: any
+  _data: unknown
   _encoding: BufferEncoding = 'utf-8'
 
   constructor (_opts?: stream.WritableOptions) {
