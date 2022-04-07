@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.5](https://github.com/unjs/unenv/compare/v0.4.4...v0.4.5) (2022-04-07)
+
+
+### Bug Fixes
+
+* **pkg:** emit cjs for entry to avoid breaking change ([0d64253](https://github.com/unjs/unenv/commit/0d64253de8f3b343072fca3bde74e95fa1c4c543))
+
 ### [0.4.4](https://github.com/unjs/unenv/compare/v0.4.3...v0.4.4) (2022-04-07)
 
 
