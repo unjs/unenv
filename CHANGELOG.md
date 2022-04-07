@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.4](https://github.com/unjs/unenv/compare/v0.4.3...v0.4.4) (2022-04-07)
+
+
+### Bug Fixes
+
+* resolve proxy to commonjs ([26c19f7](https://github.com/unjs/unenv/commit/26c19f71c1891a2fba379efc9d2bb645990f9837))
+
 ### [0.4.3](https://github.com/unjs/unenv/compare/v0.4.2...v0.4.3) (2021-12-14)
 
 
