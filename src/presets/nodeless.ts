@@ -3,7 +3,7 @@ import type { Preset } from '../types'
 
 export default {
   alias: {
-    ...mapArrToVal('unenv/runtime/mock/proxy', NodeBuiltinModules),
+    ...mapArrToVal('unenv/runtime/mock/proxy-cjs', NodeBuiltinModules),
 
     // Custom
     http: 'unenv/runtime/node/http/index',

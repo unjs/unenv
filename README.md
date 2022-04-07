@@ -101,7 +101,7 @@ console.log(MockProxy().foo.bar()[0])
 
 
 
-Above package doesn't works outside of Node.js and neither we need any platform specific logic! When aliasing `os` to `mock/proxy`, it will be auto mocked using a [Proxy Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) which can be recursively traversed like an `Object`, called like a `Function`, Iterated like an `Array`, or instantiated like a `Class`.
+Above package doesn't works outside of Node.js and neither we need any platform specific logic! When aliasing `os` to `mock/proxy-cjs`, it will be auto mocked using a [Proxy Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) which can be recursively traversed like an `Object`, called like a `Function`, Iterated like an `Array`, or instantiated like a `Class`.
 
 We use this proxy for auto mocking unimplemented internals. Imagine a packages does this:
 
@@ -111,7 +111,7 @@ if (os.platform() === 'windows') { /* do some fix */ }
 module.exports = () => 'Hello world'
 ```
 
-By aliasing `os` to `unenv/runtime/mock/proxy`, code will be compatible in other platforms.
+By aliasing `os` to `unenv/runtime/mock/proxy-cjs`, code will be compatible in other platforms.
 
 ## Other polyfilles
 
