@@ -25,15 +25,15 @@
     "build": "unbuild",
     "lint": "eslint --ext ts .",
     "prepack": "unbuild",
-    "release": "standard-version && npm publish && git push --follow-tags"
+    "release": "standard-version && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
     "buffer": "^6.0.2",
-    "defu": "^5.0.0",
+    "defu": "^6.0.0",
     "events": "^3.2.0",
     "inherits": "^2.0.4",
     "mime": "^2.4.6",
-    "node-fetch": "^3.0.0",
+    "node-fetch": "^3.2.3",
     "process": "^0.11.10",
     "upath": "^2.0.1",
     "util": "^0.12.4"
@@ -47,5 +47,6 @@
     "standard-version": "latest",
     "typescript": "latest",
     "unbuild": "latest"
-  }
+  },
+  "packageManager": "pnpm@6.32.3"
 }
