@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.6](https://github.com/unjs/unenv/compare/v0.4.5...v0.4.6) (2022-04-07)
+
+
+### Bug Fixes
+
+* **pkg:** expose cjs proxy as `mock/proxy-cjs` ([6ac4279](https://github.com/unjs/unenv/commit/6ac427909a8239a877e7c2cf36cdb892ba2d7c96))
+
 ### [0.4.5](https://github.com/unjs/unenv/compare/v0.4.4...v0.4.5) (2022-04-07)
 
 
