@@ -9,6 +9,7 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     },
+    "./runtime/mock/proxy": "./runtime/mock/proxy.cjs",
     "./runtime/*": {
       "require": "./runtime/*.cjs",
       "import": "./runtime/*.mjs"
