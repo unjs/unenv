@@ -5,7 +5,7 @@
     "module": "ES6",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "strict": true,
+    "strict": false,
     "declaration": true,
     "types": [
       "node"
