@@ -6,7 +6,11 @@
 var isArgumentsObject = require('is-arguments');
 var isGeneratorFunction = require('is-generator-function');
 var whichTypedArray = require('which-typed-array');
-var isTypedArray = require('is-typed-array');
+var isTypedArray = require('is-typed-array'); // Export me
+
+exports.isArgumentsObject = isArgumentsObject;
+exports.isGeneratorFunction = isGeneratorFunction;
+exports.isTypedArray = isTypedArray;
 
 function uncurryThis(f) {
   return f.call.bind(f);
@@ -41,13 +45,10 @@ function checkBoxedPrimitive(value, prototypeValueOf) {
   }
 }
 
-exports.isArgumentsObject = isArgumentsObject;
-exports.isGeneratorFunction = isGeneratorFunction;
-exports.isTypedArray = isTypedArray;
 
 // Taken from here and modified for better browser support
 // https://github.com/sindresorhus/p-is-promise/blob/cda35a513bda03f977ad5cde3a079d237e82d7ef/index.js
-function isPromise(input) {
+export function isPromise(input) {
 	return (
 		(
 			typeof Promise !== 'undefined' &&
@@ -61,9 +62,8 @@ function isPromise(input) {
 		)
 	);
 }
-exports.isPromise = isPromise;
 
-function isArrayBufferView(value) {
+export function isArrayBufferView(value) {
   if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {
     return ArrayBuffer.isView(value);
   }
@@ -73,63 +73,51 @@ function isArrayBufferView(value) {
     isDataView(value)
   );
 }
-exports.isArrayBufferView = isArrayBufferView;
 
 
-function isUint8Array(value) {
+export function isUint8Array(value) {
   return whichTypedArray(value) === 'Uint8Array';
 }
-exports.isUint8Array = isUint8Array;
 
-function isUint8ClampedArray(value) {
+export function isUint8ClampedArray(value) {
   return whichTypedArray(value) === 'Uint8ClampedArray';
 }
-exports.isUint8ClampedArray = isUint8ClampedArray;
 
-function isUint16Array(value) {
+export function isUint16Array(value) {
   return whichTypedArray(value) === 'Uint16Array';
 }
-exports.isUint16Array = isUint16Array;
 
-function isUint32Array(value) {
+export function isUint32Array(value) {
   return whichTypedArray(value) === 'Uint32Array';
 }
-exports.isUint32Array = isUint32Array;
 
-function isInt8Array(value) {
+export function isInt8Array(value) {
   return whichTypedArray(value) === 'Int8Array';
 }
-exports.isInt8Array = isInt8Array;
 
-function isInt16Array(value) {
+export function isInt16Array(value) {
   return whichTypedArray(value) === 'Int16Array';
 }
-exports.isInt16Array = isInt16Array;
 
-function isInt32Array(value) {
+export function isInt32Array(value) {
   return whichTypedArray(value) === 'Int32Array';
 }
-exports.isInt32Array = isInt32Array;
 
-function isFloat32Array(value) {
+export function isFloat32Array(value) {
   return whichTypedArray(value) === 'Float32Array';
 }
-exports.isFloat32Array = isFloat32Array;
 
-function isFloat64Array(value) {
+export function isFloat64Array(value) {
   return whichTypedArray(value) === 'Float64Array';
 }
-exports.isFloat64Array = isFloat64Array;
 
-function isBigInt64Array(value) {
+export function isBigInt64Array(value) {
   return whichTypedArray(value) === 'BigInt64Array';
 }
-exports.isBigInt64Array = isBigInt64Array;
 
-function isBigUint64Array(value) {
+export function isBigUint64Array(value) {
   return whichTypedArray(value) === 'BigUint64Array';
 }
-exports.isBigUint64Array = isBigUint64Array;
 
 function isMapToString(value) {
   return ObjectToString(value) === '[object Map]';
@@ -139,7 +127,7 @@ isMapToString.working = (
   isMapToString(new Map())
 );
 
-function isMap(value) {
+export function isMap(value) {
   if (typeof Map === 'undefined') {
     return false;
   }
@@ -148,7 +136,6 @@ function isMap(value) {
     ? isMapToString(value)
     : value instanceof Map;
 }
-exports.isMap = isMap;
 
 function isSetToString(value) {
   return ObjectToString(value) === '[object Set]';
@@ -157,7 +144,7 @@ isSetToString.working = (
   typeof Set !== 'undefined' &&
   isSetToString(new Set())
 );
-function isSet(value) {
+export function isSet(value) {
   if (typeof Set === 'undefined') {
     return false;
   }
@@ -166,7 +153,6 @@ function isSet(value) {
     ? isSetToString(value)
     : value instanceof Set;
 }
-exports.isSet = isSet;
 
 function isWeakMapToString(value) {
   return ObjectToString(value) === '[object WeakMap]';
@@ -175,7 +161,7 @@ isWeakMapToString.working = (
   typeof WeakMap !== 'undefined' &&
   isWeakMapToString(new WeakMap())
 );
-function isWeakMap(value) {
+export function isWeakMap(value) {
   if (typeof WeakMap === 'undefined') {
     return false;
   }
@@ -184,7 +170,6 @@ function isWeakMap(value) {
     ? isWeakMapToString(value)
     : value instanceof WeakMap;
 }
-exports.isWeakMap = isWeakMap;
 
 function isWeakSetToString(value) {
   return ObjectToString(value) === '[object WeakSet]';
@@ -193,10 +178,9 @@ isWeakSetToString.working = (
   typeof WeakSet !== 'undefined' &&
   isWeakSetToString(new WeakSet())
 );
-function isWeakSet(value) {
+export function isWeakSet(value) {
   return isWeakSetToString(value);
 }
-exports.isWeakSet = isWeakSet;
 
 function isArrayBufferToString(value) {
   return ObjectToString(value) === '[object ArrayBuffer]';
@@ -205,7 +189,7 @@ isArrayBufferToString.working = (
   typeof ArrayBuffer !== 'undefined' &&
   isArrayBufferToString(new ArrayBuffer())
 );
-function isArrayBuffer(value) {
+export function isArrayBuffer(value) {
   if (typeof ArrayBuffer === 'undefined') {
     return false;
   }
@@ -214,7 +198,6 @@ function isArrayBuffer(value) {
     ? isArrayBufferToString(value)
     : value instanceof ArrayBuffer;
 }
-exports.isArrayBuffer = isArrayBuffer;
 
 function isDataViewToString(value) {
   return ObjectToString(value) === '[object DataView]';
@@ -224,7 +207,8 @@ isDataViewToString.working = (
   typeof DataView !== 'undefined' &&
   isDataViewToString(new DataView(new ArrayBuffer(1), 0, 1))
 );
-function isDataView(value) {
+
+export function isDataView(value) {
   if (typeof DataView === 'undefined') {
     return false;
   }
@@ -233,14 +217,14 @@ function isDataView(value) {
     ? isDataViewToString(value)
     : value instanceof DataView;
 }
-exports.isDataView = isDataView;
 
 // Store a copy of SharedArrayBuffer in case it's deleted elsewhere
 const SharedArrayBufferCopy = typeof SharedArrayBuffer !== 'undefined' ? SharedArrayBuffer : undefined;
 function isSharedArrayBufferToString(value) {
   return ObjectToString(value) === '[object SharedArrayBuffer]';
 }
-function isSharedArrayBuffer(value) {
+
+export function isSharedArrayBuffer(value) {
   if (typeof SharedArrayBufferCopy === 'undefined') {
     return false;
   }
@@ -253,59 +237,48 @@ function isSharedArrayBuffer(value) {
     ? isSharedArrayBufferToString(value)
     : value instanceof SharedArrayBufferCopy;
 }
-exports.isSharedArrayBuffer = isSharedArrayBuffer;
 
-function isAsyncFunction(value) {
+export function isAsyncFunction(value) {
   return ObjectToString(value) === '[object AsyncFunction]';
 }
-exports.isAsyncFunction = isAsyncFunction;
 
-function isMapIterator(value) {
+export function isMapIterator(value) {
   return ObjectToString(value) === '[object Map Iterator]';
 }
-exports.isMapIterator = isMapIterator;
 
-function isSetIterator(value) {
+export function isSetIterator(value) {
   return ObjectToString(value) === '[object Set Iterator]';
 }
-exports.isSetIterator = isSetIterator;
 
-function isGeneratorObject(value) {
+export function isGeneratorObject(value) {
   return ObjectToString(value) === '[object Generator]';
 }
-exports.isGeneratorObject = isGeneratorObject;
 
-function isWebAssemblyCompiledModule(value) {
+export function isWebAssemblyCompiledModule(value) {
   return ObjectToString(value) === '[object WebAssembly.Module]';
 }
-exports.isWebAssemblyCompiledModule = isWebAssemblyCompiledModule;
 
-function isNumberObject(value) {
+export function isNumberObject(value) {
   return checkBoxedPrimitive(value, numberValue);
 }
-exports.isNumberObject = isNumberObject;
 
-function isStringObject(value) {
+export function isStringObject(value) {
   return checkBoxedPrimitive(value, stringValue);
 }
-exports.isStringObject = isStringObject;
 
-function isBooleanObject(value) {
+export function isBooleanObject(value) {
   return checkBoxedPrimitive(value, booleanValue);
 }
-exports.isBooleanObject = isBooleanObject;
 
-function isBigIntObject(value) {
+export function isBigIntObject(value) {
   return BigIntSupported && checkBoxedPrimitive(value, bigIntValue);
 }
-exports.isBigIntObject = isBigIntObject;
 
-function isSymbolObject(value) {
+export function isSymbolObject(value) {
   return SymbolSupported && checkBoxedPrimitive(value, symbolValue);
 }
-exports.isSymbolObject = isSymbolObject;
 
-function isBoxedPrimitive(value) {
+export function isBoxedPrimitive(value) {
   return (
     isNumberObject(value) ||
     isStringObject(value) ||
@@ -314,15 +287,13 @@ function isBoxedPrimitive(value) {
     isSymbolObject(value)
   );
 }
-exports.isBoxedPrimitive = isBoxedPrimitive;
 
-function isAnyArrayBuffer(value) {
+export function isAnyArrayBuffer(value) {
   return typeof Uint8Array !== 'undefined' && (
     isArrayBuffer(value) ||
     isSharedArrayBuffer(value)
   );
 }
-exports.isAnyArrayBuffer = isAnyArrayBuffer;
 
 ['isProxy', 'isExternal', 'isModuleNamespaceObject'].forEach(function(method) {
   Object.defineProperty(exports, method, {
