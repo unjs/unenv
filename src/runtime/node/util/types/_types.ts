@@ -1,6 +1,6 @@
 // @ts-nocheck
 import utilTypes from 'node:util/types'
-import { notImplemented } from '../../_internal/utils'
+import { notImplemented } from '../../../_internal/utils'
 
 export const isExternal : typeof utilTypes.isExternal = notImplemented('util.types.isExternal')
 

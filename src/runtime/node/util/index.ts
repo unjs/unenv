@@ -3,14 +3,14 @@ import type util from 'node:util'
 import { notImplemented } from '../../_internal/utils'
 import * as legacyTypes from './_legacyTypes'
 import * as logUtils from './_log'
-import * as types from './types'
-import { inherits } from './_inherits'
+import types from './types'
+import inherits from '../../npm/inherits'
 import { promisify } from './_promisify'
 
 export * from './_legacyTypes'
 export * from './_log'
-export { inherits } from './_inherits'
-export { promisify} from './_promisify'
+export { default as inherits } from '../../npm/inherits'
+export { promisify } from './_promisify'
 
 // @ts-ignore
 export const TextDecoder : typeof util.TextDecoder = globalThis.TextDecoder

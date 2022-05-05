@@ -3,21 +3,20 @@ import type { Preset } from '../types'
 
 const nodeless: Preset = {
   alias: {
+    // Generic mock for built-ins
     ...mapArrToVal('unenv/runtime/mock/proxy-cjs', NodeBuiltinModules),
 
-    // Custom
-    http: 'unenv/runtime/node/http/index',
-    net: 'unenv/runtime/node/net/index',
-    stream: 'unenv/runtime/node/stream/index',
-    url: 'unenv/runtime/node/url/index',
-    process: 'unenv/runtime/polyfill/process',
-    _process: 'process/browser.js',
-
-    // Browserify
-    buffer: 'buffer/index.js',
-    util: 'util/util.js',
-    events: 'events/events.js',
-    inherits: 'inherits/inherits_browser.js',
+    // Built-ins implemented by unenv
+    ...Object.fromEntries([
+      'buffer',
+      'events',
+      'http',
+      'net',
+      'process',
+      'stream',
+      'url',
+      'util'
+    ].map(m => [m, `unenv/runtime/node/${m}/index`])),
 
     // npm
     etag: 'unenv/runtime/mock/noop',
@@ -29,7 +28,8 @@ const nodeless: Preset = {
     'node-fetch': 'unenv/runtime/npm/node-fetch',
     'cross-fetch': 'unenv/runtime/npm/cross-fetch',
     'cross-fetch/polyfill': 'unenv/runtime/mock/empty',
-    'isomorphic-fetch': 'unenv/runtime/mock/empty'
+    'isomorphic-fetch': 'unenv/runtime/mock/empty',
+    inherits: 'unenv/runtime/npm/inherits'
   },
 
   inject: {

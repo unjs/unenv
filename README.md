@@ -96,6 +96,7 @@ Package | Status | Source
 [npm/cross-fetch](https://www.npmjs.com/package/node-fetch) | Use native `fetch` | [unenv/runtime/npm/cross-fetch](./src/runtime/npm/cross-fetch.ts)
 [npm/debug](https://www.npmjs.com/package/debug) | Mocked with `console.debug` | [unenv/runtime/npm/debug](./src/runtime/npm/debug.ts)
 [npm/fsevents](https://www.npmjs.com/package/fsevents) | Mocked | [unenv/runtime/npm/fsevents](./src/runtime/npm/fsevents.ts)
+[npm/inherits](https://www.npmjs.com/package/inherits) | Inlined | [unenv/runtime/npm/inherits](./src/runtime/npm/inherits.ts)
 [npm/mime-db](https://www.npmjs.com/package/mime-db) | Minimized | [unenv/runtime/npm/mime-db](./src/runtime/npm/mime-db.ts)
 [npm/mime](https://www.npmjs.com/package/mime) | Minimized | [unenv/runtime/npm/mime](./src/runtime/npm/mime.ts)
 [npm/node-fetch](https://www.npmjs.com/package/node-fetch) | Use native `fetch` | [unenv/runtime/npm/node-fetch](./src/runtime/npm/node-fetch.ts)
