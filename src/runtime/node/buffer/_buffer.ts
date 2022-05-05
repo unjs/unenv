@@ -9,7 +9,7 @@
  */
 
 import * as base64 from './_base64'
-import * as ieee754 from './ieee754'
+import * as ieee754 from './_ieee754'
 
 const customInspectSymbol =
   (typeof Symbol === 'function' && typeof Symbol['for'] === 'function') // eslint-disable-line dot-notation

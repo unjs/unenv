@@ -50,11 +50,9 @@ var NumberIsNaN = Number.isNaN || function NumberIsNaN(value) {
   return value !== value;
 }
 
-function EventEmitter() {
+export function EventEmitter() {
   EventEmitter.init.call(this);
 }
-module.exports = EventEmitter;
-module.exports.once = once;
 
 // Backwards-compat with node 0.10.x
 EventEmitter.EventEmitter = EventEmitter;
@@ -446,7 +444,7 @@ function unwrapListeners(arr) {
   return ret;
 }
 
-function once(emitter, name) {
+export function once(emitter, name) {
   return new Promise(function (resolve, reject) {
     function errorListener(err) {
       emitter.removeListener(name, resolver);
