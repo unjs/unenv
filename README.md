@@ -66,7 +66,7 @@ Module | Status | Source
 [node:os](https://nodejs.org/api/os.html) | Mocked | -
 [node:path](https://nodejs.org/api/path.html) | Polyfilled | [unenv/node/path](./src/runtime/node/path)
 [node:perf_hooks](https://nodejs.org/api/perf_hooks.html) | Mocked | -
-[node:process](https://nodejs.org/api/process.html) | Polyfilled | -
+[node:process](https://nodejs.org/api/process.html) | Polyfilled | [unenv/node/process](./src/runtime/node/process)
 [node:punycode](https://nodejs.org/api/punycode.html) | Mocked | -
 [node:querystring](https://nodejs.org/api/querystring.html) | Mocked | -
 [node:readline](https://nodejs.org/api/readline.html) | Mocked | -
