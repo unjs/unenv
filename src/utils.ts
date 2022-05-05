@@ -1,7 +1,15 @@
 import { Module } from 'module'
 
 export const NodeBuiltinModules = ([] as string[]).concat(Module.builtinModules, [
-  'fs/promises'
+  'assert/strict',
+  'fs/promises',
+  'path/posix',
+  'path/win32',
+  'stream/consumers',
+  'stream/promises',
+  'stream/web',
+  'timers/promises',
+  'util/types'
 ])
 
 export function mapArrToVal (val: any, arr: any[]) {
