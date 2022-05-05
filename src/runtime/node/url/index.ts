@@ -95,7 +95,7 @@ export const fileURLToPath = <typeof url.fileURLToPath> function (url) {
   return url.pathname
 }
 
-export default {
+export default <typeof url> {
   URL,
   URLSearchParams,
   domainToASCII,

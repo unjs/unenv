@@ -1,3 +1,5 @@
+// https://nodejs.org/api/stream.html
+import type stream from 'node:stream'
 import * as readable from './readable'
 import * as writable from './writable'
 import * as duplex from './duplex'
@@ -10,7 +12,8 @@ export * from './duplex'
 export * from './transform'
 export * from './mock'
 
-export default {
+// @ts-ignore
+export default <typeof stream> {
   ...readable,
   ...writable,
   ...duplex,

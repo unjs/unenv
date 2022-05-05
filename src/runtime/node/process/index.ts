@@ -1,4 +1,7 @@
-// @ts-ignore
-import process from './_process'
+// https://nodejs.org/api/process.html
+import type process from 'node:process'
 
-export default process
+// @ts-ignore
+import _process from './_process'
+
+export default <typeof process> _process

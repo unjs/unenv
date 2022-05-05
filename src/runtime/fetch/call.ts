@@ -1,5 +1,5 @@
-import { IncomingMessage } from '../node/http/request'
-import { ServerResponse } from '../node/http/response'
+import { IncomingMessage } from '../node/http/_request'
+import { ServerResponse } from '../node/http/_response'
 
 export type Handle = (req: IncomingMessage, res: ServerResponse) => Promise <any>
 
