@@ -1,0 +1,15 @@
+import mock from '../../mock/proxy'
+
+export const isDisturbed = mock.__createMock__('isDisturbed')
+export const isReadable = mock.__createMock__('isReadable')
+export const pipeline = mock.__createMock__('pipeline')
+export const finished = mock.__createMock__('finished')
+export const compose = mock.__createMock__('compose')
+export const Stream = mock.__createMock__('Stream')
+export const _uint8ArrayToBuffer = mock.__createMock__('_uint8ArrayToBuffer')
+export const isErrored = mock.__createMock__('isErrored')
+export const PassThrough = mock.__createMock__('PassThrough')
+export const addAbortSignal = mock.__createMock__('addAbortSignal')
+export const destroy = mock.__createMock__('destroy')
+export const promises = mock.__createMock__('promises')
+export const _isUint8Array = mock.__createMock__('_isUint8Array')
