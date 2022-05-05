@@ -1,4 +1,5 @@
-import * as nodeFetch from 'node-fetch'
+// @ts-ignore
+import * as nodeFetch from '_node-fetch'
 import _global from './globalThis'
 
 _global.fetch = _global.fetch || nodeFetch.default || nodeFetch
