@@ -11,7 +11,7 @@ specifiers:
   eslint: latest
   events: ^3.3.0
   inherits: ^2.0.4
-  mime: ^2.6.0
+  mime: ^3.0.0
   node-fetch: ^3.2.4
   process: ^0.11.10
   standard-version: latest
@@ -26,7 +26,7 @@ dependencies:
   defu: 6.0.0
   events: 3.3.0
   inherits: 2.0.4
-  mime: 2.6.0
+  mime: 3.0.0
   node-fetch: 3.2.4
   process: 0.11.10
   upath: 2.0.1
@@ -2734,9 +2734,9 @@ packages:
       mime-db: 1.52.0
     dev: true
 
-  /mime/2.6.0:
-    resolution: {integrity: sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==}
-    engines: {node: '>=4.0.0'}
+  /mime/3.0.0:
+    resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
+    engines: {node: '>=10.0.0'}
     hasBin: true
     dev: false
 
