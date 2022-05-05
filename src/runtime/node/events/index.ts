@@ -1,8 +1,11 @@
 // https://nodejs.org/api/events.html
-import type _EventEmitter from 'node:events'
+import type events from 'node:events'
 
 // @ts-ignore
-import { EventEmitter } from './_events'
+import { EventEmitter as _EventEmitter } from './_events'
 
-// @ts-ignore
-export default <_EventEmitter> EventEmitter
+export const EventEmitter = _EventEmitter as any as typeof events.EventEmitter
+
+export default <typeof events> {
+  EventEmitter
+}
