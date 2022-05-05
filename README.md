@@ -44,7 +44,7 @@ Module | Status | Source
 -------|--------|---------------
 [node:assert](https://nodejs.org/api/assert.html) | Mocked | -
 [node:async_hooks](https://nodejs.org/api/async_hooks.html) | Mocked | -
-[node:buffer](https://nodejs.org/api/buffer.html) | Polyfilled | [npm/buffer](https://www.npmjs.com/package/buffer)
+[node:buffer](https://nodejs.org/api/buffer.html) | Polyfilled | [unenv/node/buffer](./src/runtime/node/buffer)
 [node:child_process](https://nodejs.org/api/child_process.html) | Mocked | -
 [node:cluster](https://nodejs.org/api/cluster.html) | Mocked | -
 [node:console](https://nodejs.org/api/console.html) | Mocked | -
@@ -54,15 +54,15 @@ Module | Status | Source
 [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html) | Mocked | -
 [node:dns](https://nodejs.org/api/dns.html) | Mocked | -
 [node:domain](https://nodejs.org/api/domain.html) | Mocked | -
-[node:events](https://nodejs.org/api/events.html) | Polyfilled | [npm/events](https://www.npmjs.com/package/events)
+[node:events](https://nodejs.org/api/events.html) | Polyfilled | [unenv/node/events](./src/runtime/node/events)
 [node:fs/promises](https://nodejs.org/api/fs/promises.html) | Mocked | -
 [node:fs](https://nodejs.org/api/fs.html) | Mocked | -
 [node:http2](https://nodejs.org/api/http2.html) | Mocked | -
-[node:http](https://nodejs.org/api/http.html) | Polyfilled | [unenv/runtime/http/request](./src/runtime/node/http)
+[node:http](https://nodejs.org/api/http.html) | Polyfilled | [unenv/node/http](./src/runtime/node/http)
 [node:https](https://nodejs.org/api/https.html) | Mocked | -
 [node:inspector](https://nodejs.org/api/inspector.html) | Mocked | -
 [node:module](https://nodejs.org/api/module.html) | Mocked | -
-[node:net](https://nodejs.org/api/net.html) | Polyfilled | [unenv/runtime/node/request](./src/runtime/node/net)
+[node:net](https://nodejs.org/api/net.html) | Polyfilled | [unenv/node/net](./src/runtime/node/net)
 [node:os](https://nodejs.org/api/os.html) | Mocked | -
 [node:path](https://nodejs.org/api/path.html) | Mocked | -
 [node:perf_hooks](https://nodejs.org/api/perf_hooks.html) | Mocked | -
@@ -71,15 +71,15 @@ Module | Status | Source
 [node:querystring](https://nodejs.org/api/querystring.html) | Mocked | -
 [node:readline](https://nodejs.org/api/readline.html) | Mocked | -
 [node:repl](https://nodejs.org/api/repl.html) | Mocked | -
-[node:stream](https://nodejs.org/api/stream.html) | Polyfilled | [unenv/runtime/strean/request](./src/runtime/node/stream)
+[node:stream](https://nodejs.org/api/stream.html) | Polyfilled | [unenv/node/stream](./src/runtime/node/stream)
 [node:string_decoder](https://nodejs.org/api/string_decoder.html) | Mocked | -
 [node:sys](https://nodejs.org/api/sys.html) | Mocked | -
 [node:timers](https://nodejs.org/api/timers.html) | Mocked | -
 [node:tls](https://nodejs.org/api/tls.html) | Mocked | -
 [node:trace_events](https://nodejs.org/api/trace_events.html) | Mocked | -
 [node:tty](https://nodejs.org/api/tty.html) | Mocked | -
-[node:url](https://nodejs.org/api/url.html) | Polyfilled | [unenv/runtime/url/request](./src/runtime/node/url)
-[node:util](https://nodejs.org/api/util.html) | Polyfilled | [npm/util](https://www.npmjs.com/package/util)
+[node:url](https://nodejs.org/api/url.html) | Polyfilled | [unenv/node/url](./src/runtime/node/url)
+[node:util](https://nodejs.org/api/util.html) | Polyfilled | [unenv/node/util](./src/runtime/node/util)
 [node:v8](https://nodejs.org/api/v8.html) | Mocked | -
 [node:vm](https://nodejs.org/api/vm.html) | Mocked | -
 [node:wasi](https://nodejs.org/api/wasi.html) | Mocked | -
