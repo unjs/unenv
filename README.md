@@ -36,7 +36,9 @@ Suitable to convert universal libraries working in Node.js. ([preset]([node](./s
 
 Using this preset, we can convert a code that is depending on Node.js to work anywhere else.
 
-#### Built-in Node.js modules
+### Built-in Node.js modules
+
+Unenv provides a replacement for all Node.js built-ins for cross-platform compatiblity.
 
 Module | Status | Source
 -------|--------|---------------
@@ -83,13 +85,21 @@ Module | Status | Source
 [node:wasi](https://nodejs.org/api/wasi.html) | Mocked | -
 [node:worker_threads](https://nodejs.org/api/worker_threads.html) | Mocked | -
 [node:zlib](https://nodejs.org/api/zlib.html) | Mocked | -
-[npm/etag](https://www.npmjs.com/package/etag) | Polyfilled | [unenv/runtime/npm/etag](./src/runtime/npm/etag.ts)
-[npm/fsevents](https://www.npmjs.com/package/fsevents) | Polyfilled | [unenv/runtime/npm/fsevents](./src/runtime/npm/fsevents.ts)
-[npm/mime-db](https://www.npmjs.com/package/mime-db) | Polyfilled | [unenv/runtime/npm/mime-db](./src/runtime/npm/mime-db.ts)
-[npm/mime](https://www.npmjs.com/package/mime) | Polyfilled | [unenv/runtime/npm/mime](./src/runtime/npm/mime.ts)
-[npm/node-fetch](https://www.npmjs.com/package/node-fetch) | Replace with Platform Native | [unenv/runtime/npm/node-fetch](./src/runtime/npm/node-fetch.ts)
-[npm/cross-fetch](https://www.npmjs.com/package/node-fetch) | Replace with Platform Native | [unenv/runtime/npm/cross-fetch](./src/runtime/npm/cross-fetch.ts)
-[npm/whatwg-url](https://www.npmjs.com/package/whatwg-url) | opt-in | [unenv/runtime/npm/whatwg-url](./src/runtime/npm/whatwg-url.ts)
+
+## npm packages
+
+Unenv provides a replacement for common npm packages for cross platform compatibility.
+
+Package | Status | Source
+-------|--------|---------------
+[npm/consola](https://www.npmjs.com/package/consola) | Use native `console` | [unenv/runtime/npm/consola](./src/runtime/npm/consola.ts)
+[npm/cross-fetch](https://www.npmjs.com/package/node-fetch) | Use native `fetch` | [unenv/runtime/npm/cross-fetch](./src/runtime/npm/cross-fetch.ts)
+[npm/debug](https://www.npmjs.com/package/debug) | Mocked with `console.debug` | [unenv/runtime/npm/debug](./src/runtime/npm/debug.ts)
+[npm/fsevents](https://www.npmjs.com/package/fsevents) | Mocked | [unenv/runtime/npm/fsevents](./src/runtime/npm/fsevents.ts)
+[npm/mime-db](https://www.npmjs.com/package/mime-db) | Minimized | [unenv/runtime/npm/mime-db](./src/runtime/npm/mime-db.ts)
+[npm/mime](https://www.npmjs.com/package/mime) | Minimized | [unenv/runtime/npm/mime](./src/runtime/npm/mime.ts)
+[npm/node-fetch](https://www.npmjs.com/package/node-fetch) | Use native `fetch` | [unenv/runtime/npm/node-fetch](./src/runtime/npm/node-fetch.ts)
+[npm/whatwg-url](https://www.npmjs.com/package/whatwg-url) | Use native `URL` | [unenv/runtime/npm/whatwg-url](./src/runtime/npm/whatwg-url.ts)
 
 ## Auto-mocking proxy
 
