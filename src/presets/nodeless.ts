@@ -15,8 +15,12 @@ const nodeless: Preset = {
       'path',
       'process',
       'stream',
+      'stream/promises',
+      'stream/consumers',
+      'stream/web',
       'url',
-      'util'
+      'util',
+      'util/types'
     ].map(m => [m, `unenv/runtime/node/${m}/index`])),
 
     // npm

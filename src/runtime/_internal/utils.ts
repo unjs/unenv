@@ -23,5 +23,5 @@ export function mergeFns (...functions: Function[]) {
 }
 
 export function notImplemented (name: string) {
-  return () => { throw new Error(`[unenv] ${name} is not implemented yet!`) }
+  return () : any => { throw new Error(`[unenv] ${name} is not implemented yet!`) }
 }

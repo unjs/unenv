@@ -16,14 +16,13 @@ export const atob = globalThis.atob
 export const kStringMaxLength = 0 // TODO
 export const constants = { MAX_LENGTH: kMaxLength, MAX_STRING_LENGTH: kStringMaxLength }
 
-// @ts-ignore
 export default <typeof buffer> {
-  Buffer,
+  Buffer: Buffer as any as typeof buffer.Buffer,
+  SlowBuffer: SlowBuffer as any as typeof buffer.SlowBuffer,
   kMaxLength,
   INSPECT_MAX_BYTES,
   Blob,
   resolveObjectURL,
-  SlowBuffer,
   transcode,
   btoa,
   atob,
