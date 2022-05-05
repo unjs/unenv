@@ -1,12 +1,16 @@
-import * as consts from './consts'
-import * as request from './request'
-import * as response from './response'
+// https://nodejs.org/api/http.html
+import type http from 'node:http'
 
-export * from './consts'
-export * from './request'
-export * from './response'
+import * as consts from './_consts'
+import * as request from './_request'
+import * as response from './_response'
 
-export default {
+export * from './_consts'
+export * from './_request'
+export * from './_response'
+
+// @ts-ignore
+export default <typeof http> {
   ...consts,
   ...request,
   ...response

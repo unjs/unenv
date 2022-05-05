@@ -1,20 +1,17 @@
 // https://www.npmjs.com/package/whatwg-url
+import { notImplemented } from '../_internal/utils'
 
 export const URL = globalThis.URL
 export const URLSearchParams = globalThis.URLSearchParams
 
-function notSupported () {
-  throw new Error('[unenv] whatwg-url low level API is not supported yet!')
-}
-
-export const parseURL = notSupported
-export const basicURLParse = notSupported
-export const serializeURL = notSupported
-export const serializeHost = notSupported
-export const serializeInteger = notSupported
-export const serializeURLOrigin = notSupported
-export const setTheUsername = notSupported
-export const setThePassword = notSupported
-export const cannotHaveAUsernamePasswordPort = notSupported
-export const percentDecodeBytes = notSupported
-export const percentDecodeString = notSupported
+export const parseURL = notImplemented('whatwg-url.parseURL')
+export const basicURLParse = notImplemented('whatwg-url.basicURLParse')
+export const serializeURL = notImplemented('whatwg-url.serializeURL')
+export const serializeHost = notImplemented('whatwg-url.serializeHost')
+export const serializeInteger = notImplemented('whatwg-url.serializeInteger')
+export const serializeURLOrigin = notImplemented('whatwg-url.serializeURLOrigin')
+export const setTheUsername = notImplemented('whatwg-url.setTheUsername')
+export const setThePassword = notImplemented('whatwg-url.setThePassword')
+export const cannotHaveAUsernamePasswordPort = notImplemented('whatwg-url.cannotHaveAUsernamePasswordPort')
+export const percentDecodeBytes = notImplemented('whatwg-url.percentDecodeBytes')
+export const percentDecodeString = notImplemented('whatwg-url.percentDecodeString')
