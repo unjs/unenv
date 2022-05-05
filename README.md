@@ -55,8 +55,8 @@ Module | Status | Source
 [node:dns](https://nodejs.org/api/dns.html) | Mocked | -
 [node:domain](https://nodejs.org/api/domain.html) | Mocked | -
 [node:events](https://nodejs.org/api/events.html) | Polyfilled | [unenv/node/events](./src/runtime/node/events)
-[node:fs](https://nodejs.org/api/fs.html) | Mocked | -
-[node:fs/promises](https://nodejs.org/api/fs/promises.html) | Mocked | -
+[node:fs](https://nodejs.org/api/fs.html) | Polyfilled | [unenv/node/fs](./src/runtime/node/fs)
+[node:fs/promises](https://nodejs.org/api/fs/promises.html) | Polyfilled | [unenv/node/fs/promises](./src/runtime/node/fs/promises)
 [node:http2](https://nodejs.org/api/http2.html) | Mocked | -
 [node:http](https://nodejs.org/api/http.html) | Polyfilled | [unenv/node/http](./src/runtime/node/http)
 [node:https](https://nodejs.org/api/https.html) | Mocked | -

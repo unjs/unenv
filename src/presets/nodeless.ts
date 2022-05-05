@@ -10,6 +10,8 @@ const nodeless: Preset = {
     ...Object.fromEntries([
       'buffer',
       'events',
+      'fs',
+      'fs/promises',
       'http',
       'net',
       'path',
