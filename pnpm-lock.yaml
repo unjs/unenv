@@ -13,14 +13,12 @@ specifiers:
   standard-version: latest
   typescript: latest
   unbuild: latest
-  upath: ^2.0.1
 
 dependencies:
   abort-controller: 3.0.0
   defu: 6.0.0
   mime: 3.0.0
   node-fetch: 3.2.4
-  upath: 2.0.1
 
 devDependencies:
   '@nuxtjs/eslint-config-typescript': 10.0.0_t725usgvqspm5woeqpaxbfp2qu
@@ -3615,11 +3613,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /upath/2.0.1:
-    resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
-    engines: {node: '>=4'}
-    dev: false
 
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
