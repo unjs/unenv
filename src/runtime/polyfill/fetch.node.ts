@@ -1,5 +1,5 @@
 // @ts-ignore
-import * as nodeFetch from '_node-fetch'
+import * as nodeFetch from 'node-fetch/src/index.js'
 import AbortController from 'abort-controller'
 import _global from './globalThis'
 
