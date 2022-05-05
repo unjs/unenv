@@ -89,8 +89,7 @@ Module | Status | Source
 [npm/mime](https://www.npmjs.com/package/mime) | Polyfilled | [unenv/runtime/npm/mime](./src/runtime/npm/mime.ts)
 [npm/node-fetch](https://www.npmjs.com/package/node-fetch) | Replace with Platform Native | [unenv/runtime/npm/node-fetch](./src/runtime/npm/node-fetch.ts)
 [npm/cross-fetch](https://www.npmjs.com/package/node-fetch) | Replace with Platform Native | [unenv/runtime/npm/cross-fetch](./src/runtime/npm/cross-fetch.ts)
-
-
+[npm/whatwg-url](https://www.npmjs.com/package/whatwg-url) | opt-in | [unenv/runtime/npm/whatwg-url](./src/runtime/npm/whatwg-url.ts)
 
 ## Auto-mocking proxy
 
