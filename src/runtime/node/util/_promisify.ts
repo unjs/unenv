@@ -8,11 +8,15 @@ function _promisify (fn: Function & { [customSymbol]?: Function}) {
   }
   return function (...args: any[]) {
     return new Promise((resolve, reject) => {
-      // @ts-ignore
-      const value = fn.call(this, ...args, (err) => {
-        if (err) { return reject(err)}
-      })
-      resolve(value)
+      try {
+        // @ts-ignore
+        fn.call(this, ...args, (err, val) => {
+          if (err) { return reject(err)}
+          resolve(val)
+        })
+      } catch (err) {
+        reject(err)
+      }
     })
   }
 }
