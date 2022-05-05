@@ -55,7 +55,7 @@ export class Writable extends EventEmitter implements stream.Writable {
     return this
   }
 
-  end (arg1: Callback | any, arg2?: Callback | BufferEncoding, arg3?: Callback): void {
+  end (arg1: Callback | any, arg2?: Callback | BufferEncoding, arg3?: Callback) {
     const cb = (typeof arg1 === 'function') ? arg1 : (typeof arg2 === 'function' ? arg2 : (typeof arg3 === 'function' ? arg3 : undefined))
     const data = arg1 !== cb ? arg1 : undefined
     if (data) {
@@ -66,8 +66,7 @@ export class Writable extends EventEmitter implements stream.Writable {
     this.writableFinished = true
     this.emit('close')
     this.emit('finish')
-    // TODO: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/57473
-    return this as unknown as void
+    return this
   }
 
   cork (): void {
@@ -76,11 +75,10 @@ export class Writable extends EventEmitter implements stream.Writable {
   uncork (): void {
   }
 
-  destroy (_error?: Error): void {
+  destroy (_error?: Error) {
     this.destroyed = true
     delete this._data
     this.removeAllListeners()
-    // TODO: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/57473
-    return this as unknown as void
+    return this
   }
 }

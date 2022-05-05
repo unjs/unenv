@@ -78,3 +78,5 @@ export const STATUS_CODES = {
   510: 'Not Extended',
   511: 'Network Authentication Required'
 }
+
+export const maxHeaderSize = 16384

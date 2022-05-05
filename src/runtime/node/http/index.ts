@@ -1,17 +1,35 @@
 // https://nodejs.org/api/http.html
-import type http from 'node:http'
+import http from 'node:http'
+import { notImplemented } from '../../_internal/utils'
 
 import * as consts from './_consts'
-import * as request from './_request'
-import * as response from './_response'
+import { IncomingMessage } from './_request'
+import { ServerResponse } from './_response'
 
 export * from './_consts'
 export * from './_request'
 export * from './_response'
 
-// @ts-ignore
+export const createServer: typeof http.createServer = notImplemented('http.createServer')
+export const request: typeof http.request = notImplemented('http.request')
+export const get: typeof http.get = notImplemented('http.get')
+
+export const Server: typeof http.Server = undefined as any as typeof http.Server
+export const OutgoingMessage: typeof http.OutgoingMessage = undefined as any as typeof http.OutgoingMessage
+export const ClientRequest: typeof http.ClientRequest = undefined as any as typeof http.ClientRequest
+export const Agent: typeof http.Agent = undefined as any as typeof http.Agent
+export const globalAgent: typeof http.globalAgent = undefined as any as typeof http.globalAgent
+
 export default <typeof http> {
   ...consts,
-  ...request,
-  ...response
+  IncomingMessage: IncomingMessage as any as typeof http.IncomingMessage,
+  ServerResponse: ServerResponse as any as typeof http.ServerResponse,
+  createServer,
+  request,
+  get,
+  Server,
+  OutgoingMessage,
+  ClientRequest,
+  Agent,
+  globalAgent
 }

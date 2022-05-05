@@ -14,24 +14,23 @@ export class Socket extends Duplex implements net.Socket {
   readonly remoteAddress?: string = ''
   readonly remoteFamily?: string = ''
   readonly remotePort?: number = 0
+  readonly readyState: net.SocketReadyState = 'readOnly'
 
   constructor (_options?: net.SocketConstructorOpts) {
     super()
   }
 
-  write (_buffer: Uint8Array | string,
-    _arg1?: BufferEncoding | Callback<Error | undefined>,
+  write (_buffer: Uint8Array | string, _arg1?: BufferEncoding | Callback<Error | undefined>,
     _arg2?: Callback<Error | undefined>): boolean {
     return false
   }
 
-  connect (_arg1: number | string | net.SocketConnectOpts,
-    _arg2?: string | Callback, _arg3?: Callback) {
+  connect (_arg1: number | string | net.SocketConnectOpts, _arg2?: string | Callback, _arg3?: Callback) {
     return this
   }
 
-  end (_arg1?: Callback | Uint8Array | string,
-    _arg2?: BufferEncoding | Callback, _arg3?: Callback): void {
+  end (_arg1?: Callback | Uint8Array | string, _arg2?: BufferEncoding | Callback, _arg3?: Callback) {
+      return this
   }
 
   setEncoding (_encoding?: BufferEncoding): this {

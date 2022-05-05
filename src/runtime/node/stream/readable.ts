@@ -12,6 +12,8 @@ export class Readable extends EventEmitter implements stream.Readable {
   readonly readableHighWaterMark: number = 0
   readonly readableLength: number = 0
   readonly readableObjectMode: boolean = false
+  readonly readableAborted: boolean = false
+  readonly readableDidRead: boolean = false
 
   readable: boolean = false
   destroyed: boolean = false
@@ -67,7 +69,8 @@ export class Readable extends EventEmitter implements stream.Readable {
 
   destroy (error?: Error) {
     this.destroyed = true
-    return this._destroy(error)
+    this._destroy(error)
+    return this
   }
 
   pipe<T> (_destenition: T, _options?: { end?: boolean }): T {
