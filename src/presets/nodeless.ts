@@ -12,6 +12,7 @@ const nodeless: Preset = {
       'events',
       'http',
       'net',
+      'path',
       'process',
       'stream',
       'url',

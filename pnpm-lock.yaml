@@ -10,6 +10,7 @@ specifiers:
   eslint: latest
   mime: ^3.0.0
   node-fetch: ^3.2.4
+  pathe: ^0.3.0
   standard-version: latest
   typescript: latest
   unbuild: latest
@@ -19,6 +20,7 @@ dependencies:
   defu: 6.0.0
   mime: 3.0.0
   node-fetch: 3.2.4
+  pathe: 0.3.0
 
 devDependencies:
   '@nuxtjs/eslint-config-typescript': 10.0.0_t725usgvqspm5woeqpaxbfp2qu
@@ -3004,6 +3006,10 @@ packages:
   /pathe/0.2.0:
     resolution: {integrity: sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==}
     dev: true
+
+  /pathe/0.3.0:
+    resolution: {integrity: sha512-3vUjp552BJzCw9vqKsO5sttHkbYqqsZtH0x1PNtItgqx8BXEXzoY1SYRKcL6BTyVh4lGJGLj0tM42elUDMvcYA==}
+    dev: false
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
