@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/unjs/unenv/compare/v0.5.0...v0.5.1) (2022-05-05)
+
+
+### Features
+
+* add fs polyfill to nodeless ([de2cf94](https://github.com/unjs/unenv/commit/de2cf94355e6904ae830c7c1829eddf666f68087))
+* implement `path` (resolves [#35](https://github.com/unjs/unenv/issues/35)) ([bd473c5](https://github.com/unjs/unenv/commit/bd473c5a878a87c736ebe3a1a6737220eb91be40))
+* improve node polyfills ([4206317](https://github.com/unjs/unenv/commit/4206317ddee3834cfba47f5f02433b7fbe7db542))
+* initial support for `fs` polyfill ([#9](https://github.com/unjs/unenv/issues/9)) ([5ee4115](https://github.com/unjs/unenv/commit/5ee4115ca87406158bed4b2c2419532c1e311a60))
+
+
+### Bug Fixes
+
+* add default export for process polyfill ([45d859f](https://github.com/unjs/unenv/commit/45d859f12236b3555535ac22cd6733c603eb4160))
+* fix process polyfill ([05aa34f](https://github.com/unjs/unenv/commit/05aa34ff7ae5daccf8259f47866adc2891cb8f2c))
+* import `node-fetch` polyfill from src ([0e9afae](https://github.com/unjs/unenv/commit/0e9afae0b3fe38ef59cb640ea819d177a8c1565f))
+* update http and add missing exports ([16338d4](https://github.com/unjs/unenv/commit/16338d44505d4791fc49b26723821f2d10870944))
+* use named export for `events` ([f4bf593](https://github.com/unjs/unenv/commit/f4bf59367d1df09d32e1d5634d25c8c4f005ab4a))
+* use proxy for http class mocks ([b8a44b4](https://github.com/unjs/unenv/commit/b8a44b4df1686f2b78a654429355ede4fb89d352))
+
 ## [0.5.0](https://github.com/unjs/unenv/compare/v0.4.6...v0.5.0) (2022-05-05)
 
 
