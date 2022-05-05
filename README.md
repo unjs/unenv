@@ -36,13 +36,15 @@ Suitable to convert universal libraries working in Node.js. ([preset]([node](./s
 
 Using this preset, we can convert a code that is depending on Node.js to work anywhere else.
 
-#### Built-in Node.js modules
+### Built-in Node.js modules
+
+Unenv provides a replacement for all Node.js built-ins for cross-platform compatiblity.
 
 Module | Status | Source
 -------|--------|---------------
 [node:assert](https://nodejs.org/api/assert.html) | Mocked | -
 [node:async_hooks](https://nodejs.org/api/async_hooks.html) | Mocked | -
-[node:buffer](https://nodejs.org/api/buffer.html) | Polyfilled | [npm:buffer](https://www.npmjs.com/package/buffer)
+[node:buffer](https://nodejs.org/api/buffer.html) | Polyfilled | [npm/buffer](https://www.npmjs.com/package/buffer)
 [node:child_process](https://nodejs.org/api/child_process.html) | Mocked | -
 [node:cluster](https://nodejs.org/api/cluster.html) | Mocked | -
 [node:console](https://nodejs.org/api/console.html) | Mocked | -
@@ -52,7 +54,7 @@ Module | Status | Source
 [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html) | Mocked | -
 [node:dns](https://nodejs.org/api/dns.html) | Mocked | -
 [node:domain](https://nodejs.org/api/domain.html) | Mocked | -
-[node:events](https://nodejs.org/api/events.html) | Polyfilled | [npm:events](https://www.npmjs.com/package/events)
+[node:events](https://nodejs.org/api/events.html) | Polyfilled | [npm/events](https://www.npmjs.com/package/events)
 [node:fs/promises](https://nodejs.org/api/fs/promises.html) | Mocked | -
 [node:fs](https://nodejs.org/api/fs.html) | Mocked | -
 [node:http2](https://nodejs.org/api/http2.html) | Mocked | -
@@ -77,19 +79,27 @@ Module | Status | Source
 [node:trace_events](https://nodejs.org/api/trace_events.html) | Mocked | -
 [node:tty](https://nodejs.org/api/tty.html) | Mocked | -
 [node:url](https://nodejs.org/api/url.html) | Polyfilled | [unenv/runtime/url/request](./src/runtime/node/url)
-[node:util](https://nodejs.org/api/util.html) | Polyfilled | [npm:util](https://www.npmjs.com/package/util)
+[node:util](https://nodejs.org/api/util.html) | Polyfilled | [npm/util](https://www.npmjs.com/package/util)
 [node:v8](https://nodejs.org/api/v8.html) | Mocked | -
 [node:vm](https://nodejs.org/api/vm.html) | Mocked | -
 [node:wasi](https://nodejs.org/api/wasi.html) | Mocked | -
 [node:worker_threads](https://nodejs.org/api/worker_threads.html) | Mocked | -
 [node:zlib](https://nodejs.org/api/zlib.html) | Mocked | -
-[npm:etag](https://www.npmjs.com/package/etag) | Polyfilled | [unenv/runtime/npm:etag](./src/runtime/npm:etag)
-[npm:fsevents](https://www.npmjs.com/package/fsevents) | Polyfilled | [unenv/runtime/npm:fsevents](./src/runtime/npm:fsevents)
-[npm:mime-db](https://www.npmjs.com/package/mime-db) | Polyfilled | [unenv/runtime/npm:mime-db](./src/runtime/npm:mime-db)
-[npm:mime](https://www.npmjs.com/package/mime) | Polyfilled | [unenv/runtime/npm:mime](./src/runtime/npm:mime)
-[npm:node-fetch](https://www.npmjs.com/package/node-fetch) | Polyfilled | [unenv/runtime/npm:node-fetch](./src/runtime/npm:node-fetch)
 
+## npm packages
 
+Unenv provides a replacement for common npm packages for cross platform compatibility.
+
+Package | Status | Source
+-------|--------|---------------
+[npm/consola](https://www.npmjs.com/package/consola) | Use native `console` | [unenv/runtime/npm/consola](./src/runtime/npm/consola.ts)
+[npm/cross-fetch](https://www.npmjs.com/package/node-fetch) | Use native `fetch` | [unenv/runtime/npm/cross-fetch](./src/runtime/npm/cross-fetch.ts)
+[npm/debug](https://www.npmjs.com/package/debug) | Mocked with `console.debug` | [unenv/runtime/npm/debug](./src/runtime/npm/debug.ts)
+[npm/fsevents](https://www.npmjs.com/package/fsevents) | Mocked | [unenv/runtime/npm/fsevents](./src/runtime/npm/fsevents.ts)
+[npm/mime-db](https://www.npmjs.com/package/mime-db) | Minimized | [unenv/runtime/npm/mime-db](./src/runtime/npm/mime-db.ts)
+[npm/mime](https://www.npmjs.com/package/mime) | Minimized | [unenv/runtime/npm/mime](./src/runtime/npm/mime.ts)
+[npm/node-fetch](https://www.npmjs.com/package/node-fetch) | Use native `fetch` | [unenv/runtime/npm/node-fetch](./src/runtime/npm/node-fetch.ts)
+[npm/whatwg-url](https://www.npmjs.com/package/whatwg-url) | Use native `URL` | [unenv/runtime/npm/whatwg-url](./src/runtime/npm/whatwg-url.ts)
 
 ## Auto-mocking proxy
 
