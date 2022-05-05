@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/unjs/unenv/compare/v0.4.6...v0.5.0) (2022-05-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* replace node polyfills (#30)
+* replace `node-fetch` and `cross-fetch` with platform natives (resolves #29)
+
+### Features
+
+* **nodeless:** support `node:` protocol aliases ([d3e42f7](https://github.com/unjs/unenv/commit/d3e42f7634cebe61be1bd70ed4ec14e68648b3e0))
+* **node:** polyfill `FormData`, `Blob` and `AbortController` ([c0b83a7](https://github.com/unjs/unenv/commit/c0b83a772caa2353aa7c06d68d3aa7daa446c2ef)), closes [#23](https://github.com/unjs/unenv/issues/23)
+* opt-in support of whatwg-url mock ([#15](https://github.com/unjs/unenv/issues/15)) ([a38cf29](https://github.com/unjs/unenv/commit/a38cf29c490b0215ce9caac06c4f8ef783e519d8))
+* replace `node-fetch` and `cross-fetch` with platform natives (resolves [#29](https://github.com/unjs/unenv/issues/29)) ([276d44d](https://github.com/unjs/unenv/commit/276d44da6d0fd8057ccf807ed1bd468e24d85e39))
+* replace node polyfills ([#30](https://github.com/unjs/unenv/issues/30)) ([0a99ce2](https://github.com/unjs/unenv/commit/0a99ce2e998862dca3d7bb30dbee914308ae6f9f))
+
+
+### Bug Fixes
+
+* add `fs/promises` to NodeBuiltinModules (resolves [#34](https://github.com/unjs/unenv/issues/34)) ([35f31a4](https://github.com/unjs/unenv/commit/35f31a4edb5e2d6e8477c677c6929df6e1190103))
+* add missing `stream` exports (resolves [#11](https://github.com/unjs/unenv/issues/11)) ([a51e893](https://github.com/unjs/unenv/commit/a51e893fc994bab2c070c3d8de3f72120c6316f1))
+* add more node subpath exports to built-in modules ([8ed02ad](https://github.com/unjs/unenv/commit/8ed02adfe8231a6fe1087d126f2f268e5f82d7c6)), closes [#34](https://github.com/unjs/unenv/issues/34)
+* fix util.promisify implementation ([674dd27](https://github.com/unjs/unenv/commit/674dd27e28e4ce6f9f997926d4e09c162384060b))
+* mock `mime/lite` as well ([e733440](https://github.com/unjs/unenv/commit/e7334407755d9bdb51811cc8a5fee60180c536d2))
+
 ### [0.4.6](https://github.com/unjs/unenv/compare/v0.4.5...v0.4.6) (2022-04-07)
 
 
