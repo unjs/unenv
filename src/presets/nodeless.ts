@@ -1,7 +1,7 @@
 import { NodeBuiltinModules, mapArrToVal } from '../utils'
 import type { Preset } from '../types'
 
-export default {
+const nodeless: Preset = {
   alias: {
     ...mapArrToVal('unenv/runtime/mock/proxy-cjs', NodeBuiltinModules),
 
@@ -36,4 +36,11 @@ export default {
   polyfill: [
     'unenv/runtime/polyfill/process'
   ]
-} as Preset
+}
+
+// Add node: aliases
+for (const m of NodeBuiltinModules) {
+  nodeless.alias![`node:${m}`] = nodeless.alias![m]
+}
+
+export default nodeless
