@@ -28,6 +28,7 @@
     "release": "standard-version && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "buffer": "^6.0.3",
     "defu": "^6.0.0",
     "events": "^3.3.0",
