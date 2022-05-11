@@ -10,7 +10,7 @@ export default {
   },
 
   polyfill: [
-    'unenv/runtime/polyfill/fetch.node'
+    'node-fetch-native/polyfill'
   ],
 
   external: [

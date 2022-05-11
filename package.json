@@ -28,10 +28,9 @@
     "release": "standard-version && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
-    "abort-controller": "^3.0.0",
     "defu": "^6.0.0",
     "mime": "^3.0.0",
-    "node-fetch": "^3.2.4",
+    "node-fetch-native": "^0.1.2",
     "pathe": "^0.3.0"
   },
   "devDependencies": {
