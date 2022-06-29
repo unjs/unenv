@@ -15,8 +15,6 @@ export interface CallContext {
 }
 
 const BINARY_CONTENT_TYPE_RE = /^(audio|font|video|image\/(?!svg)|application\/(?!json))/
-const isBinaryContentType = (contentType = '') =>
-  BINARY_CONTENT_TYPE_RE.test(contentType)
 
 
 export function createCall (handle: Handle) {
@@ -36,7 +34,7 @@ export function createCall (handle: Handle) {
     req.body = context.body || null
 
     return handle(req, res).then(() => {
-      const isBinary = isBinaryContentType(res._headers['content-type']?.toString())
+      const isBinary = BINARY_CONTENT_TYPE_RE.test(res._headers['content-type']?.toString() || '')
       const r = {
         body: (isBinary ? res._data : (res._data as any)?.toString()) ?? '',
         headers: res._headers,
