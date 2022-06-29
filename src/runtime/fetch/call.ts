@@ -14,7 +14,7 @@ export interface CallContext {
   body?: any
 }
 
-const BINARY_CONTENT_TYPE_RE = /^(audio|font|video|image\/(?!svg)|application\/(?!json))/
+const TEXT_CONTENT_TYPE_RE = /^(image\/svg|application\/json|text\/)/
 
 export function createCall (handle: Handle) {
   return function callHandle (context: CallContext) {
@@ -33,9 +33,10 @@ export function createCall (handle: Handle) {
     req.body = context.body || null
 
     return handle(req, res).then(() => {
-      const isBinary = BINARY_CONTENT_TYPE_RE.test(res._headers['content-type']?.toString() || '')
+      const contentType = res._headers['content-type']?.toString()
+      const isText = !contentType || TEXT_CONTENT_TYPE_RE.test(contentType)
       const r = {
-        body: (isBinary ? res._data : (res._data as any)?.toString()) ?? '',
+        body: (isText ? (res._data as any)?.toString() : res._data) ?? '',
         headers: res._headers,
         status: res.statusCode,
         statusText: res.statusMessage
