@@ -16,7 +16,6 @@ export interface CallContext {
 
 const BINARY_CONTENT_TYPE_RE = /^(audio|font|video|image\/(?!svg)|application\/(?!json))/
 
-
 export function createCall (handle: Handle) {
   return function callHandle (context: CallContext) {
     const req = new IncomingMessage()
