@@ -10,19 +10,19 @@ const nodeless: Preset = {
     ...Object.fromEntries([
       'buffer',
       'events',
-      'fs',
       'fs/promises',
+      'fs',
       'http',
       'net',
       'path',
       'process',
-      'stream',
       'stream/promises',
       'stream/consumers',
       'stream/web',
+      'stream',
       'url',
-      'util',
-      'util/types'
+      'util/types',
+      'util'
     ].map(m => [m, `unenv/runtime/node/${m}/index`])),
 
     // npm
@@ -33,10 +33,10 @@ const nodeless: Preset = {
     _mime: 'mime/lite.js',
     fsevents: 'unenv/runtime/npm/fsevents',
     'node-fetch': 'unenv/runtime/npm/node-fetch',
-    'node-fetch-native': 'unenv/runtime/npm/node-fetch',
     'node-fetch-native/polyfill': 'unenv/runtime/mock/empty',
-    'cross-fetch': 'unenv/runtime/npm/cross-fetch',
+    'node-fetch-native': 'unenv/runtime/npm/node-fetch',
     'cross-fetch/polyfill': 'unenv/runtime/mock/empty',
+    'cross-fetch': 'unenv/runtime/npm/cross-fetch',
     'isomorphic-fetch': 'unenv/runtime/mock/empty',
     inherits: 'unenv/runtime/npm/inherits'
   },
