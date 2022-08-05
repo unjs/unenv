@@ -1,6 +1,6 @@
 import { Module } from 'module'
 
-export const NodeBuiltinModules = ([] as string[]).concat([
+export const NodeBuiltinModules = ([] as string[]).concat(Module.builtinModules, [
   'assert/strict',
   'fs/promises',
   'path/posix',
@@ -10,7 +10,7 @@ export const NodeBuiltinModules = ([] as string[]).concat([
   'stream/web',
   'timers/promises',
   'util/types'
-], Module.builtinModules)
+])
 
 export function mapArrToVal (val: any, arr: any[]) {
   return arr.reduce((p, c) => ({ ...p, [c]: val }), {})
