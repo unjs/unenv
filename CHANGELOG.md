@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.3](https://github.com/unjs/unenv/compare/v0.5.2...v0.5.3) (2022-08-08)
+
+
+### Bug Fixes
+
+* allow mocking subpaths of cjs-proxy ([#46](https://github.com/unjs/unenv/issues/46)) ([70efe37](https://github.com/unjs/unenv/commit/70efe372473d40d474eaa292ce5633d29933f108))
+* order aliases from specific to general ([#45](https://github.com/unjs/unenv/issues/45)) ([9c11eaa](https://github.com/unjs/unenv/commit/9c11eaa4dcc0cd1dc3f51c96e754e64475b3a77f))
+
 ### [0.5.2](https://github.com/unjs/unenv/compare/v0.5.1...v0.5.2) (2022-05-11)
 
 
