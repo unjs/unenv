@@ -1,3 +1,4 @@
+import { normalizeAliases } from 'pathe/utils'
 import type { Preset, Environment } from './types'
 
 export function env (...presets: Preset[]): Environment {
@@ -11,13 +12,7 @@ export function env (...presets: Preset[]): Environment {
   for (const preset of presets) {
     // Alias
     if (preset.alias) {
-      // Sort aliases from specific to general (ie. fs/promises before fs)
-      const aliases = Object.keys(preset.alias).sort((a, b) =>
-        (b.split('/').length - a.split('/').length) || (b.length - a.length)
-      )
-      for (const from of aliases) {
-        _env.alias[from] = preset.alias[from]
-      }
+      Object.assign(_env.alias, normalizeAliases(preset.alias))
     }
 
     // Inject
