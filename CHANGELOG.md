@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/unjs/unenv/compare/v0.5.3...v0.5.4) (2022-08-12)
+
+
+### Bug Fixes
+
+* remove native `node:fs` import ([524bc21](https://github.com/unjs/unenv/commit/524bc217cc1709948d25fd0ac9ff978b38367974))
+
 ### [0.5.3](https://github.com/unjs/unenv/compare/v0.5.2...v0.5.3) (2022-08-08)
 
 
