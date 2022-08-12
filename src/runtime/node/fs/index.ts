@@ -1,5 +1,5 @@
 // https://nodejs.org/api/fs.html
-import fs from 'node:fs'
+import type fs from 'node:fs'
 
 import * as _classes from './_classes'
 import * as _constants from './_constants'
@@ -16,6 +16,6 @@ export const promises = _promises
 export default <typeof fs> {
   ..._classes,
   ..._constants,
-  ...fs,
+  ..._fs,
   promises
 }
