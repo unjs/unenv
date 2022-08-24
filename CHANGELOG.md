@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/unjs/unenv/compare/v0.5.4...v0.6.0) (2022-08-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* **createCall:** return `res._data` as is
+
+### Bug Fixes
+
+* **createCall:** return `res._data` as is ([8f1235f](https://github.com/unjs/unenv/commit/8f1235f294ce35f3ad591c71728302ceb4f7ab9d)), closes [#43](https://github.com/unjs/unenv/issues/43)
+
 ### [0.5.4](https://github.com/unjs/unenv/compare/v0.5.3...v0.5.4) (2022-08-12)
 
 
