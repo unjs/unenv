@@ -29,10 +29,10 @@
     "release": "standard-version && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
-    "defu": "^6.0.0",
+    "defu": "^6.1.0",
     "mime": "^3.0.0",
     "node-fetch-native": "^0.1.4",
-    "pathe": "^0.3.4"
+    "pathe": "^0.3.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
@@ -43,5 +43,5 @@
     "typescript": "latest",
     "unbuild": "latest"
   },
-  "packageManager": "pnpm@7.9.0"
+  "packageManager": "pnpm@7.9.5"
 }
