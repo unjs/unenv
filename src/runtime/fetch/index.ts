@@ -11,9 +11,7 @@ export function createFetch (call: CallHandle, _fetch = global.fetch) {
     }
     try {
       const r = await call({ url, ...init })
-      // TODO: Ensure body is either of BodyInit types
-      // Blob | ArrayBUffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
-      return new Response(r.body as any, {
+      return new Response(r.body, {
         status: r.status,
         statusText: r.statusText,
         headers: Object.fromEntries(Object.entries(r.headers).map(

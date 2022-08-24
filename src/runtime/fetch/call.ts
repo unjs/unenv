@@ -31,8 +31,10 @@ export function createCall (handle: Handle) {
     req.body = context.body || null
 
     return handle(req, res).then(() => {
+      // TODO: Ensure _data is either of BodyInit (or narrower) types
+      // Blob | ArrayBUffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
       const r = {
-        body: res._data || '',
+        body: res._data as BodyInit || '',
         headers: res._headers,
         status: res.statusCode,
         statusText: res.statusMessage
