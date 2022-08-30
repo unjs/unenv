@@ -9,7 +9,7 @@ export interface CallContext {
   [key: string]: any
   url?: string
   method?: string
-  headers?: { [key: string]: string | string[] }
+  headers?: Headers | { [key: string]: string | string[] }
   protocol?: string
   body?: any
 }
@@ -21,8 +21,17 @@ export function createCall (handle: Handle) {
 
     req.url = context.url || '/'
     req.method = context.method || 'GET'
-    req.headers = context.headers || {}
-    req.headers.host = req.headers.host || context.host || undefined
+    req.headers = {};
+    if (context.headers) {
+      const headerEntries = typeof context.headers.entries === 'function'
+        ? context.headers.entries()
+        : Object.entries(context.headers)
+      for (const [name, value] of headerEntries) {
+        if (!value) { continue }
+        req.headers[name.toLowerCase()] = value
+      }
+    }
+    req.headers.host = req.headers.host || context.host || 'localhost'
 
     // @ts-ignore
     req.connection.encrypted = req.connection.encrypted || context.protocol === 'https'
