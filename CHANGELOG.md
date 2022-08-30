@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.2](https://github.com/unjs/unenv/compare/v0.6.1...v0.6.2) (2022-08-30)
+
+
+### Bug Fixes
+
+* **createCall:** normalize context headers ([65fe2b1](https://github.com/unjs/unenv/commit/65fe2b1a68582e66ee2cda5a123ca4d3e2b7039b)), closes [nuxt/framework#5718](https://github.com/nuxt/framework/issues/5718)
+
 ### [0.6.1](https://github.com/unjs/unenv/compare/v0.6.0...v0.6.1) (2022-08-24)
 
 
