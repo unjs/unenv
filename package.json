@@ -31,8 +31,8 @@
   "dependencies": {
     "defu": "^6.1.0",
     "mime": "^3.0.0",
-    "node-fetch-native": "^0.1.5",
-    "pathe": "^0.3.8"
+    "node-fetch-native": "^0.1.7",
+    "pathe": "^0.3.9"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
@@ -43,5 +43,5 @@
     "typescript": "latest",
     "unbuild": "latest"
   },
-  "packageManager": "pnpm@7.12.0"
+  "packageManager": "pnpm@7.13.4"
 }
