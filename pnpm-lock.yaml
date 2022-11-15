@@ -8,7 +8,7 @@ specifiers:
   eslint: latest
   mime: ^3.0.0
   node-fetch-native: ^0.1.8
-  pathe: ^0.3.9
+  pathe: ^1.0.0
   standard-version: latest
   typescript: latest
   unbuild: latest
@@ -17,7 +17,7 @@ dependencies:
   defu: 6.1.1
   mime: 3.0.0
   node-fetch-native: 0.1.8
-  pathe: 0.3.9
+  pathe: 1.0.0
 
 devDependencies:
   '@nuxtjs/eslint-config-typescript': 11.0.0_rmayb2veg2btbq6mbmnyivgasy
@@ -649,18 +649,12 @@ packages:
       through: 2.3.8
     dev: true
 
-  /acorn-jsx/5.3.2_acorn@8.8.0:
+  /acorn-jsx/5.3.2_acorn@8.8.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      acorn: 8.8.0
-    dev: true
-
-  /acorn/8.8.0:
-    resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
+      acorn: 8.8.1
     dev: true
 
   /acorn/8.8.1:
@@ -2025,8 +2019,8 @@ packages:
     resolution: {integrity: sha512-DQmnRpLj7f6TgN/NYb0MTzJXL+vJF9h3pHy4JhCIs3zwcgez8xmGg3sXHcEO97BrmO2OSvCwMdfdlyl+E9KjOw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: 8.8.0
-      acorn-jsx: 5.3.2_acorn@8.8.0
+      acorn: 8.8.1
+      acorn-jsx: 5.3.2_acorn@8.8.1
       eslint-visitor-keys: 3.3.0
     dev: true
 
@@ -3138,10 +3132,10 @@ packages:
 
   /pathe/0.3.9:
     resolution: {integrity: sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==}
+    dev: true
 
   /pathe/1.0.0:
     resolution: {integrity: sha512-nPdMG0Pd09HuSsr7QOKUXO2Jr9eqaDiZvDwdyIhNG5SHYujkQHYKDfGQkulBxvbDHz8oHLsTgKN86LSwYzSHAg==}
-    dev: true
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}

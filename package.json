@@ -32,7 +32,7 @@
     "defu": "^6.1.1",
     "mime": "^3.0.0",
     "node-fetch-native": "^0.1.8",
-    "pathe": "^0.3.9"
+    "pathe": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
