@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@types/node": "^17.0.31",
+    "@types/node": "^18.11.9",
     "consola": "latest",
     "eslint": "latest",
     "standard-version": "latest",
