@@ -1,4 +1,4 @@
-import type { Preset, Environment } from './types'
+import type { Preset, Environment } from "./types";
 
 export function env (...presets: Preset[]): Environment {
   const _env: Environment = {
@@ -6,17 +6,17 @@ export function env (...presets: Preset[]): Environment {
     inject: {},
     polyfill: [],
     external: []
-  }
+  };
 
   for (const preset of presets) {
     // Alias
     if (preset.alias) {
       // Sort aliases from specific to general (ie. fs/promises before fs)
       const aliases = Object.keys(preset.alias).sort((a, b) =>
-        (b.split('/').length - a.split('/').length) || (b.length - a.length)
-      )
+        (b.split("/").length - a.split("/").length) || (b.length - a.length)
+      );
       for (const from of aliases) {
-        _env.alias[from] = preset.alias[from]
+        _env.alias[from] = preset.alias[from];
       }
     }
 
@@ -24,24 +24,24 @@ export function env (...presets: Preset[]): Environment {
     if (preset.inject) {
       for (const global in preset.inject) {
         if (Array.isArray(preset.inject[global])) {
-          const [id, ...path] = preset.inject[global]
-          _env.inject[global] = [id, ...path]
+          const [id, ...path] = preset.inject[global];
+          _env.inject[global] = [id, ...path];
         } else {
-          _env.inject[global] = preset.inject[global]
+          _env.inject[global] = preset.inject[global];
         }
       }
     }
 
     // Polyfill
     if (preset.polyfill) {
-      _env.polyfill.push(...preset.polyfill.filter(Boolean) as string[])
+      _env.polyfill.push(...preset.polyfill.filter(Boolean) as string[]);
     }
 
     // External
     if (preset.external) {
-      _env.external.push(...preset.external)
+      _env.external.push(...preset.external);
     }
   }
 
-  return _env
+  return _env;
 }

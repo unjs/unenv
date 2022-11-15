@@ -1,7 +1,7 @@
 // https://www.npmjs.com/package/debug
 
-const noop = () => {}
-const debug = () => console.debug
+const noop = () => {};
+const debug = () => console.debug;
 
 Object.assign(debug, {
   default: debug,
@@ -23,6 +23,6 @@ Object.assign(debug, {
   skips: [],
   formatters: {},
   selectColors: noop
-})
+});
 
-export default debug
+export default debug;

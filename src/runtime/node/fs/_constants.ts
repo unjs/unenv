@@ -1,9 +1,9 @@
-import type fs from 'fs'
+import type fs from "node:fs";
 
-export const F_OK = 0
-export const R_OK = 4
-export const W_OK = 2
-export const X_OK = 1
+export const F_OK = 0;
+export const R_OK = 4;
+export const W_OK = 2;
+export const X_OK = 1;
 
 export const constants: typeof fs.constants = Object.create({
   UV_FS_SYMLINK_DIR: 1,
@@ -19,26 +19,26 @@ export const constants: typeof fs.constants = Object.create({
   UV_DIRENT_SOCKET: 5,
   UV_DIRENT_CHAR: 6,
   UV_DIRENT_BLOCK: 7,
-  S_IFMT: 61440,
-  S_IFREG: 32768,
-  S_IFDIR: 16384,
+  S_IFMT: 61_440,
+  S_IFREG: 32_768,
+  S_IFDIR: 16_384,
   S_IFCHR: 8192,
-  S_IFBLK: 24576,
+  S_IFBLK: 24_576,
   S_IFIFO: 4096,
-  S_IFLNK: 40960,
-  S_IFSOCK: 49152,
+  S_IFLNK: 40_960,
+  S_IFSOCK: 49_152,
   O_CREAT: 64,
   O_EXCL: 128,
   UV_FS_O_FILEMAP: 0,
   O_NOCTTY: 256,
   O_TRUNC: 512,
   O_APPEND: 1024,
-  O_DIRECTORY: 65536,
-  O_NOATIME: 262144,
-  O_NOFOLLOW: 131072,
-  O_SYNC: 1052672,
+  O_DIRECTORY: 65_536,
+  O_NOATIME: 262_144,
+  O_NOFOLLOW: 131_072,
+  O_SYNC: 1_052_672,
   O_DSYNC: 4096,
-  O_DIRECT: 16384,
+  O_DIRECT: 16_384,
   O_NONBLOCK: 2048,
   S_IRWXU: 448,
   S_IRUSR: 256,
@@ -62,5 +62,4 @@ export const constants: typeof fs.constants = Object.create({
   COPYFILE_FICLONE: 2,
   UV_FS_COPYFILE_FICLONE_FORCE: 4,
   COPYFILE_FICLONE_FORCE: 4
-})
-
+});

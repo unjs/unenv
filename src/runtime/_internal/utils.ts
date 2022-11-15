@@ -1,27 +1,27 @@
-import type { HeadersObject } from './types'
+import type { HeadersObject } from "./types";
 
 export function rawHeaders (headers: HeadersObject) {
-  const rawHeaders = []
+  const rawHeaders = [];
   for (const key in headers) {
     if (Array.isArray(headers[key])) {
       for (const h of headers[key] as any) {
-        rawHeaders.push(key, h)
+        rawHeaders.push(key, h);
       }
     } else {
-      rawHeaders.push(key, headers[key])
+      rawHeaders.push(key, headers[key]);
     }
   }
-  return rawHeaders
+  return rawHeaders;
 }
 
 export function mergeFns (...functions: Function[]) {
   return function (...args: any[]) {
     for (const fn of functions) {
-      fn(...args)
+      fn(...args);
     }
-  }
+  };
 }
 
 export function notImplemented (name: string) {
-  return () : any => { throw new Error(`[unenv] ${name} is not implemented yet!`) }
+  return () : any => { throw new Error(`[unenv] ${name} is not implemented yet!`); };
 }

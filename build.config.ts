@@ -1,4 +1,4 @@
-import { defineBuildConfig } from 'unbuild'
+import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
   declaration: true,
@@ -6,8 +6,8 @@ export default defineBuildConfig({
     emitCJS: true
   },
   entries: [
-    'src/index',
-    { input: 'src/runtime/', outDir: 'runtime', format: 'esm' },
-    { input: 'src/runtime/', outDir: 'runtime', format: 'cjs', ext: 'cjs', declaration: false }
+    "src/index",
+    { input: "src/runtime/", outDir: "runtime", format: "esm" },
+    { input: "src/runtime/", outDir: "runtime", format: "cjs", ext: "cjs", declaration: false }
   ]
-})
+});

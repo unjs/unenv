@@ -1,3 +1,3 @@
-import '../src/runtime/polyfill/global'
+import "../src/runtime/polyfill/global";
 
-console.log(window)
+console.log(window);

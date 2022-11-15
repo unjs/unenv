@@ -1,21 +1,21 @@
 // https://www.npmjs.com/package/fsevents
 
 export default {
-  watch(_dir: string, _cb: Function) {
-    return Promise.resolve()
+  watch (_dir: string, _cb: Function) {
+    return Promise.resolve();
   },
-  getInfo(path: string, _flags: number, _id: string) {
+  getInfo (path: string, _flags: number, _id: string) {
     return {
-      event: 'mock',
-      path: path,
-      type: 'file',
-      flags: 0x100000000,
+      event: "mock",
+      path,
+      type: "file",
+      flags: 0x1_00_00_00_00,
       changes: {
         inode: false,
         finder: false,
         access: false,
         xattrs: false
       }
-    }
+    };
   }
-}
+};

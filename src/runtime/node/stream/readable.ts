@@ -1,82 +1,78 @@
-import { EventEmitter } from 'events'
-import type * as stream from 'stream'
-import type { BufferEncoding, Callback } from '../../_internal/types'
+import { EventEmitter } from "node:events";
+import type * as stream from "node:stream";
+import type { BufferEncoding, Callback } from "../../_internal/types";
 
 // Docs: https://nodejs.org/api/stream.html#stream_readable_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/readable.js
 
 export class Readable extends EventEmitter implements stream.Readable {
-  readonly readableEncoding: BufferEncoding | null = null
-  readonly readableEnded: boolean = true
-  readonly readableFlowing: boolean | null = false
-  readonly readableHighWaterMark: number = 0
-  readonly readableLength: number = 0
-  readonly readableObjectMode: boolean = false
-  readonly readableAborted: boolean = false
-  readonly readableDidRead: boolean = false
+  readonly readableEncoding: BufferEncoding | null = null;
+  readonly readableEnded: boolean = true;
+  readonly readableFlowing: boolean | null = false;
+  readonly readableHighWaterMark: number = 0;
+  readonly readableLength: number = 0;
+  readonly readableObjectMode: boolean = false;
+  readonly readableAborted: boolean = false;
+  readonly readableDidRead: boolean = false;
 
-  readable: boolean = false
-  destroyed: boolean = false
+  readable: boolean = false;
+  destroyed: boolean = false;
 
   static from (_iterable: Iterable<any> | AsyncIterable<any>, options?: stream.ReadableOptions) {
-    return new Readable(options)
+    return new Readable(options);
   }
 
   constructor (_opts?: stream.ReadableOptions) {
-    super()
+    super();
   }
 
-  _read (_size: number) {
-  }
+  _read (_size: number) {}
 
-  read (_size?: number) {
-  }
+  read (_size?: number) {}
 
   setEncoding (_encoding: BufferEncoding) {
-    return this
+    return this;
   }
 
   pause () {
-    return this
+    return this;
   }
 
   resume () {
-    return this
+    return this;
   }
 
   isPaused () {
-    return true
+    return true;
   }
 
   unpipe (_destination?: any) {
-    return this
+    return this;
   }
 
-  unshift (_chunk: any, _encoding?: BufferEncoding) {
-  }
+  unshift (_chunk: any, _encoding?: BufferEncoding) {}
 
   wrap (_oldStream: any) {
-    return this
+    return this;
   }
 
   push (_chunk: any, _encoding?: BufferEncoding) {
-    return false
+    return false;
   }
 
   _destroy (_error?: any, _callback?: Callback<any>) {
-    this.removeAllListeners()
+    this.removeAllListeners();
   }
 
   destroy (error?: Error) {
-    this.destroyed = true
-    this._destroy(error)
-    return this
+    this.destroyed = true;
+    this._destroy(error);
+    return this;
   }
 
   pipe<T> (_destenition: T, _options?: { end?: boolean }): T {
-    return {} as T
+    return {} as T;
   }
 
-  async *[Symbol.asyncIterator] (): AsyncIterableIterator<any> {
-  }
+  async * [Symbol.asyncIterator] (): AsyncIterableIterator<any> {}
 }

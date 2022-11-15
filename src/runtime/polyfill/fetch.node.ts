@@ -1,1 +1,1 @@
-import 'node-fetch-native/polyfill'
+import "node-fetch-native/polyfill";
