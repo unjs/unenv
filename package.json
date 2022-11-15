@@ -31,7 +31,7 @@
   "dependencies": {
     "defu": "^6.1.1",
     "mime": "^3.0.0",
-    "node-fetch-native": "^0.1.8",
+    "node-fetch-native": "^1.0.1",
     "pathe": "^0.3.9"
   },
   "devDependencies": {
