@@ -1,5 +1,5 @@
 // https://nodejs.org/api/stream.html
-import stream from "node:stream";
+import type stream from "node:stream";
 import mock from "../../mock/proxy";
 import { notImplemented } from "../../_internal/utils";
 import { Readable } from "./readable";

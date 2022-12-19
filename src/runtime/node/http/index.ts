@@ -1,5 +1,5 @@
 // https://nodejs.org/api/http.html
-import http from "node:http";
+import type http from "node:http";
 import { notImplemented } from "../../_internal/utils";
 import mock from "../../mock/proxy";
 import * as consts from "./_consts";
