@@ -4,7 +4,7 @@ const customSymbol = Symbol("customPromisify");
 
 type Fn = (...args: any[]) => any;
 
-function _promisify (fn: Fn & { [customSymbol]?: Fn}) {
+function _promisify(fn: Fn & { [customSymbol]?: Fn }) {
   if (fn[customSymbol]) {
     return fn[customSymbol];
   }
@@ -13,7 +13,9 @@ function _promisify (fn: Fn & { [customSymbol]?: Fn}) {
       try {
         // @ts-ignore
         fn.call(this, ...args, (err, val) => {
-          if (err) { return reject(err); }
+          if (err) {
+            return reject(err);
+          }
           resolve(val);
         });
       } catch (error) {
@@ -26,4 +28,4 @@ function _promisify (fn: Fn & { [customSymbol]?: Fn}) {
 _promisify.custom = customSymbol;
 
 // @ts-ignore
-export const promisify : typeof util.promisify = _promisify;
+export const promisify: typeof util.promisify = _promisify;

@@ -14,9 +14,12 @@ export const btoa = global.btoa;
 export const atob = globalThis.atob;
 
 export const kStringMaxLength = 0; // TODO
-export const constants = { MAX_LENGTH: kMaxLength, MAX_STRING_LENGTH: kStringMaxLength };
+export const constants = {
+  MAX_LENGTH: kMaxLength,
+  MAX_STRING_LENGTH: kStringMaxLength,
+};
 
-export default <typeof buffer> {
+export default <typeof buffer>{
   Buffer: Buffer as any as typeof buffer.Buffer,
   SlowBuffer: SlowBuffer as any as typeof buffer.SlowBuffer,
   kMaxLength,
@@ -27,5 +30,5 @@ export default <typeof buffer> {
   btoa,
   atob,
   kStringMaxLength,
-  constants
+  constants,
 };

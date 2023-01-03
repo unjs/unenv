@@ -4,4 +4,4 @@ import * as types from "./_types";
 
 export * from "./_types";
 
-export default <typeof utilTypes> types;
+export default <typeof utilTypes>types;

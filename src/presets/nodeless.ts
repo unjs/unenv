@@ -7,23 +7,25 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     ...mapArrToVal("unenv/runtime/mock/proxy-cjs", NodeBuiltinModules),
 
     // Built-ins implemented by unenv
-    ...Object.fromEntries([
-      "buffer",
-      "events",
-      "fs",
-      "fs/promises",
-      "http",
-      "net",
-      "path",
-      "process",
-      "stream",
-      "stream/promises",
-      "stream/consumers",
-      "stream/web",
-      "url",
-      "util",
-      "util/types"
-    ].map(m => [m, `unenv/runtime/node/${m}/index`])),
+    ...Object.fromEntries(
+      [
+        "buffer",
+        "events",
+        "fs",
+        "fs/promises",
+        "http",
+        "net",
+        "path",
+        "process",
+        "stream",
+        "stream/promises",
+        "stream/consumers",
+        "stream/web",
+        "url",
+        "util",
+        "util/types",
+      ].map((m) => [m, `unenv/runtime/node/${m}/index`])
+    ),
 
     // npm
     etag: "unenv/runtime/mock/noop",
@@ -38,17 +40,15 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     "cross-fetch": "unenv/runtime/npm/cross-fetch",
     "cross-fetch/polyfill": "unenv/runtime/mock/empty",
     "isomorphic-fetch": "unenv/runtime/mock/empty",
-    inherits: "unenv/runtime/npm/inherits"
+    inherits: "unenv/runtime/npm/inherits",
   },
 
   inject: {
     process: "unenv/runtime/polyfill/process",
-    Buffer: ["buffer", "Buffer"]
+    Buffer: ["buffer", "Buffer"],
   },
 
-  polyfill: [
-    "unenv/runtime/polyfill/process"
-  ]
+  polyfill: ["unenv/runtime/polyfill/process"],
 };
 
 // Add node: aliases

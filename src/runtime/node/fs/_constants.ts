@@ -61,5 +61,5 @@ export const constants: typeof fs.constants = Object.create({
   UV_FS_COPYFILE_FICLONE: 2,
   COPYFILE_FICLONE: 2,
   UV_FS_COPYFILE_FICLONE_FORCE: 4,
-  COPYFILE_FICLONE_FORCE: 4
+  COPYFILE_FICLONE_FORCE: 4,
 });

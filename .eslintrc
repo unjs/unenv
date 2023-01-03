@@ -10,6 +10,10 @@
     "unicorn/prefer-code-point": 0,
     "unicorn/text-encoding-identifier-case": 0,
     "prefer-rest-params": 0,
-    "prefer-spread": 0
+    "prefer-spread": 0,
+    "unicorn/number-literal-case": 0,
+    "generator-star-spacing": 0,
+    "indent": 0,
+    "unicorn/no-nested-ternary": 0
   }
 }

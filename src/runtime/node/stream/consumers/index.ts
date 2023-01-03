@@ -7,10 +7,10 @@ export const buffer = notImplemented("stream.consumers.buffer");
 export const text = notImplemented("stream.consumers.text");
 export const json = notImplemented("stream.consumers.json");
 
-export default <typeof stramConsumers> {
+export default <typeof stramConsumers>{
   arrayBuffer,
   blob,
   buffer,
   text,
-  json
+  json,
 };

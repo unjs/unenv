@@ -23,20 +23,20 @@ export class IncomingMessage extends Readable implements http.IncomingMessage {
 
   readable: boolean = false;
 
-  constructor (socket?: Socket) {
+  constructor(socket?: Socket) {
     super();
     this.socket = this.connection = socket || new Socket();
   }
 
-  get rawHeaders () {
+  get rawHeaders() {
     return rawHeaders(this.headers);
   }
 
-  get rawTrailers () {
+  get rawTrailers() {
     return [];
   }
 
-  setTimeout (_msecs: number, _callback?: () => void) {
+  setTimeout(_msecs: number, _callback?: () => void) {
     return this;
   }
 }

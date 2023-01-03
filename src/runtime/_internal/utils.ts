@@ -1,6 +1,6 @@
 import type { HeadersObject } from "./types";
 
-export function rawHeaders (headers: HeadersObject) {
+export function rawHeaders(headers: HeadersObject) {
   const rawHeaders = [];
   for (const key in headers) {
     if (Array.isArray(headers[key])) {
@@ -15,7 +15,7 @@ export function rawHeaders (headers: HeadersObject) {
 }
 
 type Fn = (...args: any[]) => any;
-export function mergeFns (...functions: Fn[]) {
+export function mergeFns(...functions: Fn[]) {
   return function (...args: any[]) {
     for (const fn of functions) {
       fn(...args);
@@ -23,6 +23,8 @@ export function mergeFns (...functions: Fn[]) {
   };
 }
 
-export function notImplemented (name: string) {
-  return () : any => { throw new Error(`[unenv] ${name} is not implemented yet!`); };
+export function notImplemented(name: string) {
+  return (): any => {
+    throw new Error(`[unenv] ${name} is not implemented yet!`);
+  };
 }

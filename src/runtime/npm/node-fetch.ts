@@ -1,7 +1,8 @@
 // https://github.com/node-fetch/node-fetch
 
 // Native browser APIs
-export const fetch = (...args: Parameters<typeof globalThis["fetch"]>) => globalThis.fetch(...args);
+export const fetch = (...args: Parameters<typeof globalThis["fetch"]>) =>
+  globalThis.fetch(...args);
 
 export const Headers = globalThis.Headers;
 export const Request = globalThis.Request;

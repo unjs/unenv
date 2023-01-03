@@ -18,61 +18,64 @@ export class Readable extends EventEmitter implements stream.Readable {
   readable: boolean = false;
   destroyed: boolean = false;
 
-  static from (_iterable: Iterable<any> | AsyncIterable<any>, options?: stream.ReadableOptions) {
+  static from(
+    _iterable: Iterable<any> | AsyncIterable<any>,
+    options?: stream.ReadableOptions
+  ) {
     return new Readable(options);
   }
 
-  constructor (_opts?: stream.ReadableOptions) {
+  constructor(_opts?: stream.ReadableOptions) {
     super();
   }
 
-  _read (_size: number) {}
+  _read(_size: number) {}
 
-  read (_size?: number) {}
+  read(_size?: number) {}
 
-  setEncoding (_encoding: BufferEncoding) {
+  setEncoding(_encoding: BufferEncoding) {
     return this;
   }
 
-  pause () {
+  pause() {
     return this;
   }
 
-  resume () {
+  resume() {
     return this;
   }
 
-  isPaused () {
+  isPaused() {
     return true;
   }
 
-  unpipe (_destination?: any) {
+  unpipe(_destination?: any) {
     return this;
   }
 
-  unshift (_chunk: any, _encoding?: BufferEncoding) {}
+  unshift(_chunk: any, _encoding?: BufferEncoding) {}
 
-  wrap (_oldStream: any) {
+  wrap(_oldStream: any) {
     return this;
   }
 
-  push (_chunk: any, _encoding?: BufferEncoding) {
+  push(_chunk: any, _encoding?: BufferEncoding) {
     return false;
   }
 
-  _destroy (_error?: any, _callback?: Callback<any>) {
+  _destroy(_error?: any, _callback?: Callback<any>) {
     this.removeAllListeners();
   }
 
-  destroy (error?: Error) {
+  destroy(error?: Error) {
     this.destroyed = true;
     this._destroy(error);
     return this;
   }
 
-  pipe<T> (_destenition: T, _options?: { end?: boolean }): T {
+  pipe<T>(_destenition: T, _options?: { end?: boolean }): T {
     return {} as T;
   }
 
-  async * [Symbol.asyncIterator] (): AsyncIterableIterator<any> {}
+  async *[Symbol.asyncIterator](): AsyncIterableIterator<any> {}
 }

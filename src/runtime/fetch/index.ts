@@ -1,10 +1,13 @@
 import { CallContext, CallHandle } from "./call";
 export * from "./call";
 
-export type FetchOptions = globalThis.RequestInit & CallContext
+export type FetchOptions = globalThis.RequestInit & CallContext;
 
-export function createFetch (call: CallHandle, _fetch = global.fetch) {
-  return async function ufetch (input: string | Request, init: FetchOptions): Promise<Response> {
+export function createFetch(call: CallHandle, _fetch = global.fetch) {
+  return async function ufetch(
+    input: string | Request,
+    init: FetchOptions
+  ): Promise<Response> {
     const url = input.toString();
     if (!url.startsWith("/")) {
       return _fetch(url, init);
@@ -14,14 +17,17 @@ export function createFetch (call: CallHandle, _fetch = global.fetch) {
       return new Response(r.body, {
         status: r.status,
         statusText: r.statusText,
-        headers: Object.fromEntries(Object.entries(r.headers).map(
-          ([name, value]) => [name, Array.isArray(value) ? value.join(",") : (value || "")])
-        )
+        headers: Object.fromEntries(
+          Object.entries(r.headers).map(([name, value]) => [
+            name,
+            Array.isArray(value) ? value.join(",") : value || "",
+          ])
+        ),
       });
     } catch (error: any) {
       return new Response(error.toString(), {
         status: Number.parseInt(error.statusCode || error.code) || 500,
-        statusText: error.statusText
+        statusText: error.statusText,
       });
     }
   };

@@ -22,7 +22,7 @@ Object.assign(debug, {
   names: [],
   skips: [],
   formatters: {},
-  selectColors: noop
+  selectColors: noop,
 });
 
 export default debug;

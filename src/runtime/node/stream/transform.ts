@@ -5,7 +5,11 @@ import { Duplex } from "./duplex";
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/transform.js
 
 export class Transform extends Duplex implements stream.Transform {
-  _transform (chunk: any, encoding: globalThis.BufferEncoding, callback: stream.TransformCallback): void {}
+  _transform(
+    chunk: any,
+    encoding: globalThis.BufferEncoding,
+    callback: stream.TransformCallback
+  ): void {}
 
-  _flush (callback: stream.TransformCallback): void {}
+  _flush(callback: stream.TransformCallback): void {}
 }

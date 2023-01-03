@@ -10,34 +10,39 @@ export const process = {} as typeof globalThis.process;
 let cachedSetTimeout: typeof globalThis.setTimeout;
 let cachedClearTimeout: typeof global.clearTimeout;
 
-function defaultSetTimeout () {
+function defaultSetTimeout() {
   throw new Error("setTimeout has not been defined");
 }
 
-function defaultClearTimeout () {
+function defaultClearTimeout() {
   throw new Error("clearTimeout has not been defined");
 }
 
 (function () {
   try {
-    cachedSetTimeout = typeof setTimeout === "function" ? setTimeout : defaultSetTimeout;
+    cachedSetTimeout =
+      typeof setTimeout === "function" ? setTimeout : defaultSetTimeout;
   } catch {
     cachedSetTimeout = defaultSetTimeout;
   }
   try {
-    cachedClearTimeout = typeof clearTimeout === "function" ? clearTimeout : defaultClearTimeout;
+    cachedClearTimeout =
+      typeof clearTimeout === "function" ? clearTimeout : defaultClearTimeout;
   } catch {
     cachedClearTimeout = defaultClearTimeout;
   }
-}());
+})();
 
-function runTimeout (fun: () => void) {
+function runTimeout(fun: () => void) {
   if (cachedSetTimeout === setTimeout) {
     // normal enviroments in sane situations
     return setTimeout(fun, 0);
   }
   // if setTimeout wasn't available but was latter defined
-  if ((cachedSetTimeout === defaultSetTimeout || !cachedSetTimeout) && setTimeout) {
+  if (
+    (cachedSetTimeout === defaultSetTimeout || !cachedSetTimeout) &&
+    setTimeout
+  ) {
     cachedSetTimeout = setTimeout;
     return setTimeout(fun, 0);
   }
@@ -56,13 +61,16 @@ function runTimeout (fun: () => void) {
   }
 }
 
-function runClearTimeout (marker) {
+function runClearTimeout(marker) {
   if (cachedClearTimeout === clearTimeout) {
     // normal enviroments in sane situations
     return clearTimeout(marker);
   }
   // if clearTimeout wasn't available but was latter defined
-  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+  if (
+    (cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) &&
+    clearTimeout
+  ) {
     cachedClearTimeout = clearTimeout;
     return clearTimeout(marker);
   }
@@ -87,7 +95,7 @@ let draining = false;
 let currentQueue;
 let queueIndex = -1;
 
-function cleanUpNextTick () {
+function cleanUpNextTick() {
   if (!draining || !currentQueue) {
     return;
   }
@@ -102,7 +110,7 @@ function cleanUpNextTick () {
   }
 }
 
-function drainQueue () {
+function drainQueue() {
   if (draining) {
     return;
   }
@@ -140,7 +148,7 @@ process.nextTick = function (fun) {
 };
 
 // v8 likes predictible objects
-function Item (fun, array) {
+function Item(fun, array) {
   this.fun = fun;
   this.array = array;
 }
@@ -155,7 +163,9 @@ process.version = ""; // empty string to avoid regexp issues
 // @ts-ignore
 process.versions = {};
 
-function noop () { return process; }
+function noop() {
+  return process;
+}
 
 process.on = noop;
 process.addListener = noop;
@@ -168,12 +178,22 @@ process.emit = noop;
 process.prependListener = noop;
 process.prependOnceListener = noop;
 
-process.listeners = function (name) { return []; };
+process.listeners = function (name) {
+  return [];
+};
 
 // @ts-ignore
-process.binding = function (name) { throw new Error("[unenv] process.binding is not supported"); };
+process.binding = function (name) {
+  throw new Error("[unenv] process.binding is not supported");
+};
 
 let cwd = "/";
-process.cwd = function () { return cwd; };
-process.chdir = function (dir) { cwd = dir; };
-process.umask = function () { return 0; };
+process.cwd = function () {
+  return cwd;
+};
+process.chdir = function (dir) {
+  cwd = dir;
+};
+process.umask = function () {
+  return 0;
+};

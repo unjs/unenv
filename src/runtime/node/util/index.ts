@@ -13,23 +13,31 @@ export { default as inherits } from "../../npm/inherits";
 export { promisify } from "./_promisify";
 
 // @ts-ignore
-export const TextDecoder : typeof util.TextDecoder = globalThis.TextDecoder;
+export const TextDecoder: typeof util.TextDecoder = globalThis.TextDecoder;
 
 // @ts-ignore
-export const TextEncoder : typeof util.TextEncoder = globalThis.TextEncoder;
+export const TextEncoder: typeof util.TextEncoder = globalThis.TextEncoder;
 
-export const deprecate : typeof util.deprecate = fn => fn;
+export const deprecate: typeof util.deprecate = (fn) => fn;
 
 export const _errnoException = notImplemented("util._errnoException");
-export const _exceptionWithHostPort = notImplemented("util._exceptionWithHostPort");
+export const _exceptionWithHostPort = notImplemented(
+  "util._exceptionWithHostPort"
+);
 export const _extend = notImplemented("util._extend");
-export const callbackify : typeof util.callbackify = notImplemented("util.callbackify");
-export const getSystemErrorMap : typeof util.getSystemErrorMap = notImplemented("util.getSystemErrorMap");
-export const getSystemErrorName : typeof util.getSystemErrorName = notImplemented("util.getSystemErrorName");
-export const toUSVString : typeof util.toUSVString = notImplemented("util.toUSVString");
-export const stripVTControlCharacters : typeof util.stripVTControlCharacters = notImplemented("util.stripVTControlCharacters");
+export const callbackify: typeof util.callbackify =
+  notImplemented("util.callbackify");
+export const getSystemErrorMap: typeof util.getSystemErrorMap = notImplemented(
+  "util.getSystemErrorMap"
+);
+export const getSystemErrorName: typeof util.getSystemErrorName =
+  notImplemented("util.getSystemErrorName");
+export const toUSVString: typeof util.toUSVString =
+  notImplemented("util.toUSVString");
+export const stripVTControlCharacters: typeof util.stripVTControlCharacters =
+  notImplemented("util.stripVTControlCharacters");
 
-export default <typeof util> {
+export default <typeof util>{
   _errnoException,
   _exceptionWithHostPort,
   _extend,
@@ -45,5 +53,5 @@ export default <typeof util> {
   TextEncoder,
   types,
   ...logUtils,
-  ...legacyTypes
+  ...legacyTypes,
 };

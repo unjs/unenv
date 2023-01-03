@@ -5,7 +5,7 @@ try {
   Object.defineProperties(_global, {
     self: _defineOpts,
     window: _defineOpts,
-    global: _defineOpts
+    global: _defineOpts,
   });
 } catch {}
 

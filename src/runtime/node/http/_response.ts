@@ -22,12 +22,12 @@ export class ServerResponse extends Writable implements http.ServerResponse {
 
   _headers: HeadersObject = {};
 
-  constructor (req: http.IncomingMessage) {
+  constructor(req: http.IncomingMessage) {
     super();
     this.req = req;
   }
 
-  assignSocket (socket: Socket): void {
+  assignSocket(socket: Socket): void {
     // @ts-ignore
     socket._httpMessage = this;
     // socket.on('close', onServerResponseClose)
@@ -37,17 +37,19 @@ export class ServerResponse extends Writable implements http.ServerResponse {
     this._flush();
   }
 
-  _flush () {
+  _flush() {
     this.flushHeaders();
   }
 
-  detachSocket (_socket: Socket): void {}
+  detachSocket(_socket: Socket): void {}
 
-  writeContinue (_callback?: Callback): void {}
+  writeContinue(_callback?: Callback): void {}
 
-  writeHead (statusCode: number,
+  writeHead(
+    statusCode: number,
     arg1?: string | http.OutgoingHttpHeaders | http.OutgoingHttpHeader[],
-    arg2?: http.OutgoingHttpHeaders | http.OutgoingHttpHeader[]) {
+    arg2?: http.OutgoingHttpHeaders | http.OutgoingHttpHeader[]
+  ) {
     if (statusCode) {
       this.statusCode = statusCode;
     }
@@ -70,38 +72,43 @@ export class ServerResponse extends Writable implements http.ServerResponse {
     return this;
   }
 
-  writeProcessing (): void {}
+  writeProcessing(): void {}
 
-  setTimeout (_msecs: number, _callback?: Callback): this {
+  setTimeout(_msecs: number, _callback?: Callback): this {
     return this;
   }
 
-  setHeader (name: string, value: number | string | ReadonlyArray<string>): this {
+  setHeader(
+    name: string,
+    value: number | string | ReadonlyArray<string>
+  ): this {
     this._headers[name.toLowerCase()] = value + "";
     return this;
   }
 
-  getHeader (name: string): number | string | string[] | undefined {
+  getHeader(name: string): number | string | string[] | undefined {
     return this._headers[name.toLowerCase()];
   }
 
-  getHeaders (): http.OutgoingHttpHeaders {
+  getHeaders(): http.OutgoingHttpHeaders {
     return this._headers;
   }
 
-  getHeaderNames (): string[] {
+  getHeaderNames(): string[] {
     return Object.keys(this._headers);
   }
 
-  hasHeader (name: string): boolean {
+  hasHeader(name: string): boolean {
     return name.toLowerCase() in this._headers;
   }
 
-  removeHeader (name: string): void {
+  removeHeader(name: string): void {
     delete this._headers[name.toLowerCase()];
   }
 
-  addTrailers (_headers: http.OutgoingHttpHeaders | ReadonlyArray<[string, string]>): void {}
+  addTrailers(
+    _headers: http.OutgoingHttpHeaders | ReadonlyArray<[string, string]>
+  ): void {}
 
-  flushHeaders (): void {}
+  flushHeaders(): void {}
 }

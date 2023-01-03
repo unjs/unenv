@@ -5,5 +5,5 @@ import * as socket from "./socket";
 export * from "./socket";
 
 export default <typeof net>{
-  ...socket
+  ...socket,
 };

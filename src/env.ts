@@ -1,19 +1,20 @@
 import type { Preset, Environment } from "./types";
 
-export function env (...presets: Preset[]): Environment {
+export function env(...presets: Preset[]): Environment {
   const _env: Environment = {
     alias: {},
     inject: {},
     polyfill: [],
-    external: []
+    external: [],
   };
 
   for (const preset of presets) {
     // Alias
     if (preset.alias) {
       // Sort aliases from specific to general (ie. fs/promises before fs)
-      const aliases = Object.keys(preset.alias).sort((a, b) =>
-        (b.split("/").length - a.split("/").length) || (b.length - a.length)
+      const aliases = Object.keys(preset.alias).sort(
+        (a, b) =>
+          b.split("/").length - a.split("/").length || b.length - a.length
       );
       for (const from of aliases) {
         _env.alias[from] = preset.alias[from];
@@ -34,7 +35,7 @@ export function env (...presets: Preset[]): Environment {
 
     // Polyfill
     if (preset.polyfill) {
-      _env.polyfill.push(...preset.polyfill.filter(Boolean) as string[]);
+      _env.polyfill.push(...(preset.polyfill.filter(Boolean) as string[]));
     }
 
     // External

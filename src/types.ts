@@ -1,8 +1,8 @@
 export interface Environment {
-  alias: { [key: string]: string }
-  inject: { [key: string]: string | string[] }
-  polyfill: string[]
-  external: string[]
+  alias: { [key: string]: string };
+  inject: { [key: string]: string | string[] };
+  polyfill: string[];
+  external: string[];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

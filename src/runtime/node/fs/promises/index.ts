@@ -27,6 +27,7 @@ export const lutimes: typeof fsp.lutimes = notImplemented("fs.lutimes");
 export const realpath: typeof fsp.realpath = notImplemented("fs.realpath");
 export const mkdtemp: typeof fsp.mkdtemp = notImplemented("fs.mkdtemp");
 export const writeFile: typeof fsp.writeFile = notImplemented("fs.writeFile");
-export const appendFile: typeof fsp.appendFile = notImplemented("fs.appendFile");
+export const appendFile: typeof fsp.appendFile =
+  notImplemented("fs.appendFile");
 export const readFile: typeof fsp.readFile = notImplemented("fs.readFile");
 export const watch: typeof fsp.watch = notImplemented("fs.watch");

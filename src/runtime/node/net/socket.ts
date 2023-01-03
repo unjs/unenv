@@ -16,56 +16,67 @@ export class Socket extends Duplex implements net.Socket {
   readonly remotePort?: number = 0;
   readonly readyState: net.SocketReadyState = "readOnly";
 
-  constructor (_options?: net.SocketConstructorOpts) {
+  constructor(_options?: net.SocketConstructorOpts) {
     super();
   }
 
-  write (_buffer: Uint8Array | string, _arg1?: BufferEncoding | Callback<Error | undefined>,
-    _arg2?: Callback<Error | undefined>): boolean {
+  write(
+    _buffer: Uint8Array | string,
+    _arg1?: BufferEncoding | Callback<Error | undefined>,
+    _arg2?: Callback<Error | undefined>
+  ): boolean {
     return false;
   }
 
-  connect (_arg1: number | string | net.SocketConnectOpts, _arg2?: string | Callback, _arg3?: Callback) {
+  connect(
+    _arg1: number | string | net.SocketConnectOpts,
+    _arg2?: string | Callback,
+    _arg3?: Callback
+  ) {
     return this;
   }
 
-  end (_arg1?: Callback | Uint8Array | string, _arg2?: BufferEncoding | Callback, _arg3?: Callback) {
+  end(
+    _arg1?: Callback | Uint8Array | string,
+    _arg2?: BufferEncoding | Callback,
+    _arg3?: Callback
+  ) {
     return this;
   }
 
-  setEncoding (_encoding?: BufferEncoding): this {
+  setEncoding(_encoding?: BufferEncoding): this {
     return this;
   }
 
-  pause () {
+  pause() {
     return this;
   }
 
-  resume () {
+  resume() {
     return this;
   }
 
-  setTimeout (_timeout: number, _callback?: Callback): this {
+  setTimeout(_timeout: number, _callback?: Callback): this {
     return this;
   }
 
-  setNoDelay (_noDelay?: boolean): this {
+  setNoDelay(_noDelay?: boolean): this {
     return this;
   }
 
-  setKeepAlive (_enable?: boolean, _initialDelay?: number): this {
+  setKeepAlive(_enable?: boolean, _initialDelay?: number): this {
     return this;
   }
 
-  address () {
+  address() {
     return {};
   }
 
-  unref () {
+  unref() {
     return this;
   }
 
-  ref () {
+  ref() {
     return this;
   }
 }

@@ -13,9 +13,9 @@ export * from "./_fs";
 
 export const promises = _promises;
 
-export default <typeof fs> {
+export default <typeof fs>{
   ..._classes,
   ..._constants,
   ..._fs,
-  promises
+  promises,
 };

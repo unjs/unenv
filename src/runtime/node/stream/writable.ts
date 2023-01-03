@@ -19,15 +19,15 @@ export class Writable extends EventEmitter implements stream.Writable {
   _data: unknown;
   _encoding: BufferEncoding = "utf-8";
 
-  constructor (_opts?: stream.WritableOptions) {
+  constructor(_opts?: stream.WritableOptions) {
     super();
   }
 
-  pipe<T> (_destenition: T, _options?: { end?: boolean }): T {
+  pipe<T>(_destenition: T, _options?: { end?: boolean }): T {
     return {} as T;
   }
 
-  _write (chunk: any, encoding: BufferEncoding, callback?: Callback): void {
+  _write(chunk: any, encoding: BufferEncoding, callback?: Callback): void {
     this._data = chunk; // TODO: append
     this._encoding = encoding;
     if (callback) {
@@ -35,26 +35,44 @@ export class Writable extends EventEmitter implements stream.Writable {
     }
   }
 
-  _writev? (_chunks: Array<{ chunk: any, encoding: BufferEncoding }>, _callback: (error?: Error | null) => void): void {}
+  _writev?(
+    _chunks: Array<{ chunk: any; encoding: BufferEncoding }>,
+    _callback: (error?: Error | null) => void
+  ): void {}
 
-  _destroy (_error: any, _callback: Callback<any>): void {}
+  _destroy(_error: any, _callback: Callback<any>): void {}
 
-  _final (_callback: Callback) {}
+  _final(_callback: Callback) {}
 
-  write (chunk: any, arg2?: BufferEncoding | Callback, arg3?: Callback): boolean {
+  write(
+    chunk: any,
+    arg2?: BufferEncoding | Callback,
+    arg3?: Callback
+  ): boolean {
     const encoding = typeof arg2 === "string" ? this._encoding : "utf-8";
-    const cb = typeof arg2 === "function" ? arg2 : (typeof arg3 === "function" ? arg3 : undefined);
+    const cb =
+      typeof arg2 === "function"
+        ? arg2
+        : typeof arg3 === "function"
+        ? arg3
+        : undefined;
     this._write(chunk, encoding, cb);
     return true;
   }
 
-  setDefaultEncoding (_encoding: BufferEncoding): this {
+  setDefaultEncoding(_encoding: BufferEncoding): this {
     return this;
   }
 
-  end (arg1: Callback | any, arg2?: Callback | BufferEncoding, arg3?: Callback) {
-    // eslint-disable-next-line unicorn/no-nested-ternary
-    const cb = (typeof arg1 === "function") ? arg1 : (typeof arg2 === "function" ? arg2 : (typeof arg3 === "function" ? arg3 : undefined));
+  end(arg1: Callback | any, arg2?: Callback | BufferEncoding, arg3?: Callback) {
+    const cb =
+      typeof arg1 === "function"
+        ? arg1
+        : typeof arg2 === "function"
+        ? arg2
+        : typeof arg3 === "function"
+        ? arg3
+        : undefined;
     const data = arg1 !== cb ? arg1 : undefined;
     if (data) {
       const encoding = arg2 !== cb ? arg2 : undefined;
@@ -67,11 +85,11 @@ export class Writable extends EventEmitter implements stream.Writable {
     return this;
   }
 
-  cork (): void {}
+  cork(): void {}
 
-  uncork (): void {}
+  uncork(): void {}
 
-  destroy (_error?: Error) {
+  destroy(_error?: Error) {
     this.destroyed = true;
     delete this._data;
     this.removeAllListeners();
