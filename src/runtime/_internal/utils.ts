@@ -14,7 +14,8 @@ export function rawHeaders (headers: HeadersObject) {
   return rawHeaders;
 }
 
-export function mergeFns (...functions: Function[]) {
+type Fn = (...args: any[]) => any;
+export function mergeFns (...functions: Fn[]) {
   return function (...args: any[]) {
     for (const fn of functions) {
       fn(...args);

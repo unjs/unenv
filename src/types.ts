@@ -5,4 +5,5 @@ export interface Environment {
   external: string[]
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Preset extends Partial<Environment> {}

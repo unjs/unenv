@@ -15,7 +15,7 @@ function createMock (name: string, overrides: any = {}): any {
       return createMock(`${name}()`);
     },
     construct (_target, _args, _newT) {
-      return createMock(`[${name}]`) as Object;
+      return createMock(`[${name}]`) as object;
     },
     enumerate (_target) {
       return [];

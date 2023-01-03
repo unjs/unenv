@@ -2,12 +2,12 @@
 import type util from "node:util";
 import { notImplemented } from "../../_internal/utils";
 import inherits from "../../npm/inherits";
-import * as legacyTypes from "./_legacyTypes";
+import * as legacyTypes from "./_legacy-types";
 import * as logUtils from "./_log";
 import types from "./types";
 import { promisify } from "./_promisify";
 
-export * from "./_legacyTypes";
+export * from "./_legacy-types";
 export * from "./_log";
 export { default as inherits } from "../../npm/inherits";
 export { promisify } from "./_promisify";

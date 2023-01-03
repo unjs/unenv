@@ -2,7 +2,9 @@ import type util from "node:util";
 
 const customSymbol = Symbol("customPromisify");
 
-function _promisify (fn: Function & { [customSymbol]?: Function}) {
+type Fn = (...args: any[]) => any;
+
+function _promisify (fn: Fn & { [customSymbol]?: Fn}) {
   if (fn[customSymbol]) {
     return fn[customSymbol];
   }

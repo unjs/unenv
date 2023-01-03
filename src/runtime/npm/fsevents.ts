@@ -1,7 +1,7 @@
 // https://www.npmjs.com/package/fsevents
 
 export default {
-  watch (_dir: string, _cb: Function) {
+  watch (_dir: string, _cb: (...args: any[]) => any) {
     return Promise.resolve();
   },
   getInfo (path: string, _flags: number, _id: string) {

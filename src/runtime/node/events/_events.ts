@@ -429,7 +429,7 @@ export function once (emitter, name) {
         emitter.removeListener("error", errorListener);
       }
       resolve(Array.prototype.slice.call(arguments));
-    };
+    }
 
     eventTargetAgnosticAddListener(emitter, name, resolver, { once: true });
     if (name !== "error") {

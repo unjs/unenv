@@ -31,7 +31,7 @@ function defaultClearTimeout () {
   }
 }());
 
-function runTimeout (fun: Function) {
+function runTimeout (fun: () => void) {
   if (cachedSetTimeout === setTimeout) {
     // normal enviroments in sane situations
     return setTimeout(fun, 0);

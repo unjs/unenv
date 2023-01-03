@@ -10,13 +10,13 @@ export const isArgumentsObject: typeof utilTypes.isArgumentsObject = notImplemen
 
 export const isBigIntObject = (val: any): val is Date => val instanceof BigInt;
 
-export const isBooleanObject: typeof utilTypes.isBooleanObject = (val): val is Boolean => val instanceof Boolean;
+export const isBooleanObject: typeof utilTypes.isBooleanObject = (val): val is boolean => val instanceof Boolean;
 
-export const isNumberObject: typeof utilTypes.isNumberObject = (val): val is Number => val instanceof Number;
+export const isNumberObject: typeof utilTypes.isNumberObject = (val): val is number => val instanceof Number;
 
-export const isStringObject: typeof utilTypes.isStringObject = (val): val is String => val instanceof String;
+export const isStringObject: typeof utilTypes.isStringObject = (val): val is string => val instanceof String;
 
-export const isSymbolObject: typeof utilTypes.isSymbolObject = (val): val is Symbol => val instanceof Symbol;
+export const isSymbolObject: typeof utilTypes.isSymbolObject = (val): val is symbol => val instanceof Symbol;
 
 // @ts-expect-error not implemented yet
 export const isNativeError: typeof utilTypes.isNativeError = notImplemented("util.types.isNativeError");
