@@ -27,8 +27,10 @@
   "scripts": {
     "build": "unbuild",
     "lint": "eslint --ext .ts . && prettier -c src",
+    "typecheck": "tsc --noEmit",
     "prepack": "unbuild",
-    "release": "standard-version && pnpm publish && git push --follow-tags"
+    "release": "pnpm test && standard-version && pnpm publish && git push --follow-tags",
+    "test": "pnpm lint && pnpm typecheck"
   },
   "dependencies": {
     "defu": "^6.1.1",
