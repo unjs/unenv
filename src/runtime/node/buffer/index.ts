@@ -6,7 +6,8 @@ import { Buffer, kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
 // @ts-ignore
 export { Buffer, kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
 
-export const Blob = globalThis.Blob;
+// @ts-expect-eerror https://github.com/unjs/unenv/issues/64
+export const Blob = globalThis.Blob as unknown as typeof buffer.Blob;
 export const resolveObjectURL = notImplemented("buffer.resolveObjectURL");
 export const transcode = notImplemented("buffer.transcode");
 

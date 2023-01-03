@@ -37,6 +37,13 @@ export const toUSVString: typeof util.toUSVString =
 export const stripVTControlCharacters: typeof util.stripVTControlCharacters =
   notImplemented("util.stripVTControlCharacters");
 
+export const transferableAbortController: typeof util.transferableAbortController =
+  notImplemented("util.transferableAbortController");
+export const transferableAbortSignal: typeof util.transferableAbortSignal =
+  notImplemented("util.transferableAbortSignal");
+export const parseArgs: typeof util.parseArgs =
+  notImplemented("util.parseArgs");
+
 export default <typeof util>{
   _errnoException,
   _exceptionWithHostPort,
@@ -52,6 +59,9 @@ export default <typeof util>{
   TextDecoder,
   TextEncoder,
   types,
+  transferableAbortController,
+  transferableAbortSignal,
+  parseArgs,
   ...logUtils,
   ...legacyTypes,
 };

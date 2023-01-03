@@ -1,7 +1,8 @@
 // https://nodejs.org/api/url.html
 import type url from "node:url";
 
-export const URL = globalThis.URL;
+// @ts-expect-error https://github.com/unjs/unenv/issues/65
+export const URL = globalThis.URL as typeof url.URL;
 
 export const URLSearchParams = globalThis.URLSearchParams;
 

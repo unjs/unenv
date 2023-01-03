@@ -24,6 +24,13 @@ export const ClientRequest: typeof http.ClientRequest =
 export const Agent: typeof http.Agent = mock.__createMock__("http.Agent");
 export const globalAgent: typeof http.globalAgent = new Agent();
 
+export const validateHeaderName: typeof http.validateHeaderName =
+  notImplemented("http.validateHeaderName");
+export const validateHeaderValue: typeof http.validateHeaderValue =
+  notImplemented("http.validateHeaderValue");
+export const setMaxIdleHTTPParsers: typeof http.setMaxIdleHTTPParsers =
+  notImplemented("http.setMaxIdleHTTPParsers");
+
 export default <typeof http>{
   ...consts,
   IncomingMessage: IncomingMessage as any as typeof http.IncomingMessage,
@@ -36,4 +43,7 @@ export default <typeof http>{
   ClientRequest,
   Agent,
   globalAgent,
+  validateHeaderName,
+  validateHeaderValue,
+  setMaxIdleHTTPParsers,
 };

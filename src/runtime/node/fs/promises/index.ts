@@ -1,6 +1,8 @@
 import type fsp from "node:fs/promises";
 import { notImplemented } from "../../../_internal/utils";
 
+export { constants } from "../_constants";
+
 export const access: typeof fsp.access = notImplemented("fs.access");
 export const copyFile: typeof fsp.copyFile = notImplemented("fs.copyFile");
 export const cp: typeof fsp.cp = notImplemented("fs.cp");
