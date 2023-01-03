@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/unjs/unenv/compare/v1.0.0...v1.0.1) (2023-01-03)
+
+
+### Bug Fixes
+
+* add missing latest node exports ([dd046a8](https://github.com/unjs/unenv/commit/dd046a8ee6c7f68bebf80f872b88c9c0a08ece0e))
+* add missing polyfill and types ([97e7c6f](https://github.com/unjs/unenv/commit/97e7c6fbf1f76df861b696b68b0c88e6157b77ec))
+* export named `fetch` from `node-fetch` polyfill ([#63](https://github.com/unjs/unenv/issues/63)) ([605e649](https://github.com/unjs/unenv/commit/605e6490ffa2be909b57fa02670542ea622b59f5))
+
 ## [1.0.0](https://github.com/unjs/unenv/compare/v0.6.2...v1.0.0) (2022-11-15)
 
 ### [0.6.2](https://github.com/unjs/unenv/compare/v0.6.1...v0.6.2) (2022-08-30)
