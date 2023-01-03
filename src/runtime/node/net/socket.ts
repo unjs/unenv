@@ -79,4 +79,11 @@ export class Socket extends Duplex implements net.Socket {
   ref() {
     return this;
   }
+
+  resetAndDestroy() {
+    const err = new Error("ERR_SOCKET_CLOSED");
+    (err as any).code = "ERR_SOCKET_CLOSED";
+    this.destroy(err);
+    return this;
+  }
 }

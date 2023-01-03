@@ -1,4 +1,4 @@
-import _global from "./globalThis";
+import _global from "./global-this";
 
 try {
   const _defineOpts: PropertyDescriptor = { enumerable: false, value: _global };

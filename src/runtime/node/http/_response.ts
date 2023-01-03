@@ -111,4 +111,10 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   ): void {}
 
   flushHeaders(): void {}
+
+  writeEarlyHints(_headers: http.OutgoingHttpHeaders, cb: () => void): void {
+    if (typeof cb === "function") {
+      cb();
+    }
+  }
 }

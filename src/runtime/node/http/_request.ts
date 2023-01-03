@@ -20,6 +20,8 @@ export class IncomingMessage extends Readable implements http.IncomingMessage {
   public url: string = "/";
   public statusCode: number = 200;
   public statusMessage: string = "";
+  public closed: boolean = false;
+  public errored: Error | null = null;
 
   readable: boolean = false;
 

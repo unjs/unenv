@@ -41,6 +41,7 @@ export function createCall(handle: Handle) {
 
     // @ts-ignore
     req.connection.encrypted =
+      // @ts-ignore
       req.connection.encrypted || context.protocol === "https";
 
     // @ts-ignore

@@ -13,6 +13,9 @@ export class Writable extends EventEmitter implements stream.Writable {
   readonly writableLength: number = 0;
   readonly writableObjectMode: boolean = false;
   readonly writableCorked: number = 0;
+  readonly closed: boolean = false;
+  readonly errored: Error | null = null;
+  readonly writableNeedDrain: boolean = false;
 
   destroyed: boolean = false;
 

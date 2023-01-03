@@ -14,6 +14,8 @@ export class Readable extends EventEmitter implements stream.Readable {
   readonly readableObjectMode: boolean = false;
   readonly readableAborted: boolean = false;
   readonly readableDidRead: boolean = false;
+  readonly closed: boolean = false;
+  readonly errored: Error | null = null;
 
   readable: boolean = false;
   destroyed: boolean = false;

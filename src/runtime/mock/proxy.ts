@@ -24,7 +24,9 @@ function createMock(name: string, overrides: any = {}): any {
     construct(_target, _args, _newT) {
       return createMock(`[${name}]`) as object;
     },
-    enumerate(_target) {
+    // @ts-ignore (ES6-only - removed in ES7)
+    // https://github.com/tc39/ecma262/issues/161
+    enumerate() {
       return [];
     },
   });
