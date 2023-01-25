@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.0.2
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.0.1...v1.0.2)
+
+
+### 🩹 Fixes
+
+  - **events:** Export once function ([#68](https://github.com/unjs/unenv/pull/68))
+
+### 🏡 Chore
+
+  - Switch to changelogen for release ([745cf52](https://github.com/unjs/unenv/commit/745cf52))
+
+### 🎨 Styles
+
+  - Format code ([239b531](https://github.com/unjs/unenv/commit/239b531))
+
+### ❤️  Contributors
+
+- Pooya Parsa <pooya@pi0.io>
+- Piyush Bhangale <bhangalepiyush@gmail.com>
+
 ### [1.0.1](https://github.com/unjs/unenv/compare/v1.0.0...v1.0.1) (2023-01-03)
 
 
