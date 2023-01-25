@@ -29,7 +29,7 @@
     "lint": "eslint --ext .ts . && prettier -c src",
     "typecheck": "tsc --noEmit",
     "prepack": "unbuild",
-    "release": "pnpm test && standard-version && pnpm publish && git push --follow-tags",
+    "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm typecheck"
   },
   "dependencies": {
@@ -40,11 +40,11 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
+    "changelogen": "^0.4.1",
     "consola": "^2.15.3",
     "eslint": "^8.32.0",
     "eslint-config-unjs": "^0.1.0",
     "prettier": "^2.8.3",
-    "standard-version": "^9.5.0",
     "typescript": "^4.9.4",
     "unbuild": "^1.1.1"
   },
