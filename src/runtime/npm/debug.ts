@@ -9,6 +9,7 @@ Object.assign(debug, {
   disable: noop,
   enable: noop,
   enabled: noop,
+  extend: debug,
   humanize: noop,
   destroy: noop,
   init: noop,
