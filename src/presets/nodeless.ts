@@ -7,6 +7,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     ...mapArrToVal("unenv/runtime/mock/proxy-cjs", NodeBuiltinModules),
 
     // Built-ins implemented by unenv
+    "buffer/index.js": "buffer",
     ...Object.fromEntries(
       [
         "buffer",
