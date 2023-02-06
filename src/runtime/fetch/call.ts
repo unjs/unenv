@@ -47,6 +47,9 @@ export function createCall(handle: Handle) {
     // @ts-ignore
     req.body = context.body || null;
 
+    // @ts-ignore
+    req.__unenv__ = context;
+
     return handle(req, res).then(() => {
       // TODO: Ensure _data is either of BodyInit (or narrower) types
       // Blob | ArrayBUffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
