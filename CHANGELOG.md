@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.1.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.0.3...v1.1.0)
+
+
+### 🚀 Enhancements
+
+  - **call:** Preserve fetch context in `req.__unenv__` ([#72](https://github.com/unjs/unenv/pull/72))
+
+### 🩹 Fixes
+
+  - Support import alias with `buffer/index.js` ([660df39](https://github.com/unjs/unenv/commit/660df39))
+
+### ❤️  Contributors
+
+- Pooya Parsa <pooya@pi0.io>
+
 ## v1.0.3
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.0.2...v1.0.3)
