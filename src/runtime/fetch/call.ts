@@ -48,7 +48,7 @@ export function createCall(handle: Handle) {
     req.body = context.body || null;
 
     // @ts-ignore
-    req.__unenv__ = context;
+    req.__unenv__ = context.context;
 
     return handle(req, res).then(() => {
       // TODO: Ensure _data is either of BodyInit (or narrower) types
