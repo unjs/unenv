@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.1.1
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.1.0...v1.1.1)
+
+
+### 🩹 Fixes
+
+  - **fetch:** Only pass `context` key from main context ([2e9b9fb](https://github.com/unjs/unenv/commit/2e9b9fb))
+
+### ❤️  Contributors
+
+- Pooya Parsa <pooya@pi0.io>
+
 ## v1.1.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.0.3...v1.1.0)
