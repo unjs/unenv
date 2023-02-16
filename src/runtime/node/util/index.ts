@@ -6,9 +6,12 @@ import * as legacyTypes from "./_legacy-types";
 import * as logUtils from "./_log";
 import types from "./types";
 import { promisify } from "./_promisify";
+import * as mime from "./_mime";
 
+export * from "./_mime";
 export * from "./_legacy-types";
 export * from "./_log";
+
 export { default as inherits } from "../../npm/inherits";
 export { promisify } from "./_promisify";
 
@@ -62,6 +65,7 @@ export default <typeof util>{
   transferableAbortController,
   transferableAbortSignal,
   parseArgs,
+  ...mime,
   ...logUtils,
   ...legacyTypes,
 };
