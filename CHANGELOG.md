@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.2.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.1.1...v1.2.0)
+
+
+### 🚀 Enhancements
+
+  - **node/stream:** Support writing multipe chunks ([#75](https://github.com/unjs/unenv/pull/75))
+  - **node/util:** Implement `MIMEType` and `MIMEParams` ([#76](https://github.com/unjs/unenv/pull/76))
+
+### ❤️  Contributors
+
+- Pooya Parsa <pooya@pi0.io>
+
 ## v1.1.1
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.1.0...v1.1.1)
