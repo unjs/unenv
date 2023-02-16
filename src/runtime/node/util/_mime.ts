@@ -40,7 +40,7 @@ export class MIMEParams extends Map<string, string> implements MIMEParamsT {
   }
 
   toString() {
-    return Array.from(this.entries())
+    return [...this.entries()]
       .map(([name, value]) => `${name}=${value}`)
       .join("&");
   }
