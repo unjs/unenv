@@ -31,7 +31,19 @@ export class Writable extends EventEmitter implements stream.Writable {
   }
 
   _write(chunk: any, encoding: BufferEncoding, callback?: Callback): void {
-    this._data = chunk; // TODO: append
+    if (this._data === undefined) {
+      this._data = chunk;
+    } else {
+      const a =
+        typeof this._data === "string"
+          ? Buffer.from(this._data, this._encoding || encoding || "utf8")
+          : this._data;
+      const b =
+        typeof chunk === "string"
+          ? Buffer.from(chunk, encoding || this._encoding || "utf8")
+          : chunk;
+      this._data = Buffer.concat([a, b]);
+    }
     this._encoding = encoding;
     if (callback) {
       callback();
