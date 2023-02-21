@@ -10,6 +10,7 @@ export { Buffer, kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
 export const Blob = globalThis.Blob as unknown as typeof buffer.Blob;
 export const resolveObjectURL = notImplemented("buffer.resolveObjectURL");
 export const transcode = notImplemented("buffer.transcode");
+export const isUtf8 = notImplemented("buffer.isUtf8");
 
 export const btoa = global.btoa;
 export const atob = globalThis.atob;
@@ -32,4 +33,5 @@ export default <typeof buffer>{
   atob,
   kStringMaxLength,
   constants,
+  isUtf8,
 };
