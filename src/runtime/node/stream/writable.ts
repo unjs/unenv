@@ -31,8 +31,10 @@ export class Writable extends EventEmitter implements stream.Writable {
   }
 
   _write(chunk: any, encoding: BufferEncoding, callback?: Callback): void {
-    if (this.writableEnded && callback) {
-      callback();
+    if (this.writableEnded) {
+      if (callback) {
+        callback();
+      }
       return;
     }
     if (this._data === undefined) {
