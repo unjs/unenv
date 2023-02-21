@@ -31,6 +31,10 @@ export class Writable extends EventEmitter implements stream.Writable {
   }
 
   _write(chunk: any, encoding: BufferEncoding, callback?: Callback): void {
+    if (this.writableEnded && callback) {
+      callback();
+      return;
+    }
     if (this._data === undefined) {
       this._data = chunk;
     } else {
@@ -80,7 +84,7 @@ export class Writable extends EventEmitter implements stream.Writable {
   }
 
   end(arg1: Callback | any, arg2?: Callback | BufferEncoding, arg3?: Callback) {
-    const cb =
+    const callback =
       typeof arg1 === "function"
         ? arg1
         : typeof arg2 === "function"
@@ -88,10 +92,16 @@ export class Writable extends EventEmitter implements stream.Writable {
         : typeof arg3 === "function"
         ? arg3
         : undefined;
-    const data = arg1 !== cb ? arg1 : undefined;
+    if (this.writableEnded) {
+      if (callback) {
+        callback();
+      }
+      return this;
+    }
+    const data = arg1 !== callback ? arg1 : undefined;
     if (data) {
-      const encoding = arg2 !== cb ? arg2 : undefined;
-      this.write(data, encoding, cb);
+      const encoding = arg2 !== callback ? arg2 : undefined;
+      this.write(data, encoding, callback);
     }
     this.writableEnded = true;
     this.writableFinished = true;
