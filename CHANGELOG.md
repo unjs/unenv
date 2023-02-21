@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.2.1
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.2.0...v1.2.1)
+
+
+### 🩹 Fixes
+
+  - **node/stream:** Stop writing data when `writableEnded` is set ([#79](https://github.com/unjs/unenv/pull/79))
+  - **node/buffer:** Add `isUtf8` util (not implemented) ([527904b](https://github.com/unjs/unenv/commit/527904b))
+
+### 📖 Documentation
+
+  - Fix typos ([#78](https://github.com/unjs/unenv/pull/78))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Yaël Guilloux ([@Tahul](http://github.com/Tahul))
+
 ## v1.2.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.1.1...v1.2.0)
