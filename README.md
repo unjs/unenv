@@ -131,7 +131,7 @@ By aliasing `os` to `unenv/runtime/mock/proxy-cjs`, code will be compatible in o
 
 ## Other polyfilles
 
-Please check [./src/rutime](./src/runtime) to discover other polyfilles.
+Please check [./src/runtime](./src/runtime) to discover other polyfills.
 
 ## License
 
