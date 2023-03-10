@@ -9,6 +9,7 @@ export class Socket extends Duplex implements net.Socket {
   readonly bytesWritten: number = 0;
   readonly connecting: boolean = false;
   readonly destroyed: boolean = false;
+  readonly pending: boolean = false;
   readonly localAddress: string = "";
   readonly localPort: number = 0;
   readonly remoteAddress?: string = "";

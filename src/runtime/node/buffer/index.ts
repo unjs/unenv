@@ -2,15 +2,18 @@
 import type buffer from "node:buffer";
 import { notImplemented } from "../../_internal/utils";
 import { Buffer, kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
+import { File } from "./_file";
 
 // @ts-ignore
 export { Buffer, kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
+export { File } from "./_file";
 
 // @ts-expect-eerror https://github.com/unjs/unenv/issues/64
 export const Blob = globalThis.Blob as unknown as typeof buffer.Blob;
 export const resolveObjectURL = notImplemented("buffer.resolveObjectURL");
 export const transcode = notImplemented("buffer.transcode");
 export const isUtf8 = notImplemented("buffer.isUtf8");
+export const isAscii = notImplemented("buffer.isAscii");
 
 export const btoa = global.btoa;
 export const atob = globalThis.atob;
@@ -34,4 +37,6 @@ export default <typeof buffer>{
   kStringMaxLength,
   constants,
   isUtf8,
+  isAscii,
+  File,
 };
