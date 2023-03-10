@@ -156,7 +156,7 @@ Item.prototype.run = function () {
   this.fun.apply(null, this.array);
 };
 process.title = "unenv";
-process.env = {};
+process.env = globalThis.process?.env || {};
 process.argv = [];
 // @ts-ignore
 process.version = ""; // empty string to avoid regexp issues
