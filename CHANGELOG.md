@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.2.2
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.2.1...v1.2.2)
+
+
+### 🩹 Fixes
+
+  - **node/process:** Support `process.env` shims ([893421b](https://github.com/unjs/unenv/commit/893421b))
+  - Add new node shims ([9ad4604](https://github.com/unjs/unenv/commit/9ad4604))
+
+### 📖 Documentation
+
+  - Fix some small typos and grammars ([#80](https://github.com/unjs/unenv/pull/80))
+
+### 🏡 Chore
+
+  - Update node types ([7219d5c](https://github.com/unjs/unenv/commit/7219d5c))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Levi (Nguyễn Lương Huy) ([@huynl-96](http://github.com/huynl-96))
+
 ## v1.2.1
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.2.0...v1.2.1)
