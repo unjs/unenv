@@ -1,21 +1,21 @@
 // https://nodejs.org/api/crypto.html
 // https://github.com/unjs/uncrypto
-
-import type crypto from "node:crypto";
+import type nodeCrypto from "node:crypto";
 
 const webCrypto = globalThis.crypto;
 
-export const subtle: Crypto["subtle"] = webCrypto.subtle;
+export const subtle: typeof nodeCrypto.subtle = webCrypto.subtle;
 
-export const randomUUID: Crypto["randomUUID"] = () => {
+export const randomUUID: typeof nodeCrypto.randomUUID = () => {
   return webCrypto.randomUUID();
 };
 
-export const getRandomValues: Crypto["getRandomValues"] = (array: any) => {
+export const getRandomValues: typeof nodeCrypto.getRandomValues = (array: any) => {
   return webCrypto.getRandomValues(array);
 };
 
-export default <typeof crypto>{
+
+export default <typeof nodeCrypto> {
   randomUUID,
   getRandomValues,
   subtle,
