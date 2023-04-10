@@ -10,12 +10,13 @@ export const randomUUID: typeof nodeCrypto.randomUUID = () => {
   return webCrypto.randomUUID();
 };
 
-export const getRandomValues: typeof nodeCrypto.getRandomValues = (array: any) => {
+export const getRandomValues: typeof nodeCrypto.getRandomValues = (
+  array: any
+) => {
   return webCrypto.getRandomValues(array);
 };
 
-
-export default <typeof nodeCrypto> {
+export default <typeof nodeCrypto>{
   randomUUID,
   getRandomValues,
   subtle,
