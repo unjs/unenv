@@ -52,7 +52,7 @@ Module | Status | Source
 [node:cluster](https://nodejs.org/api/cluster.html) | Mocked | -
 [node:console](https://nodejs.org/api/console.html) | Mocked | -
 [node:constants](https://nodejs.org/api/constants.html) | Mocked | -
-[node:crypto](https://nodejs.org/api/crypto.html) | Mocked | -
+[node:crypto](https://nodejs.org/api/crypto.html) | Polyfilled | [unenv/node/crypto](./src/runtime/node/crypto)
 [node:dgram](https://nodejs.org/api/dgram.html) | Mocked | -
 [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html) | Mocked | -
 [node:dns](https://nodejs.org/api/dns.html) | Mocked | -
