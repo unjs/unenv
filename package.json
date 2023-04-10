@@ -26,7 +26,8 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "lint": "eslint --ext .ts . && prettier -c src",
+    "lint": "eslint --ext .ts . && prettier -c src test",
+    "lint:fix": "eslint --fix --ext .ts . && prettier -w src test",
     "typecheck": "tsc --noEmit",
     "prepack": "unbuild",
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
