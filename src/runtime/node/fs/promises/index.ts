@@ -33,3 +33,4 @@ export const appendFile: typeof fsp.appendFile =
   notImplemented("fs.appendFile");
 export const readFile: typeof fsp.readFile = notImplemented("fs.readFile");
 export const watch: typeof fsp.watch = notImplemented("fs.watch");
+export const statfs: typeof fsp.statfs = notImplemented("fs.statfs");

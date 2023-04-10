@@ -56,6 +56,7 @@ export const truncate: typeof fs.truncate = callbackify(fsp.truncate);
 export const unlink: typeof fs.unlink = callbackify(fsp.unlink);
 export const utimes: typeof fs.utimes = callbackify(fsp.utimes);
 export const writeFile: typeof fs.writeFile = callbackify(fsp.writeFile);
+export const statfs: typeof fs.statfs = callbackify(fsp.statfs);
 
 export const close: typeof fs.close = notImplementedAsync("fs.close");
 export const createReadStream: typeof fs.createReadStream = notImplementedAsync(
@@ -142,3 +143,4 @@ export const writeFileSync: typeof fs.writeFileSync =
   notImplemented("fs.writeFileSync");
 export const writeSync: typeof fs.writeSync = notImplemented("fs.writeSync");
 export const writevSync: typeof fs.writevSync = notImplemented("fs.writevSync");
+export const statfsSync: typeof fs.statfsSync = notImplemented("fs.statfsSync");

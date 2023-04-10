@@ -16,3 +16,5 @@ export const WriteStream: typeof fs.WriteStream =
 export const FileReadStream = mock.__createMock__("fs.FileReadStream");
 
 export const FileWriteStream = mock.__createMock__("fs.FileWriteStream");
+
+export const StatsFs: typeof fs.StatsFs = mock.__createMock__("fs.StatsFs");
