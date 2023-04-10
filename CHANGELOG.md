@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.3.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.2.2...v1.3.0)
+
+
+### 🚀 Enhancements
+
+  - **npm:** Add named `consola` export for consola v3 compat ([7e67d71](https://github.com/unjs/unenv/commit/7e67d71))
+  - **node:** Add `node:crypto` polyfill ([#90](https://github.com/unjs/unenv/pull/90))
+
+### 🩹 Fixes
+
+  - **node:** Add new statfs exports ([080cf5b](https://github.com/unjs/unenv/commit/080cf5b))
+  - **pkg:** Move `types` export condition ([2d5a8dd](https://github.com/unjs/unenv/commit/2d5a8dd))
+
+### 🏡 Chore
+
+  - Update dependencies ([2fc33a8](https://github.com/unjs/unenv/commit/2fc33a8))
+  - Lint ([6855243](https://github.com/unjs/unenv/commit/6855243))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.2.2
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.2.1...v1.2.2)
