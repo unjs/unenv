@@ -11,6 +11,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     ...Object.fromEntries(
       [
         "buffer",
+        "crypto",
         "events",
         "fs",
         "fs/promises",
