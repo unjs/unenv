@@ -22,8 +22,8 @@ devDependencies:
     specifier: ^0.5.2
     version: 0.5.2
   consola:
-    specifier: ^2.15.3
-    version: 2.15.3
+    specifier: ^3.0.1
+    version: 3.0.1
   eslint:
     specifier: ^8.38.0
     version: 8.38.0
@@ -1119,6 +1119,10 @@ packages:
 
   /consola@2.15.3:
     resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
+    dev: true
+
+  /consola@3.0.1:
+    resolution: {integrity: sha512-08E7bC2N6gaFdzPU/qtBi4ulVvJitYnfrDdxEiwElC3jSNICbOvkcE+8N56EfIrBoxp37O9Qnn5ZZPElov83UQ==}
     dev: true
 
   /convert-gitmoji@0.1.3:
