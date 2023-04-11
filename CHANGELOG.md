@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.3.1
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.3.0...v1.3.1)
+
+
+### 🩹 Fixes
+
+  - **node:** Add `webcrypto` export for `node:crypto` ([fb2b280](https://github.com/unjs/unenv/commit/fb2b280))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.3.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.2.2...v1.3.0)
