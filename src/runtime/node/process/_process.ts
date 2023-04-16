@@ -156,12 +156,26 @@ Item.prototype.run = function () {
   this.fun.apply(null, this.array);
 };
 process.title = "unenv";
+const _getEnv = () =>
+  globalThis.process?.env || globalThis.__env__ || globalThis;
 process.env = new Proxy(
   {},
   {
     get: (_, prop) => {
-      const env = globalThis.process?.env || globalThis.__env__ || globalThis;
+      const env = _getEnv();
       return env[prop];
+    },
+    has(_, prop) {
+      const env = _getEnv();
+      return prop in env;
+    },
+    set: (_, prop, value) => {
+      const env = _getEnv();
+      if (env === globalThis) {
+        return false;
+      }
+      env[prop] = value;
+      return true;
     },
   }
 );
