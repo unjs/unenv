@@ -158,10 +158,9 @@ Item.prototype.run = function () {
 process.title = "unenv";
 
 const _envShim = Object.create(null);
+const _processEnv = globalThis.process?.env;
 const _getEnv = (useShim: boolean) =>
-  globalThis.process?.env ||
-  globalThis.__env__ ||
-  (useShim ? _envShim : globalThis);
+  _processEnv || globalThis.__env__ || (useShim ? _envShim : globalThis);
 
 process.env = new Proxy(_envShim, {
   get(_, prop) {
