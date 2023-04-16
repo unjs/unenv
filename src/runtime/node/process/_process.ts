@@ -156,7 +156,37 @@ Item.prototype.run = function () {
   this.fun.apply(null, this.array);
 };
 process.title = "unenv";
-process.env = globalThis.process?.env || {};
+
+const _envShim = Object.create(null);
+const _getEnv = (useShim: boolean) =>
+  globalThis.process?.env ||
+  globalThis.__env__ ||
+  (useShim ? _envShim : globalThis);
+
+process.env = new Proxy(_envShim, {
+  get(_, prop) {
+    const env = _getEnv();
+    return env[prop] ?? _envShim[prop];
+  },
+  has(_, prop) {
+    const env = _getEnv();
+    return prop in env || prop in _envShim;
+  },
+  set(_, prop, value) {
+    const env = _getEnv(true);
+    env[prop] = value;
+    return true;
+  },
+  deleteProperty(_, prop) {
+    const env = _getEnv(true);
+    delete env[prop];
+  },
+  ownKeys() {
+    const env = _getEnv();
+    return Object.keys(env);
+  },
+});
+
 process.argv = [];
 // @ts-ignore
 process.version = ""; // empty string to avoid regexp issues
