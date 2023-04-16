@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.4.1
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.4.0...v1.4.1)
+
+
+### 🩹 Fixes
+
+  - **node:process:** Avoid recursive access ([a1ba86c](https://github.com/unjs/unenv/commit/a1ba86c))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.4.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.3.1...v1.4.0)
