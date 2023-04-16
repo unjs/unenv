@@ -177,6 +177,10 @@ process.env = new Proxy(_envShim, {
     env[prop] = value;
     return true;
   },
+  deleteProperty(_, prop) {
+    const env = _getEnv(true);
+    delete env[prop];
+  },
   ownKeys() {
     const env = _getEnv();
     return Object.keys(env);
