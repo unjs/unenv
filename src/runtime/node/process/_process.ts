@@ -156,41 +156,32 @@ Item.prototype.run = function () {
   this.fun.apply(null, this.array);
 };
 process.title = "unenv";
-const _getEnv = () =>
-  globalThis.process?.env || globalThis.__env__ || globalThis;
-process.env = new Proxy(
-  {},
-  {
-    get(_, prop) {
-      const env = _getEnv();
-      return env[prop];
-    },
-    has(_, prop) {
-      const env = _getEnv();
-      return prop in env;
-    },
-    set(_, prop, value) {
-      const env = _getEnv();
-      if (env === globalThis) {
-        return false;
-      }
-      env[prop] = value;
-      return true;
-    },
-    defineProperty(_, prop) {
-      const env = _getEnv();
-      if (env === globalThis) {
-        return false;
-      }
-      delete env[prop];
-      return true;
-    },
-    ownKeys() {
-      const env = _getEnv();
-      return Object.keys(env);
-    },
-  }
-);
+
+const _envShim = Object.create(null);
+const _getEnv = (useShim: boolean) =>
+  globalThis.process?.env ||
+  globalThis.__env__ ||
+  (useShim ? _envShim : globalThis);
+
+process.env = new Proxy(_envShim, {
+  get(_, prop) {
+    const env = _getEnv();
+    return env[prop] ?? _envShim[prop];
+  },
+  has(_, prop) {
+    const env = _getEnv();
+    return prop in env || prop in _envShim;
+  },
+  set(_, prop, value) {
+    const env = _getEnv(true);
+    env[prop] = value;
+    return true;
+  },
+  ownKeys() {
+    const env = _getEnv();
+    return Object.keys(env);
+  },
+});
 process.argv = [];
 // @ts-ignore
 process.version = ""; // empty string to avoid regexp issues
