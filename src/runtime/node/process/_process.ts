@@ -161,7 +161,7 @@ const _getEnv = () =>
 process.env = new Proxy(
   {},
   {
-    get: (_, prop) => {
+    get(_, prop) {
       const env = _getEnv();
       return env[prop];
     },
@@ -169,13 +169,25 @@ process.env = new Proxy(
       const env = _getEnv();
       return prop in env;
     },
-    set: (_, prop, value) => {
+    set(_, prop, value) {
       const env = _getEnv();
       if (env === globalThis) {
         return false;
       }
       env[prop] = value;
       return true;
+    },
+    defineProperty(_, prop) {
+      const env = _getEnv();
+      if (env === globalThis) {
+        return false;
+      }
+      delete env[prop];
+      return true;
+    },
+    ownKeys() {
+      const env = _getEnv();
+      return Object.keys(env);
     },
   }
 );
