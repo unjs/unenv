@@ -186,6 +186,7 @@ process.env = new Proxy(_envShim, {
     return Object.keys(env);
   },
 });
+
 process.argv = [];
 // @ts-ignore
 process.version = ""; // empty string to avoid regexp issues
