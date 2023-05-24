@@ -5,6 +5,7 @@ import type { BufferEncoding, Callback } from "../../_internal/types";
 // Docs: https://nodejs.org/api/stream.html#stream_readable_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/readable.js
 
+// eslint-disable-next-line unicorn/prefer-event-target
 export class Readable extends EventEmitter implements stream.Readable {
   readonly readableEncoding: BufferEncoding | null = null;
   readonly readableEnded: boolean = true;

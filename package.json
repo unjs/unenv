@@ -41,10 +41,10 @@
     "pathe": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^18.16.14",
+    "@types/node": "^20.2.3",
     "changelogen": "^0.5.3",
     "eslint": "^8.41.0",
-    "eslint-config-unjs": "^0.1.0",
+    "eslint-config-unjs": "^0.2.0",
     "jiti": "^1.18.2",
     "prettier": "^2.8.8",
     "typescript": "^5.0.4",

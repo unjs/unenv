@@ -460,10 +460,10 @@ Buffer.concat = function concat(list, length) {
       } else {
         Uint8Array.prototype.set.call(buffer, buf, pos);
       }
-    } else if (!Buffer.isBuffer(buf)) {
-      throw new TypeError('"list" argument must be an Array of Buffers');
-    } else {
+    } else if (Buffer.isBuffer(buf)) {
       buf.copy(buffer, pos);
+    } else {
+      throw new TypeError('"list" argument must be an Array of Buffers');
     }
     pos += buf.length;
   }
@@ -922,13 +922,13 @@ Buffer.prototype.lastIndexOf = function lastIndexOf(val, byteOffset, encoding) {
 function hexWrite(buf, string, offset, length) {
   offset = Number(offset) || 0;
   const remaining = buf.length - offset;
-  if (!length) {
-    length = remaining;
-  } else {
+  if (length) {
     length = Number(length);
     if (length > remaining) {
       length = remaining;
     }
+  } else {
+    length = remaining;
   }
 
   const strLen = string.length;
