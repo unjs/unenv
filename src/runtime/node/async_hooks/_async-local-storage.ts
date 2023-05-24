@@ -44,4 +44,8 @@ export class AsyncLocalStorage<T> implements asyncHooks.AsyncLocalStorage<T> {
     this._currentStore = _previousStore;
     return res;
   }
+
+  static snapshot(): any {
+    throw new Error("[unenv] `AsyncLocalStorage.snapshot` is not implemented!");
+  }
 }

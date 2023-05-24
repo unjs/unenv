@@ -4,7 +4,7 @@ import type { BufferEncoding, Callback } from "../../_internal/types";
 
 // Docs: https://nodejs.org/api/stream.html#stream_writable_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/writable.js
-
+// eslint-disable-next-line unicorn/prefer-event-target
 export class Writable extends EventEmitter implements stream.Writable {
   readonly writable: boolean = true;
   writableEnded: boolean = false;
@@ -100,9 +100,9 @@ export class Writable extends EventEmitter implements stream.Writable {
       }
       return this;
     }
-    const data = arg1 !== callback ? arg1 : undefined;
+    const data = arg1 === callback ? undefined : arg1;
     if (data) {
-      const encoding = arg2 !== callback ? arg2 : undefined;
+      const encoding = arg2 === callback ? undefined : arg2;
       this.write(data, encoding, callback);
     }
     this.writableEnded = true;

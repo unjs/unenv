@@ -28,7 +28,7 @@ export const isSymbol: typeof util.isSymbol = (val): val is symbol =>
   typeof val === "symbol";
 
 export const isUndefined: typeof util.isUndefined = (val): val is undefined =>
-  typeof val === "undefined";
+  val === undefined;
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const isFunction: typeof util.isFunction = (val): val is Function =>

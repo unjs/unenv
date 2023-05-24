@@ -59,11 +59,11 @@ export const format = <typeof url.format>(
     let url: URL;
     if (typeof urlInput === "string") {
       url = new URL(urlInput);
-    } else if (!(urlInput instanceof URL)) {
+    } else if (urlInput instanceof URL) {
+      url = urlInput;
+    } else {
       // TODO
       throw new TypeError("format urlObject is not supported");
-    } else {
-      url = urlInput;
     }
     if (options) {
       if (options.auth === false) {

@@ -3,7 +3,7 @@
 
 const lookup = [];
 const revLookup = [];
-const Arr = typeof Uint8Array !== "undefined" ? Uint8Array : Array;
+const Arr = typeof Uint8Array === "undefined" ? Array : Uint8Array;
 
 const code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 for (let i = 0, len = code.length; i < len; ++i) {

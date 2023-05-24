@@ -41,4 +41,24 @@ export class IncomingMessage extends Readable implements http.IncomingMessage {
   setTimeout(_msecs: number, _callback?: () => void) {
     return this;
   }
+
+  get headersDistinct() {
+    return _distinct(this.headers);
+  }
+
+  get trailersDistinct() {
+    return _distinct(this.trailers);
+  }
+}
+
+function _distinct(obj: Record<string, any>) {
+  const d: Record<string, string[]> = {};
+  for (const [key, value] of Object.entries(obj)) {
+    if (key) {
+      d[key as string] = (Array.isArray(value) ? value : [value]).filter(
+        Boolean
+      );
+    }
+  }
+  return d;
 }
