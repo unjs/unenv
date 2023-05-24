@@ -36,6 +36,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     "mime/lite": "unenv/runtime/npm/mime",
     _mime: "mime/lite.js",
     fsevents: "unenv/runtime/npm/fsevents",
+    "consola/core": "consola/core",
     "node-fetch": "unenv/runtime/npm/node-fetch",
     "node-fetch-native": "unenv/runtime/npm/node-fetch",
     "node-fetch-native/polyfill": "unenv/runtime/mock/empty",
