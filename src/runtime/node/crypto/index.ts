@@ -20,18 +20,23 @@ export const getRandomValues: typeof nodeCrypto.getRandomValues = (
   return webcrypto.getRandomValues(array);
 };
 
-export const randomBytes /* :typeof nodeCrypto.randomBytes */ = (size: number, cb?: (err: Error | null, buf: Buffer) => void) => {
+export const randomBytes /* :typeof nodeCrypto.randomBytes */ = (
+  size: number,
+  cb?: (err: Error | null, buf: Buffer) => void
+) => {
   const bytes = Buffer.alloc(size, 0, undefined) as Buffer;
 
   for (let generated = 0; generated < size; generated += MAX_BYTES) {
     // buffer.slice automatically checks if the end is past the end of
     // the buffer so we don't have to here
-    getRandomValues(Uint8Array.prototype.slice.call(bytes, generated, generated + MAX_BYTES));
+    getRandomValues(
+      Uint8Array.prototype.slice.call(bytes, generated, generated + MAX_BYTES)
+    );
   }
 
   if (typeof cb === "function") {
-    cb(null, bytes)
-    return
+    cb(null, bytes);
+    return;
   }
   return bytes;
 };
