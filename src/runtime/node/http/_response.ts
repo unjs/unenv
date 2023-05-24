@@ -81,7 +81,7 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   }
 
   appendHeader(name: string, value: string | string[]) {
-    name = name.toLowerCase()
+    name = name.toLowerCase();
     const current = this._headers[name];
     const all = [
       ...(Array.isArray(current) ? current : [current]),
