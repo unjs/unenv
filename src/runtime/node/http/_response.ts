@@ -16,8 +16,10 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   sendDate: boolean = false;
   finished: boolean = false;
   headersSent: boolean = false;
+  strictContentLength = false;
   connection: Socket | null = null;
   socket: Socket | null = null;
+
   req: http.IncomingMessage;
 
   _headers: HeadersObject = {};
@@ -75,6 +77,17 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   writeProcessing(): void {}
 
   setTimeout(_msecs: number, _callback?: Callback): this {
+    return this;
+  }
+
+  appendHeader(name: string, value: string | string[]) {
+    name = name.toLowerCase()
+    const current = this._headers[name];
+    const all = [
+      ...(Array.isArray(current) ? current : [current]),
+      ...(Array.isArray(value) ? value : [value]),
+    ].filter(Boolean) as string[];
+    this._headers[name] = all.length > 1 ? all : all[0];
     return this;
   }
 

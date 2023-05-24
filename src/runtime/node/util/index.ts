@@ -28,6 +28,8 @@ export const _exceptionWithHostPort = notImplemented(
   "util._exceptionWithHostPort"
 );
 export const _extend = notImplemented("util._extend");
+
+export const aborted: typeof util.aborted = notImplemented("util.aborted");
 export const callbackify: typeof util.callbackify =
   notImplemented("util.callbackify");
 export const getSystemErrorMap: typeof util.getSystemErrorMap = notImplemented(
@@ -51,6 +53,7 @@ export default <typeof util>{
   _errnoException,
   _exceptionWithHostPort,
   _extend,
+  aborted,
   callbackify,
   deprecate,
   getSystemErrorMap,
