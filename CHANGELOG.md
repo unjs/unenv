@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.5.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.4.1...v1.5.0)
+
+
+### 🚀 Enhancements
+
+  - Implement basic `node:async_hooks` ([#98](https://github.com/unjs/unenv/pull/98))
+  - Use `consola/core` instead of mocking consola ([#93](https://github.com/unjs/unenv/pull/93))
+  - **http:** Support `IncomingMessage.headersDistinct` and `IncomingMessage.trailersDistinct` ([08e36cc](https://github.com/unjs/unenv/commit/08e36cc))
+  - **node/crypto:** Implement `randomBytes` ([#100](https://github.com/unjs/unenv/pull/100))
+  - **http:** Support `ServerResponse.appendHeader` ([c492d45](https://github.com/unjs/unenv/commit/c492d45))
+
+### 🩹 Fixes
+
+  - **async_hooks:** Add `snapshot` stub ([1eec581](https://github.com/unjs/unenv/commit/1eec581))
+
+### 🏡 Chore
+
+  - Update eslint ([4de6a50](https://github.com/unjs/unenv/commit/4de6a50))
+  - Fix lint issue ([ae2469b](https://github.com/unjs/unenv/commit/ae2469b))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- BoxenOfDonuts <joel.hacke@gmail.com>
+
 ## v1.4.1
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.4.0...v1.4.1)
