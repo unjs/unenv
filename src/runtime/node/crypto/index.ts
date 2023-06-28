@@ -1,6 +1,6 @@
 // https://nodejs.org/api/crypto.html
 // https://github.com/unjs/uncrypto
-import type nodeCrypto from "node:crypto";
+import nodeCrypto from "node:crypto";
 
 const webcrypto = globalThis.crypto;
 
@@ -20,6 +20,20 @@ export const getRandomValues: typeof nodeCrypto.getRandomValues = (
   return webcrypto.getRandomValues(array);
 };
 
+export const createHash: typeof nodeCrypto.createHash = (
+    algorithm,
+    options?
+) => {
+  return nodeCrypto.createHash(algorithm, options)
+}
+
+export const createHmac: typeof nodeCrypto.createHmac = (
+    algorithm,
+    options?
+) => {
+  return nodeCrypto.createHmac(algorithm, options)
+}
+
 export const randomBytes /* :typeof nodeCrypto.randomBytes */ = (
   size: number,
   cb?: (err: Error | null, buf: Buffer) => void
@@ -28,7 +42,7 @@ export const randomBytes /* :typeof nodeCrypto.randomBytes */ = (
 
   for (let generated = 0; generated < size; generated += MAX_BYTES) {
     // buffer.slice automatically checks if the end is past the end of
-    // the buffer so we don't have to here
+    // the buffer, so we don't have to here
     getRandomValues(
       Uint8Array.prototype.slice.call(bytes, generated, generated + MAX_BYTES)
     );
@@ -43,6 +57,8 @@ export const randomBytes /* :typeof nodeCrypto.randomBytes */ = (
 
 // TODO: Add missing exports (typecheck is not working!)
 export default <typeof nodeCrypto>{
+  createHash,
+  createHmac,
   randomUUID,
   getRandomValues,
   randomBytes,
