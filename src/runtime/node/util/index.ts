@@ -4,7 +4,7 @@ import { notImplemented } from "../../_internal/utils";
 import inherits from "../../npm/inherits";
 import * as legacyTypes from "./_legacy-types";
 import * as logUtils from "./_log";
-import types from "./types";
+import rawTypes from "./types";
 import { promisify } from "./_promisify";
 import * as mime from "./_mime";
 
@@ -20,6 +20,8 @@ export const TextDecoder: typeof util.TextDecoder = globalThis.TextDecoder;
 
 // @ts-ignore
 export const TextEncoder: typeof util.TextEncoder = globalThis.TextEncoder;
+
+export const types: typeof util.types = rawTypes
 
 export const deprecate: typeof util.deprecate = (fn) => fn;
 
