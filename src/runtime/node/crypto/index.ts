@@ -1,11 +1,14 @@
 // https://nodejs.org/api/crypto.html
 // https://github.com/unjs/uncrypto
 import nodeCrypto from "node:crypto";
+import { constants as cryptoConstants, KeyObject as keyObject } from "node:crypto"
 import stream from "node:stream";
 
 const webcrypto = globalThis.crypto;
 
-export const constants = nodeCrypto.constants
+export const constants: typeof nodeCrypto.constants = cryptoConstants
+
+export const KeyObject: typeof nodeCrypto.KeyObject = keyObject
 
 export const subtle: typeof nodeCrypto.subtle = webcrypto.subtle;
 
@@ -284,8 +287,6 @@ export const publicEncrypt: typeof nodeCrypto.publicEncrypt = (
 ) => {
   return nodeCrypto.publicEncrypt(key, buffer)
 }
-
-export const KeyObject = nodeCrypto.KeyObject
 
 export const randomFillSync: typeof nodeCrypto.randomFillSync = (
     buffer,
