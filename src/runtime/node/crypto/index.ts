@@ -4,7 +4,7 @@ import nodeCrypto from "node:crypto";
 import { constants as cryptoConstants, KeyObject as keyObject } from "node:crypto"
 import stream from "node:stream";
 
-const webcrypto = globalThis.crypto;
+export const webcrypto = globalThis.crypto;
 
 export const constants: typeof nodeCrypto.constants = cryptoConstants
 
