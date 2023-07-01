@@ -1,5 +1,5 @@
 import type utilTypes from "node:util/types";
-import { KeyObject as keyObject } from "node:crypto"
+import { KeyObject as keyObject } from "../../crypto"
 import { notImplemented } from "../../../_internal/utils";
 
 export const isExternal: typeof utilTypes.isExternal = notImplemented(
@@ -166,8 +166,8 @@ export const isBigInt64Array: typeof utilTypes.isBigInt64Array = notImplemented(
 export const isBigUint64Array: typeof utilTypes.isBigUint64Array =
   notImplemented("util.types.isBigUint64Array");
 
-export const isKeyObject: typeof utilTypes.isKeyObject =
-    (val): val is keyObject => val instanceof keyObject
+// @ts-ignore
+export const isKeyObject: typeof utilTypes.isKeyObject = (val): val is keyObject => val instanceof keyObject
 
 // @ts-expect-error not implemented yet
 export const isCryptoKey: typeof utilTypes.isCryptoKey = notImplemented(
