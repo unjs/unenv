@@ -34,6 +34,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@advena/web-timing-safe-equal": "^1.0.4",
     "consola": "^3.2.2",
     "crypto-browserify": "^3.12.0",
     "defu": "^6.1.2",

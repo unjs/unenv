@@ -4,6 +4,8 @@ import type nodeCrypto from "node:crypto"
 import stream from "node:stream";
 // @ts-ignore
 import cryptoBrowserify from "crypto-browserify"
+// @ts-ignore
+import { webTimingSafeEqual } from "@advena/web-timing-safe-equal"
 
 export const webcrypto = globalThis.crypto;
 
@@ -151,6 +153,10 @@ export const diffieHellman: typeof nodeCrypto.diffieHellman = (
   return cryptoBrowserify.diffieHellman(options)
 }
 
+
+/*
+// GENERATORS
+
 // @ts-ignore
 export const generateKeyPair: typeof nodeCrypto.generateKeyPair = (
     type,
@@ -167,13 +173,21 @@ export const generateKeyPairSync: typeof nodeCrypto.generateKeyPairSync = (
   return cryptoBrowserify.generateKeyPairSync(type, options)
 }
 
+export const generateKey: typeof nodeCrypto.generateKey = (
+    type,
+    options,
+    callback
+) => {
+  return cryptoBrowserify.generateKey(type, options, callback)
+}
+
 export const generateKeySync: typeof nodeCrypto.generateKeySync = (
     type,
     options
 ) => {
   return cryptoBrowserify.generateKeySync(type, options)
-}
-
+} */
+/*
 export const generatePrime: (size: number, options: nodeCrypto.GeneratePrimeOptions,
                              callback: (err: Error | null, prime: ArrayBuffer | bigint) => void) => void = (
     size,
@@ -195,15 +209,15 @@ export const getCipherInfo: typeof nodeCrypto.getCipherInfo = (
     options
 ) => {
   return cryptoBrowserify.getCipherInfo(nameOrNid, options)
-}
+} */
 
 export const getCiphers = () => {
   return cryptoBrowserify.getCiphers()
 }
 
-export const getCurves = () => {
+/* export const getCurves = () => {
   return cryptoBrowserify.getCurves()
-}
+} */
 
 export const getDiffieHellman: typeof nodeCrypto.getDiffieHellman = (
     groupName
@@ -211,14 +225,16 @@ export const getDiffieHellman: typeof nodeCrypto.getDiffieHellman = (
   return cryptoBrowserify.getDiffieHellman(groupName)
 }
 
+/*
 export const getFips: typeof nodeCrypto.getFips = () => {
   return cryptoBrowserify.getFips()
-}
+} */
 
 export const getHashes: typeof nodeCrypto.getHashes = () => {
   return cryptoBrowserify.getHashes()
 }
 
+/*
 export const hkdf: typeof nodeCrypto.hkdf = (
     digest,
     irm,
@@ -238,7 +254,7 @@ export const hkdfSync: typeof nodeCrypto.hkdfSync = (
     keylen
 ) => {
   return cryptoBrowserify.hkdfSync(digest, ikm, salt, info, keylen)
-}
+} */
 
 export const pbkdf2: typeof nodeCrypto.pbkdf2 = (
     password,
@@ -296,14 +312,16 @@ export const randomFillSync: typeof nodeCrypto.randomFillSync = (
   return cryptoBrowserify.randomFillSync(buffer, offset, size)
 }
 
+/*
 export const randomInt: (min: number, max: number, callback: (err: Error | null, value: number) => void) => void = (
     min,
     max,
     callback
 ) => {
   return cryptoBrowserify.randomInt(min, max, callback)
-}
+} */
 
+/*
 export const scryptSync: typeof nodeCrypto.scryptSync = (
     password,
     salt,
@@ -328,7 +346,7 @@ export const setFips: typeof nodeCrypto.setFips = (
     bool
 ) => {
   return cryptoBrowserify.setFips(bool)
-}
+} */
 
 export const sign: (
     algorithm: string | null | undefined,
@@ -340,14 +358,14 @@ export const sign: (
     data,
     key,
     callback) => {
-  return cryptoBrowserify.sign(algorithm, data, key, callback)
+  return cryptoBrowserify.Sign(algorithm, data, key, callback)
 }
 
 export const timingSafeEqual: typeof nodeCrypto.timingSafeEqual = (
     a,
     b
 ) => {
-  return cryptoBrowserify.timingSafeEqual(a, b)
+  return webTimingSafeEqual(a, b)
 }
 
 export const verify: (
@@ -363,7 +381,7 @@ export const verify: (
     signature,
     callback
 ) => {
-  return cryptoBrowserify.verify(algorithm, data, key, signature, callback)
+  return cryptoBrowserify.Verify(algorithm, data, key, signature, callback)
 }
 
 
@@ -384,20 +402,21 @@ export default <typeof nodeCrypto>{
   createSign,
   createVerify,
   diffieHellman,
-  generateKeyPair,
-  generateKeyPairSync,
-  generateKeySync,
-  generatePrime,
-  generatePrimeSync,
-  getCipherInfo,
+  // generateKeyPair,
+  // generateKeyPairSync,
+  // generateKey,
+  // generateKeySync,
+  // generatePrime,
+  // generatePrimeSync,
+  // getCipherInfo,
   getCiphers,
-  getCurves,
+  // getCurves,
   getDiffieHellman,
-  getFips,
+  // getFips,
   getHashes,
   getRandomValues,
-  hkdf,
-  hkdfSync,
+  // hkdf,
+  // hkdfSync,
   KeyObject,
   pbkdf2,
   pbkdf2Sync,
@@ -407,12 +426,12 @@ export default <typeof nodeCrypto>{
   publicEncrypt,
   randomBytes,
   randomFillSync,
-  randomInt,
+  // randomInt,
   randomUUID,
-  scryptSync,
-  secureHeapUsed,
-  setEngine,
-  setFips,
+  // scryptSync,
+  // secureHeapUsed,
+  // setEngine,
+  // setFips,
   sign,
   subtle,
   timingSafeEqual,

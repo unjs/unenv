@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@advena/web-timing-safe-equal':
+    specifier: ^1.0.4
+    version: 1.0.4
   consola:
     specifier: ^3.2.2
     version: 3.2.2
@@ -51,6 +54,10 @@ devDependencies:
     version: 1.2.1
 
 packages:
+
+  /@advena/web-timing-safe-equal@1.0.4:
+    resolution: {integrity: sha512-vKG2/rZHUvw7BTzbOIu5Re61FyuEeOkki+lQJVOm2HJKdIY5KrmRKxNAk4zP68nAU3/3HpDDGLZ7ipz9Mepnig==}
+    dev: false
 
   /@ampproject/remapping@2.2.1:
     resolution: {integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==}
@@ -3187,7 +3194,7 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
-    
+
   /ripemd160@2.0.2:
     resolution: {integrity: sha512-ii4iagi25WusVoiC4B4lq7pbXfAp3D9v5CwfkY33vffw2+pkDjY1D8GaN7spsxvCSx8dkPqOZCEZyfxcmJG2IA==}
     dependencies:
