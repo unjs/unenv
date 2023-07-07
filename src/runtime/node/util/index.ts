@@ -14,6 +14,7 @@ export * from "./_log";
 
 export { default as inherits } from "../../npm/inherits";
 export { promisify } from "./_promisify";
+export { default as types } from "./types";
 
 // @ts-ignore
 export const TextDecoder: typeof util.TextDecoder = globalThis.TextDecoder;
