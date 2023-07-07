@@ -91,12 +91,12 @@ export class Socket extends Duplex implements net.Socket {
 
 export class SocketAddress implements net.SocketAddress {
   address: string;
-  family: 'ipv4' | 'ipv6';
+  family: "ipv4" | "ipv6";
   port: number;
   flowlabel: number;
   constructor(options: net.SocketAddress) {
     this.address = options.address;
-    this.family = options.family ;
+    this.family = options.family;
     this.port = options.port;
     this.flowlabel = options.flowlabel;
   }

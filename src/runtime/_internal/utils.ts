@@ -34,5 +34,5 @@ export function notImplementedClass(name: string) {
     constructor() {
       throw new Error(`[unenv] ${name} is not implemented yet!`);
     }
-  }
+  };
 }
