@@ -6,13 +6,13 @@ import * as socket from "./socket";
 export * from "./socket";
 
 export const createServer = notImplemented(
-  "net.createServer"
+  "net.createServer",
 ) as typeof net.createServer;
 
 export const connect = notImplemented("net.connect") as typeof net.connect;
 
 export const createConnection = notImplemented(
-  "net.createConnection"
+  "net.createConnection",
 ) as typeof net.createConnection;
 
 export default <typeof net>{

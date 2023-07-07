@@ -14,7 +14,7 @@ export class AsyncResource implements asyncHooks.AsyncResource {
     type: string,
     triggerAsyncId:
       | number
-      | asyncHooks.AsyncResourceOptions = executionAsyncId()
+      | asyncHooks.AsyncResourceOptions = executionAsyncId(),
   ) {
     this.type = type;
     this._asyncId = -1 * _asyncIdCounter++;
@@ -27,7 +27,7 @@ export class AsyncResource implements asyncHooks.AsyncResource {
   static bind<Func extends (this: ThisArg, ...args: any[]) => any, ThisArg>(
     fn: Func,
     type?: string,
-    thisArg?: ThisArg
+    thisArg?: ThisArg,
   ) {
     const resource = new AsyncResource(type ?? "anonymous");
     return resource.bind(fn, thisArg);

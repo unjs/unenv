@@ -3,7 +3,7 @@ import { ServerResponse } from "../node/http/_response";
 
 export type Handle = (
   req: IncomingMessage,
-  res: ServerResponse
+  res: ServerResponse,
 ) => Promise<any>;
 
 export type CallHandle = ReturnType<typeof createCall>;

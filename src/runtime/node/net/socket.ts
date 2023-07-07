@@ -24,7 +24,7 @@ export class Socket extends Duplex implements net.Socket {
   write(
     _buffer: Uint8Array | string,
     _arg1?: BufferEncoding | Callback<Error | undefined>,
-    _arg2?: Callback<Error | undefined>
+    _arg2?: Callback<Error | undefined>,
   ): boolean {
     return false;
   }
@@ -32,7 +32,7 @@ export class Socket extends Duplex implements net.Socket {
   connect(
     _arg1: number | string | net.SocketConnectOpts,
     _arg2?: string | Callback,
-    _arg3?: Callback
+    _arg3?: Callback,
   ) {
     return this;
   }
@@ -40,7 +40,7 @@ export class Socket extends Duplex implements net.Socket {
   end(
     _arg1?: Callback | Uint8Array | string,
     _arg2?: BufferEncoding | Callback,
-    _arg3?: Callback
+    _arg3?: Callback,
   ) {
     return this;
   }

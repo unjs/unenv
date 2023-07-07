@@ -58,7 +58,7 @@ export class Writable extends EventEmitter implements stream.Writable {
 
   _writev?(
     _chunks: Array<{ chunk: any; encoding: BufferEncoding }>,
-    _callback: (error?: Error | null) => void
+    _callback: (error?: Error | null) => void,
   ): void {}
 
   _destroy(_error: any, _callback: Callback<any>): void {}
@@ -68,7 +68,7 @@ export class Writable extends EventEmitter implements stream.Writable {
   write(
     chunk: any,
     arg2?: BufferEncoding | Callback,
-    arg3?: Callback
+    arg3?: Callback,
   ): boolean {
     const encoding = typeof arg2 === "string" ? this._encoding : "utf-8";
     const cb =

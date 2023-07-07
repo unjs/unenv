@@ -19,13 +19,13 @@ export const PassThrough: stream.PassThrough =
   mock.__createMock__("PassThrough");
 
 export const pipeline: typeof stream.pipeline = notImplemented(
-  "stream.pipeline"
+  "stream.pipeline",
 ) as any;
 export const finished: typeof stream.finished = notImplemented(
-  "stream.finished"
+  "stream.finished",
 ) as any;
 export const addAbortSignal: typeof stream.addAbortSignal = notImplemented(
-  "stream.addAbortSignal"
+  "stream.addAbortSignal",
 );
 
 // Internal

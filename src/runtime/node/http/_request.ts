@@ -56,7 +56,7 @@ function _distinct(obj: Record<string, any>) {
   for (const [key, value] of Object.entries(obj)) {
     if (key) {
       d[key as string] = (Array.isArray(value) ? value : [value]).filter(
-        Boolean
+        Boolean,
       );
     }
   }

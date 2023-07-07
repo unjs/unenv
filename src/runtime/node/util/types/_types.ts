@@ -2,7 +2,7 @@ import type utilTypes from "node:util/types";
 import { notImplemented } from "../../../_internal/utils";
 
 export const isExternal: typeof utilTypes.isExternal = notImplemented(
-  "util.types.isExternal"
+  "util.types.isExternal",
 );
 
 export const isDate: typeof utilTypes.isDate = (val): val is Date =>
@@ -15,31 +15,31 @@ export const isArgumentsObject: typeof utilTypes.isArgumentsObject =
 export const isBigIntObject = (val: any): val is Date => val instanceof BigInt;
 
 export const isBooleanObject: typeof utilTypes.isBooleanObject = (
-  val
+  val,
 ): val is boolean => val instanceof Boolean;
 
 export const isNumberObject: typeof utilTypes.isNumberObject = (
-  val
+  val,
 ): val is number => val instanceof Number;
 
 export const isStringObject: typeof utilTypes.isStringObject = (
-  val
+  val,
 ): val is string => val instanceof String;
 
 export const isSymbolObject: typeof utilTypes.isSymbolObject = (
-  val
+  val,
 ): val is symbol => val instanceof Symbol;
 
 // @ts-expect-error not implemented yet
 export const isNativeError: typeof utilTypes.isNativeError = notImplemented(
-  "util.types.isNativeError"
+  "util.types.isNativeError",
 );
 
 export const isRegExp: typeof utilTypes.isRegExp = (val): val is RegExp =>
   val instanceof RegExp;
 
 export const isAsyncFunction: typeof utilTypes.isAsyncFunction = notImplemented(
-  "util.types.isAsyncFunction"
+  "util.types.isAsyncFunction",
 );
 
 // @ts-expect-error not implemented yet
@@ -51,7 +51,7 @@ export const isGeneratorObject: typeof utilTypes.isGeneratorObject =
   notImplemented("util.types.isGeneratorObject");
 
 export const isPromise: typeof utilTypes.isPromise = (
-  val
+  val,
 ): val is Promise<any> => val instanceof Promise;
 
 // @ts-ignore
@@ -63,11 +63,11 @@ export const isSet: typeof utilTypes.isSet = (val): val is Set =>
   val instanceof Set;
 
 export const isMapIterator: typeof utilTypes.isMapIterator = notImplemented(
-  "util.types.isMapIterator"
+  "util.types.isMapIterator",
 );
 
 export const isSetIterator: typeof utilTypes.isSetIterator = notImplemented(
-  "util.types.isSetIterator"
+  "util.types.isSetIterator",
 );
 
 // @ts-ignore
@@ -79,14 +79,14 @@ export const isWeakSet: typeof utilTypes.isWeakSet = (val): val is WeakSet =>
   val instanceof WeakSet;
 
 export const isArrayBuffer: typeof utilTypes.isArrayBuffer = (
-  val
+  val,
 ): val is ArrayBuffer => val instanceof ArrayBuffer;
 
 export const isDataView: typeof utilTypes.isDataView = (val): val is DataView =>
   val instanceof DataView;
 
 export const isSharedArrayBuffer: typeof utilTypes.isSharedArrayBuffer = (
-  val
+  val,
 ): val is SharedArrayBuffer => val instanceof SharedArrayBuffer;
 
 export const isProxy: typeof utilTypes.isProxy =
@@ -109,12 +109,12 @@ export const isArrayBufferView: typeof utilTypes.isArrayBufferView =
 
 // @ts-expect-error not implemented yet
 export const isTypedArray: typeof utilTypes.isTypedArray = notImplemented(
-  "util.types.isTypedArray"
+  "util.types.isTypedArray",
 );
 
 // @ts-expect-error not implemented yet
 export const isUint8Array: typeof utilTypes.isUint8Array = notImplemented(
-  "util.types.isUint8Array"
+  "util.types.isUint8Array",
 );
 
 // @ts-expect-error not implemented yet
@@ -123,42 +123,42 @@ export const isUint8ClampedArray: typeof utilTypes.isUint8ClampedArray =
 
 // @ts-expect-error not implemented yet
 export const isUint16Array: typeof utilTypes.isUint16Array = notImplemented(
-  "util.types.isUint16Array"
+  "util.types.isUint16Array",
 );
 
 // @ts-expect-error not implemented yet
 export const isUint32Array: typeof utilTypes.isUint32Array = notImplemented(
-  "util.types.isUint32Array"
+  "util.types.isUint32Array",
 );
 
 // @ts-expect-error not implemented yet
 export const isInt8Array: typeof utilTypes.isInt8Array = notImplemented(
-  "util.types.isInt8Array"
+  "util.types.isInt8Array",
 );
 
 // @ts-expect-error not implemented yet
 export const isInt16Array: typeof utilTypes.isInt16Array = notImplemented(
-  "util.types.isInt16Array"
+  "util.types.isInt16Array",
 );
 
 // @ts-expect-error not implemented yet
 export const isInt32Array: typeof utilTypes.isInt32Array = notImplemented(
-  "util.types.isInt32Array"
+  "util.types.isInt32Array",
 );
 
 // @ts-expect-error not implemented yet
 export const isFloat32Array: typeof utilTypes.isFloat32Array = notImplemented(
-  "util.types.isFloat32Array"
+  "util.types.isFloat32Array",
 );
 
 // @ts-expect-error not implemented yet
 export const isFloat64Array: typeof utilTypes.isFloat64Array = notImplemented(
-  "util.types.isFloat64Array"
+  "util.types.isFloat64Array",
 );
 
 // @ts-expect-error not implemented yet
 export const isBigInt64Array: typeof utilTypes.isBigInt64Array = notImplemented(
-  "util.types.isBigInt64Array"
+  "util.types.isBigInt64Array",
 );
 
 // @ts-expect-error not implemented yet
@@ -167,10 +167,10 @@ export const isBigUint64Array: typeof utilTypes.isBigUint64Array =
 
 // @ts-expect-error not implemented yet
 export const isKeyObject: typeof utilTypes.isKeyObject = notImplemented(
-  "util.types.isKeyObject"
+  "util.types.isKeyObject",
 );
 
 // @ts-expect-error not implemented yet
 export const isCryptoKey: typeof utilTypes.isCryptoKey = notImplemented(
-  "util.types.isCryptoKey"
+  "util.types.isCryptoKey",
 );

@@ -77,7 +77,7 @@ function checkListener(listener) {
   if (typeof listener !== "function") {
     throw new TypeError(
       'The "listener" argument must be of type Function. Received type ' +
-        typeof listener
+        typeof listener,
     );
   }
 }
@@ -92,7 +92,7 @@ Object.defineProperty(EventEmitter, "defaultMaxListeners", {
       throw new RangeError(
         'The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' +
           arg +
-          "."
+          ".",
       );
     }
     defaultMaxListeners = arg;
@@ -118,7 +118,7 @@ EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
     throw new RangeError(
       'The value of "n" is out of range. It must be a non-negative number. Received ' +
         n +
-        "."
+        ".",
     );
   }
   this._maxListeners = n;
@@ -163,7 +163,7 @@ EventEmitter.prototype.emit = function emit(type) {
     }
     // At least give some kind of context to the user
     const err = new Error(
-      "Unhandled error." + (er ? " (" + er.message + ")" : "")
+      "Unhandled error." + (er ? " (" + er.message + ")" : ""),
     );
     err.context = er;
     throw err; // Unhandled 'error' event
@@ -207,7 +207,7 @@ function _addListener(target, type, listener, prepend) {
         "newListener",
         type,
         // eslint-disable-next-line unicorn/prefer-logical-operator-over-ternary
-        listener.listener ? listener.listener : listener
+        listener.listener ? listener.listener : listener,
       );
 
       // Re-assign `events` because a newListener handler could have caused the
@@ -247,7 +247,7 @@ function _addListener(target, type, listener, prepend) {
           String(type) +
           " listeners " +
           "added. Use emitter.setMaxListeners() to " +
-          "increase limit"
+          "increase limit",
       );
       w.name = "MaxListenersExceededWarning";
       w.emitter = target;
@@ -268,7 +268,7 @@ EventEmitter.prototype.on = EventEmitter.prototype.addListener;
 
 EventEmitter.prototype.prependListener = function prependListener(
   type,
-  listener
+  listener,
 ) {
   return _addListener(this, type, listener, true);
 };
@@ -300,7 +300,7 @@ EventEmitter.prototype.once = function once(type, listener) {
 
 EventEmitter.prototype.prependOnceListener = function prependOnceListener(
   type,
-  listener
+  listener,
 ) {
   checkListener(listener);
   this.prependListener(type, _onceWrap(this, type, listener));
@@ -310,7 +310,7 @@ EventEmitter.prototype.prependOnceListener = function prependOnceListener(
 // Emits a 'removeListener' event if and only if the listener was removed.
 EventEmitter.prototype.removeListener = function removeListener(
   type,
-  listener
+  listener,
 ) {
   let position, i, originalListener;
 
@@ -552,7 +552,7 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
   } else {
     throw new TypeError(
       'The "emitter" argument must be of type EventEmitter. Received type ' +
-        typeof emitter
+        typeof emitter,
     );
   }
 }

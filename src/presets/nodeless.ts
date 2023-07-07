@@ -26,7 +26,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "url",
         "util",
         "util/types",
-      ].map((m) => [m, `unenv/runtime/node/${m}/index`])
+      ].map((m) => [m, `unenv/runtime/node/${m}/index`]),
     ),
 
     // npm

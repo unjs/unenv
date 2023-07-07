@@ -52,7 +52,7 @@ export class AsyncHook implements asyncHooks.HookCallbacks {
 }
 
 export const createHook: typeof asyncHooks.createHook = function createHook(
-  callbacks
+  callbacks,
 ) {
   const asyncHook = new AsyncHook(callbacks);
   return asyncHook;

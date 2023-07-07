@@ -6,7 +6,7 @@ export type FetchOptions = globalThis.RequestInit & CallContext;
 export function createFetch(call: CallHandle, _fetch = global.fetch) {
   return async function ufetch(
     input: string | Request,
-    init: FetchOptions
+    init: FetchOptions,
   ): Promise<Response> {
     const url = input.toString();
     if (!url.startsWith("/")) {
@@ -21,7 +21,7 @@ export function createFetch(call: CallHandle, _fetch = global.fetch) {
           Object.entries(r.headers).map(([name, value]) => [
             name,
             Array.isArray(value) ? value.join(",") : value || "",
-          ])
+          ]),
         ),
       });
     } catch (error: any) {

@@ -12,7 +12,7 @@ export const parse = <typeof url.parse>(
   function (
     urlString,
     parseQueryString?,
-    slashesDenoteHost?
+    slashesDenoteHost?,
   ): URL | url.UrlWithStringQuery {
     const url = new URL(urlString);
     if (!parseQueryString && !slashesDenoteHost) {

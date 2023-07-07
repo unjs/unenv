@@ -14,7 +14,7 @@ export function env(...presets: Preset[]): Environment {
       // Sort aliases from specific to general (ie. fs/promises before fs)
       const aliases = Object.keys(preset.alias).sort(
         (a, b) =>
-          b.split("/").length - a.split("/").length || b.length - a.length
+          b.split("/").length - a.split("/").length || b.length - a.length,
       );
       for (const from of aliases) {
         _env.alias[from] = preset.alias[from];

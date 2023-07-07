@@ -15,7 +15,7 @@ export const isBoolean: typeof util.isBoolean = (val): val is boolean =>
 export const isNull: typeof util.isNull = (val): val is null => val === null;
 
 export const isNullOrUndefined: typeof util.isNullOrUndefined = (
-  val
+  val,
 ): val is null | undefined => val === null || val === undefined;
 
 export const isNumber: typeof util.isNumber = (val): val is number =>

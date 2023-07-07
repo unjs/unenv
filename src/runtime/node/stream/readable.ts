@@ -23,7 +23,7 @@ export class Readable extends EventEmitter implements stream.Readable {
 
   static from(
     _iterable: Iterable<any> | AsyncIterable<any>,
-    options?: stream.ReadableOptions
+    options?: stream.ReadableOptions,
   ) {
     return new Readable(options);
   }

@@ -8,7 +8,7 @@ export class Transform extends Duplex implements stream.Transform {
   _transform(
     chunk: any,
     encoding: globalThis.BufferEncoding,
-    callback: stream.TransformCallback
+    callback: stream.TransformCallback,
   ): void {}
 
   _flush(callback: stream.TransformCallback): void {}

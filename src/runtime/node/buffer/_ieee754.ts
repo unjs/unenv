@@ -6,7 +6,7 @@ export function read(
   offset: number,
   isLE: boolean,
   mLen: number,
-  nBytes: number
+  nBytes: number,
 ) {
   let e, m;
   const eLen = nBytes * 8 - mLen - 1;
@@ -54,7 +54,7 @@ export function write(
   offset: number,
   isLE: boolean,
   mLen: number,
-  nBytes: number
+  nBytes: number,
 ) {
   let e, m, c;
   let eLen = nBytes * 8 - mLen - 1;

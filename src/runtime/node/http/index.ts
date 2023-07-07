@@ -17,7 +17,7 @@ export const get: typeof http.get = notImplemented("http.get");
 
 export const Server: typeof http.Server = mock.__createMock__("http.Server");
 export const OutgoingMessage: typeof http.OutgoingMessage = mock.__createMock__(
-  "http.OutgoingMessage"
+  "http.OutgoingMessage",
 );
 export const ClientRequest: typeof http.ClientRequest =
   mock.__createMock__("http.ClientRequest");

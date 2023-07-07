@@ -13,7 +13,7 @@ export const NodeBuiltinModules = ([] as string[]).concat(
     "stream/web",
     "timers/promises",
     "util/types",
-  ]
+  ],
 );
 
 export function mapArrToVal(val: any, arr: any[]) {

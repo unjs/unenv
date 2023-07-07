@@ -126,8 +126,8 @@ export function fromByteArray(uint8) {
       encodeChunk(
         uint8,
         i,
-        i + maxChunkLength > len2 ? len2 : i + maxChunkLength
-      )
+        i + maxChunkLength > len2 ? len2 : i + maxChunkLength,
+      ),
     );
   }
 
@@ -141,7 +141,7 @@ export function fromByteArray(uint8) {
       lookup[tmp >> 10] +
         lookup[(tmp >> 4) & 0x3f] +
         lookup[(tmp << 2) & 0x3f] +
-        "="
+        "=",
     );
   }
 

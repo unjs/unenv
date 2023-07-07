@@ -25,7 +25,7 @@ export const deprecate: typeof util.deprecate = (fn) => fn;
 
 export const _errnoException = notImplemented("util._errnoException");
 export const _exceptionWithHostPort = notImplemented(
-  "util._exceptionWithHostPort"
+  "util._exceptionWithHostPort",
 );
 export const _extend = notImplemented("util._extend");
 
@@ -33,7 +33,7 @@ export const aborted: typeof util.aborted = notImplemented("util.aborted");
 export const callbackify: typeof util.callbackify =
   notImplemented("util.callbackify");
 export const getSystemErrorMap: typeof util.getSystemErrorMap = notImplemented(
-  "util.getSystemErrorMap"
+  "util.getSystemErrorMap",
 );
 export const getSystemErrorName: typeof util.getSystemErrorName =
   notImplemented("util.getSystemErrorName");

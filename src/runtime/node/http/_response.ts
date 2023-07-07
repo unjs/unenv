@@ -50,7 +50,7 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   writeHead(
     statusCode: number,
     arg1?: string | http.OutgoingHttpHeaders | http.OutgoingHttpHeader[],
-    arg2?: http.OutgoingHttpHeaders | http.OutgoingHttpHeader[]
+    arg2?: http.OutgoingHttpHeaders | http.OutgoingHttpHeader[],
   ) {
     if (statusCode) {
       this.statusCode = statusCode;
@@ -93,7 +93,7 @@ export class ServerResponse extends Writable implements http.ServerResponse {
 
   setHeader(
     name: string,
-    value: number | string | ReadonlyArray<string>
+    value: number | string | ReadonlyArray<string>,
   ): this {
     this._headers[name.toLowerCase()] = value + "";
     return this;
@@ -120,7 +120,7 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   }
 
   addTrailers(
-    _headers: http.OutgoingHttpHeaders | ReadonlyArray<[string, string]>
+    _headers: http.OutgoingHttpHeaders | ReadonlyArray<[string, string]>,
   ): void {}
 
   flushHeaders(): void {}

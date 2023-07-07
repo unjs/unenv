@@ -15,14 +15,14 @@ export const randomUUID: typeof nodeCrypto.randomUUID = () => {
 };
 
 export const getRandomValues: typeof nodeCrypto.getRandomValues = (
-  array: any
+  array: any,
 ) => {
   return webcrypto.getRandomValues(array);
 };
 
 export const randomBytes /* :typeof nodeCrypto.randomBytes */ = (
   size: number,
-  cb?: (err: Error | null, buf: Buffer) => void
+  cb?: (err: Error | null, buf: Buffer) => void,
 ) => {
   const bytes = Buffer.alloc(size, 0, undefined) as Buffer;
 
@@ -30,7 +30,7 @@ export const randomBytes /* :typeof nodeCrypto.randomBytes */ = (
     // buffer.slice automatically checks if the end is past the end of
     // the buffer so we don't have to here
     getRandomValues(
-      Uint8Array.prototype.slice.call(bytes, generated, generated + MAX_BYTES)
+      Uint8Array.prototype.slice.call(bytes, generated, generated + MAX_BYTES),
     );
   }
 

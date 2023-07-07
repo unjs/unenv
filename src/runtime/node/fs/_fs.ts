@@ -60,7 +60,7 @@ export const statfs: typeof fs.statfs = callbackify(fsp.statfs);
 
 export const close: typeof fs.close = notImplementedAsync("fs.close");
 export const createReadStream: typeof fs.createReadStream = notImplementedAsync(
-  "fs.createReadStream"
+  "fs.createReadStream",
 );
 export const createWriteStream: typeof fs.createWriteStream =
   notImplementedAsync("fs.createWriteStream");
