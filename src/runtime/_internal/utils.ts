@@ -28,3 +28,11 @@ export function notImplemented(name: string) {
     throw new Error(`[unenv] ${name} is not implemented yet!`);
   };
 }
+
+export function notImplementedClass(name: string) {
+  return class {
+    constructor() {
+      throw new Error(`[unenv] ${name} is not implemented yet!`);
+    }
+  }
+}
