@@ -1,11 +1,11 @@
 // https://nodejs.org/api/crypto.html
 // https://github.com/unjs/uncrypto
 import type nodeCrypto from "node:crypto"
-import stream from "node:stream";
 // @ts-ignore
 import cryptoBrowserify from "crypto-browserify"
 // @ts-ignore
 import { webTimingSafeEqual } from "@advena/web-timing-safe-equal"
+import stream from "../stream";
 
 export const webcrypto = globalThis.crypto;
 
