@@ -1,4 +1,5 @@
 import type nodeCrypto from "node:crypto";
+import { isArrayBufferView } from "../util/types";
 
 export const generateKeyPair: typeof nodeCrypto.generateKeyPair = (
     type,
@@ -10,10 +11,12 @@ export const generateKeyPair: typeof nodeCrypto.generateKeyPair = (
         options = undefined;
     }
 
-    const job = createJob(kCryptoJobAsync, type, options);
+    const job = createJob('kCryptoJobAsync', type, options);
 
     job.ondone = (error, result) => {
-        if (error) { return FunctionPrototypeCall(callback, job, error); }
+        if (error) {
+            return FunctionPrototypeCall(callback, job, error);
+        }
         // If no encoding was chosen, return key objects instead.
         let { 0: pubkey, 1: privkey } = result;
         pubkey = wrapKey(pubkey, PublicKeyObject);
@@ -23,7 +26,7 @@ export const generateKeyPair: typeof nodeCrypto.generateKeyPair = (
 
     job.run();
 }
-function createJob(mode, type:string, options) {
+function createJob(mode:('kCryptoJobAsync' | 'kCryptoJobSync'), type:string, options) {
     const encoding = new SafeArrayIterator(parseKeyEncoding(type, options));
 
     switch (type) {
@@ -167,4 +170,18 @@ function createJob(mode, type:string, options) {
         // Fall through
     }
     throw new ERR_INVALID_ARG_VALUE('type', type, 'must be a supported key type');
+}
+
+function isJwk(obj:any) {
+    return obj != null && obj.kty !== undefined;
+}
+
+function wrapKey(key:any, ctor:any) {
+    if (typeof key === 'string' ||
+        isArrayBufferView(key) ||
+        isJwk(key)) {
+        return key;
+    }
+    // eslint-disable-next-line new-cap
+    return new ctor(key);
 }
