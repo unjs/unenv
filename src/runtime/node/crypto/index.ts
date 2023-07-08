@@ -11,7 +11,7 @@ export const webcrypto = globalThis.crypto;
 
 export const constants: typeof nodeCrypto.constants = cryptoBrowserify.constants
 
-export const KeyObject: typeof nodeCrypto.KeyObject = cryptoBrowserify.KeyObject
+// export const KeyObject: typeof nodeCrypto.KeyObject = cryptoBrowserify.KeyObject
 
 export const subtle: typeof nodeCrypto.subtle = webcrypto.subtle;
 
@@ -417,7 +417,7 @@ export default <typeof nodeCrypto>{
   getRandomValues,
   // hkdf,
   // hkdfSync,
-  KeyObject,
+  // KeyObject,
   pbkdf2,
   pbkdf2Sync,
   privateDecrypt,
