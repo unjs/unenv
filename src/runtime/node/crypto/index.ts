@@ -6,6 +6,7 @@ import type stream from "node:stream";
 import cryptoBrowserify from "crypto-browserify"
 // @ts-ignore
 import { webTimingSafeEqual } from "@advena/web-timing-safe-equal"
+import { generateKeyPair as generateKeyPairDef } from "./keygen";
 
 export const webcrypto = globalThis.crypto;
 
@@ -154,7 +155,6 @@ export const diffieHellman: typeof nodeCrypto.diffieHellman = (
 }
 
 
-/*
 // GENERATORS
 
 // @ts-ignore
@@ -163,8 +163,9 @@ export const generateKeyPair: typeof nodeCrypto.generateKeyPair = (
     options,
     callback
 ) => {
-  return cryptoBrowserify.generateKeyPair(type, options, callback)
+  return generateKeyPairDef(type, options, callback)
 }
+/*
 
 export const generateKeyPairSync: typeof nodeCrypto.generateKeyPairSync = (
     type,
