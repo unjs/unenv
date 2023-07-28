@@ -91,15 +91,12 @@ export class ServerResponse extends Writable implements http.ServerResponse {
     return this;
   }
 
-  setHeader(
-    name: string,
-    value: number | string | ReadonlyArray<string>,
-  ): this {
-    this._headers[name.toLowerCase()] = value + "";
+  setHeader(name: string, value: string | string[]): this {
+    this._headers[name.toLowerCase()] = value;
     return this;
   }
 
-  getHeader(name: string): number | string | string[] | undefined {
+  getHeader(name: string): string | string[] | undefined {
     return this._headers[name.toLowerCase()];
   }
 
