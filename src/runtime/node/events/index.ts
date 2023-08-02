@@ -1,13 +1,16 @@
 // https://nodejs.org/api/events.html
-import type events from "node:events";
+import type nodeEvents from "node:events";
 
 // @ts-ignore
 import { EventEmitter as _EventEmitter, once as _once } from "./_events";
 
-export const EventEmitter = _EventEmitter as any as typeof events.EventEmitter;
-export const once = _once as any as typeof events.once;
+export const EventEmitter: typeof nodeEvents.EventEmitter =
+  _EventEmitter as any as typeof nodeEvents.EventEmitter;
 
-export default <typeof events>{
+export const once: typeof nodeEvents.once =
+  _once as any as typeof nodeEvents.once;
+
+export default <typeof nodeEvents>{
   EventEmitter,
   once,
 };
