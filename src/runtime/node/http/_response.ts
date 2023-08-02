@@ -22,7 +22,7 @@ export class ServerResponse extends Writable implements http.ServerResponse {
 
   req: http.IncomingMessage;
 
-  _headers: HeadersObject = {};
+  _headers: Record<string, number | string | string[] | undefined> = {};
 
   constructor(req: http.IncomingMessage) {
     super();
@@ -91,11 +91,8 @@ export class ServerResponse extends Writable implements http.ServerResponse {
     return this;
   }
 
-  setHeader(
-    name: string,
-    value: number | string | ReadonlyArray<string>,
-  ): this {
-    this._headers[name.toLowerCase()] = value + "";
+  setHeader(name: string, value: number | string | string[]): this {
+    this._headers[name.toLowerCase()] = value;
     return this;
   }
 
