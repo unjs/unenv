@@ -122,4 +122,11 @@ export class Writable extends EventEmitter implements stream.Writable {
     this.removeAllListeners();
     return this;
   }
+
+  compose<T extends NodeJS.ReadableStream>(
+    stream: T | ((source: any) => void) | Iterable<T> | AsyncIterable<T>,
+    options?: { signal: AbortSignal } | undefined,
+  ): T {
+    throw new Error("[h3] Method not implemented.");
+  }
 }

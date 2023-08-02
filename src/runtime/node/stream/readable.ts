@@ -81,4 +81,11 @@ export class Readable extends EventEmitter implements stream.Readable {
   }
 
   async *[Symbol.asyncIterator](): AsyncIterableIterator<any> {}
+
+  compose<T extends NodeJS.ReadableStream>(
+    stream: T | ((source: any) => void) | Iterable<T> | AsyncIterable<T>,
+    options?: { signal: AbortSignal } | undefined,
+  ): T {
+    throw new Error("[h3] Method not implemented.");
+  }
 }
