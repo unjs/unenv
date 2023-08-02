@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.5.2...v1.6.0)
+
+### 🚀 Enhancements
+
+- **node:** Export full node crypto exports ([#121](https://github.com/unjs/unenv/pull/121))
+
+### 🩹 Fixes
+
+- **node:** Preserve http number header type with `setHeader` ([#119](https://github.com/unjs/unenv/pull/119))
+- **node:** Add missing `compose` to stream classes ([5687712](https://github.com/unjs/unenv/commit/5687712))
+- **node:** Import `EventEmitter` from local path ([ecd741a](https://github.com/unjs/unenv/commit/ecd741a))
+
+### 🏡 Chore
+
+- **release:** V1.5.2 ([4bfe1d5](https://github.com/unjs/unenv/commit/4bfe1d5))
+- Update dev dependencies ([43ceb09](https://github.com/unjs/unenv/commit/43ceb09))
+
+### 🤖 CI
+
+- Use conventional commit for autofix action ([#120](https://github.com/unjs/unenv/pull/120))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Heb ([@Hebilicious](http://github.com/Hebilicious))
+- Daniel Roe <daniel@roe.dev>
+
 ## v1.5.2
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.5.1...v1.5.2)
