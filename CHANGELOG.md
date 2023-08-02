@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.1
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.6.0...v1.6.1)
+
+### 🌊 Types
+
+- **node:** Type `EventEmitter` in dist ([0106e19](https://github.com/unjs/unenv/commit/0106e19))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.6.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.5.2...v1.6.0)
