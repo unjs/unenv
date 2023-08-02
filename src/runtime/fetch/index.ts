@@ -20,7 +20,7 @@ export function createFetch(call: CallHandle, _fetch = global.fetch) {
         headers: Object.fromEntries(
           Object.entries(r.headers).map(([name, value]) => [
             name,
-            Array.isArray(value) ? value.join(",") : value || "",
+            Array.isArray(value) ? value.join(",") : String(value) || "",
           ]),
         ),
       });
