@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.2
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.6.1...v1.6.2)
+
+### 🩹 Fixes
+
+- Add `async_hooks` to nodeless preset ([dee2ddd](https://github.com/unjs/unenv/commit/dee2ddd))
+- **node:** Add named exports for `AsyncLocalStorage` and `AsyncResource` ([388f529](https://github.com/unjs/unenv/commit/388f529))
+
+### 🏡 Chore
+
+- Update dependencies ([8baea05](https://github.com/unjs/unenv/commit/8baea05))
+- Apply automated lint fixes ([982ae0f](https://github.com/unjs/unenv/commit/982ae0f))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.6.1
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.6.0...v1.6.1)
