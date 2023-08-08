@@ -30,11 +30,11 @@ export function notImplemented(name: string) {
   return Object.assign(fn, { __unenv__: true });
 }
 
-export function notImplementedClass(name: string) {
+export function notImplementedClass<T = unknown>(name: string): T {
   return class {
     readonly __unenv__ = true;
     constructor() {
       throw new Error(`[unenv] ${name} is not implemented yet!`);
     }
-  };
+  } as T;
 }

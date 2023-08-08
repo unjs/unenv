@@ -59,7 +59,7 @@ export const AsyncHook: asyncHooks.AsyncHook =
 export const createHook: typeof asyncHooks.createHook = function createHook(
   callbacks,
 ) {
-  const asyncHook = new AsyncHook(callbacks);
+  const asyncHook = new _AsyncHook(callbacks);
   return asyncHook;
 };
 

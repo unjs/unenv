@@ -32,7 +32,7 @@ class _AsyncResource implements asyncHooks.AsyncResource {
     thisArg?: ThisArg,
   ) {
     const resource = new AsyncResource(type ?? "anonymous");
-    return resource.bind(fn, thisArg);
+    return resource.bind(fn);
   }
 
   bind<Func extends (...args: any[]) => any>(fn: Func, thisArg?: any) {

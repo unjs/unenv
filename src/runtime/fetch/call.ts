@@ -56,7 +56,7 @@ export function createCall(handle: Handle) {
       // https://developer.mozilla.org/en-US/docs/Web/API/Response/body
       // TODO: Ensure _data is either of BodyInit (or narrower) types
       // Blob | ArrayBuffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
-      let body = res._data as BodyInit | null;
+      let body = (res as any)._data as BodyInit | null;
       if (
         nullBodyResponses.has(res.statusCode) ||
         req.method.toUpperCase() === "HEAD"
