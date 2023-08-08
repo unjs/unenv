@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.7.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.6.2...v1.7.0)
+
+### 🚀 Enhancements
+
+- Expose `__unenv__` flag for unenv classes and functions ([#125](https://github.com/unjs/unenv/pull/125))
+- **node:** Allow overriding `AsyncHook`, `AsyncLocalStorage` and `AsyncResource` with `globalThis` ([#126](https://github.com/unjs/unenv/pull/126))
+- **node:buffer:** Allow overriding `Buffer` with `globalThis` ([1337f98](https://github.com/unjs/unenv/commit/1337f98))
+- **node:events:** Allow overriding `EventEmitter` with `globalThis` ([5ba2d03](https://github.com/unjs/unenv/commit/5ba2d03))
+- **node:stream:** Allow overriding `Duplex`, `Readable`, `Transform` and `Writable` with `globalThis` ([e06358d](https://github.com/unjs/unenv/commit/e06358d))
+- Add `node:string_decoder` with global polyfill ([002467a](https://github.com/unjs/unenv/commit/002467a))
+
+### 🩹 Fixes
+
+- **fetch:** Avoid sending body for null body reponses ([#124](https://github.com/unjs/unenv/pull/124))
+- **node:crypto:** Properly call web crypto methods ([#122](https://github.com/unjs/unenv/pull/122))
+
+### 🏡 Chore
+
+- **release:** V1.6.2 ([f4cba4e](https://github.com/unjs/unenv/commit/f4cba4e))
+- Fix type issues ([76dd36d](https://github.com/unjs/unenv/commit/76dd36d))
+
+### 🤖 CI
+
+- Add typecheck ([18a1013](https://github.com/unjs/unenv/commit/18a1013))
+- Use node 18 ([68c9864](https://github.com/unjs/unenv/commit/68c9864))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Aaron Dewes <aaron@runcitadel.space>
+
 ## v1.6.2
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.6.1...v1.6.2)
