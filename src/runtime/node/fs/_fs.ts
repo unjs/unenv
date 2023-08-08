@@ -1,6 +1,6 @@
 import type fs from "node:fs";
 import { notImplemented } from "../../_internal/utils";
-import * as fsp from "./promises";
+import * as fsp from "./promises/_promises";
 
 interface Promisifiable {
   (): any;
