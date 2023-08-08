@@ -7,6 +7,8 @@ import { Writable } from "../stream/writable";
 // Implementation: https://github.com/nodejs/node/blob/master/lib/_http_outgoing.js
 
 export class ServerResponse extends Writable implements http.ServerResponse {
+  readonly __unenv__ = true;
+
   statusCode: number = 200;
   statusMessage: string = "";
   upgrading: boolean = false;

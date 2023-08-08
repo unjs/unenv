@@ -2,6 +2,8 @@ import type buffer from "node:buffer";
 import { Buffer } from "./_buffer";
 
 export class File extends Blob implements buffer.File {
+  readonly __unenv__ = true;
+
   size: number = 0;
   type: any = "";
   name: string = "";

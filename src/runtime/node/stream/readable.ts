@@ -8,6 +8,8 @@ import { EventEmitter } from "../events";
 
 // eslint-disable-next-line unicorn/prefer-event-target
 export class Readable extends EventEmitter implements stream.Readable {
+  __unenv__: unknown = true;
+
   readonly readableEncoding: BufferEncoding | null = null;
   readonly readableEnded: boolean = true;
   readonly readableFlowing: boolean | null = false;

@@ -7,6 +7,8 @@ import { rawHeaders } from "../../_internal/utils";
 // Implementation: https://github.com/nodejs/node/blob/master/lib/_http_incoming.js
 
 export class IncomingMessage extends Readable implements http.IncomingMessage {
+  public __unenv__ = {};
+
   public aborted: boolean = false;
   public httpVersion: string = "1.1";
   public httpVersionMajor: number = 1;

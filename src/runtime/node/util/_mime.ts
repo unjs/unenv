@@ -6,6 +6,8 @@ import type {
 // https://nodejs.org/api/util.html#class-utilmimetype
 
 export class MIMEType implements MIMETypeT {
+  readonly __unenv__ = true;
+
   params = new MIMEParams();
   type: string;
   subtype: string;
@@ -35,6 +37,8 @@ export class MIMEType implements MIMETypeT {
 // https://nodejs.org/api/util.html#util_class_util_mimeparams
 
 export class MIMEParams extends Map<string, string> implements MIMEParamsT {
+  readonly __unenv__ = true;
+
   get(name: string) {
     return (super.get(name) || null) as any;
   }
