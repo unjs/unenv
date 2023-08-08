@@ -7,6 +7,8 @@ import { EventEmitter } from "../events";
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/writable.js
 // eslint-disable-next-line unicorn/prefer-event-target
 export class Writable extends EventEmitter implements stream.Writable {
+  readonly __unenv__ = true;
+
   readonly writable: boolean = true;
   writableEnded: boolean = false;
   writableFinished: boolean = false;

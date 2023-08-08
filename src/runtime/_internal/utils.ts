@@ -24,13 +24,15 @@ export function mergeFns(...functions: Fn[]) {
 }
 
 export function notImplemented(name: string) {
-  return (): any => {
+  const fn = (): any => {
     throw new Error(`[unenv] ${name} is not implemented yet!`);
   };
+  return Object.assign(fn, { __unenv__: true });
 }
 
 export function notImplementedClass(name: string) {
   return class {
+    readonly __unenv__ = true;
     constructor() {
       throw new Error(`[unenv] ${name} is not implemented yet!`);
     }

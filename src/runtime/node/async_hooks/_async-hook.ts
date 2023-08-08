@@ -3,6 +3,8 @@ import type asyncHooks from "node:async_hooks";
 // https://nodejs.org/api/async_hooks.html
 
 export class AsyncHook implements asyncHooks.HookCallbacks {
+  readonly __unenv__ = true;
+
   _enabled: boolean = false;
   _callbacks: asyncHooks.HookCallbacks = {};
 

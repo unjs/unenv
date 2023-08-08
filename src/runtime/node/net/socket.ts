@@ -4,6 +4,8 @@ import { Duplex } from "../stream/duplex";
 
 // Docs: https://nodejs.org/api/net.html#net_class_net_socket
 export class Socket extends Duplex implements net.Socket {
+  readonly __unenv__ = true;
+
   readonly bufferSize: number = 0;
   readonly bytesRead: number = 0;
   readonly bytesWritten: number = 0;
@@ -90,6 +92,8 @@ export class Socket extends Duplex implements net.Socket {
 }
 
 export class SocketAddress implements net.SocketAddress {
+  readonly __unenv__ = true;
+
   address: string;
   family: "ipv4" | "ipv6";
   port: number;

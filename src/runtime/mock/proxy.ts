@@ -11,6 +11,9 @@ function createMock(name: string, overrides: any = {}): any {
       if (prop === "__createMock__") {
         return createMock;
       }
+      if (prop === "__unenv__") {
+        return true;
+      }
       if (prop in overrides) {
         return overrides[prop];
       }

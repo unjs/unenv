@@ -5,6 +5,8 @@ import { Duplex } from "./duplex";
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/transform.js
 
 export class Transform extends Duplex implements stream.Transform {
+  readonly __unenv__ = true;
+
   _transform(
     chunk: any,
     encoding: globalThis.BufferEncoding,

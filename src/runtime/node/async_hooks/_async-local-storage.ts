@@ -3,6 +3,8 @@ import type asyncHooks from "node:async_hooks";
 // https://nodejs.org/api/async_context.html#class-asynclocalstorage
 
 export class AsyncLocalStorage<T> implements asyncHooks.AsyncLocalStorage<T> {
+  readonly __unenv__ = true;
+
   _currentStore: undefined | T;
   _enterStore: undefined | T;
   _enabled: boolean = true;

@@ -6,6 +6,8 @@ import { executionAsyncId } from "./_async-hook";
 let _asyncIdCounter = 100;
 
 export class AsyncResource implements asyncHooks.AsyncResource {
+  readonly __unenv__ = true;
+
   type: string;
   _asyncId: undefined | number;
   _triggerAsyncId: undefined | number | asyncHooks.AsyncResourceOptions;
