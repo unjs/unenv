@@ -77,7 +77,7 @@ Using this preset, we can convert a code that is depending on Node.js to work an
 | [node:stream/consumers](https://nodejs.org/api/stream.html)                 | Mocked     | [unenv/node/stream/consumers](./src/runtime/node/stream/consumers) |
 | [node:stream/promises](https://nodejs.org/api/stream.html)                  | Mocked     | [unenv/node/stream/promises](./src/runtime/node/stream/promises)   |
 | [node:stream/web](https://nodejs.org/api/stream.html)                       | Native     | [unenv/node/stream/web](./src/runtime/node/stream/web)             |
-| [node:string_decoder](https://nodejs.org/api/string_decoder.html)           | Mocked     | -                                                                  |
+| [node:string_decoder](https://nodejs.org/api/string_decoder.html)           | Polyfilled | [unenv/node/string_decoder](./src/runtime/node/string_decoder)     |
 | [node:sys](https://nodejs.org/api/sys.html)                                 | Mocked     | -                                                                  |
 | [node:timers](https://nodejs.org/api/timers.html)                           | Mocked     | -                                                                  |
 | [node:timers/promises](https://nodejs.org/api/timers.html)                  | Mocked     | -                                                                  |

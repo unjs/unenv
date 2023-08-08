@@ -24,6 +24,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "stream/promises",
         "stream/consumers",
         "stream/web",
+        "string_decoder",
         "url",
         "util",
         "util/types",
