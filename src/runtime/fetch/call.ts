@@ -17,6 +17,8 @@ export interface CallContext {
   body?: any;
 }
 
+const nullBodyResponses = new Set([101, 204, 205, 304]);
+
 export function createCall(handle: Handle) {
   return function callHandle(context: CallContext) {
     const req = new IncomingMessage();
@@ -51,10 +53,20 @@ export function createCall(handle: Handle) {
     req.__unenv__ = context.context;
 
     return handle(req, res).then(() => {
+      // https://developer.mozilla.org/en-US/docs/Web/API/Response/body
       // TODO: Ensure _data is either of BodyInit (or narrower) types
-      // Blob | ArrayBUffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
+      // Blob | ArrayBuffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
+      let body = res._data as BodyInit | null;
+      if (
+        nullBodyResponses.has(res.statusCode) ||
+        req.method.toUpperCase() === "HEAD"
+      ) {
+        body = null;
+        delete res._headers["content-length"];
+      }
+
       const r = {
-        body: (res._data as BodyInit) || "",
+        body,
         headers: res._headers,
         status: res.statusCode,
         statusText: res.statusMessage,
