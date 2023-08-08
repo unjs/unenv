@@ -5,7 +5,7 @@ import { executionAsyncId } from "./_async-hook";
 
 let _asyncIdCounter = 100;
 
-export class AsyncResource implements asyncHooks.AsyncResource {
+class _AsyncResource implements asyncHooks.AsyncResource {
   readonly __unenv__ = true;
 
   type: string;
@@ -63,3 +63,6 @@ export class AsyncResource implements asyncHooks.AsyncResource {
     return this._triggerAsyncId as number;
   }
 }
+
+export const AsyncResource: typeof asyncHooks.AsyncResource =
+  (globalThis as any).AsyncResource || _AsyncResource;

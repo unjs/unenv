@@ -2,7 +2,7 @@ import type asyncHooks from "node:async_hooks";
 
 // https://nodejs.org/api/async_hooks.html
 
-export class AsyncHook implements asyncHooks.HookCallbacks {
+class _AsyncHook implements asyncHooks.HookCallbacks {
   readonly __unenv__ = true;
 
   _enabled: boolean = false;
@@ -52,6 +52,9 @@ export class AsyncHook implements asyncHooks.HookCallbacks {
     }
   }
 }
+
+export const AsyncHook: asyncHooks.AsyncHook =
+  (globalThis as any).AsyncHook || _AsyncHook;
 
 export const createHook: typeof asyncHooks.createHook = function createHook(
   callbacks,
