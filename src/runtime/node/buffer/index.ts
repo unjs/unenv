@@ -1,11 +1,18 @@
 // https://nodejs.org/api/buffer.html
 import type buffer from "node:buffer";
 import { notImplemented } from "../../_internal/utils";
-import { Buffer, kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
+import {
+  Buffer as _Buffer,
+  kMaxLength,
+  INSPECT_MAX_BYTES,
+  SlowBuffer,
+} from "./_buffer";
 import { File } from "./_file";
 
-// @ts-ignore
-export { Buffer, kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
+export { kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
+
+export const Buffer = globalThis.Buffer || _Buffer;
+
 export { File } from "./_file";
 
 // @ts-expect-eerror https://github.com/unjs/unenv/issues/64
@@ -25,7 +32,7 @@ export const constants = {
 };
 
 export default <typeof buffer>{
-  Buffer: Buffer as any as typeof buffer.Buffer,
+  Buffer,
   SlowBuffer: SlowBuffer as any as typeof buffer.SlowBuffer,
   kMaxLength,
   INSPECT_MAX_BYTES,
