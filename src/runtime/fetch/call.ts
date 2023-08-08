@@ -54,6 +54,8 @@ export function createCall(handle: Handle) {
 
     return handle(req, res).then(() => {
       // https://developer.mozilla.org/en-US/docs/Web/API/Response/body
+      // TODO: Ensure _data is either of BodyInit (or narrower) types
+      // Blob | ArrayBuffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
       let body = res._data as BodyInit | null;
       if (
         nullBodyResponses.has(res.statusCode) ||
@@ -63,8 +65,6 @@ export function createCall(handle: Handle) {
         delete res._headers["content-length"];
       }
 
-      // TODO: Ensure _data is either of BodyInit (or narrower) types
-      // Blob | ArrayBuffer | TypedArray | DataView | FormData | ReadableStream | URLSearchParams | String
       const r = {
         body,
         headers: res._headers,
