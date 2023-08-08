@@ -5,7 +5,7 @@ import type nodeEvents from "node:events";
 import { EventEmitter as _EventEmitter, once as _once } from "./_events";
 
 export const EventEmitter: typeof nodeEvents.EventEmitter =
-  _EventEmitter as any as typeof nodeEvents.EventEmitter;
+  (globalThis as any).EventEmitter || _EventEmitter;
 
 export const once: typeof nodeEvents.once =
   _once as any as typeof nodeEvents.once;
