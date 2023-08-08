@@ -50,5 +50,5 @@
     "typescript": "^5.1.6",
     "unbuild": "^1.2.1"
   },
-  "packageManager": "pnpm@8.6.11"
+  "packageManager": "pnpm@8.6.12"
 }
