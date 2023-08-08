@@ -9,6 +9,18 @@ const MAX_RANDOM_VALUE_BYTES: number = 65_536;
 
 // ---- implemented Utils ----
 
+export const webcrypto = new Proxy(
+  globalThis.crypto as typeof nodeCrypto.webcrypto,
+  {
+    get(_, key: keyof typeof globalThis.crypto | "CryptoKey") {
+      if (key === "CryptoKey") {
+        return globalThis.CryptoKey;
+      }
+      return globalThis.crypto[key];
+    },
+  },
+);
+
 export const randomBytes: typeof nodeCrypto.randomBytes = (
   size: number,
   cb?: (err: Error | null, buf: Buffer) => void,
