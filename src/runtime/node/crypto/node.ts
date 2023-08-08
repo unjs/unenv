@@ -7,6 +7,19 @@ import { getRandomValues } from "./web";
 // https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
 const MAX_RANDOM_VALUE_BYTES: number = 65_536;
 
+// Node.js webcrypto implementation
+export const webcrypto = new Proxy(
+  globalThis.crypto as Crypto & typeof nodeCrypto.webcrypto,
+  {
+    get(_, key: keyof typeof globalThis.crypto | "CryptoKey") {
+      if (key === "CryptoKey") {
+        return globalThis.CryptoKey;
+      }
+      return globalThis.crypto[key];
+    },
+  },
+);
+
 // ---- implemented Utils ----
 
 export const randomBytes: typeof nodeCrypto.randomBytes = (
