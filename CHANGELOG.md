@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.7.1
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.7.0...v1.7.1)
+
+### 🩹 Fixes
+
+- **node:stream:** Allow tree-shaking `Duplex` ([587860f](https://github.com/unjs/unenv/commit/587860f))
+- Add `sideEffects` to main `package.json` to allow tree-shaking ([6dac339](https://github.com/unjs/unenv/commit/6dac339))
+- **node:string_decoder:** Use relative import ([#129](https://github.com/unjs/unenv/pull/129))
+
+### 💅 Refactors
+
+- **node:events:** Rewrite `EventEmitter` ([#128](https://github.com/unjs/unenv/pull/128))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Daniel Roe <daniel@roe.dev>
+
 ## v1.7.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.6.2...v1.7.0)
