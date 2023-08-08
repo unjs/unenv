@@ -8,7 +8,7 @@ import { Writable } from "./writable";
 
 type DuplexClass = new () => stream.Duplex;
 
-export const Duplex: DuplexClass = class {
+export const _Duplex: DuplexClass = class {
   allowHalfOpen: boolean = true;
   private _destroy: (error?: Error) => void;
 
@@ -19,5 +19,8 @@ export const Duplex: DuplexClass = class {
   }
 } as any;
 
-Object.assign(Duplex.prototype, Readable.prototype);
-Object.assign(Duplex.prototype, Writable.prototype);
+Object.assign(_Duplex.prototype, Readable.prototype);
+Object.assign(_Duplex.prototype, Writable.prototype);
+
+export const Duplex: typeof stream.Duplex =
+  (globalThis as any).Duplex || _Duplex;

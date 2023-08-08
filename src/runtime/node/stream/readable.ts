@@ -7,7 +7,7 @@ import { EventEmitter } from "../events";
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/readable.js
 
 // eslint-disable-next-line unicorn/prefer-event-target
-export class Readable extends EventEmitter implements stream.Readable {
+export class _Readable extends EventEmitter implements stream.Readable {
   __unenv__: unknown = true;
 
   readonly readableEncoding: BufferEncoding | null = null;
@@ -28,7 +28,7 @@ export class Readable extends EventEmitter implements stream.Readable {
     _iterable: Iterable<any> | AsyncIterable<any>,
     options?: stream.ReadableOptions,
   ) {
-    return new Readable(options);
+    return new _Readable(options);
   }
 
   constructor(_opts?: stream.ReadableOptions) {
@@ -92,3 +92,6 @@ export class Readable extends EventEmitter implements stream.Readable {
     throw new Error("[h3] Method not implemented.");
   }
 }
+
+export const Readable: typeof stream.Readable =
+  (globalThis as any).Readable || _Readable;

@@ -6,7 +6,7 @@ import { EventEmitter } from "../events";
 // Docs: https://nodejs.org/api/stream.html#stream_writable_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/writable.js
 // eslint-disable-next-line unicorn/prefer-event-target
-export class Writable extends EventEmitter implements stream.Writable {
+class _Writable extends EventEmitter implements stream.Writable {
   readonly __unenv__ = true;
 
   readonly writable: boolean = true;
@@ -133,3 +133,6 @@ export class Writable extends EventEmitter implements stream.Writable {
     throw new Error("[h3] Method not implemented.");
   }
 }
+
+export const Writable: typeof stream.Writable =
+  (globalThis as any).Writable || _Writable;
