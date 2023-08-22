@@ -7,6 +7,7 @@ export const fetch = (...args: Parameters<(typeof globalThis)["fetch"]>) =>
 export const Headers = globalThis.Headers;
 export const Request = globalThis.Request;
 export const Response = globalThis.Response;
+export const AbortController = globalThis.AbortController;
 
 // Error handling
 export const FetchError = Error;
