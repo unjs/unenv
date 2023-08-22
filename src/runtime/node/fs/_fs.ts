@@ -89,6 +89,8 @@ export const watchFile: typeof fs.watchFile =
 export const write: typeof fs.write = notImplementedAsync("fs.write");
 export const writev: typeof fs.writev = notImplementedAsync("fs.writev");
 export const _toUnixTimestamp = notImplementedAsync("fs._toUnixTimestamp");
+export const openAsBlob: typeof fs.openAsBlob =
+  notImplementedAsync("fs.openAsBlob");
 
 // Sync
 export const appendFileSync: typeof fs.appendFileSync =
