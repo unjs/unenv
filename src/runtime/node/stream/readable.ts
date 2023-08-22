@@ -85,6 +85,11 @@ export class _Readable extends EventEmitter implements stream.Readable {
 
   async *[Symbol.asyncIterator](): AsyncIterableIterator<any> {}
 
+  [Symbol.asyncDispose]() {
+    this.destroy();
+    return Promise.resolve();
+  }
+
   compose<T extends NodeJS.ReadableStream>(
     stream: T | ((source: any) => void) | Iterable<T> | AsyncIterable<T>,
     options?: { signal: AbortSignal } | undefined,
