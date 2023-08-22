@@ -16,6 +16,12 @@ export const webcrypto = new Proxy(
       if (key === "CryptoKey") {
         return globalThis.CryptoKey;
       }
+
+      if (typeof globalThis.crypto[key] === "function") {
+        // @ts-ignore
+        return globalThis.crypto[key].bind(globalThis.crypto);
+      }
+
       return globalThis.crypto[key];
     },
   },
