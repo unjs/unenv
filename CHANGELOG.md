@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.7.2
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.7.1...v1.7.2)
+
+### 🩹 Fixes
+
+- **node:fs:** Default export for `node:fs/promises` ([37fd173](https://github.com/unjs/unenv/commit/37fd173))
+- **node:crypto:** Bind crypto functions to avoid `Illegal invocation` error ([#134](https://github.com/unjs/unenv/pull/134))
+- **node:fs:** Add mock for `openAsBlob` ([16f6150](https://github.com/unjs/unenv/commit/16f6150))
+- **node:stream:** Support `asyncDispose` for readable ([f8f8f46](https://github.com/unjs/unenv/commit/f8f8f46))
+
+### 🏡 Chore
+
+- Update dependencies ([7731f08](https://github.com/unjs/unenv/commit/7731f08))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Brendon Matos <brendonferreiradm@gmail.com>
+
 ## v1.7.1
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.7.0...v1.7.1)
