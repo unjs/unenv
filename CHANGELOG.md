@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.7.4
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.7.3...v1.7.4)
+
+### 🩹 Fixes
+
+- **node:fs:** Named exports for `/promises` subpath ([b035e09](https://github.com/unjs/unenv/commit/b035e09))
+- **node:stream:** Add placeholder for not implemented new method ([294f283](https://github.com/unjs/unenv/commit/294f283))
+
+### 🏡 Chore
+
+- **release:** V1.7.3 ([05527a2](https://github.com/unjs/unenv/commit/05527a2))
+- Update dependencies ([54331de](https://github.com/unjs/unenv/commit/54331de))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.7.3
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.7.2...v1.7.3)
