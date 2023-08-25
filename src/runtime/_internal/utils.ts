@@ -23,9 +23,13 @@ export function mergeFns(...functions: Fn[]) {
   };
 }
 
+export function createNotImplementedError(name: string) {
+  throw new Error(`[unenv] ${name} is not implemented yet!`);
+}
+
 export function notImplemented(name: string) {
   const fn = (): any => {
-    throw new Error(`[unenv] ${name} is not implemented yet!`);
+    throw createNotImplementedError(name);
   };
   return Object.assign(fn, { __unenv__: true });
 }
