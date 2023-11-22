@@ -63,7 +63,7 @@ Using this preset, we can convert a code that is depending on Node.js to work an
 | [node:http](https://nodejs.org/api/http.html)                               | Polyfilled | [unenv/node/http](./src/runtime/node/http)                         |
 | [node:https](https://nodejs.org/api/https.html)                             | Mocked     | -                                                                  |
 | [node:inspector](https://nodejs.org/api/inspector.html)                     | Mocked     | -                                                                  |
-| [node:module](https://nodejs.org/api/module.html)                           | Mocked     | -                                                                  |
+| [node:module](https://nodejs.org/api/module.html)                           | Polyfilled | [unenv/node/module](./src/runtime/node/module) -                   |
 | [node:net](https://nodejs.org/api/net.html)                                 | Polyfilled | [unenv/node/net](./src/runtime/node/net)                           |
 | [node:os](https://nodejs.org/api/os.html)                                   | Mocked     | -                                                                  |
 | [node:path](https://nodejs.org/api/path.html)                               | Polyfilled | [unenv/node/path](./src/runtime/node/path)                         |
