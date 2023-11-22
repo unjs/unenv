@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.8.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.7.4...v1.8.0)
+
+### 🚀 Enhancements
+
+- Polyfill `node:module` ([#148](https://github.com/unjs/unenv/pull/148))
+- Add polyfill for `node:https` with named exports ([5917a50](https://github.com/unjs/unenv/commit/5917a50))
+- Support `consola/utils` subpath ([#149](https://github.com/unjs/unenv/pull/149))
+
+### 🩹 Fixes
+
+- **node:net:** Add missing new exports ([2b805b1](https://github.com/unjs/unenv/commit/2b805b1))
+- **node:net/socket:** Add new `destroySoon` and `autoSelectFamilyAttemptedAddresses` ([311c72b](https://github.com/unjs/unenv/commit/311c72b))
+
+### 🏡 Chore
+
+- Update lockfile and dev dependencies ([051defd](https://github.com/unjs/unenv/commit/051defd))
+- Update mkdist ([e36d463](https://github.com/unjs/unenv/commit/e36d463))
+- Fix ts issue ([f778562](https://github.com/unjs/unenv/commit/f778562))
+
+### 🎨 Styles
+
+- Format with prettier ([b31444d](https://github.com/unjs/unenv/commit/b31444d))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.7.4
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.7.3...v1.7.4)
