@@ -21,6 +21,22 @@ export const createConnection = notImplemented(
   "net.createConnection",
 ) as typeof net.createConnection;
 
+export const getDefaultAutoSelectFamily = notImplemented(
+  "net.getDefaultAutoSelectFamily",
+) as typeof net.getDefaultAutoSelectFamily;
+
+export const setDefaultAutoSelectFamily = notImplemented(
+  "net.setDefaultAutoSelectFamily",
+) as typeof net.setDefaultAutoSelectFamily;
+
+export const getDefaultAutoSelectFamilyAttemptTimeout = notImplemented(
+  "net.getDefaultAutoSelectFamilyAttemptTimeout",
+) as typeof net.getDefaultAutoSelectFamilyAttemptTimeout;
+
+export const setDefaultAutoSelectFamilyAttemptTimeout = notImplemented(
+  "net.setDefaultAutoSelectFamilyAttemptTimeout",
+) as typeof net.setDefaultAutoSelectFamilyAttemptTimeout;
+
 const IPV4Regex = /^(?:\d{1,3}\.){3}\d{1,3}$/;
 export const isIPv4: typeof net.isIPv4 = (host: string) => IPV4Regex.test(host);
 
@@ -48,6 +64,10 @@ export const exports: typeof net = {
   isIPv4,
   isIPv6,
   isIP,
+  getDefaultAutoSelectFamily,
+  getDefaultAutoSelectFamilyAttemptTimeout,
+  setDefaultAutoSelectFamily,
+  setDefaultAutoSelectFamilyAttemptTimeout,
 };
 
 export default exports;
