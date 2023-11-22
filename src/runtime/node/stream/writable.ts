@@ -78,8 +78,8 @@ class _Writable extends EventEmitter implements stream.Writable {
       typeof arg2 === "function"
         ? arg2
         : typeof arg3 === "function"
-        ? arg3
-        : undefined;
+          ? arg3
+          : undefined;
     this._write(chunk, encoding, cb);
     return true;
   }
@@ -93,10 +93,10 @@ class _Writable extends EventEmitter implements stream.Writable {
       typeof arg1 === "function"
         ? arg1
         : typeof arg2 === "function"
-        ? arg2
-        : typeof arg3 === "function"
-        ? arg3
-        : undefined;
+          ? arg2
+          : typeof arg3 === "function"
+            ? arg3
+            : undefined;
     if (this.writableEnded) {
       if (callback) {
         callback();
