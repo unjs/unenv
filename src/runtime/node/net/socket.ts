@@ -17,6 +17,7 @@ export class Socket extends Duplex implements net.Socket {
   readonly remoteAddress?: string = "";
   readonly remoteFamily?: string = "";
   readonly remotePort?: number = 0;
+  readonly autoSelectFamilyAttemptedAddresses = [];
   readonly readyState: net.SocketReadyState = "readOnly";
 
   constructor(_options?: net.SocketConstructorOpts) {
@@ -81,6 +82,10 @@ export class Socket extends Duplex implements net.Socket {
 
   ref() {
     return this;
+  }
+
+  destroySoon() {
+    this.destroy();
   }
 
   resetAndDestroy() {
