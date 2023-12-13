@@ -1,8 +1,6 @@
 import { writeFileSync, mkdirSync, readFile, readFileSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { createRequire } from "node:module";
-import consola from "consola";
-import { colors } from "consola/utils";
 import { env, nodeless, deno } from "../src";
 
 const denoConfig = env(nodeless, deno);
@@ -47,21 +45,21 @@ output.push("--- | --- | ---");
 
 for (const [name, denoExports] of Object.entries(nodeImports)) {
   if (denoExports === "<unenv>") {
-    output.push(`${name} | ℹ️ | Using unenv`);
+    output.push(`${name} | ℹ️ unenv | Using unenv`);
     continue;
   }
   const nodeExports = Object.keys(_require(name));
   const diffExports = diff(nodeExports, denoExports);
   if (diffExports.length > 0) {
     output.push(
-      `${name} | ⚠️ Partial support | Missing: ${
+      `${name} | ⚠️ partial | Missing: ${
         diffExports.length > 10
-          ? `${diffExports.length} exports`
+          ? `**${diffExports.length}** exports!!`
           : diffExports.map((i) => `\`${i}\``).join(", ")
       }`,
     );
   } else {
-    output.push(`${name} | ✅ Full support | -`);
+    output.push(`${name} | ✅ full | -`);
   }
 }
 
