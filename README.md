@@ -56,6 +56,8 @@ const envConfig = env(nodeless, {});
 
 ### `deno` preset
 
+**Note:** This preset is **experimental** and behavior can change!
+
 This preset can be used to extend `nodeless` to use Deno's Node.js API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility), [docs](https://docs.deno.com/deploy/api/runtime-node)).
 
 ```js
