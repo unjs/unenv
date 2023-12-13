@@ -29,7 +29,7 @@ const { alias, inject, polyfill, external } = env({}, {}, {});
 
 ### `node` preset
 
-Suitable to convert universal libraries working in Node.js. ([preset](./src/presets/node.ts))
+Suitable to convert universal libraries working in Node.js.
 
 - Add supports for global [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - Set Node.js built-ins as externals
@@ -40,9 +40,11 @@ import { env, nodeless } from "unenv";
 const envConfig = env(node, {});
 ```
 
+([view `node` preset source](./src/presets/node.ts))
+
 ### `nodeless` preset
 
-Using this preset, we can convert a code that is depending on Node.js to work anywhere else.
+Suitable to transform libraies made for Node.js to run in other JavaScript runtimes.
 
 ```js
 import { env, nodeless } from "unenv";
@@ -50,15 +52,19 @@ import { env, nodeless } from "unenv";
 const envConfig = env(nodeless, {});
 ```
 
+([view `nodeless` preset source](./src/presets/nodeless.ts))
+
 ### `deno` preset
 
-This preset can be used to extend `nodeless` to using Deno's Node API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility) and [docs](https://docs.deno.com/deploy/api/runtime-node)) ([preset](./src/presets/deno.ts)).
+This preset can be used to extend `nodeless` to use Deno's Node.js API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility), [docs](https://docs.deno.com/deploy/api/runtime-node)) ([view preset source](./src/presets/deno.ts)).
 
 ```js
 import { env, nodeless, deno } from "unenv";
 
 const envConfig = env(nodeless, deno, {});
 ```
+
+([view `deno` preset source](./src/presets/deno.ts))
 
 ### Built-in Node.js modules
 
