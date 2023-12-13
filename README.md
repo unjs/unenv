@@ -1,6 +1,6 @@
 # unenv
 
-`unenv` is a framework agnostic system that allows converting JavaScript code to be platform agnostic and working in any environment including Browsers, Workers, Node.js or pure JavaScript runtime.
+`unenv` is a framework-agnostic system that allows converting JavaScript code to be platform agnostic and work in any environment including Browsers, Workers, Node.js, or JavaScript runtime.
 
 ## Install
 
@@ -17,30 +17,60 @@ pnpm add -D unenv
 
 ## Usage
 
-Using `env` utility and built-in presets (and [nodeless](./src/presets/nodeless.ts)), `unenv` will provide an abstract configuration that can be used in building pipelines ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc.).
+Using `env` utility and built-in presets, `unenv` will provide an abstract configuration that can be used in building pipelines ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc.).
 
 ```js
-import { env, node, nodeless } from "unenv";
+import { env } from "unenv";
 
-const { alias, inject, polyfill, external } = env(...presets);
+const { alias, inject, polyfill, external } = env({}, {}, {});
 ```
 
-## Presets
+**Note:** You can provide as many presets as you want. unenv will merge them internally and the right-most preset has a higher priority.
 
-### `node`
+### `node` preset
 
-Suitable to convert universal libraries working in Node.js. ([preset](./src/presets/node.ts))
+Suitable to convert universal libraries working in Node.js.
 
 - Add supports for global [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - Set Node.js built-ins as externals
 
-### `nodeless`
+```js
+import { env, nodeless } from "unenv";
 
-Using this preset, we can convert a code that is depending on Node.js to work anywhere else.
+const envConfig = env(node, {});
+```
+
+[(view `node` preset source)](./src/presets/node.ts)
+
+### `nodeless` preset
+
+Suitable to transform libraries made for Node.js to run in other JavaScript runtimes.
+
+```js
+import { env, nodeless } from "unenv";
+
+const envConfig = env(nodeless, {});
+```
+
+[(view `nodeless` preset source)](./src/presets/nodeless.ts)
+
+### `deno` preset
+
+**Note:** This preset is **experimental** and behavior can change!
+
+This preset can be used to extend `nodeless` to use Deno's Node.js API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility), [docs](https://docs.deno.com/deploy/api/runtime-node)).
+
+```js
+import { env, nodeless, deno } from "unenv";
+
+const envConfig = env(nodeless, deno, {});
+```
+
+[(view `deno` preset source)](./src/presets/deno.ts)
 
 ### Built-in Node.js modules
 
-`unenv` provides a replacement for all Node.js built-ins for cross-platform compatiblity.
+`unenv` provides a replacement for all Node.js built-ins for cross-platform compatibility.
 
 | Module                                                                      | Status     | Source                                                             |
 | --------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------ |
@@ -117,9 +147,9 @@ import MockProxy from "unenv/runtime/mock/proxy";
 console.log(MockProxy().foo.bar()[0]);
 ```
 
-Above package doesn't work outside of Node.js and neither we need any platform specific logic! When aliasing `os` to `mock/proxy-cjs`, it will be auto mocked using a [Proxy Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) which can be recursively traversed like an `Object`, called like a `Function`, Iterated like an `Array`, or instantiated like a `Class`.
+The above package doesn't work outside of Node.js and neither we need any platform-specific logic! When aliasing `os` to `mock/proxy-cjs`, it will be auto-mocked using a [Proxy Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) which can be recursively traversed like an `Object`, called like a `Function`, Iterated like an `Array`, or instantiated like a `Class`.
 
-We use this proxy for auto mocking unimplemented internals. Imagine a package does this:
+We use this proxy for auto-mocking unimplemented internals. Imagine a package does this:
 
 ```js
 const os = require("os");
@@ -129,11 +159,11 @@ if (os.platform() === "windows") {
 module.exports = () => "Hello world";
 ```
 
-By aliasing `os` to `unenv/runtime/mock/proxy-cjs`, code will be compatible with other platforms.
+By aliasing `os` to `unenv/runtime/mock/proxy-cjs`, the code will be compatible with other platforms.
 
 ## Other polyfills
 
-Please check [./src/runtime](./src/runtime) to discover other polyfills.
+To discover other polyfills, please check [./src/runtime](./src/runtime).
 
 ## License
 
