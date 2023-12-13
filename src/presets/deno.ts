@@ -70,7 +70,10 @@ const denoPreset: Preset = {
     Buffer: "node:buffer",
     PerformanceObserver: "node:perf_hooks",
   },
-  polyfill: ["unenv/runtime/polyfill/global"],
+  polyfill: [
+    "unenv/runtime/polyfill/global",
+    "unenv/runtime/polyfill/deno-env",
+  ],
   external: denoNodeCompatModules.map((p) => `node:${p}`),
 };
 
