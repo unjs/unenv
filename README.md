@@ -20,9 +20,9 @@ pnpm add -D unenv
 Using `env` utility and built-in presets (and [nodeless](./src/presets/nodeless.ts)), `unenv` will provide an abstract configuration that can be used in building pipelines ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc.).
 
 ```js
-import { env, node, nodeless } from "unenv";
+import { env, node, deno, nodeless } from "unenv";
 
-const { alias, inject, polyfill, external } = env(...presets);
+const { alias, inject, polyfill, external } = env(nodeless, {});
 ```
 
 ## Presets
@@ -34,13 +34,31 @@ Suitable to convert universal libraries working in Node.js. ([preset](./src/pres
 - Add supports for global [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - Set Node.js built-ins as externals
 
+```js
+import { env, nodeless } from "unenv";
+
+const envConfig = env(node, {});
+```
+
 ### `nodeless`
 
 Using this preset, we can convert a code that is depending on Node.js to work anywhere else.
 
+```js
+import { env, nodeless } from "unenv";
+
+const envConfig = env(nodeless, {});
+```
+
 ### `deno`
 
-This preset extends `nodeless` but allows using Deno's Node API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility) and [docs](https://docs.deno.com/deploy/api/runtime-node)) ([preset](./src/presets/deno.ts)).
+This preset can be used to extend `nodeless` to using Deno's Node API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility) and [docs](https://docs.deno.com/deploy/api/runtime-node)) ([preset](./src/presets/deno.ts)).
+
+```js
+import { env, nodeless, deno } from "unenv";
+
+const envConfig = env(nodeless, deno, {});
+```
 
 ### Built-in Node.js modules
 

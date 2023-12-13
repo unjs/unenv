@@ -1,9 +1,8 @@
 import type { Preset } from "../types";
-import nodeless from "./nodeless";
 
 // https://docs.deno.com/runtime/manual/node/compatibility
 // https://docs.deno.com/deploy/api/runtime-node
-export const denoNodeCompatModules = [
+const denoNodeCompatModules = [
   "assert",
   "assert/strict",
   "async_hooks",
@@ -56,16 +55,11 @@ export const denoNodeCompatModules = [
 
 const denoPreset: Preset = {
   alias: {
-    ...nodeless.alias,
     ...Object.fromEntries(denoNodeCompatModules.map((p) => [p, `node:${p}`])),
     ...Object.fromEntries(
       denoNodeCompatModules.map((p) => [`node:${p}`, `node:${p}`]),
     ),
-  },
-  inject: {
-    ...nodeless.inject,
-  },
-  polyfill: [...(nodeless.polyfill as string[])],
+  }
 };
 
 export default denoPreset;
