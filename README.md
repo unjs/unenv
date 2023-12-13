@@ -40,7 +40,7 @@ import { env, nodeless } from "unenv";
 const envConfig = env(node, {});
 ```
 
-([view `node` preset source](./src/presets/node.ts))
+[(view `node` preset source)](./src/presets/node.ts)
 
 ### `nodeless` preset
 
@@ -52,7 +52,7 @@ import { env, nodeless } from "unenv";
 const envConfig = env(nodeless, {});
 ```
 
-([view `nodeless` preset source](./src/presets/nodeless.ts))
+[(view `nodeless` preset source)](./src/presets/nodeless.ts)
 
 ### `deno` preset
 
@@ -64,7 +64,7 @@ import { env, nodeless, deno } from "unenv";
 const envConfig = env(nodeless, deno, {});
 ```
 
-([view `deno` preset source](./src/presets/deno.ts))
+[(view `deno` preset source)](./src/presets/deno.ts)
 
 ### Built-in Node.js modules
 
