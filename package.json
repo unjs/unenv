@@ -32,6 +32,7 @@
     "prepack": "unbuild",
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm typecheck",
+    "test:deno": "NODE_NO_WARNINGS=1 pnpm jiti test/deno.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
