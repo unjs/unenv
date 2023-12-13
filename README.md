@@ -38,6 +38,10 @@ Suitable to convert universal libraries working in Node.js. ([preset](./src/pres
 
 Using this preset, we can convert a code that is depending on Node.js to work anywhere else.
 
+### `deno`
+
+This preset extends `nodeless` but allows using Deno's Node API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility) and [docs](https://docs.deno.com/deploy/api/runtime-node)) ([preset](./src/presets/deno.ts)).
+
 ### Built-in Node.js modules
 
 `unenv` provides a replacement for all Node.js built-ins for cross-platform compatiblity.
