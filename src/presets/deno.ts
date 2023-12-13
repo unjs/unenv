@@ -2,6 +2,7 @@ import type { Preset } from "../types";
 
 // https://docs.deno.com/runtime/manual/node/compatibility
 // https://docs.deno.com/deploy/api/runtime-node
+// Last checked: 2023-12-13
 const denoNodeCompatModules = [
   "assert",
   "assert/strict",
@@ -60,6 +61,17 @@ const denoPreset: Preset = {
       denoNodeCompatModules.map((p) => [`node:${p}`, `node:${p}`]),
     ),
   },
+  // Deno's listed globals manually tested against deno@1.38.5
+  // TODO: missing BroadcastChannel, PerformanceObserverEntryList, PerformanceResourceTiming
+  // TODO: global and process
+  inject: {
+    setImmediate: "node:timers",
+    clearImmediate: "node:timers",
+    Buffer: "node:buffer",
+    PerformanceObserver: "node:perf_hooks",
+  },
+  polyfill: ["unenv/runtime/polyfill/global"],
+  external: denoNodeCompatModules.map((p) => `node:${p}`),
 };
 
 export default denoPreset;
