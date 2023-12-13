@@ -59,7 +59,7 @@ const denoPreset: Preset = {
     ...Object.fromEntries(
       denoNodeCompatModules.map((p) => [`node:${p}`, `node:${p}`]),
     ),
-  }
+  },
 };
 
 export default denoPreset;
