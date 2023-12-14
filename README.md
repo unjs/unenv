@@ -27,7 +27,11 @@ const { alias, inject, polyfill, external } = env({}, {}, {});
 
 **Note:** You can provide as many presets as you want. unenv will merge them internally and the right-most preset has a higher priority.
 
-### `node` preset
+## Presets
+
+### `node`
+
+[(view preset source)](./src/presets/node.ts)
 
 Suitable to convert universal libraries working in Node.js.
 
@@ -40,9 +44,9 @@ import { env, nodeless } from "unenv";
 const envConfig = env(node, {});
 ```
 
-[(view `node` preset source)](./src/presets/node.ts)
+### `nodeless`
 
-### `nodeless` preset
+[(view preset source)](./src/presets/nodeless.ts)
 
 Suitable to transform libraries made for Node.js to run in other JavaScript runtimes.
 
@@ -52,11 +56,12 @@ import { env, nodeless } from "unenv";
 const envConfig = env(nodeless, {});
 ```
 
-[(view `nodeless` preset source)](./src/presets/nodeless.ts)
-
 ### `deno` preset
 
-**Note:** This preset is **experimental** and behavior can change!
+[(view preset source)](./src/presets/deno.ts)
+
+> [!WARNING]
+> This preset is **experimental** and behavior might change!
 
 This preset can be used to extend `nodeless` to use Deno's Node.js API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility), [docs](https://docs.deno.com/deploy/api/runtime-node)).
 
@@ -66,9 +71,25 @@ import { env, nodeless, deno } from "unenv";
 const envConfig = env(nodeless, deno, {});
 ```
 
-[(view `deno` preset source)](./src/presets/deno.ts)
+### `cloudflare` preset
 
-### Built-in Node.js modules
+[(view preset source)](./src/presets/cloudflare.ts)
+
+> [!WARNING]
+> This preset is **experimental** and behavior might change!
+
+This preset can be used to extend `nodeless` to use Cloudflare Worker's Node.js API Compatibility ([docs](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)).
+
+> [!NOTE]
+> Make sure to enable [`nodejs_compat`](https://developers.cloudflare.com/workers/configuration/compatibility-dates/#nodejs-compatibility-flag) compatibility flag.
+
+```js
+import { env, nodeless, cloudflare } from "unenv";
+
+const envConfig = env(nodeless, cloudflare, {});
+```
+
+## Built-in Node.js modules
 
 `unenv` provides a replacement for all Node.js built-ins for cross-platform compatibility.
 
