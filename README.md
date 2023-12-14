@@ -60,10 +60,10 @@ const envConfig = env(nodeless, {});
 
 [(view source)](./src/presets/deno.ts)
 
+This preset can be used to extend `nodeless` to use Deno's Node.js API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility), [docs](https://docs.deno.com/deploy/api/runtime-node)).
+
 > [!WARNING]
 > This preset is **experimental** and behavior might change!
-
-This preset can be used to extend `nodeless` to use Deno's Node.js API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility), [docs](https://docs.deno.com/deploy/api/runtime-node)).
 
 ```js
 import { env, nodeless, deno } from "unenv";
@@ -75,10 +75,10 @@ const envConfig = env(nodeless, deno, {});
 
 [(view source)](./src/presets/cloudflare.ts)
 
+This preset can be used to extend `nodeless` to use Cloudflare Worker's Node.js API Compatibility ([docs](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)).
+
 > [!WARNING]
 > This preset is **experimental** and behavior might change!
-
-This preset can be used to extend `nodeless` to use Cloudflare Worker's Node.js API Compatibility ([docs](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)).
 
 > [!NOTE]
 > Make sure to enable [`nodejs_compat`](https://developers.cloudflare.com/workers/configuration/compatibility-dates/#nodejs-compatibility-flag) compatibility flag.
