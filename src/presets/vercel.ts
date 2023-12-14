@@ -1,12 +1,12 @@
 import type { Preset } from "../types";
 
-// https://vercel.com/docs/functions/edge-functions/edge-runtime
+// https://vercel.com/docs/functions/edge-functions/edge-runtime#compatible-node.js-modules
 // Last checked: 2023-12-14
 const vercelNodeCompatModules = [
   "async_hooks",
   "events",
   "buffer",
-  "asset",
+  "assert",
   "util",
 ];
 

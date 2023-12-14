@@ -1,13 +1,18 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { env, nodeless, vercel } from "../src";
-import { genRuntimeTest, resolveTmp } from "./_utils";
+import {
+  RuntimeTestResult,
+  analyzeRuntimeTestResult,
+  genRuntimeTest,
+  resolveTmp,
+} from "./_utils";
 
 async function main() {
   const _env = env(nodeless, vercel);
 
-  const outDir = "vercel/vercel_out";
-  const funcDir = `${outDir}/output/functions/__test.func`;
+  const outDir = "vercel/output";
+  const funcDir = `${outDir}/functions/__test.func`;
 
   mkdirSync(resolveTmp(funcDir), { recursive: true });
 
@@ -43,7 +48,6 @@ export default async function handleEvent(request, event) {
     JSON.stringify(
       {
         version: 3,
-        overrides: {},
         routes: [
           {
             src: "/(.*)",
@@ -60,9 +64,10 @@ export default async function handleEvent(request, event) {
     resolveTmp(`vercel/package.json`),
     JSON.stringify(
       {
+        name: "vercel-edge-test",
         private: true,
         scripts: {
-          build: "cp -vr vercel_out/* .vercel",
+          build: "mkdir -p .vercel && cp -vr output .vercel",
         },
       },
       null,
@@ -70,15 +75,18 @@ export default async function handleEvent(request, event) {
     ),
   );
 
-  // mkdirSync(resolveTmp(`${outDir}/static`), { recursive: true });
-  // writeFileSync(resolveTmp(`${outDir}/static/test.txt`), "hello world");
-
-  await execSync(`bunx vercel`, {
+  await execSync(`bunx vercel --prod`, {
     cwd: resolveTmp("vercel"),
     stdio: "inherit",
   });
 
-  // analyzeRuntimeTestResult(result);
+  const deployURL = "https://unenv.vercel.app/";
+
+  const result = (await fetch("https://unenv.vercel.app/").then((r) =>
+    r.json(),
+  )) as RuntimeTestResult;
+
+  analyzeRuntimeTestResult(result);
 }
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
