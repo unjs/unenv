@@ -1,70 +1,37 @@
-import { writeFileSync, mkdirSync, readFile, readFileSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { execSync } from "node:child_process";
-import { createRequire } from "node:module";
 import { env, nodeless, deno } from "../src";
+import {
+  RuntimeTestResult,
+  analyzeRuntimeTestResult,
+  genRuntimeTest,
+  resolveTmp,
+} from "./_utils";
 
-const denoConfig = env(nodeless, deno);
+async function main() {
+  const _env = env(nodeless, deno);
 
-const testCode = `
-const nodeImports = { ${Object.entries(denoConfig.alias)
-  .filter(([id]) => id.startsWith("node:"))
-  .map(([id, alias]) => {
-    if (!alias.startsWith("node:")) {
-      return `"${id}": "<unenv>",`;
-    }
-    return `"${id}": Object.keys(await import("${id}")),`;
-  })
-  .join("\n")}
-};
+  const testCode = `
+  ${genRuntimeTest(_env)}
+  const result = await testRuntime();
+  await Deno.writeFile("deno.json", new TextEncoder().encode(JSON.stringify(result, null, 2)));
+  `;
 
-const support = {
-  nodeImports
+  mkdirSync(resolveTmp(), { recursive: true });
+
+  writeFileSync(resolveTmp("deno.mjs"), testCode);
+
+  execSync("deno run -A deno.mjs", {
+    cwd: resolveTmp(),
+    stdio: "inherit",
+  });
+
+  const result = JSON.parse(
+    readFileSync(resolveTmp("deno.json"), "utf8"),
+  ) as RuntimeTestResult;
+
+  analyzeRuntimeTestResult(result);
 }
 
-await Deno.writeFile(".tmp/deno-support.json", new TextEncoder().encode(JSON.stringify(support, null, 2)));
-`;
-
-mkdirSync(new URL(".tmp", import.meta.url), { recursive: true });
-
-writeFileSync(new URL(".tmp/deno-test.mjs", import.meta.url), testCode);
-
-execSync("deno run -A .tmp/deno-test.mjs", {
-  cwd: new URL(".", import.meta.url),
-  stdio: "inherit",
-});
-
-const { nodeImports } = JSON.parse(
-  readFileSync(new URL(".tmp/deno-support.json", import.meta.url), "utf8"),
-) as { nodeImports: Record<string, "<unenv>" | string[]> };
-
-const _require = createRequire(import.meta.url);
-
-const output: string[] = [];
-output.push("Feature | Status | Details");
-output.push("--- | --- | ---");
-
-for (const [name, denoExports] of Object.entries(nodeImports)) {
-  if (denoExports === "<unenv>") {
-    output.push(`${name} | ℹ️ unenv | Using unenv`);
-    continue;
-  }
-  const nodeExports = Object.keys(_require(name));
-  const diffExports = diff(nodeExports, denoExports);
-  if (diffExports.length > 0) {
-    output.push(
-      `${name} | ⚠️ partial | Missing: ${
-        diffExports.length > 10
-          ? `**${diffExports.length}** exports!!`
-          : diffExports.map((i) => `\`${i}\``).join(", ")
-      }`,
-    );
-  } else {
-    output.push(`${name} | ✅ full | -`);
-  }
-}
-
-console.log(output.join("\n"));
-
-function diff(a: string[] = [], b: string[] = []) {
-  return a.filter((v) => !b.includes(v));
-}
+// eslint-disable-next-line unicorn/prefer-top-level-await
+main();
