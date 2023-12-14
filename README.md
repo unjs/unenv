@@ -75,7 +75,7 @@ const envConfig = env(nodeless, deno, {});
 
 [(view source)](./src/presets/cloudflare.ts)
 
-This preset can be used to extend `nodeless` to use Cloudflare Worker's Node.js API Compatibility ([docs](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)).
+This preset can be used to extend `nodeless` to use [Cloudflare Worker](https://workers.cloudflare.com/) Node.js API Compatibility ([docs](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)).
 
 > [!WARNING]
 > This preset is **experimental** and behavior might change!
@@ -87,6 +87,19 @@ This preset can be used to extend `nodeless` to use Cloudflare Worker's Node.js 
 import { env, nodeless, cloudflare } from "unenv";
 
 const envConfig = env(nodeless, cloudflare, {});
+```
+
+### `vercel`
+
+This preset can be used to extend `nodeless` to use [Vercel Edge](https://vercel.com/docs/functions/edge-functions/edge-runtime) Node.js API Compatibility ([docs](https://vercel.com/docs/functions/edge-functions/edge-runtime#compatible-node.js-modules)).
+
+> [!WARNING]
+> This preset is **experimental** and behavior might change!
+
+```js
+import { env, nodeless, vercel } from "unenv";
+
+const envConfig = env(nodeless, vercel, {});
 ```
 
 ## Built-in Node.js modules
