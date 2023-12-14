@@ -31,7 +31,7 @@ const { alias, inject, polyfill, external } = env({}, {}, {});
 
 ### `node`
 
-[(view preset source)](./src/presets/node.ts)
+[(view source)](./src/presets/node.ts)
 
 Suitable to convert universal libraries working in Node.js.
 
@@ -46,7 +46,7 @@ const envConfig = env(node, {});
 
 ### `nodeless`
 
-[(view preset source)](./src/presets/nodeless.ts)
+[(view source)](./src/presets/nodeless.ts)
 
 Suitable to transform libraries made for Node.js to run in other JavaScript runtimes.
 
@@ -56,9 +56,9 @@ import { env, nodeless } from "unenv";
 const envConfig = env(nodeless, {});
 ```
 
-### `deno` preset
+### `deno`
 
-[(view preset source)](./src/presets/deno.ts)
+[(view source)](./src/presets/deno.ts)
 
 > [!WARNING]
 > This preset is **experimental** and behavior might change!
@@ -71,9 +71,9 @@ import { env, nodeless, deno } from "unenv";
 const envConfig = env(nodeless, deno, {});
 ```
 
-### `cloudflare` preset
+### `cloudflare`
 
-[(view preset source)](./src/presets/cloudflare.ts)
+[(view source)](./src/presets/cloudflare.ts)
 
 > [!WARNING]
 > This preset is **experimental** and behavior might change!
