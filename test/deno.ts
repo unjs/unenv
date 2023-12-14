@@ -12,9 +12,9 @@ async function main() {
   const _env = env(nodeless, deno);
 
   const testCode = `
-  ${genRuntimeTest(_env)}
-  const result = await testRuntime();
-  await Deno.writeFile("deno.json", new TextEncoder().encode(JSON.stringify(result, null, 2)));
+${genRuntimeTest(_env)}
+const result = await testRuntime();
+await Deno.writeFile("deno.json", new TextEncoder().encode(JSON.stringify(result, null, 2)));
   `;
 
   mkdirSync(resolveTmp(), { recursive: true });
