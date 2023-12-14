@@ -33,6 +33,7 @@
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm typecheck",
     "test:deno": "NODE_NO_WARNINGS=1 pnpm jiti test/deno.ts",
+    "test:cf": "NODE_NO_WARNINGS=1 pnpm jiti test/cloudflare.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -50,7 +51,8 @@
     "jiti": "^1.21.0",
     "prettier": "^3.1.0",
     "typescript": "^5.3.3",
-    "unbuild": "^2.0.0"
+    "unbuild": "^2.0.0",
+    "wrangler": "^3.20.0"
   },
   "packageManager": "pnpm@8.11.0"
 }
