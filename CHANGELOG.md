@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.9.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.8.0...v1.9.0)
+
+### 🚀 Enhancements
+
+- Experimental deno preset ([#155](https://github.com/unjs/unenv/pull/155))
+- **deno:** Add `process.env` polyfill ([a34f3e0](https://github.com/unjs/unenv/commit/a34f3e0))
+- Experimental cloudflare preset ([#156](https://github.com/unjs/unenv/pull/156))
+- Experimental vercel preset ([#157](https://github.com/unjs/unenv/pull/157))
+
+### 🏡 Chore
+
+- Update lockfile ([65c9766](https://github.com/unjs/unenv/commit/65c9766))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.8.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.7.4...v1.8.0)
