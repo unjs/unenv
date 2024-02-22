@@ -25,6 +25,7 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   req: http.IncomingMessage;
 
   _headers: Record<string, number | string | string[] | undefined> = {};
+  kOutHeaders: Record<string, [string, string]> | null = null;
 
   constructor(req: http.IncomingMessage) {
     super();
