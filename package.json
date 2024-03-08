@@ -53,7 +53,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.2",
     "unbuild": "^2.0.0",
-    "wrangler": "^3.31.0"
+    "wrangler": "^3.32.0"
   },
   "packageManager": "pnpm@8.15.4"
 }
