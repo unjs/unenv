@@ -226,3 +226,12 @@ process.chdir = function (dir) {
 process.umask = function () {
   return 0;
 };
+
+// https://nodejs.org/api/process.html#processhrtime
+process.hrtime = function () {
+  return [0, 0];
+};
+process.hrtime.bigint = function () {
+  // Convert milliseconds to nanoseconds
+  return BigInt(Date.now() * 1_000_000);
+};
