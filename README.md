@@ -39,7 +39,7 @@ Suitable to convert universal libraries working in Node.js.
 - Set Node.js built-ins as externals
 
 ```js
-import { env, nodeless } from "unenv";
+import { env, node } from "unenv";
 
 const envConfig = env(node, {});
 ```
