@@ -2,7 +2,10 @@
   "name": "unenv",
   "version": "1.9.0",
   "description": "",
-  "repository": "unjs/unenv",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unjs/unenv.git"
+  },
   "license": "MIT",
   "sideEffects": false,
   "exports": {
