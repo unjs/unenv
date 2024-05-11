@@ -1,4 +1,4 @@
-import type * as stramWeb from "node:stream/web";
+import type * as streamWeb from "node:stream/web";
 import { notImplemented } from "../../../_internal/utils";
 
 export const ReadableStream =
@@ -48,7 +48,7 @@ export const TextDecoderStream =
   notImplemented("stream.web.TextDecoderStream");
 
 // @ts-ignore
-export default <typeof stramWeb>{
+export default <typeof streamWeb>{
   ReadableStream,
   ReadableStreamDefaultReader,
   ReadableStreamBYOBReader,
