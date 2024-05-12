@@ -3,6 +3,11 @@ import type { Preset } from "../types";
 // https://developers.cloudflare.com/workers/runtime-apis/nodejs/
 // Last checked: 2023-12-14
 const cloudflareNodeCompatModules = [
+  "_stream_duplex",
+  "_stream_passthrough",
+  "_stream_readable",
+  "_stream_transform",
+  "_stream_writable",
   "assert",
   "async_hooks",
   "buffer",
