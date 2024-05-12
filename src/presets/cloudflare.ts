@@ -12,6 +12,7 @@ const cloudflareNodeCompatModules = [
   "path",
   "process",
   "stream",
+  "stream/web",
   "string_decoder",
   "util",
 ];
