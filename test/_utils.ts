@@ -35,7 +35,9 @@ export function analyzeRuntimeTestResult(result: RuntimeTestResult) {
   output.push("Feature | Status | Details");
   output.push("--- | --- | ---");
 
-  for (const [name, _exports] of Object.entries(result.nodeModules)) {
+  for (const [name, _exports] of Object.entries(result.nodeModules).sort(
+    (a, b) => (a[0] > b[0] ? 1 : -1),
+  )) {
     if (_exports === "<unenv>") {
       output.push(`${name} | ℹ️ unenv | Using unenv`);
       continue;

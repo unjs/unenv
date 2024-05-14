@@ -1,8 +1,14 @@
 import type { Preset } from "../types";
 
 // https://developers.cloudflare.com/workers/runtime-apis/nodejs/
-// Last checked: 2023-12-14
+// https://github.com/cloudflare/workerd/tree/main/src/node
+// Last checked: 2024-05-11
 const cloudflareNodeCompatModules = [
+  "_stream_duplex",
+  "_stream_passthrough",
+  "_stream_readable",
+  "_stream_transform",
+  "_stream_writable",
   "assert",
   "async_hooks",
   "buffer",
@@ -12,6 +18,9 @@ const cloudflareNodeCompatModules = [
   "path",
   "process",
   "stream",
+  "stream/consumers",
+  "stream/promises",
+  "stream/web",
   "string_decoder",
   "util",
 ];
