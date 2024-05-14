@@ -50,6 +50,11 @@ export const transferableAbortSignal: typeof util.transferableAbortSignal =
 export const parseArgs: typeof util.parseArgs =
   notImplemented("util.parseArgs");
 
+export const parseEnv: typeof util.parseEnv = notImplemented("util.parseEnv");
+
+export const styleText: typeof util.styleText =
+  notImplemented("util.styleText");
+
 export default <typeof util>{
   _errnoException,
   _exceptionWithHostPort,
@@ -69,6 +74,8 @@ export default <typeof util>{
   transferableAbortController,
   transferableAbortSignal,
   parseArgs,
+  parseEnv,
+  styleText,
   ...mime,
   ...logUtils,
   ...legacyTypes,

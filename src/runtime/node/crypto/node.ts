@@ -222,6 +222,8 @@ export const secureHeapUsed: typeof nodeCrypto.secureHeapUsed = notImplemented(
   "crypto.secureHeapUsed",
 );
 
+export const hash: (typeof nodeCrypto)["hash"] = notImplemented("crypto.hash");
+
 // ---- Unimplemented Classes ----
 
 export const Certificate = notImplementedClass(
