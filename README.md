@@ -186,11 +186,11 @@ The above package doesn't work outside of Node.js and neither we need any platfo
 We use this proxy for auto-mocking unimplemented internals. Imagine a package does this:
 
 ```js
-const os = require("os");
+const os = require("node:os");
 if (os.platform() === "windows") {
   /* do some fix */
 }
-module.exports = () => "Hello world";
+module.exports =  "Hello world";
 ```
 
 By aliasing `os` to `unenv/runtime/mock/proxy-cjs`, the code will be compatible with other platforms.

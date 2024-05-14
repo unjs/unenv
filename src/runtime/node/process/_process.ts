@@ -52,7 +52,7 @@ function runTimeout(fun: () => void) {
   } catch {
     try {
       // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-      // eslint-disable-next-line no-useless-call
+
       return cachedSetTimeout.call(null, fun, 0);
     } catch {
       // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
@@ -80,7 +80,7 @@ function runClearTimeout(marker) {
   } catch {
     try {
       // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-      // eslint-disable-next-line no-useless-call
+
       return cachedClearTimeout.call(null, marker);
     } catch {
       // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.

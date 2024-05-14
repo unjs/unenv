@@ -31,7 +31,7 @@ class _AsyncLocalStorage<T> implements asyncHooks.AsyncLocalStorage<T> {
     ...args: TArgs
   ): R {
     this._currentStore = store;
-    const res = callback(...args); // eslint-disable-line n/no-callback-literal
+    const res = callback(...args);
     this._currentStore = undefined;
     return res;
   }
@@ -42,7 +42,7 @@ class _AsyncLocalStorage<T> implements asyncHooks.AsyncLocalStorage<T> {
   ): R {
     const _previousStore = this._currentStore;
     this._currentStore = undefined;
-    const res = callback(...args); // eslint-disable-line n/no-callback-literal
+    const res = callback(...args);
     this._currentStore = _previousStore;
     return res;
   }

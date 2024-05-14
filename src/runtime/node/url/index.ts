@@ -43,7 +43,7 @@ export const urlToHttpOptions = <typeof url.urlToHttpOptions>function (url) {
     path: url.pathname + url.search || "",
     href: url.href,
     port: url.port,
-    // eslint-disable-next-line unicorn/prefer-logical-operator-over-ternary
+
     auth: url.username
       ? url.username + url.password
         ? ":" + url.password

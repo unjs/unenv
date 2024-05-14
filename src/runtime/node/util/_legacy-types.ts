@@ -47,7 +47,6 @@ export const isBuffer: typeof util.isBuffer = (val: any): val is Buffer => {
 export const isDeepStrictEqual: typeof util.isDeepStrictEqual = (a, b) =>
   JSON.stringify(a) === JSON.stringify(b);
 
-// eslint-disable-next-line no-prototype-builtins
 export const isObject: typeof util.isObject = (val) =>
   val !== null &&
   typeof val === "object" &&
