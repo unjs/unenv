@@ -231,21 +231,21 @@ process.umask = function () {
 process.hrtime = function (startTime) {
   const now = Date.now();
   // millis to seconds
-  const seconds = Math.trunc(now / 1_000);
+  const seconds = Math.trunc(now / 1000);
   // convert millis to nanos
-  const nanos = (now % 1_000) * 1_000_000;
-  
+  const nanos = (now % 1000) * 1_000_000;
+
   if (startTime) {
     let diffSeconds = seconds - startTime[0];
     let diffNanos = nanos - startTime[0];
-    
+
     if (diffNanos < 0) {
       diffSeconds = diffSeconds - 1;
       diffNanos = 1_000_000_000 + diffNanos;
     }
-    return [diffSeconds, diffNanos]
+    return [diffSeconds, diffNanos];
   }
-  
+
   return [seconds, nanos];
 };
 process.hrtime.bigint = function () {
