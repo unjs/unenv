@@ -35,7 +35,7 @@ const cloudflarePreset: Preset = {
     ),
   },
   inject: {},
-  polyfill: [],
+  polyfill: ["unenv/runtime/polyfill/cloudflare"],
   external: cloudflareNodeCompatModules.map((p) => `node:${p}`),
 };
 
