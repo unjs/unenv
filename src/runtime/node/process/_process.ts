@@ -3,7 +3,9 @@
 
 import mock from "../../mock/proxy";
 import empty from "../../mock/empty";
-import { notImplemented } from "src/runtime/_internal/utils";
+import { notImplemented } from "../../_internal/utils";
+
+type Process = NodeJS.Process;
 
 // Cached from whatever global is present so that test runners that stub it
 // don't break things.  But we need to wrap it in a try catch in case it is
@@ -167,14 +169,14 @@ function Item(fun, array) {
 Item.prototype.run = function () {
   this.fun.apply(null, this.array);
 };
-const title = "unenv";
+const title: Process["title"] = "unenv";
 
 const _envShim = Object.create(null);
 const _processEnv = globalThis.process?.env;
 const _getEnv = (useShim: boolean) =>
   _processEnv || globalThis.__env__ || (useShim ? _envShim : globalThis);
 
-const env = new Proxy(_envShim, {
+const env: Process["env"] = new Proxy(_envShim, {
   get(_, prop) {
     const env = _getEnv();
     return env[prop] ?? _envShim[prop];
@@ -198,45 +200,43 @@ const env = new Proxy(_envShim, {
   },
 });
 
-const argv = [];
-// @ts-ignore
-const version = ""; // empty string to avoid regexp issues
-// @ts-ignore
-const versions = {};
+const argv: Process["argv"] = [];
+const version: Process["version"] = ""; // empty string to avoid regexp issues
+const versions: Process["versions"] = {};
 
 function noop() {
   return process;
 }
 
-const on = noop;
-const addListener = noop;
-const once = noop;
-const off = noop;
-const removeListener = noop;
-const removeAllListeners = noop;
-// @ts-ignore
-const emit = noop;
-const prependListener = noop;
-const prependOnceListener = noop;
+const on: Process["on"] = noop;
+const addListener: Process["addListener"] = noop;
+const once: Process["once"] = noop;
+const off: Process["off"] = noop;
+const removeListener: Process["removeListener"] = noop;
+const removeAllListeners: Process["removeAllListeners"] = noop;
+const emit: Process["emit"] = noop;
+const prependListener: Process["prependListener"] = noop;
+const prependOnceListener: Process["prependOnceListener"] = noop;
 
-const listeners = function (name) {
+const listeners: Process["listeners"] = function (name) {
   return [];
 };
-const listenerCount = () => process.listeners().length;
+const listenerCount: Process["listenerCount"] = () =>
+  process.listeners().length;
 
 // @ts-ignore
-const binding = function (name) {
+const binding: Process["binding"] = function (name) {
   throw new Error("[unenv] process.binding is not supported");
 };
 
 let _cwd = "/";
-const cwd = function () {
+const cwd: Process["cwd"] = function () {
   return _cwd;
 };
-const chdir = function (dir) {
+const chdir: Process["chdir"] = function (dir) {
   _cwd = dir;
 };
-const umask = function () {
+const umask: Process["umask"] = function () {
   return 0;
 };
 
@@ -266,62 +266,70 @@ hrtime.bigint = function () {
   return BigInt(Date.now() * 1_000_000);
 };
 
-const getegid = function () {
+const getegid: Process["getegid"] = function () {
   return 1000;
 };
 
-const geteuid = function () {
+const geteuid: Process["geteuid"] = function () {
   return 1000;
 };
 
-const getgid = function () {
+const getgid: Process["getgid"] = function () {
   return 1000;
 };
 
-const getuid = function () {
+const getuid: Process["getuid"] = function () {
   return 1000;
 };
 
-const getgroups = function () {
+const getgroups: Process["getgroups"] = function () {
   return [];
 };
 
 // ---- Unimplemented utils ----
 
-const _debugEnd = notImplemented("process._debugEnd");
-const _debugProcess = notImplemented("process._debugProcess");
-const _eventsCount = 0;
-const _fatalException = notImplemented("process._fatalException");
-const _getActiveHandles = notImplemented("process._getActiveHandles");
-const _getActiveRequests = notImplemented("process._getActiveRequests");
-const _kill = notImplemented("process._kill");
-const _preload_modules = [];
-const _rawDebug = notImplemented("process._rawDebug");
-const _startProfilerIdleNotifier = notImplemented(
-  "process._startProfilerIdleNotifier",
+const _debugEnd: Process["_debugEnd"] = notImplemented("process._debugEnd");
+const _debugProcess: Process["_debugProcess"] = notImplemented(
+  "process._debugProcess",
 );
-const _stopProfilerIdleNotifier = notImplemented(
-  "process.__stopProfilerIdleNotifier",
+const _eventsCount: Process["_eventsCount"] = 0;
+const _fatalException: Process["_fatalException"] = notImplemented(
+  "process._fatalException",
 );
-const _tickCallback = notImplemented("process._tickCallback");
-const assert = notImplemented("process.assert");
-const abort = notImplemented("process.abort");
-const allowedNodeEnvironmentFlags = [];
-const arch = "";
-const argv0 = "";
-const config = empty;
-const connected = false;
-const constrainedMemory = 0;
-const cpuUsage = notImplemented("process.cpuUsage");
-const debugPort = 0;
-const dlopen = notImplemented("process.dlopen");
-const disconnect = noop;
-const emitWarning = noop;
-const eventNames = notImplemented("process.eventNames");
-const execArgv = [];
-const execPath = "";
-const exit = notImplemented("process.exit");
-const features = Object.create({
+const _getActiveHandles: Process["_getActiveHandles"] = notImplemented(
+  "process._getActiveHandles",
+);
+const _getActiveRequests: Process["_getActiveRequests"] = notImplemented(
+  "process._getActiveRequests",
+);
+const _kill: Process["_kill"] = notImplemented("process._kill");
+const _preload_modules: Process["_preload_modules"] = [];
+const _rawDebug: Process["_rawDebug"] = notImplemented("process._rawDebug");
+const _startProfilerIdleNotifier: Process["_startProfilerIdleNotifier"] =
+  notImplemented("process._startProfilerIdleNotifier");
+const _stopProfilerIdleNotifier: Process["_stopProfilerIdleNotifier"] =
+  notImplemented("process.__stopProfilerIdleNotifier");
+const _tickCallback: Process["_tickCallback"] = notImplemented(
+  "process._tickCallback",
+);
+const assert: Process["assert"] = notImplemented("process.assert");
+const abort: Process["abort"] = notImplemented("process.abort");
+const allowedNodeEnvironmentFlags: Process["allowedNodeEnvironmentFlags"] = [];
+const arch: Process["arch"] = "";
+const argv0: Process["argv0"] = "";
+const config: Process["config"] = empty;
+const connected: Process["connected"] = false;
+const constrainedMemory: Process["constrainedMemory"] = 0;
+const cpuUsage: Process["cpuUsage"] = notImplemented("process.cpuUsage");
+const debugPort: Process["debugPort"] = 0;
+const dlopen: Process["dlopen"] = notImplemented("process.dlopen");
+const disconnect: Process["disconnect"] = noop;
+const emitWarning: Process["emitWarning"] = noop;
+const eventNames: Process["eventNames"] = notImplemented("process.eventNames");
+const execArgv: Process["execArgv"] = [];
+const execPath: Process["execPath"] = "";
+const exit: Process["exit"] = notImplemented("process.exit");
+const features: Process["features"] = Object.create({
   inspector: undefined,
   debug: undefined,
   uv: undefined,
@@ -332,22 +340,28 @@ const features = Object.create({
   tls: undefined,
   cached_builtins: undefined,
 });
-const getActiveResourcesInfo = [];
-const getMaxListeners = notImplemented("process.getMaxListeners");
-const kill = notImplemented("process.kill");
-const memoryUsage = notImplemented("process.memoryUsage");
-const openStdin = notImplemented("process.openStdin");
-const pid = 1000;
-const platform = "unenv";
-const ppid = 1000;
-const rawListeners = notImplemented("process.rawListeners");
-const release = Object.create({
+const getActiveResourcesInfo: Process["getActiveResourcesInfo"] = [];
+const getMaxListeners: Process["getMaxListeners"] = notImplemented(
+  "process.getMaxListeners",
+);
+const kill: Process["kill"] = notImplemented("process.kill");
+const memoryUsage: Process["memoryUsage"] = notImplemented(
+  "process.memoryUsage",
+);
+const openStdin: Process["openStdin"] = notImplemented("process.openStdin");
+const pid: Process["pid"] = 1000;
+const platform: Process["platform"] = "unenv";
+const ppid: Process["ppid"] = 1000;
+const rawListeners: Process["rawListeners"] = notImplemented(
+  "process.rawListeners",
+);
+const release: Process["release"] = Object.create({
   name: "",
   lts: "",
   sourceUrl: undefined,
   headersUrl: undefined,
 });
-const report = Object.create({
+const report: Process["report"] = Object.create({
   compact: undefined,
   directory: undefined,
   filename: undefined,
@@ -358,21 +372,29 @@ const report = Object.create({
   signal: undefined,
   writeReport: notImplemented("process.report.writeReport"),
 });
-const resourceUsage = notImplemented("process.resourceUsage");
-const setegid = notImplemented("process.setegid");
-const seteuid = notImplemented("process.seteuid");
-const setgid = notImplemented("process.setgid");
-const setgroups = notImplemented("process.setgroups");
-const setuid = notImplemented("process.setuid");
-const setMaxListeners = notImplemented("process.setMaxListeners");
-const setSourceMapsEnabled = notImplemented("process.setSourceMapsEnabled");
-const stdout = mock.__createMock__("process.stdout");
-const stderr = mock.__createMock__("process.stderr");
-const stdin = mock.__createMock__("process.stdin");
-const traceDeprecation = false;
-const uptime = 0;
+const resourceUsage: Process["resourceUsage"] = notImplemented(
+  "process.resourceUsage",
+);
+const setegid: Process["setegid"] = notImplemented("process.setegid");
+const seteuid: Process["seteuid"] = notImplemented("process.seteuid");
+const setgid: Process["setgid"] = notImplemented("process.setgid");
+const setgroups: Process["setgroups"] = notImplemented("process.setgroups");
+const setuid: Process["setuid"] = notImplemented("process.setuid");
+const setMaxListeners: Process["setMaxListeners"] = notImplemented(
+  "process.setMaxListeners",
+);
+const setSourceMapsEnabled: Process["setSourceMapsEnabled"] = notImplemented(
+  "process.setSourceMapsEnabled",
+);
+const stdout: Process["stdout"] = mock.__createMock__("process.stdout");
+const stderr: Process["stderr"] = mock.__createMock__("process.stderr");
+const stdin: Process["stdin"] = mock.__createMock__("process.stdin");
+const traceDeprecation: Process["traceDeprecation"] = false;
+const uptime: Process["uptime"] = 0;
 
-export const process = {
+type _Process = Required<Process>;
+
+export const process: _Process = {
   _debugEnd,
   _debugProcess,
   _eventsCount,
@@ -454,4 +476,4 @@ export const process = {
   uptime,
   version,
   versions,
-} as typeof globalThis.process;
+};
