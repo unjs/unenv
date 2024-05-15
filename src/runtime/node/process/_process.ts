@@ -224,6 +224,7 @@ process.prependOnceListener = noop;
 process.listeners = function (name) {
   return [];
 };
+process.listenerCount = () => process.listeners().length;
 
 // @ts-ignore
 process.binding = function (name) {
@@ -268,19 +269,19 @@ process.hrtime.bigint = function () {
 };
 
 process.getegid = function () {
-  return 1;
+  return 1000;
 };
 
 process.geteuid = function () {
-  return 1;
+  return 1000;
 };
 
 process.getgid = function () {
-  return 1;
+  return 1000;
 };
 
 process.getuid = function () {
-  return 1;
+  return 1000;
 };
 
 process.getgroups = function () {
@@ -318,7 +319,7 @@ process.argv0 = "";
 process.config = empty;
 process.connected = false;
 process.constrainedMemory = 0;
-process.cpuUsage = notImplemented("process.cpuUsage") as boolean;
+process.cpuUsage = notImplemented("process.cpuUsage");
 process.debugPort = 0;
 process.dlopen = notImplemented("process.dlopen");
 process.disconnect = noop;
@@ -328,36 +329,35 @@ process.execArgv = [];
 process.execPath = "";
 process.exit = notImplemented("process.exit");
 process.features = Object.create({
-  inspector: false,
-  debug: false,
-  uv: false,
-  ipv6: false,
-  tls_alpn: false,
-  tls_sni: false,
-  tls_ocsp: false,
-  tls: false,
-  cached_builtins: false,
+  inspector: undefined,
+  debug: undefined,
+  uv: undefined,
+  ipv6: undefined,
+  tls_alpn: undefined,
+  tls_sni: undefined,
+  tls_ocsp: undefined,
+  tls: undefined,
+  cached_builtins: undefined,
 });
 process.getActiveResourcesInfo = [];
 process.getMaxListeners = notImplemented("process.getMaxListeners");
 process.kill = notImplemented("");
-process.listenerCount = () => process.listeners().length;
 process.memoryUsage = notImplemented("process.memoryUsage");
 process.openStdin = notImplemented("process.openStdin");
-process.pid = 0;
+process.pid = 1000;
 process.platform = "";
-process.ppid = 0;
+process.ppid = 1000;
 process.rawListeners = notImplemented("process.rawListeners");
 process.release = empty;
 process.report = Object.create({
-  compact: false,
-  directory: "",
-  filename: "",
+  compact: undefined,
+  directory: undefined,
+  filename: undefined,
   getReport: notImplemented("process.report.getReport"),
-  reportOnFatalError: false,
-  reportOnSignal: false,
-  reportOnUncaughtException: false,
-  signal: "",
+  reportOnFatalError: undefined,
+  reportOnSignal: undefined,
+  reportOnUncaughtException: undefined,
+  signal: undefined,
   writeReport: notImplemented("process.report.writeReport"),
 });
 process.resourceUsage = notImplemented("process.resourceUsage");
@@ -368,7 +368,6 @@ process.setgroups = notImplemented("process.setgroups");
 process.setuid = notImplemented("process.setuid");
 process.setMaxListeners = notImplemented("process.setMaxListeners");
 process.setSourceMapsEnabled = notImplemented("process.setSourceMapsEnabled");
-process.title = "";
 process.traceDeprecation = false;
 process.uptime = 0;
 process.version = "";
