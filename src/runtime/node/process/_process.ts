@@ -167,14 +167,13 @@ Item.prototype.run = function () {
 };
 process.title = "unenv";
 
-process.env = 
+process.env =
   // preserve process.env if it exists
   globalThis.process?.env ||
   // use global __env__ if exists, this is used by nitro to inject env vars from build
   globalThis.__env__ ||
   // fall back on an empty object
   Object.create(null);
-
 
 process.argv = [];
 // @ts-ignore
