@@ -230,13 +230,13 @@ const binding: Process["binding"] = function (name) {
 };
 
 let _cwd = "/";
-const cwd: Process["cwd"] = function () {
+const cwd: Process["cwd"] = function cwd() {
   return _cwd;
 };
-const chdir: Process["chdir"] = function (dir) {
+const chdir: Process["chdir"] = function chdir(dir) {
   _cwd = dir;
 };
-const umask: Process["umask"] = function () {
+const umask: Process["umask"] = function umask() {
   return 0;
 };
 
@@ -261,28 +261,28 @@ const hrtime = function (startTime) {
 
   return [seconds, nanos];
 };
-hrtime.bigint = function () {
+hrtime.bigint = function bigint() {
   // Convert milliseconds to nanoseconds
   return BigInt(Date.now() * 1_000_000);
 };
 
-const getegid: Process["getegid"] = function () {
+const getegid: Process["getegid"] = function getegid() {
   return 1000;
 };
 
-const geteuid: Process["geteuid"] = function () {
+const geteuid: Process["geteuid"] = function geteuid() {
   return 1000;
 };
 
-const getgid: Process["getgid"] = function () {
+const getgid: Process["getgid"] = function getgid() {
   return 1000;
 };
 
-const getuid: Process["getuid"] = function () {
+const getuid: Process["getuid"] = function getuid() {
   return 1000;
 };
 
-const getgroups: Process["getgroups"] = function () {
+const getgroups: Process["getgroups"] = function getgroups() {
   return [];
 };
 
