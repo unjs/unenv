@@ -334,7 +334,7 @@ const features = Object.create({
 });
 const getActiveResourcesInfo = [];
 const getMaxListeners = notImplemented("process.getMaxListeners");
-const kill = notImplemented("");
+const kill = notImplemented("process.kill");
 const memoryUsage = notImplemented("process.memoryUsage");
 const openStdin = notImplemented("process.openStdin");
 const pid = 1000;
@@ -367,10 +367,10 @@ const setuid = notImplemented("process.setuid");
 const setMaxListeners = notImplemented("process.setMaxListeners");
 const setSourceMapsEnabled = notImplemented("process.setSourceMapsEnabled");
 const stdout = mock.__createMock__("process.stdout");
-const stderr = mock.__createMock__("process.stdout");
-const stdin = mock.__createMock__("process.stdout");
+const stderr = mock.__createMock__("process.stderr");
+const stdin = mock.__createMock__("process.stdin");
 const traceDeprecation = false;
-const uptime = 1000;
+const uptime = 0;
 
 export const process = {
   _debugEnd,
