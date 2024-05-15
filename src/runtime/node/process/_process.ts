@@ -137,8 +137,10 @@ function drainQueue() {
 process.nextTick = function (fun) {
   // https://nodejs.org/api/process.html#when-to-use-queuemicrotask-vs-processnexttick
   if (typeof queueMicrotask === "function") {
-    queueMicrotask(() => { cb(...args); });
-    return
+    queueMicrotask(() => {
+      cb(...args);
+    });
+    return;
   }
   const args = Array.from({ length: arguments.length - 1 });
   if (arguments.length > 1) {
