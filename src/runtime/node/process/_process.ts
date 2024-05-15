@@ -5,8 +5,6 @@ import mock from "../../mock/proxy";
 import empty from "../../mock/empty";
 import { notImplemented } from "src/runtime/_internal/utils";
 
-export const process = {} as typeof globalThis.process;
-
 // Cached from whatever global is present so that test runners that stub it
 // don't break things.  But we need to wrap it in a try catch in case it is
 // wrapped in strict mode code which doesn't define any globals.  It's inside a
@@ -159,7 +157,7 @@ function _nextTick() {
   });
 }
 
-process.nextTick = globalThis.queueMicrotask ? _nextTick : _nextTickLegacy;
+const nextTick = globalThis.queueMicrotask ? _nextTick : _nextTickLegacy;
 
 // v8 likes predictible objects
 function Item(fun, array) {
@@ -169,14 +167,14 @@ function Item(fun, array) {
 Item.prototype.run = function () {
   this.fun.apply(null, this.array);
 };
-process.title = "unenv";
+const title = "unenv";
 
 const _envShim = Object.create(null);
 const _processEnv = globalThis.process?.env;
 const _getEnv = (useShim: boolean) =>
   _processEnv || globalThis.__env__ || (useShim ? _envShim : globalThis);
 
-process.env = new Proxy(_envShim, {
+const env = new Proxy(_envShim, {
   get(_, prop) {
     const env = _getEnv();
     return env[prop] ?? _envShim[prop];
@@ -200,50 +198,50 @@ process.env = new Proxy(_envShim, {
   },
 });
 
-process.argv = [];
+const argv = [];
 // @ts-ignore
-process.version = ""; // empty string to avoid regexp issues
+const version = ""; // empty string to avoid regexp issues
 // @ts-ignore
-process.versions = {};
+const versions = {};
 
 function noop() {
   return process;
 }
 
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
+const on = noop;
+const addListener = noop;
+const once = noop;
+const off = noop;
+const removeListener = noop;
+const removeAllListeners = noop;
 // @ts-ignore
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
+const emit = noop;
+const prependListener = noop;
+const prependOnceListener = noop;
 
-process.listeners = function (name) {
+const listeners = function (name) {
   return [];
 };
-process.listenerCount = () => process.listeners().length;
+const listenerCount = () => process.listeners().length;
 
 // @ts-ignore
-process.binding = function (name) {
+const binding = function (name) {
   throw new Error("[unenv] process.binding is not supported");
 };
 
-let cwd = "/";
-process.cwd = function () {
-  return cwd;
+let _cwd = "/";
+const cwd = function () {
+  return _cwd;
 };
-process.chdir = function (dir) {
-  cwd = dir;
+const chdir = function (dir) {
+  _cwd = dir;
 };
-process.umask = function () {
+const umask = function () {
   return 0;
 };
 
 // https://nodejs.org/api/process.html#processhrtime
-process.hrtime = function (startTime) {
+const hrtime = function (startTime) {
   const now = Date.now();
   // millis to seconds
   const seconds = Math.trunc(now / 1000);
@@ -263,72 +261,67 @@ process.hrtime = function (startTime) {
 
   return [seconds, nanos];
 };
-process.hrtime.bigint = function () {
+hrtime.bigint = function () {
   // Convert milliseconds to nanoseconds
   return BigInt(Date.now() * 1_000_000);
 };
 
-process.getegid = function () {
+const getegid = function () {
   return 1000;
 };
 
-process.geteuid = function () {
+const geteuid = function () {
   return 1000;
 };
 
-process.getgid = function () {
+const getgid = function () {
   return 1000;
 };
 
-process.getuid = function () {
+const getuid = function () {
   return 1000;
 };
 
-process.getgroups = function () {
+const getgroups = function () {
   return [];
 };
 
 // ---- Unimplemented utils ----
 
-process._debugEnd = notImplemented("process._debugEnd");
-process._debugProcess = notImplemented("process._debugProcess");
-process._eventsCount = 0;
-process._fatalException = notImplemented("process._fatalException");
-process._getActiveHandles = notImplemented("process._getActiveHandles");
-process._getActiveRequests = notImplemented("process._getActiveRequests");
-process._kill = notImplemented("process._kill");
-process._preload_modules = [];
-process._rawDebug = notImplemented("process._rawDebug");
-process._startProfilerIdleNotifier = notImplemented(
+const _debugEnd = notImplemented("process._debugEnd");
+const _debugProcess = notImplemented("process._debugProcess");
+const _eventsCount = 0;
+const _fatalException = notImplemented("process._fatalException");
+const _getActiveHandles = notImplemented("process._getActiveHandles");
+const _getActiveRequests = notImplemented("process._getActiveRequests");
+const _kill = notImplemented("process._kill");
+const _preload_modules = [];
+const _rawDebug = notImplemented("process._rawDebug");
+const _startProfilerIdleNotifier = notImplemented(
   "process._startProfilerIdleNotifier",
 );
-process.__stopProfilerIdleNotifier = notImplemented(
+const _stopProfilerIdleNotifier = notImplemented(
   "process.__stopProfilerIdleNotifier",
 );
-process._tickCallback = notImplemented("process._tickCallback");
-
-process.stdout = mock.__createMock__("process.stdout");
-process.stderr = mock.__createMock__("process.stdout");
-process.stdin = mock.__createMock__("process.stdout");
-
-process.assert = notImplemented("process.assert");
-process.abort = notImplemented("process.abort");
-process.allowedNodeEnvironmentFlags = [];
-process.arch = "";
-process.argv0 = "";
-process.config = empty;
-process.connected = false;
-process.constrainedMemory = 0;
-process.cpuUsage = notImplemented("process.cpuUsage");
-process.debugPort = 0;
-process.dlopen = notImplemented("process.dlopen");
-process.disconnect = noop;
-process.emitWarning = noop;
-process.eventNames = notImplemented("process.eventNames");
-process.execArgv = [];
-process.execPath = "";
-process.exit = notImplemented("process.exit");
-process.features = Object.create({
+const _tickCallback = notImplemented("process._tickCallback");
+const assert = notImplemented("process.assert");
+const abort = notImplemented("process.abort");
+const allowedNodeEnvironmentFlags = [];
+const arch = "";
+const argv0 = "";
+const config = empty;
+const connected = false;
+const constrainedMemory = 0;
+const cpuUsage = notImplemented("process.cpuUsage");
+const debugPort = 0;
+const dlopen = notImplemented("process.dlopen");
+const disconnect = noop;
+const emitWarning = noop;
+const eventNames = notImplemented("process.eventNames");
+const execArgv = [];
+const execPath = "";
+const exit = notImplemented("process.exit");
+const features = Object.create({
   inspector: undefined,
   debug: undefined,
   uv: undefined,
@@ -339,17 +332,22 @@ process.features = Object.create({
   tls: undefined,
   cached_builtins: undefined,
 });
-process.getActiveResourcesInfo = [];
-process.getMaxListeners = notImplemented("process.getMaxListeners");
-process.kill = notImplemented("");
-process.memoryUsage = notImplemented("process.memoryUsage");
-process.openStdin = notImplemented("process.openStdin");
-process.pid = 1000;
-process.platform = "";
-process.ppid = 1000;
-process.rawListeners = notImplemented("process.rawListeners");
-process.release = empty;
-process.report = Object.create({
+const getActiveResourcesInfo = [];
+const getMaxListeners = notImplemented("process.getMaxListeners");
+const kill = notImplemented("");
+const memoryUsage = notImplemented("process.memoryUsage");
+const openStdin = notImplemented("process.openStdin");
+const pid = 1000;
+const platform = "unenv";
+const ppid = 1000;
+const rawListeners = notImplemented("process.rawListeners");
+const release = Object.create({
+  name: "",
+  lts: "",
+  sourceUrl: undefined,
+  headersUrl: undefined,
+});
+const report = Object.create({
   compact: undefined,
   directory: undefined,
   filename: undefined,
@@ -360,15 +358,100 @@ process.report = Object.create({
   signal: undefined,
   writeReport: notImplemented("process.report.writeReport"),
 });
-process.resourceUsage = notImplemented("process.resourceUsage");
-process.setegid = notImplemented("process.setegid");
-process.seteuid = notImplemented("process.seteuid");
-process.setgid = notImplemented("process.setgid");
-process.setgroups = notImplemented("process.setgroups");
-process.setuid = notImplemented("process.setuid");
-process.setMaxListeners = notImplemented("process.setMaxListeners");
-process.setSourceMapsEnabled = notImplemented("process.setSourceMapsEnabled");
-process.traceDeprecation = false;
-process.uptime = 0;
-process.version = "";
-process.versions = empty;
+const resourceUsage = notImplemented("process.resourceUsage");
+const setegid = notImplemented("process.setegid");
+const seteuid = notImplemented("process.seteuid");
+const setgid = notImplemented("process.setgid");
+const setgroups = notImplemented("process.setgroups");
+const setuid = notImplemented("process.setuid");
+const setMaxListeners = notImplemented("process.setMaxListeners");
+const setSourceMapsEnabled = notImplemented("process.setSourceMapsEnabled");
+const stdout = mock.__createMock__("process.stdout");
+const stderr = mock.__createMock__("process.stdout");
+const stdin = mock.__createMock__("process.stdout");
+const traceDeprecation = false;
+const uptime = 1000;
+
+export const process = {
+  _debugEnd,
+  _debugProcess,
+  _eventsCount,
+  _fatalException,
+  _getActiveHandles,
+  _getActiveRequests,
+  _kill,
+  _preload_modules,
+  _rawDebug,
+  _startProfilerIdleNotifier,
+  _stopProfilerIdleNotifier,
+  _tickCallback,
+  abort,
+  addListener,
+  allowedNodeEnvironmentFlags,
+  arch,
+  argv,
+  argv0,
+  assert,
+  binding,
+  chdir,
+  config,
+  connected,
+  constrainedMemory,
+  cpuUsage,
+  cwd,
+  debugPort,
+  dlopen,
+  disconnect,
+  emit,
+  emitWarning,
+  env,
+  eventNames,
+  execArgv,
+  execPath,
+  exit,
+  features,
+  getegid,
+  geteuid,
+  getgid,
+  getgroups,
+  getuid,
+  getActiveResourcesInfo,
+  getMaxListeners,
+  hrtime,
+  kill,
+  listeners,
+  listenerCount,
+  memoryUsage,
+  nextTick,
+  on,
+  off,
+  once,
+  openStdin,
+  pid,
+  platform,
+  ppid,
+  prependListener,
+  prependOnceListener,
+  rawListeners,
+  release,
+  removeAllListeners,
+  removeListener,
+  report,
+  resourceUsage,
+  setegid,
+  seteuid,
+  setgid,
+  setgroups,
+  setuid,
+  setMaxListeners,
+  setSourceMapsEnabled,
+  stderr,
+  stdin,
+  stdout,
+  title,
+  traceDeprecation,
+  umask,
+  uptime,
+  version,
+  versions,
+} as typeof globalThis.process;
