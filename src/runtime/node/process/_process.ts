@@ -267,44 +267,24 @@ process.hrtime.bigint = function () {
   return BigInt(Date.now() * 1_000_000);
 };
 
-let egid = 0;
 process.getegid = function () {
-  return egid;
-};
-process.setegid = function (val: number) {
-  egid = val;
+  return 1;
 };
 
-let euid = 0;
 process.geteuid = function () {
-  return euid;
-};
-process.seteuid = function (val: number) {
-  euid = val;
+  return 1;
 };
 
-let gid = 0;
 process.getgid = function () {
-  return gid;
-};
-process.setgid = function (val: number) {
-  gid = val;
+  return 1;
 };
 
-let groups = [];
-process.getgroups = function () {
-  return groups;
-};
-process.setgroups = function (val: number[]) {
-  groups = val;
-};
-
-let uid = 0;
 process.getuid = function () {
-  return uid;
+  return 1;
 };
-process.setuid = function (val: number) {
-  uid = val;
+
+process.getgroups = function () {
+  return [];
 };
 
 // ---- Unimplemented utils ----
@@ -381,6 +361,11 @@ process.report = Object.create({
   writeReport: notImplemented("process.report.writeReport"),
 });
 process.resourceUsage = notImplemented("process.resourceUsage");
+process.setegid = notImplemented("process.setegid");
+process.seteuid = notImplemented("process.seteuid");
+process.setgid = notImplemented("process.setgid");
+process.setgroups = notImplemented("process.setgroups");
+process.setuid = notImplemented("process.setuid");
 process.setMaxListeners = notImplemented("process.setMaxListeners");
 process.setSourceMapsEnabled = notImplemented("process.setSourceMapsEnabled");
 process.title = "";
