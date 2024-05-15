@@ -27,8 +27,8 @@ export function createNotImplementedError(name: string) {
   throw new Error(`[unenv] ${name} is not implemented yet!`);
 }
 
-export function notImplemented(name: string) {
-  const fn = (): any => {
+export function notImplemented<RT = any>(name: string) {
+  const fn = (): RT => {
     throw createNotImplementedError(name);
   };
   return Object.assign(fn, { __unenv__: true });
