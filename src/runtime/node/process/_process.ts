@@ -1,6 +1,10 @@
 // @ts-nocheck
 // Source: https://github.com/defunctzombie/node-process/blob/77caa43cdaee4ea710aa14d11cea1705293c0ef3/browser.js
 
+import mock from "../../mock/proxy";
+import empty from "../../mock/empty";
+import { notImplemented } from "src/runtime/_internal/utils";
+
 export const process = {} as typeof globalThis.process;
 
 // Cached from whatever global is present so that test runners that stub it
@@ -262,3 +266,125 @@ process.hrtime.bigint = function () {
   // Convert milliseconds to nanoseconds
   return BigInt(Date.now() * 1_000_000);
 };
+
+let egid = 0;
+process.getegid = function () {
+  return egid;
+};
+process.setegid = function (val: number) {
+  egid = val;
+};
+
+let euid = 0;
+process.geteuid = function () {
+  return euid;
+};
+process.seteuid = function (val: number) {
+  euid = val;
+};
+
+let gid = 0;
+process.getgid = function () {
+  return gid;
+};
+process.setgid = function (val: number) {
+  gid = val;
+};
+
+let groups = [];
+process.getgroups = function () {
+  return groups;
+};
+process.setgroups = function (val: number[]) {
+  groups = val;
+};
+
+let uid = 0;
+process.getuid = function () {
+  return uid;
+};
+process.setuid = function (val: number) {
+  uid = val;
+};
+
+// ---- Unimplemented utils ----
+
+process._debugEnd = notImplemented("process._debugEnd");
+process._debugProcess = notImplemented("process._debugProcess");
+process._eventsCount = 0;
+process._fatalException = notImplemented("process._fatalException");
+process._getActiveHandles = notImplemented("process._getActiveHandles");
+process._getActiveRequests = notImplemented("process._getActiveRequests");
+process._kill = notImplemented("process._kill");
+process._preload_modules = [];
+process._rawDebug = notImplemented("process._rawDebug");
+process._startProfilerIdleNotifier = notImplemented(
+  "process._startProfilerIdleNotifier",
+);
+process.__stopProfilerIdleNotifier = notImplemented(
+  "process.__stopProfilerIdleNotifier",
+);
+process._tickCallback = notImplemented("process._tickCallback");
+
+process.stdout = mock.__createMock__("process.stdout");
+process.stderr = mock.__createMock__("process.stdout");
+process.stdin = mock.__createMock__("process.stdout");
+
+process.assert = notImplemented("process.assert");
+process.abort = notImplemented("process.abort");
+process.allowedNodeEnvironmentFlags = [];
+process.arch = "";
+process.argv0 = "";
+process.config = empty;
+process.connected = false;
+process.constrainedMemory = 0;
+process.cpuUsage = notImplemented("process.cpuUsage") as boolean;
+process.debugPort = 0;
+process.dlopen = notImplemented("process.dlopen");
+process.disconnect = noop;
+process.emitWarning = noop;
+process.eventNames = notImplemented("process.eventNames");
+process.execArgv = [];
+process.execPath = "";
+process.exit = notImplemented("process.exit");
+process.features = Object.create({
+  inspector: false,
+  debug: false,
+  uv: false,
+  ipv6: false,
+  tls_alpn: false,
+  tls_sni: false,
+  tls_ocsp: false,
+  tls: false,
+  cached_builtins: false,
+});
+process.getActiveResourcesInfo = [];
+process.getMaxListeners = notImplemented("process.getMaxListeners");
+process.kill = notImplemented("");
+process.listenerCount = () => process.listeners().length;
+process.memoryUsage = notImplemented("process.memoryUsage");
+process.openStdin = notImplemented("process.openStdin");
+process.pid = 0;
+process.platform = "";
+process.ppid = 0;
+process.rawListeners = notImplemented("process.rawListeners");
+process.release = empty;
+process.report = Object.create({
+  compact: false,
+  directory: "",
+  filename: "",
+  getReport: notImplemented("process.report.getReport"),
+  reportOnFatalError: false,
+  reportOnSignal: false,
+  reportOnUncaughtException: false,
+  signal: "",
+  writeReport: notImplemented("process.report.writeReport"),
+});
+process.resourceUsage = notImplemented("process.resourceUsage");
+process.setMaxListeners = notImplemented("process.setMaxListeners");
+process.setSourceMapsEnabled = notImplemented("process.setSourceMapsEnabled");
+process.title = "";
+process.traceDeprecation = false;
+process.uptime = 0;
+process.version = "";
+process.versions = empty;
