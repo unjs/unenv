@@ -134,14 +134,8 @@ function drainQueue() {
   runClearTimeout(timeout);
 }
 
-process.nextTick = function (fun) {
-  // https://nodejs.org/api/process.html#when-to-use-queuemicrotask-vs-processnexttick
-  if (typeof queueMicrotask === "function") {
-    queueMicrotask(() => {
-      cb(...args);
-    });
-    return;
-  }
+// TODO: Drop legacy support in next major version
+function _nextTickLegacy() {
   const args = Array.from({ length: arguments.length - 1 });
   if (arguments.length > 1) {
     for (let i = 1; i < arguments.length; i++) {
@@ -152,7 +146,16 @@ process.nextTick = function (fun) {
   if (queue.length === 1 && !draining) {
     runTimeout(drainQueue);
   }
-};
+}
+
+function _nextTick() {
+  // https://nodejs.org/api/process.html#when-to-use-queuemicrotask-vs-processnexttick
+  globalThis.queueMicrotask(() => {
+    cb(...args);
+  });
+}
+
+process.nextTick = globalThis.queueMicrotask ? _nextTick : _nextTickLegacy;
 
 // v8 likes predictible objects
 function Item(fun, array) {
