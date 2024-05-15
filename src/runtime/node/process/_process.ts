@@ -167,34 +167,14 @@ Item.prototype.run = function () {
 };
 process.title = "unenv";
 
-const _envShim = Object.create(null);
-const _processEnv = globalThis.process?.env;
-const _getEnv = (useShim: boolean) =>
-  _processEnv || globalThis.__env__ || (useShim ? _envShim : globalThis);
+process.env = 
+  // preserve process.env if it exists
+  globalThis.process?.env ||
+  // use global __env__ if exists, this is used by nitro to inject env vars from build
+  globalThis.__env__ ||
+  // fall back on an empty object
+  Object.create(null);
 
-process.env = new Proxy(_envShim, {
-  get(_, prop) {
-    const env = _getEnv();
-    return env[prop] ?? _envShim[prop];
-  },
-  has(_, prop) {
-    const env = _getEnv();
-    return prop in env || prop in _envShim;
-  },
-  set(_, prop, value) {
-    const env = _getEnv(true);
-    env[prop] = value;
-    return true;
-  },
-  deleteProperty(_, prop) {
-    const env = _getEnv(true);
-    delete env[prop];
-  },
-  ownKeys() {
-    const env = _getEnv();
-    return Object.keys(env);
-  },
-});
 
 process.argv = [];
 // @ts-ignore
