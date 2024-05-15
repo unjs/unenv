@@ -135,6 +135,11 @@ function drainQueue() {
 }
 
 process.nextTick = function (fun) {
+  // https://github.com/cloudflare/workerd/blob/main/src/node/internal/process.ts
+  if (typeof queueMicrotask === "function") {
+    queueMicrotask(() => { cb(...args); });
+    return
+  }
   const args = Array.from({ length: arguments.length - 1 });
   if (arguments.length > 1) {
     for (let i = 1; i < arguments.length; i++) {
