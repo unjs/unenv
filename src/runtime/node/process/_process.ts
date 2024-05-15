@@ -135,7 +135,7 @@ function drainQueue() {
 }
 
 process.nextTick = function (fun) {
-  // https://github.com/cloudflare/workerd/blob/main/src/node/internal/process.ts
+  // https://nodejs.org/api/process.html#when-to-use-queuemicrotask-vs-processnexttick
   if (typeof queueMicrotask === "function") {
     queueMicrotask(() => { cb(...args); });
     return
