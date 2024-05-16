@@ -1,6 +1,1 @@
-type GlobalThis = typeof globalThis;
-interface GlobalThisPlusEnv extends GlobalThis {
-  __env__: typeof process.env;
-}
-
-(globalThis as GlobalThisPlusEnv).__env__ = {};
+(globalThis as any).__env__ = {};
