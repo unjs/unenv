@@ -33,9 +33,12 @@ const cloudflarePreset: Preset = {
     ...Object.fromEntries(
       cloudflareNodeCompatModules.map((p) => [`node:${p}`, `node:${p}`]),
     ),
+    // The `node:assert` implementation of workerd uses strict semantics by default
+    "assert/strict": "node:assert",
+    "node:assert/strict": "node:assert",
   },
   inject: {},
-  polyfill: [],
+  polyfill: ["unenv/runtime/polyfill/cloudflare"],
   external: cloudflareNodeCompatModules.map((p) => `node:${p}`),
 };
 

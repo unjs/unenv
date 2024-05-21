@@ -12,6 +12,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
       [
         "async_hooks",
         "buffer",
+        "console",
         "crypto",
         "events",
         "fs",
@@ -50,11 +51,15 @@ const nodeless: Preset & { alias: Map<string, string> } = {
   },
 
   inject: {
+    global: "unenv/runtime/node/global",
     process: "unenv/runtime/polyfill/process",
     Buffer: ["buffer", "Buffer"],
   },
 
-  polyfill: ["unenv/runtime/polyfill/process"],
+  polyfill: [
+    "unenv/runtime/polyfill/node-global",
+    "unenv/runtime/polyfill/process",
+  ],
 };
 
 // Add node: aliases
