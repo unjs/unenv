@@ -3,36 +3,56 @@ import { notImplemented } from "../../../_internal/utils";
 
 export { constants } from "../_constants";
 
-export const access: typeof fsp.access = notImplemented("fs.access");
-export const copyFile: typeof fsp.copyFile = notImplemented("fs.copyFile");
-export const cp: typeof fsp.cp = notImplemented("fs.cp");
-export const open: typeof fsp.open = notImplemented("fs.open");
-export const opendir: typeof fsp.opendir = notImplemented("fs.opendir");
-export const rename: typeof fsp.rename = notImplemented("fs.rename");
-export const truncate: typeof fsp.truncate = notImplemented("fs.truncate");
-export const rm: typeof fsp.rm = notImplemented("fs.rm");
-export const rmdir: typeof fsp.rmdir = notImplemented("fs.rmdir");
-export const mkdir: typeof fsp.mkdir = notImplemented("fs.mkdir");
-export const readdir: typeof fsp.readdir = notImplemented("fs.readdir");
-export const readlink: typeof fsp.readlink = notImplemented("fs.readlink");
-export const symlink: typeof fsp.symlink = notImplemented("fs.symlink");
-export const lstat: typeof fsp.lstat = notImplemented("fs.lstat");
-export const stat: typeof fsp.stat = notImplemented("fs.stat");
-export const link: typeof fsp.link = notImplemented("fs.link");
-export const unlink: typeof fsp.unlink = notImplemented("fs.unlink");
-export const chmod: typeof fsp.chmod = notImplemented("fs.chmod");
-export const lchmod: typeof fsp.lchmod = notImplemented("fs.lchmod");
-export const lchown: typeof fsp.lchown = notImplemented("fs.lchown");
-export const chown: typeof fsp.chown = notImplemented("fs.chown");
-export const utimes: typeof fsp.utimes = notImplemented("fs.utimes");
-export const lutimes: typeof fsp.lutimes = notImplemented("fs.lutimes");
-export const realpath: typeof fsp.realpath = notImplemented("fs.realpath");
-export const mkdtemp: typeof fsp.mkdtemp = notImplemented("fs.mkdtemp");
-export const writeFile: typeof fsp.writeFile = notImplemented("fs.writeFile");
-export const appendFile: typeof fsp.appendFile =
-  notImplemented("fs.appendFile");
-export const readFile: typeof fsp.readFile = notImplemented("fs.readFile");
-export const watch: typeof fsp.watch = notImplemented("fs.watch");
-export const statfs: typeof fsp.statfs = notImplemented("fs.statfs");
+export const access = notImplemented<typeof fsp.access>("fs.access");
+export const copyFile = notImplemented<typeof fsp.copyFile>("fs.copyFile");
+export const cp = notImplemented<typeof fsp.cp>("fs.cp");
+export const open = notImplemented<typeof fsp.open>("fs.open");
+export const opendir = notImplemented<typeof fsp.opendir>("fs.opendir");
+export const rename = notImplemented<typeof fsp.rename>("fs.rename");
+export const truncate = notImplemented<typeof fsp.truncate>("fs.truncate");
+export const rm = notImplemented<typeof fsp.rm>("fs.rm");
+export const rmdir = notImplemented<typeof fsp.rmdir>("fs.rmdir");
+export const mkdir = notImplemented<typeof fsp.mkdir>(
+  "fs.mkdir",
+) as typeof fsp.mkdir;
+export const readdir = notImplemented<typeof fsp.readdir>(
+  "fs.readdir",
+) as unknown as typeof fsp.readdir;
+export const readlink = notImplemented<typeof fsp.readlink>(
+  "fs.readlink",
+) as typeof fsp.readlink;
+export const symlink = notImplemented<typeof fsp.symlink>("fs.symlink");
+export const lstat = notImplemented<typeof fsp.lstat>(
+  "fs.lstat",
+) as typeof fsp.lstat;
+export const stat = notImplemented<typeof fsp.stat>(
+  "fs.stat",
+) as typeof fsp.stat;
+export const link = notImplemented<typeof fsp.link>("fs.link");
+export const unlink = notImplemented<typeof fsp.unlink>("fs.unlink");
+export const chmod = notImplemented<typeof fsp.chmod>("fs.chmod");
+export const lchmod = notImplemented<typeof fsp.lchmod>("fs.lchmod");
+export const lchown = notImplemented<typeof fsp.lchown>("fs.lchown");
+export const chown = notImplemented<typeof fsp.chown>("fs.chown");
+export const utimes = notImplemented<typeof fsp.utimes>("fs.utimes");
+export const lutimes = notImplemented<typeof fsp.lutimes>("fs.lutimes");
+export const realpath = notImplemented<typeof fsp.realpath>(
+  "fs.realpath",
+) as typeof fsp.realpath;
+export const mkdtemp = notImplemented<typeof fsp.mkdtemp>(
+  "fs.mkdtemp",
+) as typeof fsp.mkdtemp;
+export const writeFile = notImplemented<typeof fsp.writeFile>("fs.writeFile");
+export const appendFile =
+  notImplemented<typeof fsp.appendFile>("fs.appendFile");
+export const readFile = notImplemented<typeof fsp.readFile>(
+  "fs.readFile",
+) as typeof fsp.readFile;
+export const watch = notImplemented<typeof fsp.watch>(
+  "fs.watch",
+) as typeof fsp.watch;
+export const statfs = notImplemented<typeof fsp.statfs>(
+  "fs.statfs",
+) as typeof fsp.statfs;
 
 export default <typeof fsp>{};
