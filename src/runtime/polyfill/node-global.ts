@@ -1,2 +1,4 @@
 // publish "global" on globalThis
-globalThis.global = globalThis;
+if (!('global' in globalThis)) {
+  globalThis.global = globalThis;
+}
