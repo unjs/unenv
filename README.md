@@ -190,7 +190,7 @@ const os = require("node:os");
 if (os.platform() === "windows") {
   /* do some fix */
 }
-module.exports =  "Hello world";
+module.exports = "Hello world";
 ```
 
 By aliasing `os` to `unenv/runtime/mock/proxy-cjs`, the code will be compatible with other platforms.
@@ -198,6 +198,30 @@ By aliasing `os` to `unenv/runtime/mock/proxy-cjs`, the code will be compatible 
 ## Other polyfills
 
 To discover other polyfills, please check [./src/runtime](./src/runtime).
+
+## Nightly release channel
+
+You can use nightly release channel to try latest changes in `main` branch via [`unenv-nightly`](https://www.npmjs.com/package/unenv-nightly).
+
+If directly using `unenv` in your project:
+
+```json
+{
+  "devDependencies": {
+    "unenv": "npm:unenv-nightly"
+  }
+}
+```
+
+If using `unenv` via another tool (Nuxt or Nitro) in your project:
+
+```json
+{
+  "resolutions": {
+    "unenv": "npm:unenv-nightly"
+  }
+}
+```
 
 ## License
 
