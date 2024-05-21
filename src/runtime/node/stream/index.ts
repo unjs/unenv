@@ -18,13 +18,13 @@ export const Stream: stream.Stream = mock.__createMock__("Stream");
 export const PassThrough: stream.PassThrough =
   mock.__createMock__("PassThrough");
 
-export const pipeline: typeof stream.pipeline = notImplemented(
+export const pipeline = notImplemented<typeof stream.pipeline>(
   "stream.pipeline",
 ) as any;
-export const finished: typeof stream.finished = notImplemented(
+export const finished = notImplemented<typeof stream.finished>(
   "stream.finished",
 ) as any;
-export const addAbortSignal: typeof stream.addAbortSignal = notImplemented(
+export const addAbortSignal = notImplemented<typeof stream.addAbortSignal>(
   "stream.addAbortSignal",
 );
 

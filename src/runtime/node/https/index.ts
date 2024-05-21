@@ -9,13 +9,13 @@ export const Agent: typeof nodeHttps.Agent = notImplementedClass("https.Agent");
 
 export const globalAgent = undefined as any as typeof nodeHttps.globalAgent;
 
-export const get: typeof nodeHttps.get = notImplemented("https.get");
+export const get = notImplemented<typeof nodeHttps.get>("https.get");
 
-export const createServer: typeof nodeHttps.createServer =
-  notImplemented("https.createServer");
+export const createServer =
+  notImplemented<typeof nodeHttps.createServer>("https.createServer");
 
-export const request: typeof nodeHttps.request =
-  notImplemented("https.request");
+export const request =
+  notImplemented<typeof nodeHttps.request>("https.request");
 
 export default <typeof nodeHttps>{
   Server,

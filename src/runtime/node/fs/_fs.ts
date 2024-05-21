@@ -93,56 +93,64 @@ export const openAsBlob: typeof fs.openAsBlob =
   notImplementedAsync("fs.openAsBlob");
 
 // Sync
-export const appendFileSync: typeof fs.appendFileSync =
-  notImplemented("fs.appendFileSync");
-export const accessSync: typeof fs.accessSync = notImplemented("fs.accessSync");
-export const chownSync: typeof fs.chownSync = notImplemented("fs.chownSync");
-export const chmodSync: typeof fs.chmodSync = notImplemented("fs.chmodSync");
-export const closeSync: typeof fs.closeSync = notImplemented("fs.closeSync");
-export const copyFileSync: typeof fs.copyFileSync =
-  notImplemented("fs.copyFileSync");
-export const cpSync: typeof fs.cpSync = notImplemented("fs.cpSync");
+export const appendFileSync =
+  notImplemented<typeof fs.appendFileSync>("fs.appendFileSync");
+export const accessSync = notImplemented<typeof fs.accessSync>("fs.accessSync");
+export const chownSync = notImplemented<typeof fs.chownSync>("fs.chownSync");
+export const chmodSync = notImplemented<typeof fs.chmodSync>("fs.chmodSync");
+export const closeSync = notImplemented<typeof fs.closeSync>("fs.closeSync");
+export const copyFileSync =
+  notImplemented<typeof fs.copyFileSync>("fs.copyFileSync");
+export const cpSync = notImplemented<typeof fs.cpSync>("fs.cpSync");
 export const existsSync: typeof fs.existsSync = () => false;
-export const fchownSync: typeof fs.fchownSync = notImplemented("fs.fchownSync");
-export const fchmodSync: typeof fs.fchmodSync = notImplemented("fs.fchmodSync");
-export const fdatasyncSync: typeof fs.fdatasyncSync =
-  notImplemented("fs.fdatasyncSync");
-export const fstatSync: typeof fs.fstatSync = notImplemented("fs.fstatSync");
-export const fsyncSync: typeof fs.fsyncSync = notImplemented("fs.fsyncSync");
-export const ftruncateSync: typeof fs.ftruncateSync =
-  notImplemented("fs.ftruncateSync");
-export const futimesSync: typeof fs.futimesSync =
-  notImplemented("fs.futimesSync");
-export const lchownSync: typeof fs.lchownSync = notImplemented("fs.lchownSync");
-export const lchmodSync: typeof fs.lchmodSync = notImplemented("fs.lchmodSync");
-export const linkSync: typeof fs.linkSync = notImplemented("fs.linkSync");
-export const lutimesSync: typeof fs.lutimesSync =
-  notImplemented("fs.lutimesSync");
-export const mkdirSync: typeof fs.mkdirSync = notImplemented("fs.mkdirSync");
-export const mkdtempSync: typeof fs.mkdtempSync =
-  notImplemented("fs.mkdtempSync");
-export const openSync: typeof fs.openSync = notImplemented("fs.openSync");
-export const opendirSync: typeof fs.opendirSync =
-  notImplemented("fs.opendirSync");
-export const readdirSync: typeof fs.readdirSync =
-  notImplemented("fs.readdirSync");
-export const readSync: typeof fs.readSync = notImplemented("fs.readSync");
-export const readvSync: typeof fs.readvSync = notImplemented("fs.readvSync");
-export const readFileSync: typeof fs.readFileSync =
-  notImplemented("fs.readFileSync");
-export const readlinkSync: typeof fs.readlinkSync =
-  notImplemented("fs.readlinkSync");
-export const renameSync: typeof fs.renameSync = notImplemented("fs.renameSync");
-export const rmSync: typeof fs.rmSync = notImplemented("fs.rmSync");
-export const rmdirSync: typeof fs.rmdirSync = notImplemented("fs.rmdirSync");
-export const symlinkSync: typeof fs.symlinkSync =
-  notImplemented("fs.symlinkSync");
-export const truncateSync: typeof fs.truncateSync =
-  notImplemented("fs.truncateSync");
-export const unlinkSync: typeof fs.unlinkSync = notImplemented("fs.unlinkSync");
-export const utimesSync: typeof fs.utimesSync = notImplemented("fs.utimesSync");
-export const writeFileSync: typeof fs.writeFileSync =
-  notImplemented("fs.writeFileSync");
-export const writeSync: typeof fs.writeSync = notImplemented("fs.writeSync");
-export const writevSync: typeof fs.writevSync = notImplemented("fs.writevSync");
-export const statfsSync: typeof fs.statfsSync = notImplemented("fs.statfsSync");
+export const fchownSync = notImplemented<typeof fs.fchownSync>("fs.fchownSync");
+export const fchmodSync = notImplemented<typeof fs.fchmodSync>("fs.fchmodSync");
+export const fdatasyncSync =
+  notImplemented<typeof fs.fdatasyncSync>("fs.fdatasyncSync");
+export const fstatSync = notImplemented<typeof fs.fstatSync>(
+  "fs.fstatSync",
+) as typeof fs.fstatSync;
+export const fsyncSync = notImplemented<typeof fs.fsyncSync>("fs.fsyncSync");
+export const ftruncateSync =
+  notImplemented<typeof fs.ftruncateSync>("fs.ftruncateSync");
+export const futimesSync =
+  notImplemented<typeof fs.futimesSync>("fs.futimesSync");
+export const lchownSync = notImplemented<typeof fs.lchownSync>("fs.lchownSync");
+export const lchmodSync = notImplemented<typeof fs.lchmodSync>("fs.lchmodSync");
+export const linkSync = notImplemented<typeof fs.linkSync>("fs.linkSync");
+export const lutimesSync =
+  notImplemented<typeof fs.lutimesSync>("fs.lutimesSync");
+export const mkdirSync = notImplemented<typeof fs.mkdirSync>("fs.mkdirSync");
+export const mkdtempSync = notImplemented<typeof fs.mkdtempSync>(
+  "fs.mkdtempSync",
+) as typeof fs.mkdtempSync;
+export const openSync = notImplemented<typeof fs.openSync>("fs.openSync");
+export const opendirSync =
+  notImplemented<typeof fs.opendirSync>("fs.opendirSync");
+export const readdirSync = notImplemented<typeof fs.readdirSync>(
+  "fs.readdirSync",
+) as unknown as typeof fs.readdirSync;
+export const readSync = notImplemented<typeof fs.readSync>("fs.readSync");
+export const readvSync = notImplemented<typeof fs.readvSync>("fs.readvSync");
+export const readFileSync = notImplemented<typeof fs.readFileSync>(
+  "fs.readFileSync",
+) as typeof fs.readFileSync;
+export const readlinkSync = notImplemented<typeof fs.readlinkSync>(
+  "fs.readlinkSync",
+) as typeof fs.readlinkSync;
+export const renameSync = notImplemented<typeof fs.renameSync>("fs.renameSync");
+export const rmSync = notImplemented<typeof fs.rmSync>("fs.rmSync");
+export const rmdirSync = notImplemented<typeof fs.rmdirSync>("fs.rmdirSync");
+export const symlinkSync =
+  notImplemented<typeof fs.symlinkSync>("fs.symlinkSync");
+export const truncateSync =
+  notImplemented<typeof fs.truncateSync>("fs.truncateSync");
+export const unlinkSync = notImplemented<typeof fs.unlinkSync>("fs.unlinkSync");
+export const utimesSync = notImplemented<typeof fs.utimesSync>("fs.utimesSync");
+export const writeFileSync =
+  notImplemented<typeof fs.writeFileSync>("fs.writeFileSync");
+export const writeSync = notImplemented<typeof fs.writeSync>("fs.writeSync");
+export const writevSync = notImplemented<typeof fs.writevSync>("fs.writevSync");
+export const statfsSync = notImplemented<typeof fs.statfsSync>(
+  "fs.statfsSync",
+) as typeof fs.statfsSync;

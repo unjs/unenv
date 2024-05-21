@@ -30,30 +30,34 @@ export const _exceptionWithHostPort = notImplemented(
 );
 export const _extend = notImplemented("util._extend");
 
-export const aborted: typeof util.aborted = notImplemented("util.aborted");
-export const callbackify: typeof util.callbackify =
-  notImplemented("util.callbackify");
-export const getSystemErrorMap: typeof util.getSystemErrorMap = notImplemented(
+export const aborted = notImplemented<typeof util.aborted>("util.aborted");
+export const callbackify =
+  notImplemented<typeof util.callbackify>("util.callbackify");
+export const getSystemErrorMap = notImplemented<typeof util.getSystemErrorMap>(
   "util.getSystemErrorMap",
 );
-export const getSystemErrorName: typeof util.getSystemErrorName =
-  notImplemented("util.getSystemErrorName");
-export const toUSVString: typeof util.toUSVString =
-  notImplemented("util.toUSVString");
-export const stripVTControlCharacters: typeof util.stripVTControlCharacters =
-  notImplemented("util.stripVTControlCharacters");
+export const getSystemErrorName = notImplemented<
+  typeof util.getSystemErrorName
+>("util.getSystemErrorName");
+export const toUSVString =
+  notImplemented<typeof util.toUSVString>("util.toUSVString");
+export const stripVTControlCharacters = notImplemented<
+  typeof util.stripVTControlCharacters
+>("util.stripVTControlCharacters");
 
-export const transferableAbortController: typeof util.transferableAbortController =
-  notImplemented("util.transferableAbortController");
-export const transferableAbortSignal: typeof util.transferableAbortSignal =
-  notImplemented("util.transferableAbortSignal");
-export const parseArgs: typeof util.parseArgs =
-  notImplemented("util.parseArgs");
+export const transferableAbortController = notImplemented<
+  typeof util.transferableAbortController
+>("util.transferableAbortController");
+export const transferableAbortSignal = notImplemented<
+  typeof util.transferableAbortSignal
+>("util.transferableAbortSignal");
+export const parseArgs =
+  notImplemented<typeof util.parseArgs>("util.parseArgs");
 
-export const parseEnv: typeof util.parseEnv = notImplemented("util.parseEnv");
+export const parseEnv = notImplemented<typeof util.parseEnv>("util.parseEnv");
 
-export const styleText: typeof util.styleText =
-  notImplemented("util.styleText");
+export const styleText =
+  notImplemented<typeof util.styleText>("util.styleText");
 
 export default <typeof util>{
   _errnoException,
