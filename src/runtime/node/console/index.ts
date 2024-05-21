@@ -13,7 +13,8 @@ const table: typeof console.table = _console?.table ?? log;
 const error: typeof console.error = _console?.error ?? log;
 const warn: typeof console.warn = _console?.warn ?? error;
 
-const assert: typeof console.assert = notImplemented("console.assert");
+const assert: typeof console.assert =
+  notImplemented<typeof console.assert>("console.assert");
 
 // noop
 const clear: typeof console.clear = _console?.clear ?? noop;
