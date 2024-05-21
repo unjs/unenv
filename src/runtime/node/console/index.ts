@@ -7,9 +7,12 @@ const _console = globalThis.console;
 
 const log: typeof console.log = _console?.log ?? noop;
 const info: typeof console.info = _console?.info ?? log;
+const trace: typeof console.trace = _console?.trace ?? info;
 const debug: typeof console.debug = _console?.debug ?? log;
+const table: typeof console.table = _console?.table ?? log;
 const error: typeof console.error = _console?.error ?? log;
-const warn: typeof console.warn = _console?.warn ?? error ?? log;
+const warn: typeof console.warn = _console?.warn ?? error;
+
 const assert: typeof console.assert = notImplemented("console.assert");
 
 // noop
@@ -24,12 +27,10 @@ const groupCollapsed: typeof console.groupCollapsed =
   _console?.groupCollapsed ?? noop;
 const profile: typeof console.profile = _console?.profile ?? noop;
 const profileEnd: typeof console.profileEnd = _console?.profileEnd ?? noop;
-const table: typeof console.table = _console?.table ?? noop;
 const time: typeof console.time = _console?.time ?? noop;
 const timeEnd: typeof console.timeEnd = _console?.timeEnd ?? noop;
 const timeLog: typeof console.timeLog = _console?.timeLog ?? noop;
 const timeStamp: typeof console.timeStamp = _console?.timeStamp ?? noop;
-const trace: typeof console.trace = _console?.trace ?? noop;
 
 export const Console: typeof console.Console =
   _console?.Console ?? mock.__createMock__("console.Console");
