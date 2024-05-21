@@ -1,17 +1,18 @@
 import type console from "node:console";
 import mock from "../../mock/proxy";
+import noop from "../../mock/noop";
+import { notImplemented } from "../../_internal/utils";
 
 const _console = globalThis.console;
 
-const noop = () => {};
-
 const log: typeof console.log = _console?.log ?? noop;
 const info: typeof console.info = _console?.info ?? log;
-const warn: typeof console.warn = _console?.warn ?? log;
 const debug: typeof console.debug = _console?.debug ?? log;
 const error: typeof console.error = _console?.error ?? log;
+const warn: typeof console.warn = _console?.warn ?? error ?? log;
+const assert: typeof console.assert = notImplemented("console.assert");
 
-const assert: typeof console.assert = _console?.assert ?? noop;
+// noop
 const clear: typeof console.clear = _console?.clear ?? noop;
 const count: typeof console.count = _console?.count ?? noop;
 const countReset: typeof console.countReset = _console?.countReset ?? noop;
