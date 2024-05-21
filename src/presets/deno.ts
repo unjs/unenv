@@ -71,7 +71,6 @@ const denoPreset: Preset = {
     PerformanceObserver: "node:perf_hooks",
   },
   polyfill: [
-    "unenv/runtime/polyfill/global",
     "unenv/runtime/polyfill/deno-env",
   ],
   external: denoNodeCompatModules.map((p) => `node:${p}`),

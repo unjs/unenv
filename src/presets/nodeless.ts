@@ -49,11 +49,15 @@ const nodeless: Preset & { alias: Map<string, string> } = {
   },
 
   inject: {
+    global: "unenv/runtime/polyfill/global",
     process: "unenv/runtime/polyfill/process",
     Buffer: ["buffer", "Buffer"],
   },
 
-  polyfill: ["unenv/runtime/polyfill/process"],
+  polyfill: [
+    "unenv/runtime/polyfill/global",
+    "unenv/runtime/polyfill/process"
+  ],
 };
 
 // Add node: aliases
