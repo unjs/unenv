@@ -65,164 +65,176 @@ export const constants = {} as typeof nodeCrypto.constants;
 
 // ---- Unimplemented utils ----
 
-export const checkPrime: typeof nodeCrypto.checkPrime =
-  notImplemented("crypto.checkPrime");
+export const checkPrime =
+  notImplemented<typeof nodeCrypto.checkPrime>("crypto.checkPrime");
 
-export const checkPrimeSync: typeof nodeCrypto.checkPrimeSync = notImplemented(
+export const checkPrimeSync = notImplemented<typeof nodeCrypto.checkPrimeSync>(
   "crypto.checkPrimeSync",
 );
 
-export const createCipher: typeof nodeCrypto.createCipher = notImplemented(
+export const createCipher = notImplemented<typeof nodeCrypto.createCipher>(
   "crypto.createCipher",
 );
 
-export const createDecipher: typeof nodeCrypto.createDecipher = notImplemented(
+export const createDecipher = notImplemented<typeof nodeCrypto.createDecipher>(
   "crypto.createDecipher",
 );
 
-export const pseudoRandomBytes: typeof nodeCrypto.pseudoRandomBytes =
-  notImplemented("crypto.pseudoRandomBytes");
+export const pseudoRandomBytes = notImplemented<
+  typeof nodeCrypto.pseudoRandomBytes
+>("crypto.pseudoRandomBytes");
 
-export const createCipheriv: typeof nodeCrypto.createCipheriv = notImplemented(
+export const createCipheriv = notImplemented<typeof nodeCrypto.createCipheriv>(
   "crypto.createCipheriv",
 );
 
-export const createDecipheriv: typeof nodeCrypto.createDecipheriv =
-  notImplemented("crypto.createDecipheriv");
+export const createDecipheriv = notImplemented<
+  typeof nodeCrypto.createDecipheriv
+>("crypto.createDecipheriv");
 
-export const createDiffieHellman: typeof nodeCrypto.createDiffieHellman =
-  notImplemented("crypto.createDiffieHellman");
+export const createDiffieHellman = notImplemented<
+  typeof nodeCrypto.createDiffieHellman
+>("crypto.createDiffieHellman");
 
-export const createDiffieHellmanGroup: typeof nodeCrypto.createDiffieHellmanGroup =
-  notImplemented("crypto.createDiffieHellmanGroup");
+export const createDiffieHellmanGroup = notImplemented<
+  typeof nodeCrypto.createDiffieHellmanGroup
+>("crypto.createDiffieHellmanGroup");
 
-export const createECDH: typeof nodeCrypto.createECDH =
-  notImplemented("crypto.createECDH");
+export const createECDH =
+  notImplemented<typeof nodeCrypto.createECDH>("crypto.createECDH");
 
-export const createHash: typeof nodeCrypto.createHash =
-  notImplemented("crypto.createHash");
+export const createHash =
+  notImplemented<typeof nodeCrypto.createHash>("crypto.createHash");
 
-export const createHmac: typeof nodeCrypto.createHmac =
-  notImplemented("crypto.createHmac");
+export const createHmac =
+  notImplemented<typeof nodeCrypto.createHmac>("crypto.createHmac");
 
-export const createPrivateKey: typeof nodeCrypto.createPrivateKey =
-  notImplemented("crypto.createPrivateKey");
+export const createPrivateKey = notImplemented<
+  typeof nodeCrypto.createPrivateKey
+>("crypto.createPrivateKey");
 
-export const createPublicKey: typeof nodeCrypto.createPublicKey =
-  notImplemented("crypto.createPublicKey");
+export const createPublicKey = notImplemented<
+  typeof nodeCrypto.createPublicKey
+>("crypto.createPublicKey");
 
-export const createSecretKey: typeof nodeCrypto.createSecretKey =
-  notImplemented("crypto.createSecretKey");
+export const createSecretKey = notImplemented<
+  typeof nodeCrypto.createSecretKey
+>("crypto.createSecretKey");
 
-export const createSign: typeof nodeCrypto.createSign =
-  notImplemented("crypto.createSign");
+export const createSign =
+  notImplemented<typeof nodeCrypto.createSign>("crypto.createSign");
 
-export const createVerify: typeof nodeCrypto.createVerify = notImplemented(
+export const createVerify = notImplemented<typeof nodeCrypto.createVerify>(
   "crypto.createVerify",
 );
 
-export const diffieHellman: typeof nodeCrypto.diffieHellman = notImplemented(
+export const diffieHellman = notImplemented<typeof nodeCrypto.diffieHellman>(
   "crypto.diffieHellman",
 );
 
-export const generatePrime: typeof nodeCrypto.generatePrime = notImplemented(
+export const generatePrime = notImplemented<typeof nodeCrypto.generatePrime>(
   "crypto.generatePrime",
 );
 
-export const generatePrimeSync: typeof nodeCrypto.generatePrimeSync =
-  notImplemented("crypto.generatePrimeSync");
+export const generatePrimeSync = notImplemented<
+  typeof nodeCrypto.generatePrimeSync
+>("crypto.generatePrimeSync");
 
-export const getCiphers: typeof nodeCrypto.getCiphers =
-  notImplemented("crypto.getCiphers");
+export const getCiphers =
+  notImplemented<typeof nodeCrypto.getCiphers>("crypto.getCiphers");
 
-export const getCipherInfo: typeof nodeCrypto.getCipherInfo = notImplemented(
+export const getCipherInfo = notImplemented<typeof nodeCrypto.getCipherInfo>(
   "crypto.getCipherInfo",
 );
 
-export const getCurves: typeof nodeCrypto.getCurves =
-  notImplemented("crypto.getCurves");
+export const getCurves =
+  notImplemented<typeof nodeCrypto.getCurves>("crypto.getCurves");
 
-export const getDiffieHellman: typeof nodeCrypto.getDiffieHellman =
-  notImplemented("crypto.getDiffieHellman");
+export const getDiffieHellman = notImplemented<
+  typeof nodeCrypto.getDiffieHellman
+>("crypto.getDiffieHellman");
 
-export const getHashes: typeof nodeCrypto.getHashes =
-  notImplemented("crypto.getHashes");
+export const getHashes =
+  notImplemented<typeof nodeCrypto.getHashes>("crypto.getHashes");
 
-export const hkdf: typeof nodeCrypto.hkdf = notImplemented("crypto.hkdf");
+export const hkdf = notImplemented<typeof nodeCrypto.hkdf>("crypto.hkdf");
 
-export const hkdfSync: typeof nodeCrypto.hkdfSync =
-  notImplemented("crypto.hkdfSync");
+export const hkdfSync =
+  notImplemented<typeof nodeCrypto.hkdfSync>("crypto.hkdfSync");
 
-export const pbkdf2: typeof nodeCrypto.pbkdf2 = notImplemented("crypto.pbkdf2");
+export const pbkdf2 = notImplemented<typeof nodeCrypto.pbkdf2>("crypto.pbkdf2");
 
-export const pbkdf2Sync: typeof nodeCrypto.pbkdf2Sync =
-  notImplemented("crypto.pbkdf2Sync");
+export const pbkdf2Sync =
+  notImplemented<typeof nodeCrypto.pbkdf2Sync>("crypto.pbkdf2Sync");
 
-// @ts-expect-error promisify not supported
-export const generateKeyPair: typeof nodeCrypto.generateKeyPair =
-  notImplemented("crypto.generateKeyPair");
+export const generateKeyPair = notImplemented<
+  typeof nodeCrypto.generateKeyPair
+>("crypto.generateKeyPair");
 
-export const generateKeyPairSync: typeof nodeCrypto.generateKeyPairSync =
-  notImplemented("crypto.generateKeyPairSync");
+export const generateKeyPairSync = notImplemented<
+  typeof nodeCrypto.generateKeyPairSync
+>("crypto.generateKeyPairSync");
 
-export const generateKey: typeof nodeCrypto.generateKey =
-  notImplemented("crypto.generateKey");
+export const generateKey =
+  notImplemented<typeof nodeCrypto.generateKey>("crypto.generateKey");
 
-export const generateKeySync: typeof nodeCrypto.generateKeySync =
-  notImplemented("crypto.generateKeySync");
+export const generateKeySync = notImplemented<
+  typeof nodeCrypto.generateKeySync
+>("crypto.generateKeySync");
 
-export const privateDecrypt: typeof nodeCrypto.privateDecrypt = notImplemented(
+export const privateDecrypt = notImplemented<typeof nodeCrypto.privateDecrypt>(
   "crypto.privateDecrypt",
 );
 
-export const privateEncrypt: typeof nodeCrypto.privateEncrypt = notImplemented(
+export const privateEncrypt = notImplemented<typeof nodeCrypto.privateEncrypt>(
   "crypto.privateEncrypt",
 );
 
-export const publicDecrypt: typeof nodeCrypto.publicDecrypt = notImplemented(
+export const publicDecrypt = notImplemented<typeof nodeCrypto.publicDecrypt>(
   "crypto.publicDecrypt",
 );
 
-export const publicEncrypt: typeof nodeCrypto.publicEncrypt = notImplemented(
+export const publicEncrypt = notImplemented<typeof nodeCrypto.publicEncrypt>(
   "crypto.publicEncrypt",
 );
 
-export const randomFill: typeof nodeCrypto.randomFill =
-  notImplemented("crypto.randomFill");
+export const randomFill =
+  notImplemented<typeof nodeCrypto.randomFill>("crypto.randomFill");
 
-export const randomFillSync: typeof nodeCrypto.randomFillSync = notImplemented(
+export const randomFillSync = notImplemented<typeof nodeCrypto.randomFillSync>(
   "crypto.randomFillSync",
 );
 
-export const randomInt: typeof nodeCrypto.randomInt =
-  notImplemented("crypto.randomInt");
+export const randomInt =
+  notImplemented<typeof nodeCrypto.randomInt>("crypto.randomInt");
 
-export const scrypt: typeof nodeCrypto.scrypt = notImplemented("crypto.scrypt");
+export const scrypt = notImplemented<typeof nodeCrypto.scrypt>("crypto.scrypt");
 
-export const scryptSync: typeof nodeCrypto.scryptSync =
-  notImplemented("crypto.scryptSync");
+export const scryptSync =
+  notImplemented<typeof nodeCrypto.scryptSync>("crypto.scryptSync");
 
-export const sign: typeof nodeCrypto.sign = notImplemented("crypto.sign");
+export const sign = notImplemented<typeof nodeCrypto.sign>("crypto.sign");
 
-export const setEngine: typeof nodeCrypto.setEngine =
-  notImplemented("crypto.setEngine");
+export const setEngine =
+  notImplemented<typeof nodeCrypto.setEngine>("crypto.setEngine");
 
-export const timingSafeEqual: typeof nodeCrypto.timingSafeEqual =
-  notImplemented("crypto.timingSafeEqual");
+export const timingSafeEqual = notImplemented<
+  typeof nodeCrypto.timingSafeEqual
+>("crypto.timingSafeEqual");
 
-export const getFips: typeof nodeCrypto.getFips =
-  notImplemented("crypto.getFips");
+export const getFips =
+  notImplemented<typeof nodeCrypto.getFips>("crypto.getFips");
 
-export const setFips: typeof nodeCrypto.setFips =
-  notImplemented("crypto.setFips");
+export const setFips =
+  notImplemented<typeof nodeCrypto.setFips>("crypto.setFips");
 
-export const verify: typeof nodeCrypto.verify = notImplemented("crypto.verify");
+export const verify = notImplemented<typeof nodeCrypto.verify>("crypto.verify");
 
-export const secureHeapUsed: typeof nodeCrypto.secureHeapUsed = notImplemented(
+export const secureHeapUsed = notImplemented<typeof nodeCrypto.secureHeapUsed>(
   "crypto.secureHeapUsed",
 );
 
-export const hash: (typeof nodeCrypto)["hash"] = notImplemented("crypto.hash");
+export const hash = notImplemented<(typeof nodeCrypto)["hash"]>("crypto.hash");
 
 // ---- Unimplemented Classes ----
 
