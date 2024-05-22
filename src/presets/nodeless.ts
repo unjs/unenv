@@ -13,6 +13,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "async_hooks",
         "buffer",
         "console",
+        "cluster",
         "crypto",
         "events",
         "fs",
