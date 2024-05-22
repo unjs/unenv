@@ -38,7 +38,7 @@ const cloudflarePreset: Preset = {
     "node:assert/strict": "node:assert",
   },
   inject: {},
-  polyfill: ["unenv/runtime/polyfill/cloudflare"],
+  polyfill: [],
   external: cloudflareNodeCompatModules.map((p) => `node:${p}`),
 };
 
