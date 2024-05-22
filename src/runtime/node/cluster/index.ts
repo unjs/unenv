@@ -3,7 +3,6 @@ import mock from "../../mock/proxy";
 import type cluster from "node:cluster";
 import type { Cluster, Worker as _Worker } from "node:cluster";
 import { EventEmitter } from "../events";
-
 /**
  * Inspired by the original Node.js code in:
  * https://github.com/nodejs/node/blob/main/lib/internal/cluster/primary.js
@@ -33,6 +32,11 @@ export const setupPrimary: typeof cluster.setupPrimary = noop;
 export const setupMaster: typeof cluster.setupMaster = noop;
 export const workers: typeof cluster.workers = {};
 export const Worker: typeof _Worker = mock.__createMock__("cluster.Worker");
+
+// These 3 _functions don't exist on the EventEmitter type
+export const _events = (_cluster as any)._events;
+export const _eventsCount = (_cluster as any)._eventsCount;
+export const _maxListeners = (_cluster as any)._maxListeners;
 
 _cluster.disconnect = disconnect;
 _cluster.fork = fork;
