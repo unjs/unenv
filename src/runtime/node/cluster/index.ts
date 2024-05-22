@@ -22,8 +22,8 @@ const _cluster = new EventEmitter() as MutableCluster;
 export const disconnect: typeof cluster.disconnect = noop;
 export const fork: typeof cluster.fork = () =>
   mock.__createMock__("cluster.Worker");
-export const isPrimary: typeof cluster.isPrimary = true;
 export const isMaster: typeof cluster.isMaster = true;
+export const isPrimary: typeof cluster.isPrimary = true;
 export const isWorker: typeof cluster.isWorker = false;
 export const SCHED_NONE: typeof cluster.SCHED_NONE = 1;
 export const SCHED_RR: typeof cluster.SCHED_RR = 2;
@@ -36,8 +36,8 @@ export const Worker: typeof _Worker = mock.__createMock__("cluster.Worker");
 
 _cluster.disconnect = disconnect;
 _cluster.fork = fork;
-_cluster.isPrimary = isPrimary;
 _cluster.isMaster = isMaster;
+_cluster.isPrimary = isPrimary;
 _cluster.isWorker = isWorker;
 _cluster.SCHED_NONE = SCHED_NONE;
 _cluster.SCHED_RR = SCHED_RR;
