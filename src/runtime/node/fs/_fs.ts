@@ -1,19 +1,6 @@
 import type fs from "node:fs";
-import { notImplemented } from "../../_internal/utils";
+import { notImplemented, notImplementedAsync } from "../../_internal/utils";
 import * as fsp from "./promises/_promises";
-
-interface Promisifiable {
-  (): any;
-  native: Promisifiable;
-  __promisify__: () => Promise<any>;
-}
-
-function notImplementedAsync(name: string): Promisifiable {
-  const fn = notImplemented(name) as any;
-  fn.__promisify__ = () => notImplemented(name + ".__promisify__");
-  fn.native = fn;
-  return fn;
-}
 
 function callbackify(fn: (...args: any[]) => Promise<any>) {
   const fnc = function (...args: any[]) {
