@@ -15,6 +15,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "console",
         "crypto",
         "dns",
+        "dns/promises",
         "events",
         "fs",
         "fs/promises",

@@ -1,13 +1,12 @@
-import noop from "../../mock/noop";
-import mock from "../../mock/proxy";
+import noop from "../../../mock/noop";
+import mock from "../../../mock/proxy";
 import {
   notImplemented,
   notImplementedAsync,
 } from "src/runtime/_internal/utils";
-import type dns from "node:dns";
-import * as constants from "./constants";
-import promises from "./promises";
-export * from "./constants";
+import type dns from "node:dns/promises";
+import * as constants from "../constants";
+export * from "../constants";
 
 export const Resolver: typeof dns.Resolver =
   mock.__createMock__("dns.Resolver");
@@ -54,7 +53,6 @@ export default <typeof dns>{
   getServers,
   lookup,
   lookupService,
-  promises,
   resolve,
   resolve4,
   resolve6,
