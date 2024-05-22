@@ -1,43 +1,27 @@
-import { notImplemented } from "src/runtime/_internal/utils";
 import noop from "../../mock/noop";
 import mock from "../../mock/proxy";
 import type cluster from "node:cluster";
 import type { Cluster, Worker as _Worker } from "node:cluster";
 import { EventEmitter } from "../events";
 
-const _cluster = new EventEmitter() as Cluster;
-const _noop = () => {
-  return _cluster;
+/**
+ * Inspired by the original Node.js code in:
+ * https://github.com/nodejs/node/blob/main/lib/internal/cluster/primary.js
+ */
+
+// A mapped type used internally to allow assigning to readonly fields like `isPrimary`
+type MutableCluster = {
+  -readonly [key in keyof Cluster]: Cluster[key];
+} & {
+  Worker: typeof _Worker;
 };
 
-const on: typeof cluster.on = _noop;
-const addListener: typeof cluster.addListener = _noop;
-const once: typeof cluster.once = _noop;
-const removeListener: typeof cluster.removeListener = _noop;
-const removeAllListeners: typeof cluster.removeAllListeners = _noop;
-const emit: typeof cluster.emit = () => false;
-const off: typeof cluster.off = _noop;
-const prependListener: typeof cluster.prependListener = _noop;
-const prependOnceListener: typeof cluster.prependOnceListener = _noop;
-const listeners: typeof cluster.listeners = function (name) {
-  return [];
-};
-const listenerCount: typeof cluster.listenerCount = () => 0;
-const setMaxListeners: typeof cluster.setMaxListeners = notImplemented(
-  "cluster.setMaxListeners",
-);
-const getMaxListeners: typeof cluster.getMaxListeners = notImplemented(
-  "cluster.getMaxListeners",
-);
-const rawListeners: typeof cluster.rawListeners = notImplemented(
-  "cluster.rawListeners",
-);
-const eventNames: typeof cluster.eventNames =
-  notImplemented("cluster.eventNames");
+// eslint-disable-next-line unicorn/prefer-event-target
+const _cluster = new EventEmitter() as MutableCluster;
 
-export const disconnect: typeof cluster.disconnect =
-  notImplemented("cluster.disconnect");
-export const fork: typeof cluster.fork = notImplemented("cluster.fork");
+export const disconnect: typeof cluster.disconnect = noop;
+export const fork: typeof cluster.fork = () =>
+  mock.__createMock__("cluster.Worker");
 export const isPrimary: typeof cluster.isPrimary = true;
 export const isMaster: typeof cluster.isMaster = true;
 export const isWorker: typeof cluster.isWorker = false;
@@ -50,33 +34,18 @@ export const setupMaster: typeof cluster.setupMaster = noop;
 export const workers: typeof cluster.workers = {};
 export const Worker: typeof _Worker = mock.__createMock__("cluster.Worker");
 
-export default <typeof cluster>{
-  addListener,
-  disconnect,
-  emit,
-  eventNames,
-  fork,
-  getMaxListeners,
-  isMaster,
-  isPrimary,
-  isWorker,
-  listeners,
-  listenerCount,
-  on,
-  once,
-  off,
-  prependListener,
-  prependOnceListener,
-  rawListeners,
-  removeAllListeners,
-  removeListener,
-  SCHED_NONE,
-  SCHED_RR,
-  schedulingPolicy,
-  setMaxListeners,
-  settings,
-  setupPrimary,
-  setupMaster,
-  Worker,
-  workers,
-};
+_cluster.disconnect = disconnect;
+_cluster.fork = fork;
+_cluster.isPrimary = isPrimary;
+_cluster.isMaster = isMaster;
+_cluster.isWorker = isWorker;
+_cluster.SCHED_NONE = SCHED_NONE;
+_cluster.SCHED_RR = SCHED_RR;
+_cluster.schedulingPolicy = SCHED_RR;
+_cluster.settings = settings;
+_cluster.setupPrimary = setupPrimary;
+_cluster.setupMaster = setupMaster;
+_cluster.workers = workers;
+_cluster.Worker = Worker;
+
+export default _cluster as Cluster;
