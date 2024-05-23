@@ -1,12 +1,9 @@
+// Reference: https://github.com/nodejs/node/blob/main/lib/internal/cluster/primary.js
 import noop from "../../mock/noop";
 import mock from "../../mock/proxy";
 import type cluster from "node:cluster";
 import type { Cluster, Worker as _Worker } from "node:cluster";
 import { EventEmitter } from "../events";
-/**
- * Inspired by the original Node.js code in:
- * https://github.com/nodejs/node/blob/main/lib/internal/cluster/primary.js
- */
 
 // A mapped type used internally to allow assigning to readonly fields like `isPrimary`
 type MutableCluster = {
