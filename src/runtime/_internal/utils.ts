@@ -36,6 +36,19 @@ export function notImplemented<Fn extends (...args: any) => any>(
   return Object.assign(fn, { __unenv__: true }) as unknown as Fn;
 }
 
+export interface Promisifiable {
+  (): any;
+  native: Promisifiable;
+  __promisify__: () => Promise<any>;
+}
+
+export function notImplementedAsync(name: string): Promisifiable {
+  const fn = notImplemented(name) as any;
+  fn.__promisify__ = () => notImplemented(name + ".__promisify__");
+  fn.native = fn;
+  return fn;
+}
+
 export function notImplementedClass<T = unknown>(name: string): T {
   return class {
     readonly __unenv__ = true;

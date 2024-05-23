@@ -1,0 +1,30 @@
+import type dns from "node:dns";
+
+export const ADDRCONFIG: typeof dns.ADDRCONFIG = 0;
+export const ADDRGETNETWORKPARAMS: typeof dns.ADDRGETNETWORKPARAMS =
+  "ADDRGETNETWORKPARAMS";
+export const ALL: typeof dns.ALL = 0;
+export const BADFAMILY: typeof dns.BADFAMILY = "BADFAMILY";
+export const BADFLAGS: typeof dns.BADFLAGS = "BADFLAGS";
+export const BADHINTS: typeof dns.BADHINTS = "BADHINTS";
+export const BADNAME: typeof dns.BADNAME = "BADNAME";
+export const BADQUERY: typeof dns.BADQUERY = "BADQUERY";
+export const BADRESP: typeof dns.BADRESP = "BADRESP";
+export const BADSTR: typeof dns.BADSTR = "BADSTR";
+export const CANCELLED: typeof dns.CANCELLED = "CANCELLED";
+export const CONNREFUSED: typeof dns.CONNREFUSED = "TIMEOUT";
+export const DESTRUCTION: typeof dns.DESTRUCTION = "DESTRUCTION";
+export const EOF: typeof dns.EOF = "EOF";
+export const FILE: typeof dns.FILE = "FILE";
+export const FORMERR: typeof dns.FORMERR = "FORMERR";
+export const LOADIPHLPAPI: typeof dns.LOADIPHLPAPI = "LOADIPHLPAPI";
+export const NODATA: typeof dns.NODATA = "NODATA";
+export const NOMEM: typeof dns.NOMEM = "NOMEM";
+export const NONAME: typeof dns.NONAME = "NONAME";
+export const NOTFOUND: typeof dns.NOTFOUND = "NOTFOUND";
+export const NOTIMP: typeof dns.NOTIMP = "NOTIMP";
+export const NOTINITIALIZED: typeof dns.NOTINITIALIZED = "NOTINITIALIZED";
+export const REFUSED: typeof dns.REFUSED = "REFUSED";
+export const SERVFAIL: typeof dns.SERVFAIL = "SERVFAIL";
+export const TIMEOUT: typeof dns.TIMEOUT = "TIMEOUT";
+export const V4MAPPED: typeof dns.V4MAPPED = 2048;
