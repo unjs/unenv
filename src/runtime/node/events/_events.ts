@@ -37,6 +37,8 @@ export class EventEmitter implements nodeEvents.EventEmitter {
   _events: Record<string, Listener[] & { warned?: boolean }> =
     Object.create(null);
 
+  _eventsCount = 0;
+
   _maxListeners: undefined | number;
 
   static get defaultMaxListeners() {
@@ -102,6 +104,7 @@ export class EventEmitter implements nodeEvents.EventEmitter {
   }
 
   addListener(type: string, listener: Listener) {
+    this._eventsCount++;
     return _addListener(this, type, listener, false);
   }
 
@@ -122,6 +125,7 @@ export class EventEmitter implements nodeEvents.EventEmitter {
   }
 
   removeListener(type: string, listener: Listener) {
+    this._eventsCount--;
     return _removeListener(this, type, listener);
   }
 
@@ -130,6 +134,7 @@ export class EventEmitter implements nodeEvents.EventEmitter {
   }
 
   removeAllListeners(type: string) {
+    this._eventsCount = 0;
     return _removeAllListeners(this, type);
   }
 
