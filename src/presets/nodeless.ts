@@ -23,6 +23,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "fs/promises",
         "http",
         "https",
+        "inspector",
         "net",
         "os",
         "path",
@@ -40,6 +41,10 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 
     "path/posix": "unenv/runtime/node/path/index",
     "path/win32": "unenv/runtime/node/path/index",
+    // `inspector` and `inspector/promises` share the same implementation type definitions:
+    // https://github.com/nodejs/node/blob/main/lib/inspector/promises.js
+    // https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/node/inspector.d.ts
+    "inspector/promises": "unenv/runtime/node/inspector/index",
 
     // npm
     etag: "unenv/runtime/mock/noop",
