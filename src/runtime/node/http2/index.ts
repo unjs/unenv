@@ -23,11 +23,11 @@ export const getDefaultSettings: typeof http2.getDefaultSettings = function () {
   return Object.create({
     headerTableSize: 4096,
     enablePush: true,
-    initialWindowSize: 65535,
-    maxFrameSize: 16384,
-    maxConcurrentStreams: 4294967295,
-    maxHeaderSize: 65535,
-    maxHeaderListSize: 65535,
+    initialWindowSize: 65_535,
+    maxFrameSize: 16_384,
+    maxConcurrentStreams: 4_294_967_295,
+    maxHeaderSize: 65_535,
+    maxHeaderListSize: 65_535,
     enableConnectProtocol: false,
   });
 };
