@@ -42,10 +42,12 @@
     "defu": "^6.1.4",
     "mime": "^3.0.0",
     "node-fetch-native": "^1.6.4",
-    "pathe": "^1.1.2"
+    "pathe": "^1.1.2",
+    "punycode": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
+    "@types/punycode": "^2.1.4",
     "changelogen": "^0.5.5",
     "eslint": "^9.3.0",
     "eslint-config-unjs": "^0.3.1",

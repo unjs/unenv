@@ -24,6 +24,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "net",
         "os",
         "path",
+        "punycode",
         "process",
         "stream",
         "stream/promises",

@@ -23,10 +23,16 @@ importers:
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
+      punycode:
+        specifier: ^2.3.1
+        version: 2.3.1
     devDependencies:
       '@types/node':
         specifier: ^20.12.12
         version: 20.12.12
+      '@types/punycode':
+        specifier: ^2.1.4
+        version: 2.1.4
       changelogen:
         specifier: ^0.5.5
         version: 0.5.5
@@ -759,6 +765,9 @@ packages:
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
+
+  '@types/punycode@2.1.4':
+    resolution: {integrity: sha512-trzh6NzBnq8yw5e35f8xe8VTYjqM3NE7bohBtvDVf/dtUer3zYTLK1Ka3DG3p7bdtoaOHZucma6FfVKlQ134pQ==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -2949,6 +2958,8 @@ snapshots:
       undici-types: 5.26.5
 
   '@types/normalize-package-data@2.4.4': {}
+
+  '@types/punycode@2.1.4': {}
 
   '@types/resolve@1.20.2': {}
 
