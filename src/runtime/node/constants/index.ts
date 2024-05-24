@@ -1,6 +1,6 @@
 // Mostly taken from: https://github.com/nodejs/node/blob/main/typings/internalBinding/constants.d.ts
 
-import constants from "node:constants";
+import type constants from "node:constants";
 import * as os from "./os";
 import * as fs from "./fs";
 import * as crypto from "./crypto";
