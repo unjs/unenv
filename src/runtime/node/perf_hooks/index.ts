@@ -51,6 +51,9 @@ export const performance: typeof perf_hooks.performance = mock.__createMock__(
   "perf_hooks.performance",
 );
 
+// Return a real value for performance.now
+performance.now = () => Date.now();
+
 // PerformanceNodeTiming is included in the types but doesn't exist in the runtime
 export default <Omit<typeof perf_hooks, "PerformanceNodeTiming">>{
   Performance,
