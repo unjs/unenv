@@ -68,10 +68,10 @@ export const unsubscribe: typeof diagnostics_channel.unsubscribe = function (
   name,
   onMessage,
 ) {
-  return (channel(name) as Channel<unknown, {}>).unsubscribe(onMessage);
+  return (channel(name) as Channel<unknown, object>).unsubscribe(onMessage);
 };
 
-class TracingChannel<StoreType = unknown, ContextType extends object = {}>
+class TracingChannel<StoreType = unknown, ContextType extends object = object>
   implements diagnostics_channel.TracingChannel<StoreType, ContextType>
 {
   readonly __unenv__ = true;
@@ -161,7 +161,7 @@ class TracingChannel<StoreType = unknown, ContextType extends object = {}>
 
 const tracingChannel: typeof diagnostics_channel.tracingChannel = function <
   StoreType = unknown,
-  ContextType extends object = {},
+  ContextType extends object = object,
 >(
   name:
     | string
