@@ -36,6 +36,9 @@ const nodeless: Preset & { alias: Map<string, string> } = {
       ].map((m) => [m, `unenv/runtime/node/${m}/index`]),
     ),
 
+    "path/posix": "unenv/runtime/node/path/index",
+    "path/win32": "unenv/runtime/node/path/index",
+
     // npm
     etag: "unenv/runtime/mock/noop",
     "mime-db": "unenv/runtime/npm/mime-db",
