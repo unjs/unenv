@@ -21,6 +21,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "fs",
         "fs/promises",
         "http",
+        "https",
         "net",
         "os",
         "path",
