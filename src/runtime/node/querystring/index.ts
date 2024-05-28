@@ -4,24 +4,33 @@ import { parseQuery, stringifyQuery } from "ufo";
 import type { QueryObject } from "ufo";
 import type querystring from "node:querystring";
 
-const _stringify: typeof querystring.stringify = function (obj) {
-  return stringifyQuery(obj as QueryObject);
-};
-const _parse: typeof querystring.parse = function (obj) {
+export const parse: typeof querystring.parse = function (
+  obj,
+  _sep,
+  _eq,
+  _options,
+) {
   return parseQuery(obj);
 };
+export const decode: typeof querystring.decode = parse;
 
-export const decode: typeof querystring.decode = _parse;
-export const parse: typeof querystring.parse = _parse;
-export const encode: typeof querystring.encode = _stringify;
-export const stringify: typeof querystring.stringify = _stringify;
+export const stringify: typeof querystring.stringify = function (
+  obj,
+  _sep,
+  _eq,
+  _options,
+) {
+  return stringifyQuery(obj as QueryObject);
+};
+export const encode: typeof querystring.encode = stringify;
 
 // eslint-disable-next-line prefer-const
 export let escape: typeof querystring.escape = encodeURIComponent;
+
 // eslint-disable-next-line prefer-const
 export let unescape: typeof querystring.unescape = decodeURIComponent;
 
-export const unescapeBuffer = function (str: string) {
+export const unescapeBuffer = function (str: string, _decodeSpaces: boolean) {
   return Buffer.from(unescape(str));
 };
 
