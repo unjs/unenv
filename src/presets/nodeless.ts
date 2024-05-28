@@ -31,6 +31,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "os",
         "path",
         "process",
+        "querystring",
         "stream",
         "stream/promises",
         "stream/consumers",
