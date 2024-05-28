@@ -14,6 +14,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "buffer",
         "console",
         "child_process",
+        "constants",
         "cluster",
         "crypto",
         "dgram",
