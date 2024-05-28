@@ -7,7 +7,7 @@ import {
   PerformanceObserver,
   PerformanceObserverEntryList,
   PerformanceResourceTiming,
-} from "../node/perf_hooks/index";
+} from "../../web/performance";
 import _global from "./global-this";
 
 _global.performance = _global.performance || performance;
