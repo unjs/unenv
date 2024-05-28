@@ -1,10 +1,10 @@
 import type perf_hooks from "node:perf_hooks";
 import type { IntervalHistogram } from "node:perf_hooks";
-import * as performanceApis from "../../../web/performance/index";
+import * as performanceApis from "../../web/performance/index";
 import { constants } from "./constants";
 
 export { constants } from "./constants";
-export * from "../../../web/performance/index";
+export * from "../../web/performance";
 
 const mockRecordableHistogram = () =>
   Object.create({

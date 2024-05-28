@@ -15,13 +15,5 @@ export default defineBuildConfig({
       ext: "cjs",
       declaration: false,
     },
-    { input: "src/web/", outDir: "web", format: "esm" },
-    {
-      input: "src/web/",
-      outDir: "web",
-      format: "cjs",
-      ext: "cjs",
-      declaration: false,
-    },
   ],
 });

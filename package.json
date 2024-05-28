@@ -17,19 +17,13 @@
       "types": "./runtime/*.d.ts",
       "require": "./runtime/*.cjs",
       "import": "./runtime/*.mjs"
-    },
-    "./web/*": {
-      "types": "./web/*.d.ts",
-      "require": "./web/*.cjs",
-      "import": "./web/*.mjs"
     }
   },
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "runtime",
-    "web"
+    "runtime"
   ],
   "scripts": {
     "build": "unbuild",

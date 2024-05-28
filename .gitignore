@@ -3,6 +3,5 @@ node_modules
 *.log*
 dist
 /runtime
-/web
 .tmp
 .wrangler

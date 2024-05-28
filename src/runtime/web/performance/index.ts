@@ -1,4 +1,4 @@
-import mock from "../../runtime/mock/proxy";
+import mock from "../../mock/proxy";
 import type perf_hooks from "node:perf_hooks";
 
 export const Performance: typeof perf_hooks.performance = mock.__createMock__(
