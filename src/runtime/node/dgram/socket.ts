@@ -41,7 +41,7 @@ export class Socket extends EventEmitter implements dgram.Socket {
     return 1;
   }
   address(): net.AddressInfo {
-    return { address: "0.0.0.0", family: "IPv4", port: 1234 };
+    return { address: "127.0.0.1", family: "IPv4", port: 1234 };
   }
 
   remoteAddress(): net.AddressInfo {
@@ -52,15 +52,15 @@ export class Socket extends EventEmitter implements dgram.Socket {
     return Promise.resolve();
   }
 
-  addMembership = noop;
-  addSourceSpecificMembership = noop;
-  connect = noop;
-  disconnect = noop;
-  dropMembership = noop;
-  dropSourceSpecificMembership = noop;
-  send = noop;
-  setSendBufferSize = noop;
-  setBroadcast = noop;
-  setRecvBufferSize = noop;
-  setMulticastInterface = noop;
+  addMembership() {}
+  addSourceSpecificMembership() {}
+  connect() {}
+  disconnect() {}
+  dropMembership() {}
+  dropSourceSpecificMembership() {}
+  send() {}
+  setSendBufferSize() {}
+  setBroadcast() {}
+  setRecvBufferSize() {}
+  setMulticastInterface() {}
 }

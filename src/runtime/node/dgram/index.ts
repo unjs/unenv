@@ -5,6 +5,7 @@ import { Socket } from "./socket";
 export { Socket } from "./socket";
 
 export const _createSocketHandle = noop;
+
 export const createSocket: typeof dgram.createSocket = function () {
   return new Socket();
 };
