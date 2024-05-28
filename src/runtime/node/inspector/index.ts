@@ -1,10 +1,17 @@
 // https://nodejs.org/api/inspector.html
-
 import noop from "../../mock/noop";
 import mock from "../../mock/proxy";
-import disposable from "../../mock/disposable";
 import type inspector from "node:inspector";
 import type Console from "node:console";
+
+const disposable = Object.freeze(
+  Object.create({
+    __unenv__: { get: () => true },
+    [Symbol.dispose]: function () {
+      return Promise.resolve();
+    },
+  }),
+);
 
 const noopDisposable = () => disposable;
 
