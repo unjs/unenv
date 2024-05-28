@@ -13,7 +13,9 @@ export const Session: typeof inspector.Session =
 export const close: typeof inspector.close = noop;
 export const console: Console = mock.__createMock__("inspector.console");
 export const open: typeof inspector.open = noopDisposable;
-export const url: typeof inspector.url = noopDisposable;
+export const url: typeof inspector.url = () => {
+  return undefined;
+};
 export const waitForDebugger: typeof inspector.waitForDebugger = noop;
 
 export default <typeof inspector>{
