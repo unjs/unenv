@@ -5,7 +5,10 @@ import { _PerformanceMark, _PerformanceMeasure } from "./_entry";
 const _timeOrigin = Date.now();
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Performance
-export class _Performance implements globalThis.Performance {
+export class _Performance<
+  PerformanceEntryT extends PerformanceEntry = PerformanceEntry,
+> implements globalThis.Performance
+{
   readonly __unenv__ = true;
 
   timeOrigin: number = _timeOrigin;
@@ -50,21 +53,23 @@ export class _Performance implements globalThis.Performance {
     );
   }
 
-  getEntries(): PerformanceEntry[] {
-    return this._entries;
+  getEntries(): PerformanceEntryT[] {
+    return this._entries as PerformanceEntryT[];
   }
 
   getEntriesByName(
     name: string,
     type?: string | undefined,
-  ): PerformanceEntry[] {
+  ): PerformanceEntryT[] {
     return this._entries.filter(
       (e) => e.name === name && (!type || e.entryType === type),
-    );
+    ) as PerformanceEntryT[];
   }
 
-  getEntriesByType(type: string): PerformanceEntry[] {
-    return this._entries.filter((e) => e.entryType === type);
+  getEntriesByType(type: string): PerformanceEntryT[] {
+    return this._entries.filter(
+      (e) => e.entryType === type,
+    ) as PerformanceEntryT[];
   }
 
   mark(
@@ -84,8 +89,9 @@ export class _Performance implements globalThis.Performance {
     let start: number;
     let end: number;
     if (typeof startOrMeasureOptions === "string") {
-      start = this.getEntriesByName(startOrMeasureOptions, "mark")[0].startTime;
-      end = this.getEntriesByName(endMark!, "mark")[0].startTime;
+      start = this.getEntriesByName(startOrMeasureOptions, "mark")[0]
+        ?.startTime;
+      end = this.getEntriesByName(endMark!, "mark")[0]?.startTime;
     } else {
       start =
         Number.parseFloat(startOrMeasureOptions?.start as string) ||

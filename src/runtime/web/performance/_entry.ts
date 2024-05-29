@@ -11,7 +11,7 @@ export type _PerformanceEntryType = (typeof _supportedEntryTypes)[number];
 export class _PerformanceEntry implements globalThis.PerformanceEntry {
   readonly __unenv__ = true;
 
-  detail: any;
+  detail: any | undefined;
   entryType: _PerformanceEntryType = "event";
 
   name: string;
@@ -46,7 +46,7 @@ export class _PerformanceMark
   extends _PerformanceEntry
   implements globalThis.PerformanceMark
 {
-  entryType: _PerformanceEntryType = "mark";
+  entryType = "mark" as const;
 }
 
 export const PerformanceMark: typeof globalThis.PerformanceMark =
@@ -57,7 +57,7 @@ export class _PerformanceMeasure
   extends _PerformanceEntry
   implements globalThis.PerformanceMeasure
 {
-  entryType: _PerformanceEntryType = "measure";
+  entryType = "measure" as const;
 }
 
 export const PerformanceMeasure: typeof globalThis.PerformanceMeasure =
@@ -68,27 +68,27 @@ export class _PerformanceResourceTiming
   extends _PerformanceEntry
   implements globalThis.PerformanceResourceTiming
 {
-  entryType: _PerformanceEntryType = "resource";
+  entryType = "resource" as const;
   serverTiming: readonly PerformanceServerTiming[] = [];
-  connectEnd = 0;
-  connectStart = 0;
-  decodedBodySize = 0;
-  domainLookupEnd = 0;
-  domainLookupStart = 0;
-  encodedBodySize = 0;
-  fetchStart = 0;
+  connectEnd: number = 0;
+  connectStart: number = 0;
+  decodedBodySize: number = 0;
+  domainLookupEnd: number = 0;
+  domainLookupStart: number = 0;
+  encodedBodySize: number = 0;
+  fetchStart: number = 0;
   initiatorType = "";
   name = "";
   nextHopProtocol = "";
-  redirectEnd = 0;
-  redirectStart = 0;
-  requestStart = 0;
-  responseEnd = 0;
-  responseStart = 0;
-  secureConnectionStart = 0;
-  startTime = 0;
-  transferSize = 0;
-  workerStart = 0;
+  redirectEnd: number = 0;
+  redirectStart: number = 0;
+  requestStart: number = 0;
+  responseEnd: number = 0;
+  responseStart: number = 0;
+  secureConnectionStart: number = 0;
+  startTime: number = 0;
+  transferSize: number = 0;
+  workerStart: number = 0;
 }
 
 export const PerformanceResourceTiming: typeof globalThis.PerformanceResourceTiming =
