@@ -1,6 +1,6 @@
 // https://nodejs.org/api/readline.html#readlineclearlinestream-dir-callback
 import type readline from "node:readline";
-import noop from "src/runtime/mock/noop";
+import noop from "../../mock/noop";
 import promises from "./promises";
 import { Interface } from "./interface";
 

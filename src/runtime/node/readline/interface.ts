@@ -1,7 +1,7 @@
 import type readline from "node:readline";
 import type { Abortable } from "node:events";
-import { EventEmitter } from "../events";
-import { createNotImplementedError } from "src/runtime/_internal/utils";
+import { EventEmitter } from "node:events";
+import { createNotImplementedError } from "../../_internal/utils";
 
 // eslint-disable-next-line unicorn/prefer-event-target
 export class Interface extends EventEmitter implements readline.Interface {
