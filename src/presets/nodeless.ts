@@ -27,6 +27,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "http",
         "https",
         "http2",
+        "inspector",
         "net",
         "os",
         "path",
@@ -45,6 +46,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 
     "path/posix": "unenv/runtime/node/path/index",
     "path/win32": "unenv/runtime/node/path/index",
+    "inspector/promises": "unenv/runtime/node/inspector/index",
 
     // npm
     etag: "unenv/runtime/mock/noop",
