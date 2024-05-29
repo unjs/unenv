@@ -1,18 +1,6 @@
 import { notImplementedAsync } from "../../../_internal/utils";
-import type { TimerOptions } from "node:timers";
 import type timers from "node:timers/promises";
-
-export class Scheduler implements timers.Scheduler {
-  wait(
-    delay?: number | undefined,
-    options?: Pick<TimerOptions, "signal"> | undefined,
-  ) {
-    return Promise.resolve();
-  }
-  yield() {
-    return Promise.resolve();
-  }
-}
+import { Scheduler } from "./scheduler";
 
 export const setImmediate: typeof timers.setImmediate = notImplementedAsync(
   "timers.setImmediate",

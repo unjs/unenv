@@ -12,6 +12,9 @@ export const clearInterval: typeof timers.clearInterval =
 export const clearTimeout: typeof timers.clearTimeout =
   globalThis.clearTimeout || noop;
 
+// We're throwing `notImplemented` errors for now but will revisit in the future.
+// We considered using `queueMicrotask` or `postMessage` but these won't result in an exact emulation
+// of runtime behavior.
 export const setImmediate: typeof timers.setImmediate =
   globalThis.setImmediate || notImplementedAsync("timers.setImmediate");
 export const setInterval: typeof timers.setInterval =
