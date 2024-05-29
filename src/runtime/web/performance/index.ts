@@ -1,12 +1,23 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Performance_API
 
-export { Performance, performance } from "./_performance";
-export { PerformanceObserver, PerformanceObserverEntryList } from "./_observer";
+export { Performance, _Performance, performance } from "./_performance";
+
+export {
+  PerformanceObserver,
+  _PerformanceObserver,
+  PerformanceObserverEntryList,
+  _PerformanceObserverEntryList,
+} from "./_observer";
+
 export {
   PerformanceEntry,
+  _PerformanceEntry,
   PerformanceMark,
+  _PerformanceMark,
   PerformanceMeasure,
+  _PerformanceMeasure,
   PerformanceResourceTiming,
+  _PerformanceResourceTiming,
 } from "./_entry";
 
 // Not implemented:
