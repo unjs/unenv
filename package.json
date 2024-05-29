@@ -42,7 +42,8 @@
     "defu": "^6.1.4",
     "mime": "^3.0.0",
     "node-fetch-native": "^1.6.4",
-    "pathe": "^1.1.2"
+    "pathe": "^1.1.2",
+    "ufo": "^1.5.3"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
