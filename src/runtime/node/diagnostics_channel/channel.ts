@@ -1,4 +1,4 @@
-import { createNotImplementedError } from "src/runtime/_internal/utils";
+import { createNotImplementedError } from "../../_internal/utils";
 import type diagnostics_channel from "node:diagnostics_channel";
 
 const channels: Record<string | symbol, diagnostics_channel.Channel> = {};
