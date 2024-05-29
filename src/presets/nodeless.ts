@@ -18,6 +18,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "cluster",
         "crypto",
         "dgram",
+        "diagnostics_channel",
         "dns",
         "dns/promises",
         "domain",
