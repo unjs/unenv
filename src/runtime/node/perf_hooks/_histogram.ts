@@ -1,20 +1,25 @@
 import type perf_hooks from "node:perf_hooks";
 
-export class IntervalHistogram implements perf_hooks.IntervalHistogram {
+class Histogram implements perf_hooks.Histogram {
   reset(): void {
     throw new Error("Method not implemented.");
   }
+  buckets: Map<number, number> = new Map();
   min = 9_223_372_036_854_776_000;
   max = 0;
   mean = Number.NaN;
   exceeds = 0;
   stddev = Number.NaN;
-  count = 0;
   percentiles: Map<number, number> = new Map();
-  buckets: Map<number, number> = new Map();
   percentile(percentile: number): number {
     return this.percentiles.get(percentile) ?? Number.NaN;
   }
+}
+
+export class IntervalHistogram
+  extends Histogram
+  implements perf_hooks.IntervalHistogram
+{
   enable() {
     return true;
   }
@@ -23,21 +28,10 @@ export class IntervalHistogram implements perf_hooks.IntervalHistogram {
   }
 }
 
-export class RecordableHistogram implements perf_hooks.RecordableHistogram {
-  min = 9_223_372_036_854_776_000;
-  max = 0;
-  mean = Number.NaN;
-  exceeds = 0;
-  stddev = Number.NaN;
-  count = 0;
-  percentiles: Map<number, number> = new Map();
-  buckets: Map<number, number> = new Map();
-  percentile(percentile: number): number {
-    return this.percentiles.get(percentile) ?? Number.NaN;
-  }
-  reset(): void {
-    throw new Error("Method not implemented.");
-  }
+export class RecordableHistogram
+  extends Histogram
+  implements perf_hooks.RecordableHistogram
+{
   record(val: number | bigint): void {
     throw new Error("Method not implemented.");
   }
