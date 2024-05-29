@@ -1,25 +1,41 @@
 import mock from "../../mock/proxy";
-import type perf_hooks from "node:perf_hooks";
 
-export const Performance: typeof perf_hooks.performance = mock.__createMock__(
+// https://developer.mozilla.org/en-US/docs/Web/API/Performance
+export const Performance: typeof globalThis.Performance = mock.__createMock__(
   "perf_hooks.Performance",
 );
-export const PerformanceEntry: typeof perf_hooks.PerformanceEntry =
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Performance
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+export const performance: Writeable<typeof globalThis.performance> =
+  mock.__createMock__("perf_hooks.performance");
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
+// performance.now() ~= Date.now()-performance.timeOrigin
+performance.timeOrigin = Date.now();
+performance.now = () => Date.now() - performance.timeOrigin;
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry
+export const PerformanceEntry: typeof globalThis.PerformanceEntry =
+  globalThis.PerformanceEntry ||
   mock.__createMock__("perf_hooks.PerformanceEntry");
-export const PerformanceMark: typeof perf_hooks.PerformanceMark =
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMark
+export const PerformanceMark: typeof globalThis.PerformanceMark =
   mock.__createMock__("perf_hooks.PerformanceMark");
-export const PerformanceMeasure: typeof perf_hooks.PerformanceMeasure =
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMeasure
+export const PerformanceMeasure: typeof globalThis.PerformanceMeasure =
   mock.__createMock__("perf_hooks.PerformanceMeasure");
-export const PerformanceObserver: typeof perf_hooks.PerformanceObserver =
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver
+export const PerformanceObserver: globalThis.PerformanceObserver =
   mock.__createMock__("perf_hooks.PerformanceObserver");
-export const PerformanceObserverEntryList: (typeof perf_hooks.PerformanceEntry)[] =
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserverEntryList
+export const PerformanceObserverEntryList: globalThis.PerformanceEntry[] =
   mock.__createMock__("perf_hooks.PerformanceObserverEntryList");
-export const PerformanceResourceTiming: typeof perf_hooks.PerformanceNodeTiming =
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming
+export const PerformanceResourceTiming: typeof globalThis.PerformanceResourceTiming =
   mock.__createMock__("perf_hooks.PerformanceResourceTiming");
-
-export const performance: typeof perf_hooks.performance = mock.__createMock__(
-  "perf_hooks.performance",
-);
-
-// Return a real value for performance.now
-performance.now = () => Date.now();
