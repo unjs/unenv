@@ -1,9 +1,7 @@
 import type perf_hooks from "node:perf_hooks";
+import { createNotImplementedError } from "../../_internal/utils";
 
 class Histogram implements perf_hooks.Histogram {
-  reset(): void {
-    throw new Error("Method not implemented.");
-  }
   buckets: Map<number, number> = new Map();
   min = 9_223_372_036_854_776_000;
   max = 0;
@@ -13,6 +11,9 @@ class Histogram implements perf_hooks.Histogram {
   percentiles: Map<number, number> = new Map();
   percentile(percentile: number): number {
     return this.percentiles.get(percentile) ?? Number.NaN;
+  }
+  reset(): void {
+    throw createNotImplementedError("Histogram.reset");
   }
 }
 
@@ -33,12 +34,12 @@ export class RecordableHistogram
   implements perf_hooks.RecordableHistogram
 {
   record(val: number | bigint): void {
-    throw new Error("Method not implemented.");
+    throw createNotImplementedError("RecordableHistogram.record");
   }
   recordDelta(): void {
-    throw new Error("Method not implemented.");
+    throw createNotImplementedError("RecordableHistogram.recordDelta");
   }
   add(other: perf_hooks.RecordableHistogram): void {
-    throw new Error("Method not implemented.");
+    throw createNotImplementedError("RecordableHistogram.add");
   }
 }
