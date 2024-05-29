@@ -43,6 +43,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "stream/web",
         "string_decoder",
         "trace_events",
+        "tty",
         "url",
         "util",
         "util/types",
