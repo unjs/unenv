@@ -1,3 +1,4 @@
+import { createNotImplementedError } from "src/runtime/_internal/utils";
 import noop from "../../mock/noop";
 import type diagnostics_channel from "node:diagnostics_channel";
 
@@ -41,7 +42,13 @@ export class Channel<StoreType, ContextType>
     }
   }
 
-  bindStore() {}
-  unbindStore() {}
-  runStores() {}
+  bindStore() {
+    createNotImplementedError("Channel.bindStore");
+  }
+  unbindStore() {
+    createNotImplementedError("Channel.unbindStore");
+  }
+  runStores() {
+    createNotImplementedError("Channel.runStores");
+  }
 }
