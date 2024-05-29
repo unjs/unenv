@@ -1,5 +1,4 @@
 import { createNotImplementedError } from "src/runtime/_internal/utils";
-import noop from "../../mock/noop";
 import type diagnostics_channel from "node:diagnostics_channel";
 
 const channels: Record<string | symbol, diagnostics_channel.Channel> = {};
@@ -11,9 +10,11 @@ export class Channel<StoreType, ContextType>
   readonly __unenv__ = true;
 
   name: diagnostics_channel.Channel["name"];
+
   get hasSubscribers() {
     return this._subscribers.length > 0;
   }
+
   _subscribers: diagnostics_channel.ChannelListener[];
 
   constructor(name: diagnostics_channel.Channel["name"]) {
@@ -43,12 +44,14 @@ export class Channel<StoreType, ContextType>
   }
 
   bindStore() {
-    createNotImplementedError("Channel.bindStore");
+    throw createNotImplementedError("Channel.bindStore");
   }
+
   unbindStore() {
-    createNotImplementedError("Channel.unbindStore");
+    throw createNotImplementedError("Channel.unbindStore");
   }
+
   runStores() {
-    createNotImplementedError("Channel.runStores");
+    throw createNotImplementedError("Channel.runStores");
   }
 }

@@ -1,4 +1,4 @@
-import noop from "../../mock/noop";
+import { createNotImplementedError } from "src/runtime/_internal/utils";
 import type diagnostics_channel from "node:diagnostics_channel";
 import { Channel } from "./channel";
 
@@ -87,7 +87,15 @@ export class TracingChannel<
     );
   }
 
-  traceSync() {}
-  tracePromise() {}
-  traceCallback() {}
+  traceSync() {
+    throw createNotImplementedError("TracingChannel.traceSync");
+  }
+
+  tracePromise() {
+    throw createNotImplementedError("TracingChannel.tracePromise");
+  }
+
+  traceCallback() {
+    throw createNotImplementedError("TracingChannel.traceCallback");
+  }
 }
