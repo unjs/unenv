@@ -89,8 +89,9 @@ export class _Performance<
     let start: number;
     let end: number;
     if (typeof startOrMeasureOptions === "string") {
-      start = this.getEntriesByName(startOrMeasureOptions, "mark")[0].startTime;
-      end = this.getEntriesByName(endMark!, "mark")[0].startTime;
+      start = this.getEntriesByName(startOrMeasureOptions, "mark")[0]
+        ?.startTime;
+      end = this.getEntriesByName(endMark!, "mark")[0]?.startTime;
     } else {
       start =
         Number.parseFloat(startOrMeasureOptions?.start as string) ||
