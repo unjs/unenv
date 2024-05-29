@@ -15,9 +15,7 @@ export const open: typeof inspector.open = () => ({
   },
 });
 
-export const url: typeof inspector.url = () => {
-  return undefined;
-};
+export const url: typeof inspector.url = () => undefined;
 
 export const waitForDebugger: typeof inspector.waitForDebugger = noop;
 
