@@ -1,10 +1,11 @@
 import type perf_hooks from "node:perf_hooks";
-import * as performanceApis from "../../web/performance/index";
 import { IntervalHistogram, RecordableHistogram } from "./_histogram";
 import { constants } from "./constants";
+import * as _performance from "./_performance";
 
 export { constants } from "./constants";
-export * from "../../web/performance";
+
+export * from "./_performance";
 
 export const monitorEventLoopDelay: typeof perf_hooks.monitorEventLoopDelay =
   function (_options) {
@@ -19,7 +20,7 @@ export const createHistogram: typeof perf_hooks.createHistogram = function (
 
 // PerformanceNodeTiming is included in the types but doesn't exist in the runtime
 export default <Omit<typeof perf_hooks, "PerformanceNodeTiming">>{
-  ...performanceApis,
+  ..._performance,
   constants,
   createHistogram,
   monitorEventLoopDelay,
