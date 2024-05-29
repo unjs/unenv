@@ -158,13 +158,13 @@ const envConfig = env(nodeless, vercel, {});
 - [node:path/posix](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
 - [node:path/win32](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
 - [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled 9/11 exports 
-- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/91 exports 
+- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/92 exports 
 - [node:punycode](https://nodejs.org/api/punycode.html)  - 🚧 mocked using proxy 
 - [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
 - [node:readline](https://nodejs.org/api/readline.html)  - 🚧 mocked using proxy 
 - [node:readline/promises](https://nodejs.org/api/readline.html)  - 🚧 mocked using proxy 
 - [node:repl](https://nodejs.org/api/repl.html)  - 🚧 mocked using proxy 
-- [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/36 exports 
+- [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/37 exports 
 - [node:stream/consumers](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
 - [node:stream/promises](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
 - [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled 16/17 exports 
