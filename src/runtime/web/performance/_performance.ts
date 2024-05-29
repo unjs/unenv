@@ -23,6 +23,10 @@ export class _Performance implements globalThis.Performance {
 
   now(): number {
     // https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
+    // Prefer performance.now() if available
+    if (globalThis?.performance?.now && this.timeOrigin === _timeOrigin) {
+      return globalThis.performance.now();
+    }
     // performance.now() - (Date.now()-performance.timeOrigin) ~= 0
     return Date.now() - this.timeOrigin;
   }
