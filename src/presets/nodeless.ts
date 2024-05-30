@@ -47,6 +47,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "util",
         "util/types",
         "v8",
+        "wasi",
       ].map((m) => [m, `unenv/runtime/node/${m}/index`]),
     ),
 
