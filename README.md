@@ -161,8 +161,8 @@ const envConfig = env(nodeless, vercel, {});
 - [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/92 exports 
 - [node:punycode](https://nodejs.org/api/punycode.html)  - 🚧 mocked using proxy 
 - [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
-- [node:readline](https://nodejs.org/api/readline.html)  - 🚧 mocked using proxy 
-- [node:readline/promises](https://nodejs.org/api/readline.html)  - 🚧 mocked using proxy 
+- [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
+- [node:readline/promises](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
 - [node:repl](https://nodejs.org/api/repl.html)  - 🚧 mocked using proxy 
 - [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/37 exports 
 - [node:stream/consumers](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 

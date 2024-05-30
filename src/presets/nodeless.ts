@@ -35,6 +35,8 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "perf_hooks",
         "process",
         "querystring",
+        "readline",
+        "readline/promises",
         "stream",
         "stream/promises",
         "stream/consumers",
