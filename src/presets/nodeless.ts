@@ -50,6 +50,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "util/types",
         "v8",
         "wasi",
+        "worker_threads",
       ].map((m) => [m, `unenv/runtime/node/${m}/index`]),
     ),
 
