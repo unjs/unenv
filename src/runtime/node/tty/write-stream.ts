@@ -34,7 +34,7 @@ export class WriteStream extends Socket implements tty.WriteStream {
     return false;
   }
   getWindowSize(): [number, number] {
-    return [80, 24];
+    return [this.columns, this.rows];
   }
   columns = 80;
   rows = 24;
