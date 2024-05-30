@@ -19,7 +19,7 @@ export function genRuntimeTest(env: Environment) {
         if (!alias.startsWith("node:")) {
           return `"${id}": "<unenv>",`;
         }
-        return `"${id}": Object.keys(await import("${id}")),`;
+        return `"${id}": Object.keys(await import("${alias}")),`;
       })
       .join("\n")}
     };
