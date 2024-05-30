@@ -1,5 +1,5 @@
 import type tls from "node:tls";
-import { notImplemented, notImplementedClass } from "../../_internal/utils";
+import { notImplemented } from "../../_internal/utils";
 import { TLSSocket } from "./tls-socket";
 import { Server } from "./server";
 import { SecureContext } from "./secure-context";
@@ -10,11 +10,11 @@ export { TLSSocket } from "./tls-socket";
 export { Server } from "./server";
 export { SecureContext } from "./secure-context";
 
-export const connect: typeof tls.connect = function () {
+export const connect: typeof tls.connect = function connect() {
   return new TLSSocket();
 };
 
-export const createServer: typeof tls.createServer = function () {
+export const createServer: typeof tls.createServer = function createServer() {
   return new Server();
 };
 export const checkServerIdentity: typeof tls.checkServerIdentity =

@@ -1,11 +1,21 @@
-import { notImplemented } from "../../_internal/utils";
+import { createNotImplementedError } from "../../_internal/utils";
 import type tls from "node:tls";
 import { Socket } from "node:net";
 
 export class TLSSocket extends Socket implements tls.TLSSocket {
-  exportKeyingMaterial = notImplemented("TLSSocket.exportKeyingMaterial ");
-  getCipher = notImplemented("TLSSocket.getCipher");
-  getPeerCertificate = notImplemented("TLSSocket.getPeerCertificate");
+  // exportKeyingMaterial = notImplemented("TLSSocket.exportKeyingMaterial");
+  exportKeyingMaterial() {
+    throw createNotImplementedError("TLSSocket.exportKeyingMaterial");
+    return Buffer.from("");
+  }
+  getCipher() {
+    throw createNotImplementedError("TLSSocket.getCipher");
+    return {} as any;
+  }
+  getPeerCertificate() {
+    throw createNotImplementedError("TLSSocket.getPeerCertificate");
+    return {} as any;
+  }
 
   authorized = false;
   authorizationError: Error = new Error(
