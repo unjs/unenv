@@ -1,5 +1,3 @@
-import noop from "../../mock/noop";
-import mock from "../../mock/proxy";
 import type worker_threads from "node:worker_threads";
 import { BroadcastChannel } from "./broadcast-channel";
 import { MessageChannel } from "./message-channel";
@@ -12,33 +10,41 @@ export { MessageChannel } from "./message-channel";
 export { MessagePort } from "./message-port";
 export { Worker } from "./worker";
 
-const environmentData = new Map();
+const _environmentData = new Map<string, Serializable>();
 export const getEnvironmentData: typeof worker_threads.getEnvironmentData =
-  function (key) {
-    return environmentData.get(key);
+  function getEnvironmentData(key) {
+    return _environmentData.get(key as string)!;
   };
 export const setEnvironmentData: typeof worker_threads.setEnvironmentData =
-  function (key, value) {
-    environmentData.set(key, value);
+  function setEnvironmentData(key, value) {
+    _environmentData.set(key as string, value);
   };
 
-export const isMainThread: typeof worker_threads.isMainThread = false;
-export const isMarkedAsUntransferable = () => false;
+export const isMainThread: typeof worker_threads.isMainThread = true;
+
+export const isMarkedAsUntransferable: any /* Node.js 22 */ = () => false;
 export const markAsUntransferable: typeof worker_threads.markAsUntransferable =
-  noop;
+  function markAsUntransferable(value) {
+    // noop
+  };
+
 export const moveMessagePortToContext: typeof worker_threads.moveMessagePortToContext =
   () => new MessagePort();
-export const parentPort: typeof worker_threads.parentPort = new MessagePort();
+
+export const parentPort: typeof worker_threads.parentPort = null;
+
 export const receiveMessageOnPort: typeof worker_threads.receiveMessageOnPort =
-  () => ({
-    message: undefined,
-  });
+  () => undefined;
+
 export const SHARE_ENV = Symbol.for(
   "nodejs.worker_threads.SHARE_ENV",
 ) as typeof worker_threads.SHARE_ENV;
+
 export const resourceLimits: typeof worker_threads.resourceLimits = {};
+
 export const threadId: typeof worker_threads.threadId = 0;
-export const workerData: typeof worker_threads.workerData = undefined;
+
+export const workerData: typeof worker_threads.workerData = null;
 
 export default <typeof worker_threads>{
   BroadcastChannel,
