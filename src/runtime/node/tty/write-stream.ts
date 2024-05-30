@@ -3,9 +3,11 @@ import { Socket } from "node:net";
 
 export class WriteStream extends Socket implements tty.WriteStream {
   clearLine(dir: tty.Direction, callback?: (() => void) | undefined) {
+    callback && callback();
     return false;
   }
   clearScreenDown(callback?: (() => void) | undefined) {
+    callback && callback();
     return false;
   }
   cursorTo(
@@ -15,9 +17,11 @@ export class WriteStream extends Socket implements tty.WriteStream {
   ): boolean;
   cursorTo(x: number, callback: () => void): boolean;
   cursorTo(x: unknown, y?: unknown, callback?: unknown): boolean {
+    callback && typeof callback === "function" && callback();
     return false;
   }
   moveCursor(dx: number, dy: number, callback?: (() => void) | undefined) {
+    callback && callback();
     return false;
   }
   getColorDepth(env?: object | undefined): number {
@@ -30,9 +34,9 @@ export class WriteStream extends Socket implements tty.WriteStream {
     return false;
   }
   getWindowSize(): [number, number] {
-    return [0, 0];
+    return [80, 24];
   }
-  columns = 0;
-  rows = 0;
+  columns = 80;
+  rows = 24;
   isTTY = false;
 }
