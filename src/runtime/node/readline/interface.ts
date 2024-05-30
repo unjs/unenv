@@ -20,7 +20,9 @@ export class Interface extends EventEmitter implements readline.Interface {
     options: Abortable,
     callback: (answer: string) => void,
   ): void;
-  question(query: unknown, options: unknown, callback?: unknown): void {}
+  question(query: unknown, options: unknown, callback?: unknown): void {
+    callback && typeof callback === "function" && callback("");
+  }
 
   resume() {
     return this;
@@ -38,7 +40,8 @@ export class Interface extends EventEmitter implements readline.Interface {
   pause() {
     return this;
   }
-  [Symbol.asyncIterator](): AsyncIterableIterator<string> {
-    throw createNotImplementedError("Interface.asyncIterator");
+
+  async *[Symbol.asyncIterator](): AsyncIterableIterator<string> {
+    yield "";
   }
 }
