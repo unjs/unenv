@@ -58,6 +58,7 @@ export const {
   styleText,
 } = unenvUtil;
 
+// TODO(cloudflare): we should just implement this in workerd and drop this special case.
 export const types = {
   isExternal: unenvUtil.types.isExternal,
   ...workerdUtil.types,

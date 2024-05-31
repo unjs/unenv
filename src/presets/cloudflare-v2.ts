@@ -33,7 +33,7 @@ const cloudflareNodeCompatModules = [
   "string_decoder",
 ];
 
-const hybridNodeCompatModules = ["buffer", "util"];
+const hybridNodeCompatModules = ["buffer", "util", "util/types"];
 
 const cloudflareV2Preset: Preset = {
   alias: {
