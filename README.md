@@ -157,9 +157,9 @@ const envConfig = env(nodeless, vercel, {});
 - [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
 - [node:path/posix](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
 - [node:path/win32](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
-- [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled 9/11 exports 
-- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/92 exports 
-- [node:punycode](https://nodejs.org/api/punycode.html)  - 🚧 mocked using proxy 
+- [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled all exports 
+- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 84/92 exports 
+- [node:punycode](https://nodejs.org/api/punycode.html)  - ✅ polyfilled all exports 
 - [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
 - [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
 - [node:readline/promises](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
@@ -178,7 +178,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:url](https://nodejs.org/api/url.html)  - ✅ polyfilled 10/12 exports 
 - [node:util](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
 - [node:util/types](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
-- [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled 19/20 exports 
+- [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled all exports 
 - [node:vm](https://nodejs.org/api/vm.html)  - 🚧 mocked using proxy 
 - [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports 
 - [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports 
