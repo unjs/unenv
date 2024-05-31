@@ -11,8 +11,6 @@ const cloudflareNodeCompatModules = [
   "_stream_writable",
   "assert",
   "async_hooks",
-  "buffer",
-  "crypto",
   "diagnostics_channel",
   "events",
   "path",
@@ -22,14 +20,13 @@ const cloudflareNodeCompatModules = [
   "stream/promises",
   "stream/web",
   "string_decoder",
-  "util",
 ];
+
+const hybridNodeCompatModules = ["buffer", "crypto", "util", "util/types"];
 
 const cloudflarePreset: Preset = {
   alias: {
-    ...Object.fromEntries(
-      cloudflareNodeCompatModules.map((p) => [p, `node:${p}`]),
-    ),
+    ...Object.fromEntries(cloudflareNodeCompatModules.map((p) => [p, p])),
     ...Object.fromEntries(
       cloudflareNodeCompatModules.map((p) => [`node:${p}`, `node:${p}`]),
     ),
@@ -38,10 +35,27 @@ const cloudflarePreset: Preset = {
     "node:assert/strict": "node:assert",
     sys: "node:util",
     "node:sys": "node:util",
+
+    // define aliases for hybrid modules
+    ...Object.fromEntries(
+      hybridNodeCompatModules.map((m) => [
+        m,
+        `unenv/runtime/node/${m}/$cloudflare`,
+      ]),
+    ),
+    ...Object.fromEntries(
+      hybridNodeCompatModules.map((m) => [
+        `node:${m}`,
+        `unenv/runtime/node/${m}/$cloudflare`,
+      ]),
+    ),
   },
   inject: {},
   polyfill: [],
-  external: cloudflareNodeCompatModules.map((p) => `node:${p}`),
+  external: [
+    ...cloudflareNodeCompatModules.map((p) => `${p}`),
+    ...cloudflareNodeCompatModules.map((p) => `node:${p}`),
+  ],
 };
 
 export default cloudflarePreset;
