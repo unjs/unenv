@@ -4,23 +4,25 @@ import { Socket } from "node:net";
 
 export class TLSSocket extends Socket implements tls.TLSSocket {
   authorized = false;
+  encrypted = true as const;
+  alpnProtocol = null;
   authorizationError: Error = new Error(
     "[unenv] TLSSocket.authorizationError is not implemented yet!",
   );
-  // @ts-ignore
-  encrypted = true;
-  alpnProtocol = null;
-  // @ts-ignore
-  exportKeyingMaterial() {
+  exportKeyingMaterial(): Buffer {
     throw createNotImplementedError("TLSSocket.exportKeyingMaterial");
   }
-  // @ts-ignore
-  getCipher() {
+  getCipher(): tls.CipherNameAndProtocol {
     throw createNotImplementedError("TLSSocket.getCipher");
   }
-  // @ts-ignore
-  getPeerCertificate() {
+  getPeerCertificate(detailed: true): tls.DetailedPeerCertificate;
+  getPeerCertificate(detailed?: false): tls.PeerCertificate;
+  getPeerCertificate(
+    detailed?: boolean,
+  ): tls.PeerCertificate | tls.DetailedPeerCertificate;
+  getPeerCertificate(_detailed?: boolean) {
     throw createNotImplementedError("TLSSocket.getPeerCertificate");
+    return null as unknown as tls.PeerCertificate;
   }
   getCertificate() {
     return null;
@@ -28,24 +30,16 @@ export class TLSSocket extends Socket implements tls.TLSSocket {
   getEphemeralKeyInfo() {
     return null;
   }
-  getFinished() {
-    return undefined;
-  }
-  getPeerFinished() {
-    return undefined;
-  }
+  getFinished(): undefined {}
+  getPeerFinished(): undefined {}
   getProtocol() {
     return null;
   }
-  getSession() {
-    return undefined;
-  }
+  getSession(): undefined {}
   getSharedSigalgs() {
     return [];
   }
-  getTLSTicket() {
-    return undefined;
-  }
+  getTLSTicket(): undefined {}
   isSessionReused() {
     return false;
   }
@@ -55,21 +49,16 @@ export class TLSSocket extends Socket implements tls.TLSSocket {
       requestCert?: boolean | undefined;
     },
     callback: (err: Error | null) => void,
-  ) {
+  ): undefined {
     if (typeof callback === "function") {
       callback(null);
     }
-    return undefined;
   }
   setMaxSendFragment(size: number) {
     return false;
   }
   disableRenegotiation() {}
   enableTrace() {}
-  getPeerX509Certificate() {
-    return undefined;
-  }
-  getX509Certificate() {
-    return undefined;
-  }
+  getPeerX509Certificate(): undefined {}
+  getX509Certificate(): undefined {}
 }
