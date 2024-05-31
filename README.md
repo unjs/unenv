@@ -159,7 +159,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:path/win32](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
 - [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled 9/11 exports 
 - [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/92 exports 
-- [node:punycode](https://nodejs.org/api/punycode.html)  - 🚧 mocked using proxy 
+- [node:punycode](https://nodejs.org/api/punycode.html)  - ✅ polyfilled all exports 
 - [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
 - [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
 - [node:readline/promises](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
