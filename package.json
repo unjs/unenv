@@ -28,11 +28,12 @@
   "scripts": {
     "build": "unbuild",
     "lint": "eslint . && prettier -c src test",
-    "lint:fix": "eslint --fix . && prettier -w src test",
+    "lint:fix": "automd && eslint --fix . && prettier -w src test",
     "prepack": "unbuild",
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm typecheck",
     "test:deno": "NODE_NO_WARNINGS=1 pnpm jiti test/deno.ts",
+    "test:node": "jiti test/node-coverage.ts",
     "test:cf": "pnpm jiti test/cloudflare.ts",
     "test:vc": "pnpm jiti test/vercel.ts",
     "typecheck": "tsc --noEmit"
@@ -42,10 +43,12 @@
     "defu": "^6.1.4",
     "mime": "^3.0.0",
     "node-fetch-native": "^1.6.4",
-    "pathe": "^1.1.2"
+    "pathe": "^1.1.2",
+    "ufo": "^1.5.3"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
+    "automd": "^0.3.7",
     "changelogen": "^0.5.5",
     "eslint": "^9.3.0",
     "eslint-config-unjs": "^0.3.1",
@@ -53,7 +56,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
-    "wrangler": "^3.57.1"
+    "wrangler": "^3.57.2"
   },
   "packageManager": "pnpm@9.1.2"
 }
