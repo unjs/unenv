@@ -1,10 +1,10 @@
 import type perf_hooks from "node:perf_hooks";
-import { IntervalHistogram, RecordableHistogram } from "./_histogram";
-import { constants } from "./constants";
-import * as _performance from "./_performance";
-export { constants } from "./constants";
+import { IntervalHistogram, RecordableHistogram } from "./internal/histogram";
+import { constants } from "./internal/constants";
+import * as _performance from "./internal/performance";
+export { constants } from "./internal/constants";
 
-export * from "./_performance";
+export * from "./internal/performance";
 
 export const monitorEventLoopDelay: typeof perf_hooks.monitorEventLoopDelay =
   function (_options) {

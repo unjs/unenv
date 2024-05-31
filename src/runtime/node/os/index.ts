@@ -1,8 +1,8 @@
 import type os from "node:os";
 import { notImplemented } from "../../_internal/utils";
-import { constants } from "./constants";
+import { constants } from "./internal/constants";
 
-export { constants } from "./constants";
+export { constants } from "./internal/constants";
 
 const NUM_CPUS = 8;
 

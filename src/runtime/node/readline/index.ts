@@ -2,10 +2,10 @@
 import type readline from "node:readline";
 import noop from "../../mock/noop";
 import promises from "./promises";
-import { Interface } from "./interface";
+import { Interface } from "./internal/interface";
 
 export * as promises from "./promises";
-export { Interface } from "./interface";
+export { Interface } from "./internal/interface";
 
 export const clearLine: typeof readline.clearLine = () => false;
 export const clearScreenDown: typeof readline.clearScreenDown = () => false;

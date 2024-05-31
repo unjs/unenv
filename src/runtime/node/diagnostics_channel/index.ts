@@ -1,8 +1,8 @@
 import type diagnostics_channel from "node:diagnostics_channel";
-import { Channel, getChannels } from "./channel";
-import { TracingChannel } from "./tracing-channel";
+import { Channel, getChannels } from "./internal/channel";
+import { TracingChannel } from "./internal/tracing-channel";
 
-export { Channel } from "./channel";
+export { Channel } from "./internal/channel";
 
 export const channel: typeof diagnostics_channel.channel = function (name) {
   const channels = getChannels();

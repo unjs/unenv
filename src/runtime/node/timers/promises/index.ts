@@ -1,6 +1,6 @@
 import { notImplementedAsync } from "../../../_internal/utils";
 import type timers from "node:timers/promises";
-import { Scheduler } from "./scheduler";
+import { Scheduler } from "../internal/scheduler";
 
 export const setImmediate: typeof timers.setImmediate = notImplementedAsync(
   "timers.setImmediate",

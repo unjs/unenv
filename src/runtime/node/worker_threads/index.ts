@@ -1,14 +1,14 @@
 import type worker_threads from "node:worker_threads";
-import { BroadcastChannel } from "./broadcast-channel";
-import { MessageChannel } from "./message-channel";
-import { MessagePort } from "./message-port";
-import { Worker } from "./worker";
+import { BroadcastChannel } from "./internal/broadcast-channel";
+import { MessageChannel } from "./internal/message-channel";
+import { MessagePort } from "./internal/message-port";
+import { Worker } from "./internal/worker";
 import { Serializable } from "node:worker_threads";
 
-export { BroadcastChannel } from "./broadcast-channel";
-export { MessageChannel } from "./message-channel";
-export { MessagePort } from "./message-port";
-export { Worker } from "./worker";
+export { BroadcastChannel } from "./internal/broadcast-channel";
+export { MessageChannel } from "./internal/message-channel";
+export { MessagePort } from "./internal/message-port";
+export { Worker } from "./internal/worker";
 
 const _environmentData = new Map<string, Serializable>();
 export const getEnvironmentData: typeof worker_threads.getEnvironmentData =

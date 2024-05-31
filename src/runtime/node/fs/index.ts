@@ -1,15 +1,15 @@
 // https://nodejs.org/api/fs.html
 import type fs from "node:fs";
 
-import * as _classes from "./_classes";
-import * as _constants from "./_constants";
-import * as _fs from "./_fs";
+import * as _classes from "./internal/classes";
+import * as _constants from "./internal/constants";
+import * as _fs from "./internal/fs";
 
-import * as _promises from "./promises/_promises";
+import * as _promises from "./internal/promises";
 
-export * from "./_classes";
-export * from "./_constants";
-export * from "./_fs";
+export * from "./internal/classes";
+export * from "./internal/constants";
+export * from "./internal/fs";
 
 export const promises = _promises;
 

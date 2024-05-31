@@ -6,14 +6,14 @@ import {
   kMaxLength,
   INSPECT_MAX_BYTES,
   SlowBuffer,
-} from "./_buffer";
-import { File } from "./_file";
+} from "./internal/buffer";
+import { File } from "./internal/file";
 
-export { kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./_buffer";
+export { kMaxLength, INSPECT_MAX_BYTES, SlowBuffer } from "./internal/buffer";
 
 export const Buffer = globalThis.Buffer || _Buffer;
 
-export { File } from "./_file";
+export { File } from "./internal/file";
 
 // @ts-expect-eerror https://github.com/unjs/unenv/issues/64
 export const Blob = globalThis.Blob as unknown as typeof buffer.Blob;

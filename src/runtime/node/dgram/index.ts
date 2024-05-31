@@ -1,8 +1,8 @@
 import noop from "../../mock/noop";
 import type dgram from "node:dgram";
-import { Socket } from "./socket";
+import { Socket } from "./internal/socket";
 
-export { Socket } from "./socket";
+export { Socket } from "./internal/socket";
 
 export const _createSocketHandle = noop;
 

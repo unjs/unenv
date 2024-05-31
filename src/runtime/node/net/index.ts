@@ -1,9 +1,9 @@
 // https://nodejs.org/api/net.html
 import type net from "node:net";
 import { notImplemented, notImplementedClass } from "../../_internal/utils";
-import { Socket, SocketAddress } from "./socket";
+import { Socket, SocketAddress } from "./internal/socket";
 
-export { Socket, SocketAddress } from "./socket";
+export { Socket, SocketAddress } from "./internal/socket";
 
 export const createServer = notImplemented(
   "net.createServer",

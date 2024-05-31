@@ -1,9 +1,9 @@
 import type tty from "node:tty";
-import { ReadStream } from "./read-stream";
-import { WriteStream } from "./write-stream";
+import { ReadStream } from "./internal/read-stream";
+import { WriteStream } from "./internal/write-stream";
 
-export { ReadStream } from "./read-stream";
-export { WriteStream } from "./write-stream";
+export { ReadStream } from "./internal/read-stream";
+export { WriteStream } from "./internal/write-stream";
 
 export const isatty: typeof tty.isatty = function () {
   return false;
