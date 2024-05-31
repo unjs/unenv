@@ -1,8 +1,7 @@
 import type punycode from "node:punycode";
 
-import * as _punycode from "punycode/";
-export * from "punycode/";
+import _punycode from "./_punycode";
 
-export default <typeof punycode>{
-  ..._punycode,
-};
+export * from "./_punycode";
+
+export default <typeof punycode>_punycode;
