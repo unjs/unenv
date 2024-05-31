@@ -29,6 +29,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "https",
         "http2",
         "inspector",
+        "module",
         "net",
         "os",
         "path",
