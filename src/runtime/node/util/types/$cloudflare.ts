@@ -1,7 +1,7 @@
 import type nodeUtilTypes from "node:util/types";
 import unenvUtilTypes from "./index";
 
-// @ts-ignore typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
+// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdUtil = process.getBuiltinModule("node:util");
 
 export const {
@@ -52,13 +52,14 @@ export const {
 export const { isExternal } = unenvUtilTypes;
 
 export default {
+  ...unenvUtilTypes,
   isAnyArrayBuffer,
   isArgumentsObject,
   isArrayBuffer,
   isArrayBufferView,
   isAsyncFunction,
   isBigInt64Array,
-  // @ts-ignore undocumented public API
+  // @ts-expect-error undocumented public API
   isBigIntObject,
   isBigUint64Array,
   isBooleanObject,
@@ -66,7 +67,6 @@ export default {
   isCryptoKey,
   isDataView,
   isDate,
-  isExternal,
   isFloat32Array,
   isFloat64Array,
   isGeneratorFunction,

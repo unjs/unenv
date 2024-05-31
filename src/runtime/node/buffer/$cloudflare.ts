@@ -23,18 +23,10 @@ export const {
 } = unenvBuffer;
 
 export default {
+  ...unenvBuffer,
   Buffer,
-  SlowBuffer: SlowBuffer as any as typeof nodeBuffer.SlowBuffer,
-  kMaxLength,
-  INSPECT_MAX_BYTES,
-  Blob,
-  resolveObjectURL,
-  transcode,
-  btoa,
-  atob,
-  kStringMaxLength,
+  SlowBuffer,
   constants,
-  isUtf8,
-  isAscii,
-  File,
+  kMaxLength,
+  kStringMaxLength,
 } satisfies typeof nodeBuffer;

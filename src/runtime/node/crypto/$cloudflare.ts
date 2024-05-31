@@ -1,7 +1,7 @@
 import type nodeCrypto from "node:crypto";
 import unenvCrypto from "./index";
 
-// @ts-ignore typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
+// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdCrypto = process.getBuiltinModule("node:crypto");
 
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call
@@ -52,10 +52,10 @@ export const {
 export const {
   Certificate,
   Cipher,
-  // @ts-ignore undocumented public API
+  // @ts-expect-error undocumented public API
   Cipheriv,
   Decipher,
-  // @ts-ignore undocumented public API
+  // @ts-expect-error undocumented public API
   Decipheriv,
   ECDH,
   Sign,
@@ -98,76 +98,45 @@ const { fips } = workerdCrypto;
 const { createCipher, createDecipher, pseudoRandomBytes } = unenvCrypto;
 
 export default {
-  Certificate,
-  Cipher,
-  // @ts-ignore undocumented public API
-  Cipheriv,
-  Decipher,
-  Decipheriv,
+  ...unenvCrypto,
   DiffieHellman,
   DiffieHellmanGroup,
-  ECDH,
   Hash,
   Hmac,
   KeyObject,
-  Sign,
-  Verify,
-  X509Certificate,
   checkPrime,
   checkPrimeSync,
-  constants,
-  createCipher,
-  createCipheriv,
-  createDecipher,
-  createDecipheriv,
   createDiffieHellman,
   createDiffieHellmanGroup,
-  createECDH,
   createHash,
   createHmac,
   createPrivateKey,
   createPublicKey,
   createSecretKey,
-  createSign,
-  createVerify,
-  diffieHellman,
-  fips,
   generateKey,
   generateKeyPair,
   generateKeyPairSync,
   generateKeySync,
   generatePrime,
   generatePrimeSync,
-  getCipherInfo,
   getCiphers,
   getCurves,
   getDiffieHellman,
   getFips,
   getHashes,
   getRandomValues,
-  hash,
   hkdf,
   hkdfSync,
   pbkdf2,
   pbkdf2Sync,
-  privateDecrypt,
-  privateEncrypt,
-  pseudoRandomBytes,
-  publicDecrypt,
-  publicEncrypt,
   randomBytes,
   randomFill,
   randomFillSync,
   randomInt,
   randomUUID,
-  scrypt,
-  scryptSync,
   secureHeapUsed,
   setEngine,
   setFips,
-  sign,
   subtle,
   timingSafeEqual,
-  verify,
-  webcrypto,
 } satisfies typeof nodeCrypto;

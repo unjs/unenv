@@ -2,7 +2,7 @@
 import type nodeUtil from "node:util";
 import unenvUtil from "./index";
 
-// @ts-ignore typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
+// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdUtil = process.getBuiltinModule("node:util");
 
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call
@@ -32,9 +32,9 @@ export const {
 } = workerdUtil;
 
 export const {
-  // @ts-ignore not officially part of the public api
+  // @ts-expect-error undocumented public API
   _errnoException,
-  // @ts-ignore not officially part of the public api
+  // @ts-expect-error undocumented public API
   _exceptionWithHostPort,
   getSystemErrorMap,
   getSystemErrorName,
@@ -65,13 +65,12 @@ export const types = {
 } satisfies typeof nodeUtil.types;
 
 export default {
+  ...unenvUtil,
   MIMEParams,
   MIMEType,
   TextDecoder,
   TextEncoder,
-  // @ts-ignore undocumented public API
-  _errnoException,
-  _exceptionWithHostPort,
+  // @ts-expect-error undocumented public API
   _extend,
   aborted,
   callbackify,
@@ -80,34 +79,14 @@ export default {
   deprecate,
   format,
   formatWithOptions,
-  getSystemErrorMap,
-  getSystemErrorName,
   inherits,
   inspect,
-  isArray,
-  isBoolean,
-  isBuffer,
-  isDate,
-  isDeepStrictEqual,
-  isError,
-  isFunction,
-  isNull,
-  isNullOrUndefined,
-  isNumber,
-  isObject,
-  isPrimitive,
-  isRegExp,
-  isString,
-  isSymbol,
-  isUndefined,
   log,
   parseArgs,
-  parseEnv,
   promisify,
   stripVTControlCharacters,
-  styleText,
   toUSVString,
   transferableAbortController,
   transferableAbortSignal,
-  types,
+  types
 } satisfies typeof nodeUtil;
