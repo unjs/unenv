@@ -55,6 +55,9 @@ export class TLSSocket extends Socket implements tls.TLSSocket {
     },
     callback: (err: Error | null) => void,
   ) {
+    if (typeof callback === "function") {
+      callback(null);
+    }
     return undefined;
   }
   setMaxSendFragment(size: number) {
