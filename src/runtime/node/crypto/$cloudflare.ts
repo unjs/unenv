@@ -1,5 +1,63 @@
 import type nodeCrypto from "node:crypto";
-import unenvCrypto from "./index";
+
+export {
+  Certificate,
+  Cipher,
+  Cipheriv,
+  Decipher,
+  Decipheriv,
+  ECDH,
+  Sign,
+  Verify,
+  X509Certificate,
+  constants,
+  createCipheriv,
+  createDecipheriv,
+  createECDH,
+  createSign,
+  createVerify,
+  diffieHellman,
+  getCipherInfo,
+  hash,
+  privateDecrypt,
+  privateEncrypt,
+  publicDecrypt,
+  publicEncrypt,
+  scrypt,
+  scryptSync,
+  sign,
+  verify,
+} from "./index";
+
+import {
+  Certificate,
+  Cipher,
+  Cipheriv,
+  Decipher,
+  Decipheriv,
+  ECDH,
+  Sign,
+  Verify,
+  X509Certificate,
+  constants,
+  createCipheriv,
+  createDecipheriv,
+  createECDH,
+  createSign,
+  createVerify,
+  diffieHellman,
+  getCipherInfo,
+  hash,
+  privateDecrypt,
+  privateEncrypt,
+  publicDecrypt,
+  publicEncrypt,
+  scrypt,
+  scryptSync,
+  sign,
+  verify,
+  webcrypto as unenvCryptoWebcrypto,
+} from "./index";
 
 // @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdCrypto = process.getBuiltinModule("node:crypto");
@@ -49,13 +107,30 @@ export const {
   timingSafeEqual,
 } = workerdCrypto;
 
-export const {
+export const webcrypto = {
+  CryptoKey: unenvCryptoWebcrypto.CryptoKey,
+  getRandomValues: workerdCrypto.webcrypto.getRandomValues,
+  randomUUID: workerdCrypto.webcrypto.randomUUID,
+  subtle: workerdCrypto.webcrypto.subtle,
+} satisfies typeof nodeCrypto.webcrypto;
+
+// Node.js exposes fips only via the default export 🤷🏼‍♂️
+// so extract it separately from the other exports
+const { fips } = workerdCrypto;
+
+// Node.js exposes createCipher, createDecipher, pseudoRandomBytes only via the default export 🤷🏼‍♂️
+// so extract it separately from the other exports
+import { createCipher, createDecipher, pseudoRandomBytes } from "./index";
+
+export default {
+  /**
+   * manually unroll unenv-polyfilled-symbols to make it tree-shakeable
+   */
   Certificate,
   Cipher,
   // @ts-expect-error undocumented public API
   Cipheriv,
   Decipher,
-  // @ts-expect-error undocumented public API
   Decipheriv,
   ECDH,
   Sign,
@@ -78,27 +153,15 @@ export const {
   scryptSync,
   sign,
   verify,
-} = unenvCrypto;
 
-export const webcrypto = {
-  CryptoKey: unenvCrypto.webcrypto.CryptoKey,
-  // for some reason spreading doesn't work for webcrypto
-  //...workerdCrypto.webcrypto,
-  getRandomValues: workerdCrypto.webcrypto.getRandomValues,
-  randomUUID: workerdCrypto.webcrypto.randomUUID,
-  subtle: workerdCrypto.webcrypto.subtle,
-} satisfies typeof nodeCrypto.webcrypto;
+  // default-only export from unenv
+  createCipher,
+  createDecipher,
+  pseudoRandomBytes,
 
-// Node.js exposes fips only via the default export 🤷🏼‍♂️
-// so extract it separately from the other exports
-const { fips } = workerdCrypto;
-
-// Node.js exposes createCipher, createDecipher, pseudoRandomBytes only via the default export 🤷🏼‍♂️
-// so extract it separately from the other exports
-const { createCipher, createDecipher, pseudoRandomBytes } = unenvCrypto;
-
-export default {
-  ...unenvCrypto,
+  /**
+   * manually unroll workerd-polyfilled-symbols to make it tree-shakeable
+   */
   DiffieHellman,
   DiffieHellmanGroup,
   Hash,
@@ -139,4 +202,10 @@ export default {
   setFips,
   subtle,
   timingSafeEqual,
+
+  // default-only export from workerd
+  fips,
+
+  // special-cased deep merged symbols
+  webcrypto,
 } satisfies typeof nodeCrypto;

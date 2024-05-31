@@ -1,5 +1,9 @@
 import type nodeUtilTypes from "node:util/types";
-import unenvUtilTypes from "./index";
+
+// TODO(cloudflare): we should just implement this in workerd and drop this whole file.
+export { isExternal } from "./index";
+
+import { isExternal } from "./index";
 
 // @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdUtil = process.getBuiltinModule("node:util");
@@ -48,11 +52,15 @@ export const {
   isWeakSet,
 } = workerdUtil.types;
 
-// TODO(cloudflare): we should just implement this in workerd and drop this whole file.
-export const { isExternal } = unenvUtilTypes;
-
 export default {
-  ...unenvUtilTypes,
+  /**
+   * manually unroll unenv-polyfilled-symbols to make it tree-shakeable
+   */
+  isExternal,
+
+  /**
+   * manually unroll workerd-polyfilled-symbols to make it tree-shakeable
+   */
   isAnyArrayBuffer,
   isArgumentsObject,
   isArrayBuffer,
