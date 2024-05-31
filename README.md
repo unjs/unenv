@@ -181,7 +181,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled 19/20 exports 
 - [node:vm](https://nodejs.org/api/vm.html)  - 🚧 mocked using proxy 
 - [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports 
-- [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - 🚧 mocked using proxy 
+- [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports 
 - [node:zlib](https://nodejs.org/api/zlib.html)  - 🚧 mocked using proxy
 
 <!-- /automd -->
