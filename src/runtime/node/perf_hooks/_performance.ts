@@ -10,6 +10,12 @@ import {
   _PerformanceResourceTiming,
 } from "../../web/performance/index";
 
+// Non modified APIs
+export {
+  PerformanceResourceTiming,
+  PerformanceObserverEntryList,
+} from "../../web/performance/index";
+
 // Performance
 export const Performance = class Performance
   extends _Performance<perf_hooks.PerformanceEntry>

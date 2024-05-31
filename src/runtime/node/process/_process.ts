@@ -91,7 +91,8 @@ const arch: Process["arch"] = "" as any;
 const argv0: Process["argv0"] = "";
 const config: Process["config"] = empty;
 const connected: Process["connected"] = false;
-const constrainedMemory: Process["constrainedMemory"] = () => undefined;
+const constrainedMemory: Process["constrainedMemory"] = () => 0;
+const availableMemory: Process["availableMemory"] = () => 0;
 const cpuUsage = notImplemented<Process["cpuUsage"]>("process.cpuUsage");
 const debugPort: Process["debugPort"] = 0;
 const dlopen = notImplemented<Process["dlopen"]>("process.dlopen");
@@ -252,6 +253,7 @@ export const process: Process & Record<string, any> = {
   config,
   connected,
   constrainedMemory,
+  availableMemory,
   cpuUsage,
   cwd,
   debugPort,
