@@ -24,11 +24,14 @@ export function env(...presets: Preset[]): Environment {
     // Inject
     if (preset.inject) {
       for (const global in preset.inject) {
-        if (Array.isArray(preset.inject[global])) {
-          const [id, ...path] = preset.inject[global];
+        const globalValue = preset.inject[global];
+        if (Array.isArray(globalValue)) {
+          const [id, ...path] = globalValue;
           _env.inject[global] = [id, ...path];
+        } else if (globalValue === null) {
+          delete _env.inject[global];
         } else {
-          _env.inject[global] = preset.inject[global];
+          _env.inject[global] = globalValue;
         }
       }
     }
