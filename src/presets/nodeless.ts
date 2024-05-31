@@ -44,16 +44,22 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "string_decoder",
         "trace_events",
         "tls",
+        "tty",
         "url",
         "util",
         "util/types",
         "v8",
+        "wasi",
       ].map((m) => [m, `unenv/runtime/node/${m}/index`]),
     ),
 
     "path/posix": "unenv/runtime/node/path/index",
     "path/win32": "unenv/runtime/node/path/index",
     "inspector/promises": "unenv/runtime/node/inspector/index",
+
+    // The sys module is deprecated and has been renamed util
+    // https://github.com/nodejs/node/blob/main/lib/sys.js#L27
+    sys: "unenv/runtime/node/inspector/util",
 
     // npm
     etag: "unenv/runtime/mock/noop",

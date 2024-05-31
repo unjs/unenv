@@ -36,6 +36,8 @@ const cloudflarePreset: Preset = {
     // The `node:assert` implementation of workerd uses strict semantics by default
     "assert/strict": "node:assert",
     "node:assert/strict": "node:assert",
+    sys: "node:util",
+    "node:sys": "node:util",
   },
   inject: {},
   polyfill: [],
