@@ -158,13 +158,13 @@ const envConfig = env(nodeless, vercel, {});
 - [node:path/posix](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
 - [node:path/win32](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
 - [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled 9/11 exports 
-- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/92 exports 
+- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/91 exports 
 - [node:punycode](https://nodejs.org/api/punycode.html)  - 🚧 mocked using proxy 
 - [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
 - [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
 - [node:readline/promises](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
 - [node:repl](https://nodejs.org/api/repl.html)  - 🚧 mocked using proxy 
-- [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/37 exports 
+- [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/36 exports 
 - [node:stream/consumers](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
 - [node:stream/promises](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
 - [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled 16/17 exports 
@@ -172,16 +172,16 @@ const envConfig = env(nodeless, vercel, {});
 - [node:sys](https://nodejs.org/api/sys.html)  - 🚧 mocked using proxy 
 - [node:timers](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
 - [node:timers/promises](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
-- [node:tls](https://nodejs.org/api/tls.html)  - 🚧 mocked using proxy 
+- [node:tls](https://nodejs.org/api/tls.html)  - ✅ polyfilled all exports 
 - [node:trace_events](https://nodejs.org/api/trace_events.html)  - ✅ polyfilled all exports 
-- [node:tty](https://nodejs.org/api/tty.html)  - 🚧 mocked using proxy 
+- [node:tty](https://nodejs.org/api/tty.html)  - ✅ polyfilled all exports 
 - [node:url](https://nodejs.org/api/url.html)  - ✅ polyfilled 10/12 exports 
 - [node:util](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
 - [node:util/types](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
-- [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled 19/20 exports 
+- [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled all exports 
 - [node:vm](https://nodejs.org/api/vm.html)  - 🚧 mocked using proxy 
-- [node:wasi](https://nodejs.org/api/wasi.html)  - 🚧 mocked using proxy 
-- [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - 🚧 mocked using proxy 
+- [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports 
+- [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports 
 - [node:zlib](https://nodejs.org/api/zlib.html)  - 🚧 mocked using proxy
 
 <!-- /automd -->
