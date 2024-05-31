@@ -3,24 +3,25 @@ import type tls from "node:tls";
 import { Socket } from "node:net";
 
 export class TLSSocket extends Socket implements tls.TLSSocket {
-  // exportKeyingMaterial = notImplemented("TLSSocket.exportKeyingMaterial");
-  exportKeyingMaterial() {
-    throw createNotImplementedError("TLSSocket.exportKeyingMaterial");
-  }
-  getCipher() {
-    throw createNotImplementedError("TLSSocket.getCipher");
-  }
-  getPeerCertificate() {
-    throw createNotImplementedError("TLSSocket.getPeerCertificate");
-  }
-
   authorized = false;
   authorizationError: Error = new Error(
     "[unenv] TLSSocket.authorizationError is not implemented yet!",
   );
-  // eslint-disable-next-line @typescript-eslint/prefer-as-const
-  encrypted: true = true;
+  // @ts-ignore
+  encrypted = true;
   alpnProtocol = null;
+  // @ts-ignore
+  exportKeyingMaterial() {
+    throw createNotImplementedError("TLSSocket.exportKeyingMaterial");
+  }
+  // @ts-ignore
+  getCipher() {
+    throw createNotImplementedError("TLSSocket.getCipher");
+  }
+  // @ts-ignore
+  getPeerCertificate() {
+    throw createNotImplementedError("TLSSocket.getPeerCertificate");
+  }
   getCertificate() {
     return null;
   }
