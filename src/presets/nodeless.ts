@@ -49,6 +49,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "util",
         "util/types",
         "v8",
+        "vm",
         "wasi",
         "worker_threads",
         "zlib",
