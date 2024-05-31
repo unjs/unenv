@@ -1,6 +1,12 @@
 import type zlib from "node:zlib";
+
 import { constants } from "./constants";
 import { codes } from "./codes";
+
+import * as _brotli from "./_brotli";
+import * as _deflate from "./_deflate";
+import * as _gzip from "./_gzip";
+import * as _zip from "./_zip";
 
 export { constants } from "./constants";
 export { codes } from "./codes";
@@ -9,11 +15,6 @@ export * from "./_brotli";
 export * from "./_deflate";
 export * from "./_gzip";
 export * from "./_zip";
-
-import * as _brotli from "./_brotli";
-import * as _deflate from "./_deflate";
-import * as _gzip from "./_gzip";
-import * as _zip from "./_zip";
 
 // Deprecated constants
 const Z_BINARY: typeof zlib.Z_BINARY = 0;
