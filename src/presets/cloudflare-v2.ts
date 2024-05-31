@@ -21,7 +21,6 @@ const cloudflareNodeCompatModules = [
   "_stream_writable",
   "assert",
   "async_hooks",
-  "crypto",
   "diagnostics_channel",
   "events",
   "path",
@@ -33,7 +32,7 @@ const cloudflareNodeCompatModules = [
   "string_decoder",
 ];
 
-const hybridNodeCompatModules = ["buffer", "util", "util/types"];
+const hybridNodeCompatModules = ["buffer", "util", "util/types", "crypto"];
 
 const cloudflareV2Preset: Preset = {
   alias: {
