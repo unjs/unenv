@@ -31,10 +31,9 @@ const cloudflareNodeCompatModules = [
   "stream/promises",
   "stream/web",
   "string_decoder",
-  "util",
 ];
 
-const hybridNodeCompatModules = ["buffer"];
+const hybridNodeCompatModules = ["buffer", "util"];
 
 const cloudflareV2Preset: Preset = {
   alias: {
