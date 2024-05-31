@@ -10,6 +10,5 @@ export class Server extends _Server implements tls.Server {
   }
   getTicketKeys() {
     throw createNotImplementedError("Server.getTicketKeys");
-    return Buffer.from("");
   }
 }
