@@ -12,10 +12,16 @@ export { MessageChannel } from "./message-channel";
 export { MessagePort } from "./message-port";
 export { Worker } from "./worker";
 
+const environmentData = new Map();
 export const getEnvironmentData: typeof worker_threads.getEnvironmentData =
-  () => {
-    return undefined as unknown as Serializable;
+  function (key) {
+    return environmentData.get(key);
   };
+export const setEnvironmentData: typeof worker_threads.setEnvironmentData =
+  function (key, value) {
+    environmentData.set(key, value);
+  };
+
 export const isMainThread: typeof worker_threads.isMainThread = false;
 export const isMarkedAsUntransferable = () => false;
 export const markAsUntransferable: typeof worker_threads.markAsUntransferable =
@@ -31,8 +37,6 @@ export const SHARE_ENV = Symbol.for(
   "nodejs.worker_threads.SHARE_ENV",
 ) as typeof worker_threads.SHARE_ENV;
 export const resourceLimits: typeof worker_threads.resourceLimits = {};
-export const setEnvironmentData: typeof worker_threads.setEnvironmentData =
-  noop;
 export const threadId: typeof worker_threads.threadId = 0;
 export const workerData: typeof worker_threads.workerData = undefined;
 
