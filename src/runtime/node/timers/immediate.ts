@@ -1,5 +1,5 @@
 export class Immediate<TArgs extends any[]> implements NodeJS.Immediate {
-  _onImmediate: Function;
+  _onImmediate: (...args: TArgs) => void;
 
   constructor(callback: (...args: TArgs) => void, args: TArgs) {
     this._onImmediate = callback;
