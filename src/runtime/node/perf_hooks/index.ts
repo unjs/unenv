@@ -2,7 +2,6 @@ import type perf_hooks from "node:perf_hooks";
 import { IntervalHistogram, RecordableHistogram } from "./_histogram";
 import { constants } from "./constants";
 import * as _performance from "./_performance";
-
 export { constants } from "./constants";
 
 export * from "./_performance";
@@ -24,6 +23,4 @@ export default <Omit<typeof perf_hooks, "PerformanceNodeTiming">>{
   constants,
   createHistogram,
   monitorEventLoopDelay,
-  PerformanceObserverEntryList: {} as any,
-  PerformanceResourceTiming: {} as any,
 };
