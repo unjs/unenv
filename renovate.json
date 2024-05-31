@@ -1,3 +1,7 @@
 {
-  "extends": ["github>unjs/renovate-config"]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>unjs/renovate-config"],
+  "ignoreDeps": [
+    "@types/node"
+  ]
 }
