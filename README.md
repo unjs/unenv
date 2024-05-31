@@ -172,7 +172,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:sys](https://nodejs.org/api/sys.html)  - 🚧 mocked using proxy 
 - [node:timers](https://nodejs.org/api/timers.html)  - 🚧 mocked using proxy 
 - [node:timers/promises](https://nodejs.org/api/timers.html)  - 🚧 mocked using proxy 
-- [node:tls](https://nodejs.org/api/tls.html)  - 🚧 mocked using proxy 
+- [node:tls](https://nodejs.org/api/tls.html)  - ✅ polyfilled all exports 
 - [node:trace_events](https://nodejs.org/api/trace_events.html)  - ✅ polyfilled all exports 
 - [node:tty](https://nodejs.org/api/tty.html)  - ✅ polyfilled all exports 
 - [node:url](https://nodejs.org/api/url.html)  - ✅ polyfilled 10/12 exports 
