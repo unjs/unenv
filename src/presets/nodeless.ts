@@ -54,6 +54,10 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     "path/win32": "unenv/runtime/node/path/index",
     "inspector/promises": "unenv/runtime/node/inspector/index",
 
+    // The sys module is deprecated and has been renamed util
+    // https://github.com/nodejs/node/blob/main/lib/sys.js#L27
+    sys: "unenv/runtime/node/inspector/util",
+
     // npm
     etag: "unenv/runtime/mock/noop",
     "mime-db": "unenv/runtime/npm/mime-db",
