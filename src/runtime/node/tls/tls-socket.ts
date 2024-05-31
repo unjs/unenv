@@ -6,15 +6,12 @@ export class TLSSocket extends Socket implements tls.TLSSocket {
   // exportKeyingMaterial = notImplemented("TLSSocket.exportKeyingMaterial");
   exportKeyingMaterial() {
     throw createNotImplementedError("TLSSocket.exportKeyingMaterial");
-    return Buffer.from("");
   }
   getCipher() {
     throw createNotImplementedError("TLSSocket.getCipher");
-    return {} as any;
   }
   getPeerCertificate() {
     throw createNotImplementedError("TLSSocket.getPeerCertificate");
-    return {} as any;
   }
 
   authorized = false;
