@@ -155,8 +155,8 @@ const envConfig = env(nodeless, vercel, {});
 - [node:net](https://nodejs.org/api/net.html)  - ✅ polyfilled 14/18 exports 
 - [node:os](https://nodejs.org/api/os.html)  - ✅ polyfilled all exports 
 - [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
-- [node:path/posix](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
-- [node:path/win32](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
+- [node:path/posix](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
+- [node:path/win32](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
 - [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled all exports 
 - [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 84/92 exports 
 - [node:punycode](https://nodejs.org/api/punycode.html)  - ✅ polyfilled all exports 
@@ -169,7 +169,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:stream/promises](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
 - [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled 16/17 exports 
 - [node:string_decoder](https://nodejs.org/api/string_decoder.html)  - ✅ polyfilled all exports 
-- [node:sys](https://nodejs.org/api/sys.html)  - 🚧 mocked using proxy 
+- [node:sys](https://nodejs.org/api/sys.html)  - ✅ polyfilled all exports 
 - [node:timers](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
 - [node:timers/promises](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
 - [node:tls](https://nodejs.org/api/tls.html)  - ✅ polyfilled all exports 
@@ -179,7 +179,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:util](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
 - [node:util/types](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
 - [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled all exports 
-- [node:vm](https://nodejs.org/api/vm.html)  - 🚧 mocked using proxy 
+- [node:vm](https://nodejs.org/api/vm.html)  - ✅ polyfilled all exports 
 - [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports 
 - [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports 
 - [node:zlib](https://nodejs.org/api/zlib.html)  - ✅ polyfilled all exports
