@@ -7,7 +7,16 @@ class Histogram implements perf_hooks.Histogram {
   mean = Number.NaN;
   exceeds = 0;
   stddev = Number.NaN;
+  count: number = 0;
+  countBigInt: bigint = BigInt(0);
+  exceedsBigInt: bigint = BigInt(0);
+  maxBigInt: number = 0;
+  minBigInt: bigint = BigInt(9_223_372_036_854_775_807n);
   percentiles: Map<number, number> = new Map();
+  percentilesBigInt: Map<bigint, bigint> = new Map();
+  percentileBigInt(_percentile: number): bigint {
+    throw createNotImplementedError("Histogram.percentileBigInt");
+  }
   percentile(percentile: number): number {
     return this.percentiles.get(percentile) ?? Number.NaN;
   }
