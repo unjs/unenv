@@ -66,6 +66,12 @@ export const inflateSync: typeof zlib.inflateSync = bufferNoop;
 export const unzip: typeof zlib.unzip = promisifiedBuffer;
 export const unzipSync: typeof zlib.unzipSync = bufferNoop;
 
+const Z_BINARY: typeof zlib.Z_BINARY = 0;
+const Z_TEXT: typeof zlib.Z_TEXT = 1;
+const Z_ASCII: typeof zlib.Z_ASCII = 1;
+const Z_UNKNOWN: typeof zlib.Z_UNKNOWN = 2;
+const Z_DEFLATED: typeof zlib.Z_DEFLATED = 8;
+
 export default <typeof zlib>{
   ...constants,
   BrotliCompress,
@@ -106,4 +112,9 @@ export default <typeof zlib>{
   inflateSync,
   unzip,
   unzipSync,
+  Z_BINARY,
+  Z_TEXT,
+  Z_ASCII,
+  Z_UNKNOWN,
+  Z_DEFLATED,
 };

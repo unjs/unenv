@@ -1,3 +1,5 @@
+import type zlib from "node:zlib";
+
 export const constants = {
   Z_NO_FLUSH: 0,
   Z_PARTIAL_FLUSH: 1,
@@ -6,11 +8,11 @@ export const constants = {
   Z_FINISH: 4,
   Z_BLOCK: 5,
   Z_TREES: 6,
-  Z_BINARY: 0,
-  Z_TEXT: 1,
-  Z_ASCII: 1,
-  Z_UNKNOWN: 2,
-  Z_DEFLATED: 8,
+  // Z_BINARY: 0,
+  // Z_TEXT: 1,
+  // Z_ASCII: 1,
+  // Z_UNKNOWN: 2,
+  // Z_DEFLATED: 8,
   Z_OK: 0,
   Z_STREAM_END: 1,
   Z_NEED_DICT: 2,
@@ -112,4 +114,4 @@ export const constants = {
   BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: -27,
   BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: -30,
   BROTLI_DECODER_ERROR_UNREACHABLE: -31,
-};
+} satisfies typeof zlib.constants;
