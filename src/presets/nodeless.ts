@@ -60,7 +60,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 
     // The sys module is deprecated and has been renamed util
     // https://github.com/nodejs/node/blob/main/lib/sys.js#L27
-    sys: "unenv/runtime/node/inspector/util",
+    sys: "unenv/runtime/node/util/index",
 
     // npm
     etag: "unenv/runtime/mock/noop",
