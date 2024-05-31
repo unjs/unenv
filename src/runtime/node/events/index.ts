@@ -2,7 +2,10 @@
 import type nodeEvents from "node:events";
 
 // @ts-ignore
-import { EventEmitter as _EventEmitter, once as _once } from "./_events";
+import {
+  EventEmitter as _EventEmitter,
+  once as _once,
+} from "./internal/events";
 
 export const EventEmitter: typeof nodeEvents.EventEmitter =
   (globalThis as any).EventEmitter || _EventEmitter;

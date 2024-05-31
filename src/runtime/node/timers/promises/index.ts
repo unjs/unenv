@@ -1,12 +1,12 @@
 import type timers from "node:timers/promises";
-import { Scheduler } from "./scheduler";
-import { setTimeoutFallbackPromises } from "../set-timeout";
-import { setIntervalFallbackPromises } from "../set-interval";
-import { setImmediateFallbackPromises } from "../set-immediate";
+import { Scheduler } from "../internal/scheduler";
+import { setTimeoutFallbackPromises } from "../internal/set-timeout";
+import { setIntervalFallbackPromises } from "../internal/set-interval";
+import { setImmediateFallbackPromises } from "../internal/set-immediate";
 
-export { setTimeoutFallbackPromises as setTimeout } from "../set-timeout";
-export { setIntervalFallbackPromises as setInterval } from "../set-interval";
-export { setImmediateFallbackPromises as setImmediate } from "../set-immediate";
+export { setTimeoutFallbackPromises as setTimeout } from "../internal/set-timeout";
+export { setIntervalFallbackPromises as setInterval } from "../internal/set-interval";
+export { setImmediateFallbackPromises as setImmediate } from "../internal/set-immediate";
 
 export const scheduler = new Scheduler();
 

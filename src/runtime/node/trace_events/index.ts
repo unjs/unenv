@@ -1,5 +1,5 @@
 import type trace_events from "node:trace_events";
-import { Tracing } from "./tracing";
+import { Tracing } from "./internal/tracing";
 
 export const createTracing: typeof trace_events.createTracing = function () {
   return new Tracing();

@@ -2,9 +2,9 @@ import { notImplemented, notImplementedAsync } from "../../_internal/utils";
 import noop from "../../mock/noop";
 import type timers from "node:timers";
 import promises from "./promises";
-import { setTimeoutFallback } from "./set-timeout";
-import { setImmediateFallback } from "./set-immediate";
-import { setIntervalFallback } from "./set-interval";
+import { setTimeoutFallback } from "./internal/set-timeout";
+import { setImmediateFallback } from "./internal/set-immediate";
+import { setIntervalFallback } from "./internal/set-interval";
 
 export * as promises from "./promises";
 

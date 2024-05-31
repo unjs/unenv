@@ -1,5 +1,5 @@
-import { IncomingMessage } from "../node/http/_request";
-import { ServerResponse } from "../node/http/_response";
+import { IncomingMessage } from "../node/http/internal/request";
+import { ServerResponse } from "../node/http/internal/response";
 
 export type Handle = (
   req: IncomingMessage,

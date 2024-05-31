@@ -2,13 +2,13 @@
 import type http from "node:http";
 import { notImplemented } from "../../_internal/utils";
 import mock from "../../mock/proxy";
-import * as consts from "./_consts";
-import { IncomingMessage } from "./_request";
-import { ServerResponse } from "./_response";
+import * as consts from "./internal/consts";
+import { IncomingMessage } from "./internal/request";
+import { ServerResponse } from "./internal/response";
 
-export * from "./_consts";
-export * from "./_request";
-export * from "./_response";
+export * from "./internal/consts";
+export * from "./internal/request";
+export * from "./internal/response";
 
 export const createServer =
   notImplemented<typeof http.createServer>("http.createServer");

@@ -3,9 +3,9 @@ import mock from "../../mock/proxy";
 import { notImplemented, notImplementedAsync } from "../../_internal/utils";
 import type dns from "node:dns";
 import promises from "./promises";
-import * as constants from "./constants";
+import * as constants from "./internal/constants";
 
-export * from "./constants";
+export * from "./internal/constants";
 export * as promises from "./promises";
 
 export const Resolver: typeof dns.Resolver =

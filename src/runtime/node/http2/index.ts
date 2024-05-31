@@ -1,9 +1,9 @@
 import mock from "../../mock/proxy";
 import type http2 from "node:http2";
 import { notImplemented } from "../../_internal/utils";
-import { constants } from "./constants";
+import { constants } from "./internal/constants";
 
-export { constants } from "./constants";
+export { constants } from "./internal/constants";
 
 export const createSecureServer = notImplemented<
   typeof http2.createSecureServer
