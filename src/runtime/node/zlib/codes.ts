@@ -1,3 +1,5 @@
+// import type zlib from "node:zlib";
+
 export const codes = {
   "0": "Z_OK",
   "1": "Z_STREAM_END",
@@ -17,4 +19,4 @@ export const codes = {
   "-4": "Z_MEM_ERROR",
   "-5": "Z_BUF_ERROR",
   "-6": "Z_VERSION_ERROR",
-};
+}; // satisfies typeof zlib.codes ;
