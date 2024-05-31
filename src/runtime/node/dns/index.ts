@@ -1,9 +1,6 @@
 import noop from "../../mock/noop";
 import mock from "../../mock/proxy";
-import {
-  notImplemented,
-  notImplementedAsync,
-} from "src/runtime/_internal/utils";
+import { notImplemented, notImplementedAsync } from "../../_internal/utils";
 import type dns from "node:dns";
 import * as constants from "./constants";
 import promises from "./promises";

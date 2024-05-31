@@ -1,23 +1,42 @@
 # unenv
 
-`unenv` is a framework-agnostic system that allows converting JavaScript code to be platform agnostic and work in any environment including Browsers, Workers, Node.js, or JavaScript runtime.
+<!-- automd:badges color=yellow packagephobia -->
+
+[![npm version](https://img.shields.io/npm/v/unenv?color=yellow)](https://npmjs.com/package/unenv)
+[![npm downloads](https://img.shields.io/npm/dm/unenv?color=yellow)](https://npmjs.com/package/unenv)
+
+<!-- /automd -->
+
+unenv provides a collection of Node.js and Web polyfills and mocking utilities with configurable presets for converting JavaScript code and libraries to be platform and runtime agnostic, working in any environment including Browsers, Workers, Node.js, Cloudflare Workers, Deno.
+
+Unenv is used by [Nitro](https://nitro.unjs.io/) and [Nuxt](https://nuxt.com/) today.
 
 ## Install
 
-```bash
-# Using npm
-npm i -D unenv
+<!-- automd:pm-i dev -->
 
-# Using yarn
-yarn add --dev unenv
+```sh
+# ✨ Auto-detect
+npx nypm install -D unenv
 
-# Using pnpm
-pnpm add -D unenv
+# npm
+npm install -D unenv
+
+# yarn
+yarn add -D unenv
+
+# pnpm
+pnpm install -D unenv
+
+# bun
+bun install -D unenv
 ```
+
+<!-- /automd -->
 
 ## Usage
 
-Using `env` utility and built-in presets, `unenv` will provide an abstract configuration that can be used in building pipelines ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc.).
+Using `env` utility and built-in presets, `unenv` will provide an abstract configuration that can be used in bundlers ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc.).
 
 ```js
 import { env } from "unenv";
@@ -104,76 +123,76 @@ const envConfig = env(nodeless, vercel, {});
 
 ## Built-in Node.js modules
 
-`unenv` provides a replacement for all Node.js built-ins for cross-platform compatibility.
+`unenv` provides a replacement for Node.js built-in modules compatible with any runtime.
 
-| Module                                                                      | Status     | Source                                                             |
-| --------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------ |
-| [node:assert](https://nodejs.org/api/assert.html)                           | Mocked     | -                                                                  |
-| [node:async_hooks](https://nodejs.org/api/async_hooks.html)                 | Polyfilled | [unenv/node/async_hooks](./src/runtime/node/async_hooks)           |
-| [node:buffer](https://nodejs.org/api/buffer.html)                           | Polyfilled | [unenv/node/buffer](./src/runtime/node/buffer)                     |
-| [node:child_process](https://nodejs.org/api/child_process.html)             | Mocked     | -                                                                  |
-| [node:cluster](https://nodejs.org/api/cluster.html)                         | Mocked     | -                                                                  |
-| [node:console](https://nodejs.org/api/console.html)                         | Mocked     | -                                                                  |
-| [node:constants](https://nodejs.org/api/constants.html)                     | Mocked     | -                                                                  |
-| [node:crypto](https://nodejs.org/api/crypto.html)                           | Polyfilled | [unenv/node/crypto](./src/runtime/node/crypto)                     |
-| [node:dgram](https://nodejs.org/api/dgram.html)                             | Mocked     | -                                                                  |
-| [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html) | Mocked     | -                                                                  |
-| [node:dns](https://nodejs.org/api/dns.html)                                 | Mocked     | -                                                                  |
-| [node:domain](https://nodejs.org/api/domain.html)                           | Mocked     | -                                                                  |
-| [node:events](https://nodejs.org/api/events.html)                           | Polyfilled | [unenv/node/events](./src/runtime/node/events)                     |
-| [node:fs](https://nodejs.org/api/fs.html)                                   | Polyfilled | [unenv/node/fs](./src/runtime/node/fs)                             |
-| [node:fs/promises](https://nodejs.org/api/fs/promises.html)                 | Polyfilled | [unenv/node/fs/promises](./src/runtime/node/fs/promises)           |
-| [node:http2](https://nodejs.org/api/http2.html)                             | Mocked     | -                                                                  |
-| [node:http](https://nodejs.org/api/http.html)                               | Polyfilled | [unenv/node/http](./src/runtime/node/http)                         |
-| [node:https](https://nodejs.org/api/https.html)                             | Polyfilled | [unenv/node/https](./src/runtime/node/https)                       |
-| [node:inspector](https://nodejs.org/api/inspector.html)                     | Mocked     | -                                                                  |
-| [node:module](https://nodejs.org/api/module.html)                           | Polyfilled | [unenv/node/module](./src/runtime/node/module) -                   |
-| [node:net](https://nodejs.org/api/net.html)                                 | Polyfilled | [unenv/node/net](./src/runtime/node/net)                           |
-| [node:os](https://nodejs.org/api/os.html)                                   | Mocked     | -                                                                  |
-| [node:path](https://nodejs.org/api/path.html)                               | Polyfilled | [unenv/node/path](./src/runtime/node/path)                         |
-| [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)                   | Mocked     | -                                                                  |
-| [node:process](https://nodejs.org/api/process.html)                         | Polyfilled | [unenv/node/process](./src/runtime/node/process)                   |
-| [node:punycode](https://nodejs.org/api/punycode.html)                       | Mocked     | -                                                                  |
-| [node:querystring](https://nodejs.org/api/querystring.html)                 | Mocked     | -                                                                  |
-| [node:readline](https://nodejs.org/api/readline.html)                       | Mocked     | -                                                                  |
-| [node:repl](https://nodejs.org/api/repl.html)                               | Mocked     | -                                                                  |
-| [node:stream](https://nodejs.org/api/stream.html)                           | Polyfilled | [unenv/node/stream](./src/runtime/node/stream)                     |
-| [node:stream/consumers](https://nodejs.org/api/stream.html)                 | Mocked     | [unenv/node/stream/consumers](./src/runtime/node/stream/consumers) |
-| [node:stream/promises](https://nodejs.org/api/stream.html)                  | Mocked     | [unenv/node/stream/promises](./src/runtime/node/stream/promises)   |
-| [node:stream/web](https://nodejs.org/api/stream.html)                       | Native     | [unenv/node/stream/web](./src/runtime/node/stream/web)             |
-| [node:string_decoder](https://nodejs.org/api/string_decoder.html)           | Polyfilled | [unenv/node/string_decoder](./src/runtime/node/string_decoder)     |
-| [node:sys](https://nodejs.org/api/sys.html)                                 | Mocked     | -                                                                  |
-| [node:timers](https://nodejs.org/api/timers.html)                           | Mocked     | -                                                                  |
-| [node:timers/promises](https://nodejs.org/api/timers.html)                  | Mocked     | -                                                                  |
-| [node:tls](https://nodejs.org/api/tls.html)                                 | Mocked     | -                                                                  |
-| [node:trace_events](https://nodejs.org/api/trace_events.html)               | Mocked     | -                                                                  |
-| [node:tty](https://nodejs.org/api/tty.html)                                 | Mocked     | -                                                                  |
-| [node:url](https://nodejs.org/api/url.html)                                 | Polyfilled | [unenv/node/url](./src/runtime/node/url)                           |
-| [node:util](https://nodejs.org/api/util.html)                               | Polyfilled | [unenv/node/util](./src/runtime/node/util)                         |
-| [node:util/types](https://nodejs.org/api/util.html)                         | Polyfilled | [unenv/node/util/types](./src/runtime/node/util/types)             |
-| [node:v8](https://nodejs.org/api/v8.html)                                   | Mocked     | -                                                                  |
-| [node:vm](https://nodejs.org/api/vm.html)                                   | Mocked     | -                                                                  |
-| [node:wasi](https://nodejs.org/api/wasi.html)                               | Mocked     | -                                                                  |
-| [node:worker_threads](https://nodejs.org/api/worker_threads.html)           | Mocked     | -                                                                  |
-| [node:zlib](https://nodejs.org/api/zlib.html)                               | Mocked     | -                                                                  |
+[(view source)](./src/runtime/node)
+
+<!-- automd:nodeCoverage -->
+
+- [node:assert](https://nodejs.org/api/assert.html)  - 🚧 mocked using proxy 
+- [node:assert/strict](https://nodejs.org/api/assert.html)  - 🚧 mocked using proxy 
+- [node:async_hooks](https://nodejs.org/api/async_hooks.html)  - ✅ polyfilled 6/7 exports 
+- [node:buffer](https://nodejs.org/api/buffer.html)  - ✅ polyfilled all exports 
+- [node:child_process](https://nodejs.org/api/child_process.html)  - ✅ polyfilled all exports 
+- [node:cluster](https://nodejs.org/api/cluster.html)  - ✅ polyfilled all exports 
+- [node:console](https://nodejs.org/api/console.html)  - ✅ polyfilled 23/25 exports 
+- [node:constants](https://nodejs.org/api/constants.html)  - ✅ polyfilled all exports 
+- [node:crypto](https://nodejs.org/api/crypto.html)  - ✅ polyfilled all exports 
+- [node:dgram](https://nodejs.org/api/dgram.html)  - ✅ polyfilled all exports 
+- [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)  - ✅ polyfilled all exports 
+- [node:dns](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports 
+- [node:dns/promises](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports 
+- [node:domain](https://nodejs.org/api/domain.html)  - ✅ polyfilled all exports 
+- [node:events](https://nodejs.org/api/events.html)  - ✅ polyfilled 2/15 exports 
+- [node:fs](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
+- [node:fs/promises](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
+- [node:http](https://nodejs.org/api/http.html)  - ✅ polyfilled 16/17 exports 
+- [node:http2](https://nodejs.org/api/http2.html)  - ✅ polyfilled all exports 
+- [node:https](https://nodejs.org/api/https.html)  - ✅ polyfilled all exports 
+- [node:inspector](https://nodejs.org/api/inspector.html)  - ✅ polyfilled all exports 
+- [node:inspector/promises](https://nodejs.org/api/inspector.html)  - 🚧 mocked using proxy 
+- [node:module](https://nodejs.org/api/module.html)  - ✅ polyfilled 9/21 exports 
+- [node:net](https://nodejs.org/api/net.html)  - ✅ polyfilled 14/18 exports 
+- [node:os](https://nodejs.org/api/os.html)  - ✅ polyfilled all exports 
+- [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
+- [node:path/posix](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
+- [node:path/win32](https://nodejs.org/api/path.html)  - 🚧 mocked using proxy 
+- [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled 9/11 exports 
+- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 83/92 exports 
+- [node:punycode](https://nodejs.org/api/punycode.html)  - 🚧 mocked using proxy 
+- [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
+- [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
+- [node:readline/promises](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
+- [node:repl](https://nodejs.org/api/repl.html)  - 🚧 mocked using proxy 
+- [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/37 exports 
+- [node:stream/consumers](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
+- [node:stream/promises](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
+- [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled 16/17 exports 
+- [node:string_decoder](https://nodejs.org/api/string_decoder.html)  - ✅ polyfilled all exports 
+- [node:sys](https://nodejs.org/api/sys.html)  - 🚧 mocked using proxy 
+- [node:timers](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
+- [node:timers/promises](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
+- [node:tls](https://nodejs.org/api/tls.html)  - ✅ polyfilled all exports 
+- [node:trace_events](https://nodejs.org/api/trace_events.html)  - ✅ polyfilled all exports 
+- [node:tty](https://nodejs.org/api/tty.html)  - ✅ polyfilled all exports 
+- [node:url](https://nodejs.org/api/url.html)  - ✅ polyfilled 10/12 exports 
+- [node:util](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
+- [node:util/types](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
+- [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled 19/20 exports 
+- [node:vm](https://nodejs.org/api/vm.html)  - 🚧 mocked using proxy 
+- [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports 
+- [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports 
+- [node:zlib](https://nodejs.org/api/zlib.html)  - ✅ polyfilled all exports
+
+<!-- /automd -->
 
 ## npm packages
 
 `unenv` provides a replacement for common npm packages for cross platform compatibility.
 
-| Package                                                     | Status                      | Source                                                            |
-| ----------------------------------------------------------- | --------------------------- | ----------------------------------------------------------------- |
-| [npm/consola](https://www.npmjs.com/package/consola)        | Use native `console`        | [unenv/runtime/npm/consola](./src/runtime/npm/consola.ts)         |
-| [npm/cross-fetch](https://www.npmjs.com/package/node-fetch) | Use native `fetch`          | [unenv/runtime/npm/cross-fetch](./src/runtime/npm/cross-fetch.ts) |
-| [npm/debug](https://www.npmjs.com/package/debug)            | Mocked with `console.debug` | [unenv/runtime/npm/debug](./src/runtime/npm/debug.ts)             |
-| [npm/fsevents](https://www.npmjs.com/package/fsevents)      | Mocked                      | [unenv/runtime/npm/fsevents](./src/runtime/npm/fsevents.ts)       |
-| [npm/inherits](https://www.npmjs.com/package/inherits)      | Inlined                     | [unenv/runtime/npm/inherits](./src/runtime/npm/inherits.ts)       |
-| [npm/mime-db](https://www.npmjs.com/package/mime-db)        | Minimized                   | [unenv/runtime/npm/mime-db](./src/runtime/npm/mime-db.ts)         |
-| [npm/mime](https://www.npmjs.com/package/mime)              | Minimized                   | [unenv/runtime/npm/mime](./src/runtime/npm/mime.ts)               |
-| [npm/node-fetch](https://www.npmjs.com/package/node-fetch)  | Use native `fetch`          | [unenv/runtime/npm/node-fetch](./src/runtime/npm/node-fetch.ts)   |
-| [npm/whatwg-url](https://www.npmjs.com/package/whatwg-url)  | Use native `URL`            | [unenv/runtime/npm/whatwg-url](./src/runtime/npm/whatwg-url.ts)   |
+[(view source)](./src/runtime/npm)
 
-## Auto-mocking proxy
+## Mocking utils
 
 ```js
 import MockProxy from "unenv/runtime/mock/proxy";
@@ -225,4 +244,21 @@ If using `unenv` via another tool (Nuxt or Nitro) in your project:
 
 ## License
 
-MIT
+<!-- automd:contributors license=MIT author=pi0 -->
+
+Published under the [MIT](https://github.com/unjs/unenv/blob/main/LICENSE) license.
+Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/unenv/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/unjs/unenv/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=unjs/unenv" />
+</a>
+
+<!-- /automd -->
+
+<!-- automd:with-automd -->
+
+---
+
+_🤖 auto updated with [automd](https://automd.unjs.io)_
+
+<!-- /automd -->
