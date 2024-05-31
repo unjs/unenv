@@ -58,7 +58,7 @@ export const deflateRawSync: typeof zlib.deflateRawSync = notImplemented(
   "zlib.deflateRawSync",
 );
 
-// Inflate Raw Decompress(Inflate Raw)
+// Inflate Raw Decompress (Inflate Raw)
 
 export class InflateRaw extends Inflate {}
 

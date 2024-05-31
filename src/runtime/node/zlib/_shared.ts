@@ -55,7 +55,7 @@ export function notImplementedCompress(format: string): CompressFunction {
     arg3?: zlib.CompressCallback,
   ) {
     const cb = typeof arg2 === "function" ? arg2 : arg3;
-    const err = new Error(`[unenv] zlib ${format} compressis not supported.`);
+    const err = new Error(`[unenv] zlib ${format} compression not supported.`);
     if (typeof cb === "function") {
       cb(err, Buffer.from(""));
     } else {
