@@ -24,4 +24,6 @@ export default <Omit<typeof perf_hooks, "PerformanceNodeTiming">>{
   constants,
   createHistogram,
   monitorEventLoopDelay,
+  PerformanceObserverEntryList: {} as any,
+  PerformanceResourceTiming: {} as any,
 };

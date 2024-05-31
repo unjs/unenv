@@ -90,6 +90,27 @@ export const stopCoverage: typeof v8.stopCoverage = noop;
 export const takeCoverage: typeof v8.takeCoverage = noop;
 export const writeHeapSnapshot: typeof v8.writeHeapSnapshot = () => "";
 
+// eslint-disable-next-line @typescript-eslint/ban-types
+type _Function = Function;
+export function queryObjects(ctor: _Function): number | string[];
+export function queryObjects(
+  ctor: _Function,
+  options: { format: "count" },
+): number;
+export function queryObjects(
+  ctor: _Function,
+  options: { format: "summary" },
+): string[];
+export function queryObjects(
+  _ctor: _Function,
+  options?: { format: "count" | "summary" },
+): number | string[] {
+  if (options?.format === "count") {
+    return 0;
+  }
+  return [];
+}
+
 export default <typeof v8>{
   DefaultDeserializer,
   Deserializer,
@@ -110,4 +131,5 @@ export default <typeof v8>{
   stopCoverage,
   takeCoverage,
   writeHeapSnapshot,
+  queryObjects,
 };
