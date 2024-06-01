@@ -1,7 +1,5 @@
 import type nodeProcess from "node:process";
 
-import unenvProcess from "./index";
-
 export {
   _debugEnd,
   _debugProcess,
@@ -102,7 +100,7 @@ export {
   uptime,
   version,
   versions,
-} from "./_process";
+} from "./internal/process";
 
 import {
   _debugEnd,
@@ -204,7 +202,7 @@ import {
   uptime,
   version,
   versions,
-} from "./_process";
+} from "./internal/process";
 
 // @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdProcess = process.getBuiltinModule("node:process");

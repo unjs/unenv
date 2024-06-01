@@ -6,7 +6,7 @@ import { notImplemented } from "../../../_internal/utils";
 import { env } from "./env";
 import { hrtime, nextTick } from "./time";
 
-export { hrtime } from "./_time";
+export { hrtime } from "./time";
 
 type Process = NodeJS.Process;
 
