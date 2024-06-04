@@ -3,19 +3,19 @@ import type nodeProcess from "node:process";
 export {
   _debugEnd,
   _debugProcess,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _events,
+  // TODO: implemented yet in unenv
+  //_events,
   _eventsCount,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _exiting,
+  // TODO: implemented yet in unenv
+  //_exiting,
   _fatalException,
   _getActiveHandles,
   _getActiveRequests,
   _kill,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _linkedBinding,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _maxListeners,
+  // TODO: implemented yet in unenv
+  //_linkedBinding,
+  // TODO: implemented yet in unenv
+  //_maxListeners,
   _preload_modules,
   _rawDebug,
   _startProfilerIdleNotifier,
@@ -37,8 +37,8 @@ export {
   cwd,
   debugPort,
   dlopen,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  domain,
+  // TODO: implemented yet in unenv
+  //domain,
   emit,
   emitWarning,
   eventNames,
@@ -56,28 +56,28 @@ export {
   getuid,
   hasUncaughtExceptionCaptureCallback,
   hrtime,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  initgroups,
+  // TODO: implemented yet in unenv
+  //initgroups,
   kill,
   listenerCount,
   listeners,
   loadEnvFile,
   memoryUsage,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  moduleLoadList,
+  // TODO: implemented yet in unenv
+  //moduleLoadList,
   off,
   on,
   once,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  openStdin,
+  // TODO: implemented yet in unenv
+  //openStdin,
   pid,
   platform,
   ppid,
   prependListener,
   prependOnceListener,
   rawListeners,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  reallyExit,
+  // TODO: implemented yet in unenv
+  //reallyExit,
   release,
   removeAllListeners,
   removeListener,
@@ -105,19 +105,19 @@ export {
 import {
   _debugEnd,
   _debugProcess,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _events,
+  // TODO: implemented yet in unenv
+  //_events,
   _eventsCount,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _exiting,
+  // TODO: implemented yet in unenv
+  //_exiting,
   _fatalException,
   _getActiveHandles,
   _getActiveRequests,
   _kill,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _linkedBinding,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  _maxListeners,
+  // TODO: implemented yet in unenv
+  //_linkedBinding,
+  // TODO: implemented yet in unenv
+  //_maxListeners,
   _preload_modules,
   _rawDebug,
   _startProfilerIdleNotifier,
@@ -139,8 +139,8 @@ import {
   cwd,
   debugPort,
   dlopen,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  domain,
+  // TODO: implemented yet in unenv
+  //domain,
   emit,
   emitWarning,
   eventNames,
@@ -158,28 +158,28 @@ import {
   getuid,
   hasUncaughtExceptionCaptureCallback,
   hrtime,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  initgroups,
+  // TODO: implemented yet in unenv
+  //initgroups,
   kill,
   listenerCount,
   listeners,
   loadEnvFile,
   memoryUsage,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  moduleLoadList,
+  // TODO: implemented yet in unenv
+  //moduleLoadList,
   off,
   on,
   once,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  openStdin,
+  // TODO: implemented yet in unenv
+  //openStdin,
   pid,
   platform,
   ppid,
   prependListener,
   prependOnceListener,
   rawListeners,
-  // @ts-expect-error polyfill not implemented yet in unenv
-  reallyExit,
+  // TODO: implemented yet in unenv
+  //reallyExit,
   release,
   removeAllListeners,
   removeListener,
@@ -218,15 +218,19 @@ export default {
   // @ts-expect-error undocumented public API
   _debugEnd,
   _debugProcess,
-  _events,
+  // TODO: implemented yet in unenv
+  //_events,
   _eventsCount,
-  _exiting,
+  // TODO: implemented yet in unenv
+  //_exiting,
   _fatalException,
   _getActiveHandles,
   _getActiveRequests,
   _kill,
-  _linkedBinding,
-  _maxListeners,
+  // TODO: implemented yet in unenv
+  //_linkedBinding,
+  // TODO: implemented yet in unenv
+  //_maxListeners,
   _preload_modules,
   _rawDebug,
   _startProfilerIdleNotifier,
@@ -248,7 +252,8 @@ export default {
   cwd,
   debugPort,
   dlopen,
-  domain,
+  // TODO: implemented yet in unenv
+  //domain,
   emit,
   emitWarning,
   eventNames,
@@ -266,24 +271,28 @@ export default {
   getuid,
   hasUncaughtExceptionCaptureCallback,
   hrtime,
-  initgroups,
+  // TODO: implemented yet in unenv
+  //initgroups,
   kill,
   listenerCount,
   listeners,
   loadEnvFile,
   memoryUsage,
-  moduleLoadList,
+  // TODO: implemented yet in unenv
+  //moduleLoadList,
   off,
   on,
   once,
-  openStdin,
+  // TODO: implemented yet in unenv
+  //openStdin,
   pid,
   platform,
   ppid,
   prependListener,
   prependOnceListener,
   rawListeners,
-  reallyExit,
+  // TODO: implemented yet in unenv
+  //reallyExit,
   release,
   removeAllListeners,
   removeListener,
