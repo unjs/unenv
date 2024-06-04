@@ -6,12 +6,14 @@ import { notImplemented } from "../../../_internal/utils";
 import { env } from "./env";
 import { hrtime, nextTick } from "./time";
 
+export { hrtime } from "./time";
+
 type Process = NodeJS.Process;
 
-const title: Process["title"] = "unenv";
-const argv: Process["argv"] = [];
-const version: Process["version"] = ""; // empty string to avoid regexp issues
-const versions: Process["versions"] = {
+export const title: Process["title"] = "unenv";
+export const argv: Process["argv"] = [];
+export const version: Process["version"] = ""; // empty string to avoid regexp issues
+export const versions: Process["versions"] = {
   ares: "",
   http_parser: "",
   icu: "",
@@ -26,83 +28,84 @@ const versions: Process["versions"] = {
 function noop() {
   return process;
 }
-const on: Process["on"] = noop;
-const addListener: Process["addListener"] = noop;
-const once: Process["once"] = noop;
-const off: Process["off"] = noop;
-const removeListener: Process["removeListener"] = noop;
-const removeAllListeners: Process["removeAllListeners"] = noop;
-const emit: Process["emit"] = function emit(event) {
+export const on: Process["on"] = noop;
+export const addListener: Process["addListener"] = noop;
+export const once: Process["once"] = noop;
+export const off: Process["off"] = noop;
+export const removeListener: Process["removeListener"] = noop;
+export const removeAllListeners: Process["removeAllListeners"] = noop;
+export const emit: Process["emit"] = function emit(event) {
   if (event === "message" || event === "multipleResolves") {
     return process;
   }
   return false;
 } as Process["emit"];
-const prependListener: Process["prependListener"] = noop;
-const prependOnceListener: Process["prependOnceListener"] = noop;
+export const prependListener: Process["prependListener"] = noop;
+export const prependOnceListener: Process["prependOnceListener"] = noop;
 
-const listeners: Process["listeners"] = function (name) {
+export const listeners: Process["listeners"] = function (name) {
   return [];
 };
-const listenerCount: Process["listenerCount"] = () => 0;
+export const listenerCount: Process["listenerCount"] = () => 0;
 
 // @ts-ignore
-const binding: Process["binding"] = function (name) {
+export const binding: Process["binding"] = function (name) {
   throw new Error("[unenv] process.binding is not supported");
 };
 
 let _cwd = "/";
-const cwd: Process["cwd"] = function cwd() {
+export const cwd: Process["cwd"] = function cwd() {
   return _cwd;
 };
-const chdir: Process["chdir"] = function chdir(dir) {
+export const chdir: Process["chdir"] = function chdir(dir) {
   _cwd = dir;
 };
-const umask: Process["umask"] = function umask() {
+export const umask: Process["umask"] = function umask() {
   return 0;
 };
 
-const getegid: Process["getegid"] = function getegid() {
+export const getegid: Process["getegid"] = function getegid() {
   return 1000;
 };
 
-const geteuid: Process["geteuid"] = function geteuid() {
+export const geteuid: Process["geteuid"] = function geteuid() {
   return 1000;
 };
 
-const getgid: Process["getgid"] = function getgid() {
+export const getgid: Process["getgid"] = function getgid() {
   return 1000;
 };
 
-const getuid: Process["getuid"] = function getuid() {
+export const getuid: Process["getuid"] = function getuid() {
   return 1000;
 };
 
-const getgroups: Process["getgroups"] = function getgroups() {
+export const getgroups: Process["getgroups"] = function getgroups() {
   return [];
 };
 
 // ---- Unimplemented utils ----
 
-const abort = notImplemented<Process["abort"]>("process.abort");
-const allowedNodeEnvironmentFlags: Process["allowedNodeEnvironmentFlags"] =
+export const abort = notImplemented<Process["abort"]>("process.abort");
+export const allowedNodeEnvironmentFlags: Process["allowedNodeEnvironmentFlags"] =
   new Set();
-const arch: Process["arch"] = "" as any;
-const argv0: Process["argv0"] = "";
-const config: Process["config"] = empty;
+export const arch: Process["arch"] = "" as any;
+export const argv0: Process["argv0"] = "";
+export const config: Process["config"] = empty;
 const connected: Process["connected"] = false;
-const constrainedMemory: Process["constrainedMemory"] = () => 0;
-const availableMemory: Process["availableMemory"] = () => 0;
-const cpuUsage = notImplemented<Process["cpuUsage"]>("process.cpuUsage");
-const debugPort: Process["debugPort"] = 0;
-const dlopen = notImplemented<Process["dlopen"]>("process.dlopen");
+export const constrainedMemory: Process["constrainedMemory"] = () => 0;
+export const availableMemory: Process["availableMemory"] = () => 0;
+export const cpuUsage = notImplemented<Process["cpuUsage"]>("process.cpuUsage");
+export const debugPort: Process["debugPort"] = 0;
+export const dlopen = notImplemented<Process["dlopen"]>("process.dlopen");
 const disconnect: Process["disconnect"] = noop;
-const emitWarning: Process["emitWarning"] = noop;
-const eventNames = notImplemented<Process["eventNames"]>("process.eventNames");
-const execArgv: Process["execArgv"] = [];
-const execPath: Process["execPath"] = "";
-const exit = notImplemented<Process["exit"]>("process.exit");
-const features: Process["features"] = Object.create({
+export const emitWarning: Process["emitWarning"] = noop;
+export const eventNames =
+  notImplemented<Process["eventNames"]>("process.eventNames");
+export const execArgv: Process["execArgv"] = [];
+export const execPath: Process["execPath"] = "";
+export const exit = notImplemented<Process["exit"]>("process.exit");
+export const features: Process["features"] = Object.create({
   inspector: undefined,
   debug: undefined,
   uv: undefined,
@@ -113,13 +116,14 @@ const features: Process["features"] = Object.create({
   tls: undefined,
   cached_builtins: undefined,
 });
-const getActiveResourcesInfo: Process["getActiveResourcesInfo"] = () => [];
-const getMaxListeners = notImplemented<Process["getMaxListeners"]>(
+export const getActiveResourcesInfo: Process["getActiveResourcesInfo"] =
+  () => [];
+export const getMaxListeners = notImplemented<Process["getMaxListeners"]>(
   "process.getMaxListeners",
 );
-const kill = notImplemented<Process["kill"]>("process.kill");
+export const kill = notImplemented<Process["kill"]>("process.kill");
 
-const memoryUsage: Process["memoryUsage"] = Object.assign(
+export const memoryUsage: Process["memoryUsage"] = Object.assign(
   () => ({
     arrayBuffers: 0,
     rss: 0,
@@ -130,19 +134,19 @@ const memoryUsage: Process["memoryUsage"] = Object.assign(
   { rss: () => 0 },
 );
 
-const pid: Process["pid"] = 1000;
-const platform: Process["platform"] = "" as any;
-const ppid: Process["ppid"] = 1000;
-const rawListeners = notImplemented<Process["rawListeners"]>(
+export const pid: Process["pid"] = 1000;
+export const platform: Process["platform"] = "" as any;
+export const ppid: Process["ppid"] = 1000;
+export const rawListeners = notImplemented<Process["rawListeners"]>(
   "process.rawListeners",
 );
-const release: Process["release"] = Object.create({
+export const release: Process["release"] = Object.create({
   name: "",
   lts: "",
   sourceUrl: undefined,
   headersUrl: undefined,
 });
-const report: Exclude<Process["report"], undefined> = Object.create({
+export const report: Exclude<Process["report"], undefined> = Object.create({
   compact: undefined,
   directory: undefined,
   filename: undefined,
@@ -153,38 +157,38 @@ const report: Exclude<Process["report"], undefined> = Object.create({
   signal: undefined,
   writeReport: notImplemented("process.report.writeReport"),
 });
-const resourceUsage = notImplemented<Process["resourceUsage"]>(
+export const resourceUsage = notImplemented<Process["resourceUsage"]>(
   "process.resourceUsage",
 );
-const setegid =
+export const setegid =
   notImplemented<Exclude<Process["setegid"], undefined>>("process.setegid");
-const seteuid =
+export const seteuid =
   notImplemented<Exclude<Process["seteuid"], undefined>>("process.seteuid");
-const setgid =
+export const setgid =
   notImplemented<Exclude<Process["setgid"], undefined>>("process.setgid");
-const setgroups =
+export const setgroups =
   notImplemented<Exclude<Process["setgroups"], undefined>>("process.setgroups");
-const setuid =
+export const setuid =
   notImplemented<Exclude<Process["setuid"], undefined>>("process.setuid");
-const setMaxListeners = notImplemented<Process["setMaxListeners"]>(
+export const setMaxListeners = notImplemented<Process["setMaxListeners"]>(
   "process.setMaxListeners",
 );
-const setSourceMapsEnabled = notImplemented<Process["setSourceMapsEnabled"]>(
-  "process.setSourceMapsEnabled",
-);
-const stdout: Process["stdout"] = mock.__createMock__("process.stdout");
-const stderr: Process["stderr"] = mock.__createMock__("process.stderr");
-const stdin: Process["stdin"] = mock.__createMock__("process.stdin");
+export const setSourceMapsEnabled = notImplemented<
+  Process["setSourceMapsEnabled"]
+>("process.setSourceMapsEnabled");
+export const stdout: Process["stdout"] = mock.__createMock__("process.stdout");
+export const stderr: Process["stderr"] = mock.__createMock__("process.stderr");
+export const stdin: Process["stdin"] = mock.__createMock__("process.stdin");
 const traceDeprecation: Process["traceDeprecation"] = false;
-const uptime: Process["uptime"] = () => 0;
-const exitCode: Process["exitCode"] = 0;
-const setUncaughtExceptionCaptureCallback = notImplemented<
+export const uptime: Process["uptime"] = () => 0;
+export const exitCode: Process["exitCode"] = 0;
+export const setUncaughtExceptionCaptureCallback = notImplemented<
   Process["setUncaughtExceptionCaptureCallback"]
 >("process.setUncaughtExceptionCaptureCallback");
-const hasUncaughtExceptionCaptureCallback: Process["hasUncaughtExceptionCaptureCallback"] =
+export const hasUncaughtExceptionCaptureCallback: Process["hasUncaughtExceptionCaptureCallback"] =
   () => false;
-const sourceMapsEnabled: Process["sourceMapsEnabled"] = false;
-const loadEnvFile = notImplemented<Process["loadEnvFile"]>(
+export const sourceMapsEnabled: Process["sourceMapsEnabled"] = false;
+export const loadEnvFile = notImplemented<Process["loadEnvFile"]>(
   "process.loadEnvFile",
 );
 const mainModule: Process["mainModule"] = undefined;
@@ -199,25 +203,25 @@ const throwDeprecation: Process["throwDeprecation"] = false;
 
 // --- Undocumented internals ---
 
-const assert = notImplemented("process.assert");
+export const assert = notImplemented("process.assert");
 const openStdin = notImplemented("process.openStdin");
 
-const _debugEnd = notImplemented("process._debugEnd");
-const _debugProcess = notImplemented("process._debugProcess");
-const _eventsCount = 0;
-const _fatalException = notImplemented("process._fatalException");
-const _getActiveHandles = notImplemented("process._getActiveHandles");
-const _getActiveRequests = notImplemented("process._getActiveRequests");
-const _kill = notImplemented("process._kill");
-const _preload_modules: string[] = [];
-const _rawDebug = notImplemented("process._rawDebug");
-const _startProfilerIdleNotifier = notImplemented(
+export const _debugEnd = notImplemented("process._debugEnd");
+export const _debugProcess = notImplemented("process._debugProcess");
+export const _eventsCount = 0;
+export const _fatalException = notImplemented("process._fatalException");
+export const _getActiveHandles = notImplemented("process._getActiveHandles");
+export const _getActiveRequests = notImplemented("process._getActiveRequests");
+export const _kill = notImplemented("process._kill");
+export const _preload_modules: string[] = [];
+export const _rawDebug = notImplemented("process._rawDebug");
+export const _startProfilerIdleNotifier = notImplemented(
   "process._startProfilerIdleNotifier",
 );
-const _stopProfilerIdleNotifier = notImplemented(
+export const _stopProfilerIdleNotifier = notImplemented(
   "process.__stopProfilerIdleNotifier",
 );
-const _tickCallback = notImplemented("process._tickCallback");
+export const _tickCallback = notImplemented("process._tickCallback");
 
 export const process: Process & Record<string, any> = {
   _debugEnd,
