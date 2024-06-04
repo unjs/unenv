@@ -28,7 +28,7 @@ export function env(...presets: Preset[]): Environment {
         if (Array.isArray(globalValue)) {
           const [id, ...path] = globalValue;
           _env.inject[global] = [id, ...path];
-        } else if (globalValue === null) {
+        } else if (globalValue === false) {
           delete _env.inject[global];
         } else {
           _env.inject[global] = globalValue;

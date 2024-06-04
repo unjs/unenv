@@ -54,8 +54,8 @@ const cloudflarePreset: Preset = {
   inject: {
     // workerd already defines `global` and `Buffer`
     // override the previous presets so that we use the native implementation
-    global: null,
-    Buffer: null,
+    global: false,
+    Buffer: false,
   },
   polyfill: [],
   external: [

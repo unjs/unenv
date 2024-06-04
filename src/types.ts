@@ -8,7 +8,7 @@ export interface Environment {
 export interface Preset {
   alias?: Environment["alias"];
   // inject's value is nullable to support overrides/subtraction
-  inject?: { [key: string]: string | string[] | null };
+  inject?: { [key: string]: string | string[] | false };
   polyfill?: Environment["polyfill"];
   external?: Environment["external"];
 }
