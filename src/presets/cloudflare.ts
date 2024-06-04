@@ -51,7 +51,12 @@ const cloudflarePreset: Preset = {
       ]),
     ),
   },
-  inject: {},
+  inject: {
+    // workerd already defines `global` and `Buffer`
+    // override the previous presets so that we use the native implementation
+    global: false,
+    Buffer: false,
+  },
   polyfill: [],
   external: [
     ...cloudflareNodeCompatModules.map((p) => `${p}`),
