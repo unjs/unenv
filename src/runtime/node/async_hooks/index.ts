@@ -11,8 +11,8 @@ export { AsyncResource } from "./internal/async-resource";
 
 export * from "./internal/async-hook";
 
-export default <typeof asyncHooks>{
+export default {
   AsyncLocalStorage,
   AsyncResource,
   ...asyncHook,
-};
+} satisfies typeof asyncHooks;

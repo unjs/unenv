@@ -10,7 +10,6 @@ const cloudflareNodeCompatModules = [
   "_stream_transform",
   "_stream_writable",
   "assert",
-  "async_hooks",
   "diagnostics_channel",
   "events",
   "path",
@@ -23,6 +22,7 @@ const cloudflareNodeCompatModules = [
 ];
 
 const hybridNodeCompatModules = [
+  "async_hooks",
   "buffer",
   "crypto",
   "process",

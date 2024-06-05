@@ -131,7 +131,7 @@ const envConfig = env(nodeless, vercel, {});
 
 - [node:assert](https://nodejs.org/api/assert.html)  - 🚧 mocked using proxy 
 - [node:assert/strict](https://nodejs.org/api/assert.html)  - 🚧 mocked using proxy 
-- [node:async_hooks](https://nodejs.org/api/async_hooks.html)  - ✅ polyfilled 6/7 exports 
+- [node:async_hooks](https://nodejs.org/api/async_hooks.html)  - ✅ polyfilled all exports 
 - [node:buffer](https://nodejs.org/api/buffer.html)  - ✅ polyfilled all exports 
 - [node:child_process](https://nodejs.org/api/child_process.html)  - ✅ polyfilled all exports 
 - [node:cluster](https://nodejs.org/api/cluster.html)  - ✅ polyfilled all exports 
