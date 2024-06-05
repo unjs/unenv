@@ -476,6 +476,15 @@ const punycode = {
   toUnicode,
 };
 
-export { ucs2decode, ucs2encode, decode, encode, toASCII, toUnicode };
+export {
+  version,
+  ucs2,
+  ucs2decode,
+  ucs2encode,
+  decode,
+  encode,
+  toASCII,
+  toUnicode,
+};
 
 export default punycode;

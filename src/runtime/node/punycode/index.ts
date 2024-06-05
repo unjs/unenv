@@ -4,4 +4,4 @@ import _punycode from "./internal/punycode";
 
 export * from "./internal/punycode";
 
-export default <typeof punycode>_punycode;
+export default _punycode satisfies typeof punycode;
