@@ -1,8 +1,8 @@
 import type wasi from "node:wasi";
 import { notImplementedClass } from "../../_internal/utils";
 
-const WASI: typeof wasi.WASI = notImplementedClass("wasi.WASI");
+export const WASI: typeof wasi.WASI = notImplementedClass("wasi.WASI");
 
-export default <typeof wasi>{
+export default {
   WASI,
-};
+} satisfies typeof wasi;
