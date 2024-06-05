@@ -1,6 +1,8 @@
-import _process from "../node/process/index";
-import _global from "./global-this";
+import type nodeProcess from "node:process";
+import unenvProcess from "../node/process/index";
 
-_global.process = _global.process || _process;
-
-export default _global.process;
+// use Object.assign to preserve the identity of globalThis.process
+Object.assign(globalThis.process, {
+  ...unenvProcess,
+  ...globalThis.process,
+}) satisfies typeof nodeProcess;

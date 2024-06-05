@@ -1,6 +1,6 @@
 // https://nodejs.org/api/process.html
-import type process from "node:process";
+import type nodeProcess from "node:process";
 
-import { process as _process } from "./internal/process";
+import { process as unenvProcess } from "./internal/process";
 
-export default <typeof process>_process;
+export default unenvProcess satisfies typeof nodeProcess;
