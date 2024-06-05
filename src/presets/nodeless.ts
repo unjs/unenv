@@ -86,7 +86,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
   },
 
   inject: {
-    global: "unenv/runtime/node/global",
+    global: "unenv/runtime/node/_global",
     process: "unenv/runtime/node/process",
     Buffer: ["buffer", "Buffer"],
     performance: "unenv/runtime/polyfill/performance",
