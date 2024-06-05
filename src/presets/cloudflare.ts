@@ -62,6 +62,7 @@ const cloudflarePreset: Preset = {
     // override the previous presets so that we use the native implementation
     global: false,
     Buffer: false,
+    process: "unenv/runtime/node/process/$cloudflare",
   },
   polyfill: [],
   external: [

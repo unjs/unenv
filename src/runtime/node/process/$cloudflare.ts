@@ -204,8 +204,19 @@ import {
   versions,
 } from "./internal/process";
 
+// The following is an unusual way to access the original/unpatched globalThis.process.
+// This is needed to get hold of the real process object before any of the unenv polyfills are
+// applied via `inject` or `polyfill` config in presets.
+//
+// This code relies on the that rollup/esbuild/webpack don't evaluate string concatenation
+// so they don't recognize the below as `globalThis.process` which they would try to rewrite
+// into unenv/runtime/node/process, thus creating a circular dependency, and breaking this polyfill.
+const unpatchedGlobalThisProcess = (globalThis as any)[
+  "pro" + "cess"
+] as typeof nodeProcess;
 // @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
-const workerdProcess = process.getBuiltinModule("node:process");
+export const getBuiltinModule = unpatchedGlobalThisProcess.getBuiltinModule;
+const workerdProcess = getBuiltinModule("node:process") as typeof nodeProcess;
 
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call
 //       This generation should use information from https://github.com/cloudflare/workerd/issues/2097
@@ -320,5 +331,6 @@ export default {
    * manually unroll workerd-polyfilled-symbols to make it tree-shakeable
    */
   env,
+  getBuiltinModule,
   nextTick,
 } satisfies typeof nodeProcess;
