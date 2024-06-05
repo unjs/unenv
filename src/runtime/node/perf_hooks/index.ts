@@ -40,5 +40,4 @@ export default {
   createHistogram,
   monitorEventLoopDelay,
   performance,
-} satisfies // @types/node bug: PerformanceNodeTiming is included in the types but doesn't exist in the runtime
-Omit<typeof perf_hooks, "PerformanceNodeTiming">;
+} satisfies Omit<typeof perf_hooks, "PerformanceNodeTiming">; // @types/node bug: PerformanceNodeTiming is included in the types but doesn't exist in the runtime
