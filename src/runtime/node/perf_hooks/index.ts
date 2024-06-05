@@ -1,7 +1,16 @@
 import type perf_hooks from "node:perf_hooks";
 import { IntervalHistogram, RecordableHistogram } from "./internal/histogram";
 import { constants } from "./internal/constants";
-import * as _performance from "./internal/performance";
+import {
+  performance,
+  Performance,
+  PerformanceEntry,
+  PerformanceMark,
+  PerformanceMeasure,
+  PerformanceObserverEntryList,
+  PerformanceObserver,
+  PerformanceResourceTiming,
+} from "./internal/performance";
 export { constants } from "./internal/constants";
 
 export * from "./internal/performance";
@@ -17,10 +26,19 @@ export const createHistogram: typeof perf_hooks.createHistogram = function (
   return new RecordableHistogram();
 };
 
-// PerformanceNodeTiming is included in the types but doesn't exist in the runtime
-export default <Omit<typeof perf_hooks, "PerformanceNodeTiming">>{
-  ..._performance,
+export default {
+  Performance,
+  PerformanceEntry,
+  PerformanceMark,
+  PerformanceMeasure,
+  // @ts-expect-error TODO: resolve type-mismatch between web and node PerformanceObserverEntryList
+  PerformanceObserverEntryList,
+  PerformanceObserver,
+  // @ts-expect-error TODO: resolve type-mismatch between web and node PerformanceObserverEntryList
+  PerformanceResourceTiming,
   constants,
   createHistogram,
   monitorEventLoopDelay,
-};
+  performance,
+} satisfies // @types/node bug: PerformanceNodeTiming is included in the types but doesn't exist in the runtime
+Omit<typeof perf_hooks, "PerformanceNodeTiming">;
