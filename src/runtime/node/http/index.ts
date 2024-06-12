@@ -34,6 +34,8 @@ export const setMaxIdleHTTPParsers = notImplemented<
   typeof http.setMaxIdleHTTPParsers
 >("http.setMaxIdleHTTPParsers");
 
+export const _connectionListener = notImplemented("http._connectionListener");
+
 export default <typeof http>{
   ...consts,
   IncomingMessage: IncomingMessage as any as typeof http.IncomingMessage,
@@ -49,4 +51,5 @@ export default <typeof http>{
   validateHeaderName,
   validateHeaderValue,
   setMaxIdleHTTPParsers,
+  _connectionListener,
 };
