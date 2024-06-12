@@ -10,7 +10,6 @@ import {
   _PerformanceObserverEntryList,
   _PerformanceResourceTiming,
 } from "../../../web/performance/index";
-import { PerformanceNodeTiming } from "node:perf_hooks";
 
 // Non modified APIs
 export {
@@ -78,9 +77,9 @@ export const Performance = class Performance
     deliveryType?: string,
   ): PerformanceResourceTiming {
     // TODO: create a new PerformanceResourceTiming entry
-    // so that peformance.getEntries, getEntriesByName, and getEntriesByType return it
+    // so that performance.getEntries, getEntriesByName, and getEntriesByType return it
     // see: https://nodejs.org/api/perf_hooks.html#performancemarkresourcetimingtiminginfo-requestedurl-initiatortype-global-cachemode-bodyinfo-responsestatus-deliverytype
-    return mock;
+    return new _PerformanceResourceTiming("");
   }
 
   measure(
