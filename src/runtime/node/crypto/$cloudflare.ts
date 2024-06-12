@@ -128,7 +128,6 @@ export default {
    */
   Certificate,
   Cipher,
-  // @ts-expect-error undocumented public API
   Cipheriv,
   Decipher,
   Decipheriv,
@@ -136,6 +135,7 @@ export default {
   Sign,
   Verify,
   X509Certificate,
+  // @ts-expect-error @types/node is out of date - this is a bug in typings
   constants,
   createCipheriv,
   createDecipheriv,
