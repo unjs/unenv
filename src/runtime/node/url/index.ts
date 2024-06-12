@@ -145,7 +145,7 @@ export const resolveObject = function resolveObject(
 
 export default {
   URL,
-  // @ts-expect-error
+  // @ts-expect-error deprecated internal
   Url,
   resolveObject,
   URLSearchParams,
