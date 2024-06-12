@@ -146,7 +146,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:events](https://nodejs.org/api/events.html)  - ✅ polyfilled 2/15 exports 
 - [node:fs](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
 - [node:fs/promises](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
-- [node:http](https://nodejs.org/api/http.html)  - ✅ polyfilled 16/17 exports 
+- [node:http](https://nodejs.org/api/http.html)  - ✅ polyfilled all exports 
 - [node:http2](https://nodejs.org/api/http2.html)  - ✅ polyfilled all exports 
 - [node:https](https://nodejs.org/api/https.html)  - ✅ polyfilled all exports 
 - [node:inspector](https://nodejs.org/api/inspector.html)  - ✅ polyfilled all exports 
@@ -154,9 +154,9 @@ const envConfig = env(nodeless, vercel, {});
 - [node:module](https://nodejs.org/api/module.html)  - ✅ polyfilled 9/21 exports 
 - [node:net](https://nodejs.org/api/net.html)  - ✅ polyfilled 14/18 exports 
 - [node:os](https://nodejs.org/api/os.html)  - ✅ polyfilled all exports 
-- [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
-- [node:path/posix](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
-- [node:path/win32](https://nodejs.org/api/path.html)  - ✅ polyfilled 15/16 exports 
+- [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
+- [node:path/posix](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
+- [node:path/win32](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
 - [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled all exports 
 - [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 84/92 exports 
 - [node:punycode](https://nodejs.org/api/punycode.html)  - ✅ polyfilled all exports 

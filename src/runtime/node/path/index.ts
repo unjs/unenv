@@ -10,6 +10,7 @@ const _pathModule = {
   platform: "posix",
   posix: undefined as any,
   win32: undefined as any,
+  _makeLong: (path: string) => path,
 };
 _pathModule.posix = _pathModule;
 _pathModule.win32 = _pathModule;
@@ -17,5 +18,7 @@ _pathModule.win32 = _pathModule;
 export const posix: typeof path.posix = _pathModule;
 export const win32: typeof path.posix = _pathModule;
 export const platform = "posix";
+
+export const _makeLong = _pathModule._makeLong;
 
 export default <typeof path>_pathModule;
