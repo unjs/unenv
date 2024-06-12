@@ -147,6 +147,7 @@ export default {
   URL,
   // @ts-expect-error
   Url,
+  resolveObject,
   URLSearchParams,
   domainToASCII,
   domainToUnicode,
