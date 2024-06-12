@@ -44,6 +44,13 @@ export const timeStamp: typeof console.timeStamp = _console?.timeStamp ?? noop;
 export const Console: typeof console.Console =
   _console?.Console ?? mock.__createMock__("console.Console");
 
+export { default as _times } from "../../mock/proxy";
+
+export {
+  default as _stdoutErrorHandler,
+  default as _stderrErrorHandler,
+} from "../../mock/noop";
+
 export default {
   assert,
   clear,
@@ -69,9 +76,3 @@ export default {
   trace,
   warn,
 } satisfies typeof console;
-
-export { default as _times } from "../../mock/proxy";
-export {
-  default as _stdoutErrorHandler,
-  default as _stderrErrorHandler,
-} from "../../mock/noop";
