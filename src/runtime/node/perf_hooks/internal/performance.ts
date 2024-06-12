@@ -1,5 +1,6 @@
 import type perf_hooks from "node:perf_hooks";
 import { createNotImplementedError } from "../../../_internal/utils";
+import mock from "../../../mock/proxy";
 import {
   _Performance,
   _PerformanceEntry,
@@ -9,12 +10,31 @@ import {
   _PerformanceObserverEntryList,
   _PerformanceResourceTiming,
 } from "../../../web/performance/index";
+import { PerformanceNodeTiming } from "node:perf_hooks";
 
 // Non modified APIs
 export {
   PerformanceResourceTiming,
   PerformanceObserverEntryList,
 } from "../../../web/performance/index";
+
+// grabbed from Node.js v22.3.0 using:
+//   performance.nodeTiming
+const nodeTiming = {
+  name: "node",
+  entryType: "node",
+  startTime: 0,
+  duration: 305_963.045_666,
+  nodeStart: 1.662_124_991_416_931_2,
+  v8Start: 44.762_125_015_258_79,
+  bootstrapComplete: 49.992_666_006_088_26,
+  environment: 46.754_665_970_802_31,
+  loopStart: 63.262_040_972_709_656,
+  loopExit: -1,
+  idleTime: 305_360.555_328,
+  // only present in Node.js 18.x
+  detail: undefined,
+} satisfies Omit<perf_hooks.PerformanceNodeTiming, "toJSON">;
 
 // Performance
 export const Performance = class Performance
@@ -31,8 +51,11 @@ export const Performance = class Performance
     throw createNotImplementedError("Performance.timerify");
   }
 
-  get nodeTiming() {
-    return <perf_hooks.PerformanceNodeTiming>{};
+  get nodeTiming(): perf_hooks.PerformanceNodeTiming {
+    return {
+      ...nodeTiming,
+      toJSON: () => nodeTiming,
+    };
   }
 
   eventLoopUtilization() {
@@ -42,6 +65,22 @@ export const Performance = class Performance
   mark(name: string, options?: PerformanceMarkOptions | undefined) {
     const entry = super.mark(name, options);
     return entry as any;
+  }
+
+  markResourceTiming(
+    timingInfo: object,
+    requestedUrl: string,
+    initiatorType: string,
+    global: object,
+    cacheMode: string,
+    bodyInfo: object,
+    responseStatus: number,
+    deliveryType?: string,
+  ): PerformanceResourceTiming {
+    // TODO: create a new PerformanceResourceTiming entry
+    // so that peformance.getEntries, getEntriesByName, and getEntriesByType return it
+    // see: https://nodejs.org/api/perf_hooks.html#performancemarkresourcetimingtiminginfo-requestedurl-initiatortype-global-cachemode-bodyinfo-responsestatus-deliverytype
+    return mock;
   }
 
   measure(
