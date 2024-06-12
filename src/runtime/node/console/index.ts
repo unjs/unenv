@@ -1,9 +1,15 @@
 import type console from "node:console";
+import { Writable } from "node:stream";
 import mock from "../../mock/proxy";
 import noop from "../../mock/noop";
 import { notImplemented } from "../../_internal/utils";
 
 const _console = globalThis.console;
+
+// undocumented public APIs
+export const _ignoreErrors: boolean = true;
+export const _stderr: Writable = new Writable();
+export const _stdout: Writable = new Writable();
 
 export const log: typeof console.log = _console?.log ?? noop;
 export const info: typeof console.info = _console?.info ?? log;
@@ -38,7 +44,7 @@ export const timeStamp: typeof console.timeStamp = _console?.timeStamp ?? noop;
 export const Console: typeof console.Console =
   _console?.Console ?? mock.__createMock__("console.Console");
 
-export default <typeof console>{
+export default {
   assert,
   clear,
   Console,
@@ -62,4 +68,10 @@ export default <typeof console>{
   timeStamp,
   trace,
   warn,
-};
+} satisfies typeof console;
+
+export { default as _times } from "../../mock/proxy";
+export {
+  default as _stdoutErrorHandler,
+  default as _stderrErrorHandler,
+} from "../../mock/noop";
