@@ -1,6 +1,5 @@
 import type perf_hooks from "node:perf_hooks";
 import { createNotImplementedError } from "../../../_internal/utils";
-import mock from "../../../mock/proxy";
 import {
   _Performance,
   _PerformanceEntry,
