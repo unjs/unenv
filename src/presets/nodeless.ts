@@ -90,9 +90,6 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     process: "unenv/runtime/node/process",
     Buffer: ["buffer", "Buffer"],
     performance: ["perf_hooks", "performance"],
-
-    // TODO: for some reason the following Performance* injectables are not honored
-    //       figure out why... is this some kind of ESBuild bug?
     Performance: ["perf_hooks", "Performance"],
     PerformanceEntry: ["perf_hooks", "PerformanceEntry"],
     PerformanceMark: ["perf_hooks", "PerformanceMark"],
