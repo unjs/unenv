@@ -35,29 +35,30 @@ const ERR_INVALID_RETURN_VALUE = Error;
 const ERR_MISSING_ARGS = Error;
 
 export class AssertionError extends Error implements nodeAssert.AssertionError {
-  actual: any;
-  expected: any;
+  actual: unknown;
+  expected: unknown;
   operator: string;
   generatedMessage: boolean;
   code = "ERR_ASSERTION" as const;
   constructor(options: {
     message?: string;
-    actual: any;
-    expected: any;
-    operator: string;
-    stackStartFn?: any;
+    actual?: unknown;
+    expected?: unknown;
+    operator?: string;
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    stackStartFn?: Function;
   }) {
     super();
     this.actual = options.actual;
     this.expected = options.expected;
-    this.operator = options.operator;
+    this.operator = options.operator || "";
     this.generatedMessage = options.message === undefined;
     const stackStartFn = options.stackStartFn || fail;
     Error.captureStackTrace?.(this, stackStartFn);
   }
 }
 
-const inspect = (val?: any, opts?: any) => val;
+const inspect = (val?: unknown, opts?: unknown) => val;
 
 // Using ohash instead of internal/util/comparisons
 const isDeepEqual = _ohashIsEqual;
@@ -87,7 +88,7 @@ const NO_EXCEPTION_SENTINEL = {};
  * @param {...any} args
  * @returns {void}
  */
-export function ok(...args: any[]) {
+export function ok(...args: unknown[]) {
   // @ts-expect-error
   innerOk(ok, args.length, ...args);
 }
@@ -99,7 +100,11 @@ export function ok(...args: any[]) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function equal(actual, expected, message) {
+export function equal(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+): void {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -127,7 +132,11 @@ export function equal(actual, expected, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function notEqual(actual, expected, message) {
+export function notEqual(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+) {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -151,7 +160,11 @@ export function notEqual(actual, expected, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function deepEqual(actual, expected, message) {
+export function deepEqual(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+) {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -174,7 +187,11 @@ export function deepEqual(actual, expected, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function notDeepEqual(actual, expected, message) {
+export function notDeepEqual(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+) {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -198,7 +215,11 @@ export function notDeepEqual(actual, expected, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function deepStrictEqual(actual, expected, message) {
+export function deepStrictEqual(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+) {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -222,7 +243,11 @@ export function deepStrictEqual(actual, expected, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function notDeepStrictEqual(actual, expected, message) {
+export function notDeepStrictEqual(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+) {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -245,7 +270,11 @@ export function notDeepStrictEqual(actual, expected, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function strictEqual(actual, expected, message) {
+export function strictEqual(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+) {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -268,7 +297,11 @@ export function strictEqual(actual, expected, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function notStrictEqual(actual, expected, message) {
+export function notStrictEqual(
+  actual: unknown,
+  expected: unknown,
+  message?: string | Error,
+) {
   if (arguments.length < 2) {
     // @ts-expect-error
     throw new ERR_MISSING_ARGS("actual", "expected");
@@ -287,7 +320,7 @@ export function notStrictEqual(actual, expected, message) {
 /**
  * Expects the function `promiseFn` to throw an error.
  */
-export function throws(promiseFn: () => any, ...args: any[]): void {
+export function throws(promiseFn: () => any, ...args: unknown[]): void {
   // @ts-expect-error
   expectsError(throws, getActual(promiseFn), ...args);
 }
@@ -295,7 +328,10 @@ export function throws(promiseFn: () => any, ...args: any[]): void {
 /**
  * Expects `promiseFn` function or its value to reject.
  */
-export async function rejects(promiseFn, ...args: any[]): Promise<void> {
+export async function rejects(
+  promiseFn: (() => Promise<unknown>) | Promise<unknown>,
+  ...args: unknown[]
+): Promise<void> {
   // @ts-expect-error
   expectsError(rejects, await waitForActual(promiseFn), ...args);
 }
@@ -303,7 +339,7 @@ export async function rejects(promiseFn, ...args: any[]): Promise<void> {
 /**
  * Asserts that the function `fn` does not throw an error.
  */
-export function doesNotThrow(fn, ...args: any[]): void {
+export function doesNotThrow(fn: () => any, ...args: unknown[]): void {
   // @ts-expect-error
   expectsNoError(doesNotThrow, getActual(fn), ...args);
 }
@@ -311,7 +347,10 @@ export function doesNotThrow(fn, ...args: any[]): void {
 /**
  * Expects `fn` or its value to not reject.
  */
-export async function doesNotReject(fn, ...args: any[]): Promise<void> {
+export async function doesNotReject(
+  fn: (() => Promise<unknown>) | Promise<unknown>,
+  ...args: unknown[]
+): Promise<void> {
   // @ts-expect-error
   expectsNoError(doesNotReject, await waitForActual(fn), ...args);
 }
@@ -380,7 +419,11 @@ export function ifError(err: unknown) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function match(string, regexp, message) {
+export function match(
+  string: string,
+  regexp: RegExp,
+  message?: string | Error,
+) {
   internalMatch(string, regexp, message, match);
 }
 
@@ -391,16 +434,20 @@ export function match(string, regexp, message) {
  * @param {string | Error} [message]
  * @returns {void}
  */
-export function doesNotMatch(string, regexp, message) {
+export function doesNotMatch(
+  string: string,
+  regexp: RegExp,
+  message?: string | Error,
+) {
   internalMatch(string, regexp, message, doesNotMatch);
 }
 
 export function fail(
-  actual: any,
-  expected?: any,
+  actual: unknown,
+  expected?: unknown,
   message?: string | Error,
   operator?: string,
-  stackStartFn?: any /* Function */,
+  stackStartFn?: Function, // eslint-disable-line @typescript-eslint/ban-types
 ): never {
   const argsLen = arguments.length;
 
@@ -409,7 +456,7 @@ export function fail(
     internalMessage = true;
     message = "Failed";
   } else if (argsLen === 1) {
-    message = actual;
+    message = actual as string;
     actual = undefined;
   } else {
     if (warned === false) {
@@ -430,7 +477,8 @@ export function fail(
     actual,
     expected,
     operator: operator === undefined ? "fail" : operator,
-    stackStartFn: stackStartFn || fail,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    stackStartFn: (stackStartFn || fail) as Function,
     message,
   };
   const err = new AssertionError(errArgs);
@@ -444,13 +492,18 @@ export function fail(
 // Internal utils
 // ----------------------------------------------------------------------------
 
-function innerFail(obj) {
+function innerFail(obj: any) {
   if (obj.message instanceof Error) throw obj.message;
 
   throw new AssertionError(obj);
 }
 
-function innerOk(fn, argLen, value, message) {
+function innerOk(
+  fn: () => void,
+  argLen: number,
+  value: unknown,
+  message?: string | Error,
+) {
   if (!value) {
     let generatedMessage = false;
 
@@ -459,7 +512,7 @@ function innerOk(fn, argLen, value, message) {
       message = "No value argument passed to `assert.ok()`";
     } else if (message == null) {
       generatedMessage = true;
-      message = message as string; // Replaced getErrMessage
+      message = "<null>"; // Replaced getErrMessage
     } else if (message instanceof Error) {
       throw message;
     }
@@ -477,7 +530,7 @@ function innerOk(fn, argLen, value, message) {
 }
 
 class Comparison {
-  constructor(obj, keys, actual?) {
+  constructor(obj: any, keys: string[], actual?: any) {
     for (const key of keys) {
       if (key in obj) {
         if (
@@ -486,8 +539,10 @@ class Comparison {
           obj[key] instanceof RegExp &&
           obj[key].exec(actual[key]) !== null
         ) {
+          // @ts-expect-error
           this[key] = actual[key];
         } else {
+          // @ts-expect-error
           this[key] = obj[key];
         }
       }
@@ -495,7 +550,14 @@ class Comparison {
   }
 }
 
-function compareExceptionKey(actual, expected, key, message, keys, fn) {
+function compareExceptionKey(
+  actual: any,
+  expected: any,
+  key: string,
+  message: string | Error,
+  keys: string[],
+  fn: () => any,
+) {
   if (!(key in actual) || !isDeepStrictEqual(actual[key], expected[key])) {
     if (!message) {
       // Create placeholder objects to create a nice output.
@@ -523,7 +585,12 @@ function compareExceptionKey(actual, expected, key, message, keys, fn) {
   }
 }
 
-function expectedException(actual, expected, message, fn) {
+function expectedException(
+  actual: unknown,
+  expected: unknown,
+  message: string,
+  fn: () => any,
+) {
   let generatedMessage = false;
   let throwError = false;
 
@@ -553,7 +620,7 @@ function expectedException(actual, expected, message, fn) {
       throw err;
     } else {
       // Handle validation objects.
-      const keys = Object.keys(expected);
+      const keys = Object.keys(expected as any);
       // Special handle errors to make sure the name and the message are
       // compared as well.
       if (expected instanceof Error) {
@@ -568,8 +635,11 @@ function expectedException(actual, expected, message, fn) {
       }
       for (const key of keys) {
         if (
+          // @ts-expect-error
           typeof actual[key] === "string" &&
+          // @ts-expect-error
           expected[key] instanceof RegExp &&
+          // @ts-expect-error
           expected[key].exec(actual[key]) !== null
         ) {
           continue;
@@ -636,7 +706,7 @@ function expectedException(actual, expected, message, fn) {
   }
 }
 
-function getActual(fn) {
+function getActual(fn: () => any) {
   // validateFunction(fn, "fn");
   try {
     fn();
@@ -646,7 +716,7 @@ function getActual(fn) {
   return NO_EXCEPTION_SENTINEL;
 }
 
-function checkIsPromise(obj) {
+function checkIsPromise(obj: any) {
   // Accept native ES6 promises and promises that are implemented in a similar
   // way. Do not accept thenables that use a function as `obj` and that have no
   // `catch` handler.
@@ -659,7 +729,12 @@ function checkIsPromise(obj) {
   );
 }
 
-function internalMatch(string, regexp, message, fn) {
+function internalMatch(
+  string: string,
+  regexp: RegExp,
+  message?: string | Error,
+  fn?: typeof match | typeof doesNotMatch,
+) {
   if (!(regexp instanceof RegExp)) {
     // @ts-expect-error
     throw new ERR_INVALID_ARG_TYPE("regexp", "RegExp", regexp);
@@ -686,7 +761,7 @@ function internalMatch(string, regexp, message, fn) {
       actual: string,
       expected: regexp,
       message,
-      operator: fn.name,
+      operator: fn?.name,
       stackStartFn: fn,
     });
     err.generatedMessage = generatedMessage;
@@ -694,7 +769,7 @@ function internalMatch(string, regexp, message, fn) {
   }
 }
 
-async function waitForActual(promiseFn) {
+async function waitForActual(promiseFn: () => any) {
   let resultPromise;
   if (typeof promiseFn === "function") {
     // Return a rejected promise if `promiseFn` throws synchronously.
@@ -727,7 +802,12 @@ async function waitForActual(promiseFn) {
   return NO_EXCEPTION_SENTINEL;
 }
 
-function expectsError(stackStartFn, actual, error, message) {
+function expectsError(
+  stackStartFn: () => any,
+  actual: any,
+  error: Error | undefined,
+  message: string,
+) {
   if (typeof error === "string") {
     if (arguments.length === 4) {
       throw new ERR_INVALID_ARG_TYPE(
@@ -738,7 +818,7 @@ function expectsError(stackStartFn, actual, error, message) {
       );
     }
     if (typeof actual === "object" && actual !== null) {
-      if (actual.message === error) {
+      if (actual?.message === error) {
         throw new ERR_AMBIGUOUS_ARGUMENT(
           "error/message",
           // @ts-expect-error
@@ -788,7 +868,7 @@ function expectsError(stackStartFn, actual, error, message) {
   expectedException(actual, error, message, stackStartFn);
 }
 
-function hasMatchingError(actual, expected) {
+function hasMatchingError(actual: unknown, expected: unknown) {
   if (typeof expected !== "function") {
     if (expected instanceof RegExp) {
       const str = String(actual);
@@ -811,7 +891,12 @@ function hasMatchingError(actual, expected) {
   return Reflect.apply(expected, {}, [actual]) === true;
 }
 
-function expectsNoError(stackStartFn, actual, error, message) {
+function expectsNoError(
+  stackStartFn: () => any,
+  actual: any,
+  error: Error | undefined,
+  message: string,
+) {
   if (actual === NO_EXCEPTION_SENTINEL) return;
 
   if (typeof error === "string") {
@@ -826,7 +911,7 @@ function expectsNoError(stackStartFn, actual, error, message) {
     innerFail({
       actual,
       expected: error,
-      operator: stackStartFn.name,
+      operator: stackStartFn?.name,
       message:
         `Got unwanted ${fnType}${details}\n` +
         `Actual message: "${actual && actual.message}"`,
@@ -869,7 +954,7 @@ assert.AssertionError = AssertionError;
 assert.CallTracker = CallTracker;
 
 export const strict = Object.assign(
-  function _strict(...args) {
+  function _strict(...args: any[]) {
     // @ts-expect-error
     innerOk(strict, args.length, ...args);
   },
