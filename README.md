@@ -143,7 +143,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:dns](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports 
 - [node:dns/promises](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports 
 - [node:domain](https://nodejs.org/api/domain.html)  - ✅ polyfilled all exports 
-- [node:events](https://nodejs.org/api/events.html)  - ✅ polyfilled 2/15 exports 
+- [node:events](https://nodejs.org/api/events.html)  - ✅ polyfilled all exports 
 - [node:fs](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
 - [node:fs/promises](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
 - [node:http](https://nodejs.org/api/http.html)  - ✅ polyfilled all exports 

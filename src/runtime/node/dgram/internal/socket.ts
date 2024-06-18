@@ -2,7 +2,6 @@ import { EventEmitter } from "../../events";
 import type net from "node:net";
 import type dgram from "node:dgram";
 
-// eslint-disable-next-line unicorn/prefer-event-target
 export class Socket extends EventEmitter implements dgram.Socket {
   readonly __unenv__ = true;
 

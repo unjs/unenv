@@ -2,7 +2,6 @@ import { createNotImplementedError } from "../../../_internal/utils";
 import { EventEmitter } from "../../events";
 import type domain from "node:domain";
 
-// eslint-disable-next-line unicorn/prefer-event-target
 export class Domain extends EventEmitter implements domain.Domain {
   readonly __unenv__ = true;
 
