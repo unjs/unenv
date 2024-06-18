@@ -7,6 +7,7 @@
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
+    "noImplicitAny": false,
     "types": ["node"]
   },
   "include": ["src/**/*"]
