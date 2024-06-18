@@ -151,7 +151,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:https](https://nodejs.org/api/https.html)  - ✅ polyfilled all exports 
 - [node:inspector](https://nodejs.org/api/inspector.html)  - ✅ polyfilled all exports 
 - [node:inspector/promises](https://nodejs.org/api/inspector.html)  - 🚧 mocked using proxy 
-- [node:module](https://nodejs.org/api/module.html)  - ✅ polyfilled 9/21 exports 
+- [node:module](https://nodejs.org/api/module.html)  - ✅ polyfilled all exports 
 - [node:net](https://nodejs.org/api/net.html)  - ✅ polyfilled 14/18 exports 
 - [node:os](https://nodejs.org/api/os.html)  - ✅ polyfilled all exports 
 - [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
