@@ -13,6 +13,8 @@ export default unjs({
     "unicorn/text-encoding-identifier-case": 0,
     "prefer-rest-params": 0,
     "prefer-spread": 0,
+    "unicorn/prefer-event-target": 0,
+    "unicorn/prefer-ternary": 0,
     "unicorn/number-literal-case": 0,
     "generator-star-spacing": 0,
     "unicorn/no-nested-ternary": 0,
