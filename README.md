@@ -135,7 +135,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:buffer](https://nodejs.org/api/buffer.html)  - ✅ polyfilled all exports 
 - [node:child_process](https://nodejs.org/api/child_process.html)  - ✅ polyfilled all exports 
 - [node:cluster](https://nodejs.org/api/cluster.html)  - ✅ polyfilled all exports 
-- [node:console](https://nodejs.org/api/console.html)  - ✅ polyfilled 23/25 exports 
+- [node:console](https://nodejs.org/api/console.html)  - ✅ polyfilled all exports 
 - [node:constants](https://nodejs.org/api/constants.html)  - ✅ polyfilled all exports 
 - [node:crypto](https://nodejs.org/api/crypto.html)  - ✅ polyfilled all exports 
 - [node:dgram](https://nodejs.org/api/dgram.html)  - ✅ polyfilled all exports 
@@ -167,7 +167,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/37 exports 
 - [node:stream/consumers](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
 - [node:stream/promises](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
-- [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled 16/17 exports 
+- [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
 - [node:string_decoder](https://nodejs.org/api/string_decoder.html)  - ✅ polyfilled all exports 
 - [node:sys](https://nodejs.org/api/sys.html)  - ✅ polyfilled all exports 
 - [node:timers](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
