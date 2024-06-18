@@ -656,7 +656,7 @@ class EventEmitterReferencingAsyncResource extends AsyncResource {
  * @returns {AsyncIterator}
  */
 export const on: typeof nodeEvents.on = function on(
-  emitter: NodeEventEmitter,
+  emitter: NodeEventEmitter | EventTarget,
   event: string | symbol,
   options = {},
 ) {
@@ -779,7 +779,10 @@ export const on: typeof nodeEvents.on = function on(
           return eventHandler(args);
         },
   );
-  if (event !== "error" && typeof emitter.on === "function") {
+  if (
+    event !== "error" &&
+    typeof (emitter as NodeEventEmitter).on === "function"
+  ) {
     addEventListener(emitter, "error", errorHandler);
   }
   const closeEvents = options?.close;
@@ -1362,7 +1365,7 @@ function listenersController() {
 
   return {
     addEventListener(
-      emitter: NodeEventEmitter,
+      emitter: NodeEventEmitter | EventTarget,
       event: string | symbol,
       handler: Listener,
       flags?: any,
