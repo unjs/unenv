@@ -1,52 +1,94 @@
 // Reference: https://github.com/nodejs/node/blob/main/lib/internal/cluster/primary.js
-import noop from "../../mock/noop";
 import mock from "../../mock/proxy";
-import type cluster from "node:cluster";
-import type { Cluster, Worker as _Worker } from "node:cluster";
-import { EventEmitter } from "../events";
+import { notImplemented } from "../../_internal/utils";
+import type nodeCluster from "node:cluster";
+import type {
+  Cluster as NodeCluster,
+  Worker as NodeClusterWorker,
+} from "node:cluster";
+import { EventEmitter } from "node:events";
 
-// A mapped type used internally to allow assigning to readonly fields like `isPrimary`
-type MutableCluster = {
-  -readonly [key in keyof Cluster]: Cluster[key];
-} & {
-  Worker: typeof _Worker;
-};
+export const SCHED_NONE: typeof nodeCluster.SCHED_NONE = 1;
+export const SCHED_RR: typeof nodeCluster.SCHED_RR = 2;
 
-// @ts-expect-error TODO
-const _cluster = new EventEmitter() as MutableCluster;
+export const isMaster: typeof nodeCluster.isMaster = true;
+export const isPrimary: typeof nodeCluster.isPrimary = true;
+export const isWorker: typeof nodeCluster.isWorker = false;
 
-export const disconnect: typeof cluster.disconnect = noop;
-export const fork: typeof cluster.fork = () =>
-  mock.__createMock__("cluster.Worker");
-export const isMaster: typeof cluster.isMaster = true;
-export const isPrimary: typeof cluster.isPrimary = true;
-export const isWorker: typeof cluster.isWorker = false;
-export const SCHED_NONE: typeof cluster.SCHED_NONE = 1;
-export const SCHED_RR: typeof cluster.SCHED_RR = 2;
-export const schedulingPolicy: typeof cluster.schedulingPolicy = SCHED_RR;
-export const settings: typeof cluster.settings = {};
-export const setupPrimary: typeof cluster.setupPrimary = noop;
-export const setupMaster: typeof cluster.setupMaster = noop;
-export const workers: typeof cluster.workers = {};
-export const Worker: typeof _Worker = mock.__createMock__("cluster.Worker");
+export const schedulingPolicy: typeof nodeCluster.schedulingPolicy = SCHED_RR;
+export const settings: typeof nodeCluster.settings = {};
+export const workers: typeof nodeCluster.workers = {};
 
-// These 3 _functions don't exist on the EventEmitter type
-export const _events = (_cluster as any)._events;
-export const _eventsCount = (_cluster as any)._eventsCount;
-export const _maxListeners = (_cluster as any)._maxListeners;
+export const fork: typeof nodeCluster.fork = notImplemented("cluster.fork");
 
-_cluster.disconnect = disconnect;
-_cluster.fork = fork;
-_cluster.isMaster = isMaster;
-_cluster.isPrimary = isPrimary;
-_cluster.isWorker = isWorker;
-_cluster.SCHED_NONE = SCHED_NONE;
-_cluster.SCHED_RR = SCHED_RR;
-_cluster.schedulingPolicy = SCHED_RR;
-_cluster.settings = settings;
-_cluster.setupPrimary = setupPrimary;
-_cluster.setupMaster = setupMaster;
-_cluster.workers = workers;
-_cluster.Worker = Worker;
+export const disconnect: typeof nodeCluster.disconnect =
+  notImplemented("cluster.disconnect");
 
-export default _cluster as Cluster;
+export const setupPrimary: typeof nodeCluster.setupPrimary = notImplemented(
+  "cluster.setupPrimary",
+);
+
+export const setupMaster: typeof nodeCluster.setupMaster = notImplemented(
+  "cluster.setupMaster",
+);
+
+// Make ESM coverage happy
+export const _events = [];
+export const _eventsCount = 0;
+export const _maxListeners = 0;
+
+export class Worker extends EventEmitter implements NodeClusterWorker {
+  _connected: boolean = false;
+  id = 0;
+  get process() {
+    return mock.process;
+  }
+  get exitedAfterDisconnect() {
+    return this._connected;
+  }
+  isConnected(): boolean {
+    return this._connected;
+  }
+  isDead(): boolean {
+    return true;
+  }
+  send(message: any, sendHandle?: any, options?: any, callback?: any): boolean {
+    return false;
+  }
+  kill(signal?: string): void {
+    this._connected = false;
+  }
+  destroy(signal?: string): void {
+    this._connected = false;
+  }
+  disconnect(): void {
+    this._connected = false;
+  }
+}
+
+class _Cluster extends EventEmitter implements NodeCluster {
+  worker?: Worker | undefined = undefined;
+  Worker = Worker;
+  isMaster = isMaster;
+  isPrimary = isPrimary;
+  isWorker = isWorker;
+  SCHED_NONE = SCHED_NONE;
+  SCHED_RR = SCHED_RR;
+  schedulingPolicy = SCHED_RR;
+  settings = settings;
+  workers = workers;
+  setupPrimary() {
+    return setupPrimary();
+  }
+  setupMaster() {
+    return setupPrimary();
+  }
+  disconnect() {
+    return disconnect();
+  }
+  fork() {
+    return fork();
+  }
+}
+
+export default new _Cluster();
