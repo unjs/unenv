@@ -13,4 +13,16 @@ export class MessagePort
   ref() {}
   unref() {}
   start() {}
+
+  addEventListener(type: string, listener: (...args: any[]) => void): void {
+    this.on(type, listener);
+  }
+
+  removeEventListener(type: string, listener: (...args: any[]) => void): void {
+    this.off(type, listener);
+  }
+
+  dispatchEvent(event: Event) {
+    return this.emit(event.type, event);
+  }
 }
