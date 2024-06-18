@@ -4,7 +4,7 @@ export default {
     nodeCoverage: {
       name: "node-coverage",
       async generate(ctx) {
-        const { makeCoverage } = await import("./test/node-coverage.ts");
+        const { makeCoverage } = await import("./test/node-coverage.mjs");
         const coverage = await makeCoverage();
         const contents = coverage
           .map((module) => {
