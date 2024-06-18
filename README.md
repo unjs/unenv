@@ -158,7 +158,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:path/posix](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
 - [node:path/win32](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
 - [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled all exports 
-- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled 84/92 exports 
+- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled all exports 
 - [node:punycode](https://nodejs.org/api/punycode.html)  - ✅ polyfilled all exports 
 - [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
 - [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
