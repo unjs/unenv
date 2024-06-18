@@ -33,7 +33,7 @@
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
     "test": "pnpm lint && pnpm typecheck",
     "test:deno": "NODE_NO_WARNINGS=1 pnpm jiti test/deno.ts",
-    "test:node": "jiti test/node-coverage.ts",
+    "test:node": "node test/node-coverage.mjs",
     "test:cf": "pnpm jiti test/cloudflare.ts",
     "test:vc": "pnpm jiti test/vercel.ts",
     "typecheck": "tsc --noEmit"
