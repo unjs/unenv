@@ -6,3 +6,5 @@ Object.assign(globalThis.process, {
   ...unenvProcess,
   ...globalThis.process,
 }) satisfies typeof nodeProcess;
+
+export default globalThis.process;
