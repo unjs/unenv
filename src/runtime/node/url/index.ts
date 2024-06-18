@@ -35,10 +35,10 @@ export const parse: typeof nodeUrl.parse = function (
   urlString,
   parseQueryString?,
   slashesDenoteHost?,
-): URL | nodeUrl.UrlWithStringQuery {
+) {
   const url = new Url(urlString);
   if (!parseQueryString && !slashesDenoteHost) {
-    return url;
+    return url as Url & { query: any };
   }
   throw new Error("parseQueryString and slashesDenoteHost are unsupported");
 };
