@@ -15,6 +15,7 @@ export {
 
 export const usingDomains = _EventEmitter.usingDomains;
 export const captureRejectionSymbol = _EventEmitter.captureRejectionSymbol;
+export const captureRejections = false; // Coverage only
 export const errorMonitor = _EventEmitter.errorMonitor;
 export const defaultMaxListeners = _EventEmitter.defaultMaxListeners;
 export const setMaxListeners = _EventEmitter.setMaxListeners;

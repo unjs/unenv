@@ -1,4 +1,4 @@
-import type console from "node:console";
+import console from "node:console";
 import { Writable } from "node:stream";
 import mock from "../../mock/proxy";
 import noop from "../../mock/noop";
@@ -18,6 +18,10 @@ export const debug: typeof console.debug = _console?.debug ?? log;
 export const table: typeof console.table = _console?.table ?? log;
 export const error: typeof console.error = _console?.error ?? log;
 export const warn: typeof console.warn = _console?.warn ?? error;
+
+// https://developer.chrome.com/docs/devtools/console/api#createtask
+export const createTask =
+  (console as any).createTask ?? notImplemented("console.createTask");
 
 export const assert: typeof console.assert =
   notImplemented<typeof console.assert>("console.assert");
@@ -45,6 +49,11 @@ export const Console: typeof console.Console =
   _console?.Console ?? mock.__createMock__("console.Console");
 
 export { default as _times } from "../../mock/proxy";
+
+export function context() {
+  // TODO: Should be Console with all the methods
+  return _console;
+}
 
 export {
   default as _stdoutErrorHandler,
