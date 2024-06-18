@@ -12,7 +12,7 @@ type MutableCluster = {
   Worker: typeof _Worker;
 };
 
-// eslint-disable-next-line unicorn/prefer-event-target
+// @ts-expect-error TODO
 const _cluster = new EventEmitter() as MutableCluster;
 
 export const disconnect: typeof cluster.disconnect = noop;

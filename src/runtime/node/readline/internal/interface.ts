@@ -2,7 +2,6 @@ import type readline from "node:readline";
 import type { Abortable } from "node:events";
 import { EventEmitter } from "node:events";
 
-// eslint-disable-next-line unicorn/prefer-event-target
 export class Interface extends EventEmitter implements readline.Interface {
   terminal = false;
   line = "";

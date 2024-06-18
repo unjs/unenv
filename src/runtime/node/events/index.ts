@@ -1,19 +1,24 @@
 // https://nodejs.org/api/events.html
 import type nodeEvents from "node:events";
 
-// @ts-ignore
-import {
-  EventEmitter as _EventEmitter,
-  once as _once,
+import { _EventEmitter } from "./internal/events";
+
+export {
+  _EventEmitter as EventEmitter,
+  EventEmitterAsyncResource,
+  addAbortListener,
+  getEventListeners,
+  getMaxListeners,
+  on,
+  once,
 } from "./internal/events";
 
-export const EventEmitter: typeof nodeEvents.EventEmitter =
-  (globalThis as any).EventEmitter || _EventEmitter;
+export const usingDomains = _EventEmitter.usingDomains;
+export const captureRejectionSymbol = _EventEmitter.captureRejectionSymbol;
+export const errorMonitor = _EventEmitter.errorMonitor;
+export const defaultMaxListeners = _EventEmitter.defaultMaxListeners;
+export const setMaxListeners = _EventEmitter.setMaxListeners;
+export const listenerCount = _EventEmitter.listenerCount;
+export const init = _EventEmitter.init;
 
-export const once: typeof nodeEvents.once =
-  _once as any as typeof nodeEvents.once;
-
-export default <typeof nodeEvents>{
-  EventEmitter,
-  once,
-};
+export default _EventEmitter as typeof nodeEvents;
