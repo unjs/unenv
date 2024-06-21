@@ -129,8 +129,8 @@ const envConfig = env(nodeless, vercel, {});
 
 <!-- automd:nodeCoverage -->
 
-- [node:assert](https://nodejs.org/api/assert.html)  - 🚧 mocked using proxy 
-- [node:assert/strict](https://nodejs.org/api/assert.html)  - 🚧 mocked using proxy 
+- [node:assert](https://nodejs.org/api/assert.html)  - ✅ polyfilled all exports 
+- [node:assert/strict](https://nodejs.org/api/assert.html)  - ✅ polyfilled all exports 
 - [node:async_hooks](https://nodejs.org/api/async_hooks.html)  - ✅ polyfilled all exports 
 - [node:buffer](https://nodejs.org/api/buffer.html)  - ✅ polyfilled all exports 
 - [node:child_process](https://nodejs.org/api/child_process.html)  - ✅ polyfilled all exports 

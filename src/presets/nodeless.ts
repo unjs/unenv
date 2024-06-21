@@ -10,6 +10,8 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     "buffer/index.js": "buffer",
     ...Object.fromEntries(
       [
+        "assert",
+        "assert/strict",
         "async_hooks",
         "buffer",
         "console",
