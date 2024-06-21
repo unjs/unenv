@@ -1,4 +1,4 @@
-import { EventEmitter } from "../../events";
+import { EventEmitter } from "node:events";
 import type net from "node:net";
 import type dgram from "node:dgram";
 

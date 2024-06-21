@@ -1,5 +1,5 @@
 import type http from "node:http";
-import { Socket } from "../../net";
+import { Socket } from "node:net";
 import { Readable } from "../../stream/internal/readable";
 import { rawHeaders } from "../../../_internal/utils";
 

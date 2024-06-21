@@ -1,5 +1,5 @@
 import { createNotImplementedError } from "../../../_internal/utils";
-import { EventEmitter } from "../../events";
+import { EventEmitter } from "node:events";
 import type domain from "node:domain";
 
 export class Domain extends EventEmitter implements domain.Domain {
