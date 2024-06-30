@@ -182,7 +182,7 @@ const envConfig = env(nodeless, vercel, {});
 - [node:vm](https://nodejs.org/api/vm.html)  - ✅ polyfilled all exports 
 - [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports 
 - [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports 
-- [node:zlib](https://nodejs.org/api/zlib.html)  - ✅ polyfilled all exports
+- [node:zlib](https://nodejs.org/api/zlib.html)  - ✅ polyfilled 38/39 exports
 
 <!-- /automd -->
 
