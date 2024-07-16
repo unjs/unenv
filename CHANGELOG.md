@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.10.0
+
+[compare changes](https://github.com/unjs/unenv/compare/v1.9.0...v1.10.0)
+
+### 🚀 Enhancements
+
+- Implement `node:os` ([#282](https://github.com/unjs/unenv/pull/282))
+
+### 🏡 Chore
+
+- Update deps ([0272330](https://github.com/unjs/unenv/commit/0272330))
+- Lint with eslint v9 ([71a25ae](https://github.com/unjs/unenv/commit/71a25ae))
+- Update ci to target v1 ([dfb3f89](https://github.com/unjs/unenv/commit/dfb3f89))
+- Pin node types to last tested version ([10b9358](https://github.com/unjs/unenv/commit/10b9358))
+- Add v1 banner ([f4cf638](https://github.com/unjs/unenv/commit/f4cf638))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.8.0
 
 [compare changes](https://github.com/unjs/unenv/compare/v1.7.4...v1.8.0)
