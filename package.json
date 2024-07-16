@@ -48,16 +48,16 @@
     "ufo": "^1.5.3"
   },
   "devDependencies": {
-    "@types/node": "^20.14.5",
-    "automd": "^0.3.7",
+    "@types/node": "^20.14.10",
+    "automd": "^0.3.8",
     "changelogen": "^0.5.5",
-    "eslint": "^9.6.0",
+    "eslint": "^9.7.0",
     "eslint-config-unjs": "^0.3.2",
     "jiti": "^1.21.6",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.3",
     "unbuild": "^2.0.0",
-    "wrangler": "^3.62.0"
+    "wrangler": "^3.65.0"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.5.0"
 }
