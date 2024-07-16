@@ -2,6 +2,9 @@
 
 `unenv` is a framework-agnostic system that allows converting JavaScript code to be platform agnostic and work in any environment including Browsers, Workers, Node.js, or JavaScript runtime.
 
+> [!NOTE]
+> You are on the legacy (v1) branch. Checkout [main branch](https://github.com/unjs/unenv) for latest development.
+
 ## Install
 
 ```bash
