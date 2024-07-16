@@ -208,7 +208,7 @@ function _addListener<T extends EventEmitter>(
   ) {
     target._events[type].warned = true;
     // No error code for this since it is a Warning
-    // eslint-disable-next-line no-restricted-syntax
+
     const warning = new Error(
       `[unenv] Possible EventEmitter memory leak detected. ${target._events[type].length} ${type} listeners added. Use emitter.setMaxListeners() to increase limit`,
     ) as Error & {

@@ -12,8 +12,8 @@ import * as base64 from "./_base64";
 import * as ieee754 from "./_ieee754";
 
 const customInspectSymbol =
-  typeof Symbol === "function" && typeof Symbol["for"] === "function" // eslint-disable-line dot-notation
-    ? Symbol["for"]("nodejs.util.inspect.custom") // eslint-disable-line dot-notation
+  typeof Symbol === "function" && typeof Symbol["for"] === "function"
+    ? Symbol["for"]("nodejs.util.inspect.custom")
     : null;
 
 export const INSPECT_MAX_BYTES = 50;
@@ -363,7 +363,6 @@ function checked(length) {
 }
 
 export function SlowBuffer(length) {
-  // eslint-disable-next-line eqeqeq
   if (+length != length) {
     length = 0;
   }
@@ -2161,7 +2160,7 @@ function E(sym, getMessage, Base) {
       this.name = `${this.name} [${sym}]`;
       // Access the stack to generate the error message including the error code
       // from the name.
-      this.stack; // eslint-disable-line no-unused-expressions
+      this.stack;
       // Reset the name to the actual name.
       delete this.name;
     }
@@ -2457,7 +2456,7 @@ function isInstance(obj, type) {
 }
 function numberIsNaN(obj) {
   // For IE11 support
-  return obj !== obj; // eslint-disable-line no-self-compare
+  return obj !== obj;
 }
 
 // Create lookup table for `toString('hex')`

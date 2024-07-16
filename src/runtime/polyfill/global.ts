@@ -7,6 +7,8 @@ try {
     window: _defineOpts,
     global: _defineOpts,
   });
-} catch {}
+} catch {
+  // Ignore
+}
 
 export default _global as typeof globalThis;

@@ -5,7 +5,6 @@ import { EventEmitter } from "../events";
 
 // Docs: https://nodejs.org/api/stream.html#stream_writable_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/writable.js
-// eslint-disable-next-line unicorn/prefer-event-target
 class _Writable extends EventEmitter implements stream.Writable {
   readonly __unenv__ = true;
 

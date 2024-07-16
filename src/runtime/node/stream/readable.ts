@@ -13,7 +13,6 @@ interface ArrayOptions {
   signal?: AbortSignal;
 }
 
-// eslint-disable-next-line unicorn/prefer-event-target
 export class _Readable extends EventEmitter implements stream.Readable {
   __unenv__: unknown = true;
 
@@ -102,6 +101,7 @@ export class _Readable extends EventEmitter implements stream.Readable {
     return Promise.resolve();
   }
 
+  // eslint-disable-next-line require-yield
   async *[Symbol.asyncIterator](): AsyncIterableIterator<any> {
     throw createNotImplementedError("Readable.asyncIterator");
   }
