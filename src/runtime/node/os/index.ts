@@ -1,6 +1,6 @@
 import type os from "node:os";
 import { notImplemented } from "../../_internal/utils";
-import constants  from "./_constants";
+import constants from "./_constants";
 
 export { default as constants } from "./_constants";
 
@@ -28,7 +28,8 @@ export const cpus: typeof os.cpus = () => {
 };
 
 export const getPriority: typeof os.getPriority = () => 0;
-export const setPriority: typeof os.setPriority = notImplemented("os.setPriority");
+export const setPriority: typeof os.setPriority =
+  notImplemented("os.setPriority");
 
 export const homedir: typeof os.homedir = () => "/";
 export const tmpdir: typeof os.tmpdir = () => "/tmp";
