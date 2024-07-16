@@ -11,6 +11,9 @@ unenv provides a collection of Node.js and Web polyfills and mocking utilities w
 
 Unenv is used by [Nitro](https://nitro.unjs.io/) and [Nuxt](https://nuxt.com/) today.
 
+> [!NOTE]
+> You are on the development (v2) branch. Checkout [v1](https://github.com/unjs/unenv/tree/v1) for current release.
+
 ## Install
 
 <!-- automd:pm-i dev -->
@@ -129,59 +132,59 @@ const envConfig = env(nodeless, vercel, {});
 
 <!-- automd:nodeCoverage -->
 
-- [node:assert](https://nodejs.org/api/assert.html)  - ✅ polyfilled all exports 
-- [node:assert/strict](https://nodejs.org/api/assert.html)  - ✅ polyfilled all exports 
-- [node:async_hooks](https://nodejs.org/api/async_hooks.html)  - ✅ polyfilled all exports 
-- [node:buffer](https://nodejs.org/api/buffer.html)  - ✅ polyfilled all exports 
-- [node:child_process](https://nodejs.org/api/child_process.html)  - ✅ polyfilled all exports 
-- [node:cluster](https://nodejs.org/api/cluster.html)  - ✅ polyfilled all exports 
-- [node:console](https://nodejs.org/api/console.html)  - ✅ polyfilled all exports 
-- [node:constants](https://nodejs.org/api/constants.html)  - ✅ polyfilled all exports 
-- [node:crypto](https://nodejs.org/api/crypto.html)  - ✅ polyfilled all exports 
-- [node:dgram](https://nodejs.org/api/dgram.html)  - ✅ polyfilled all exports 
-- [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)  - ✅ polyfilled all exports 
-- [node:dns](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports 
-- [node:dns/promises](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports 
-- [node:domain](https://nodejs.org/api/domain.html)  - ✅ polyfilled all exports 
-- [node:events](https://nodejs.org/api/events.html)  - ✅ polyfilled all exports 
-- [node:fs](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
-- [node:fs/promises](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports 
-- [node:http](https://nodejs.org/api/http.html)  - ✅ polyfilled all exports 
-- [node:http2](https://nodejs.org/api/http2.html)  - ✅ polyfilled all exports 
-- [node:https](https://nodejs.org/api/https.html)  - ✅ polyfilled all exports 
-- [node:inspector](https://nodejs.org/api/inspector.html)  - ✅ polyfilled all exports 
-- [node:inspector/promises](https://nodejs.org/api/inspector.html)  - 🚧 mocked using proxy 
-- [node:module](https://nodejs.org/api/module.html)  - ✅ polyfilled all exports 
-- [node:net](https://nodejs.org/api/net.html)  - ✅ polyfilled 14/18 exports 
-- [node:os](https://nodejs.org/api/os.html)  - ✅ polyfilled all exports 
-- [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
-- [node:path/posix](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
-- [node:path/win32](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports 
-- [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled all exports 
-- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled all exports 
-- [node:punycode](https://nodejs.org/api/punycode.html)  - ✅ polyfilled all exports 
-- [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports 
-- [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
-- [node:readline/promises](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports 
-- [node:repl](https://nodejs.org/api/repl.html)  - 🚧 mocked using proxy 
-- [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/37 exports 
-- [node:stream/consumers](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
-- [node:stream/promises](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
-- [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports 
-- [node:string_decoder](https://nodejs.org/api/string_decoder.html)  - ✅ polyfilled all exports 
-- [node:sys](https://nodejs.org/api/sys.html)  - ✅ polyfilled all exports 
-- [node:timers](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
-- [node:timers/promises](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports 
-- [node:tls](https://nodejs.org/api/tls.html)  - ✅ polyfilled all exports 
-- [node:trace_events](https://nodejs.org/api/trace_events.html)  - ✅ polyfilled all exports 
-- [node:tty](https://nodejs.org/api/tty.html)  - ✅ polyfilled all exports 
-- [node:url](https://nodejs.org/api/url.html)  - ✅ polyfilled all exports 
-- [node:util](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
-- [node:util/types](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports 
-- [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled all exports 
-- [node:vm](https://nodejs.org/api/vm.html)  - ✅ polyfilled all exports 
-- [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports 
-- [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports 
+- [node:assert](https://nodejs.org/api/assert.html)  - ✅ polyfilled all exports
+- [node:assert/strict](https://nodejs.org/api/assert.html)  - ✅ polyfilled all exports
+- [node:async_hooks](https://nodejs.org/api/async_hooks.html)  - ✅ polyfilled all exports
+- [node:buffer](https://nodejs.org/api/buffer.html)  - ✅ polyfilled all exports
+- [node:child_process](https://nodejs.org/api/child_process.html)  - ✅ polyfilled all exports
+- [node:cluster](https://nodejs.org/api/cluster.html)  - ✅ polyfilled all exports
+- [node:console](https://nodejs.org/api/console.html)  - ✅ polyfilled all exports
+- [node:constants](https://nodejs.org/api/constants.html)  - ✅ polyfilled all exports
+- [node:crypto](https://nodejs.org/api/crypto.html)  - ✅ polyfilled all exports
+- [node:dgram](https://nodejs.org/api/dgram.html)  - ✅ polyfilled all exports
+- [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)  - ✅ polyfilled all exports
+- [node:dns](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports
+- [node:dns/promises](https://nodejs.org/api/dns.html)  - ✅ polyfilled all exports
+- [node:domain](https://nodejs.org/api/domain.html)  - ✅ polyfilled all exports
+- [node:events](https://nodejs.org/api/events.html)  - ✅ polyfilled all exports
+- [node:fs](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports
+- [node:fs/promises](https://nodejs.org/api/fs.html)  - ✅ polyfilled all exports
+- [node:http](https://nodejs.org/api/http.html)  - ✅ polyfilled all exports
+- [node:http2](https://nodejs.org/api/http2.html)  - ✅ polyfilled all exports
+- [node:https](https://nodejs.org/api/https.html)  - ✅ polyfilled all exports
+- [node:inspector](https://nodejs.org/api/inspector.html)  - ✅ polyfilled all exports
+- [node:inspector/promises](https://nodejs.org/api/inspector.html)  - 🚧 mocked using proxy
+- [node:module](https://nodejs.org/api/module.html)  - ✅ polyfilled all exports
+- [node:net](https://nodejs.org/api/net.html)  - ✅ polyfilled 14/18 exports
+- [node:os](https://nodejs.org/api/os.html)  - ✅ polyfilled all exports
+- [node:path](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports
+- [node:path/posix](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports
+- [node:path/win32](https://nodejs.org/api/path.html)  - ✅ polyfilled all exports
+- [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)  - ✅ polyfilled all exports
+- [node:process](https://nodejs.org/api/process.html)  - ✅ polyfilled all exports
+- [node:punycode](https://nodejs.org/api/punycode.html)  - ✅ polyfilled all exports
+- [node:querystring](https://nodejs.org/api/querystring.html)  - ✅ polyfilled all exports
+- [node:readline](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports
+- [node:readline/promises](https://nodejs.org/api/readline.html)  - ✅ polyfilled all exports
+- [node:repl](https://nodejs.org/api/repl.html)  - 🚧 mocked using proxy
+- [node:stream](https://nodejs.org/api/stream.html)  - ✅ polyfilled 17/37 exports
+- [node:stream/consumers](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports
+- [node:stream/promises](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports
+- [node:stream/web](https://nodejs.org/api/stream.html)  - ✅ polyfilled all exports
+- [node:string_decoder](https://nodejs.org/api/string_decoder.html)  - ✅ polyfilled all exports
+- [node:sys](https://nodejs.org/api/sys.html)  - ✅ polyfilled all exports
+- [node:timers](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports
+- [node:timers/promises](https://nodejs.org/api/timers.html)  - ✅ polyfilled all exports
+- [node:tls](https://nodejs.org/api/tls.html)  - ✅ polyfilled all exports
+- [node:trace_events](https://nodejs.org/api/trace_events.html)  - ✅ polyfilled all exports
+- [node:tty](https://nodejs.org/api/tty.html)  - ✅ polyfilled all exports
+- [node:url](https://nodejs.org/api/url.html)  - ✅ polyfilled all exports
+- [node:util](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports
+- [node:util/types](https://nodejs.org/api/util.html)  - ✅ polyfilled all exports
+- [node:v8](https://nodejs.org/api/v8.html)  - ✅ polyfilled all exports
+- [node:vm](https://nodejs.org/api/vm.html)  - ✅ polyfilled all exports
+- [node:wasi](https://nodejs.org/api/wasi.html)  - ✅ polyfilled all exports
+- [node:worker_threads](https://nodejs.org/api/worker_threads.html)  - ✅ polyfilled all exports
 - [node:zlib](https://nodejs.org/api/zlib.html)  - ✅ polyfilled 38/39 exports
 
 <!-- /automd -->
