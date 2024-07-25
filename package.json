@@ -41,7 +41,6 @@
   "dependencies": {
     "consola": "^3.2.3",
     "defu": "^6.1.4",
-    "node-fetch-native": "^1.6.4",
     "ohash": "^1.1.3",
     "pathe": "^1.1.2",
     "ufo": "^1.5.4"

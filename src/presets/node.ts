@@ -9,7 +9,7 @@ export default {
     "isomorphic-fetch": "unenv/runtime/mock/empty",
   },
 
-  polyfill: ["node-fetch-native/polyfill"],
+  polyfill: [],
 
   external: [...NodeBuiltinModules],
 } as Preset;
