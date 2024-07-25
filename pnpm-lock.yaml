@@ -14,9 +14,6 @@ importers:
       defu:
         specifier: ^6.1.4
         version: 6.1.4
-      mime:
-        specifier: ^3.0.0
-        version: 3.0.0
       node-fetch-native:
         specifier: ^1.6.4
         version: 1.6.4
