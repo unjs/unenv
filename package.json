@@ -39,7 +39,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "consola": "^3.2.3",
     "defu": "^6.1.4",
     "ohash": "^1.1.3",
     "pathe": "^1.1.2",
