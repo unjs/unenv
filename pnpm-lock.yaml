@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      consola:
-        specifier: ^3.2.3
-        version: 3.2.3
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -33,6 +30,9 @@ importers:
       changelogen:
         specifier: ^0.5.5
         version: 0.5.5
+      consola:
+        specifier: ^3.2.3
+        version: 3.2.3
       eslint:
         specifier: ^9.7.0
         version: 9.7.0
