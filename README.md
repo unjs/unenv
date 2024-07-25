@@ -153,7 +153,7 @@ const envConfig = env(nodeless, vercel, {});
 - ✅ [node:inspector](https://nodejs.org/api/inspector.html)
 - 🚧 [node:inspector/promises](https://nodejs.org/api/inspector.html)
 - ✅ [node:module](https://nodejs.org/api/module.html)
-- 🚧 [node:net](https://nodejs.org/api/net.html) <!-- missing Stream, _createServerHandle, _normalizeArgs, _setSimultaneousAccepts exports -->
+- ✅ [node:net](https://nodejs.org/api/net.html)
 - ✅ [node:os](https://nodejs.org/api/os.html)
 - ✅ [node:path](https://nodejs.org/api/path.html)
 - ✅ [node:path/posix](https://nodejs.org/api/path.html)
