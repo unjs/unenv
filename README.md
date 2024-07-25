@@ -12,7 +12,7 @@ unenv provides a collection of Node.js and Web polyfills and mocking utilities w
 Unenv is used by [Nitro](https://nitro.unjs.io/) and [Nuxt](https://nuxt.com/) today.
 
 > [!NOTE]
-> You are on the development (v2) branch. Checkout [v1](https://github.com/unjs/unenv/tree/v1) for current release.
+> You are on the development (v2) branch. Check out [v1](https://github.com/unjs/unenv/tree/v1) for the current release.
 
 ## Install
 
@@ -201,8 +201,8 @@ const envConfig = env(nodeless, vercel, {});
 // Magic proxy to replace any unknown API
 import MockProxy from "unenv/runtime/mock/proxy";
 
-// You can also create named mockes
-const myAPI = MockProxy.__createMock__("foo", {
+// You can also create named mocks
+const lib = MockProxy.__createMock__("lib", {
   /* overrides */
 });
 ```
@@ -215,7 +215,7 @@ To discover other polyfills, please check [./src/runtime](./src/runtime).
 
 ## Nightly release channel
 
-You can use nightly release channel to try latest changes in `main` branch via [`unenv-nightly`](https://www.npmjs.com/package/unenv-nightly).
+You can use the nightly release channel to try the latest changes in the `main` branch via [`unenv-nightly`](https://www.npmjs.com/package/unenv-nightly).
 
 If directly using `unenv` in your project:
 
