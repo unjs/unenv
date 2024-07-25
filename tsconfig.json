@@ -7,11 +7,7 @@
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
-    "types": ["node"],
-    "paths": {
-      "_mime": ["mime"],
-      "_mime/*": ["mime/*"]
-    }
+    "types": ["node"]
   },
   "include": ["src/**/*"]
 }
