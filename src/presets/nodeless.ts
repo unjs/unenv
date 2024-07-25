@@ -71,11 +71,6 @@ const nodeless: Preset & { alias: Map<string, string> } = {
     sys: "unenv/runtime/node/util/index",
 
     // npm
-    etag: "unenv/runtime/mock/noop",
-    "mime-db": "unenv/runtime/npm/mime-db",
-    mime: "unenv/runtime/npm/mime",
-    "mime/lite": "unenv/runtime/npm/mime",
-    _mime: "mime/lite.js",
     fsevents: "unenv/runtime/npm/fsevents",
     "consola/core": "consola/core",
     "node-fetch": "unenv/runtime/npm/node-fetch",

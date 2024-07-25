@@ -41,13 +41,16 @@
   "dependencies": {
     "consola": "^3.2.3",
     "defu": "^6.1.4",
-    "mime": "^3.0.0",
+    "mime": "^4.0.0",
     "node-fetch-native": "^1.6.4",
     "ohash": "^1.1.3",
     "pathe": "^1.1.2",
     "ufo": "^1.5.4"
   },
   "devDependencies": {
+    "mime-v1-types": "npm:@types/mime@^1",
+    "mime-v2-types": "npm:@types/mime@^2",
+    "mime-v3-types": "npm:@types/mime@^3",
     "@types/node": "^20.14.12",
     "automd": "^0.3.8",
     "changelogen": "^0.5.5",
