@@ -2,56 +2,22 @@
 import type nodeUrl from "node:url";
 import { ParsedUrlQuery } from "node:querystring";
 
+import * as nodeUrl from "node-url";
+const {
+  parse,
+  resolve,
+  format,
+  Url,
+} = nodeUrl as any;
+
 // TODO: https://github.com/unjs/unenv/issues/65
 export const URL = globalThis.URL as typeof nodeUrl.URL;
 
 export const URLSearchParams =
   globalThis.URLSearchParams as typeof nodeUrl.URLSearchParams;
 
-// Output of `url.parse`
-// NOTE: Node.js Url parsing is different, we might need to inline Node.js parser in case of issues
-// https://github.com/nodejs/node/blob/73fa9ab7a58a3cbc53ed418543f5f6fd26e8f87a/lib/url.js#L169
-export class Url extends URL implements nodeUrl.Url {
-  constructor(input: string, base?: string | URL) {
-    super(input, base);
-  }
-  get path() {
-    return this.pathname;
-  }
-  get query() {
-    return this.search;
-  }
-  get slashes() {
-    return this.pathname.startsWith("/");
-  }
-  get auth() {
-    return this.username + (this.password ? ":" + this.password : "");
-  }
-}
+export { Url, parse, resolve, format };
 
-// https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost
-// TODO
-export const parse: typeof nodeUrl.parse = function (
-  urlString,
-  parseQueryString?,
-  slashesDenoteHost?,
-) {
-  const url = new Url(urlString);
-  if (!parseQueryString && !slashesDenoteHost) {
-    return url as Url & { query: any };
-  }
-  throw new Error("parseQueryString and slashesDenoteHost are unsupported");
-};
-
-// https://nodejs.org/api/url.html#url_url_resolve_from_to
-export const resolve: typeof nodeUrl.resolve = function (from, to) {
-  const resolvedUrl = new URL(to, new URL(from, "resolve://"));
-  if (resolvedUrl.protocol === "resolve:") {
-    const { pathname, search, hash } = resolvedUrl;
-    return pathname + search + hash;
-  }
-  return resolvedUrl.toString();
-};
 
 // https://nodejs.org/api/url.html#url_url_urltohttpoptions_url
 export const urlToHttpOptions: typeof nodeUrl.urlToHttpOptions = function (
@@ -73,37 +39,6 @@ export const urlToHttpOptions: typeof nodeUrl.urlToHttpOptions = function (
         : ""
       : "",
   };
-};
-
-// https://nodejs.org/api/url.html#url_url_format_urlobject
-// TODO
-export const format: typeof nodeUrl.format = function (
-  urlInput,
-  options?: nodeUrl.URLFormatOptions,
-) {
-  let url: URL;
-  if (typeof urlInput === "string") {
-    url = new URL(urlInput);
-  } else if (urlInput instanceof URL) {
-    url = urlInput;
-  } else {
-    // TODO
-    throw new TypeError("format urlObject is not supported");
-  }
-  if (options) {
-    if (options.auth === false) {
-      url.username = "";
-      url.password = "";
-    }
-    if (options.fragment === false) {
-      url.hash = "";
-    }
-    if (options.search === false) {
-      url.search = "";
-    }
-    // TODO: handle options.unicode ?
-  }
-  return url.toString();
 };
 
 // https://nodejs.org/api/url.html#url_url_domaintoascii_domain
