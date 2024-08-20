@@ -5,4 +5,4 @@ import { process as unenvProcess } from "./internal/process";
 
 export * from "./internal/process";
 
-export default unenvProcess satisfies typeof nodeProcess;
+export default unenvProcess as unknown as typeof nodeProcess;

@@ -1,5 +1,5 @@
 // Source: https://github.com/defunctzombie/node-process/blob/77caa43cdaee4ea710aa14d11cea1705293c0ef3/browser.js
-
+import type nodeProcess from "node:process";
 import mock from "../../../mock/proxy";
 import empty from "../../../mock/empty";
 import { notImplemented } from "../../../_internal/utils";
@@ -27,22 +27,31 @@ export const versions: Process["versions"] = {
   zlib: "",
 };
 
-function noop() {
-  return process;
+function noop(): Process {
+  return process as unknown as Process;
 }
+
 export const on: Process["on"] = noop;
+
 export const addListener: Process["addListener"] = noop;
+
 export const once: Process["once"] = noop;
+
 export const off: Process["off"] = noop;
+
 export const removeListener: Process["removeListener"] = noop;
+
 export const removeAllListeners: Process["removeAllListeners"] = noop;
+
 export const emit: Process["emit"] = function emit(event) {
   if (event === "message" || event === "multipleResolves") {
     return process;
   }
   return false;
 } as Process["emit"];
+
 export const prependListener: Process["prependListener"] = noop;
+
 export const prependOnceListener: Process["prependOnceListener"] = noop;
 
 export const listeners: Process["listeners"] = function (name) {
@@ -236,7 +245,8 @@ export const _events = [];
 export const _eventsCount = 0;
 export const _maxListeners = 0;
 
-export const process: Process & Record<string, any> = {
+export const process = {
+  // @ts-expect-error
   _events,
   _eventsCount,
   _exiting,
@@ -335,4 +345,4 @@ export const process: Process & Record<string, any> = {
   uptime,
   version,
   versions,
-};
+} satisfies typeof nodeProcess;
