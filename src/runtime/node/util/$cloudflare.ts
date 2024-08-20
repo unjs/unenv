@@ -52,7 +52,6 @@ import {
   types as unenvUtilTypes,
 } from "./index";
 
-// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdUtil = process.getBuiltinModule("node:util");
 
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call
@@ -62,6 +61,7 @@ export const {
   MIMEType,
   TextDecoder,
   TextEncoder,
+  // @ts-expect-error missing types?
   _extend,
   aborted,
   callbackify,
@@ -83,9 +83,9 @@ export const {
 
 // TODO(cloudflare): we should just implement this in workerd and drop this special case.
 export const types = {
+  ...workerdUtil.types,
   isExternal: unenvUtilTypes.isExternal,
   isAnyArrayBuffer: workerdUtil.types.isAnyArrayBuffer,
-  ...workerdUtil.types,
 } satisfies typeof nodeUtil.types;
 
 export default {

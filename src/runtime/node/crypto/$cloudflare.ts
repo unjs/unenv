@@ -59,7 +59,6 @@ import {
   webcrypto as unenvCryptoWebcrypto,
 } from "./index";
 
-// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdCrypto = process.getBuiltinModule("node:crypto");
 
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call

@@ -5,7 +5,6 @@ export { isExternal } from "./index";
 
 import { isExternal } from "./index";
 
-// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdUtil = process.getBuiltinModule("node:util");
 
 export const {
@@ -15,6 +14,7 @@ export const {
   isArrayBufferView,
   isAsyncFunction,
   isBigInt64Array,
+  // @ts-expect-error missing types?
   isBigIntObject,
   isBigUint64Array,
   isBooleanObject,
