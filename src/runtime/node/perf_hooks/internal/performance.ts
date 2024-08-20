@@ -52,6 +52,16 @@ export const Performance = class Performance
     const entry = super.measure(measureName, startOrMeasureOptions, endMark);
     return entry as any;
   }
+
+  markResourceTiming(
+    timingInfo: object,
+    requestedUrl: string,
+    initiatorType: string,
+    global: object,
+    cacheMode: "" | "local",
+  ): perf_hooks.PerformanceResourceTiming {
+    throw createNotImplementedError("Performance.markResourceTiming");
+  }
 };
 
 // performance (instance)
