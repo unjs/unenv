@@ -165,7 +165,7 @@ const envConfig = env(nodeless, vercel, {});
 - ✅ [node:readline](https://nodejs.org/api/readline.html)
 - ✅ [node:readline/promises](https://nodejs.org/api/readline.html)
 - 🚧 [node:repl](https://nodejs.org/api/repl.html)
-- 🚧 [node:stream](https://nodejs.org/api/stream.html) <!-- missing _isArrayBufferView, getDefaultHighWaterMark, isDestroyed, isWritable, promises, setDefaultHighWaterMark exports -->
+- 🚧 [node:stream](https://nodejs.org/api/stream.html) <!-- missing _isArrayBufferView, duplexPair, getDefaultHighWaterMark, isDestroyed, isWritable, promises, setDefaultHighWaterMark exports -->
 - ✅ [node:stream/consumers](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/promises](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/web](https://nodejs.org/api/stream.html)
