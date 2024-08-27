@@ -159,13 +159,13 @@ const envConfig = env(nodeless, vercel, {});
 - ✅ [node:path/posix](https://nodejs.org/api/path.html)
 - ✅ [node:path/win32](https://nodejs.org/api/path.html)
 - ✅ [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)
-- 🚧 [node:process](https://nodejs.org/api/process.html) <!-- missing getBuiltinModule exports -->
+- ✅ [node:process](https://nodejs.org/api/process.html)
 - ✅ [node:punycode](https://nodejs.org/api/punycode.html)
 - ✅ [node:querystring](https://nodejs.org/api/querystring.html)
 - ✅ [node:readline](https://nodejs.org/api/readline.html)
 - ✅ [node:readline/promises](https://nodejs.org/api/readline.html)
 - 🚧 [node:repl](https://nodejs.org/api/repl.html)
-- 🚧 [node:stream](https://nodejs.org/api/stream.html) <!-- missing _isArrayBufferView, duplexPair, getDefaultHighWaterMark, isDestroyed, isWritable, promises, setDefaultHighWaterMark exports -->
+- 🚧 [node:stream](https://nodejs.org/api/stream.html) <!-- missing _isArrayBufferView, getDefaultHighWaterMark, isDestroyed, isWritable, promises, setDefaultHighWaterMark exports -->
 - ✅ [node:stream/consumers](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/promises](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/web](https://nodejs.org/api/stream.html)
