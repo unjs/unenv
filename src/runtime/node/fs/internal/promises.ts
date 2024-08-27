@@ -54,5 +54,6 @@ export const watch = notImplemented<typeof fsp.watch>(
 export const statfs = notImplemented<typeof fsp.statfs>(
   "fs.statfs",
 ) as typeof fsp.statfs;
+export const glob = notImplemented<typeof fsp.glob>("fs.glob");
 
 export default <typeof fsp>{};

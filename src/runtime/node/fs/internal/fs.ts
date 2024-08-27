@@ -78,6 +78,7 @@ export const writev: typeof fs.writev = notImplementedAsync("fs.writev");
 export const _toUnixTimestamp = notImplementedAsync("fs._toUnixTimestamp");
 export const openAsBlob: typeof fs.openAsBlob =
   notImplementedAsync("fs.openAsBlob");
+export const glob: typeof fs.glob = notImplementedAsync("fs.glob");
 
 // Sync
 export const appendFileSync =
@@ -141,3 +142,4 @@ export const writevSync = notImplemented<typeof fs.writevSync>("fs.writevSync");
 export const statfsSync = notImplemented<typeof fs.statfsSync>(
   "fs.statfsSync",
 ) as typeof fs.statfsSync;
+export const globSync = notImplemented<typeof fs.globSync>("fs.globSync");
