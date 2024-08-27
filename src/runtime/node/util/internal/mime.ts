@@ -13,8 +13,8 @@ export class MIMEType implements MIMETypeT {
   subtype: string;
 
   constructor(input: string | { toString: () => string }) {
-    const [essense = "", ...params] = String(input).split(";");
-    const [type = "", subtype = ""] = essense.split("/");
+    const [essence = "", ...params] = String(input).split(";");
+    const [type = "", subtype = ""] = essence.split("/");
     this.type = type;
     this.subtype = subtype;
     this.params = new MIMEParams();

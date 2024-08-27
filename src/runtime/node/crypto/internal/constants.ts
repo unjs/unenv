@@ -18,7 +18,7 @@ const constants = {
   ENGINE_METHOD_PKEY_METHS: 512,
   ENGINE_METHOD_RAND: 8,
   ENGINE_METHOD_RSA: 1,
-  OPENSSL_VERSION_NUMBER: 0, // explicitly set to 0 to avoid version mis-detection
+  OPENSSL_VERSION_NUMBER: 0, // explicitly set to 0 to avoid version misdetection
   POINT_CONVERSION_COMPRESSED: 2,
   POINT_CONVERSION_HYBRID: 6,
   POINT_CONVERSION_UNCOMPRESSED: 4,
@@ -69,12 +69,12 @@ const constants = {
   SSL_OP_TLS_BLOCK_PADDING_BUG: 0, // Node.js v18 only
   SSL_OP_TLS_D5_BUG: 0, // Node.js v18 only
   SSL_OP_TLS_ROLLBACK_BUG: 8_388_608,
-  TLS1_1_VERSION: 0, // explicitly set to 0 to avoid version mis-detection
-  TLS1_2_VERSION: 0, // explicitly set to 0 to avoid version mis-detection
-  TLS1_3_VERSION: 0, // explicitly set to 0 to avoid version mis-detection
-  TLS1_VERSION: 0, // explicitly set to 0 to avoid version mis-detection
+  TLS1_1_VERSION: 0, // explicitly set to 0 to avoid version misdetection
+  TLS1_2_VERSION: 0, // explicitly set to 0 to avoid version misdetection
+  TLS1_3_VERSION: 0, // explicitly set to 0 to avoid version misdetection
+  TLS1_VERSION: 0, // explicitly set to 0 to avoid version misdetection
 
-  defaultCoreCipherList: "", // explicitly set to "" to avoid version mis-detection
+  defaultCoreCipherList: "", // explicitly set to "" to avoid version misdetection
   get defaultCipherList() {
     return constants.defaultCoreCipherList;
   },

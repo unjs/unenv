@@ -57,7 +57,7 @@ export const randomBytes: typeof nodeCrypto.randomBytes = (
   return bytes;
 };
 
-// ---- Contants ----
+// ---- Constants ----
 
 export const fips: typeof nodeCrypto.fips = false;
 
