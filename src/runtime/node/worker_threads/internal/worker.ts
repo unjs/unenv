@@ -11,9 +11,17 @@ export class Worker extends EventEmitter implements worker_threads.Worker {
     eventLoopUtilization: () => ({ idle: 0, active: 0, utilization: 0 }),
   };
   postMessage(
-    value: any,
-    transferList?: readonly worker_threads.TransferListItem[] | undefined,
+    _value: any,
+    _transferList?: readonly worker_threads.TransferListItem[] | undefined,
   ) {}
+  postMessageToThread(
+    _threadId: unknown,
+    _value: unknown,
+    _transferList?: unknown,
+    _timeout?: unknown,
+  ): Promise<void> {
+    return Promise.resolve();
+  }
   ref() {}
   unref() {}
   terminate() {
