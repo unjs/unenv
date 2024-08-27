@@ -57,5 +57,5 @@
     "unbuild": "^2.0.0",
     "wrangler": "^3.72.2"
   },
-  "packageManager": "pnpm@9.5.0"
+  "packageManager": "pnpm@9.9.0"
 }
