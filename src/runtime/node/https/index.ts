@@ -6,11 +6,8 @@ import mock from "../../mock/proxy";
 export const Server: typeof nodeHttps.Server =
   notImplementedClass("https.Server");
 
-export const Agent: typeof nodeHttps.Agent = notImplementedClass("https.Agent");
-
-export const globalAgent =
-  (undefined as any as typeof nodeHttps.globalAgent) ||
-  mock.__createMock__("https.globalAgent");
+export const Agent: typeof nodeHttps.Agent = mock.__createMock__("https.Agent");
+export const globalAgent: typeof nodeHttps.globalAgent = new Agent();
 
 export const get = notImplemented<typeof nodeHttps.get>("https.get");
 
