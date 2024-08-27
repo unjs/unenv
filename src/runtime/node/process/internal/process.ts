@@ -95,6 +95,8 @@ export const getgroups: Process["getgroups"] = function getgroups() {
   return [];
 };
 
+export const getBuiltinModule = (_name: string) => undefined;
+
 // ---- Unimplemented utils ----
 
 export const abort = notImplemented<Process["abort"]>("process.abort");
@@ -301,6 +303,7 @@ export const process = {
   execPath,
   exit,
   features,
+  getBuiltinModule,
   getegid,
   geteuid,
   getgid,
