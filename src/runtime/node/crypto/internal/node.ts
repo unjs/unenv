@@ -72,13 +72,11 @@ export const checkPrimeSync = notImplemented<typeof nodeCrypto.checkPrimeSync>(
   "crypto.checkPrimeSync",
 );
 
-export const createCipher = notImplemented<typeof nodeCrypto.createCipher>(
-  "crypto.createCipher",
-);
+/** @deprecated */
+export const createCipher = notImplemented("crypto.createCipher");
 
-export const createDecipher = notImplemented<typeof nodeCrypto.createDecipher>(
-  "crypto.createDecipher",
-);
+/** @deprecated */
+export const createDecipher = notImplemented("crypto.createDecipher");
 
 export const pseudoRandomBytes = notImplemented<
   typeof nodeCrypto.pseudoRandomBytes
