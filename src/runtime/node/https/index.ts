@@ -9,7 +9,7 @@ export const Server: typeof nodeHttps.Server =
 export const Agent: typeof nodeHttps.Agent = mock.__createMock__("https.Agent");
 export const globalAgent: typeof nodeHttps.globalAgent = new Agent();
 
-export const get = notImplemented<typeof https.get>("https.get");
+export const get = notImplemented<typeof nodeHttps.get>("https.get");
 
 export const createServer =
   notImplemented<typeof nodeHttps.createServer>("https.createServer");
