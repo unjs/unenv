@@ -21,7 +21,7 @@ export const warn: typeof console.warn = _console?.warn ?? error;
 
 // https://developer.chrome.com/docs/devtools/console/api#createtask
 export const createTask =
-  (_console as any).createTask ?? notImplemented("console.createTask");
+  (_console as any)?.createTask ?? notImplemented("console.createTask");
 
 export const assert: typeof console.assert =
   notImplemented<typeof console.assert>("console.assert");
