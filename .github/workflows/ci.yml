@@ -24,11 +24,10 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "pnpm"
       - run: pnpm install
-      - run: pnpm test:types
-      - run: pnpm build
       - run: pnpm lint
-      # - run: pnpm vitest --coverage
-      # - uses: codecov/codecov-action@v3
+      - run: pnpm test:types
+      - run: pnpm test:node
+      - run: pnpm build
       - name: nightly release
         if: |
           github.event_name == 'push' &&
