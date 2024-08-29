@@ -208,6 +208,7 @@ for (const { path, expected } of testCases) {
     () => {},
     Promise.resolve("foo"),
     new Date(),
+    // eslint-disable-next-line unicorn/new-for-builtins
     new String("notPrimitive"),
     {
       toString() {
