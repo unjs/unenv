@@ -108,6 +108,4 @@ function encodeStr(
   return out;
 }
 
-export { encodeStr };
-export { hexTable };
-export { isHexTable };
+export { encodeStr, hexTable, isHexTable };
