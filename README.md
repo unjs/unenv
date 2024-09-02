@@ -145,21 +145,21 @@ const envConfig = env(nodeless, vercel, {});
 - ✅ [node:dns/promises](https://nodejs.org/api/dns.html)
 - ✅ [node:domain](https://nodejs.org/api/domain.html)
 - ✅ [node:events](https://nodejs.org/api/events.html)
-- ✅ [node:fs](https://nodejs.org/api/fs.html)
-- ✅ [node:fs/promises](https://nodejs.org/api/fs.html)
-- ✅ [node:http](https://nodejs.org/api/http.html)
+- 🚧 [node:fs](https://nodejs.org/api/fs.html) <!-- missing glob, globSync exports -->
+- 🚧 [node:fs/promises](https://nodejs.org/api/fs.html) <!-- missing glob exports -->
+- 🚧 [node:http](https://nodejs.org/api/http.html) <!-- missing CloseEvent, MessageEvent, WebSocket exports -->
 - ✅ [node:http2](https://nodejs.org/api/http2.html)
 - ✅ [node:https](https://nodejs.org/api/https.html)
-- ✅ [node:inspector](https://nodejs.org/api/inspector.html)
+- 🚧 [node:inspector](https://nodejs.org/api/inspector.html) <!-- missing Network exports -->
 - 🚧 [node:inspector/promises](https://nodejs.org/api/inspector.html)
 - ✅ [node:module](https://nodejs.org/api/module.html)
 - ✅ [node:net](https://nodejs.org/api/net.html)
 - ✅ [node:os](https://nodejs.org/api/os.html)
-- ✅ [node:path](https://nodejs.org/api/path.html)
-- ✅ [node:path/posix](https://nodejs.org/api/path.html)
-- ✅ [node:path/win32](https://nodejs.org/api/path.html)
+- 🚧 [node:path](https://nodejs.org/api/path.html) <!-- missing matchesGlob exports -->
+- 🚧 [node:path/posix](https://nodejs.org/api/path.html) <!-- missing matchesGlob exports -->
+- 🚧 [node:path/win32](https://nodejs.org/api/path.html) <!-- missing matchesGlob exports -->
 - ✅ [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)
-- ✅ [node:process](https://nodejs.org/api/process.html)
+- 🚧 [node:process](https://nodejs.org/api/process.html) <!-- missing finalization, getBuiltinModule exports -->
 - ✅ [node:punycode](https://nodejs.org/api/punycode.html)
 - ✅ [node:querystring](https://nodejs.org/api/querystring.html)
 - ✅ [node:readline](https://nodejs.org/api/readline.html)
@@ -171,6 +171,7 @@ const envConfig = env(nodeless, vercel, {});
 - ✅ [node:stream/web](https://nodejs.org/api/stream.html)
 - ✅ [node:string_decoder](https://nodejs.org/api/string_decoder.html)
 - ✅ [node:sys](https://nodejs.org/api/sys.html)
+- 🚧 [node:test/mock_loader](https://nodejs.org/api/test.html)
 - ✅ [node:timers](https://nodejs.org/api/timers.html)
 - ✅ [node:timers/promises](https://nodejs.org/api/timers.html)
 - ✅ [node:tls](https://nodejs.org/api/tls.html)
@@ -182,7 +183,7 @@ const envConfig = env(nodeless, vercel, {});
 - ✅ [node:v8](https://nodejs.org/api/v8.html)
 - ✅ [node:vm](https://nodejs.org/api/vm.html)
 - ✅ [node:wasi](https://nodejs.org/api/wasi.html)
-- ✅ [node:worker_threads](https://nodejs.org/api/worker_threads.html)
+- 🚧 [node:worker_threads](https://nodejs.org/api/worker_threads.html) <!-- missing postMessageToThread exports -->
 - 🚧 [node:zlib](https://nodejs.org/api/zlib.html) <!-- missing crc32 exports -->
 
 <!-- /automd -->

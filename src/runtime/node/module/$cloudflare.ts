@@ -52,15 +52,26 @@ import {
 
 const workerdModule = process.getBuiltinModule("node:module");
 
-const createRequire: any = workerdModule?.createRequire ?? unenvCreateRequire;
-
-if (workerdModule?.createRequire === undefined) {
-  for (const [key, value] of Object.entries(unenvCreateRequire)) {
-    createRequire[key] = value;
+export function createRequire(
+  file: string,
+): ReturnType<typeof unenvCreateRequire> {
+  const requirePolyfill = unenvCreateRequire(file);
+  if (!workerdModule?.createRequire) {
+    // Use the unenv version of `createRequire` when not supported by `workerd`.
+    return requirePolyfill;
   }
-}
 
-export { createRequire };
+  const require = workerdModule.createRequire(file) as any;
+
+  // Patch properties missing from `workerd`.
+  for (const [key, value] of Object.entries(requirePolyfill)) {
+    if (!(key in require)) {
+      require[key] = value;
+    }
+  }
+
+  return require as ReturnType<typeof unenvCreateRequire>;
+}
 
 export default {
   Module,
