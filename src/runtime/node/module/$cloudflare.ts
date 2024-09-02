@@ -15,6 +15,14 @@ export {
   _preloadModules,
   _resolveFilename,
   _resolveLookupPaths,
+  builtinModules,
+  findSourceMap,
+  globalPaths,
+  isBuiltin,
+  register,
+  runMain,
+  syncBuiltinESMExports,
+  wrap,
 } from "./index";
 
 import {
@@ -31,34 +39,8 @@ import {
   _preloadModules,
   _resolveFilename,
   _resolveLookupPaths,
-  builtinModules as unenvBuiltinModules,
-  createRequire as unenvCreateRequire,
-  findSourceMap as unenvFindSourceMap,
-  globalPaths as unenvGlobalPaths,
-  isBuiltin as unenvIsBuiltin,
-  register as unenvRegister,
-  runMain as unenvRunMain,
-  syncBuiltinESMExports as unenvSyncBuiltinESMExports,
-  wrap as unenvWrap,
-} from "./index";
-
-const workerdModule = process.getBuiltinModule("node:module");
-
-const resolvedExports = {
-  builtinModules: workerdModule?.builtinModules ?? unenvBuiltinModules,
-  createRequire: { ...unenvCreateRequire, ...workerdModule?.createRequire },
-  findSourceMap: unenvFindSourceMap,
-  globalPaths: unenvGlobalPaths,
-  isBuiltin: workerdModule?.isBuiltin ?? unenvIsBuiltin,
-  register: unenvRegister,
-  runMain: unenvRunMain,
-  syncBuiltinESMExports: unenvSyncBuiltinESMExports,
-  wrap: unenvWrap,
-} satisfies nodeModule;
-
-export const {
   builtinModules,
-  createRequire,
+  createRequire as unenvCreateRequire,
   findSourceMap,
   globalPaths,
   isBuiltin,
@@ -66,10 +48,21 @@ export const {
   runMain,
   syncBuiltinESMExports,
   wrap,
-} = resolvedExports;
+} from "./index";
 
-// polyfill missing module API in workerd, while preserving its identity
-Object.assign(resolvedExports, {
+const workerdModule = process.getBuiltinModule("node:module");
+
+const createRequire: any = workerdModule?.createRequire ?? unenvCreateRequire;
+
+if (workerdModule?.createRequire === undefined) {
+  for (const [key, value] of Object.entries(unenvCreateRequire)) {
+    createRequire[key] = value;
+  }
+}
+
+export { createRequire };
+
+export default {
   Module,
   SourceMap,
   _cache,
@@ -83,6 +76,14 @@ Object.assign(resolvedExports, {
   _preloadModules,
   _resolveFilename,
   _resolveLookupPaths,
-});
+  builtinModules,
+  createRequire,
+  findSourceMap,
+  globalPaths,
+  isBuiltin,
+  register,
+  runMain,
+  syncBuiltinESMExports,
+  wrap,
+};
 
-export default resolvedExports;
