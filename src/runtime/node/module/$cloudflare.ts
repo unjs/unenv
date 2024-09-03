@@ -64,9 +64,9 @@ export function createRequire(
   const requireFn = workerdModule.createRequire(file) as any;
 
   // Patch properties missing from `workerd`.
-  for (const [key, value] of Object.entries(requirePolyfill)) {
+  for (const key of ["resolve", "cache", "extensions", "main"] as const) {
     if (!(key in requireFn)) {
-      requireFn[key] = value;
+      requireFn[key] = requirePolyfill[key];
     }
   }
 
