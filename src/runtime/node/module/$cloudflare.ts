@@ -61,16 +61,25 @@ export function createRequire(
     return requirePolyfill;
   }
 
-  const requireFn = workerdModule.createRequire(file) as any;
+  const requireFn = workerdModule.createRequire(file) as ReturnType<
+    typeof unenvCreateRequire
+  >;
 
   // Patch properties missing from `workerd`.
-  for (const key of ["resolve", "cache", "extensions", "main"] as const) {
-    if (!(key in requireFn)) {
-      requireFn[key] = requirePolyfill[key];
-    }
+  if (!requireFn.resolve) {
+    requireFn.resolve = requirePolyfill.resolve;
+  }
+  if (!requireFn.cache) {
+    requireFn.cache = requirePolyfill.cache;
+  }
+  if (!requireFn.extensions) {
+    requireFn.extensions = requirePolyfill.extensions;
+  }
+  if (!requireFn.main) {
+    requireFn.main = requirePolyfill.main;
   }
 
-  return requireFn as ReturnType<typeof unenvCreateRequire>;
+  return requireFn;
 }
 
 export default {
