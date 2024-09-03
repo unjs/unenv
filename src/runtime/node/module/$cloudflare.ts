@@ -61,16 +61,16 @@ export function createRequire(
     return requirePolyfill;
   }
 
-  const require = workerdModule.createRequire(file) as any;
+  const requireFn = workerdModule.createRequire(file) as any;
 
   // Patch properties missing from `workerd`.
   for (const [key, value] of Object.entries(requirePolyfill)) {
-    if (!(key in require)) {
-      require[key] = value;
+    if (!(key in requireFn)) {
+      requireFn[key] = value;
     }
   }
 
-  return require as ReturnType<typeof unenvCreateRequire>;
+  return requireFn as ReturnType<typeof unenvCreateRequire>;
 }
 
 export default {
