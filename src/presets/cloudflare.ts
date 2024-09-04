@@ -26,6 +26,7 @@ const hybridNodeCompatModules = [
   "console",
   "buffer",
   "crypto",
+  "module",
   "process",
   "util",
   "util/types",
