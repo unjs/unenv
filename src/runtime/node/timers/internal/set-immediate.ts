@@ -15,3 +15,9 @@ export const setImmediateFallback = function setImmediate<TArgs extends any[]>(
   return new Immediate(callback, args);
 };
 setImmediateFallback.__promisify__ = setImmediateFallbackPromises;
+
+export const clearImmediateFallback = function clearImmediate(
+  immediate: NodeJS.Immediate | undefined,
+) {
+  immediate?.[Symbol.dispose]();
+};
