@@ -28,6 +28,7 @@ const hybridNodeCompatModules = [
   "crypto",
   "module",
   "process",
+  "timers",
   "util",
   "util/types",
 ];
