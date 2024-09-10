@@ -1,4 +1,3 @@
-import type timers from "node:timers/promises";
 import { Immediate } from "./immediate";
 
 export function setImmediateFallbackPromises<T = void>(value?: T): Promise<T> {

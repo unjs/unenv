@@ -10,6 +10,10 @@ import {
 import { setIntervalFallback } from "./internal/set-interval";
 
 // Always use the polyfill rather than the worked implementation.
+//
+// NOTE:
+// `setImmediate` and `clearImmediate` must be function (re)exports.
+// `export const setImmediate = ...` might cause esbuild to generate invalid code.
 export {
   setImmediateFallback as setImmediate,
   clearImmediateFallback as clearImmediate,

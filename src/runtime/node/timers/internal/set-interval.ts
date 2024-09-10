@@ -1,4 +1,3 @@
-import type timers from "node:timers/promises";
 import { Timeout } from "./timeout";
 
 export async function* setIntervalFallbackPromises<T = void>(
