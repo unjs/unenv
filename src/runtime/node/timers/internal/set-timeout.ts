@@ -13,7 +13,6 @@ export function setTimeoutFallback(
   callback: TimerHandler,
   ms?: number,
 ): NodeJS.Timeout;
-
 export function setTimeoutFallback<TArgs extends any[]>(
   callback: TimerHandler,
   ms?: number,

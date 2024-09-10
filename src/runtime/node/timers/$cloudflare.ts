@@ -1,13 +1,16 @@
-import { notImplemented } from "../../_internal/utils";
-import noop from "../../mock/noop";
-import type timers from "node:timers";
-import promises from "./promises";
-import { setTimeoutFallback } from "./internal/set-timeout";
-import {
-  setImmediateFallback as setImmediate,
-  clearImmediateFallback as clearImmediate,
-} from "./internal/set-immediate";
-import { setIntervalFallback } from "./internal/set-interval";
+import type nodeTimers from "node:timers";
+
+export {
+  _unrefActive,
+  active,
+  clearInterval,
+  clearTimeout,
+  enroll,
+  promises,
+  setInterval,
+  setTimeout,
+  unenroll,
+} from "./index";
 
 // Always use the polyfill rather than the worked implementation.
 //
@@ -19,24 +22,24 @@ export {
   clearImmediateFallback as clearImmediate,
 } from "./internal/set-immediate";
 
-export * as promises from "./promises";
+import {
+  _unrefActive,
+  active,
+  clearInterval,
+  clearTimeout,
+  enroll,
+  promises,
+  setInterval,
+  setTimeout,
+  unenroll,
+} from "./index";
 
-export const clearInterval: typeof timers.clearInterval =
-  globalThis.clearInterval || noop;
-export const clearTimeout: typeof timers.clearTimeout =
-  globalThis.clearTimeout || noop;
+import {
+  setImmediateFallback as setImmediate,
+  clearImmediateFallback as clearImmediate,
+} from "./internal/set-immediate";
 
-export const setTimeout: typeof timers.setTimeout =
-  globalThis.setTimeout || setTimeoutFallback;
-export const setInterval: typeof timers.setInterval =
-  globalThis.setInterval || setIntervalFallback;
-
-export const active = notImplemented("timers.active");
-export const _unrefActive = notImplemented("timers._unrefActive");
-export const enroll = notImplemented("timers.enroll");
-export const unenroll = notImplemented("timers.unenroll");
-
-export default <typeof timers>{
+export default <typeof nodeTimers>{
   _unrefActive,
   active,
   clearImmediate,
