@@ -1,4 +1,4 @@
-import { notImplemented, notImplementedAsync } from "../../_internal/utils";
+import { notImplemented } from "../../_internal/utils";
 import noop from "../../mock/noop";
 import type timers from "node:timers";
 import promises from "./promises";

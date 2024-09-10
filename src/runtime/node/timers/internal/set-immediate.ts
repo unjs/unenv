@@ -1,22 +1,21 @@
 import type timers from "node:timers/promises";
 import { Immediate } from "./immediate";
 
-export const setImmediateFallbackPromises: typeof timers.setImmediate =
-  function setImmediate<T = void>(value?: T): Promise<T> {
-    return new Promise((res) => {
-      res(value as T | PromiseLike<T>);
-    });
-  };
+export function setImmediateFallbackPromises<T = void>(value?: T): Promise<T> {
+  return new Promise((res) => {
+    res(value as T | PromiseLike<T>);
+  });
+}
 
-export const setImmediateFallback = function setImmediate<TArgs extends any[]>(
+export function setImmediateFallback<TArgs extends any[]>(
   callback: (...args: TArgs) => void,
   ...args: TArgs
 ): NodeJS.Immediate {
   return new Immediate(callback, args);
-};
+}
 setImmediateFallback.__promisify__ = setImmediateFallbackPromises;
 
-export const clearImmediateFallback = function clearImmediate(
+export function clearImmediateFallback(
   immediate: NodeJS.Immediate | undefined,
 ) {
   immediate?.[Symbol.dispose]();
