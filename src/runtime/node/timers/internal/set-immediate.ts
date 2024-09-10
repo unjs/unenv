@@ -19,4 +19,4 @@ export function clearImmediateFallback(
   immediate: NodeJS.Immediate | undefined,
 ) {
   immediate?.[Symbol.dispose]();
-};
+}
