@@ -28,6 +28,7 @@ const hybridNodeCompatModules = [
   "crypto",
   "module",
   "process",
+  "timers",
   "util",
   "util/types",
 ];
@@ -66,6 +67,8 @@ const cloudflarePreset: Preset = {
     global: false,
     console: "unenv/runtime/node/console/$cloudflare",
     process: "unenv/runtime/node/process/$cloudflare",
+    setImmediate: ["unenv/runtime/node/timers/$cloudflare", "setImmediate"],
+    clearImmediate: ["unenv/runtime/node/timers/$cloudflare", "clearImmediate"],
   },
   polyfill: [],
   external: [
