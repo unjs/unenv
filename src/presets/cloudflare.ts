@@ -19,6 +19,7 @@ const cloudflareNodeCompatModules = [
   "stream/promises",
   "stream/web",
   "string_decoder",
+  "zlib",
 ];
 
 const hybridNodeCompatModules = [
