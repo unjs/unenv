@@ -89,7 +89,6 @@ export const {
   getDiffieHellman,
   getFips,
   getHashes,
-  getRandomValues,
   hkdf,
   hkdfSync,
   pbkdf2,
@@ -106,18 +105,21 @@ export const {
   timingSafeEqual,
 } = workerdCrypto;
 
+// Special case getRandomValues as it must be bound to the webcrypto object
+export const getRandomValues = workerdCrypto.getRandomValues.bind(
+  workerdCrypto.webcrypto,
+);
+
 export const webcrypto = {
   CryptoKey: unenvCryptoWebcrypto.CryptoKey,
-  getRandomValues: workerdCrypto.webcrypto.getRandomValues.bind(
-    workerdCrypto.webcrypto,
-  ),
-  randomUUID: randomUUID.bind(workerdCrypto.webcrypto),
-  subtle: workerdCrypto.webcrypto.subtle,
+  getRandomValues,
+  randomUUID,
+  subtle,
 } satisfies typeof nodeCrypto.webcrypto;
 
 // Node.js exposes fips only via the default export 🤷🏼‍♂️
 // so extract it separately from the other exports
-const { fips } = workerdCrypto;
+const fips = workerdCrypto.fips;
 
 // Node.js exposes createCipher, createDecipher, pseudoRandomBytes only via the default export 🤷🏼‍♂️
 // so extract it separately from the other exports
