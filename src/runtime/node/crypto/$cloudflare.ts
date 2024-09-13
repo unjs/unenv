@@ -108,8 +108,10 @@ export const {
 
 export const webcrypto = {
   CryptoKey: unenvCryptoWebcrypto.CryptoKey,
-  getRandomValues: workerdCrypto.webcrypto.getRandomValues,
-  randomUUID: workerdCrypto.webcrypto.randomUUID,
+  getRandomValues: workerdCrypto.webcrypto.getRandomValues.bind(
+    workerdCrypto.webcrypto,
+  ),
+  randomUUID: randomUUID.bind(workerdCrypto.webcrypto),
   subtle: workerdCrypto.webcrypto.subtle,
 } satisfies typeof nodeCrypto.webcrypto;
 
