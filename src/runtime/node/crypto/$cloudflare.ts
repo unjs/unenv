@@ -1,7 +1,6 @@
 import type nodeCrypto from "node:crypto";
 
 export {
-  Certificate,
   Cipher,
   Cipheriv,
   Decipher,
@@ -9,7 +8,6 @@ export {
   ECDH,
   Sign,
   Verify,
-  X509Certificate,
   constants,
   createCipheriv,
   createDecipheriv,
@@ -23,14 +21,11 @@ export {
   privateEncrypt,
   publicDecrypt,
   publicEncrypt,
-  scrypt,
-  scryptSync,
   sign,
   verify,
 } from "./index";
 
 import {
-  Certificate,
   Cipher,
   Cipheriv,
   Decipher,
@@ -38,7 +33,6 @@ import {
   ECDH,
   Sign,
   Verify,
-  X509Certificate,
   constants,
   createCipheriv,
   createDecipheriv,
@@ -52,8 +46,6 @@ import {
   privateEncrypt,
   publicDecrypt,
   publicEncrypt,
-  scrypt,
-  scryptSync,
   sign,
   verify,
   webcrypto as unenvCryptoWebcrypto,
@@ -64,11 +56,13 @@ const workerdCrypto = process.getBuiltinModule("node:crypto");
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call
 //       This generation should use information from https://github.com/cloudflare/workerd/issues/2097
 export const {
+  Certificate,
   DiffieHellman,
   DiffieHellmanGroup,
   Hash,
   Hmac,
   KeyObject,
+  X509Certificate,
   checkPrime,
   checkPrimeSync,
   createDiffieHellman,
@@ -98,6 +92,8 @@ export const {
   randomFillSync,
   randomInt,
   randomUUID,
+  scrypt,
+  scryptSync,
   secureHeapUsed,
   setEngine,
   setFips,
