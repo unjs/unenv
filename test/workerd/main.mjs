@@ -1,6 +1,6 @@
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { existsSync } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
@@ -36,15 +36,19 @@ async function main() {
   // Start watcher
   if (watchMode) {
     const watcher = await import("@parcel/watcher").then((r) => r.default);
-    const watchDirs = [srcDir];
+    const watchDirs = [srcDir, testsDir];
     console.log(
       `Watching for changes:\n${watchDirs.map((d) => ` - ${d}`).join("\n")}`,
     );
     for (const dir of watchDirs) {
-      watcher.subscribe(dir, () => {
-        console.clear();
-        runTests();
-      });
+      watcher.subscribe(
+        dir,
+        () => {
+          console.clear();
+          runTests();
+        },
+        { ignore: [".tmp"] },
+      );
     }
   }
 }
@@ -62,12 +66,7 @@ function runTests() {
     const workerdBin = workerd.default;
     runTests.proc = spawn(
       workerdBin,
-      [
-        "test",
-        "--experimental",
-        watchMode ? "--watch" : "",
-        "config.capnp",
-      ].filter(Boolean),
+      ["test", "--experimental", "config.capnp"],
       {
         cwd: testsDir,
         stdio: "inherit",
@@ -112,6 +111,13 @@ function findLLVMsymbolizer() {
  * https://github.com/cloudflare/workerd/tree/main/samples/module_fallback
  */
 async function createModuleServer(port = 8888) {
+  // Unenv preset
+  const { createJiti } = await import("jiti");
+  const jiti = createJiti(import.meta.url);
+  const unenv = await jiti.import("../../src/index.ts");
+  const { alias } = unenv.env(unenv.nodeless, unenv.cloudflare);
+
+  // Use esbuild to bundle
   const { build } = await import("esbuild");
 
   const server = createServer(async (req, res) => {
@@ -127,7 +133,6 @@ async function createModuleServer(port = 8888) {
 
     // unenv/runtime/*
     const unenvPath = /^unenv\/runtime\/(.*)$/.exec(rawSpecifier)?.[1];
-
     if (!unenvPath) {
       res.writeHead(404);
       return res.end();
@@ -135,37 +140,43 @@ async function createModuleServer(port = 8888) {
 
     // Load node module
     // prettier-ignore
-    const sourceDir = join(srcDir, "runtime", unenvPath);
-    const source = await readFile(join(sourceDir, "$cloudflare.ts"), "utf8")
-      .catch(() => readFile(join(sourceDir, "index.ts"), "utf8"))
-      .catch(() => undefined);
-
-    if (!source) {
-      res.writeHead(404);
-      return res.end();
-    }
+    const entryDir = join(srcDir, "runtime", unenvPath);
+    const entryFile = existsSync(join(entryDir, "$cloudflare.ts"))
+      ? join(entryDir, "$cloudflare.ts")
+      : join(entryDir, "index.ts");
 
     const transpiled = await build({
-      entryPoints: [join(sourceDir, "index.ts")],
+      entryPoints: [entryFile],
+      banner: {
+        js: `/*\n * Raw specifier: ${rawSpecifier}\n * Source: ${entryFile}\n */\n`,
+      },
       bundle: true,
       write: false,
       format: "esm",
       target: "esnext",
       platform: "node",
       sourcemap: false,
+      alias: {
+        ...alias,
+      },
     });
 
-    res.end(
-      JSON.stringify({
-        // name: specifier,
-        esModule: transpiled.outputFiles[0].text,
-      }),
-    );
+    const esModule = transpiled.outputFiles[0].text;
+
+    if (process.env.DUMP_MODULES) {
+      const dumpPath = join(testsDir, ".tmp", rawSpecifier + ".mjs");
+      await mkdir(dirname(dumpPath), { recursive: true });
+      await writeFile(dumpPath, esModule, "utf8");
+    }
+
+    res.end(JSON.stringify({ esModule }));
   });
 
   return new Promise((resolve) => {
     server.listen({ port, host: "localhost" }, () => {
-      console.log(`Module server listening on http://localhost:${port}`);
+      console.log(
+        `Module fallback server listening on http://localhost:${port}`,
+      );
       resolve(server);
     });
   });
