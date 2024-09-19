@@ -12,7 +12,6 @@ const rootDir = fileURLToPath(new URL("../..", import.meta.url));
 
 export async function createModuleServer(port = 8888) {
   const server = createServer(async (req, res) => {
-    console.log(req.url);
     const resolveMethod = req.headers["x-resolve-method"];
     const url = new URL(req.url, "http://localhost");
     const referrer = url.searchParams.get("referrer");
@@ -44,7 +43,7 @@ export async function createModuleServer(port = 8888) {
       write: false,
       format: "esm",
       target: "esnext",
-      platform: "neutral",
+      platform: "node",
       sourcemap: false,
     });
 

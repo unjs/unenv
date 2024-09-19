@@ -27,6 +27,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm test:types
       - run: pnpm test:node
+      - run: pnpm test:workerd
       - run: pnpm build
       - name: nightly release
         if: |

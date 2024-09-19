@@ -1,6 +1,5 @@
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import watcher from "@parcel/watcher";
 import workerd from "workerd";
 import { createModuleServer } from "./_server.mjs";
 
@@ -14,21 +13,25 @@ console.log(
 );
 
 // Start module server
-await createModuleServer(8888);
+const server = await createModuleServer(8888);
+server.unref();
 
 // Run tests once
 runTests();
 
 // Start watcher
-const watchDirs = [srcDir, testsDir];
-console.log(
-  `Watching for changes:\n${watchDirs.map((d) => ` - ${d}`).join("\n")}`,
-);
-for (const dir of watchDirs) {
-  watcher.subscribe(dir, () => {
-    console.clear();
-    runTests();
-  });
+if (process.argv.includes("--watch")) {
+  const watcher = await import("@parcel/watcher").then((r) => r.default);
+  const watchDirs = [srcDir, testsDir];
+  console.log(
+    `Watching for changes:\n${watchDirs.map((d) => ` - ${d}`).join("\n")}`,
+  );
+  for (const dir of watchDirs) {
+    watcher.subscribe(dir, () => {
+      console.clear();
+      runTests();
+    });
+  }
 }
 
 // Workerd runner
