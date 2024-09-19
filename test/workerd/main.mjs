@@ -115,61 +115,71 @@ async function createModuleServer(port = 8888) {
   const { createJiti } = await import("jiti");
   const jiti = createJiti(import.meta.url);
   const unenv = await jiti.import("../../src/index.ts");
-  const { alias } = unenv.env(unenv.nodeless, unenv.cloudflare);
+  const preset = unenv.env(unenv.nodeless, unenv.cloudflare);
+  const alias = Object.fromEntries(
+    Object.entries(preset.alias).map(([k, v]) => [
+      k,
+      v.replace("unenv/runtime", join(srcDir, "runtime")),
+    ]),
+  );
 
   // Use esbuild to bundle
   const { build } = await import("esbuild");
 
   const server = createServer(async (req, res) => {
-    const resolveMethod = req.headers["x-resolve-method"];
-    const url = new URL(req.url, "http://localhost");
-    const referrer = url.searchParams.get("referrer");
-    const specifier = url.searchParams.get("specifier");
-    const rawSpecifier = url.searchParams.get("rawSpecifier");
+    try {
+      const resolveMethod = req.headers["x-resolve-method"];
+      const url = new URL(req.url, "http://localhost");
+      const referrer = url.searchParams.get("referrer");
+      const specifier = url.searchParams.get("specifier");
+      const rawSpecifier = url.searchParams.get("rawSpecifier");
 
-    console.log(
-      `[server] ${rawSpecifier} ${referrer ? `from ${referrer}` : ""}`,
-    );
+      console.log(
+        `[server] ${rawSpecifier} ${referrer ? `from ${referrer}` : ""}`,
+      );
 
-    // unenv/runtime/*
-    const unenvPath = /^unenv\/runtime\/(.*)$/.exec(rawSpecifier)?.[1];
-    if (!unenvPath) {
-      res.writeHead(404);
-      return res.end();
+      // unenv/runtime/*
+      const unenvPath = /^unenv\/runtime\/(.*)$/.exec(rawSpecifier)?.[1];
+      if (!unenvPath) {
+        res.writeHead(404);
+        return res.end();
+      }
+
+      // Load node module
+      // prettier-ignore
+      const entryDir = join(srcDir, "runtime", unenvPath);
+      const entryFile = existsSync(join(entryDir, "$cloudflare.ts"))
+        ? join(entryDir, "$cloudflare.ts")
+        : join(entryDir, "index.ts");
+
+      const transpiled = await build({
+        entryPoints: [entryFile],
+        banner: {
+          js: `/*\n * Raw specifier: ${rawSpecifier}\n * Source: ${entryFile}\n */\n`,
+        },
+        bundle: true,
+        write: false,
+        format: "esm",
+        target: "esnext",
+        platform: "node",
+        sourcemap: "inline",
+        alias,
+      });
+
+      const esModule = transpiled.outputFiles[0].text;
+
+      if (process.env.DUMP_MODULES) {
+        const dumpPath = join(testsDir, ".tmp", rawSpecifier + ".mjs");
+        await mkdir(dirname(dumpPath), { recursive: true });
+        await writeFile(dumpPath, esModule, "utf8");
+      }
+
+      res.end(JSON.stringify({ esModule }));
+    } catch (error) {
+      console.error("[server]", error);
+      res.writeHead(500);
+      res.end();
     }
-
-    // Load node module
-    // prettier-ignore
-    const entryDir = join(srcDir, "runtime", unenvPath);
-    const entryFile = existsSync(join(entryDir, "$cloudflare.ts"))
-      ? join(entryDir, "$cloudflare.ts")
-      : join(entryDir, "index.ts");
-
-    const transpiled = await build({
-      entryPoints: [entryFile],
-      banner: {
-        js: `/*\n * Raw specifier: ${rawSpecifier}\n * Source: ${entryFile}\n */\n`,
-      },
-      bundle: true,
-      write: false,
-      format: "esm",
-      target: "esnext",
-      platform: "node",
-      sourcemap: false,
-      alias: {
-        ...alias,
-      },
-    });
-
-    const esModule = transpiled.outputFiles[0].text;
-
-    if (process.env.DUMP_MODULES) {
-      const dumpPath = join(testsDir, ".tmp", rawSpecifier + ".mjs");
-      await mkdir(dirname(dumpPath), { recursive: true });
-      await writeFile(dumpPath, esModule, "utf8");
-    }
-
-    res.end(JSON.stringify({ esModule }));
   });
 
   return new Promise((resolve) => {
