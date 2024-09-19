@@ -47,7 +47,6 @@
     "ufo": "^1.5.4"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.5.5",
     "@parcel/watcher": "^2.4.1",
     "@types/node": "^22.5.5",
     "automd": "^0.3.8",
