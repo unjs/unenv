@@ -28,8 +28,8 @@ importers:
         specifier: ^0.3.8
         version: 0.3.8
       changelogen:
-        specifier: ^0.5.6
-        version: 0.5.6
+        specifier: ^0.5.7
+        version: 0.5.7
       consola:
         specifier: ^3.2.3
         version: 3.2.3
@@ -1029,8 +1029,8 @@ packages:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
-  changelogen@0.5.6:
-    resolution: {integrity: sha512-5mhT4dZPBwG+sf2jfKI2U0wM7eWNxBMX+4Ti3Sy6EapLNoa9vDXBjl2HTzB0LiGyXpZ6jcKFsdMdhHGqO3YX8g==}
+  changelogen@0.5.7:
+    resolution: {integrity: sha512-cTZXBcJMl3pudE40WENOakXkcVtrbBpbkmSkM20NdRiUqa4+VYRdXdEsgQ0BNQ6JBE2YymTNWtPKVF7UCTN5+g==}
     hasBin: true
 
   character-entities-legacy@1.1.4:
@@ -3292,7 +3292,7 @@ snapshots:
 
   chalk@5.3.0: {}
 
-  changelogen@0.5.6:
+  changelogen@0.5.7:
     dependencies:
       c12: 1.11.2
       colorette: 2.0.20
