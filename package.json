@@ -39,7 +39,7 @@
     "test:node:watch": "node --test --watch --import jiti/register ./test/node/test-*",
     "test:types": "tsc --noEmit",
     "test:vc": "pnpm jiti test/vercel.ts",
-    "test:workerd": "node test/workerd/_run.mjs"
+    "test:workerd": "node test/workerd/main.mjs"
   },
   "dependencies": {
     "defu": "^6.1.4",

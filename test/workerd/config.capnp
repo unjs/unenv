@@ -8,7 +8,7 @@ const unitTests :Workerd.Config = (
 
 const testsWorker :Workerd.Worker = (
   modules = [
-    (name = "worker", esModule = embed "tests.mjs")
+    (name = "tests", esModule = embed "./tests.mjs")
   ],
   compatibilityDate = "2024-09-01",
   compatibilityFlags = ["nodejs_compat"],
