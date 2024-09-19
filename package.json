@@ -47,16 +47,20 @@
     "ufo": "^1.5.4"
   },
   "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.5",
+    "@parcel/watcher": "^2.4.1",
     "@types/node": "^22.5.5",
     "automd": "^0.3.8",
     "changelogen": "^0.5.7",
     "consola": "^3.2.3",
+    "esbuild": "^0.23.1",
     "eslint": "^9.10.0",
     "eslint-config-unjs": "^0.3.2",
     "jiti": "2.0.0-rc.1",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
+    "workerd": "^1.20240909.0",
     "wrangler": "^3.78.5"
   },
   "packageManager": "pnpm@9.10.0"

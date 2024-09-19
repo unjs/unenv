@@ -1,0 +1,16 @@
+using Workerd = import "../../node_modules/workerd/workerd.capnp";
+
+const unitTests :Workerd.Config = (
+  services = [
+    (name = "tests", worker = .testsWorker),
+  ],
+);
+
+const testsWorker :Workerd.Worker = (
+  modules = [
+    (name = "worker", esModule = embed "tests.mjs")
+  ],
+  compatibilityDate = "2024-09-01",
+  compatibilityFlags = ["nodejs_compat"],
+  moduleFallback = "localhost:8888",
+);
