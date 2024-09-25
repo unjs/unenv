@@ -51,13 +51,13 @@
     "automd": "^0.3.8",
     "changelogen": "^0.5.7",
     "consola": "^3.2.3",
-    "eslint": "^9.10.0",
+    "eslint": "^9.11.1",
     "eslint-config-unjs": "^0.3.2",
-    "jiti": "2.0.0-rc.1",
+    "jiti": "2.0.0",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
-    "wrangler": "^3.78.5"
+    "wrangler": "^3.78.9"
   },
-  "packageManager": "pnpm@9.10.0"
+  "packageManager": "pnpm@9.11.0"
 }
