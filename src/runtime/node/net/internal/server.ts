@@ -18,11 +18,11 @@ export class Server extends EventEmitter implements net.Server {
   }
 
   listen(): this {
-    throw createNotImplementedError("node.Server.listen()");
+    throw createNotImplementedError("node:net.Server.listen()");
   }
 
   close(callback?: (err?: Error) => void): this {
-    throw createNotImplementedError("node.Server.close()");
+    throw createNotImplementedError("node:net.Server.close()");
   }
 
   address(): net.AddressInfo | string | null {
