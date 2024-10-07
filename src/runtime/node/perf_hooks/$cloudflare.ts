@@ -56,7 +56,6 @@ export const performance = Object.assign(workerdGlobalPerformance, {
   getEntriesByType: unenvPerformance.getEntriesByType.bind(unenvPerformance),
   mark: unenvPerformance.mark.bind(unenvPerformance),
   markResourceTiming:
-    // @ts-expect-error undocumented public API
     unenvPerformance.markResourceTiming.bind(unenvPerformance),
   measure: unenvPerformance.measure.bind(unenvPerformance),
   nodeTiming: { ...unenvPerformance.nodeTiming },

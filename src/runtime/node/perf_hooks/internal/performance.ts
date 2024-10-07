@@ -65,22 +65,6 @@ export const Performance = class Performance
     return entry as any;
   }
 
-  markResourceTiming(
-    timingInfo: object,
-    requestedUrl: string,
-    initiatorType: string,
-    global: object,
-    cacheMode: string,
-    bodyInfo: object,
-    responseStatus: number,
-    deliveryType?: string,
-  ): PerformanceResourceTiming {
-    // TODO: create a new PerformanceResourceTiming entry
-    // so that performance.getEntries, getEntriesByName, and getEntriesByType return it
-    // see: https://nodejs.org/api/perf_hooks.html#performancemarkresourcetimingtiminginfo-requestedurl-initiatortype-global-cachemode-bodyinfo-responsestatus-deliverytype
-    return new _PerformanceResourceTiming("");
-  }
-
   measure(
     measureName: string,
     startOrMeasureOptions?: string | PerformanceMeasureOptions | undefined,
@@ -96,8 +80,14 @@ export const Performance = class Performance
     initiatorType: string,
     global: object,
     cacheMode: "" | "local",
+    bodyInfo: object,
+    responseStatus: number,
+    deliveryType?: string,
   ): perf_hooks.PerformanceResourceTiming {
-    throw createNotImplementedError("Performance.markResourceTiming");
+    // TODO: create a new PerformanceResourceTiming entry
+    // so that performance.getEntries, getEntriesByName, and getEntriesByType return it
+    // see: https://nodejs.org/api/perf_hooks.html#performancemarkresourcetimingtiminginfo-requestedurl-initiatortype-global-cachemode-bodyinfo-responsestatus-deliverytype
+    return new _PerformanceResourceTiming("");
   }
 };
 
