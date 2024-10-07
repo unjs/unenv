@@ -34,11 +34,12 @@
     "test": "pnpm lint && pnpm test:types && pnpm test:node",
     "test:cf": "pnpm jiti test/cloudflare.ts",
     "test:deno": "NODE_NO_WARNINGS=1 pnpm jiti test/deno.ts",
-    "test:node-coverage": "node test/node-coverage.mjs",
     "test:node": "node --test --import jiti/register ./test/node/test-*",
+    "test:node-coverage": "node test/node-coverage.mjs",
     "test:node:watch": "node --test --watch --import jiti/register ./test/node/test-*",
     "test:types": "tsc --noEmit",
-    "test:vc": "pnpm jiti test/vercel.ts"
+    "test:vc": "pnpm jiti test/vercel.ts",
+    "test:workerd": "node test/workerd/main.mjs"
   },
   "dependencies": {
     "defu": "^6.1.4",
@@ -47,16 +48,19 @@
     "ufo": "^1.5.4"
   },
   "devDependencies": {
+    "@parcel/watcher": "^2.4.1",
     "@types/node": "^22.7.4",
     "automd": "^0.3.10",
     "changelogen": "^0.5.7",
     "consola": "^3.2.3",
+    "esbuild": "^0.24.0",
     "eslint": "^9.12.0",
     "eslint-config-unjs": "^0.4.1",
     "jiti": "^2.3.3",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
+    "workerd": "^1.20241004.0",
     "wrangler": "^3.80.0"
   },
   "packageManager": "pnpm@9.12.1"
