@@ -16,6 +16,24 @@ export {
   PerformanceObserverEntryList,
 } from "../../../web/performance/index";
 
+// grabbed from Node.js v22.3.0 using:
+//   performance.nodeTiming
+const nodeTiming = {
+  name: "node",
+  entryType: "node",
+  startTime: 0,
+  duration: 305_963.045_666,
+  nodeStart: 1.662_124_991_416_931_2,
+  v8Start: 44.762_125_015_258_79,
+  bootstrapComplete: 49.992_666_006_088_26,
+  environment: 46.754_665_970_802_31,
+  loopStart: 63.262_040_972_709_656,
+  loopExit: -1,
+  idleTime: 305_360.555_328,
+  // only present in Node.js 18.x
+  detail: undefined,
+} satisfies Omit<perf_hooks.PerformanceNodeTiming, "toJSON">;
+
 // Performance
 export const Performance = class Performance
   extends _Performance<perf_hooks.PerformanceEntry>
@@ -31,8 +49,11 @@ export const Performance = class Performance
     throw createNotImplementedError("Performance.timerify");
   }
 
-  get nodeTiming() {
-    return <perf_hooks.PerformanceNodeTiming>{};
+  get nodeTiming(): perf_hooks.PerformanceNodeTiming {
+    return {
+      ...nodeTiming,
+      toJSON: () => nodeTiming,
+    };
   }
 
   eventLoopUtilization() {
@@ -59,8 +80,14 @@ export const Performance = class Performance
     initiatorType: string,
     global: object,
     cacheMode: "" | "local",
+    bodyInfo: object,
+    responseStatus: number,
+    deliveryType?: string,
   ): perf_hooks.PerformanceResourceTiming {
-    throw createNotImplementedError("Performance.markResourceTiming");
+    // TODO: create a new PerformanceResourceTiming entry
+    // so that performance.getEntries, getEntriesByName, and getEntriesByType return it
+    // see: https://nodejs.org/api/perf_hooks.html#performancemarkresourcetimingtiminginfo-requestedurl-initiatortype-global-cachemode-bodyinfo-responsestatus-deliverytype
+    return new _PerformanceResourceTiming("");
   }
 };
 
