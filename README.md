@@ -3,7 +3,7 @@
 <!-- automd:badges color=yellow packagephobia -->
 
 [![npm version](https://img.shields.io/npm/v/unenv?color=yellow)](https://npmjs.com/package/unenv)
-[![npm downloads](https://img.shields.io/npm/dm/unenv?color=yellow)](https://npmjs.com/package/unenv)
+[![npm downloads](https://img.shields.io/npm/dm/unenv?color=yellow)](https://npm.chart.dev/unenv)
 
 <!-- /automd -->
 
@@ -33,6 +33,9 @@ pnpm install -D unenv
 
 # bun
 bun install -D unenv
+
+# deno
+deno install --dev unenv
 ```
 
 <!-- /automd -->
