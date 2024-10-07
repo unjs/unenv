@@ -1,12 +1,14 @@
 // Source: https://github.com/defunctzombie/node-process/blob/77caa43cdaee4ea710aa14d11cea1705293c0ef3/browser.js
-
+import type nodeProcess from "node:process";
 import mock from "../../../mock/proxy";
 import empty from "../../../mock/empty";
 import { notImplemented } from "../../../_internal/utils";
 import { env } from "./env";
 import { hrtime, nextTick } from "./time";
 
-export { hrtime } from "./time";
+export { hrtime, nextTick } from "./time";
+
+export { env } from "./env";
 
 type Process = NodeJS.Process;
 
@@ -25,22 +27,31 @@ export const versions: Process["versions"] = {
   zlib: "",
 };
 
-function noop() {
-  return process;
+function noop(): Process {
+  return process as unknown as Process;
 }
+
 export const on: Process["on"] = noop;
+
 export const addListener: Process["addListener"] = noop;
+
 export const once: Process["once"] = noop;
+
 export const off: Process["off"] = noop;
+
 export const removeListener: Process["removeListener"] = noop;
+
 export const removeAllListeners: Process["removeAllListeners"] = noop;
+
 export const emit: Process["emit"] = function emit(event) {
   if (event === "message" || event === "multipleResolves") {
     return process;
   }
   return false;
 } as Process["emit"];
+
 export const prependListener: Process["prependListener"] = noop;
+
 export const prependOnceListener: Process["prependOnceListener"] = noop;
 
 export const listeners: Process["listeners"] = function (name) {
@@ -84,11 +95,15 @@ export const getgroups: Process["getgroups"] = function getgroups() {
   return [];
 };
 
+export const getBuiltinModule = (_name: string) => undefined;
+
 // ---- Unimplemented utils ----
 
 export const abort = notImplemented<Process["abort"]>("process.abort");
+
 export const allowedNodeEnvironmentFlags: Process["allowedNodeEnvironmentFlags"] =
   new Set();
+
 export const arch: Process["arch"] = "" as any;
 export const argv0: Process["argv0"] = "";
 export const config: Process["config"] = empty;
@@ -204,11 +219,9 @@ const throwDeprecation: Process["throwDeprecation"] = false;
 // --- Undocumented internals ---
 
 export const assert = notImplemented("process.assert");
-const openStdin = notImplemented("process.openStdin");
-
+export const openStdin = notImplemented("process.openStdin");
 export const _debugEnd = notImplemented("process._debugEnd");
 export const _debugProcess = notImplemented("process._debugProcess");
-export const _eventsCount = 0;
 export const _fatalException = notImplemented("process._fatalException");
 export const _getActiveHandles = notImplemented("process._getActiveHandles");
 export const _getActiveRequests = notImplemented("process._getActiveRequests");
@@ -222,11 +235,26 @@ export const _stopProfilerIdleNotifier = notImplemented(
   "process.__stopProfilerIdleNotifier",
 );
 export const _tickCallback = notImplemented("process._tickCallback");
+export const _linkedBinding = notImplemented("process._linkedBinding");
 
-export const process: Process & Record<string, any> = {
+export const domain = mock.__createMock__("process.domain");
+export const initgroups = notImplemented("process.initgroups");
+export const moduleLoadList = [] as string[];
+export const reallyExit = noop;
+
+export const _exiting = false;
+export const _events = [];
+export const _eventsCount = 0;
+export const _maxListeners = 0;
+
+export const process = {
+  // @ts-expect-error
+  _events,
+  _eventsCount,
+  _exiting,
+  _maxListeners,
   _debugEnd,
   _debugProcess,
-  _eventsCount,
   _fatalException,
   _getActiveHandles,
   _getActiveRequests,
@@ -236,6 +264,10 @@ export const process: Process & Record<string, any> = {
   _startProfilerIdleNotifier,
   _stopProfilerIdleNotifier,
   _tickCallback,
+  domain,
+  initgroups,
+  moduleLoadList,
+  reallyExit,
   exitCode,
   abort,
   addListener,
@@ -271,6 +303,7 @@ export const process: Process & Record<string, any> = {
   execPath,
   exit,
   features,
+  getBuiltinModule,
   getegid,
   geteuid,
   getgid,
@@ -315,4 +348,4 @@ export const process: Process & Record<string, any> = {
   uptime,
   version,
   versions,
-};
+} satisfies typeof nodeProcess;

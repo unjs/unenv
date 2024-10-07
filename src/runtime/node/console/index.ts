@@ -1,9 +1,15 @@
 import type console from "node:console";
+import { Writable } from "node:stream";
 import mock from "../../mock/proxy";
 import noop from "../../mock/noop";
 import { notImplemented } from "../../_internal/utils";
 
 const _console = globalThis.console;
+
+// undocumented public APIs
+export const _ignoreErrors: boolean = true;
+export const _stderr: Writable = new Writable();
+export const _stdout: Writable = new Writable();
 
 export const log: typeof console.log = _console?.log ?? noop;
 export const info: typeof console.info = _console?.info ?? log;
@@ -12,6 +18,10 @@ export const debug: typeof console.debug = _console?.debug ?? log;
 export const table: typeof console.table = _console?.table ?? log;
 export const error: typeof console.error = _console?.error ?? log;
 export const warn: typeof console.warn = _console?.warn ?? error;
+
+// https://developer.chrome.com/docs/devtools/console/api#createtask
+export const createTask =
+  (_console as any)?.createTask ?? notImplemented("console.createTask");
 
 export const assert: typeof console.assert =
   notImplemented<typeof console.assert>("console.assert");
@@ -38,7 +48,19 @@ export const timeStamp: typeof console.timeStamp = _console?.timeStamp ?? noop;
 export const Console: typeof console.Console =
   _console?.Console ?? mock.__createMock__("console.Console");
 
-export default <typeof console>{
+export { default as _times } from "../../mock/proxy";
+
+export function context() {
+  // TODO: Should be Console with all the methods
+  return _console;
+}
+
+export {
+  default as _stdoutErrorHandler,
+  default as _stderrErrorHandler,
+} from "../../mock/noop";
+
+export default {
   assert,
   clear,
   Console,
@@ -62,4 +84,4 @@ export default <typeof console>{
   timeStamp,
   trace,
   warn,
-};
+} satisfies typeof console;

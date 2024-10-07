@@ -90,7 +90,7 @@ export const stopCoverage: typeof v8.stopCoverage = noop;
 export const takeCoverage: typeof v8.takeCoverage = noop;
 export const writeHeapSnapshot: typeof v8.writeHeapSnapshot = () => "";
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 type _Function = Function;
 export function queryObjects(ctor: _Function): number | string[];
 export function queryObjects(

@@ -2,7 +2,6 @@ import { EventEmitter } from "node:events";
 import type worker_threads from "node:worker_threads";
 import { Readable } from "node:stream";
 
-// eslint-disable-next-line unicorn/prefer-event-target
 export class Worker extends EventEmitter implements worker_threads.Worker {
   stdin = null;
   stdout = new Readable();
@@ -12,9 +11,17 @@ export class Worker extends EventEmitter implements worker_threads.Worker {
     eventLoopUtilization: () => ({ idle: 0, active: 0, utilization: 0 }),
   };
   postMessage(
-    value: any,
-    transferList?: readonly worker_threads.TransferListItem[] | undefined,
+    _value: any,
+    _transferList?: readonly worker_threads.TransferListItem[] | undefined,
   ) {}
+  postMessageToThread(
+    _threadId: unknown,
+    _value: unknown,
+    _transferList?: unknown,
+    _timeout?: unknown,
+  ): Promise<void> {
+    return Promise.resolve();
+  }
   ref() {}
   unref() {}
   terminate() {

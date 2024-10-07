@@ -28,4 +28,8 @@ export class File extends Blob implements buffer.File {
   stream(): any {
     throw new Error("Not implemented");
   }
+
+  bytes(): Promise<Uint8Array> {
+    throw new Error("Not implemented");
+  }
 }

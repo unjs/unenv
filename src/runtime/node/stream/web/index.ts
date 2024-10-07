@@ -49,6 +49,9 @@ export const TextDecoderStream =
 export const DecompressionStream =
   globalThis.DecompressionStream ||
   notImplemented("stream.web.DecompressionStream");
+export const CompressionStream =
+  globalThis.DecompressionStream ||
+  notImplemented("stream.web.CompressionStream");
 
 // @ts-ignore
 export default <typeof streamWeb>{
@@ -68,4 +71,5 @@ export default <typeof streamWeb>{
   TextEncoderStream,
   TextDecoderStream,
   DecompressionStream,
+  CompressionStream,
 };

@@ -56,28 +56,24 @@ export {
   getuid,
   hasUncaughtExceptionCaptureCallback,
   hrtime,
-  // TODO: implemented yet in unenv
-  //initgroups,
+  initgroups,
   kill,
   listenerCount,
   listeners,
   loadEnvFile,
   memoryUsage,
-  // TODO: implemented yet in unenv
-  //moduleLoadList,
+  moduleLoadList,
   off,
   on,
   once,
-  // TODO: implemented yet in unenv
-  //openStdin,
+  openStdin,
   pid,
   platform,
   ppid,
   prependListener,
   prependOnceListener,
   rawListeners,
-  // TODO: implemented yet in unenv
-  //reallyExit,
+  reallyExit,
   release,
   removeAllListeners,
   removeListener,
@@ -214,19 +210,21 @@ import {
 const unpatchedGlobalThisProcess = (globalThis as any)[
   "pro" + "cess"
 ] as typeof nodeProcess;
-// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
-export const getBuiltinModule = unpatchedGlobalThisProcess.getBuiltinModule;
+
+export const getBuiltinModule =
+  unpatchedGlobalThisProcess.getBuiltinModule as (typeof nodeProcess)["getBuiltinModule"];
+
 const workerdProcess = getBuiltinModule("node:process") as typeof nodeProcess;
 
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call
 //       This generation should use information from https://github.com/cloudflare/workerd/issues/2097
 export const { env, nextTick } = workerdProcess;
 
-export default {
+const _process = {
   /**
    * manually unroll unenv-polyfilled-symbols to make it tree-shakeable
    */
-  // @ts-expect-error undocumented public API
+  // @ts-expect-error (not typed)
   _debugEnd,
   _debugProcess,
   // TODO: implemented yet in unenv
@@ -334,3 +332,5 @@ export default {
   getBuiltinModule,
   nextTick,
 } satisfies typeof nodeProcess;
+
+export default _process as unknown as typeof globalThis.process;

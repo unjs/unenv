@@ -3,7 +3,8 @@ import type net from "node:net";
 import { notImplemented, notImplementedClass } from "../../_internal/utils";
 import { Socket, SocketAddress } from "./internal/socket";
 
-export { Socket, SocketAddress } from "./internal/socket";
+// require('node:net').Socket === require('node:net').Stream
+export { Socket, SocketAddress, Socket as Stream } from "./internal/socket";
 
 export const createServer = notImplemented(
   "net.createServer",
@@ -53,8 +54,19 @@ export const isIP: typeof net.isIP = (host: string) => {
   return 0;
 };
 
+// --- internal ---
+export const _createServerHandle = notImplemented("net._createServerHandle");
+
+export const _normalizeArgs = notImplemented("net._normalizeArgs");
+
+export const _setSimultaneousAccepts = notImplemented(
+  "net._setSimultaneousAccepts",
+);
+
 export const exports: typeof net = {
-  Socket: Socket as any, // TODO
+  Socket: Socket,
+  // @ts-expect-error (missing types?)
+  Stream: Socket,
   Server,
   BlockList,
   SocketAddress,
@@ -68,6 +80,9 @@ export const exports: typeof net = {
   getDefaultAutoSelectFamilyAttemptTimeout,
   setDefaultAutoSelectFamily,
   setDefaultAutoSelectFamilyAttemptTimeout,
+  _createServerHandle,
+  _normalizeArgs,
+  _setSimultaneousAccepts,
 };
 
 export default exports;

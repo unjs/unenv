@@ -1,7 +1,6 @@
 import type nodeCrypto from "node:crypto";
 
 export {
-  Certificate,
   Cipher,
   Cipheriv,
   Decipher,
@@ -9,7 +8,6 @@ export {
   ECDH,
   Sign,
   Verify,
-  X509Certificate,
   constants,
   createCipheriv,
   createDecipheriv,
@@ -23,14 +21,11 @@ export {
   privateEncrypt,
   publicDecrypt,
   publicEncrypt,
-  scrypt,
-  scryptSync,
   sign,
   verify,
 } from "./index";
 
 import {
-  Certificate,
   Cipher,
   Cipheriv,
   Decipher,
@@ -38,7 +33,6 @@ import {
   ECDH,
   Sign,
   Verify,
-  X509Certificate,
   constants,
   createCipheriv,
   createDecipheriv,
@@ -52,24 +46,23 @@ import {
   privateEncrypt,
   publicDecrypt,
   publicEncrypt,
-  scrypt,
-  scryptSync,
   sign,
   verify,
   webcrypto as unenvCryptoWebcrypto,
 } from "./index";
 
-// @ts-expect-error typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdCrypto = process.getBuiltinModule("node:crypto");
 
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being generated in the `env()` call
 //       This generation should use information from https://github.com/cloudflare/workerd/issues/2097
 export const {
+  Certificate,
   DiffieHellman,
   DiffieHellmanGroup,
   Hash,
   Hmac,
   KeyObject,
+  X509Certificate,
   checkPrime,
   checkPrimeSync,
   createDiffieHellman,
@@ -90,7 +83,6 @@ export const {
   getDiffieHellman,
   getFips,
   getHashes,
-  getRandomValues,
   hkdf,
   hkdfSync,
   pbkdf2,
@@ -100,6 +92,8 @@ export const {
   randomFillSync,
   randomInt,
   randomUUID,
+  scrypt,
+  scryptSync,
   secureHeapUsed,
   setEngine,
   setFips,
@@ -107,16 +101,21 @@ export const {
   timingSafeEqual,
 } = workerdCrypto;
 
+// Special case getRandomValues as it must be bound to the webcrypto object
+export const getRandomValues = workerdCrypto.getRandomValues.bind(
+  workerdCrypto.webcrypto,
+);
+
 export const webcrypto = {
   CryptoKey: unenvCryptoWebcrypto.CryptoKey,
-  getRandomValues: workerdCrypto.webcrypto.getRandomValues,
-  randomUUID: workerdCrypto.webcrypto.randomUUID,
-  subtle: workerdCrypto.webcrypto.subtle,
+  getRandomValues,
+  randomUUID,
+  subtle,
 } satisfies typeof nodeCrypto.webcrypto;
 
 // Node.js exposes fips only via the default export 🤷🏼‍♂️
 // so extract it separately from the other exports
-const { fips } = workerdCrypto;
+const fips = workerdCrypto.fips;
 
 // Node.js exposes createCipher, createDecipher, pseudoRandomBytes only via the default export 🤷🏼‍♂️
 // so extract it separately from the other exports
@@ -128,7 +127,6 @@ export default {
    */
   Certificate,
   Cipher,
-  // @ts-expect-error undocumented public API
   Cipheriv,
   Decipher,
   Decipheriv,
@@ -136,6 +134,7 @@ export default {
   Sign,
   Verify,
   X509Certificate,
+  // @ts-expect-error @types/node is out of date - this is a bug in typings
   constants,
   createCipheriv,
   createDecipheriv,

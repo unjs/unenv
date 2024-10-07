@@ -1,5 +1,5 @@
 // https://nodejs.org/api/fs.html
-import type fs from "node:fs";
+import type nodeFS from "node:fs";
 
 import * as _classes from "./internal/classes";
 import * as _constants from "./internal/constants";
@@ -13,7 +13,7 @@ export * from "./internal/fs";
 
 export const promises = _promises;
 
-export default <typeof fs>{
+export default <typeof nodeFS>{
   ..._classes,
   ..._constants,
   ..._fs,

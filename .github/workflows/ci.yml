@@ -21,14 +21,13 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: ".nvmrc"
           cache: "pnpm"
       - run: pnpm install
       - run: pnpm lint
-      - run: pnpm typecheck
+      - run: pnpm test:types
+      - run: pnpm test:node
       - run: pnpm build
-      # - run: pnpm vitest --coverage
-      # - uses: codecov/codecov-action@v3
       - name: nightly release
         if: |
           github.event_name == 'push' &&

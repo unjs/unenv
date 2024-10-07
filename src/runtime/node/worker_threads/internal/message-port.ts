@@ -2,7 +2,7 @@ import { EventEmitter } from "node:events";
 import type worker_threads from "node:worker_threads";
 
 export class MessagePort
-  extends EventEmitter // eslint-disable-line unicorn/prefer-event-target
+  extends EventEmitter
   implements worker_threads.MessagePort
 {
   close() {}
@@ -13,4 +13,16 @@ export class MessagePort
   ref() {}
   unref() {}
   start() {}
+
+  addEventListener(type: string, listener: (...args: any[]) => void): void {
+    this.on(type, listener);
+  }
+
+  removeEventListener(type: string, listener: (...args: any[]) => void): void {
+    this.off(type, listener);
+  }
+
+  dispatchEvent(event: Event) {
+    return this.emit(event.type, event);
+  }
 }
