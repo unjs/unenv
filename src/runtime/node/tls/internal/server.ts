@@ -7,7 +7,7 @@ export class Server extends _Server implements tls.Server {
     arg1?: tls.TlsOptions | ((socket: tls.TLSSocket) => void),
     arg2?: (socket: tls.TLSSocket) => void,
   ) {
-    super();
+    super(arg1 as any, arg2 as any);
   }
 
   addContext(hostname: string, context: tls.SecureContextOptions) {}
