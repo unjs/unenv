@@ -1,4 +1,5 @@
 import type * as net from "node:net";
+import { createNotImplementedError } from "../../../_internal/utils";
 import { EventEmitter } from "node:events";
 
 // Docs: https://nodejs.org/api/net.html#net_class_net_server
@@ -17,12 +18,11 @@ export class Server extends EventEmitter implements net.Server {
   }
 
   listen(): this {
-    return this;
+    throw createNotImplementedError("node.Server.listen()");
   }
 
   close(callback?: (err?: Error) => void): this {
-    callback?.();
-    return this;
+    throw createNotImplementedError("node.Server.close()");
   }
 
   address(): net.AddressInfo | string | null {
