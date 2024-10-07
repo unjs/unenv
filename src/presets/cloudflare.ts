@@ -1,5 +1,6 @@
 import type { Preset } from "../types";
 
+// Built-in APIs provided by workerd.
 // https://developers.cloudflare.com/workers/runtime-apis/nodejs/
 // https://github.com/cloudflare/workerd/tree/main/src/node
 // Last checked: 2024-05-11
@@ -13,7 +14,6 @@ const cloudflareNodeCompatModules = [
   "diagnostics_channel",
   "events",
   "path",
-  "process",
   "stream",
   "stream/consumers",
   "stream/promises",
@@ -22,6 +22,8 @@ const cloudflareNodeCompatModules = [
   "zlib",
 ];
 
+// Modules implemented via a mix of workerd APIs and polyfills.
+// See `src/runtime/node/<module name>/$cloudflare.ts`.
 const hybridNodeCompatModules = [
   "async_hooks",
   "console",
@@ -36,9 +38,11 @@ const hybridNodeCompatModules = [
 
 const cloudflarePreset: Preset = {
   alias: {
-    ...Object.fromEntries(cloudflareNodeCompatModules.map((p) => [p, p])),
     ...Object.fromEntries(
-      cloudflareNodeCompatModules.map((p) => [`node:${p}`, `node:${p}`]),
+      cloudflareNodeCompatModules.flatMap((p) => [
+        [p, p],
+        [`node:${p}`, `node:${p}`],
+      ]),
     ),
     // The `node:assert` implementation of workerd uses strict semantics by default
     "assert/strict": "node:assert",
@@ -49,15 +53,9 @@ const cloudflarePreset: Preset = {
 
     // define aliases for hybrid modules
     ...Object.fromEntries(
-      hybridNodeCompatModules.map((m) => [
-        m,
-        `unenv/runtime/node/${m}/$cloudflare`,
-      ]),
-    ),
-    ...Object.fromEntries(
-      hybridNodeCompatModules.map((m) => [
-        `node:${m}`,
-        `unenv/runtime/node/${m}/$cloudflare`,
+      hybridNodeCompatModules.flatMap((m) => [
+        [m, `unenv/runtime/node/${m}/$cloudflare`],
+        [`node:${m}`, `unenv/runtime/node/${m}/$cloudflare`],
       ]),
     ),
   },
@@ -72,10 +70,7 @@ const cloudflarePreset: Preset = {
     clearImmediate: ["unenv/runtime/node/timers/$cloudflare", "clearImmediate"],
   },
   polyfill: [],
-  external: [
-    ...cloudflareNodeCompatModules.map((p) => `${p}`),
-    ...cloudflareNodeCompatModules.map((p) => `node:${p}`),
-  ],
+  external: cloudflareNodeCompatModules.flatMap((p) => [p, `node:${p}`]),
 };
 
 export default cloudflarePreset;

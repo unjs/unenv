@@ -2,7 +2,6 @@
 import noop from "../../mock/noop";
 import mock from "../../mock/proxy";
 import type inspector from "node:inspector";
-import type Console from "node:console";
 
 export const close: typeof inspector.close = noop;
 
@@ -24,6 +23,8 @@ export const waitForDebugger: typeof inspector.waitForDebugger = noop;
 export const Session: typeof inspector.Session =
   mock.__createMock__("inspector.Session");
 
+export const Network = mock.__createMock__("inspector.Network");
+
 export default <typeof inspector>{
   Session,
   close,
@@ -31,4 +32,5 @@ export default <typeof inspector>{
   open,
   url,
   waitForDebugger,
+  Network,
 };
