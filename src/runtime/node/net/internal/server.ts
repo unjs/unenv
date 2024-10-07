@@ -29,7 +29,9 @@ export class Server extends EventEmitter implements net.Server {
     return null;
   }
 
-  getConnections(cb: (error: Error | null, count: number) => void): void {}
+  getConnections(cb: (error: Error | null, count: number) => void): void {
+    cb(null, 0);
+  }
 
   ref(): this {
     return this;
