@@ -23,6 +23,7 @@ export default unjs(
       "no-empty": 0,
       "no-func-assign": 0,
       "unicorn/filename-case": 0,
+      "@typescript-eslint/no-unused-expressions": 0,
     },
   },
   {

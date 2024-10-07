@@ -45,7 +45,7 @@ export class AssertionError extends Error implements nodeAssert.AssertionError {
     actual?: unknown;
     expected?: unknown;
     operator?: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     stackStartFn?: Function;
   }) {
     super();
@@ -447,7 +447,7 @@ export function fail(
   expected?: unknown,
   message?: string | Error,
   operator?: string,
-  stackStartFn?: Function, // eslint-disable-line @typescript-eslint/ban-types
+  stackStartFn?: Function, // eslint-disable-line @typescript-eslint/no-unsafe-function-type
 ): never {
   const argsLen = arguments.length;
 
@@ -477,7 +477,7 @@ export function fail(
     actual,
     expected,
     operator: operator === undefined ? "fail" : operator,
-    // eslint-disable-next-line @typescript-eslint/ban-types
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     stackStartFn: (stackStartFn || fail) as Function,
     message,
   };
