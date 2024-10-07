@@ -1,7 +1,12 @@
 // https://nodejs.org/api/net.html
 import type net from "node:net";
+
 import { notImplemented, notImplementedClass } from "../../_internal/utils";
+
 import { Socket, SocketAddress } from "./internal/socket";
+import { Server } from "./internal/server";
+
+export { Server } from "./internal/server";
 
 // require('node:net').Socket === require('node:net').Stream
 export { Socket, SocketAddress, Socket as Stream } from "./internal/socket";
@@ -9,8 +14,6 @@ export { Socket, SocketAddress, Socket as Stream } from "./internal/socket";
 export const createServer = notImplemented(
   "net.createServer",
 ) as typeof net.createServer;
-
-export const Server = notImplementedClass("net.Server") as typeof net.Server;
 
 export const BlockList = notImplementedClass(
   "net.BlockList",
