@@ -1,15 +1,9 @@
 // https://nodejs.org/api/buffer.html
 import type nodeBuffer from "node:buffer";
 
-export {
-  INSPECT_MAX_BYTES,
-  resolveObjectURL,
-} from "./index";
+export { INSPECT_MAX_BYTES, resolveObjectURL } from "./index";
 
-import {
-  INSPECT_MAX_BYTES,
-  resolveObjectURL,
-} from "./index";
+import { INSPECT_MAX_BYTES, resolveObjectURL } from "./index";
 
 // @ts-ignore typings are not up to date, but this API exists, see: https://github.com/cloudflare/workerd/pull/2147
 const workerdBuffer = process.getBuiltinModule("node:buffer");
@@ -26,7 +20,7 @@ export const {
   isUtf8,
   kMaxLength,
   kStringMaxLength,
-  transcode
+  transcode,
 } = workerdBuffer;
 
 export default {
