@@ -54,7 +54,7 @@ export const buffer_implements = {
         Buffer.from("těst ☕", "utf8").toString(),
       );
     }
-    assert.ok(Buffer.File != null);
-    assert.ok(Buffer.Blob != null);
+    assert.ok(new Buffer.File([], "file"));
+    assert.ok(new Buffer.Blob([]));
   },
 };
