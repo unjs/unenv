@@ -1,9 +1,7 @@
 import type utilTypes from "node:util/types";
 import { notImplemented } from "../../../_internal/utils";
 
-export const isExternal = notImplemented<typeof utilTypes.isExternal>(
-  "util.types.isExternal",
-);
+export const isExternal: typeof utilTypes.isExternal = (_obj) => false;
 
 export const isDate: typeof utilTypes.isDate = (val): val is Date =>
   val instanceof Date;
