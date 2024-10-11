@@ -60,8 +60,8 @@
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
-    "workerd": "^1.20241004.0",
-    "wrangler": "^3.80.0"
+    "workerd": "^1.20241011.1",
+    "wrangler": "^3.80.4"
   },
   "packageManager": "pnpm@9.12.1"
 }
