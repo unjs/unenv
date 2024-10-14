@@ -3,7 +3,7 @@ import type { Preset } from "../types";
 // Built-in APIs provided by workerd.
 // https://developers.cloudflare.com/workers/runtime-apis/nodejs/
 // https://github.com/cloudflare/workerd/tree/main/src/node
-// Last checked: 2024-05-11
+// Last checked: 2024-10-15
 const cloudflareNodeCompatModules = [
   "_stream_duplex",
   "_stream_passthrough",
@@ -11,6 +11,7 @@ const cloudflareNodeCompatModules = [
   "_stream_transform",
   "_stream_writable",
   "assert",
+  "buffer",
   "diagnostics_channel",
   "events",
   "path",
@@ -19,6 +20,7 @@ const cloudflareNodeCompatModules = [
   "stream/promises",
   "stream/web",
   "string_decoder",
+  "sys",
   "util/types",
   "zlib",
 ];
@@ -28,7 +30,6 @@ const cloudflareNodeCompatModules = [
 const hybridNodeCompatModules = [
   "async_hooks",
   "console",
-  "buffer",
   "crypto",
   "module",
   "process",
@@ -47,9 +48,6 @@ const cloudflarePreset: Preset = {
     // The `node:assert` implementation of workerd uses strict semantics by default
     "assert/strict": "node:assert",
     "node:assert/strict": "node:assert",
-    // The `node:sys` module is just a deprecated alias for `node:util` which we implemented using a hybrid polyfill
-    sys: "unenv/runtime/node/util/$cloudflare",
-    "node:sys": "unenv/runtime/node/util/$cloudflare",
 
     // define aliases for hybrid modules
     ...Object.fromEntries(
