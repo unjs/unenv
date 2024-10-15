@@ -58,10 +58,9 @@ async function main() {
  */
 function runTests() {
   try {
-    if (runTests.proc) {
-      runTests.proc.kill();
-      runTests.proc = undefined;
-    }
+    runTests.proc?.kill();
+    runTests.proc = undefined;
+
     console.log(`Running tests...`);
     const workerdBin = workerd.default;
     runTests.proc = spawn(
@@ -75,7 +74,11 @@ function runTests() {
           LLVM_SYMBOLIZER: findLLVMsymbolizer(),
         },
       },
-    );
+    ).on("exit", (code) => {
+      if (code !== 0) {
+        throw new Error(`Test failure`);
+      }
+    });
   } catch (error) {
     if (error) {
       console.error(error.stdout || error);
