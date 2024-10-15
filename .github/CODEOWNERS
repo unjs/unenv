@@ -2,3 +2,4 @@
 
 # all cloudflare files including src/preset/cloudflare.ts, **/$cloudflare.ts, etc.
 **/*cloudflare** @unjs/cloudflare
+/test/workerd/** @unjs/cloudflare
