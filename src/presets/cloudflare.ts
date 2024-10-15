@@ -19,6 +19,7 @@ const cloudflareNodeCompatModules = [
   "stream/promises",
   "stream/web",
   "string_decoder",
+  "util/types",
   "zlib",
 ];
 
@@ -33,7 +34,6 @@ const hybridNodeCompatModules = [
   "process",
   "timers",
   "util",
-  "util/types",
 ];
 
 const cloudflarePreset: Preset = {

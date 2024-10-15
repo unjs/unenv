@@ -49,7 +49,6 @@ import {
   isUndefined,
   parseEnv,
   styleText,
-  types as unenvUtilTypes,
 } from "./index";
 
 const workerdUtil = process.getBuiltinModule("node:util");
@@ -81,12 +80,7 @@ export const {
   transferableAbortSignal,
 } = workerdUtil;
 
-// TODO(cloudflare): we should just implement this in workerd and drop this special case.
-export const types = {
-  ...workerdUtil.types,
-  isExternal: unenvUtilTypes.isExternal,
-  isAnyArrayBuffer: workerdUtil.types.isAnyArrayBuffer,
-} satisfies typeof nodeUtil.types;
+export const types = workerdUtil.types;
 
 export default {
   /**

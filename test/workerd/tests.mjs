@@ -62,3 +62,13 @@ export const buffer_implements = {
     assert.ok(new buffer.Blob([]));
   },
 };
+
+// --- node:util
+
+export const util_implements = {
+  async test() {
+    const { types } = await import("unenv/runtime/node/util");
+    assert.strictEqual(types.isExternal("hello world"), false);
+    assert.strictEqual(types.isAnyArrayBuffer(new ArrayBuffer(0)), true);
+  },
+};
