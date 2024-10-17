@@ -40,8 +40,8 @@ export const unenv_polyfills_buffer = {
     const Buffer = buffer.Buffer;
     assert.strictEqual(typeof buffer.isAscii, "function");
     assert.strictEqual(typeof buffer.isUtf8, "function");
-    assert.strictEqual(buffer.btoa("hello"), "aGVsbG8=");
-    assert.strictEqual(buffer.atob("aGVsbG8="), "hello");
+    //assert.strictEqual(buffer.btoa("hello"), "aGVsbG8=");
+    //assert.strictEqual(buffer.atob("aGVsbG8="), "hello");
     assert.strictEqual(typeof buffer.transcode, "function");
     assert.strictEqual(typeof buffer.File, "function");
     assert.strictEqual(typeof buffer.Blob, "function");

@@ -22,8 +22,8 @@ export const transcode = notImplemented("buffer.transcode");
 export const isUtf8 = notImplemented("buffer.isUtf8");
 export const isAscii = notImplemented("buffer.isAscii");
 
-export const btoa = globalThis.btoa.bind(globalThis);
-export const atob = globalThis.atob.bind(globalThis);
+export const btoa = global.btoa;
+export const atob = globalThis.atob;
 
 export const kStringMaxLength = 0; // TODO
 export const constants = {
