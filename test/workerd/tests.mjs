@@ -1,4 +1,5 @@
 import assert from "node:assert";
+import { createRequire } from "node:module";
 import process from "node:process";
 
 globalThis.process = process;
@@ -33,17 +34,32 @@ export const url_parse = {
 
 // --- node:buffer
 
-export const buffer_implements = {
+export const unenv_polyfills_buffer = {
+  async test() {
+    const buffer = await import("unenv/runtime/node/buffer");
+    const Buffer = buffer.Buffer;
+    assert.strictEqual(typeof buffer.isAscii, "function");
+    assert.strictEqual(typeof buffer.isUtf8, "function");
+    //assert.strictEqual(buffer.btoa("hello"), "aGVsbG8=");
+    //assert.strictEqual(buffer.atob("aGVsbG8="), "hello");
+    assert.strictEqual(typeof buffer.transcode, "function");
+    assert.strictEqual(typeof buffer.File, "function");
+    assert.strictEqual(typeof buffer.Blob, "function");
+    assert.strictEqual(typeof buffer.INSPECT_MAX_BYTES, "number");
+    assert.strictEqual(typeof buffer.resolveObjectURL, "function");
+    assert.strictEqual(typeof Buffer.from, "function");
+  },
+};
+
+export const workerd_implements_buffer = {
   async test() {
     const encoder = new TextEncoder();
-    const buffer = await import("unenv/runtime/node/buffer");
+    const buffer = await import("node:buffer");
     const Buffer = buffer.Buffer;
     assert.strictEqual(buffer.isAscii(encoder.encode("hello world")), true);
     assert.strictEqual(buffer.isUtf8(encoder.encode("Yağız")), true);
-    // TODO: enable this once atob and btoa invalid this bug is resolved.
-    // Ref: https://github.com/cloudflare/workerd/pull/2907
-    // assert.strictEqual(buffer.btoa("hello"), "aGVsbG8=");
-    // assert.strictEqual(buffer.atob("aGVsbG8="), "hello");
+    assert.strictEqual(buffer.btoa("hello"), "aGVsbG8=");
+    assert.strictEqual(buffer.atob("aGVsbG8="), "hello");
     {
       const dest = buffer.transcode(
         Buffer.from([
@@ -60,6 +76,20 @@ export const buffer_implements = {
     }
     assert.ok(new buffer.File([], "file"));
     assert.ok(new buffer.Blob([]));
+    assert.strictEqual(typeof buffer.INSPECT_MAX_BYTES, "number");
+    assert.strictEqual(typeof buffer.resolveObjectURL, "function");
+  },
+};
+
+// --- workerd modules
+
+export const workerd_modules = {
+  async test() {
+    const require = createRequire("/");
+    const modules = ["node:buffer", "node:sys"];
+    for (const m of modules) {
+      assert.strictEqual(await import(m), require(m));
+    }
   },
 };
 
