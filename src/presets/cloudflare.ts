@@ -20,7 +20,6 @@ const cloudflareNodeCompatModules = [
   "stream/promises",
   "stream/web",
   "string_decoder",
-  "sys",
   "util/types",
   "zlib",
 ];
@@ -48,6 +47,9 @@ const cloudflarePreset: Preset = {
     // The `node:assert` implementation of workerd uses strict semantics by default
     "assert/strict": "node:assert",
     "node:assert/strict": "node:assert",
+    // The `node:sys` module is just a deprecated alias for `node:util` which we implemented using a hybrid polyfill
+    sys: "unenv/runtime/node/util/$cloudflare",
+    "node:sys": "unenv/runtime/node/util/$cloudflare",
 
     // define aliases for hybrid modules
     ...Object.fromEntries(
