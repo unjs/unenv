@@ -50,7 +50,7 @@
   "devDependencies": {
     "@parcel/watcher": "^2.4.1",
     "@types/node": "^22.7.4",
-    "automd": "^0.3.10",
+    "automd": "^0.3.12",
     "changelogen": "^0.5.7",
     "consola": "^3.2.3",
     "esbuild": "^0.24.0",
@@ -58,10 +58,10 @@
     "eslint-config-unjs": "^0.4.1",
     "jiti": "^2.3.3",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "unbuild": "^2.0.0",
     "workerd": "^1.20241011.1",
-    "wrangler": "^3.80.4"
+    "wrangler": "^3.81.0"
   },
-  "packageManager": "pnpm@9.12.1"
+  "packageManager": "pnpm@9.12.2"
 }
