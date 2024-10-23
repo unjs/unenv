@@ -131,10 +131,8 @@ async function createModuleServer(port = 8888) {
 
   const server = createServer(async (req, res) => {
     try {
-      const resolveMethod = req.headers["x-resolve-method"];
       const url = new URL(req.url, "http://localhost");
       const referrer = url.searchParams.get("referrer");
-      const specifier = url.searchParams.get("specifier");
       const rawSpecifier = url.searchParams.get("rawSpecifier");
 
       console.log(
