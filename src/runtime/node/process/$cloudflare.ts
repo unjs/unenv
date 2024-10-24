@@ -39,7 +39,6 @@ export {
   eventNames,
   execArgv,
   execPath,
-  exit,
   exitCode,
   features,
   getActiveResourcesInfo,
@@ -63,7 +62,6 @@ export {
   once,
   openStdin,
   pid,
-  platform,
   ppid,
   prependListener,
   prependOnceListener,
@@ -132,7 +130,6 @@ import {
   eventNames,
   execArgv,
   execPath,
-  exit,
   exitCode,
   features,
   getActiveResourcesInfo,
@@ -156,7 +153,6 @@ import {
   once,
   openStdin,
   pid,
-  platform,
   ppid,
   prependListener,
   prependOnceListener,
@@ -205,7 +201,7 @@ const workerdProcess = getBuiltinModule("node:process") as typeof nodeProcess;
 // TODO: Ideally this list is not hardcoded but instead is generated when the preset is being
 //       generated in the `env()` call.
 //       This generation should use information from https://github.com/cloudflare/workerd/issues/2097
-export const { env, nextTick } = workerdProcess;
+export const { env, exit, nextTick, platform } = workerdProcess;
 
 const _process = {
   /**
