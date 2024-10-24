@@ -3,7 +3,7 @@ import type { Preset } from "../types";
 // Built-in APIs provided by workerd.
 // https://developers.cloudflare.com/workers/runtime-apis/nodejs/
 // https://github.com/cloudflare/workerd/tree/main/src/node
-// Last checked: 2024-10-15
+// Last checked: 2024-10-22
 const cloudflareNodeCompatModules = [
   "_stream_duplex",
   "_stream_passthrough",
@@ -15,11 +15,13 @@ const cloudflareNodeCompatModules = [
   "diagnostics_channel",
   "events",
   "path",
+  "querystring",
   "stream",
   "stream/consumers",
   "stream/promises",
   "stream/web",
   "string_decoder",
+  "url",
   "util/types",
   "zlib",
 ];
