@@ -26,7 +26,6 @@ const cloudflareNodeCompatModules = [
   "string_decoder",
   "url",
   "util/types",
-  "sys",
   "zlib",
 ];
 
@@ -50,6 +49,11 @@ const cloudflarePreset: Preset = {
         [`node:${p}`, `node:${p}`],
       ]),
     ),
+
+    // The `node:sys` module is just a deprecated alias for `node:util`
+    // Keep this until util is a full compat module.
+    sys: "unenv/runtime/node/util/$cloudflare",
+    "node:sys": "unenv/runtime/node/util/$cloudflare",
 
     // define aliases for hybrid modules
     ...Object.fromEntries(

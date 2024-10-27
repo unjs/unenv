@@ -102,3 +102,18 @@ export const util_implements = {
     assert.strictEqual(types.isAnyArrayBuffer(new ArrayBuffer(0)), true);
   },
 };
+
+// --- node:path
+
+export const path_implements = {
+  async test() {
+    {
+      const pathModule = await import("node:path/win32");
+      assert.strictEqual(typeof pathModule.default.resolve, "function");
+    }
+    {
+      const pathModule = await import("node:path/posix");
+      assert.strictEqual(typeof pathModule.default.resolve, "function");
+    }
+  },
+};
