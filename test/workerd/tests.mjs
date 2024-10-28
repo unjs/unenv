@@ -102,3 +102,20 @@ export const util_implements = {
     assert.strictEqual(types.isAnyArrayBuffer(new ArrayBuffer(0)), true);
   },
 };
+
+// --- node:path
+
+export const unenv_polyfills_path = {
+  async test() {
+    const pathWin32 = await import("unenv/runtime/node/path/win32");
+    assert.strictEqual(typeof pathWin32.resolve, "function");
+    // Note: unenv uses `unjs/pathe` which behavior differs from Node.js
+    // See https://github.com/unjs/pathe
+    assert.strictEqual(pathWin32.sep, "/");
+    assert.strictEqual(pathWin32.delimiter, ":");
+    const pathPosix = await import("unenv/runtime/node/path/posix");
+    assert.strictEqual(typeof pathPosix.resolve, "function");
+    assert.strictEqual(pathPosix.sep, "/");
+    assert.strictEqual(pathPosix.delimiter, ":");
+  },
+};
