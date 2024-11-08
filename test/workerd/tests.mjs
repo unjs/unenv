@@ -1,4 +1,4 @@
-import assert, { strictEqual } from "node:assert";
+import assert from "node:assert";
 import { createRequire } from "node:module";
 import process from "node:process";
 
