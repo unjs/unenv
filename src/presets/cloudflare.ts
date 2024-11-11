@@ -16,6 +16,8 @@ const cloudflareNodeCompatModules = [
   "diagnostics_channel",
   "events",
   "path",
+  "path/posix",
+  "path/win32",
   "querystring",
   "stream",
   "stream/consumers",

@@ -115,6 +115,15 @@ export const unenv_polyfills_path = {
     assert.strictEqual(pathWin32.delimiter, ":");
     const pathPosix = await import("unenv/runtime/node/path/posix");
     assert.strictEqual(typeof pathPosix.resolve, "function");
+  },
+};
+
+export const workerd_path = {
+  async test() {
+    const pathWin32 = await import("node:path/win32");
+    assert.strictEqual(pathWin32.sep, "\\");
+    assert.strictEqual(pathWin32.delimiter, ";");
+    const pathPosix = await import("node:path/posix");
     assert.strictEqual(pathPosix.sep, "/");
     assert.strictEqual(pathPosix.delimiter, ":");
   },
