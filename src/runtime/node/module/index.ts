@@ -63,9 +63,15 @@ export const syncBuiltinESMExports: typeof nodeModule.syncBuiltinESMExports =
     return [];
   };
 
-export const findSourceMap = notImplemented(
-  "module.findSourceMap",
-) as typeof nodeModule.findSourceMap;
+export const findSourceMap: typeof nodeModule.findSourceMap = function (
+  path: string,
+  error?: Error,
+) {
+  // The cast is necessary because Node types wrongly set the return type to `SourceMap`.
+  // Comments on Node types say "Returns `module.SourceMap` if a source map is found, `undefined` otherwise."
+  // Returning `undefined` is the verified behavior.
+  return undefined as unknown as nodeModule.SourceMap;
+};
 
 export const wrap: typeof nodeModule.wrap = function (source) {
   return `(function (exports, require, module, __filename, __dirname) { ${source}\n});`;
