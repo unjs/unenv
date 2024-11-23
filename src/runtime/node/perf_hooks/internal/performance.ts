@@ -30,6 +30,7 @@ const nodeTiming = {
   loopStart: 63.262_040_972_709_656,
   loopExit: -1,
   idleTime: 305_360.555_328,
+  uvMetricsInfo: { loopCount: 142, events: 137, eventsWaiting: 97 },
   // only present in Node.js 18.x
   detail: undefined,
 } satisfies Omit<perf_hooks.PerformanceNodeTiming, "toJSON">;
