@@ -93,8 +93,19 @@ export class ServerResponse extends Writable implements http.ServerResponse {
     return this;
   }
 
-  setHeader(name: string, value: number | string | string[]): this {
-    this._headers[name.toLowerCase()] = value;
+  setHeader(name: string, value: number | string | readonly string[]): this {
+    this._headers[name.toLowerCase()] = Array.isArray(value)
+      ? ([...value] as string[])
+      : (value as number | string);
+    return this;
+  }
+
+  setHeaders(
+    headers: Headers | Map<string, number | string | readonly string[]>,
+  ): this {
+    for (const [key, value] of headers.entries()) {
+      this.setHeader(key, value);
+    }
     return this;
   }
 
