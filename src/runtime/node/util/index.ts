@@ -59,6 +59,9 @@ export const parseEnv = notImplemented<typeof util.parseEnv>("util.parseEnv");
 export const styleText =
   notImplemented<typeof util.styleText>("util.styleText");
 
+export const getCallSite =
+  notImplemented<typeof util.getCallSite>("util.getCallSites");
+
 export default <typeof util>{
   _errnoException,
   _exceptionWithHostPort,
@@ -66,6 +69,7 @@ export default <typeof util>{
   aborted,
   callbackify,
   deprecate,
+  getCallSite,
   getSystemErrorMap,
   getSystemErrorName,
   inherits,
