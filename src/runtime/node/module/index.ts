@@ -1,5 +1,5 @@
 // https://nodejs.org/api/module.html
-import type nodeModule from "node:module";
+import nodeModule from "node:module";
 import { notImplemented, notImplementedClass } from "../../_internal/utils";
 
 export const _cache = Object.create(null);
@@ -20,6 +20,28 @@ export const createRequire = function (filename: string) {
     main: undefined,
   });
 };
+
+export const getCompileCacheDir: typeof nodeModule.getCompileCacheDir =
+  function () {
+    return undefined;
+  };
+
+export const enableCompileCache: typeof nodeModule.enableCompileCache =
+  function (caheDir: string) {
+    return {
+      status: constants.compileCacheStatus.FAILED,
+      message: "not implemented",
+    };
+  };
+
+export const constants: typeof nodeModule.constants = Object.freeze({
+  compileCacheStatus: Object.freeze({
+    FAILED: 0,
+    ENABLED: 1,
+    ALREADY_ENABLED: 2,
+    DISABLED: 3,
+  }),
+});
 
 // prettier-ignore
 export const builtinModules: typeof nodeModule.builtinModules = [
@@ -127,8 +149,11 @@ export const Module = {
   _resolveFilename,
   _resolveLookupPaths,
   builtinModules,
+  constants,
   createRequire,
+  enableCompileCache,
   findSourceMap,
+  getCompileCacheDir,
   globalPaths,
   isBuiltin,
   register,
