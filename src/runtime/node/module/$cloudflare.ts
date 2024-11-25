@@ -52,7 +52,9 @@ import { notImplemented } from "src/runtime/_internal/utils";
 
 const workerdModule = process.getBuiltinModule("node:module");
 
-export const createRequire: typeof nodeModule.createRequire = (file: string) => {
+export const createRequire: typeof nodeModule.createRequire = (
+  file: string,
+) => {
   return Object.assign(workerdModule.createRequire(file), {
     resolve: Object.assign(notImplemented("module.require.resolve"), {
       paths: notImplemented("module.require.resolve.paths"),
