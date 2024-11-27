@@ -40,7 +40,6 @@ import {
   _resolveFilename,
   _resolveLookupPaths,
   builtinModules,
-  createRequire as unenvCreateRequire,
   findSourceMap,
   globalPaths,
   isBuiltin,
@@ -49,38 +48,22 @@ import {
   syncBuiltinESMExports,
   wrap,
 } from "./index";
+import { notImplemented } from "src/runtime/_internal/utils";
 
 const workerdModule = process.getBuiltinModule("node:module");
 
-export function createRequire(
+export const createRequire: typeof nodeModule.createRequire = (
   file: string,
-): ReturnType<typeof unenvCreateRequire> {
-  const requirePolyfill = unenvCreateRequire(file);
-  if (!workerdModule?.createRequire) {
-    // Use the unenv version of `createRequire` when not supported by `workerd`.
-    return requirePolyfill;
-  }
-
-  const requireFn = workerdModule.createRequire(file) as ReturnType<
-    typeof unenvCreateRequire
-  >;
-
-  // Patch properties missing from `workerd`.
-  if (!requireFn.resolve) {
-    requireFn.resolve = requirePolyfill.resolve;
-  }
-  if (!requireFn.cache) {
-    requireFn.cache = requirePolyfill.cache;
-  }
-  if (!requireFn.extensions) {
-    requireFn.extensions = requirePolyfill.extensions;
-  }
-  if (!requireFn.main) {
-    requireFn.main = requirePolyfill.main;
-  }
-
-  return requireFn;
-}
+) => {
+  return Object.assign(workerdModule.createRequire(file), {
+    resolve: Object.assign(notImplemented("module.require.resolve"), {
+      paths: notImplemented("module.require.resolve.paths"),
+    }),
+    cache: Object.create(null),
+    extensions: _extensions,
+    main: undefined,
+  });
+};
 
 export default {
   Module,
