@@ -3,7 +3,7 @@ export * from "./call";
 
 export type FetchOptions = globalThis.RequestInit & CallContext;
 
-export function createFetch(call: CallHandle, _fetch = global.fetch) {
+export function createFetch(call: CallHandle, _fetch = globalThis.fetch) {
   return async function ufetch(
     input: string | Request,
     init: FetchOptions,

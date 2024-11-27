@@ -3,14 +3,14 @@ function getGlobal() {
   if (typeof globalThis !== "undefined") {
     return globalThis;
   }
-  if (typeof self !== "undefined") {
-    return self;
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
   }
-  if (typeof window !== "undefined") {
-    return window;
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
   }
-  if (typeof global !== "undefined") {
-    return global;
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
   }
   return {};
 }

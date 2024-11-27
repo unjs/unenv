@@ -122,13 +122,7 @@ export function fromByteArray(uint8) {
 
   // go through the array every three bytes, we'll deal with trailing stuff later
   for (let i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
-    parts.push(
-      encodeChunk(
-        uint8,
-        i,
-        i + maxChunkLength > len2 ? len2 : i + maxChunkLength,
-      ),
-    );
+    parts.push(encodeChunk(uint8, i, Math.min(i + maxChunkLength, len2)));
   }
 
   // pad the end with zeros, but make sure to not forget the extra bytes
