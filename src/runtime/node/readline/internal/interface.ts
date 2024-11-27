@@ -39,7 +39,7 @@ export class Interface extends EventEmitter implements readline.Interface {
     return this;
   }
 
-  async *[Symbol.asyncIterator](): AsyncIterableIterator<string> {
+  async *[Symbol.asyncIterator](): NodeJS.AsyncIterator<string> {
     yield "";
   }
 }

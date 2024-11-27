@@ -16,20 +16,19 @@ export {
   PerformanceObserverEntryList,
 } from "../../../web/performance/index";
 
-// grabbed from Node.js v22.3.0 using:
-//   performance.nodeTiming
 const nodeTiming = {
   name: "node",
   entryType: "node",
   startTime: 0,
-  duration: 305_963.045_666,
-  nodeStart: 1.662_124_991_416_931_2,
-  v8Start: 44.762_125_015_258_79,
-  bootstrapComplete: 49.992_666_006_088_26,
-  environment: 46.754_665_970_802_31,
-  loopStart: 63.262_040_972_709_656,
-  loopExit: -1,
-  idleTime: 305_360.555_328,
+  duration: 0,
+  nodeStart: 0,
+  v8Start: 0,
+  bootstrapComplete: 0,
+  environment: 0,
+  loopStart: 0,
+  loopExit: 0,
+  idleTime: 0,
+  uvMetricsInfo: { loopCount: 0, events: 0, eventsWaiting: 0 },
   // only present in Node.js 18.x
   detail: undefined,
 } satisfies Omit<perf_hooks.PerformanceNodeTiming, "toJSON">;

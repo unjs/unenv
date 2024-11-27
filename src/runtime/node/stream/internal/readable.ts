@@ -102,13 +102,13 @@ export class _Readable extends EventEmitter implements stream.Readable {
   }
 
   // eslint-disable-next-line require-yield
-  async *[Symbol.asyncIterator](): AsyncIterableIterator<any> {
+  async *[Symbol.asyncIterator](): NodeJS.AsyncIterator<any> {
     throw createNotImplementedError("Readable.asyncIterator");
   }
 
   iterator(
     options?: { destroyOnReturn?: boolean | undefined } | undefined,
-  ): AsyncIterableIterator<any> {
+  ): NodeJS.AsyncIterator<any> {
     throw createNotImplementedError("Readable.iterator");
   }
 

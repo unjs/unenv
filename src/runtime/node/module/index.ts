@@ -21,6 +21,28 @@ export const createRequire = function (filename: string) {
   });
 };
 
+export const getCompileCacheDir: typeof nodeModule.getCompileCacheDir =
+  function () {
+    return undefined;
+  };
+
+export const enableCompileCache: typeof nodeModule.enableCompileCache =
+  function (caheDir: string) {
+    return {
+      status: 0 /* compileCacheStatus.FAILED */,
+      message: "not implemented",
+    };
+  };
+
+export const constants: typeof nodeModule.constants = Object.freeze({
+  compileCacheStatus: Object.freeze({
+    FAILED: 0,
+    ENABLED: 1,
+    ALREADY_ENABLED: 2,
+    DISABLED: 3,
+  }),
+});
+
 // prettier-ignore
 export const builtinModules: typeof nodeModule.builtinModules = [
   '_http_agent',         '_http_client',        '_http_common',
@@ -67,10 +89,7 @@ export const findSourceMap: typeof nodeModule.findSourceMap = function (
   path: string,
   error?: Error,
 ) {
-  // The cast is necessary because Node types wrongly set the return type to `SourceMap`.
-  // Comments on Node types say "Returns `module.SourceMap` if a source map is found, `undefined` otherwise."
-  // Returning `undefined` is the verified behavior.
-  return undefined as unknown as nodeModule.SourceMap;
+  return undefined;
 };
 
 export const wrap: typeof nodeModule.wrap = function (source) {
@@ -130,8 +149,11 @@ export const Module = {
   _resolveFilename,
   _resolveLookupPaths,
   builtinModules,
+  constants,
   createRequire,
+  enableCompileCache,
   findSourceMap,
+  getCompileCacheDir,
   globalPaths,
   isBuiltin,
   register,
