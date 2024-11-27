@@ -1,5 +1,5 @@
 // https://nodejs.org/api/module.html
-import nodeModule from "node:module";
+import type nodeModule from "node:module";
 import { notImplemented, notImplementedClass } from "../../_internal/utils";
 
 export const _cache = Object.create(null);
