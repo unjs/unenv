@@ -29,7 +29,7 @@ export const getCompileCacheDir: typeof nodeModule.getCompileCacheDir =
 export const enableCompileCache: typeof nodeModule.enableCompileCache =
   function (caheDir: string) {
     return {
-      status: constants.compileCacheStatus.FAILED,
+      status: 0 /* compileCacheStatus.FAILED */,
       message: "not implemented",
     };
   };
