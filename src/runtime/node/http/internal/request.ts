@@ -1,5 +1,6 @@
 import type http from "node:http";
 import { Socket } from "node:net";
+// Relative import required, see https://github.com/unjs/unenv/issues/353
 import { Readable } from "../../stream/internal/readable";
 import { rawHeaders } from "../../../_internal/utils";
 

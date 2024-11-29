@@ -1,6 +1,7 @@
 import type http from "node:http";
 import type { Socket } from "node:net";
 import { Callback } from "../../../_internal/types";
+// Relative stream import required, see https://github.com/unjs/unenv/issues/353
 import { Writable } from "../../stream";
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_serverresponse
