@@ -1,6 +1,6 @@
 import type http from "node:http";
 import { Socket } from "node:net";
-import { Readable } from "../../stream/internal/readable";
+import { Readable } from "node:stream";
 import { rawHeaders } from "../../../_internal/utils";
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_incomingmessage

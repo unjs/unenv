@@ -1,5 +1,5 @@
 import type tty from "node:tty";
-import { Socket } from "../../net";
+import { Socket } from "node:net";
 
 export class ReadStream extends Socket implements tty.ReadStream {
   isRaw = false;

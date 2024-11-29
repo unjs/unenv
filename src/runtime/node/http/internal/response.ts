@@ -1,7 +1,7 @@
 import type http from "node:http";
 import type { Socket } from "node:net";
 import { Callback } from "../../../_internal/types";
-import { Writable } from "../../stream";
+import { Writable } from "node:stream";
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_serverresponse
 // Implementation: https://github.com/nodejs/node/blob/master/lib/_http_outgoing.js
