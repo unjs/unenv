@@ -1,5 +1,6 @@
 import type tls from "node:tls";
 import { createNotImplementedError } from "../../../_internal/utils";
+// Relative net import required, see https://github.com/unjs/unenv/issues/353
 import { Server as _Server } from "../../net";
 
 export class Server extends _Server implements tls.Server {

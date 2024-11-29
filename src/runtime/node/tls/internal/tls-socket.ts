@@ -1,4 +1,5 @@
 import type tls from "node:tls";
+// Relative net import required, see https://github.com/unjs/unenv/issues/353
 import { Socket } from "../../net";
 import { createNotImplementedError } from "../../../_internal/utils";
 
