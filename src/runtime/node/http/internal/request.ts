@@ -51,6 +51,8 @@ export class IncomingMessage extends Readable implements http.IncomingMessage {
   get trailersDistinct() {
     return _distinct(this.trailers);
   }
+
+  _read() {}
 }
 
 function _distinct(obj: Record<string, any>) {

@@ -128,3 +128,19 @@ export const workerd_path = {
     assert.strictEqual(pathPosix.delimiter, ":");
   },
 };
+
+// --- node:http
+
+export const workerd_http = {
+  async test() {
+    const http = await import("unenv/runtime/node/http");
+    const net = await import("unenv/runtime/node/net");
+    const message = new http.IncomingMessage(new net.Socket());
+    await assert.doesNotThrow(async () => {
+      // Would throw if the async iterator is not implemented
+      for await (const chunk of message) {
+        // empty
+      }
+    });
+  },
+};
