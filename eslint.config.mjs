@@ -24,6 +24,8 @@ export default unjs(
       "no-func-assign": 0,
       "unicorn/filename-case": 0,
       "@typescript-eslint/no-unused-expressions": 0,
+      "unicorn/prefer-global-this": 0,
+      "unicorn/prefer-math-min-max": 0,
     },
   },
   {
