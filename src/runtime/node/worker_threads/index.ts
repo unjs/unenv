@@ -4,6 +4,7 @@ import { MessageChannel } from "./internal/message-channel";
 import { MessagePort } from "./internal/message-port";
 import { Worker } from "./internal/worker";
 import { Serializable } from "node:worker_threads";
+import { notImplemented } from "../../_internal/utils";
 
 export { BroadcastChannel } from "./internal/broadcast-channel";
 export { MessageChannel } from "./internal/message-channel";
@@ -51,6 +52,11 @@ export const threadId: typeof worker_threads.threadId = 0;
 
 export const workerData: typeof worker_threads.workerData = null;
 
+// https://nodejs.org/api/worker_threads.html#workerpostmessagetothreadthreadid-value-transferlist-timeout
+export const postMessageToThread = notImplemented(
+  "worker_threads.postMessageToThread",
+);
+
 export default <typeof worker_threads>{
   BroadcastChannel,
   MessageChannel,
@@ -67,6 +73,7 @@ export default <typeof worker_threads>{
   receiveMessageOnPort,
   resourceLimits,
   setEnvironmentData,
+  postMessageToThread,
   threadId,
   workerData,
 };
