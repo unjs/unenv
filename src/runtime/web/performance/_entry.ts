@@ -89,6 +89,7 @@ export class _PerformanceResourceTiming
   startTime: number = 0;
   transferSize: number = 0;
   workerStart: number = 0;
+  responseStatus: number = 0;
 }
 
 export const PerformanceResourceTiming: typeof globalThis.PerformanceResourceTiming =

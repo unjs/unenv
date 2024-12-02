@@ -92,6 +92,11 @@ export const findSourceMap: typeof nodeModule.findSourceMap = function (
   return undefined;
 };
 
+export const flushCompileCache: typeof nodeModule.flushCompileCache =
+  function flushCompileCache() {
+    /* silent noop */
+  };
+
 export const wrap: typeof nodeModule.wrap = function (source) {
   return `(function (exports, require, module, __filename, __dirname) { ${source}\n});`;
 };
@@ -160,6 +165,7 @@ export const Module = {
   runMain,
   syncBuiltinESMExports,
   wrap,
+  flushCompileCache,
 } satisfies Omit<typeof nodeModule.Module, "Module" | "prototype"> &
   Record<string, any>;
 

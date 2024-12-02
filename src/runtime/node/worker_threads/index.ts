@@ -28,6 +28,11 @@ export const markAsUntransferable: typeof worker_threads.markAsUntransferable =
     // noop
   };
 
+export const markAsUncloneable: typeof worker_threads.markAsUncloneable =
+  () => {
+    // noop
+  };
+
 export const moveMessagePortToContext: typeof worker_threads.moveMessagePortToContext =
   () => new MessagePort();
 
@@ -56,6 +61,7 @@ export default <typeof worker_threads>{
   isMainThread,
   isMarkedAsUntransferable,
   markAsUntransferable,
+  markAsUncloneable,
   moveMessagePortToContext,
   parentPort,
   receiveMessageOnPort,
