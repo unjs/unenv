@@ -216,6 +216,12 @@ const channel: Process["channel"] = {
 };
 const throwDeprecation: Process["throwDeprecation"] = false;
 
+export const finalization: Process["finalization"] = {
+  register() {},
+  unregister() {},
+  registerBeforeExit() {},
+};
+
 // --- Undocumented internals ---
 
 export const assert = notImplemented("process.assert");
@@ -302,6 +308,7 @@ export const process = {
   execArgv,
   execPath,
   exit,
+  finalization,
   features,
   getBuiltinModule,
   getegid,
