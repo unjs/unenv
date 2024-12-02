@@ -54,7 +54,7 @@ import {
   syncBuiltinESMExports,
   wrap,
 } from "./index";
-import { notImplemented } from "src/runtime/_internal/utils";
+import { notImplemented } from "../../_internal/utils";
 
 const workerdModule = process.getBuiltinModule("node:module");
 
