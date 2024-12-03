@@ -81,52 +81,6 @@ import { env, nodeless } from "unenv";
 const envConfig = env(nodeless, {});
 ```
 
-### `deno`
-
-[(view source)](./src/presets/deno.ts)
-
-This preset can be used to extend `nodeless` to use Deno's Node.js API Compatibility ([docs](https://docs.deno.com/runtime/manual/node/compatibility), [docs](https://docs.deno.com/deploy/api/runtime-node)).
-
-> [!WARNING]
-> This preset is **experimental** and behavior might change!
-
-```js
-import { env, nodeless, deno } from "unenv";
-
-const envConfig = env(nodeless, deno, {});
-```
-
-### `cloudflare`
-
-[(view source)](./src/presets/cloudflare.ts)
-
-This preset can be used to extend `nodeless` to use [Cloudflare Worker](https://workers.cloudflare.com/) Node.js API Compatibility ([docs](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)).
-
-> [!WARNING]
-> This preset is **experimental** and behavior might change!
-
-> [!NOTE]
-> Make sure to enable [`nodejs_compat`](https://developers.cloudflare.com/workers/configuration/compatibility-dates/#nodejs-compatibility-flag) compatibility flag.
-
-```js
-import { env, nodeless, cloudflare } from "unenv";
-
-const envConfig = env(nodeless, cloudflare, {});
-```
-
-### `vercel`
-
-This preset can be used to extend `nodeless` to use [Vercel Edge](https://vercel.com/docs/functions/edge-functions/edge-runtime) Node.js API Compatibility ([docs](https://vercel.com/docs/functions/edge-functions/edge-runtime#compatible-node.js-modules)).
-
-> [!WARNING]
-> This preset is **experimental** and behavior might change!
-
-```js
-import { env, nodeless, vercel } from "unenv";
-
-const envConfig = env(nodeless, vercel, {});
-```
-
 ## Built-in Node.js modules
 
 `unenv` provides a replacement for Node.js built-in modules compatible with any runtime.
