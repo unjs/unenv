@@ -1,7 +1,7 @@
 import type http from "node:http";
 import { Socket } from "node:net";
-// Relative stream import required, see https://github.com/unjs/unenv/issues/353
-import { Readable } from "../../stream/internal/readable";
+// importing from "unenv/runtime/node/stream/index" required for Readable.
+import { Readable } from "unenv/runtime/node/stream/index";
 import { rawHeaders } from "../../../_internal/utils";
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_incomingmessage
@@ -52,6 +52,8 @@ export class IncomingMessage extends Readable implements http.IncomingMessage {
   get trailersDistinct() {
     return _distinct(this.trailers);
   }
+
+  _read() {}
 }
 
 function _distinct(obj: Record<string, any>) {

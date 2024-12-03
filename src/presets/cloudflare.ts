@@ -62,6 +62,10 @@ const cloudflarePreset: Preset = {
         [`node:${m}`, `unenv/runtime/node/${m}/$cloudflare`],
       ]),
     ),
+
+    // Use the workerd builtin stream when imported as "unenv/runtime/node/stream/index"
+    // This is used from `unenv/runtime/node/http`
+    "unenv/runtime/node/stream/index": "node:stream",
   },
   inject: {
     // workerd already defines `global` and `Buffer`
