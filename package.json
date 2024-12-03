@@ -57,7 +57,7 @@
     "prettier": "^3.4.1",
     "typescript": "^5.7.2",
     "unbuild": "^2.0.0",
-    "workerd": "^1.20241127.0",
+    "workerd": "^1.20241202.0",
     "wrangler": "^3.91.0"
   },
   "packageManager": "pnpm@9.14.4"
