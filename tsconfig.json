@@ -6,11 +6,10 @@
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node"],
+    "paths": {
+      "unenv/*": ["./src/*"]
+    }
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
