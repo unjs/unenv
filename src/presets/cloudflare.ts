@@ -63,8 +63,8 @@ const cloudflarePreset: Preset = {
       ]),
     ),
 
-    // Use the workerd builtin stream when imported as "unenv/runtime/node/stream/index"
-    // This is used from `unenv/runtime/node/http`
+    // TODO: this is a hotfix and breaks unenv/fetch
+    // https://github.com/unjs/unenv/issues/364
     "unenv/runtime/node/stream/index": "node:stream",
   },
   inject: {
