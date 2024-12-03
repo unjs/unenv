@@ -8,7 +8,12 @@
     "declaration": true,
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "unenv/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*"
