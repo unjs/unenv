@@ -1,6 +1,6 @@
 import type http from "node:http";
 import { Socket } from "node:net";
-// importing from "unenv/runtime/node/stream/index" required for Readable.
+// TODO: https://github.com/unjs/unenv/issues/365
 import { Readable } from "unenv/runtime/node/stream/index";
 import { rawHeaders } from "../../../_internal/utils";
 

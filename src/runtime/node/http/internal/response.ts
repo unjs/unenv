@@ -1,7 +1,7 @@
 import type http from "node:http";
 import type { Socket } from "node:net";
 import { Callback } from "../../../_internal/types";
-// importing from "unenv/runtime/node/stream/index" required for Writable.
+// TODO: https://github.com/unjs/unenv/issues/365
 import { Writable } from "unenv/runtime/node/stream/index";
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_serverresponse

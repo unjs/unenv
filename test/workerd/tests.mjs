@@ -131,7 +131,7 @@ export const workerd_path = {
 
 // --- unenv:fetch
 
-// Temporarily commented out, see https://github.com/unjs/unenv/pull/363
+// https://github.com/unjs/unenv/issues/364
 //
 // export const unenv_fetch = {
 //   async test() {
