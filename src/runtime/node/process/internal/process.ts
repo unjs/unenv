@@ -243,7 +243,7 @@ export const _stopProfilerIdleNotifier = notImplemented(
 export const _tickCallback = notImplemented("process._tickCallback");
 export const _linkedBinding = notImplemented("process._linkedBinding");
 
-// Mocking domain cuases troubles, see unjs/unenv#367
+// Mocking domain causes troubles, see unjs/unenv#367
 export const domain = undefined;
 export const initgroups = notImplemented("process.initgroups");
 export const moduleLoadList = [] as string[];
