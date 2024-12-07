@@ -8,7 +8,7 @@ globalThis.process = process;
 
 export const crypto_getRandomValues = {
   async test() {
-    const crypto = await import("unenv/runtime/node/crypto/index");
+    const crypto = await import("unenv/runtime/node/crypto");
 
     const array = new Uint32Array(10);
     crypto.getRandomValues(array);
@@ -21,7 +21,7 @@ export const crypto_getRandomValues = {
 
 export const url_parse = {
   async test() {
-    const url = await import("unenv/runtime/node/url/index");
+    const url = await import("unenv/runtime/node/url");
 
     assert.throws(
       () => {
@@ -36,7 +36,7 @@ export const url_parse = {
 
 export const unenv_polyfills_buffer = {
   async test() {
-    const buffer = await import("unenv/runtime/node/buffer/index");
+    const buffer = await import("unenv/runtime/node/buffer");
     const Buffer = buffer.Buffer;
     assert.strictEqual(typeof buffer.isAscii, "function");
     assert.strictEqual(typeof buffer.isUtf8, "function");
@@ -97,7 +97,7 @@ export const workerd_modules = {
 
 export const util_implements = {
   async test() {
-    const { types } = await import("unenv/runtime/node/util/index");
+    const { types } = await import("unenv/runtime/node/util");
     assert.strictEqual(types.isExternal("hello world"), false);
     assert.strictEqual(types.isAnyArrayBuffer(new ArrayBuffer(0)), true);
   },
@@ -107,13 +107,13 @@ export const util_implements = {
 
 export const unenv_polyfills_path = {
   async test() {
-    const pathWin32 = await import("unenv/runtime/node/path/win32/index");
+    const pathWin32 = await import("unenv/runtime/node/path/win32");
     assert.strictEqual(typeof pathWin32.resolve, "function");
     // Note: unenv uses `unjs/pathe` which behavior differs from Node.js
     // See https://github.com/unjs/pathe
     assert.strictEqual(pathWin32.sep, "/");
     assert.strictEqual(pathWin32.delimiter, ":");
-    const pathPosix = await import("unenv/runtime/node/path/posix/index");
+    const pathPosix = await import("unenv/runtime/node/path/posix");
     assert.strictEqual(typeof pathPosix.resolve, "function");
   },
 };
