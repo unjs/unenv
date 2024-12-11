@@ -1,3 +1,20 @@
+export interface CreateEnvOptions {
+  /**
+   * Enable Node.js compatibility (nodeless) preset.
+   */
+  nodeCompat?: boolean;
+
+  /**
+   * Additional presets.
+   */
+  presets?: Preset[];
+
+  /**
+   * Additional overrides.
+   */
+  overrides?: Environment;
+}
+
 export interface Environment {
   alias: { [key: string]: string };
   inject: { [key: string]: string | string[] };
