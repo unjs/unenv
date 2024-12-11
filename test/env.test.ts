@@ -3,7 +3,7 @@ import { defineEnv } from "../src";
 import { builtinModules } from "node:module";
 
 describe("defineEnv", () => {
-  it("default behavior", () => {
+  it("defaults", () => {
     const { env } = defineEnv();
     expect(env).toMatchObject({
       alias: {},
@@ -11,6 +11,14 @@ describe("defineEnv", () => {
       inject: {},
       polyfill: [],
     });
+  });
+
+  it("overrides", () => {
+    const { env } = defineEnv({
+      nodeCompat: true,
+      overrides: { alias: { foo: "bar" } },
+    });
+    expect(env.alias.foo).toBe("bar");
   });
 
   describe("nodeCompat", () => {

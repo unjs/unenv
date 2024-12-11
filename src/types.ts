@@ -12,7 +12,7 @@ export interface CreateEnvOptions {
   /**
    * Additional overrides.
    */
-  overrides?: Environment;
+  overrides?: Partial<Environment>;
 }
 
 export interface Environment {
