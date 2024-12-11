@@ -27,11 +27,12 @@
   ],
   "scripts": {
     "build": "unbuild",
+    "dev": "vitest",
     "lint": "eslint . && prettier -c src test",
     "lint:fix": "automd && eslint --fix . && prettier -w src test",
     "prepack": "unbuild",
     "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
-    "test": "pnpm lint && pnpm test:types && pnpm test:node",
+    "test": "pnpm lint && pnpm vitest --run && pnpm test:types && pnpm test:node",
     "test:node": "node --test --import jiti/register ./test/node/test-*",
     "test:node-coverage": "node test/node-coverage.mjs",
     "test:node:watch": "node --test --watch --import jiti/register ./test/node/test-*",
@@ -57,6 +58,7 @@
     "prettier": "^3.4.1",
     "typescript": "^5.7.2",
     "unbuild": "^2.0.0",
+    "vitest": "^2.1.8",
     "workerd": "^1.20241202.0",
     "wrangler": "^3.91.0"
   },

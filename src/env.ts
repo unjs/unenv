@@ -1,5 +1,44 @@
-import type { Preset, Environment } from "./types";
+import type { Preset, Environment, CreateEnvOptions } from "./types";
 
+import nodeCompatPreset from "./presets/nodeless";
+
+/**
+ * Configure a target environment.
+ *
+ * @example
+ * ```ts
+ * const { env } = defineEnv({
+ *  nodeCompat: true,
+ *  presets: [myPreset],
+ *  overrides: {}
+ * });
+ */
+export function defineEnv(opts: CreateEnvOptions = {}): {
+  env: Environment;
+} {
+  const presets: Preset[] = [];
+
+  if (opts.nodeCompat) {
+    presets.push(nodeCompatPreset);
+  }
+
+  if (opts.presets) {
+    presets.push(...opts.presets);
+  }
+
+  if (opts.overrides) {
+    presets.push(opts.overrides);
+  }
+
+  const resolvedEnv = env(...presets);
+
+  return { env: resolvedEnv };
+}
+
+/**
+ * Merge presets into a final environment.
+ * Later presets take precedence over earlier ones.
+ */
 export function env(...presets: Preset[]): Environment {
   const _env: Environment = {
     alias: {},
