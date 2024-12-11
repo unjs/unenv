@@ -1,7 +1,13 @@
 import { NodeBuiltinModules, mapArrToVal } from "../utils";
 import type { Preset } from "../types";
+import { version } from "../../package.json";
 
 const nodeless: Preset & { alias: Map<string, string> } = {
+  meta: {
+    name: "unenv:nodeless",
+    version,
+  },
+
   alias: {
     // Generic mock for built-ins
     ...mapArrToVal("unenv/runtime/mock/proxy-cjs", NodeBuiltinModules),

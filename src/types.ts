@@ -23,6 +23,23 @@ export interface Environment {
 }
 
 export interface Preset {
+  meta?: {
+    /**
+     * Preset name.
+     */
+    name?: string;
+
+    /**
+     * Preset version.
+     */
+    version?: string;
+
+    /**
+     * Path to preset directory usable for absolute path imports
+     */
+    path?: string;
+  };
+
   alias?: Environment["alias"];
   // inject's value is nullable to support overrides/subtraction
   inject?: { [key: string]: string | string[] | false };
