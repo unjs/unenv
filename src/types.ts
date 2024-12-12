@@ -53,9 +53,9 @@ export interface Preset {
     readonly version?: string;
 
     /**
-     * Path to preset directory usable for absolute path imports
+     * Path or URL to preset entry (used for resolving absolute paths).
      */
-    readonly path?: string;
+    readonly url?: string | URL;
   };
 
   alias?: Environment["alias"];

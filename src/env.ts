@@ -38,6 +38,9 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
       url: [
         ...(opts.resolve === true ? [] : opts.resolve.paths || []),
         __dirname, // unenv
+        ...(presets
+          .map((preset) => preset.meta?.url)
+          .filter(Boolean) as string[]),
       ],
     };
     const _resolve = (id: string) => resolvePathSync(id, resolveOpts);
