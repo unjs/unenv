@@ -34,14 +34,15 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
   const resolvedEnv = env(...presets);
 
   if (opts.resolve) {
+    const resolvePaths: (string | URL)[] = [
+      ...(opts.resolve === true ? [] : opts.resolve.paths || []),
+      ...(presets
+        .map((preset) => preset.meta?.url)
+        .filter(Boolean) as string[]),
+      __filename, // unenv
+    ];
     const resolveOpts: ResolveOptions = {
-      url: [
-        ...(opts.resolve === true ? [] : opts.resolve.paths || []),
-        __dirname, // unenv
-        ...(presets
-          .map((preset) => preset.meta?.url)
-          .filter(Boolean) as string[]),
-      ],
+      url: resolvePaths,
     };
     const _resolve = (id: string) => resolvePathSync(id, resolveOpts);
 
