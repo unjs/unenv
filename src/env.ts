@@ -15,6 +15,7 @@ import nodeCompatPreset from "./presets/nodeless";
  */
 export function defineEnv(opts: CreateEnvOptions = {}): {
   env: Environment;
+  presets: Preset[];
 } {
   const presets: Preset[] = [];
 
@@ -61,7 +62,7 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
     }
   }
 
-  return { env: resolvedEnv };
+  return { env: resolvedEnv, presets };
 }
 
 /**

@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
+    "resolveJsonModule": true,
     "types": [
       "node"
     ],
