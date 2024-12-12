@@ -27,17 +27,17 @@ export interface Preset {
     /**
      * Preset name.
      */
-    name?: string;
+    readonly name?: string;
 
     /**
      * Preset version.
      */
-    version?: string;
+    readonly version?: string;
 
     /**
      * Path to preset directory usable for absolute path imports
      */
-    path?: string;
+    readonly path?: string;
   };
 
   alias?: Environment["alias"];
