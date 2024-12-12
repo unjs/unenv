@@ -1,4 +1,5 @@
 import type { Preset } from "../types";
+import { version } from "../../package.json";
 
 // Built-in APIs provided by workerd.
 // https://developers.cloudflare.com/workers/runtime-apis/nodejs/
@@ -42,6 +43,10 @@ const hybridNodeCompatModules = [
 ];
 
 const cloudflarePreset: Preset = {
+  meta: {
+    name: "unenv:cloudflare",
+    version,
+  },
   alias: {
     ...Object.fromEntries(
       cloudflareNodeCompatModules.flatMap((p) => [
