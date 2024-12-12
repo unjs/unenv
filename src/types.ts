@@ -1,6 +1,8 @@
 export interface CreateEnvOptions {
   /**
    * Enable Node.js compatibility (nodeless) preset.
+   *
+   * Default: `false`
    */
   nodeCompat?: boolean;
 
@@ -13,6 +15,22 @@ export interface CreateEnvOptions {
    * Additional overrides.
    */
   overrides?: Partial<Environment>;
+
+  /**
+   * Resolve paths in the environment to absolute paths.
+   *
+   * Default: `false`
+   */
+  resolve?: boolean | EnvResolveOptions;
+}
+
+export interface EnvResolveOptions {
+  /**
+   * Paths to resolve imports from.
+   *
+   * Always unenv path is appended.
+   */
+  paths?: (string | URL)[];
 }
 
 export interface Environment {
@@ -35,9 +53,9 @@ export interface Preset {
     readonly version?: string;
 
     /**
-     * Path to preset directory usable for absolute path imports
+     * Path or URL to preset entry (used for resolving absolute paths).
      */
-    readonly path?: string;
+    readonly url?: string | URL;
   };
 
   alias?: Environment["alias"];

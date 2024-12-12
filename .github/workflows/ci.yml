@@ -26,10 +26,10 @@ jobs:
       - run: pnpm install
       - run: pnpm lint
       - run: pnpm test:types
+      - run: pnpm build
       - run: pnpm vitest
       - run: pnpm test:node
       - run: pnpm test:workerd
-      - run: pnpm build
       - name: nightly release
         if: |
           github.event_name == 'push' &&

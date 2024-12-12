@@ -1,5 +1,5 @@
+import { resolvePathSync, type ResolveOptions } from "mlly";
 import type { Preset, Environment, CreateEnvOptions } from "./types";
-
 import nodeCompatPreset from "./presets/nodeless";
 
 /**
@@ -32,6 +32,39 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
   }
 
   const resolvedEnv = env(...presets);
+
+  if (opts.resolve) {
+    const resolvePaths: (string | URL)[] = [
+      ...(opts.resolve === true ? [] : opts.resolve.paths || []),
+      ...(presets
+        .map((preset) => preset.meta?.url)
+        .filter(Boolean) as string[]),
+      __filename, // unenv
+    ];
+    const resolveOpts: ResolveOptions = {
+      url: resolvePaths,
+    };
+    const _resolve = (id: string) => resolvePathSync(id, resolveOpts);
+
+    // Resolve aliases
+    for (const alias in resolvedEnv.alias) {
+      resolvedEnv.alias[alias] = _resolve(resolvedEnv.alias[alias]);
+    }
+    // Resolve polyfills
+    for (let i = 0; i < resolvedEnv.polyfill.length; i++) {
+      resolvedEnv.polyfill[i] = _resolve(resolvedEnv.polyfill[i]);
+    }
+    // Resolve injects
+    for (const global in resolvedEnv.inject) {
+      const inject = resolvedEnv.inject[global];
+      if (Array.isArray(inject)) {
+        const [id, ...path] = inject;
+        resolvedEnv.inject[global] = [_resolve(id), ...path];
+      } else {
+        resolvedEnv.inject[global] = _resolve(inject);
+      }
+    }
+  }
 
   return { env: resolvedEnv, presets };
 }
