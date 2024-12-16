@@ -15,6 +15,7 @@ const cloudflareNodeCompatModules = [
   "assert/strict",
   "buffer",
   "diagnostics_channel",
+  "dns",
   "events",
   "path",
   "path/posix",

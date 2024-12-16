@@ -60,8 +60,8 @@
     "typescript": "^5.7.2",
     "unbuild": "^2.0.0",
     "vitest": "^2.1.8",
-    "workerd": "^1.20241202.0",
-    "wrangler": "^3.91.0"
+    "workerd": "^1.20241216.0",
+    "wrangler": "^3.95.0"
   },
   "packageManager": "pnpm@9.14.4"
 }
