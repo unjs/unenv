@@ -129,6 +129,34 @@ export const workerd_path = {
   },
 };
 
+// --- node:dns
+
+export const workerd_dns = {
+  async test() {
+    const dns = await import("node:dns");
+    await new Promise((resolve, reject) => {
+      dns.resolveTxt("nodejs.org", (error, results) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        assert.ok(Array.isArray(results[0]));
+        assert.strictEqual(results.length, 1);
+        assert.ok(results[0][0].startsWith("v=spf1"));
+        resolve(null);
+      });
+    });
+
+    const dnsPromises = await import("node:dns/promises");
+    const results = await dnsPromises.resolveCaa("google.com");
+    assert.ok(Array.isArray(results));
+    assert.strictEqual(results.length, 1);
+    assert.strictEqual(typeof results[0].critical, "number");
+    assert.strictEqual(results[0].critical, 0);
+    assert.strictEqual(results[0].issue, "pki.goog");
+  },
+};
+
 // --- unenv:fetch
 
 // https://github.com/unjs/unenv/issues/364
