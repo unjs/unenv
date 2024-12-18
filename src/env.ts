@@ -45,20 +45,18 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
       url: resolvePaths,
     };
 
-    const _resolve = (id: string) => {
+    const _tryResolve = (id: string) => {
       try {
         return resolvePathSync(id, resolveOpts);
-      } catch {
-        if (id.startsWith("unenv/")) {
-          try {
-            return resolvePathSync(
-              id.replace("unenv/", "unenv-nightly/"),
-              resolveOpts,
-            );
-          } catch {}
-        }
+      } catch {}
+    };
+
+    const _resolve = (id: string) => {
+      let resolved = _tryResolve(id);
+      if (!resolved && id.startsWith("unenv/")) {
+        resolved = _tryResolve(id.replace("unenv/", "unenv-nightly/"));
       }
-      return id;
+      return resolved || id;
     };
 
     // Resolve aliases
