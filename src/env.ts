@@ -36,9 +36,9 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
   if (opts.resolve) {
     const resolvePaths: (string | URL)[] = [
       ...(opts.resolve === true ? [] : opts.resolve.paths || []),
-      ...(presets
+      ...presets
         .map((preset) => preset.meta?.url)
-        .filter(Boolean) as string[]),
+        .filter((v) => v !== undefined),
       __filename, // unenv
     ];
     const resolveOpts: ResolveOptions = {
