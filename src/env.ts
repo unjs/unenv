@@ -44,7 +44,22 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
     const resolveOpts: ResolveOptions = {
       url: resolvePaths,
     };
-    const _resolve = (id: string) => resolvePathSync(id, resolveOpts);
+
+    const _resolve = (id: string) => {
+      try {
+        return resolvePathSync(id, resolveOpts);
+      } catch {
+        if (id.startsWith("unenv/")) {
+          try {
+            return resolvePathSync(
+              id.replace("unenv/", "unenv-nightly/"),
+              resolveOpts,
+            );
+          } catch {}
+        }
+      }
+      return id;
+    };
 
     // Resolve aliases
     for (const alias in resolvedEnv.alias) {
