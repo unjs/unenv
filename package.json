@@ -58,7 +58,7 @@
     "jiti": "^2.4.1",
     "prettier": "^3.4.1",
     "typescript": "^5.7.2",
-    "unbuild": "^2.0.0",
+    "unbuild": "^3.2.0",
     "vitest": "^2.1.8",
     "workerd": "^1.20241216.0",
     "wrangler": "^3.95.0"
