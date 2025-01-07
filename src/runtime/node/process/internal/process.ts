@@ -1,5 +1,6 @@
 // Source: https://github.com/defunctzombie/node-process/blob/77caa43cdaee4ea710aa14d11cea1705293c0ef3/browser.js
 import type nodeProcess from "node:process";
+import { ReadStream, WriteStream } from "node:tty";
 import mock from "../../../mock/proxy";
 import empty from "../../../mock/empty";
 import { notImplemented } from "../../../_internal/utils";
@@ -191,9 +192,9 @@ export const setMaxListeners = notImplemented<Process["setMaxListeners"]>(
 export const setSourceMapsEnabled = notImplemented<
   Process["setSourceMapsEnabled"]
 >("process.setSourceMapsEnabled");
-export const stdout: Process["stdout"] = mock.__createMock__("process.stdout");
-export const stderr: Process["stderr"] = mock.__createMock__("process.stderr");
-export const stdin: Process["stdin"] = mock.__createMock__("process.stdin");
+export const stdin = new ReadStream(0) as Process["stdin"];
+export const stdout = new WriteStream(1) as Process["stdout"];
+export const stderr = new WriteStream(2) as Process["stderr"];
 const traceDeprecation: Process["traceDeprecation"] = false;
 export const uptime: Process["uptime"] = () => 0;
 export const exitCode: Process["exitCode"] = 0;
