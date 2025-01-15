@@ -12,18 +12,18 @@ import { setIntervalFallback } from "./internal/set-interval";
 export * as promises from "./promises";
 
 export const clearImmediate: typeof timers.clearImmediate =
-  globalThis.clearImmediate || clearImmediateFallback;
+  globalThis.clearImmediate.bind(globalThis) || clearImmediateFallback;
 export const clearInterval: typeof timers.clearInterval =
-  globalThis.clearInterval || noop;
+  globalThis.clearInterval.bind(globalThis) || noop;
 export const clearTimeout: typeof timers.clearTimeout =
-  globalThis.clearTimeout || noop;
+  globalThis.clearTimeout.bind(globalThis) || noop;
 
 export const setImmediate: typeof timers.setImmediate =
-  globalThis.setImmediate || setImmediateFallback;
+  globalThis.setImmediate.bind(globalThis) || setImmediateFallback;
 export const setTimeout: typeof timers.setTimeout =
-  globalThis.setTimeout || setTimeoutFallback;
+  globalThis.setTimeout.bind(globalThis) || setTimeoutFallback;
 export const setInterval: typeof timers.setInterval =
-  globalThis.setInterval || setIntervalFallback;
+  globalThis.setInterval.bind(globalThis) || setIntervalFallback;
 
 export const active = notImplemented("timers.active");
 export const _unrefActive = notImplemented("timers._unrefActive");
