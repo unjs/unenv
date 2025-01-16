@@ -12,7 +12,7 @@ import { setIntervalFallback } from "./internal/set-interval";
 export * as promises from "./promises";
 
 export const clearImmediate: typeof timers.clearImmediate =
-  globalThis.clearImmediate.bind(globalThis) || clearImmediateFallback;
+  globalThis.clearImmediate?.bind(globalThis) || clearImmediateFallback;
 export const clearInterval: typeof timers.clearInterval =
   globalThis.clearInterval?.bind(globalThis) || noop;
 export const clearTimeout: typeof timers.clearTimeout =
