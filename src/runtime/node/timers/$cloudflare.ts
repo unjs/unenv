@@ -39,7 +39,8 @@ import {
   clearImmediateFallback as clearImmediate,
 } from "./internal/set-immediate";
 
-export default <typeof nodeTimers>{
+export default {
+  // @ts-expect-error deprecated
   _unrefActive,
   active,
   clearImmediate,
@@ -51,4 +52,4 @@ export default <typeof nodeTimers>{
   setInterval,
   setTimeout,
   unenroll,
-};
+} satisfies typeof nodeTimers;
