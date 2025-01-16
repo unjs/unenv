@@ -23,7 +23,7 @@ export const setImmediate: typeof timers.setImmediate =
 export const setTimeout: typeof timers.setTimeout =
   globalThis.setTimeout?.bind(globalThis) || setTimeoutFallback;
 export const setInterval: typeof timers.setInterval =
-  globalThis.setInterval.bind(globalThis) || setIntervalFallback;
+  globalThis.setInterval?.bind(globalThis) || setIntervalFallback;
 
 export const active = notImplemented("timers.active");
 export const _unrefActive = notImplemented("timers._unrefActive");
