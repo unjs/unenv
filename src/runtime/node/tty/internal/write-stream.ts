@@ -2,6 +2,11 @@ import type tty from "node:tty";
 import { Socket } from "node:net";
 
 export class WriteStream extends Socket implements tty.WriteStream {
+  fd: number;
+  constructor(fd: number) {
+    super();
+    this.fd = fd;
+  }
   clearLine(dir: tty.Direction, callback?: (() => void) | undefined) {
     callback && callback();
     return false;
