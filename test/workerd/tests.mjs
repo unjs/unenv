@@ -157,6 +157,18 @@ export const workerd_dns = {
   },
 };
 
+// --- node:timers
+
+export const workerd_timers = {
+  async test() {
+    const timers = await import("unenv/runtime/node/timers");
+
+    timers.clearTimeout(timers.setTimeout(() => null, 1000));
+    timers.clearInterval(timers.setInterval(() => null, 1000));
+    timers.clearImmediate(timers.setImmediate(() => null));
+  },
+};
+
 // --- unenv:fetch
 
 // https://github.com/unjs/unenv/issues/364
