@@ -16,7 +16,7 @@ export const clearImmediate: typeof timers.clearImmediate =
 export const clearInterval: typeof timers.clearInterval =
   globalThis.clearInterval?.bind(globalThis) || noop;
 export const clearTimeout: typeof timers.clearTimeout =
-  globalThis.clearTimeout.bind(globalThis) || noop;
+  globalThis.clearTimeout?.bind(globalThis) || noop;
 
 export const setImmediate: typeof timers.setImmediate =
   globalThis.setImmediate.bind(globalThis) || setImmediateFallback;
