@@ -166,6 +166,11 @@ export const workerd_timers = {
     timers.clearTimeout(timers.setTimeout(() => null, 1000));
     timers.clearInterval(timers.setInterval(() => null, 1000));
     timers.clearImmediate(timers.setImmediate(() => null));
+
+    timers.active(timers.setTimeout(() => null, 10));
+    timers.active(undefined);
+    timers._unrefActive(timers.setTimeout(() => null, 10));
+    timers._unrefActive(undefined);
   },
 };
 

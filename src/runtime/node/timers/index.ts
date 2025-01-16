@@ -25,12 +25,15 @@ export const setTimeout: typeof timers.setTimeout =
 export const setInterval: typeof timers.setInterval =
   globalThis.setInterval?.bind(globalThis) || setIntervalFallback;
 
-export const active = notImplemented("timers.active");
-export const _unrefActive = notImplemented("timers._unrefActive");
+export const active = function active(timeout: NodeJS.Timeout | undefined) {
+  timeout?.refresh?.();
+};
+export const _unrefActive = active;
 export const enroll = notImplemented("timers.enroll");
 export const unenroll = notImplemented("timers.unenroll");
 
-export default <typeof timers>{
+export default {
+  // @ts-expect-error deprecated
   _unrefActive,
   active,
   clearImmediate,
@@ -42,4 +45,4 @@ export default <typeof timers>{
   setInterval,
   setTimeout,
   unenroll,
-};
+} satisfies typeof timers;
