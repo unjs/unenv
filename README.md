@@ -87,8 +87,8 @@ const envConfig = env(nodeless, {});
 
 <!-- automd:nodeCoverage -->
 
-- ✅ [node:assert](https://nodejs.org/api/assert.html)
-- ✅ [node:assert/strict](https://nodejs.org/api/assert.html)
+- 🚧 [node:assert](https://nodejs.org/api/assert.html) <!-- missing partialDeepStrictEqual exports -->
+- 🚧 [node:assert/strict](https://nodejs.org/api/assert.html) <!-- missing partialDeepStrictEqual exports -->
 - ✅ [node:async_hooks](https://nodejs.org/api/async_hooks.html)
 - ✅ [node:buffer](https://nodejs.org/api/buffer.html)
 - ✅ [node:child_process](https://nodejs.org/api/child_process.html)
@@ -109,7 +109,7 @@ const envConfig = env(nodeless, {});
 - ✅ [node:https](https://nodejs.org/api/https.html)
 - ✅ [node:inspector](https://nodejs.org/api/inspector.html)
 - 🚧 [node:inspector/promises](https://nodejs.org/api/inspector.html)
-- ✅ [node:module](https://nodejs.org/api/module.html)
+- 🚧 [node:module](https://nodejs.org/api/module.html) <!-- missing stripTypeScriptTypes exports -->
 - ✅ [node:net](https://nodejs.org/api/net.html)
 - ✅ [node:os](https://nodejs.org/api/os.html)
 - ✅ [node:path](https://nodejs.org/api/path.html)
@@ -127,14 +127,14 @@ const envConfig = env(nodeless, {});
 - ✅ [node:stream/promises](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/web](https://nodejs.org/api/stream.html)
 - ✅ [node:string_decoder](https://nodejs.org/api/string_decoder.html)
-- ✅ [node:sys](https://nodejs.org/api/sys.html)
+- 🚧 [node:sys](https://nodejs.org/api/sys.html) <!-- missing getCallSites, getSystemErrorMessage exports -->
 - ✅ [node:timers](https://nodejs.org/api/timers.html)
 - ✅ [node:timers/promises](https://nodejs.org/api/timers.html)
 - ✅ [node:tls](https://nodejs.org/api/tls.html)
 - ✅ [node:trace_events](https://nodejs.org/api/trace_events.html)
 - ✅ [node:tty](https://nodejs.org/api/tty.html)
 - ✅ [node:url](https://nodejs.org/api/url.html)
-- ✅ [node:util](https://nodejs.org/api/util.html)
+- 🚧 [node:util](https://nodejs.org/api/util.html) <!-- missing getCallSites, getSystemErrorMessage exports -->
 - ✅ [node:util/types](https://nodejs.org/api/util.html)
 - ✅ [node:v8](https://nodejs.org/api/v8.html)
 - ✅ [node:vm](https://nodejs.org/api/vm.html)
