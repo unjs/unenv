@@ -1,6 +1,5 @@
 import type tty from "node:tty";
-// Relative net import required, see https://github.com/unjs/unenv/issues/353
-import { Socket } from "../../net";
+import { Socket } from "node:net";
 
 export class ReadStream extends Socket implements tty.ReadStream {
   fd: number;
