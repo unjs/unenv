@@ -9,7 +9,7 @@ export async function makeCoverage() {
     }
     try {
       const nodeMod = await import(`node:${module}`);
-      const unenvMod = await import(`../runtime/node/${module}/index.mjs`);
+      const unenvMod = await import(`../runtime/node/${module}.mjs`);
       const supportedExports = [];
       const unsupportedExports = [];
       for (const exportName in nodeMod) {

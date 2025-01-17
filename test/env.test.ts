@@ -44,9 +44,10 @@ describe("defineEnv", () => {
         expect(existsSync(path)).toBe(true);
       }
       for (const inject of Object.values(env.inject)) {
-        expect(existsSync(Array.isArray(inject) ? inject[0] : inject)).toBe(
-          true,
-        );
+        expect(
+          existsSync(Array.isArray(inject) ? inject[0] : inject),
+          inject.toString(),
+        ).toBe(true);
       }
     });
   });

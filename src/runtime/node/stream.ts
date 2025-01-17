@@ -7,7 +7,7 @@ import { Writable } from "./internal/stream/writable";
 import { Duplex } from "./internal/stream/duplex";
 import { Transform } from "./internal/stream/transform";
 
-import promises from "./stream/promises/index";
+import promises from "./stream/promises";
 
 export { Readable } from "./internal/stream/readable";
 export { Writable } from "./internal/stream/writable";

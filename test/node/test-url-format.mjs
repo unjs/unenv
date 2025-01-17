@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import url from "../../src/runtime/node/url/index.ts";
+import url from "../../src/runtime/node/url.ts";
 
 // Formatting tests to verify that it'll format slightly wonky content to a
 // valid URL.

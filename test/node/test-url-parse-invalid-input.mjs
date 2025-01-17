@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import url from "../../src/runtime/node/url/index.ts";
+import url from "../../src/runtime/node/url.ts";
 
 // https://github.com/joyent/node/issues/568
 for (const [val, type] of [
