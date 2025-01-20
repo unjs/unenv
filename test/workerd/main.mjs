@@ -121,7 +121,7 @@ async function createModuleServer(port = 8888) {
   const unenv = await jiti.import("../../src/index.ts");
   const preset = unenv.defineEnv({ nodeCompat: true });
   const alias = Object.fromEntries(
-    Object.entries(preset.alias).map(([k, v]) => [
+    Object.entries(preset.env.alias).map(([k, v]) => [
       k,
       v.replace("unenv/runtime", join(srcDir, "runtime")),
     ]),
@@ -151,8 +151,7 @@ async function createModuleServer(port = 8888) {
 
       // Load node module
       // prettier-ignore
-      const entryDir = join(srcDir, "runtime", unenvPath);
-      const entryFile = join(entryDir, "index.ts");
+      const entryFile = join(srcDir, "runtime", unenvPath) + '.ts'
 
       const transpiled = await build({
         entryPoints: [entryFile],

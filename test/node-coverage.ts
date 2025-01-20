@@ -13,7 +13,7 @@ export async function makeCoverage() {
     }
     try {
       const nodeMod = await import(`node:${module}`);
-      const unenvMod = await import(`../src/runtime/node/${module}/index.ts`);
+      const unenvMod = await import(`../src/runtime/node/${module}`);
       const supportedExports: string[] = [];
       const unsupportedExports: string[] = [];
       for (const exportName in nodeMod) {
