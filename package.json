@@ -6,6 +6,11 @@
   "license": "MIT",
   "sideEffects": false,
   "exports": {
+    "./runtime/node/string_decoder/index/": {
+      "types": "./runtime/node/string_decoder/index.d.ts",
+      "require": "./runtime/node/string_decoder/index.cjs",
+      "import": "./runtime/node/string_decoder/index.mjs"
+    },
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
