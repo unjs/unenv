@@ -59,7 +59,7 @@ import { notImplemented } from "../../_internal/utils";
 const workerdModule = process.getBuiltinModule("node:module");
 
 export const createRequire: typeof nodeModule.createRequire = (
-  file: string,
+  file: string | URL,
 ) => {
   return Object.assign(workerdModule.createRequire(file), {
     resolve: Object.assign(notImplemented("module.require.resolve"), {

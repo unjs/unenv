@@ -10,7 +10,7 @@ export const _extensions = {
   ".node": notImplemented("module.require.extensions['.node']"),
 };
 
-export const createRequire = function (filename: string) {
+export const createRequire = function (_filename: string | URL) {
   return Object.assign(notImplemented("module.require"), {
     resolve: Object.assign(notImplemented("module.require.resolve"), {
       paths: notImplemented("module.require.resolve.paths"),
@@ -27,7 +27,7 @@ export const getCompileCacheDir: typeof nodeModule.getCompileCacheDir =
   };
 
 export const enableCompileCache: typeof nodeModule.enableCompileCache =
-  function (caheDir: string) {
+  function (_cacheDir?: string) {
     return {
       status: 0 /* compileCacheStatus.FAILED */,
       message: "not implemented",
