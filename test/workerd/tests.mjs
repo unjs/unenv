@@ -162,7 +162,7 @@ export const workerd_dns = {
 
 export const workerd_timers = {
   async test() {
-    const timers = await import("unenv/runtime/node/timers");
+    const timers = await import("node:timers");
 
     timers.clearTimeout(timers.setTimeout(() => null, 1000));
     timers.clearInterval(timers.setInterval(() => null, 1000));
@@ -170,8 +170,18 @@ export const workerd_timers = {
 
     timers.active(timers.setTimeout(() => null, 10));
     timers.active(undefined);
-    timers._unrefActive(timers.setTimeout(() => null, 10));
-    timers._unrefActive(undefined);
+
+    timers.setImmediate(() => null);
+  },
+};
+
+// --- node:net
+
+export const workerd_net = {
+  async test() {
+    const net = await import("node:net");
+    assert.strictEqual(typeof net.createConnection, "function");
+    assert.throws(() => net.createServer(), /not implemented/);
   },
 };
 
