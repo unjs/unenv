@@ -1,6 +1,6 @@
 {
   "name": "unenv",
-  "version": "2.0.0-rc.0",
+  "version": "2.0.0-rc.1",
   "description": "",
   "repository": "unjs/unenv",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "lint": "eslint . && prettier -c src test",
     "lint:fix": "automd && eslint --fix . && prettier -w src test",
     "prepack": "unbuild",
-    "release": "pnpm test && changelogen --release && pnpm publish && git push --follow-tags",
+    "release": "pnpm test && changelogen --release --push --publish --prerelease --publishTag rc",
     "test": "pnpm lint && pnpm vitest --run && pnpm test:types && pnpm test:node",
     "test:node": "node --test --import jiti/register ./test/node/test-*",
     "test:node-coverage": "node test/node-coverage.mjs",
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@parcel/watcher": "^2.5.0",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.10.10",
     "automd": "^0.3.12",
     "changelogen": "^0.5.7",
     "consola": "^3.4.0",
@@ -60,8 +60,8 @@
     "typescript": "^5.7.3",
     "unbuild": "^3.3.1",
     "vitest": "^3.0.4",
-    "workerd": "^1.20250124.0",
-    "wrangler": "^3.105.0"
+    "workerd": "^1.20250124.3",
+    "wrangler": "^3.105.1"
   },
   "packageManager": "pnpm@9.15.4"
 }
