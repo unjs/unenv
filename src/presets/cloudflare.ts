@@ -19,7 +19,6 @@ const cloudflareNodeCompatModules = [
   "dns/promises",
   "events",
   "net",
-  "net/promises",
   "path",
   "path/posix",
   "path/win32",
