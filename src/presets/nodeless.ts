@@ -65,6 +65,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "wasi",
         "worker_threads",
         "zlib",
+        "string_decoder",
       ].map((m) => [m, `unenv/runtime/node/${m}/index`]),
     ),
 
