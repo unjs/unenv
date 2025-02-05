@@ -68,7 +68,6 @@ export const _setSimultaneousAccepts = notImplemented(
 
 export const exports: typeof net = {
   Socket: Socket,
-  // @ts-expect-error (missing types?)
   Stream: Socket,
   Server,
   BlockList,

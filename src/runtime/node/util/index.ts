@@ -59,8 +59,15 @@ export const parseEnv = notImplemented<typeof util.parseEnv>("util.parseEnv");
 export const styleText =
   notImplemented<typeof util.styleText>("util.styleText");
 
-export const getCallSite =
-  notImplemented<typeof util.getCallSite>("util.getCallSites");
+/** @deprecated */
+export const getCallSite = notImplemented("util.getCallSite");
+
+export const getCallSites =
+  notImplemented<typeof util.getCallSites>("util.getCallSites");
+
+export const getSystemErrorMessage = notImplemented<
+  typeof util.getSystemErrorMessage
+>("util.getSystemErrorMessage");
 
 export default <typeof util>{
   _errnoException,
@@ -70,6 +77,8 @@ export default <typeof util>{
   callbackify,
   deprecate,
   getCallSite,
+  getCallSites,
+  getSystemErrorMessage,
   getSystemErrorMap,
   getSystemErrorName,
   inherits,

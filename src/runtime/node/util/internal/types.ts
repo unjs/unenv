@@ -10,7 +10,8 @@ export const isArgumentsObject = notImplemented<
   typeof utilTypes.isArgumentsObject
 >("util.types.isArgumentsObject");
 
-export const isBigIntObject = (val: any): val is Date => val instanceof BigInt;
+export const isBigIntObject = (val: any): val is bigint =>
+  val instanceof BigInt;
 
 export const isBooleanObject: typeof utilTypes.isBooleanObject = (
   val,

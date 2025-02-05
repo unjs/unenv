@@ -101,6 +101,11 @@ export const wrap: typeof nodeModule.wrap = function (source) {
   return `(function (exports, require, module, __filename, __dirname) { ${source}\n});`;
 };
 
+export const stripTypeScriptTypes: typeof nodeModule.stripTypeScriptTypes =
+  notImplemented<typeof nodeModule.stripTypeScriptTypes>(
+    "module.stripTypeScriptTypes",
+  );
+
 export const SourceMap = notImplementedClass(
   "module.SourceMap",
 ) as typeof nodeModule.SourceMap;
@@ -166,6 +171,7 @@ export const Module = {
   syncBuiltinESMExports,
   wrap,
   flushCompileCache,
+  stripTypeScriptTypes,
 } satisfies Omit<typeof nodeModule.Module, "Module" | "prototype"> &
   Record<string, any>;
 

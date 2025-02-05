@@ -69,6 +69,7 @@ export const {
   deprecate,
   format,
   formatWithOptions,
+  // @ts-ignore
   getCallSite,
   inherits,
   inspect,
