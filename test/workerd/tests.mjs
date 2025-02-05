@@ -183,28 +183,3 @@ export const workerd_net = {
     assert.throws(() => net.createServer(), /not implemented/);
   },
 };
-
-// --- unenv:fetch
-
-// https://github.com/unjs/unenv/issues/364
-//
-// export const unenv_fetch = {
-//   async test() {
-//     // https://srvx.unjs.io/guide/node#reverse-compatibility
-//     // This method is used in h3 v1 and Nitro v2 for server fetch without network roundtrip + internal caching system.
-//     const { createFetch, createCall } = await import("unenv/runtime/fetch");
-//     const serverFetch = createFetch(
-//       createCall(async (req, res) => {
-//         res.end(
-//           JSON.stringify({ "req.url": req.url, "req.headers": req.headers }),
-//         );
-//       }),
-//     );
-//     const res = await serverFetch("/test", { headers: { foo: "bar" } });
-//     const resBody = await res.json();
-//     assert.deepEqual(resBody, {
-//       "req.url": "/test",
-//       "req.headers": { foo: "bar", host: "localhost" },
-//     });
-//   },
-// };
