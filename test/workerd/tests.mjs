@@ -183,4 +183,3 @@ export const workerd_net = {
     assert.throws(() => net.createServer(), /not implemented/);
   },
 };
-
