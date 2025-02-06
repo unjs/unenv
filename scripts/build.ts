@@ -16,6 +16,8 @@ import oxcResolver from "oxc-resolver";
 import { rolldown } from "rolldown";
 import { builtinModules } from "node:module";
 
+import pkg from "../package.json" with { type: "json" };
+
 const rootDir = fileURLToPath(new URL("../", import.meta.url));
 
 const start = Date.now();
@@ -155,7 +157,11 @@ async function rolldownBuild(cwd: string, input: string, output: string) {
   const res = await rolldown({
     cwd,
     input: input,
-    external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
+    external: [
+      ...builtinModules,
+      ...builtinModules.map((m) => `node:${m}`),
+      ...Object.keys(pkg.dependencies),
+    ],
   });
   await res.write({ file: output });
   await res.close();
