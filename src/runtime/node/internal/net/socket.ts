@@ -104,6 +104,11 @@ export class SocketAddress implements net.SocketAddress {
   family: "ipv4" | "ipv6";
   port: number;
   flowlabel: number;
+
+  static parse(_address: string, _port?: number) {
+    return undefined; // successful
+  }
+
   constructor(options: net.SocketAddress) {
     this.address = options.address;
     this.family = options.family;

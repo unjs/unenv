@@ -1,11 +1,12 @@
+export type _PerformanceEntryType = "mark" | "measure" | "resource" | "event";
+
 // https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver/supportedEntryTypes_static
-export const _supportedEntryTypes = [
+export const _supportedEntryTypes: _PerformanceEntryType[] = [
   "event", // PerformanceEntry
   "mark", // PerformanceMark
   "measure", // PerformanceMeasure
   "resource", // PerformanceResourceTiming
 ] as const;
-export type _PerformanceEntryType = (typeof _supportedEntryTypes)[number];
 
 // https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry
 export class _PerformanceEntry implements globalThis.PerformanceEntry {

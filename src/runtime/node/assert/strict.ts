@@ -67,4 +67,4 @@ export default Object.assign(ok, {
   notEqual,
   deepStrictEqual,
   deepEqual,
-}) satisfies typeof nodeAssert.strict;
+}) as typeof nodeAssert.strict; // TODO: utils are strict by default so should be typed as strict!

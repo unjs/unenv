@@ -13,7 +13,7 @@ export class _PerformanceObserver implements globalThis.PerformanceObserver {
     this._callback = callback;
   }
 
-  takeRecords(): PerformanceEntryList {
+  takeRecords() {
     return [];
   }
 

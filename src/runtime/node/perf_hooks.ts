@@ -31,13 +31,15 @@ export const createHistogram: typeof perf_hooks.createHistogram = function (
 
 export default {
   Performance,
-  PerformanceEntry,
   PerformanceMark,
+  // @ts-expect-error TODO: resolve type-mismatch between web and node
+  PerformanceEntry,
+  // @ts-expect-error TODO: resolve type-mismatch between web and node
   PerformanceMeasure,
-  // @ts-expect-error TODO: resolve type-mismatch between web and node PerformanceObserverEntryList
+  // @ts-expect-error TODO: resolve type-mismatch between web and node
   PerformanceObserverEntryList,
   PerformanceObserver,
-  // @ts-expect-error TODO: resolve type-mismatch between web and node PerformanceObserverEntryList
+  // @ts-expect-error TODO: resolve type-mismatch between web and node
   PerformanceResourceTiming,
   constants,
   createHistogram,
