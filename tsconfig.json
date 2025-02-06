@@ -12,8 +12,11 @@
       "node"
     ],
     "paths": {
+      "unenv": [
+        "./src/index.ts"
+      ],
       "unenv/*": [
-        "./src/*"
+        "./src/runtime/*"
       ]
     }
   },
