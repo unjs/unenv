@@ -27,7 +27,7 @@ import { inspect } from "node:util";
 
 import vm from "node:vm";
 
-import qs from "../../src/runtime/node/querystring/index.ts";
+import qs from "../../src/runtime/node/querystring.ts";
 
 function createWithNoPrototype(properties) {
   const noProto = { __proto__: null };

@@ -1,5 +1,5 @@
 import type nodeProcess from "node:process";
-import unenvProcess from "../node/process/index";
+import unenvProcess from "../node/process";
 
 // use Object.assign to preserve the identity of globalThis.process
 Object.assign(globalThis.process, {

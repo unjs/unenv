@@ -6,7 +6,7 @@
 
 import assert from "node:assert";
 
-import qs from "../../src/runtime/node/querystring/index.ts";
+import qs from "../../src/runtime/node/querystring.ts";
 
 // Taken from express-js/body-parser
 // https://github.com/expressjs/body-parser/blob/ed25264fb494cf0c8bc992b8257092cd4f694d5e/test/urlencoded.js#L636-L651

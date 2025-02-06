@@ -4,7 +4,7 @@ import assert from "node:assert";
 
 import { inspect } from "node:util";
 
-import url from "../../src/runtime/node/url/index.ts";
+import url from "../../src/runtime/node/url.ts";
 
 // URLs to parse, and expected data
 // { url : parsed }

@@ -117,10 +117,11 @@ async function createModuleServer(port = 8888) {
   // Unenv preset
   const { createJiti } = await import("jiti");
   const jiti = createJiti(import.meta.url);
+  /** @type {import("../../src/index")} */
   const unenv = await jiti.import("../../src/index.ts");
-  const preset = unenv.env(unenv.nodeless, unenv.cloudflare);
+  const preset = unenv.defineEnv({ nodeCompat: true });
   const alias = Object.fromEntries(
-    Object.entries(preset.alias).map(([k, v]) => [
+    Object.entries(preset.env.alias).map(([k, v]) => [
       k,
       v.replace("unenv/runtime", join(srcDir, "runtime")),
     ]),
@@ -150,10 +151,7 @@ async function createModuleServer(port = 8888) {
 
       // Load node module
       // prettier-ignore
-      const entryDir = join(srcDir, "runtime", unenvPath);
-      const entryFile = existsSync(join(entryDir, "$cloudflare.ts"))
-        ? join(entryDir, "$cloudflare.ts")
-        : join(entryDir, "index.ts");
+      const entryFile = join(srcDir, "runtime", unenvPath) + '.ts'
 
       const transpiled = await build({
         entryPoints: [entryFile],

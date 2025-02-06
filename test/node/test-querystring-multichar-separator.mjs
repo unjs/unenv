@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import qs from "../../src/runtime/node/querystring/index.ts";
+import qs from "../../src/runtime/node/querystring.ts";
 
 function check(actual, expected) {
   assert(!(actual instanceof Object));

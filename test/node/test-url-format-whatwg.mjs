@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import url from "../../src/runtime/node/url/index.ts";
+import url from "../../src/runtime/node/url.ts";
 
 const myURL = new URL("http://user:pass@xn--lck1c3crb1723bpq4a.com/a?a=b#c");
 
