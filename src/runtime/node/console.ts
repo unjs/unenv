@@ -25,7 +25,7 @@ export const createTask =
   /*@__PURE__*/ notImplemented("console.createTask");
 
 export const assert: typeof console.assert =
-  notImplemented<typeof console.assert>("console.assert");
+  /*@__PURE__*/ notImplemented<typeof console.assert>("console.assert");
 
 // noop
 export const clear: typeof console.clear = _console?.clear ?? noop;

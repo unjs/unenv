@@ -105,7 +105,7 @@ export const wrap: typeof nodeModule.wrap = function (source) {
 };
 
 export const stripTypeScriptTypes: typeof nodeModule.stripTypeScriptTypes =
-  notImplemented<typeof nodeModule.stripTypeScriptTypes>(
+  /*@__PURE__*/ notImplemented<typeof nodeModule.stripTypeScriptTypes>(
     "module.stripTypeScriptTypes",
   );
 
