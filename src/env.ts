@@ -1,5 +1,5 @@
 import { resolvePathSync, type ResolveOptions } from "mlly";
-import type { Preset, Environment, CreateEnvOptions } from "./types";
+import type { Preset, Environment, CreateEnvOptions } from "../lib/index.d.mts";
 import nodeCompatPreset from "./presets/nodeless";
 
 /**

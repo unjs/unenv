@@ -1,5 +1,5 @@
 import { NodeBuiltinModules } from "../utils";
-import type { Preset } from "../types";
+import type { Preset } from "../../lib/index.d.mts";
 import { version } from "../../package.json";
 
 export default {
@@ -9,10 +9,10 @@ export default {
   },
 
   alias: {
-    "node-fetch": "unenv/runtime/npm/node-fetch",
-    "cross-fetch": "unenv/runtime/npm/cross-fetch",
-    "cross-fetch/polyfill": "unenv/runtime/mock/empty",
-    "isomorphic-fetch": "unenv/runtime/mock/empty",
+    "node-fetch": "unenv/npm/node-fetch",
+    "cross-fetch": "unenv/npm/cross-fetch",
+    "cross-fetch/polyfill": "unenv/mock/empty",
+    "isomorphic-fetch": "unenv/mock/empty",
   },
 
   polyfill: [],

@@ -7,12 +7,16 @@
     "strict": true,
     "declaration": true,
     "resolveJsonModule": true,
+    "isolatedDeclarations": false,
     "types": [
       "node"
     ],
     "paths": {
+      "unenv": [
+        "./src/index.ts"
+      ],
       "unenv/*": [
-        "./src/*"
+        "./src/runtime/*"
       ]
     }
   },
