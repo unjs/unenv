@@ -1,3 +1,5 @@
+#!/usr/bin/env node --disable-warning=ExperimentalWarning --experimental-strip-types
+
 /**
  * Copyright (c) Pooya Parsa <pooya@pi0.io>
  *
@@ -15,26 +17,18 @@ import { rolldown } from "rolldown";
 import { builtinModules } from "node:module";
 
 const rootDir = fileURLToPath(new URL("../", import.meta.url));
-const distDir = join(rootDir, "dist");
 
-await rm(distDir, { recursive: true, force: true });
-
-await transformDir(join(rootDir, "src/runtime"), join(distDir, "runtime"));
-
-const res = await rolldown({
-  cwd: distDir,
-  input: join(rootDir, "src/index.ts"),
-  external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
-});
-res.write({
-  dir: distDir,
-  file: "index.mjs",
-});
+await rm(join(rootDir, "dist"), { recursive: true, force: true });
+await transformDir(rootDir, "src/runtime", "dist/runtime");
+await rolldownBuild(rootDir, "src/index.ts", "dist/index.mjs");
 
 /**
  * Transform all .ts modules in a directory using oxc-transform.
  */
-async function transformDir(srcDir: string, distDir: string) {
+async function transformDir(cwd: string, input: string, output: string) {
+  const start = Date.now();
+  const srcDir = join(cwd, input);
+  const distDir = join(cwd, output);
   const promises: Promise<void>[] = [];
   for await (const entryName of glob("**/*.ts", { cwd: srcDir })) {
     promises.push(
@@ -53,6 +47,9 @@ async function transformDir(srcDir: string, distDir: string) {
     );
   }
   await Promise.all(promises);
+  console.log(
+    `Transformed ${promises.length} files from ${input} into ${output} in ${Date.now() - start}ms`,
+  );
 }
 
 /**
@@ -141,6 +138,18 @@ async function transformModule(entryPath: string) {
   }
 
   return transformed;
+}
+
+async function rolldownBuild(cwd: string, input: string, output: string) {
+  const start = Date.now();
+  const res = await rolldown({
+    cwd,
+    input: input,
+    external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
+  });
+  await res.write({ file: output });
+  await res.close();
+  console.log(`Bundled ${input} into ${output} in ${Date.now() - start}ms`);
 }
 
 function resolvePath(id: string, parent: string) {
