@@ -16,7 +16,8 @@ export const gzip: typeof zlib.gzip = notImplementedCompress("gzip");
 
 export const createGzip: typeof zlib.createGzip = () => new Gzip();
 
-export const gzipSync: typeof zlib.gzipSync = notImplemented("zlib.gzipSync");
+export const gzipSync: typeof zlib.gzipSync =
+  /*@__PURE__*/ notImplemented("zlib.gzipSync");
 
 // Gzip Decompression
 
@@ -29,4 +30,4 @@ export const gunzip: typeof zlib.gunzip = notImplementedCompress("gunzip");
 export const createGunzip: typeof zlib.createGunzip = () => new Gunzip();
 
 export const gunzipSync: typeof zlib.gunzipSync =
-  notImplemented("zlib.gunzipSync");
+  /*@__PURE__*/ notImplemented("zlib.gunzipSync");

@@ -11,9 +11,10 @@ export * from "./internal/http/request.ts";
 export * from "./internal/http/response.ts";
 
 export const createServer =
-  notImplemented<typeof http.createServer>("http.createServer");
-export const request = notImplemented<typeof http.request>("http.request");
-export const get = notImplemented<typeof http.get>("http.get");
+  /*@__PURE__*/ notImplemented<typeof http.createServer>("http.createServer");
+export const request =
+  /*@__PURE__*/ notImplemented<typeof http.request>("http.request");
+export const get = /*@__PURE__*/ notImplemented<typeof http.get>("http.get");
 
 export const Server: typeof http.Server = mock.__createMock__("http.Server");
 
@@ -28,28 +29,33 @@ export const Agent: typeof http.Agent = mock.__createMock__("http.Agent");
 
 export const globalAgent: typeof http.globalAgent = new Agent();
 
-export const validateHeaderName = notImplemented<
+export const validateHeaderName = /*@__PURE__*/ notImplemented<
   typeof http.validateHeaderName
 >("http.validateHeaderName");
 
-export const validateHeaderValue = notImplemented<
+export const validateHeaderValue = /*@__PURE__*/ notImplemented<
   typeof http.validateHeaderValue
 >("http.validateHeaderValue");
 
-export const setMaxIdleHTTPParsers = notImplemented<
+export const setMaxIdleHTTPParsers = /*@__PURE__*/ notImplemented<
   typeof http.setMaxIdleHTTPParsers
 >("http.setMaxIdleHTTPParsers");
 
-export const _connectionListener = notImplemented("http._connectionListener");
+export const _connectionListener = /*@__PURE__*/ notImplemented(
+  "http._connectionListener",
+);
 
 export const WebSocket =
-  globalThis.WebSocket || notImplementedClass<WebSocket>("WebSocket");
+  globalThis.WebSocket ||
+  /*@__PURE__*/ notImplementedClass<WebSocket>("WebSocket");
 
 export const CloseEvent =
-  globalThis.CloseEvent || notImplementedClass<CloseEvent>("CloseEvent");
+  globalThis.CloseEvent ||
+  /*@__PURE__*/ notImplementedClass<CloseEvent>("CloseEvent");
 
 export const MessageEvent =
-  globalThis.MessageEvent || notImplementedClass<MessageEvent>("MessageEvent");
+  globalThis.MessageEvent ||
+  /*@__PURE__*/ notImplementedClass<MessageEvent>("MessageEvent");
 
 export default <typeof http>{
   ...consts,

@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.2
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.1...v2.0.0-rc.2)
+
+### 🚀 Enhancements
+
+- Compatibility with node@22.13.1 types ([#414](https://github.com/unjs/unenv/pull/414))
+
+### 🩹 Fixes
+
+- **node:async_hooks:** Remove extra methods from `AsyncHook` class ([#415](https://github.com/unjs/unenv/pull/415))
+- **node:timers:** Avoid circular dependency in internals ([#418](https://github.com/unjs/unenv/pull/418))
+- **node:crypto:** Fix `randomBytes` returning zero values ([#420](https://github.com/unjs/unenv/pull/420))
+
+### 💅 Refactors
+
+- **tls:** Import Socket and Server from `node:net` ([#405](https://github.com/unjs/unenv/pull/405))
+- Remove direct fetch support ([#411](https://github.com/unjs/unenv/pull/411))
+- ⚠️  Update `runtime/node` structure ([#392](https://github.com/unjs/unenv/pull/392))
+
+### 📦 Build
+
+- ⚠️  Esm-only build ([#417](https://github.com/unjs/unenv/pull/417))
+
+### 🏡 Chore
+
+- Fix ci ([f24fb41](https://github.com/unjs/unenv/commit/f24fb41))
+- Fix lint issue ([b4e3cd5](https://github.com/unjs/unenv/commit/b4e3cd5))
+- Remove extra log in tests ([66629c9](https://github.com/unjs/unenv/commit/66629c9))
+
+### 🤖 CI
+
+- Update build script ([fb78f84](https://github.com/unjs/unenv/commit/fb78f84))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Update `runtime/node` structure ([#392](https://github.com/unjs/unenv/pull/392))
+- ⚠️  Esm-only build ([#417](https://github.com/unjs/unenv/pull/417))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Victor Berchet ([@vicb](http://github.com/vicb))
+
 ## v2.0.0-rc.1
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.0...v2.0.0-rc.1)

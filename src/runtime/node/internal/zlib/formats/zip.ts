@@ -10,7 +10,8 @@ export class Unzip extends ZlibCompress {
 
 export const createUnzip: typeof zlib.createUnzip = () => new Unzip();
 
-export const unzip: typeof zlib.unzip = notImplemented("zlib.unzip");
+export const unzip: typeof zlib.unzip =
+  /*@__PURE__*/ notImplemented("zlib.unzip");
 
 export const unzipSync: typeof zlib.unzipSync =
-  notImplemented("zlib.unzipSync");
+  /*@__PURE__*/ notImplemented("zlib.unzipSync");

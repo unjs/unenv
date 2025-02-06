@@ -38,10 +38,10 @@ describe("defineEnv", () => {
         if (path.startsWith("node:")) {
           continue; // recursive
         }
-        expect(existsSync(path)).toBe(true);
+        expect(existsSync(path), path).toBe(true);
       }
       for (const path of env.polyfill) {
-        expect(existsSync(path)).toBe(true);
+        expect(existsSync(path), path).toBe(true);
       }
       for (const inject of Object.values(env.inject)) {
         expect(

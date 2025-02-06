@@ -19,7 +19,7 @@ export const createBrotliCompress: typeof zlib.createBrotliCompress = () =>
   new BrotliCompress();
 
 export const brotliCompressSync: typeof zlib.brotliCompressSync =
-  notImplemented("zlib.brotliCompressSync");
+  /*@__PURE__*/ notImplemented("zlib.brotliCompressSync");
 
 // Brotli Decompression
 
@@ -34,4 +34,4 @@ export const createBrotliDecompress: typeof zlib.createBrotliDecompress = () =>
   new BrotliDecompress();
 
 export const brotliDecompressSync: typeof zlib.brotliDecompressSync =
-  notImplemented("zlib.brotliDecompressSync");
+  /*@__PURE__*/ notImplemented("zlib.brotliDecompressSync");

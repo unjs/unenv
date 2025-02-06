@@ -4,7 +4,7 @@ import { notImplementedClass } from "../_internal/utils.ts";
 
 export const StringDecoder: typeof stringDecoder.StringDecoder =
   (globalThis as any).StringDecoder ||
-  notImplementedClass("string_decoder.StringDecoder");
+  /*@__PURE__*/ notImplementedClass("string_decoder.StringDecoder");
 
 export default <typeof stringDecoder>{
   StringDecoder,

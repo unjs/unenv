@@ -10,9 +10,9 @@ export { setImmediateFallbackPromises as setImmediate } from "../internal/timers
 
 export const scheduler = new Scheduler();
 
-export default <typeof timers>{
+export default {
   scheduler,
   setImmediate: setImmediateFallbackPromises,
   setInterval: setIntervalFallbackPromises,
   setTimeout: setTimeoutFallbackPromises,
-};
+} satisfies typeof timers;

@@ -2,7 +2,9 @@ import type asyncHooks from "node:async_hooks";
 
 // https://nodejs.org/api/async_hooks.html
 
-class _AsyncHook implements asyncHooks.HookCallbacks {
+type NodeAsyncHook = ReturnType<typeof asyncHooks.createHook>;
+
+class _AsyncHook implements NodeAsyncHook {
   readonly __unenv__ = true;
 
   _enabled: boolean = false;
@@ -22,34 +24,24 @@ class _AsyncHook implements asyncHooks.HookCallbacks {
     return this;
   }
 
-  init(asyncId: number, type: string, triggerAsyncId: number, resource: any) {
-    if (this._enabled && this._callbacks.init) {
-      this._callbacks.init(asyncId, type, triggerAsyncId, resource);
-    }
+  get [Symbol("init")]() {
+    return this._callbacks.init;
   }
 
-  before(asyncId: number) {
-    if (this._enabled && this._callbacks.before) {
-      this._callbacks.before(asyncId);
-    }
+  get [Symbol("before")]() {
+    return this._callbacks.before;
   }
 
-  after(asyncId: number) {
-    if (this._enabled && this._callbacks.after) {
-      this._callbacks.after(asyncId);
-    }
+  get [Symbol("after")]() {
+    return this._callbacks.after;
   }
 
-  destroy(asyncId: number) {
-    if (this._enabled && this._callbacks.destroy) {
-      this._callbacks.destroy(asyncId);
-    }
+  get [Symbol("destroy")]() {
+    return this._callbacks.destroy;
   }
 
-  promiseResolve(asyncId: number) {
-    if (this._enabled && this._callbacks.promiseResolve) {
-      this._callbacks.promiseResolve(asyncId);
-    }
+  get [Symbol("promiseResolve")]() {
+    return this._callbacks.promiseResolve;
   }
 }
 

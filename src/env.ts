@@ -1,5 +1,5 @@
 import { resolvePathSync, type ResolveOptions } from "mlly";
-import type { Preset, Environment, CreateEnvOptions } from "./types.ts";
+import type { Preset, Environment, CreateEnvOptions } from "../lib/index.d.mts";
 import nodeCompatPreset from "./presets/nodeless.ts";
 
 /**
@@ -9,6 +9,7 @@ import nodeCompatPreset from "./presets/nodeless.ts";
  * ```ts
  * const { env } = defineEnv({
  *  nodeCompat: true,
+ *  resolve: true,
  *  presets: [myPreset],
  *  overrides: {}
  * });
@@ -39,7 +40,7 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
       ...presets
         .map((preset) => preset.meta?.url)
         .filter((v) => v !== undefined),
-      __filename, // unenv
+      import.meta.url,
     ];
     const resolveOpts: ResolveOptions = {
       url: resolvePaths,

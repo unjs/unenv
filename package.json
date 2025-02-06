@@ -1,36 +1,41 @@
 {
   "name": "unenv",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "description": "",
   "repository": "unjs/unenv",
   "license": "MIT",
   "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "types": "./lib/index.d.mts",
+      "default": "./dist/index.mjs"
     },
-    "./runtime/mock/proxy-cjs": "./runtime/mock/proxy.cjs",
-    "./runtime/mock/proxy-cjs/*": "./runtime/mock/proxy.cjs",
-    "./runtime/*": {
-      "types": "./runtime/*.d.ts",
-      "require": "./runtime/*.cjs",
-      "import": "./runtime/*.mjs"
+    "./mock/proxy-cjs": {
+      "types": "./lib/mock.d.cts",
+      "default": "./lib/mock.cjs"
+    },
+    "./mock/proxy-cjs/*": {
+      "types": "./lib/mock.d.cts",
+      "default": "./lib/mock.cjs"
+    },
+    "./*": {
+      "types": "./dist/*.d.mts",
+      "default": "./dist/runtime/*.mjs"
     }
   },
-  "main": "./dist/index.cjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "runtime"
+    "lib"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "pnpm node-ts ./scripts/build.ts",
+    "build:watch": "pnpm node-ts --watch ./scripts/build.ts",
+    "node-ts": "node --disable-warning=ExperimentalWarning --experimental-strip-types",
     "dev": "vitest",
     "lint": "eslint . && prettier -c src test",
     "lint:fix": "automd && eslint --fix . && prettier -w src test",
-    "prepack": "unbuild",
+    "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release --push --publish --prerelease --publishTag rc",
     "test": "pnpm lint && pnpm vitest --run && pnpm test:types && pnpm test:node",
     "test:node": "node --test --import jiti/register ./test/node/test-*",
@@ -56,9 +61,12 @@
     "eslint": "^9.19.0",
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
+    "oxc-parser": "^0.48.2",
+    "oxc-resolver": "^4.0.0",
+    "oxc-transform": "^0.48.2",
     "prettier": "^3.4.2",
+    "rolldown": "1.0.0-beta.3",
     "typescript": "^5.7.3",
-    "unbuild": "^3.3.1",
     "vitest": "^3.0.5",
     "workerd": "^1.20250204.0",
     "wrangler": "^3.107.3"

@@ -7,7 +7,7 @@ export { Script } from "./internal/vm/script.ts";
 export * as constants from "./internal/vm/constants.ts";
 
 export const compileFunction: typeof vm.compileFunction =
-  notImplemented("vm.compileFunction");
+  /*@__PURE__*/ notImplemented("vm.compileFunction");
 
 const _contextSymbol = Symbol("uenv.vm.context");
 
@@ -34,14 +34,13 @@ export const measureMemory: typeof vm.measureMemory = () =>
   });
 
 export const runInContext: typeof vm.runInContext =
-  notImplemented("vm.runInContext");
+  /*@__PURE__*/ notImplemented("vm.runInContext");
 
 export const runInNewContext: typeof vm.runInNewContext =
-  notImplemented("vm.runInNewContext");
+  /*@__PURE__*/ notImplemented("vm.runInNewContext");
 
-export const runInThisContext: typeof vm.runInThisContext = notImplemented(
-  "vm.runInThisContext",
-);
+export const runInThisContext: typeof vm.runInThisContext =
+  /*@__PURE__*/ notImplemented("vm.runInThisContext");
 
 export default <
   Omit<typeof vm, "Module" | "SourceTextModule" | "SyntheticModule">

@@ -5,16 +5,19 @@ import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 export const _cache = Object.create(null);
 
 export const _extensions = {
-  ".js": notImplemented("module.require.extensions['.js']"),
-  ".json": notImplemented("module.require.extensions['.json']"),
-  ".node": notImplemented("module.require.extensions['.node']"),
+  ".js": /*@__PURE__*/ notImplemented("module.require.extensions['.js']"),
+  ".json": /*@__PURE__*/ notImplemented("module.require.extensions['.json']"),
+  ".node": /*@__PURE__*/ notImplemented("module.require.extensions['.node']"),
 };
 
 export const createRequire = function (_filename: string | URL) {
-  return Object.assign(notImplemented("module.require"), {
-    resolve: Object.assign(notImplemented("module.require.resolve"), {
-      paths: notImplemented("module.require.resolve.paths"),
-    }),
+  return Object.assign(/*@__PURE__*/ notImplemented("module.require"), {
+    resolve: Object.assign(
+      /*@__PURE__*/ notImplemented("module.require.resolve"),
+      {
+        paths: /*@__PURE__*/ notImplemented("module.require.resolve.paths"),
+      },
+    ),
     cache: Object.create(null),
     extensions: _extensions,
     main: undefined,
@@ -75,10 +78,10 @@ export const isBuiltin: typeof nodeModule.isBuiltin = function (id) {
 };
 
 export const runMain: typeof nodeModule.runMain =
-  notImplemented("module.runMain");
+  /*@__PURE__*/ notImplemented("module.runMain");
 
 export const register: typeof nodeModule.register =
-  notImplemented("module.register");
+  /*@__PURE__*/ notImplemented("module.register");
 
 export const syncBuiltinESMExports: typeof nodeModule.syncBuiltinESMExports =
   function () {
@@ -102,23 +105,31 @@ export const wrap: typeof nodeModule.wrap = function (source) {
 };
 
 export const stripTypeScriptTypes: typeof nodeModule.stripTypeScriptTypes =
-  notImplemented<typeof nodeModule.stripTypeScriptTypes>(
+  /*@__PURE__*/ notImplemented<typeof nodeModule.stripTypeScriptTypes>(
     "module.stripTypeScriptTypes",
   );
 
-export const SourceMap = notImplementedClass(
+export const SourceMap = /*@__PURE__*/ notImplementedClass(
   "module.SourceMap",
 ) as typeof nodeModule.SourceMap;
 
 export const _debug = console.debug;
 
-export const _findPath = notImplemented("module._findPath");
-export const _initPaths = notImplemented("module._initPaths");
-export const _load = notImplemented("module._load");
-export const _nodeModulePaths = notImplemented("module._nodeModulePaths");
-export const _preloadModules = notImplemented("module._preloadModules");
-export const _resolveFilename = notImplemented("module._resolveFilename");
-export const _resolveLookupPaths = notImplemented("module._resolveLookupPaths");
+export const _findPath = /*@__PURE__*/ notImplemented("module._findPath");
+export const _initPaths = /*@__PURE__*/ notImplemented("module._initPaths");
+export const _load = /*@__PURE__*/ notImplemented("module._load");
+export const _nodeModulePaths = /*@__PURE__*/ notImplemented(
+  "module._nodeModulePaths",
+);
+export const _preloadModules = /*@__PURE__*/ notImplemented(
+  "module._preloadModules",
+);
+export const _resolveFilename = /*@__PURE__*/ notImplemented(
+  "module._resolveFilename",
+);
+export const _resolveLookupPaths = /*@__PURE__*/ notImplemented(
+  "module._resolveLookupPaths",
+);
 
 export const _pathCache = Object.create(null);
 export const globalPaths = ["node_modules"];

@@ -14,7 +14,7 @@ const _pathModule = {
   win32: undefined as any,
   _makeLong: (path: string) => path,
   // https://github.com/unjs/pathe/issues/182
-  matchesGlob: notImplemented(`path.matchesGlob`),
+  matchesGlob: /*@__PURE__*/ notImplemented(`path.matchesGlob`),
 };
 _pathModule.posix = _pathModule;
 _pathModule.win32 = _pathModule;

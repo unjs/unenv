@@ -19,18 +19,17 @@ export const schedulingPolicy: typeof nodeCluster.schedulingPolicy = SCHED_RR;
 export const settings: typeof nodeCluster.settings = {};
 export const workers: typeof nodeCluster.workers = {};
 
-export const fork: typeof nodeCluster.fork = notImplemented("cluster.fork");
+export const fork: typeof nodeCluster.fork =
+  /*@__PURE__*/ notImplemented("cluster.fork");
 
 export const disconnect: typeof nodeCluster.disconnect =
-  notImplemented("cluster.disconnect");
+  /*@__PURE__*/ notImplemented("cluster.disconnect");
 
-export const setupPrimary: typeof nodeCluster.setupPrimary = notImplemented(
-  "cluster.setupPrimary",
-);
+export const setupPrimary: typeof nodeCluster.setupPrimary =
+  /*@__PURE__*/ notImplemented("cluster.setupPrimary");
 
-export const setupMaster: typeof nodeCluster.setupMaster = notImplemented(
-  "cluster.setupMaster",
-);
+export const setupMaster: typeof nodeCluster.setupMaster =
+  /*@__PURE__*/ notImplemented("cluster.setupMaster");
 
 // Make ESM coverage happy
 export const _events = [];

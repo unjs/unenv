@@ -5,14 +5,15 @@ import { constants } from "./internal/http2/constants.ts";
 
 export { constants } from "./internal/http2/constants.ts";
 
-export const createSecureServer = notImplemented<
+export const createSecureServer = /*@__PURE__*/ notImplemented<
   typeof http2.createSecureServer
 >("http2.createSecureServer");
 export const createServer =
-  notImplemented<typeof http2.createServer>("http2.createServer");
-export const connect: typeof http2.connect = notImplemented("http2.connect");
+  /*@__PURE__*/ notImplemented<typeof http2.createServer>("http2.createServer");
+export const connect: typeof http2.connect =
+  /*@__PURE__*/ notImplemented("http2.connect");
 export const performServerHandshake: typeof http2.performServerHandshake =
-  notImplemented("http2.performServerHandshake ");
+  /*@__PURE__*/ notImplemented("http2.performServerHandshake ");
 
 export const Http2ServerRequest: typeof http2.Http2ServerRequest =
   mock.__createMock__("http2.Http2ServerRequest");

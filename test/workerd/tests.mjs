@@ -14,6 +14,8 @@ export const crypto_getRandomValues = {
     crypto.getRandomValues(array);
     assert.strictEqual(array.length, 10);
     assert(array.every((v) => v >= 0 && v <= 0xff_ff_ff_ff));
+
+    assert(crypto.randomBytes(10).every((v) => v >= 0 && v <= 0xff_ff_ff_ff));
   },
 };
 

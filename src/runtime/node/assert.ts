@@ -928,7 +928,7 @@ function expectsNoError(
 const assert = Object.assign(ok, {}) as typeof nodeAssert;
 
 // deprecated
-export const CallTracker = notImplementedClass(
+export const CallTracker = /*@__PURE__*/ notImplementedClass(
   "asset.CallTracker",
 ) as typeof nodeAssert.CallTracker;
 

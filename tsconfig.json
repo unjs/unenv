@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ES6",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
+    "isolatedDeclarations": false,
     "types": [
       "node"
     ],
     "paths": {
+      "unenv": [
+        "./src/index.ts"
+      ],
       "unenv/*": [
-        "./src/*"
+        "./src/runtime/*"
       ]
     }
   },
