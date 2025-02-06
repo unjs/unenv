@@ -2,7 +2,6 @@ import perf_hooks from "node:perf_hooks";
 import { createNotImplementedError } from "../../../_internal/utils";
 import {
   _Performance,
-  _PerformanceEntry,
   _PerformanceMark,
   _PerformanceMeasure,
   _PerformanceObserver,
@@ -14,6 +13,8 @@ import {
 export {
   PerformanceResourceTiming,
   PerformanceObserverEntryList,
+  PerformanceEntry,
+  PerformanceMeasure,
 } from "../../../web/performance/index";
 
 const nodeTiming = {
@@ -108,49 +109,30 @@ export const PerformanceMark: typeof perf_hooks.PerformanceMark = class Performa
   }
 };
 
-// PerformanceEntry
-export const PerformanceEntry: typeof perf_hooks.PerformanceEntry = class PerformanceEntry
-  extends _PerformanceEntry
-  implements perf_hooks.PerformanceEntry
-{
-  entryType = "event" as any;
-  constructor() {
-    // @ts-ignore
-    super(...arguments);
-  }
-};
-
-// PerformanceMeasure
-export const PerformanceMeasure: typeof perf_hooks.PerformanceMeasure = class PerformanceMeasure
-  extends _PerformanceMeasure
-  implements perf_hooks.PerformanceMeasure
-{
-  constructor() {
-    // @ts-ignore
-    super(...arguments);
-  }
-};
-
 // PerformanceObserver
 export const PerformanceObserver: typeof perf_hooks.PerformanceObserver = class PerformanceObserver
   extends _PerformanceObserver
   implements perf_hooks.PerformanceObserver
 {
-  static supportedEntryTypes: ReadonlyArray<perf_hooks.EntryType> = [
+  static override supportedEntryTypes = [
+    // Web
+    "event",
+    "mark",
+    "measure",
+    "resource",
+    // Node
     "dns",
     "function",
     "gc",
     "http",
     "http2",
-    "mark",
-    "measure",
     "net",
-    "resource",
-  ];
+  ] as any[] /* sadly types mismatch */;
 
   constructor(callback: perf_hooks.PerformanceObserverCallback) {
     super(callback as any);
   }
+
   observe(options: any): void {
     throw createNotImplementedError("PerformanceObserver.observe");
   }

@@ -2,17 +2,10 @@ import { createNotImplementedError } from "../../_internal/utils";
 import { _supportedEntryTypes } from "./_entry";
 
 // https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver
-export class _PerformanceObserver<EntryType = ReadonlyArray<string>>
-  implements globalThis.PerformanceObserver
-{
+export class _PerformanceObserver implements globalThis.PerformanceObserver {
   readonly __unenv__ = true;
 
-  static supportedEntryTypes: ReadonlyArray<string> = [
-    "event", // PerformanceEntry
-    "mark", // PerformanceMark
-    "measure", // PerformanceMeasure
-    "resource",
-  ];
+  static supportedEntryTypes: ReadonlyArray<string> = _supportedEntryTypes;
 
   _callback: PerformanceObserverCallback | null = null;
 
@@ -20,7 +13,7 @@ export class _PerformanceObserver<EntryType = ReadonlyArray<string>>
     this._callback = callback;
   }
 
-  takeRecords(): PerformanceEntryList {
+  takeRecords() {
     return [];
   }
 
