@@ -4,7 +4,7 @@ import { notImplemented, notImplementedClass } from "../_internal/utils";
 import mock from "../mock/proxy";
 
 export const Server: typeof nodeHttps.Server =
-  notImplementedClass("https.Server");
+  /*@__PURE__*/ notImplementedClass("https.Server");
 
 export const Agent: typeof nodeHttps.Agent = mock.__createMock__("https.Agent");
 export const globalAgent: typeof nodeHttps.globalAgent = new Agent();

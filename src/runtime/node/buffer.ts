@@ -21,10 +21,12 @@ export { File } from "./internal/buffer/file";
 
 // @ts-expect-eerror https://github.com/unjs/unenv/issues/64
 export const Blob = globalThis.Blob as unknown as typeof buffer.Blob;
-export const resolveObjectURL = notImplemented("buffer.resolveObjectURL");
-export const transcode = notImplemented("buffer.transcode");
-export const isUtf8 = notImplemented("buffer.isUtf8");
-export const isAscii = notImplemented("buffer.isAscii");
+export const resolveObjectURL = /*@__PURE__*/ notImplemented(
+  "buffer.resolveObjectURL",
+);
+export const transcode = /*@__PURE__*/ notImplemented("buffer.transcode");
+export const isUtf8 = /*@__PURE__*/ notImplemented("buffer.isUtf8");
+export const isAscii = /*@__PURE__*/ notImplemented("buffer.isAscii");
 
 export const btoa = globalThis.btoa.bind(globalThis);
 export const atob = globalThis.atob.bind(globalThis);

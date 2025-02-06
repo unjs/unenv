@@ -24,11 +24,13 @@ export const TextEncoder: typeof util.TextEncoder = globalThis.TextEncoder;
 
 export const deprecate: typeof util.deprecate = (fn) => fn;
 
-export const _errnoException = notImplemented("util._errnoException");
-export const _exceptionWithHostPort = notImplemented(
+export const _errnoException = /*@__PURE__*/ notImplemented(
+  "util._errnoException",
+);
+export const _exceptionWithHostPort = /*@__PURE__*/ notImplemented(
   "util._exceptionWithHostPort",
 );
-export const _extend = notImplemented("util._extend");
+export const _extend = /*@__PURE__*/ notImplemented("util._extend");
 
 export const aborted = notImplemented<typeof util.aborted>("util.aborted");
 export const callbackify =
@@ -60,7 +62,7 @@ export const styleText =
   notImplemented<typeof util.styleText>("util.styleText");
 
 /** @deprecated */
-export const getCallSite = notImplemented("util.getCallSite");
+export const getCallSite = /*@__PURE__*/ notImplemented("util.getCallSite");
 
 export const getCallSites =
   notImplemented<typeof util.getCallSites>("util.getCallSites");

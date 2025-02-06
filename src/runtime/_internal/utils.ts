@@ -1,5 +1,6 @@
 import type { HeadersObject } from "./types";
 
+/*@__NO_SIDE_EFFECTS__*/
 export function rawHeaders(headers: HeadersObject) {
   const rawHeaders = [];
   for (const key in headers) {
@@ -15,6 +16,8 @@ export function rawHeaders(headers: HeadersObject) {
 }
 
 type Fn = (...args: any[]) => any;
+
+/*@__NO_SIDE_EFFECTS__*/
 export function mergeFns(...functions: Fn[]) {
   return function (...args: any[]) {
     for (const fn of functions) {
@@ -23,10 +26,12 @@ export function mergeFns(...functions: Fn[]) {
   };
 }
 
+/*@__NO_SIDE_EFFECTS__*/
 export function createNotImplementedError(name: string) {
   return new Error(`[unenv] ${name} is not implemented yet!`);
 }
 
+/*@__NO_SIDE_EFFECTS__*/
 export function notImplemented<Fn extends (...args: any) => any>(
   name: string,
 ): Fn {
@@ -42,13 +47,16 @@ export interface Promisifiable {
   __promisify__: () => Promise<any>;
 }
 
-export function notImplementedAsync(name: string): Promisifiable {
-  const fn = notImplemented(name) as any;
-  fn.__promisify__ = () => notImplemented(name + ".__promisify__");
+/*@__NO_SIDE_EFFECTS__*/
+export function /*@__PURE__*/ notImplementedAsync(name: string): Promisifiable {
+  const fn = /*@__PURE__*/ notImplemented(name) as any;
+  fn.__promisify__ = () =>
+    /*@__PURE__*/ notImplemented(name + ".__promisify__");
   fn.native = fn;
   return fn;
 }
 
+/*@__NO_SIDE_EFFECTS__*/
 export function notImplementedClass<T = unknown>(name: string): T {
   return class {
     readonly __unenv__ = true;

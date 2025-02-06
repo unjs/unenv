@@ -25,7 +25,7 @@ export const deflate: typeof zlib.deflate = notImplementedCompress("deflate");
 export const createDeflate: typeof zlib.createDeflate = () => new Deflate();
 
 export const deflateSync: typeof zlib.deflateSync =
-  notImplemented("zlib.deflateSync");
+  /*@__PURE__*/ notImplemented("zlib.deflateSync");
 
 // Deflate Decompress(Inflate)
 
@@ -42,7 +42,7 @@ export const inflate: typeof zlib.inflate = notImplementedCompress("inflate");
 export const createInflate: typeof zlib.createInflate = () => new Inflate();
 
 export const inflateSync: typeof zlib.inflateSync =
-  notImplemented("zlib.inflateSync");
+  /*@__PURE__*/ notImplemented("zlib.inflateSync");
 
 // Deflate Raw Compression
 
@@ -54,9 +54,8 @@ export const deflateRaw: typeof zlib.deflateRaw =
 export const createDeflateRaw: typeof zlib.createDeflateRaw = () =>
   new DeflateRaw();
 
-export const deflateRawSync: typeof zlib.deflateRawSync = notImplemented(
-  "zlib.deflateRawSync",
-);
+export const deflateRawSync: typeof zlib.deflateRawSync =
+  /*@__PURE__*/ notImplemented("zlib.deflateRawSync");
 
 // Inflate Raw Decompress (Inflate Raw)
 
@@ -68,6 +67,5 @@ export const inflateRaw: typeof zlib.inflateRaw =
 export const createInflateRaw: typeof zlib.createInflateRaw = () =>
   new InflateRaw();
 
-export const inflateRawSync: typeof zlib.inflateRawSync = notImplemented(
-  "zlib.inflateRawSync",
-);
+export const inflateRawSync: typeof zlib.inflateRawSync =
+  /*@__PURE__*/ notImplemented("zlib.inflateRawSync");

@@ -38,13 +38,17 @@ interface StreamInternal {
   _isUint8Array: any;
   _uint8ArrayToBuffer: any;
 }
-export const isDisturbed = notImplemented("stream.isDisturbed");
-export const isReadable = notImplemented("stream.isReadable");
-export const compose = notImplemented("stream.compose");
-export const isErrored = notImplemented("stream.isErrored");
-export const destroy = notImplemented("stream.destroy");
-export const _isUint8Array = notImplemented("stream._isUint8Array");
-export const _uint8ArrayToBuffer = notImplemented("stream._uint8ArrayToBuffer");
+export const isDisturbed = /*@__PURE__*/ notImplemented("stream.isDisturbed");
+export const isReadable = /*@__PURE__*/ notImplemented("stream.isReadable");
+export const compose = /*@__PURE__*/ notImplemented("stream.compose");
+export const isErrored = /*@__PURE__*/ notImplemented("stream.isErrored");
+export const destroy = /*@__PURE__*/ notImplemented("stream.destroy");
+export const _isUint8Array = /*@__PURE__*/ notImplemented(
+  "stream._isUint8Array",
+);
+export const _uint8ArrayToBuffer = /*@__PURE__*/ notImplemented(
+  "stream._uint8ArrayToBuffer",
+);
 
 export default <typeof stream & StreamInternal>{
   Readable: Readable as unknown as typeof stream.Readable,

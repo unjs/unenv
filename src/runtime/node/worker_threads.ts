@@ -53,7 +53,7 @@ export const threadId: typeof worker_threads.threadId = 0;
 export const workerData: typeof worker_threads.workerData = null;
 
 // https://nodejs.org/api/worker_threads.html#workerpostmessagetothreadthreadid-value-transferlist-timeout
-export const postMessageToThread = notImplemented(
+export const postMessageToThread = /*@__PURE__*/ notImplemented(
   "worker_threads.postMessageToThread",
 );
 

@@ -45,40 +45,55 @@ export const utimes: typeof fs.utimes = callbackify(fsp.utimes);
 export const writeFile: typeof fs.writeFile = callbackify(fsp.writeFile);
 export const statfs: typeof fs.statfs = callbackify(fsp.statfs);
 
-export const close: typeof fs.close = notImplementedAsync("fs.close");
-export const createReadStream: typeof fs.createReadStream = notImplementedAsync(
-  "fs.createReadStream",
-);
+export const close: typeof fs.close =
+  /*@__PURE__*/ notImplementedAsync("fs.close");
+export const createReadStream: typeof fs.createReadStream =
+  /*@__PURE__*/ notImplementedAsync("fs.createReadStream");
 export const createWriteStream: typeof fs.createWriteStream =
-  notImplementedAsync("fs.createWriteStream");
-export const exists: typeof fs.exists = notImplementedAsync("fs.exists");
-export const fchown: typeof fs.fchown = notImplementedAsync("fs.fchown");
-export const fchmod: typeof fs.fchmod = notImplementedAsync("fs.fchmod");
+  /*@__PURE__*/ notImplementedAsync("fs.createWriteStream");
+export const exists: typeof fs.exists =
+  /*@__PURE__*/ notImplementedAsync("fs.exists");
+export const fchown: typeof fs.fchown =
+  /*@__PURE__*/ notImplementedAsync("fs.fchown");
+export const fchmod: typeof fs.fchmod =
+  /*@__PURE__*/ notImplementedAsync("fs.fchmod");
 export const fdatasync: typeof fs.fdatasync =
-  notImplementedAsync("fs.fdatasync");
-export const fstat: typeof fs.fstat = notImplementedAsync("fs.fstat");
-export const fsync: typeof fs.fsync = notImplementedAsync("fs.fsync");
+  /*@__PURE__*/ notImplementedAsync("fs.fdatasync");
+export const fstat: typeof fs.fstat =
+  /*@__PURE__*/ notImplementedAsync("fs.fstat");
+export const fsync: typeof fs.fsync =
+  /*@__PURE__*/ notImplementedAsync("fs.fsync");
 export const ftruncate: typeof fs.ftruncate =
-  notImplementedAsync("fs.ftruncate");
-export const futimes: typeof fs.futimes = notImplementedAsync("fs.futimes");
+  /*@__PURE__*/ notImplementedAsync("fs.ftruncate");
+export const futimes: typeof fs.futimes =
+  /*@__PURE__*/ notImplementedAsync("fs.futimes");
 export const lstatSync: typeof fs.lstatSync =
-  notImplementedAsync("fs.lstatSync");
-export const read: typeof fs.read = notImplementedAsync("fs.read");
-export const readv: typeof fs.readv = notImplementedAsync("fs.readv");
+  /*@__PURE__*/ notImplementedAsync("fs.lstatSync");
+export const read: typeof fs.read =
+  /*@__PURE__*/ notImplementedAsync("fs.read");
+export const readv: typeof fs.readv =
+  /*@__PURE__*/ notImplementedAsync("fs.readv");
 export const realpathSync: typeof fs.realpathSync =
-  notImplementedAsync("fs.realpathSync");
-export const statSync: typeof fs.statSync = notImplementedAsync("fs.statSync");
+  /*@__PURE__*/ notImplementedAsync("fs.realpathSync");
+export const statSync: typeof fs.statSync =
+  /*@__PURE__*/ notImplementedAsync("fs.statSync");
 export const unwatchFile: typeof fs.unwatchFile =
-  notImplementedAsync("fs.unwatchFile");
-export const watch: typeof fs.watch = notImplementedAsync("fs.watch");
+  /*@__PURE__*/ notImplementedAsync("fs.unwatchFile");
+export const watch: typeof fs.watch =
+  /*@__PURE__*/ notImplementedAsync("fs.watch");
 export const watchFile: typeof fs.watchFile =
-  notImplementedAsync("fs.watchFile");
-export const write: typeof fs.write = notImplementedAsync("fs.write");
-export const writev: typeof fs.writev = notImplementedAsync("fs.writev");
-export const _toUnixTimestamp = notImplementedAsync("fs._toUnixTimestamp");
+  /*@__PURE__*/ notImplementedAsync("fs.watchFile");
+export const write: typeof fs.write =
+  /*@__PURE__*/ notImplementedAsync("fs.write");
+export const writev: typeof fs.writev =
+  /*@__PURE__*/ notImplementedAsync("fs.writev");
+export const _toUnixTimestamp = /*@__PURE__*/ notImplementedAsync(
+  "fs._toUnixTimestamp",
+);
 export const openAsBlob: typeof fs.openAsBlob =
-  notImplementedAsync("fs.openAsBlob");
-export const glob: typeof fs.glob = notImplementedAsync("fs.glob");
+  /*@__PURE__*/ notImplementedAsync("fs.openAsBlob");
+export const glob: typeof fs.glob =
+  /*@__PURE__*/ notImplementedAsync("fs.glob");
 
 // Sync
 export const appendFileSync =

@@ -72,10 +72,12 @@ export const checkPrimeSync = notImplemented<typeof nodeCrypto.checkPrimeSync>(
 );
 
 /** @deprecated */
-export const createCipher = notImplemented("crypto.createCipher");
+export const createCipher = /*@__PURE__*/ notImplemented("crypto.createCipher");
 
 /** @deprecated */
-export const createDecipher = notImplemented("crypto.createDecipher");
+export const createDecipher = /*@__PURE__*/ notImplemented(
+  "crypto.createDecipher",
+);
 
 export const pseudoRandomBytes = notImplemented<
   typeof nodeCrypto.pseudoRandomBytes
@@ -235,60 +237,60 @@ export const hash = notImplemented<(typeof nodeCrypto)["hash"]>("crypto.hash");
 
 // ---- Unimplemented Classes ----
 
-export const Certificate = notImplementedClass(
+export const Certificate = /*@__PURE__*/ notImplementedClass(
   "crypto.Certificate",
 ) as unknown as typeof nodeCrypto.Certificate;
 
-export const Cipher = notImplementedClass(
+export const Cipher = /*@__PURE__*/ notImplementedClass(
   "crypto.Cipher",
 ) as unknown as typeof nodeCrypto.Cipher;
 
-export const Cipheriv = notImplementedClass(
+export const Cipheriv = /*@__PURE__*/ notImplementedClass(
   "crypto.Cipheriv",
   // @ts-expect-error not typed yet
 ) as unknown as typeof nodeCrypto.Cipheriv;
 
-export const Decipher = notImplementedClass(
+export const Decipher = /*@__PURE__*/ notImplementedClass(
   "crypto.Decipher",
 ) as unknown as typeof nodeCrypto.Decipher;
 
-export const Decipheriv = notImplementedClass(
+export const Decipheriv = /*@__PURE__*/ notImplementedClass(
   "crypto.Decipheriv",
   // @ts-expect-error not typed yet
 ) as unknown as typeof nodeCrypto.Decipheriv;
 
-export const DiffieHellman = notImplementedClass(
+export const DiffieHellman = /*@__PURE__*/ notImplementedClass(
   "crypto.DiffieHellman",
 ) as unknown as typeof nodeCrypto.DiffieHellman;
 
-export const DiffieHellmanGroup = notImplementedClass(
+export const DiffieHellmanGroup = /*@__PURE__*/ notImplementedClass(
   "crypto.DiffieHellmanGroup",
 ) as unknown as typeof nodeCrypto.DiffieHellmanGroup;
 
-export const ECDH = notImplementedClass(
+export const ECDH = /*@__PURE__*/ notImplementedClass(
   "crypto.ECDH",
 ) as unknown as typeof nodeCrypto.ECDH;
 
-export const Hash = notImplementedClass(
+export const Hash = /*@__PURE__*/ notImplementedClass(
   "crypto.Hash",
 ) as unknown as typeof nodeCrypto.Hash;
 
-export const Hmac = notImplementedClass(
+export const Hmac = /*@__PURE__*/ notImplementedClass(
   "crypto.Hmac",
 ) as unknown as typeof nodeCrypto.Hmac;
 
-export const KeyObject = notImplementedClass(
+export const KeyObject = /*@__PURE__*/ notImplementedClass(
   "crypto.KeyObject",
 ) as unknown as typeof nodeCrypto.KeyObject;
 
-export const Sign = notImplementedClass(
+export const Sign = /*@__PURE__*/ notImplementedClass(
   "crypto.Sign",
 ) as unknown as typeof nodeCrypto.Sign;
 
-export const Verify = notImplementedClass(
+export const Verify = /*@__PURE__*/ notImplementedClass(
   "crypto.Verify",
 ) as unknown as typeof nodeCrypto.Verify;
 
-export const X509Certificate = notImplementedClass(
+export const X509Certificate = /*@__PURE__*/ notImplementedClass(
   "crypto.X509Certificate",
 ) as unknown as typeof nodeCrypto.X509Certificate;

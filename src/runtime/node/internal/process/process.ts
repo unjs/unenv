@@ -165,12 +165,12 @@ export const report: Exclude<Process["report"], undefined> = Object.create({
   compact: undefined,
   directory: undefined,
   filename: undefined,
-  getReport: notImplemented("process.report.getReport"),
+  getReport: /*@__PURE__*/ notImplemented("process.report.getReport"),
   reportOnFatalError: undefined,
   reportOnSignal: undefined,
   reportOnUncaughtException: undefined,
   signal: undefined,
-  writeReport: notImplemented("process.report.writeReport"),
+  writeReport: /*@__PURE__*/ notImplemented("process.report.writeReport"),
 });
 export const resourceUsage = notImplemented<Process["resourceUsage"]>(
   "process.resourceUsage",
@@ -224,28 +224,40 @@ export const finalization: Process["finalization"] = {
 
 // --- Undocumented internals ---
 
-export const assert = notImplemented("process.assert");
-export const openStdin = notImplemented("process.openStdin");
-export const _debugEnd = notImplemented("process._debugEnd");
-export const _debugProcess = notImplemented("process._debugProcess");
-export const _fatalException = notImplemented("process._fatalException");
-export const _getActiveHandles = notImplemented("process._getActiveHandles");
-export const _getActiveRequests = notImplemented("process._getActiveRequests");
-export const _kill = notImplemented("process._kill");
+export const assert = /*@__PURE__*/ notImplemented("process.assert");
+export const openStdin = /*@__PURE__*/ notImplemented("process.openStdin");
+export const _debugEnd = /*@__PURE__*/ notImplemented("process._debugEnd");
+export const _debugProcess = /*@__PURE__*/ notImplemented(
+  "process._debugProcess",
+);
+export const _fatalException = /*@__PURE__*/ notImplemented(
+  "process._fatalException",
+);
+export const _getActiveHandles = /*@__PURE__*/ notImplemented(
+  "process._getActiveHandles",
+);
+export const _getActiveRequests = /*@__PURE__*/ notImplemented(
+  "process._getActiveRequests",
+);
+export const _kill = /*@__PURE__*/ notImplemented("process._kill");
 export const _preload_modules: string[] = [];
-export const _rawDebug = notImplemented("process._rawDebug");
-export const _startProfilerIdleNotifier = notImplemented(
+export const _rawDebug = /*@__PURE__*/ notImplemented("process._rawDebug");
+export const _startProfilerIdleNotifier = /*@__PURE__*/ notImplemented(
   "process._startProfilerIdleNotifier",
 );
-export const _stopProfilerIdleNotifier = notImplemented(
+export const _stopProfilerIdleNotifier = /*@__PURE__*/ notImplemented(
   "process.__stopProfilerIdleNotifier",
 );
-export const _tickCallback = notImplemented("process._tickCallback");
-export const _linkedBinding = notImplemented("process._linkedBinding");
+export const _tickCallback = /*@__PURE__*/ notImplemented(
+  "process._tickCallback",
+);
+export const _linkedBinding = /*@__PURE__*/ notImplemented(
+  "process._linkedBinding",
+);
 
 // Mocking domain causes troubles, see unjs/unenv#367
 export const domain = undefined;
-export const initgroups = notImplemented("process.initgroups");
+export const initgroups = /*@__PURE__*/ notImplemented("process.initgroups");
 export const moduleLoadList = [] as string[];
 export const reallyExit = noop;
 

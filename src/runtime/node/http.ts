@@ -40,7 +40,9 @@ export const setMaxIdleHTTPParsers = notImplemented<
   typeof http.setMaxIdleHTTPParsers
 >("http.setMaxIdleHTTPParsers");
 
-export const _connectionListener = notImplemented("http._connectionListener");
+export const _connectionListener = /*@__PURE__*/ notImplemented(
+  "http._connectionListener",
+);
 
 export const WebSocket =
   globalThis.WebSocket || notImplementedClass<WebSocket>("WebSocket");
