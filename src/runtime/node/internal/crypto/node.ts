@@ -38,10 +38,9 @@ export const randomBytes: typeof nodeCrypto.randomBytes = (
     generated < size;
     generated += MAX_RANDOM_VALUE_BYTES
   ) {
-    // buffer.slice automatically checks if the end is past the end of
-    // the buffer so we don't have to here
     getRandomValues(
-      Uint8Array.prototype.slice.call(
+      // Use subarray to get a view of the buffer
+      Uint8Array.prototype.subarray.call(
         bytes,
         generated,
         generated + MAX_RANDOM_VALUE_BYTES,
