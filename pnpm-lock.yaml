@@ -61,7 +61,7 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1(typescript@5.7.3)
       vitest:
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: 3.0.5(@types/node@22.10.10)(jiti@2.4.2)(yaml@2.7.0)
       workerd:
         specifier: ^1.20250204.0
