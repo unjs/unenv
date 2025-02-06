@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import qs from "../../src/runtime/node/querystring/index.ts";
+import qs from "../../src/runtime/node/querystring.ts";
 
 assert.strictEqual(qs.escape(5), "5");
 assert.strictEqual(qs.escape("test"), "test");

@@ -65,16 +65,16 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "wasi",
         "worker_threads",
         "zlib",
-      ].map((m) => [m, `unenv/runtime/node/${m}/index`]),
+      ].map((m) => [m, `unenv/runtime/node/${m}`]),
     ),
 
-    "path/posix": "unenv/runtime/node/path/index",
-    "path/win32": "unenv/runtime/node/path/index",
-    "inspector/promises": "unenv/runtime/node/inspector/index",
+    "path/posix": "unenv/runtime/node/path",
+    "path/win32": "unenv/runtime/node/path",
+    "inspector/promises": "unenv/runtime/node/inspector",
 
     // The sys module is deprecated and has been renamed util
     // https://github.com/nodejs/node/blob/main/lib/sys.js#L27
-    sys: "unenv/runtime/node/util/index",
+    sys: "unenv/runtime/node/util",
 
     // npm
     fsevents: "unenv/runtime/npm/fsevents",
@@ -89,8 +89,8 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 
   inject: {
     global: "unenv/runtime/node/_global",
-    process: "unenv/runtime/node/process/index",
-    Buffer: ["unenv/runtime/node/buffer/index", "Buffer"],
+    process: "unenv/runtime/node/process",
+    Buffer: ["unenv/runtime/node/buffer", "Buffer"],
     performance: "unenv/runtime/polyfill/performance",
   },
 

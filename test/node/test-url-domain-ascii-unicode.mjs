@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import url from "../../src/runtime/node/url/index.ts";
+import url from "../../src/runtime/node/url.ts";
 
 const domainToASCII = url.domainToASCII;
 

@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import url from "../../src/runtime/node/url/index.ts";
+import url from "../../src/runtime/node/url.ts";
 
 function createWithNoPrototype(properties = []) {
   const noProto = { __proto__: null };

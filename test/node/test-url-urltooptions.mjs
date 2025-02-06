@@ -2,7 +2,7 @@
 
 import assert from "node:assert";
 
-import url from "../../src/runtime/node/url/index.ts";
+import url from "../../src/runtime/node/url.ts";
 
 // Test urlToHttpOptions
 const urlObj = new URL("http://user:pass@foo.bar.com:21/aaa/zzz?l=24#test");
