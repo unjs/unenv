@@ -8,8 +8,8 @@
   "type": "module",
   "exports": {
     ".": "./dist/index.mjs",
-    "./mock/proxy-cjs": "./dist/runtime/mock/proxy.cjs",
-    "./mock/proxy-cjs/*": "./dist/runtime/mock/proxy.cjs",
+    "./mock/proxy-cjs": "./lib/mock.cjs",
+    "./mock/proxy-cjs/*": "./lib/mock.cjs",
     "./*": "./dist/runtime/*.mjs"
   },
   "files": [
