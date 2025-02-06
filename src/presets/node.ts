@@ -1,4 +1,4 @@
-import { NodeBuiltinModules } from "./utils";
+import { builtinModules } from "../runtime/node/module";
 import type { Preset } from "../../lib/index.d.mts";
 import { version } from "../../package.json";
 
@@ -17,5 +17,5 @@ export default {
 
   polyfill: [],
 
-  external: [...NodeBuiltinModules],
+  external: [...builtinModules],
 } as Preset;

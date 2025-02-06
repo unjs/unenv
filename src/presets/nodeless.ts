@@ -1,4 +1,5 @@
-import { NodeBuiltinModules, mapArrToVal } from "./utils";
+import { mapArrToVal } from "./utils";
+import { builtinModules } from "../runtime/node/module";
 import type { Preset } from "../../lib/index.d.mts";
 import { version } from "../../package.json";
 
@@ -10,7 +11,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 
   alias: {
     // Generic mock for built-ins
-    ...mapArrToVal("unenv/mock/proxy-cjs", NodeBuiltinModules),
+    ...mapArrToVal("unenv/mock/proxy-cjs", builtinModules),
 
     // Built-ins implemented by unenv
     "buffer/index.js": "buffer",
@@ -102,7 +103,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 };
 
 // Add node: aliases
-for (const m of NodeBuiltinModules) {
+for (const m of builtinModules) {
   nodeless.alias[`node:${m}`] = nodeless.alias[m];
 }
 
