@@ -68,6 +68,7 @@ export const _setSimultaneousAccepts = notImplemented(
 
 export const exports: typeof net = {
   Socket: Socket,
+  // @ts-expect-error (deprecated alias)
   Stream: Socket,
   Server,
   BlockList,

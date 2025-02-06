@@ -1,4 +1,4 @@
-import type perf_hooks from "node:perf_hooks";
+import perf_hooks from "node:perf_hooks";
 import { createNotImplementedError } from "../../../_internal/utils";
 import {
   _Performance,
@@ -136,6 +136,18 @@ export const PerformanceObserver: typeof perf_hooks.PerformanceObserver = class 
   extends _PerformanceObserver
   implements perf_hooks.PerformanceObserver
 {
+  static supportedEntryTypes: ReadonlyArray<perf_hooks.EntryType> = [
+    "dns",
+    "function",
+    "gc",
+    "http",
+    "http2",
+    "mark",
+    "measure",
+    "net",
+    "resource",
+  ];
+
   constructor(callback: perf_hooks.PerformanceObserverCallback) {
     super(callback as any);
   }
