@@ -1,5 +1,3 @@
-#!/usr/bin/env node --disable-warning=ExperimentalWarning --experimental-strip-types
-
 /**
  * Copyright (c) Pooya Parsa <pooya@pi0.io>
  *

@@ -26,7 +26,7 @@ jobs:
       - run: pnpm install
       - run: pnpm lint
       - run: pnpm test:types
-      - run: node --disable-warning=ExperimentalWarning --experimental-strip-types scripts/build.ts
+      - run: pnpm build
       - run: pnpm vitest
       - run: pnpm test:node
       - run: pnpm test:workerd
