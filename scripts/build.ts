@@ -18,9 +18,19 @@ import { builtinModules } from "node:module";
 
 const rootDir = fileURLToPath(new URL("../", import.meta.url));
 
+const start = Date.now();
+
+console.log(`Cleaning up dist/ ...`);
 await rm(join(rootDir, "dist"), { recursive: true, force: true });
-await transformDir(rootDir, "src/runtime", "dist/runtime");
+
+console.log(`Bundling src/index...`);
 await rolldownBuild(rootDir, "src/index.ts", "dist/index.mjs");
+
+console.log(`Building src/runtime...`);
+await transformDir(rootDir, "src/runtime", "dist/runtime");
+
+console.log(`Build finished in ${Date.now() - start}ms`);
+process.exit(0);
 
 /**
  * Transform all .ts modules in a directory using oxc-transform.
