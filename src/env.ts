@@ -9,6 +9,7 @@ import nodeCompatPreset from "./presets/nodeless";
  * ```ts
  * const { env } = defineEnv({
  *  nodeCompat: true,
+ *  resolve: true,
  *  presets: [myPreset],
  *  overrides: {}
  * });

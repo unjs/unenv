@@ -45,9 +45,16 @@ deno install --dev unenv
 Using `env` utility and built-in presets, `unenv` will provide an abstract configuration that can be used in bundlers ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc.).
 
 ```js
-import { env } from "unenv";
+import { defineEnv } from "unenv";
 
-const { alias, inject, polyfill, external } = env({}, {}, {});
+const { env } = defineEnv({
+  nodeCompat: true,
+  resolve: true,
+  presets: [],
+  overrides: {},
+});
+
+const { alias, inject, polyfill, external } = env;
 ```
 
 **Note:** You can provide as many presets as you want. unenv will merge them internally and the right-most preset has a higher priority.
