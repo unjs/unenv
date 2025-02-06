@@ -1,7 +1,21 @@
-declare const NodeBuiltinModules: string[];
-declare function mapArrToVal(val: any, arr: any[]): any;
+/**
+ * Configure a target environment.
+ *
+ * @example
+ * ```ts
+ * const { env } = defineEnv({
+ *  nodeCompat: true,
+ *  resolve: true,
+ *  presets: [myPreset],
+ *  overrides: {}
+ * });
+ */
+export declare function defineEnv(opts?: CreateEnvOptions): {
+  env: Environment;
+  presets: Preset[];
+};
 
-interface CreateEnvOptions {
+export interface CreateEnvOptions {
   /**
    * Enable Node.js compatibility (nodeless) preset.
    *
@@ -24,7 +38,7 @@ interface CreateEnvOptions {
   resolve?: boolean | EnvResolveOptions;
 }
 
-interface EnvResolveOptions {
+export interface EnvResolveOptions {
   /**
    * Paths to resolve imports from.
    *
@@ -33,7 +47,7 @@ interface EnvResolveOptions {
   paths?: (string | URL)[];
 }
 
-interface Environment {
+export interface Environment {
   alias: {
     [key: string]: string;
   };
@@ -44,7 +58,7 @@ interface Environment {
   external: string[];
 }
 
-interface Preset {
+export interface Preset {
   meta?: {
     /**
      * Preset name.
@@ -66,47 +80,3 @@ interface Preset {
   polyfill?: Environment["polyfill"];
   external?: Environment["external"];
 }
-
-declare const _default: Preset;
-
-declare const nodeless: Preset & {
-  alias: Map<string, string>;
-};
-
-declare const cloudflarePreset: Preset;
-
-/**
- * Configure a target environment.
- *
- * @example
- * ```ts
- * const { env } = defineEnv({
- *  nodeCompat: true,
- *  presets: [myPreset],
- *  overrides: {}
- * });
- */
-declare function defineEnv(opts?: CreateEnvOptions): {
-  env: Environment;
-  presets: Preset[];
-};
-
-/**
- * Merge presets into a final environment.
- * Later presets take precedence over earlier ones.
- */
-declare function env(...presets: Preset[]): Environment;
-
-export {
-  type CreateEnvOptions,
-  type EnvResolveOptions,
-  type Environment,
-  NodeBuiltinModules,
-  type Preset,
-  cloudflarePreset as cloudflare,
-  defineEnv,
-  env,
-  mapArrToVal,
-  _default as node,
-  nodeless,
-};
