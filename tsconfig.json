@@ -7,7 +7,7 @@
     "strict": true,
     "declaration": true,
     "resolveJsonModule": true,
-    "isolatedDeclarations": true,
+    "isolatedDeclarations": false,
     "types": [
       "node"
     ],
