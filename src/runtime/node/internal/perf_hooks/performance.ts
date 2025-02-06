@@ -1,4 +1,4 @@
-import perf_hooks from "node:perf_hooks";
+import type perf_hooks from "node:perf_hooks";
 import { createNotImplementedError } from "../../../_internal/utils";
 import {
   _Performance,
