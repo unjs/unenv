@@ -48,10 +48,9 @@ export interface Promisifiable {
 }
 
 /*@__NO_SIDE_EFFECTS__*/
-export function /*@__PURE__*/ notImplementedAsync(name: string): Promisifiable {
-  const fn = /*@__PURE__*/ notImplemented(name) as any;
-  fn.__promisify__ = () =>
-    /*@__PURE__*/ notImplemented(name + ".__promisify__");
+export function notImplementedAsync(name: string): Promisifiable {
+  const fn = notImplemented(name) as any;
+  fn.__promisify__ = () => notImplemented(name + ".__promisify__");
   fn.native = fn;
   return fn;
 }
