@@ -1,15 +1,19 @@
 import { builtinModules } from "node:module";
 import { colorize } from "consola/utils";
+import { createJiti } from "jiti";
 
 export async function makeCoverage() {
   const modulesCoverage = [];
+  const jiti = createJiti(import.meta.url);
   for (const module of builtinModules) {
     if (module.startsWith("_")) {
       continue;
     }
     try {
       const nodeMod = await import(`node:${module}`);
-      const unenvMod = await import(`../runtime/node/${module}.mjs`);
+      const unenvMod = await import(`../runtime/node/${module}.mjs`).catch(
+        () => jiti.import(`../runtime/node/${module}`) /* stub */,
+      );
       const supportedExports = [];
       const unsupportedExports = [];
       for (const exportName in nodeMod) {
