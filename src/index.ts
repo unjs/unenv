@@ -1,2 +1,1 @@
-export * from "./utils";
-export * from "./env";
+export { defineEnv } from "./env";
