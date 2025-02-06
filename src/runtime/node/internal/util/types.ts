@@ -6,7 +6,7 @@ export const isExternal: typeof utilTypes.isExternal = (_obj) => false;
 export const isDate: typeof utilTypes.isDate = (val): val is Date =>
   val instanceof Date;
 
-export const isArgumentsObject = notImplemented<
+export const isArgumentsObject = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isArgumentsObject
 >("util.types.isArgumentsObject");
 
@@ -29,22 +29,22 @@ export const isSymbolObject: typeof utilTypes.isSymbolObject = (
   val,
 ): val is symbol => val instanceof Symbol;
 
-export const isNativeError = notImplemented<typeof utilTypes.isNativeError>(
-  "util.types.isNativeError",
-);
+export const isNativeError = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isNativeError
+>("util.types.isNativeError");
 
 export const isRegExp: typeof utilTypes.isRegExp = (val): val is RegExp =>
   val instanceof RegExp;
 
-export const isAsyncFunction = notImplemented<typeof utilTypes.isAsyncFunction>(
-  "util.types.isAsyncFunction",
-);
+export const isAsyncFunction = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isAsyncFunction
+>("util.types.isAsyncFunction");
 
-export const isGeneratorFunction = notImplemented<
+export const isGeneratorFunction = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isGeneratorFunction
 >("util.types.isGeneratorFunction");
 
-export const isGeneratorObject = notImplemented<
+export const isGeneratorObject = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isGeneratorObject
 >("util.types.isGeneratorObject");
 
@@ -60,13 +60,13 @@ export const isMap: typeof utilTypes.isMap = (val): val is Map =>
 export const isSet: typeof utilTypes.isSet = (val): val is Set =>
   val instanceof Set;
 
-export const isMapIterator = notImplemented<typeof utilTypes.isMapIterator>(
-  "util.types.isMapIterator",
-);
+export const isMapIterator = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isMapIterator
+>("util.types.isMapIterator");
 
-export const isSetIterator = notImplemented<typeof utilTypes.isSetIterator>(
-  "util.types.isSetIterator",
-);
+export const isSetIterator = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isSetIterator
+>("util.types.isSetIterator");
 
 // @ts-ignore
 export const isWeakMap: typeof utilTypes.isWeakMap = (val): val is WeakMap =>
@@ -88,76 +88,76 @@ export const isSharedArrayBuffer: typeof utilTypes.isSharedArrayBuffer = (
 ): val is SharedArrayBuffer => val instanceof SharedArrayBuffer;
 
 export const isProxy =
-  notImplemented<typeof utilTypes.isProxy>("util.types.isProxy");
+  /*@__PURE__*/ notImplemented<typeof utilTypes.isProxy>("util.types.isProxy");
 
-export const isModuleNamespaceObject = notImplemented<
+export const isModuleNamespaceObject = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isModuleNamespaceObject
 >("util.types.isModuleNamespaceObject");
 
-export const isAnyArrayBuffer = notImplemented<
+export const isAnyArrayBuffer = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isAnyArrayBuffer
 >("util.types.isAnyArrayBuffer");
 
-export const isBoxedPrimitive = notImplemented<
+export const isBoxedPrimitive = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isBoxedPrimitive
 >("util.types.isBoxedPrimitive");
 
-export const isArrayBufferView = notImplemented<
+export const isArrayBufferView = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isArrayBufferView
 >("util.types.isArrayBufferView");
 
-export const isTypedArray = notImplemented<typeof utilTypes.isTypedArray>(
-  "util.types.isTypedArray",
-);
+export const isTypedArray = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isTypedArray
+>("util.types.isTypedArray");
 
-export const isUint8Array = notImplemented<typeof utilTypes.isUint8Array>(
-  "util.types.isUint8Array",
-);
+export const isUint8Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isUint8Array
+>("util.types.isUint8Array");
 
-export const isUint8ClampedArray = notImplemented<
+export const isUint8ClampedArray = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isUint8ClampedArray
 >("util.types.isUint8ClampedArray");
 
-export const isUint16Array = notImplemented<typeof utilTypes.isUint16Array>(
-  "util.types.isUint16Array",
-);
+export const isUint16Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isUint16Array
+>("util.types.isUint16Array");
 
-export const isUint32Array = notImplemented<typeof utilTypes.isUint32Array>(
-  "util.types.isUint32Array",
-);
+export const isUint32Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isUint32Array
+>("util.types.isUint32Array");
 
-export const isInt8Array = notImplemented<typeof utilTypes.isInt8Array>(
-  "util.types.isInt8Array",
-);
+export const isInt8Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isInt8Array
+>("util.types.isInt8Array");
 
-export const isInt16Array = notImplemented<typeof utilTypes.isInt16Array>(
-  "util.types.isInt16Array",
-);
+export const isInt16Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isInt16Array
+>("util.types.isInt16Array");
 
-export const isInt32Array = notImplemented<typeof utilTypes.isInt32Array>(
-  "util.types.isInt32Array",
-);
+export const isInt32Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isInt32Array
+>("util.types.isInt32Array");
 
-export const isFloat32Array = notImplemented<typeof utilTypes.isFloat32Array>(
-  "util.types.isFloat32Array",
-);
+export const isFloat32Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isFloat32Array
+>("util.types.isFloat32Array");
 
-export const isFloat64Array = notImplemented<typeof utilTypes.isFloat64Array>(
-  "util.types.isFloat64Array",
-);
+export const isFloat64Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isFloat64Array
+>("util.types.isFloat64Array");
 
-export const isBigInt64Array = notImplemented<typeof utilTypes.isBigInt64Array>(
-  "util.types.isBigInt64Array",
-);
+export const isBigInt64Array = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isBigInt64Array
+>("util.types.isBigInt64Array");
 
-export const isBigUint64Array = notImplemented<
+export const isBigUint64Array = /*@__PURE__*/ notImplemented<
   typeof utilTypes.isBigUint64Array
 >("util.types.isBigUint64Array");
 
-export const isKeyObject = notImplemented<typeof utilTypes.isKeyObject>(
-  "util.types.isKeyObject",
-);
+export const isKeyObject = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isKeyObject
+>("util.types.isKeyObject");
 
-export const isCryptoKey = notImplemented<typeof utilTypes.isCryptoKey>(
-  "util.types.isCryptoKey",
-);
+export const isCryptoKey = /*@__PURE__*/ notImplemented<
+  typeof utilTypes.isCryptoKey
+>("util.types.isCryptoKey");

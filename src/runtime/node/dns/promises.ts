@@ -10,36 +10,39 @@ export const Resolver: typeof dns.Resolver =
 export const getDefaultResultOrder: typeof dns.getDefaultResultOrder = () =>
   "verbatim";
 export const getServers: typeof dns.getServers = () => [];
-export const lookup: typeof dns.lookup = notImplementedAsync("dns.lookup");
+export const lookup: typeof dns.lookup =
+  /*@__PURE__*/ notImplementedAsync("dns.lookup");
 export const lookupService: typeof dns.lookupService =
-  notImplementedAsync("dns.lookupService");
-export const resolve: typeof dns.resolve = notImplementedAsync("dns.resolve");
+  /*@__PURE__*/ notImplementedAsync("dns.lookupService");
+export const resolve: typeof dns.resolve =
+  /*@__PURE__*/ notImplementedAsync("dns.resolve");
 export const resolve4: typeof dns.resolve4 =
-  notImplementedAsync("dns.resolve4");
+  /*@__PURE__*/ notImplementedAsync("dns.resolve4");
 export const resolve6: typeof dns.resolve6 =
-  notImplementedAsync("dns.resolve6");
+  /*@__PURE__*/ notImplementedAsync("dns.resolve6");
 export const resolveAny: typeof dns.resolveAny =
-  notImplementedAsync("dns.resolveAny");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveAny");
 export const resolveCaa: typeof dns.resolveCaa =
-  notImplementedAsync("dns.resolveCaa");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveCaa");
 export const resolveCname: typeof dns.resolveCname =
-  notImplementedAsync("dns.resolveCname");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveCname");
 export const resolveMx: typeof dns.resolveMx =
-  notImplementedAsync("dns.resolveMx");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveMx");
 export const resolveNaptr: typeof dns.resolveNaptr =
-  notImplementedAsync("dns.resolveNaptr");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveNaptr");
 export const resolveNs: typeof dns.resolveNs =
-  notImplementedAsync("dns.resolveNs");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveNs");
 export const resolvePtr: typeof dns.resolvePtr =
-  notImplementedAsync("dns.resolvePtr");
+  /*@__PURE__*/ notImplementedAsync("dns.resolvePtr");
 export const resolveSoa: typeof dns.resolveSoa =
-  notImplementedAsync("dns.resolveSoa");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveSoa");
 export const resolveSrv: typeof dns.resolveSrv =
-  notImplementedAsync("dns.resolveSrv");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveSrv");
 export const resolveTxt: typeof dns.resolveTxt =
-  notImplementedAsync("dns.resolveTxt");
+  /*@__PURE__*/ notImplementedAsync("dns.resolveTxt");
 
-export const reverse: typeof dns.reverse = notImplemented("dns.reverse");
+export const reverse: typeof dns.reverse =
+  /*@__PURE__*/ notImplemented("dns.reverse");
 export const setDefaultResultOrder: typeof dns.setDefaultResultOrder = noop;
 export const setServers: typeof dns.setServers = noop;
 

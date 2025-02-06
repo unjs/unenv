@@ -29,8 +29,8 @@ export const active = function active(timeout: NodeJS.Timeout | undefined) {
   timeout?.refresh?.();
 };
 export const _unrefActive = active;
-export const enroll = notImplemented("timers.enroll");
-export const unenroll = notImplemented("timers.unenroll");
+export const enroll = /*@__PURE__*/ notImplemented("timers.enroll");
+export const unenroll = /*@__PURE__*/ notImplemented("timers.unenroll");
 
 export default {
   // @ts-expect-error deprecated

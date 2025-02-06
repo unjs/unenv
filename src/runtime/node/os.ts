@@ -29,7 +29,7 @@ export const cpus: typeof os.cpus = () => {
 
 export const getPriority: typeof os.getPriority = () => 0;
 export const setPriority: typeof os.setPriority =
-  notImplemented<typeof os.setPriority>("os.setPriority");
+  /*@__PURE__*/ notImplemented<typeof os.setPriority>("os.setPriority");
 
 export const homedir: typeof os.homedir = () => "/";
 export const tmpdir: typeof os.tmpdir = () => "/tmp";

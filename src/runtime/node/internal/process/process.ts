@@ -99,7 +99,8 @@ export const getBuiltinModule = (_name: string) => undefined;
 
 // ---- Unimplemented utils ----
 
-export const abort = notImplemented<Process["abort"]>("process.abort");
+export const abort =
+  /*@__PURE__*/ notImplemented<Process["abort"]>("process.abort");
 
 export const allowedNodeEnvironmentFlags: Process["allowedNodeEnvironmentFlags"] =
   new Set();
@@ -110,16 +111,19 @@ export const config: Process["config"] = empty;
 const connected: Process["connected"] = false;
 export const constrainedMemory: Process["constrainedMemory"] = () => 0;
 export const availableMemory: Process["availableMemory"] = () => 0;
-export const cpuUsage = notImplemented<Process["cpuUsage"]>("process.cpuUsage");
+export const cpuUsage =
+  /*@__PURE__*/ notImplemented<Process["cpuUsage"]>("process.cpuUsage");
 export const debugPort: Process["debugPort"] = 0;
-export const dlopen = notImplemented<Process["dlopen"]>("process.dlopen");
+export const dlopen =
+  /*@__PURE__*/ notImplemented<Process["dlopen"]>("process.dlopen");
 const disconnect: Process["disconnect"] = noop;
 export const emitWarning: Process["emitWarning"] = noop;
 export const eventNames =
-  notImplemented<Process["eventNames"]>("process.eventNames");
+  /*@__PURE__*/ notImplemented<Process["eventNames"]>("process.eventNames");
 export const execArgv: Process["execArgv"] = [];
 export const execPath: Process["execPath"] = "";
-export const exit = notImplemented<Process["exit"]>("process.exit");
+export const exit =
+  /*@__PURE__*/ notImplemented<Process["exit"]>("process.exit");
 export const features: Process["features"] = Object.create({
   inspector: undefined,
   debug: undefined,
@@ -133,10 +137,11 @@ export const features: Process["features"] = Object.create({
 });
 export const getActiveResourcesInfo: Process["getActiveResourcesInfo"] =
   () => [];
-export const getMaxListeners = notImplemented<Process["getMaxListeners"]>(
-  "process.getMaxListeners",
-);
-export const kill = notImplemented<Process["kill"]>("process.kill");
+export const getMaxListeners = /*@__PURE__*/ notImplemented<
+  Process["getMaxListeners"]
+>("process.getMaxListeners");
+export const kill =
+  /*@__PURE__*/ notImplemented<Process["kill"]>("process.kill");
 
 export const memoryUsage: Process["memoryUsage"] = Object.assign(
   () => ({
@@ -152,9 +157,9 @@ export const memoryUsage: Process["memoryUsage"] = Object.assign(
 export const pid: Process["pid"] = 1000;
 export const platform: Process["platform"] = "" as any;
 export const ppid: Process["ppid"] = 1000;
-export const rawListeners = notImplemented<Process["rawListeners"]>(
-  "process.rawListeners",
-);
+export const rawListeners = /*@__PURE__*/ notImplemented<
+  Process["rawListeners"]
+>("process.rawListeners");
 export const release: Process["release"] = Object.create({
   name: "",
   lts: "",
@@ -165,30 +170,40 @@ export const report: Exclude<Process["report"], undefined> = Object.create({
   compact: undefined,
   directory: undefined,
   filename: undefined,
-  getReport: notImplemented("process.report.getReport"),
+  getReport: /*@__PURE__*/ notImplemented("process.report.getReport"),
   reportOnFatalError: undefined,
   reportOnSignal: undefined,
   reportOnUncaughtException: undefined,
   signal: undefined,
-  writeReport: notImplemented("process.report.writeReport"),
+  writeReport: /*@__PURE__*/ notImplemented("process.report.writeReport"),
 });
-export const resourceUsage = notImplemented<Process["resourceUsage"]>(
-  "process.resourceUsage",
-);
+export const resourceUsage = /*@__PURE__*/ notImplemented<
+  Process["resourceUsage"]
+>("process.resourceUsage");
 export const setegid =
-  notImplemented<Exclude<Process["setegid"], undefined>>("process.setegid");
+  /*@__PURE__*/ notImplemented<Exclude<Process["setegid"], undefined>>(
+    "process.setegid",
+  );
 export const seteuid =
-  notImplemented<Exclude<Process["seteuid"], undefined>>("process.seteuid");
+  /*@__PURE__*/ notImplemented<Exclude<Process["seteuid"], undefined>>(
+    "process.seteuid",
+  );
 export const setgid =
-  notImplemented<Exclude<Process["setgid"], undefined>>("process.setgid");
+  /*@__PURE__*/ notImplemented<Exclude<Process["setgid"], undefined>>(
+    "process.setgid",
+  );
 export const setgroups =
-  notImplemented<Exclude<Process["setgroups"], undefined>>("process.setgroups");
+  /*@__PURE__*/ notImplemented<Exclude<Process["setgroups"], undefined>>(
+    "process.setgroups",
+  );
 export const setuid =
-  notImplemented<Exclude<Process["setuid"], undefined>>("process.setuid");
-export const setMaxListeners = notImplemented<Process["setMaxListeners"]>(
-  "process.setMaxListeners",
-);
-export const setSourceMapsEnabled = notImplemented<
+  /*@__PURE__*/ notImplemented<Exclude<Process["setuid"], undefined>>(
+    "process.setuid",
+  );
+export const setMaxListeners = /*@__PURE__*/ notImplemented<
+  Process["setMaxListeners"]
+>("process.setMaxListeners");
+export const setSourceMapsEnabled = /*@__PURE__*/ notImplemented<
   Process["setSourceMapsEnabled"]
 >("process.setSourceMapsEnabled");
 export const stdin = new ReadStream(0) as Process["stdin"];
@@ -197,13 +212,13 @@ export const stderr = new WriteStream(2) as Process["stderr"];
 const traceDeprecation: Process["traceDeprecation"] = false;
 export const uptime: Process["uptime"] = () => 0;
 export const exitCode: Process["exitCode"] = 0;
-export const setUncaughtExceptionCaptureCallback = notImplemented<
+export const setUncaughtExceptionCaptureCallback = /*@__PURE__*/ notImplemented<
   Process["setUncaughtExceptionCaptureCallback"]
 >("process.setUncaughtExceptionCaptureCallback");
 export const hasUncaughtExceptionCaptureCallback: Process["hasUncaughtExceptionCaptureCallback"] =
   () => false;
 export const sourceMapsEnabled: Process["sourceMapsEnabled"] = false;
-export const loadEnvFile = notImplemented<Process["loadEnvFile"]>(
+export const loadEnvFile = /*@__PURE__*/ notImplemented<Process["loadEnvFile"]>(
   "process.loadEnvFile",
 );
 const mainModule: Process["mainModule"] = undefined;
@@ -224,28 +239,40 @@ export const finalization: Process["finalization"] = {
 
 // --- Undocumented internals ---
 
-export const assert = notImplemented("process.assert");
-export const openStdin = notImplemented("process.openStdin");
-export const _debugEnd = notImplemented("process._debugEnd");
-export const _debugProcess = notImplemented("process._debugProcess");
-export const _fatalException = notImplemented("process._fatalException");
-export const _getActiveHandles = notImplemented("process._getActiveHandles");
-export const _getActiveRequests = notImplemented("process._getActiveRequests");
-export const _kill = notImplemented("process._kill");
+export const assert = /*@__PURE__*/ notImplemented("process.assert");
+export const openStdin = /*@__PURE__*/ notImplemented("process.openStdin");
+export const _debugEnd = /*@__PURE__*/ notImplemented("process._debugEnd");
+export const _debugProcess = /*@__PURE__*/ notImplemented(
+  "process._debugProcess",
+);
+export const _fatalException = /*@__PURE__*/ notImplemented(
+  "process._fatalException",
+);
+export const _getActiveHandles = /*@__PURE__*/ notImplemented(
+  "process._getActiveHandles",
+);
+export const _getActiveRequests = /*@__PURE__*/ notImplemented(
+  "process._getActiveRequests",
+);
+export const _kill = /*@__PURE__*/ notImplemented("process._kill");
 export const _preload_modules: string[] = [];
-export const _rawDebug = notImplemented("process._rawDebug");
-export const _startProfilerIdleNotifier = notImplemented(
+export const _rawDebug = /*@__PURE__*/ notImplemented("process._rawDebug");
+export const _startProfilerIdleNotifier = /*@__PURE__*/ notImplemented(
   "process._startProfilerIdleNotifier",
 );
-export const _stopProfilerIdleNotifier = notImplemented(
+export const _stopProfilerIdleNotifier = /*@__PURE__*/ notImplemented(
   "process.__stopProfilerIdleNotifier",
 );
-export const _tickCallback = notImplemented("process._tickCallback");
-export const _linkedBinding = notImplemented("process._linkedBinding");
+export const _tickCallback = /*@__PURE__*/ notImplemented(
+  "process._tickCallback",
+);
+export const _linkedBinding = /*@__PURE__*/ notImplemented(
+  "process._linkedBinding",
+);
 
 // Mocking domain causes troubles, see unjs/unenv#367
 export const domain = undefined;
-export const initgroups = notImplemented("process.initgroups");
+export const initgroups = /*@__PURE__*/ notImplemented("process.initgroups");
 export const moduleLoadList = [] as string[];
 export const reallyExit = noop;
 

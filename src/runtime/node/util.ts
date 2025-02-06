@@ -24,48 +24,52 @@ export const TextEncoder: typeof util.TextEncoder = globalThis.TextEncoder;
 
 export const deprecate: typeof util.deprecate = (fn) => fn;
 
-export const _errnoException = notImplemented("util._errnoException");
-export const _exceptionWithHostPort = notImplemented(
+export const _errnoException = /*@__PURE__*/ notImplemented(
+  "util._errnoException",
+);
+export const _exceptionWithHostPort = /*@__PURE__*/ notImplemented(
   "util._exceptionWithHostPort",
 );
-export const _extend = notImplemented("util._extend");
+export const _extend = /*@__PURE__*/ notImplemented("util._extend");
 
-export const aborted = notImplemented<typeof util.aborted>("util.aborted");
+export const aborted =
+  /*@__PURE__*/ notImplemented<typeof util.aborted>("util.aborted");
 export const callbackify =
-  notImplemented<typeof util.callbackify>("util.callbackify");
-export const getSystemErrorMap = notImplemented<typeof util.getSystemErrorMap>(
-  "util.getSystemErrorMap",
-);
-export const getSystemErrorName = notImplemented<
+  /*@__PURE__*/ notImplemented<typeof util.callbackify>("util.callbackify");
+export const getSystemErrorMap = /*@__PURE__*/ notImplemented<
+  typeof util.getSystemErrorMap
+>("util.getSystemErrorMap");
+export const getSystemErrorName = /*@__PURE__*/ notImplemented<
   typeof util.getSystemErrorName
 >("util.getSystemErrorName");
 export const toUSVString =
-  notImplemented<typeof util.toUSVString>("util.toUSVString");
-export const stripVTControlCharacters = notImplemented<
+  /*@__PURE__*/ notImplemented<typeof util.toUSVString>("util.toUSVString");
+export const stripVTControlCharacters = /*@__PURE__*/ notImplemented<
   typeof util.stripVTControlCharacters
 >("util.stripVTControlCharacters");
 
-export const transferableAbortController = notImplemented<
+export const transferableAbortController = /*@__PURE__*/ notImplemented<
   typeof util.transferableAbortController
 >("util.transferableAbortController");
-export const transferableAbortSignal = notImplemented<
+export const transferableAbortSignal = /*@__PURE__*/ notImplemented<
   typeof util.transferableAbortSignal
 >("util.transferableAbortSignal");
 export const parseArgs =
-  notImplemented<typeof util.parseArgs>("util.parseArgs");
+  /*@__PURE__*/ notImplemented<typeof util.parseArgs>("util.parseArgs");
 
-export const parseEnv = notImplemented<typeof util.parseEnv>("util.parseEnv");
+export const parseEnv =
+  /*@__PURE__*/ notImplemented<typeof util.parseEnv>("util.parseEnv");
 
 export const styleText =
-  notImplemented<typeof util.styleText>("util.styleText");
+  /*@__PURE__*/ notImplemented<typeof util.styleText>("util.styleText");
 
 /** @deprecated */
-export const getCallSite = notImplemented("util.getCallSite");
+export const getCallSite = /*@__PURE__*/ notImplemented("util.getCallSite");
 
 export const getCallSites =
-  notImplemented<typeof util.getCallSites>("util.getCallSites");
+  /*@__PURE__*/ notImplemented<typeof util.getCallSites>("util.getCallSites");
 
-export const getSystemErrorMessage = notImplemented<
+export const getSystemErrorMessage = /*@__PURE__*/ notImplemented<
   typeof util.getSystemErrorMessage
 >("util.getSystemErrorMessage");
 

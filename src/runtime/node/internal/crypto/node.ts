@@ -65,230 +65,258 @@ export const constants = {} as typeof nodeCrypto.constants;
 // ---- Unimplemented utils ----
 
 export const checkPrime =
-  notImplemented<typeof nodeCrypto.checkPrime>("crypto.checkPrime");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.checkPrime>(
+    "crypto.checkPrime",
+  );
 
-export const checkPrimeSync = notImplemented<typeof nodeCrypto.checkPrimeSync>(
-  "crypto.checkPrimeSync",
+export const checkPrimeSync = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.checkPrimeSync
+>("crypto.checkPrimeSync");
+
+/** @deprecated */
+export const createCipher = /*@__PURE__*/ notImplemented("crypto.createCipher");
+
+/** @deprecated */
+export const createDecipher = /*@__PURE__*/ notImplemented(
+  "crypto.createDecipher",
 );
 
-/** @deprecated */
-export const createCipher = notImplemented("crypto.createCipher");
-
-/** @deprecated */
-export const createDecipher = notImplemented("crypto.createDecipher");
-
-export const pseudoRandomBytes = notImplemented<
+export const pseudoRandomBytes = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.pseudoRandomBytes
 >("crypto.pseudoRandomBytes");
 
-export const createCipheriv = notImplemented<typeof nodeCrypto.createCipheriv>(
-  "crypto.createCipheriv",
-);
+export const createCipheriv = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.createCipheriv
+>("crypto.createCipheriv");
 
-export const createDecipheriv = notImplemented<
+export const createDecipheriv = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.createDecipheriv
 >("crypto.createDecipheriv");
 
-export const createDiffieHellman = notImplemented<
+export const createDiffieHellman = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.createDiffieHellman
 >("crypto.createDiffieHellman");
 
-export const createDiffieHellmanGroup = notImplemented<
+export const createDiffieHellmanGroup = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.createDiffieHellmanGroup
 >("crypto.createDiffieHellmanGroup");
 
 export const createECDH =
-  notImplemented<typeof nodeCrypto.createECDH>("crypto.createECDH");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.createECDH>(
+    "crypto.createECDH",
+  );
 
 export const createHash =
-  notImplemented<typeof nodeCrypto.createHash>("crypto.createHash");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.createHash>(
+    "crypto.createHash",
+  );
 
 export const createHmac =
-  notImplemented<typeof nodeCrypto.createHmac>("crypto.createHmac");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.createHmac>(
+    "crypto.createHmac",
+  );
 
-export const createPrivateKey = notImplemented<
+export const createPrivateKey = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.createPrivateKey
 >("crypto.createPrivateKey");
 
-export const createPublicKey = notImplemented<
+export const createPublicKey = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.createPublicKey
 >("crypto.createPublicKey");
 
-export const createSecretKey = notImplemented<
+export const createSecretKey = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.createSecretKey
 >("crypto.createSecretKey");
 
 export const createSign =
-  notImplemented<typeof nodeCrypto.createSign>("crypto.createSign");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.createSign>(
+    "crypto.createSign",
+  );
 
-export const createVerify = notImplemented<typeof nodeCrypto.createVerify>(
-  "crypto.createVerify",
-);
+export const createVerify = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.createVerify
+>("crypto.createVerify");
 
-export const diffieHellman = notImplemented<typeof nodeCrypto.diffieHellman>(
-  "crypto.diffieHellman",
-);
+export const diffieHellman = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.diffieHellman
+>("crypto.diffieHellman");
 
-export const generatePrime = notImplemented<typeof nodeCrypto.generatePrime>(
-  "crypto.generatePrime",
-);
+export const generatePrime = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.generatePrime
+>("crypto.generatePrime");
 
-export const generatePrimeSync = notImplemented<
+export const generatePrimeSync = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.generatePrimeSync
 >("crypto.generatePrimeSync");
 
 export const getCiphers =
-  notImplemented<typeof nodeCrypto.getCiphers>("crypto.getCiphers");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.getCiphers>(
+    "crypto.getCiphers",
+  );
 
-export const getCipherInfo = notImplemented<typeof nodeCrypto.getCipherInfo>(
-  "crypto.getCipherInfo",
-);
+export const getCipherInfo = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.getCipherInfo
+>("crypto.getCipherInfo");
 
 export const getCurves =
-  notImplemented<typeof nodeCrypto.getCurves>("crypto.getCurves");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.getCurves>("crypto.getCurves");
 
-export const getDiffieHellman = notImplemented<
+export const getDiffieHellman = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.getDiffieHellman
 >("crypto.getDiffieHellman");
 
 export const getHashes =
-  notImplemented<typeof nodeCrypto.getHashes>("crypto.getHashes");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.getHashes>("crypto.getHashes");
 
-export const hkdf = notImplemented<typeof nodeCrypto.hkdf>("crypto.hkdf");
+export const hkdf =
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.hkdf>("crypto.hkdf");
 
 export const hkdfSync =
-  notImplemented<typeof nodeCrypto.hkdfSync>("crypto.hkdfSync");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.hkdfSync>("crypto.hkdfSync");
 
-export const pbkdf2 = notImplemented<typeof nodeCrypto.pbkdf2>("crypto.pbkdf2");
+export const pbkdf2 =
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.pbkdf2>("crypto.pbkdf2");
 
 export const pbkdf2Sync =
-  notImplemented<typeof nodeCrypto.pbkdf2Sync>("crypto.pbkdf2Sync");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.pbkdf2Sync>(
+    "crypto.pbkdf2Sync",
+  );
 
-export const generateKeyPair = notImplemented<
+export const generateKeyPair = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.generateKeyPair
 >("crypto.generateKeyPair");
 
-export const generateKeyPairSync = notImplemented<
+export const generateKeyPairSync = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.generateKeyPairSync
 >("crypto.generateKeyPairSync");
 
 export const generateKey =
-  notImplemented<typeof nodeCrypto.generateKey>("crypto.generateKey");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.generateKey>(
+    "crypto.generateKey",
+  );
 
-export const generateKeySync = notImplemented<
+export const generateKeySync = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.generateKeySync
 >("crypto.generateKeySync");
 
-export const privateDecrypt = notImplemented<typeof nodeCrypto.privateDecrypt>(
-  "crypto.privateDecrypt",
-);
+export const privateDecrypt = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.privateDecrypt
+>("crypto.privateDecrypt");
 
-export const privateEncrypt = notImplemented<typeof nodeCrypto.privateEncrypt>(
-  "crypto.privateEncrypt",
-);
+export const privateEncrypt = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.privateEncrypt
+>("crypto.privateEncrypt");
 
-export const publicDecrypt = notImplemented<typeof nodeCrypto.publicDecrypt>(
-  "crypto.publicDecrypt",
-);
+export const publicDecrypt = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.publicDecrypt
+>("crypto.publicDecrypt");
 
-export const publicEncrypt = notImplemented<typeof nodeCrypto.publicEncrypt>(
-  "crypto.publicEncrypt",
-);
+export const publicEncrypt = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.publicEncrypt
+>("crypto.publicEncrypt");
 
 export const randomFill =
-  notImplemented<typeof nodeCrypto.randomFill>("crypto.randomFill");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.randomFill>(
+    "crypto.randomFill",
+  );
 
-export const randomFillSync = notImplemented<typeof nodeCrypto.randomFillSync>(
-  "crypto.randomFillSync",
-);
+export const randomFillSync = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.randomFillSync
+>("crypto.randomFillSync");
 
 export const randomInt =
-  notImplemented<typeof nodeCrypto.randomInt>("crypto.randomInt");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.randomInt>("crypto.randomInt");
 
-export const scrypt = notImplemented<typeof nodeCrypto.scrypt>("crypto.scrypt");
+export const scrypt =
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.scrypt>("crypto.scrypt");
 
 export const scryptSync =
-  notImplemented<typeof nodeCrypto.scryptSync>("crypto.scryptSync");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.scryptSync>(
+    "crypto.scryptSync",
+  );
 
-export const sign = notImplemented<typeof nodeCrypto.sign>("crypto.sign");
+export const sign =
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.sign>("crypto.sign");
 
 export const setEngine =
-  notImplemented<typeof nodeCrypto.setEngine>("crypto.setEngine");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.setEngine>("crypto.setEngine");
 
-export const timingSafeEqual = notImplemented<
+export const timingSafeEqual = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.timingSafeEqual
 >("crypto.timingSafeEqual");
 
 export const getFips =
-  notImplemented<typeof nodeCrypto.getFips>("crypto.getFips");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.getFips>("crypto.getFips");
 
 export const setFips =
-  notImplemented<typeof nodeCrypto.setFips>("crypto.setFips");
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.setFips>("crypto.setFips");
 
-export const verify = notImplemented<typeof nodeCrypto.verify>("crypto.verify");
+export const verify =
+  /*@__PURE__*/ notImplemented<typeof nodeCrypto.verify>("crypto.verify");
 
-export const secureHeapUsed = notImplemented<typeof nodeCrypto.secureHeapUsed>(
-  "crypto.secureHeapUsed",
-);
+export const secureHeapUsed = /*@__PURE__*/ notImplemented<
+  typeof nodeCrypto.secureHeapUsed
+>("crypto.secureHeapUsed");
 
-export const hash = notImplemented<(typeof nodeCrypto)["hash"]>("crypto.hash");
+export const hash =
+  /*@__PURE__*/ notImplemented<(typeof nodeCrypto)["hash"]>("crypto.hash");
 
 // ---- Unimplemented Classes ----
 
-export const Certificate = notImplementedClass(
+export const Certificate = /*@__PURE__*/ notImplementedClass(
   "crypto.Certificate",
 ) as unknown as typeof nodeCrypto.Certificate;
 
-export const Cipher = notImplementedClass(
+export const Cipher = /*@__PURE__*/ notImplementedClass(
   "crypto.Cipher",
 ) as unknown as typeof nodeCrypto.Cipher;
 
-export const Cipheriv = notImplementedClass(
+export const Cipheriv = /*@__PURE__*/ notImplementedClass(
   "crypto.Cipheriv",
   // @ts-expect-error not typed yet
 ) as unknown as typeof nodeCrypto.Cipheriv;
 
-export const Decipher = notImplementedClass(
+export const Decipher = /*@__PURE__*/ notImplementedClass(
   "crypto.Decipher",
 ) as unknown as typeof nodeCrypto.Decipher;
 
-export const Decipheriv = notImplementedClass(
+export const Decipheriv = /*@__PURE__*/ notImplementedClass(
   "crypto.Decipheriv",
   // @ts-expect-error not typed yet
 ) as unknown as typeof nodeCrypto.Decipheriv;
 
-export const DiffieHellman = notImplementedClass(
+export const DiffieHellman = /*@__PURE__*/ notImplementedClass(
   "crypto.DiffieHellman",
 ) as unknown as typeof nodeCrypto.DiffieHellman;
 
-export const DiffieHellmanGroup = notImplementedClass(
+export const DiffieHellmanGroup = /*@__PURE__*/ notImplementedClass(
   "crypto.DiffieHellmanGroup",
 ) as unknown as typeof nodeCrypto.DiffieHellmanGroup;
 
-export const ECDH = notImplementedClass(
+export const ECDH = /*@__PURE__*/ notImplementedClass(
   "crypto.ECDH",
 ) as unknown as typeof nodeCrypto.ECDH;
 
-export const Hash = notImplementedClass(
+export const Hash = /*@__PURE__*/ notImplementedClass(
   "crypto.Hash",
 ) as unknown as typeof nodeCrypto.Hash;
 
-export const Hmac = notImplementedClass(
+export const Hmac = /*@__PURE__*/ notImplementedClass(
   "crypto.Hmac",
 ) as unknown as typeof nodeCrypto.Hmac;
 
-export const KeyObject = notImplementedClass(
+export const KeyObject = /*@__PURE__*/ notImplementedClass(
   "crypto.KeyObject",
 ) as unknown as typeof nodeCrypto.KeyObject;
 
-export const Sign = notImplementedClass(
+export const Sign = /*@__PURE__*/ notImplementedClass(
   "crypto.Sign",
 ) as unknown as typeof nodeCrypto.Sign;
 
-export const Verify = notImplementedClass(
+export const Verify = /*@__PURE__*/ notImplementedClass(
   "crypto.Verify",
 ) as unknown as typeof nodeCrypto.Verify;
 
-export const X509Certificate = notImplementedClass(
+export const X509Certificate = /*@__PURE__*/ notImplementedClass(
   "crypto.X509Certificate",
 ) as unknown as typeof nodeCrypto.X509Certificate;

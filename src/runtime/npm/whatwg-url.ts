@@ -4,22 +4,34 @@ import { notImplemented } from "../_internal/utils";
 export const URL = globalThis.URL;
 export const URLSearchParams = globalThis.URLSearchParams;
 
-export const parseURL = notImplemented("whatwg-url.parseURL");
-export const basicURLParse = notImplemented("whatwg-url.basicURLParse");
-export const serializeURL = notImplemented("whatwg-url.serializeURL");
-export const serializeHost = notImplemented("whatwg-url.serializeHost");
-export const serializeInteger = notImplemented("whatwg-url.serializeInteger");
-export const serializeURLOrigin = notImplemented(
+export const parseURL = /*@__PURE__*/ notImplemented("whatwg-url.parseURL");
+export const basicURLParse = /*@__PURE__*/ notImplemented(
+  "whatwg-url.basicURLParse",
+);
+export const serializeURL = /*@__PURE__*/ notImplemented(
+  "whatwg-url.serializeURL",
+);
+export const serializeHost = /*@__PURE__*/ notImplemented(
+  "whatwg-url.serializeHost",
+);
+export const serializeInteger = /*@__PURE__*/ notImplemented(
+  "whatwg-url.serializeInteger",
+);
+export const serializeURLOrigin = /*@__PURE__*/ notImplemented(
   "whatwg-url.serializeURLOrigin",
 );
-export const setTheUsername = notImplemented("whatwg-url.setTheUsername");
-export const setThePassword = notImplemented("whatwg-url.setThePassword");
-export const cannotHaveAUsernamePasswordPort = notImplemented(
+export const setTheUsername = /*@__PURE__*/ notImplemented(
+  "whatwg-url.setTheUsername",
+);
+export const setThePassword = /*@__PURE__*/ notImplemented(
+  "whatwg-url.setThePassword",
+);
+export const cannotHaveAUsernamePasswordPort = /*@__PURE__*/ notImplemented(
   "whatwg-url.cannotHaveAUsernamePasswordPort",
 );
-export const percentDecodeBytes = notImplemented(
+export const percentDecodeBytes = /*@__PURE__*/ notImplemented(
   "whatwg-url.percentDecodeBytes",
 );
-export const percentDecodeString = notImplemented(
+export const percentDecodeString = /*@__PURE__*/ notImplemented(
   "whatwg-url.percentDecodeString",
 );

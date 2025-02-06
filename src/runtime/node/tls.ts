@@ -18,15 +18,16 @@ export const createServer: typeof tls.createServer = function createServer() {
   return new Server();
 };
 export const checkServerIdentity: typeof tls.checkServerIdentity =
-  notImplemented("tls.checkServerIdentity");
-export const convertALPNProtocols = notImplemented("tls.convertALPNProtocols");
-export const createSecureContext: typeof tls.createSecureContext =
-  notImplemented("tls.createSecureContext");
-export const createSecurePair: typeof tls.createSecurePair = notImplemented(
-  "tls.createSecurePair",
+  /*@__PURE__*/ notImplemented("tls.checkServerIdentity");
+export const convertALPNProtocols = /*@__PURE__*/ notImplemented(
+  "tls.convertALPNProtocols",
 );
+export const createSecureContext: typeof tls.createSecureContext =
+  /*@__PURE__*/ notImplemented("tls.createSecureContext");
+export const createSecurePair: typeof tls.createSecurePair =
+  /*@__PURE__*/ notImplemented("tls.createSecurePair");
 export const getCiphers: typeof tls.getCiphers =
-  notImplemented("tls.getCiphers");
+  /*@__PURE__*/ notImplemented("tls.getCiphers");
 
 export const rootCertificates: typeof tls.rootCertificates = [];
 
