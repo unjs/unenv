@@ -1,4 +1,4 @@
-import type { HeadersObject } from "./types";
+import type { HeadersObject } from "./types.ts";
 
 /*@__NO_SIDE_EFFECTS__*/
 export function rawHeaders(headers: HeadersObject) {

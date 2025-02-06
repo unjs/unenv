@@ -2,14 +2,14 @@
 
 import path from "node:path";
 
-import * as punnycode from "../../punycode";
+import * as punnycode from "../../punycode.ts";
 
 import {
   CHAR_FORWARD_SLASH,
   CHAR_BACKWARD_SLASH,
   CHAR_LOWERCASE_A,
   CHAR_LOWERCASE_Z,
-} from "./constants";
+} from "./constants.ts";
 
 import {
   ERR_INVALID_ARG_TYPE,
@@ -17,7 +17,7 @@ import {
   ERR_INVALID_URL_SCHEME,
   ERR_INVALID_FILE_URL_PATH,
   ERR_INVALID_FILE_URL_HOST,
-} from "./errors";
+} from "./errors.ts";
 
 // Protocols that can allow "unsafe" and "unwise" chars.
 export const unsafeProtocol = new Set(["javascript", "javascript:"]);

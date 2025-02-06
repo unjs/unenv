@@ -1,4 +1,4 @@
-import { builtinModules } from "../runtime/node/module";
+import { builtinModules } from "../runtime/node/module.ts";
 import type { Preset } from "../../lib/index.d.mts";
 import { version } from "../../package.json";
 

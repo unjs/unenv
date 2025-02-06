@@ -1,5 +1,5 @@
 import type perf_hooks from "node:perf_hooks";
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 
 class Histogram implements perf_hooks.Histogram {
   min = 9_223_372_036_854_776_000;

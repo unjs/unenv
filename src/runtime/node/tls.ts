@@ -1,14 +1,14 @@
 import type tls from "node:tls";
-import { notImplemented } from "../_internal/utils";
-import { TLSSocket } from "./internal/tls/tls-socket";
-import { Server } from "./internal/tls/server";
-import { SecureContext } from "./internal/tls/secure-context";
-import * as constants from "./internal/tls/constants";
+import { notImplemented } from "../_internal/utils.ts";
+import { TLSSocket } from "./internal/tls/tls-socket.ts";
+import { Server } from "./internal/tls/server.ts";
+import { SecureContext } from "./internal/tls/secure-context.ts";
+import * as constants from "./internal/tls/constants.ts";
 
-export * from "./internal/tls/constants";
-export { TLSSocket } from "./internal/tls/tls-socket";
-export { Server } from "./internal/tls/server";
-export { SecureContext } from "./internal/tls/secure-context";
+export * from "./internal/tls/constants.ts";
+export { TLSSocket } from "./internal/tls/tls-socket.ts";
+export { Server } from "./internal/tls/server.ts";
+export { SecureContext } from "./internal/tls/secure-context.ts";
 
 export const connect: typeof tls.connect = function connect() {
   return new TLSSocket();

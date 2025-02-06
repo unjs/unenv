@@ -1,6 +1,6 @@
 import type * as stream from "node:stream";
-import type { BufferEncoding, Callback } from "../../../_internal/types";
-import { createNotImplementedError } from "../../../_internal/utils";
+import type { BufferEncoding, Callback } from "../../../_internal/types.ts";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { EventEmitter } from "node:events";
 
 // Docs: https://nodejs.org/api/stream.html#stream_readable_streams

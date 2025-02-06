@@ -7,8 +7,8 @@ import {
   PerformanceObserver,
   PerformanceObserverEntryList,
   PerformanceResourceTiming,
-} from "../web/performance";
-import _global from "./global-this";
+} from "../web/performance/index.ts";
+import _global from "./global-this.ts";
 
 _global.performance = _global.performance || performance;
 _global.Performance = _global.Performance || Performance;

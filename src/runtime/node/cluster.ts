@@ -1,6 +1,6 @@
 // Reference: https://github.com/nodejs/node/blob/main/lib/internal/cluster/primary.js
-import mock from "../mock/proxy";
-import { notImplemented } from "../_internal/utils";
+import mock from "../mock/proxy.ts";
+import { notImplemented } from "../_internal/utils.ts";
 import type nodeCluster from "node:cluster";
 import type {
   Cluster as NodeCluster,

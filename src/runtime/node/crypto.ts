@@ -1,12 +1,12 @@
 import type nodeCrypto from "node:crypto";
 
-import * as web from "./internal/crypto/web";
-import * as node from "./internal/crypto/node";
-import constants from "./internal/crypto/constants";
+import * as web from "./internal/crypto/web.ts";
+import * as node from "./internal/crypto/node.ts";
+import constants from "./internal/crypto/constants.ts";
 
-export * from "./internal/crypto/web";
-export * from "./internal/crypto/node";
-export { default as constants } from "./internal/crypto/constants";
+export * from "./internal/crypto/web.ts";
+export * from "./internal/crypto/node.ts";
+export { default as constants } from "./internal/crypto/constants.ts";
 
 export default {
   ...web,

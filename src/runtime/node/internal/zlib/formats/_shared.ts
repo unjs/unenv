@@ -1,6 +1,6 @@
 import type zlib from "node:zlib";
 import { Transform, type TransformOptions } from "node:stream";
-import { createNotImplementedError } from "../../../../_internal/utils";
+import { createNotImplementedError } from "../../../../_internal/utils.ts";
 
 // Compression
 

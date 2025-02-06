@@ -8,8 +8,8 @@
  * @license  MIT
  */
 
-import * as base64 from "./base64";
-import * as ieee754 from "./ieee754";
+import * as base64 from "./base64.ts";
+import * as ieee754 from "./ieee754.ts";
 
 const customInspectSymbol =
   typeof Symbol === "function" && typeof Symbol["for"] === "function"

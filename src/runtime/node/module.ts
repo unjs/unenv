@@ -1,6 +1,6 @@
 // https://nodejs.org/api/module.html
 import type nodeModule from "node:module";
-import { notImplemented, notImplementedClass } from "../_internal/utils";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
 export const _cache = Object.create(null);
 

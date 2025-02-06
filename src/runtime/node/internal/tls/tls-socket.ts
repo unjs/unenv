@@ -1,6 +1,6 @@
 import type tls from "node:tls";
 import { Socket } from "node:net";
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 
 export class TLSSocket extends Socket implements tls.TLSSocket {
   authorized = false;

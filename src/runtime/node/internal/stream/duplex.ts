@@ -1,7 +1,7 @@
 import type * as stream from "node:stream";
-import { mergeFns } from "../../../_internal/utils";
-import { Readable } from "./readable";
-import { Writable } from "./writable";
+import { mergeFns } from "../../../_internal/utils.ts";
+import { Readable } from "./readable.ts";
+import { Writable } from "./writable.ts";
 
 // Docs: https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/duplex.js

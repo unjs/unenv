@@ -1,4 +1,4 @@
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { EventEmitter } from "node:events";
 import type domain from "node:domain";
 

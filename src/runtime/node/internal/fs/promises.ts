@@ -1,7 +1,7 @@
 import type fsp from "node:fs/promises";
-import { notImplemented } from "../../../_internal/utils";
+import { notImplemented } from "../../../_internal/utils.ts";
 
-export { constants } from "./constants";
+export { constants } from "./constants.ts";
 
 export const access =
   /*@__PURE__*/ notImplemented<typeof fsp.access>("fs.access");

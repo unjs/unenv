@@ -1,6 +1,6 @@
 import type zlib from "node:zlib";
-import { notImplemented } from "../../../../_internal/utils";
-import { ZlibCompress } from "./_shared";
+import { notImplemented } from "../../../../_internal/utils.ts";
+import { ZlibCompress } from "./_shared.ts";
 
 // Zip Decompression
 

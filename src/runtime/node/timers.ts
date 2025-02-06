@@ -1,15 +1,15 @@
-import { notImplemented } from "../_internal/utils";
-import noop from "../mock/noop";
+import { notImplemented } from "../_internal/utils.ts";
+import noop from "../mock/noop.ts";
 import type timers from "node:timers";
-import promises from "./timers/promises";
-import { setTimeoutFallback } from "./internal/timers/set-timeout";
+import promises from "./timers/promises.ts";
+import { setTimeoutFallback } from "./internal/timers/set-timeout.ts";
 import {
   setImmediateFallback,
   clearImmediateFallback,
-} from "./internal/timers/set-immediate";
-import { setIntervalFallback } from "./internal/timers/set-interval";
+} from "./internal/timers/set-immediate.ts";
+import { setIntervalFallback } from "./internal/timers/set-interval.ts";
 
-export * as promises from "./timers/promises";
+export * as promises from "./timers/promises.ts";
 
 export const clearImmediate: typeof timers.clearImmediate =
   globalThis.clearImmediate?.bind(globalThis) || clearImmediateFallback;

@@ -21,7 +21,7 @@ import {
   notStrictEqual as notEqual,
   deepStrictEqual,
   deepStrictEqual as deepEqual,
-} from "../assert";
+} from "../assert.ts";
 
 export {
   AssertionError,
@@ -44,7 +44,7 @@ export {
   notStrictEqual as notEqual,
   deepStrictEqual,
   deepStrictEqual as deepEqual,
-} from "../assert";
+} from "../assert.ts";
 
 export default Object.assign(ok, {
   AssertionError,

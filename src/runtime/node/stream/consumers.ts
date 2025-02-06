@@ -1,5 +1,5 @@
 import type * as streamConsumers from "node:stream/consumers";
-import { notImplemented } from "../../_internal/utils";
+import { notImplemented } from "../../_internal/utils.ts";
 
 export const arrayBuffer = /*@__PURE__*/ notImplemented(
   "stream.consumers.arrayBuffer",

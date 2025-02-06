@@ -1,4 +1,4 @@
-import { Timeout } from "./timeout";
+import { Timeout } from "./timeout.ts";
 
 export async function* setIntervalFallbackPromises<T = void>(
   delay?: number,

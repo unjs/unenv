@@ -1,5 +1,5 @@
 import type * as streamPromises from "node:stream/promises";
-import { notImplemented } from "../../_internal/utils";
+import { notImplemented } from "../../_internal/utils.ts";
 
 export const finished = /*@__PURE__*/ notImplemented(
   "stream.promises.finished",

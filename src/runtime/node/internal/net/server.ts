@@ -1,5 +1,5 @@
 import type * as net from "node:net";
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { EventEmitter } from "node:events";
 
 // Docs: https://nodejs.org/api/net.html#net_class_net_server

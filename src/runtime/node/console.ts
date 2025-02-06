@@ -1,8 +1,8 @@
 import type console from "node:console";
 import { Writable } from "node:stream";
-import mock from "../mock/proxy";
-import noop from "../mock/noop";
-import { notImplemented } from "../_internal/utils";
+import mock from "../mock/proxy.ts";
+import noop from "../mock/noop.ts";
+import { notImplemented } from "../_internal/utils.ts";
 
 const _console = globalThis.console;
 
@@ -49,7 +49,7 @@ export const timeStamp: typeof console.timeStamp = _console?.timeStamp ?? noop;
 export const Console: typeof console.Console =
   _console?.Console ?? mock.__createMock__("console.Console");
 
-export { default as _times } from "../mock/proxy";
+export { default as _times } from "../mock/proxy.ts";
 
 export function context() {
   // TODO: Should be Console with all the methods
@@ -59,7 +59,7 @@ export function context() {
 export {
   default as _stdoutErrorHandler,
   default as _stderrErrorHandler,
-} from "../mock/noop";
+} from "../mock/noop.ts";
 
 export default {
   assert,

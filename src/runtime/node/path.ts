@@ -2,7 +2,7 @@
 // https://github.com/unjs/pathe
 import type nodePath from "node:path";
 
-import { notImplemented } from "../_internal/utils";
+import { notImplemented } from "../_internal/utils.ts";
 
 import * as _path from "pathe";
 export * from "pathe";

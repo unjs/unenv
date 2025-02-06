@@ -1,20 +1,20 @@
 // https://nodejs.org/api/util.html
 import type util from "node:util";
-import { notImplemented } from "../_internal/utils";
-import inherits from "../npm/inherits";
-import * as legacyTypes from "./internal/util/legacy-types";
-import * as logUtils from "./internal/util/log";
-import types from "./util/types";
-import { promisify } from "./internal/util/promisify";
-import * as mime from "./internal/util/mime";
+import { notImplemented } from "../_internal/utils.ts";
+import inherits from "../npm/inherits.ts";
+import * as legacyTypes from "./internal/util/legacy-types.ts";
+import * as logUtils from "./internal/util/log.ts";
+import types from "./util/types.ts";
+import { promisify } from "./internal/util/promisify.ts";
+import * as mime from "./internal/util/mime.ts";
 
-export * from "./internal/util/mime";
-export * from "./internal/util/legacy-types";
-export * from "./internal/util/log";
+export * from "./internal/util/mime.ts";
+export * from "./internal/util/legacy-types.ts";
+export * from "./internal/util/log.ts";
 
-export { default as inherits } from "../npm/inherits";
-export { promisify } from "./internal/util/promisify";
-export { default as types } from "./util/types";
+export { default as inherits } from "../npm/inherits.ts";
+export { promisify } from "./internal/util/promisify.ts";
+export { default as types } from "./util/types.ts";
 
 // @ts-ignore
 export const TextDecoder: typeof util.TextDecoder = globalThis.TextDecoder;

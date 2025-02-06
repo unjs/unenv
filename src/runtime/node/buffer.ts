@@ -1,23 +1,23 @@
 // https://nodejs.org/api/buffer.html
 import type buffer from "node:buffer";
-import { notImplemented } from "../_internal/utils";
+import { notImplemented } from "../_internal/utils.ts";
 import {
   Buffer as _Buffer,
   kMaxLength,
   INSPECT_MAX_BYTES,
   SlowBuffer,
-} from "./internal/buffer/buffer";
-import { File } from "./internal/buffer/file";
+} from "./internal/buffer/buffer.ts";
+import { File } from "./internal/buffer/file.ts";
 
 export {
   kMaxLength,
   INSPECT_MAX_BYTES,
   SlowBuffer,
-} from "./internal/buffer/buffer";
+} from "./internal/buffer/buffer.ts";
 
 export const Buffer = globalThis.Buffer || _Buffer;
 
-export { File } from "./internal/buffer/file";
+export { File } from "./internal/buffer/file.ts";
 
 // @ts-expect-eerror https://github.com/unjs/unenv/issues/64
 export const Blob = globalThis.Blob as unknown as typeof buffer.Blob;

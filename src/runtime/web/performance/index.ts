@@ -1,13 +1,13 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Performance_API
 
-export { Performance, _Performance, performance } from "./_performance";
+export { Performance, _Performance, performance } from "./_performance.ts";
 
 export {
   PerformanceObserver,
   _PerformanceObserver,
   PerformanceObserverEntryList,
   _PerformanceObserverEntryList,
-} from "./_observer";
+} from "./_observer.ts";
 
 export {
   PerformanceEntry,
@@ -18,7 +18,7 @@ export {
   _PerformanceMeasure,
   PerformanceResourceTiming,
   _PerformanceResourceTiming,
-} from "./_entry";
+} from "./_entry.ts";
 
 // Not implemented:
 // EventCounts

@@ -1,5 +1,5 @@
 import type asyncHooks from "node:async_hooks";
-import { executionAsyncId } from "./async-hook";
+import { executionAsyncId } from "./async-hook.ts";
 
 // https://nodejs.org/api/async_context.html#class-asyncresource
 

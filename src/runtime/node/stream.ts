@@ -1,18 +1,18 @@
 // https://nodejs.org/api/stream.html
 import type stream from "node:stream";
-import mock from "../mock/proxy";
-import { notImplemented } from "../_internal/utils";
-import { Readable } from "./internal/stream/readable";
-import { Writable } from "./internal/stream/writable";
-import { Duplex } from "./internal/stream/duplex";
-import { Transform } from "./internal/stream/transform";
+import mock from "../mock/proxy.ts";
+import { notImplemented } from "../_internal/utils.ts";
+import { Readable } from "./internal/stream/readable.ts";
+import { Writable } from "./internal/stream/writable.ts";
+import { Duplex } from "./internal/stream/duplex.ts";
+import { Transform } from "./internal/stream/transform.ts";
 
-import promises from "./stream/promises";
+import promises from "./stream/promises.ts";
 
-export { Readable } from "./internal/stream/readable";
-export { Writable } from "./internal/stream/writable";
-export { Duplex } from "./internal/stream/duplex";
-export { Transform } from "./internal/stream/transform";
+export { Readable } from "./internal/stream/readable.ts";
+export { Writable } from "./internal/stream/writable.ts";
+export { Duplex } from "./internal/stream/duplex.ts";
+export { Transform } from "./internal/stream/transform.ts";
 
 export const Stream: stream.Stream = mock.__createMock__("Stream");
 export const PassThrough: stream.PassThrough =

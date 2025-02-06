@@ -1,5 +1,5 @@
 import type nodeTimers from "node:timers";
-import { Timeout } from "./timeout";
+import { Timeout } from "./timeout.ts";
 
 export function setTimeoutFallbackPromises<T = void>(
   delay?: number,

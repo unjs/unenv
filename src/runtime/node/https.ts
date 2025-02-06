@@ -1,7 +1,7 @@
 // https://nodejs.org/api/https.html
 import type nodeHttps from "node:https";
-import { notImplemented, notImplementedClass } from "../_internal/utils";
-import mock from "../mock/proxy";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
+import mock from "../mock/proxy.ts";
 
 export const Server: typeof nodeHttps.Server =
   /*@__PURE__*/ notImplementedClass("https.Server");

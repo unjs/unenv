@@ -1,7 +1,6 @@
 import type http from "node:http";
 import { Socket } from "node:net";
-// TODO: https://github.com/unjs/unenv/issues/365
-import { Readable } from "unenv/node/stream";
+import { Readable } from "node:stream";
 import { rawHeaders } from "../../../_internal/utils";
 
 // Docs: https://nodejs.org/api/http.html#http_class_http_incomingmessage

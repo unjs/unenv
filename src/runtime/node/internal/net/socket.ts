@@ -1,7 +1,7 @@
 import type * as net from "node:net";
-import { Callback, BufferEncoding } from "../../../_internal/types";
+import { Callback, BufferEncoding } from "../../../_internal/types.ts";
 // Relative stream import required, see https://github.com/unjs/unenv/issues/353
-import { Duplex } from "../stream/duplex";
+import { Duplex } from "../stream/duplex.ts";
 
 // Docs: https://nodejs.org/api/net.html#net_class_net_socket
 export class Socket extends Duplex implements net.Socket {

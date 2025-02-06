@@ -1,1 +1,1 @@
-export { defineEnv } from "./env";
+export { defineEnv } from "./env.ts";

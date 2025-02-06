@@ -1,14 +1,14 @@
 // https://nodejs.org/api/http.html
 import type http from "node:http";
-import { notImplemented, notImplementedClass } from "../_internal/utils";
-import mock from "../mock/proxy";
-import * as consts from "./internal/http/consts";
-import { IncomingMessage } from "./internal/http/request";
-import { ServerResponse } from "./internal/http/response";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
+import mock from "../mock/proxy.ts";
+import * as consts from "./internal/http/consts.ts";
+import { IncomingMessage } from "./internal/http/request.ts";
+import { ServerResponse } from "./internal/http/response.ts";
 
-export * from "./internal/http/consts";
-export * from "./internal/http/request";
-export * from "./internal/http/response";
+export * from "./internal/http/consts.ts";
+export * from "./internal/http/request.ts";
+export * from "./internal/http/response.ts";
 
 export const createServer =
   /*@__PURE__*/ notImplemented<typeof http.createServer>("http.createServer");

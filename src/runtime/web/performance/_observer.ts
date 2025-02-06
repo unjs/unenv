@@ -1,5 +1,5 @@
-import { createNotImplementedError } from "../../_internal/utils";
-import { _supportedEntryTypes } from "./_entry";
+import { createNotImplementedError } from "../../_internal/utils.ts";
+import { _supportedEntryTypes } from "./_entry.ts";
 
 // https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver
 export class _PerformanceObserver implements globalThis.PerformanceObserver {
