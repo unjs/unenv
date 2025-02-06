@@ -12,10 +12,12 @@
       "default": "./dist/index.mjs"
     },
     "./mock/proxy-cjs": {
-      "default": "./dist/mock.cjs"
+      "types": "./lib/mock.d.cts",
+      "default": "./lib/mock.cjs"
     },
     "./mock/proxy-cjs/*": {
-      "default": "./dist/mock.cjs"
+      "types": "./lib/mock.d.cts",
+      "default": "./lib/mock.cjs"
     },
     "./*": {
       "types": "./dist/*.d.mts",
