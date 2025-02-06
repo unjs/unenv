@@ -1,6 +1,6 @@
-import { createNotImplementedError } from "../../_internal/utils";
-import mock from "../../mock/proxy";
-import { _PerformanceMark, _PerformanceMeasure } from "./_entry";
+import { createNotImplementedError } from "../../_internal/utils.ts";
+import mock from "../../mock/proxy.ts";
+import { _PerformanceMark, _PerformanceMeasure } from "./_entry.ts";
 
 const _timeOrigin = Date.now();
 

@@ -1,7 +1,7 @@
 import type domain from "node:domain";
-import { Domain } from "./internal/domain/domain";
+import { Domain } from "./internal/domain/domain.ts";
 
-export { Domain } from "./internal/domain/domain";
+export { Domain } from "./internal/domain/domain.ts";
 
 export const create: typeof domain.create = function () {
   return new Domain();

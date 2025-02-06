@@ -1,7 +1,10 @@
 import type nodeCrypto from "node:crypto";
 
-import { notImplemented, notImplementedClass } from "../../../_internal/utils";
-import { getRandomValues } from "./web";
+import {
+  notImplemented,
+  notImplementedClass,
+} from "../../../_internal/utils.ts";
+import { getRandomValues } from "./web.ts";
 
 // limit of Crypto.getRandomValues()
 // https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues

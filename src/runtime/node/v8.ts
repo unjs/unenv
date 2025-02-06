@@ -1,13 +1,19 @@
-import noop from "../mock/noop";
+import noop from "../mock/noop.ts";
 import type v8 from "node:v8";
 import { Readable } from "node:stream";
-import { Deserializer, DefaultDeserializer } from "./internal/v8/deserializer";
-import { Serializer, DefaultSerializer } from "./internal/v8/serializer";
-import { GCProfiler } from "./internal/v8/profiler";
+import {
+  Deserializer,
+  DefaultDeserializer,
+} from "./internal/v8/deserializer.ts";
+import { Serializer, DefaultSerializer } from "./internal/v8/serializer.ts";
+import { GCProfiler } from "./internal/v8/profiler.ts";
 
-export { Deserializer, DefaultDeserializer } from "./internal/v8/deserializer";
-export { Serializer, DefaultSerializer } from "./internal/v8/serializer";
-export { GCProfiler } from "./internal/v8/profiler";
+export {
+  Deserializer,
+  DefaultDeserializer,
+} from "./internal/v8/deserializer.ts";
+export { Serializer, DefaultSerializer } from "./internal/v8/serializer.ts";
+export { GCProfiler } from "./internal/v8/profiler.ts";
 
 const getMockHeapSpaceStats = (name: string) => ({
   space_name: name,

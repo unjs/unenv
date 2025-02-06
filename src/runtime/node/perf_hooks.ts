@@ -2,8 +2,8 @@ import type perf_hooks from "node:perf_hooks";
 import {
   IntervalHistogram,
   RecordableHistogram,
-} from "./internal/perf_hooks/histogram";
-import { constants } from "./internal/perf_hooks/constants";
+} from "./internal/perf_hooks/histogram.ts";
+import { constants } from "./internal/perf_hooks/constants.ts";
 import {
   performance,
   Performance,
@@ -13,10 +13,10 @@ import {
   PerformanceObserverEntryList,
   PerformanceObserver,
   PerformanceResourceTiming,
-} from "./internal/perf_hooks/performance";
-export { constants } from "./internal/perf_hooks/constants";
+} from "./internal/perf_hooks/performance.ts";
+export { constants } from "./internal/perf_hooks/constants.ts";
 
-export * from "./internal/perf_hooks/performance";
+export * from "./internal/perf_hooks/performance.ts";
 
 export const monitorEventLoopDelay: typeof perf_hooks.monitorEventLoopDelay =
   function (_options) {

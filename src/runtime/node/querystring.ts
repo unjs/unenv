@@ -25,7 +25,7 @@ import {
   encodeStr,
   hexTable,
   isHexTable,
-} from "./internal/querystring/querystring";
+} from "./internal/querystring/querystring.ts";
 
 // prettier-ignore
 const unhexTable = new Int8Array([

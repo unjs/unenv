@@ -1,5 +1,5 @@
 import type vm from "node:vm";
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 
 export class Script implements vm.Script {
   runInContext(

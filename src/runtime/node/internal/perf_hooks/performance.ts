@@ -1,5 +1,5 @@
 import type perf_hooks from "node:perf_hooks";
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 import {
   _Performance,
   _PerformanceMark,
@@ -7,7 +7,7 @@ import {
   _PerformanceObserver,
   _PerformanceObserverEntryList,
   _PerformanceResourceTiming,
-} from "../../../web/performance/index";
+} from "../../../web/performance/index.ts";
 
 // Non modified APIs
 export {
@@ -15,7 +15,7 @@ export {
   PerformanceObserverEntryList,
   PerformanceEntry,
   PerformanceMeasure,
-} from "../../../web/performance/index";
+} from "../../../web/performance/index.ts";
 
 const nodeTiming = {
   name: "node",

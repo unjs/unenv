@@ -1,6 +1,6 @@
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 import type diagnostics_channel from "node:diagnostics_channel";
-import { Channel } from "./channel";
+import { Channel } from "./channel.ts";
 
 export class TracingChannel<
   StoreType = unknown,

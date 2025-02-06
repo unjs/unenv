@@ -1,6 +1,6 @@
 import type http from "node:http";
 import type { Socket } from "node:net";
-import { Callback } from "../../../_internal/types";
+import { Callback } from "../../../_internal/types.ts";
 // TODO: https://github.com/unjs/unenv/issues/365
 import { Writable } from "unenv/runtime/node/stream";
 

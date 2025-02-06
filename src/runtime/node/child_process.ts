@@ -1,4 +1,4 @@
-import { notImplemented, notImplementedClass } from "../_internal/utils";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 import type child_process from "node:child_process";
 
 export const ChildProcess: typeof child_process.ChildProcess =

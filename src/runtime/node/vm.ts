@@ -1,10 +1,10 @@
 import type vm from "node:vm";
-import { notImplemented } from "../_internal/utils";
-import { Script } from "./internal/vm/script";
-import * as constants from "./internal/vm/constants";
+import { notImplemented } from "../_internal/utils.ts";
+import { Script } from "./internal/vm/script.ts";
+import * as constants from "./internal/vm/constants.ts";
 
-export { Script } from "./internal/vm/script";
-export * as constants from "./internal/vm/constants";
+export { Script } from "./internal/vm/script.ts";
+export * as constants from "./internal/vm/constants.ts";
 
 export const compileFunction: typeof vm.compileFunction =
   notImplemented("vm.compileFunction");

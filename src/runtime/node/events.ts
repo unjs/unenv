@@ -1,7 +1,7 @@
 // https://nodejs.org/api/events.html
 import type nodeEvents from "node:events";
 
-import { _EventEmitter } from "./internal/events/events";
+import { _EventEmitter } from "./internal/events/events.ts";
 
 export {
   _EventEmitter as EventEmitter,
@@ -11,7 +11,7 @@ export {
   getMaxListeners,
   on,
   once,
-} from "./internal/events/events";
+} from "./internal/events/events.ts";
 
 export const usingDomains = _EventEmitter.usingDomains;
 export const captureRejectionSymbol = _EventEmitter.captureRejectionSymbol;

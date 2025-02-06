@@ -1,10 +1,10 @@
 import type zlib from "node:zlib";
-import { notImplemented } from "../../../../_internal/utils";
+import { notImplemented } from "../../../../_internal/utils.ts";
 import {
   ZlibCompress,
   ZLibDecompress,
   notImplementedCompress,
-} from "./_shared";
+} from "./_shared.ts";
 
 // Brotli Compression
 

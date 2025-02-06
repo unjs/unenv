@@ -1,14 +1,14 @@
 // Source: https://github.com/defunctzombie/node-process/blob/77caa43cdaee4ea710aa14d11cea1705293c0ef3/browser.js
 import type nodeProcess from "node:process";
 import { ReadStream, WriteStream } from "node:tty";
-import empty from "../../../mock/empty";
-import { notImplemented } from "../../../_internal/utils";
-import { env } from "./env";
-import { hrtime, nextTick } from "./time";
+import empty from "../../../mock/empty.ts";
+import { notImplemented } from "../../../_internal/utils.ts";
+import { env } from "./env.ts";
+import { hrtime, nextTick } from "./time.ts";
 
-export { hrtime, nextTick } from "./time";
+export { hrtime, nextTick } from "./time.ts";
 
-export { env } from "./env";
+export { env } from "./env.ts";
 
 type Process = NodeJS.Process;
 

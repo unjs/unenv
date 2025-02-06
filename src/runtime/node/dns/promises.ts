@@ -1,9 +1,9 @@
-import noop from "../../mock/noop";
-import mock from "../../mock/proxy";
-import { notImplemented, notImplementedAsync } from "../../_internal/utils";
+import noop from "../../mock/noop.ts";
+import mock from "../../mock/proxy.ts";
+import { notImplemented, notImplementedAsync } from "../../_internal/utils.ts";
 import type dns from "node:dns/promises";
-import * as constants from "../internal/dns/constants";
-export * from "../internal/dns/constants";
+import * as constants from "../internal/dns/constants.ts";
+export * from "../internal/dns/constants.ts";
 
 export const Resolver: typeof dns.Resolver =
   mock.__createMock__("dns.Resolver");

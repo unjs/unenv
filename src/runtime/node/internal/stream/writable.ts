@@ -1,5 +1,5 @@
 import type * as stream from "node:stream";
-import type { BufferEncoding, Callback } from "../../../_internal/types";
+import type { BufferEncoding, Callback } from "../../../_internal/types.ts";
 
 import { EventEmitter } from "node:events";
 

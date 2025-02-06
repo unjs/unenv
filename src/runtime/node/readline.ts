@@ -1,11 +1,11 @@
 // https://nodejs.org/api/readline.html#readlineclearlinestream-dir-callback
 import type readline from "node:readline";
-import noop from "../mock/noop";
-import promises from "./readline/promises";
-import { Interface } from "./internal/readline/interface";
+import noop from "../mock/noop.ts";
+import promises from "./readline/promises.ts";
+import { Interface } from "./internal/readline/interface.ts";
 
-export * as promises from "./readline/promises";
-export { Interface } from "./internal/readline/interface";
+export * as promises from "./readline/promises.ts";
+export { Interface } from "./internal/readline/interface.ts";
 
 export const clearLine: typeof readline.clearLine = () => false;
 export const clearScreenDown: typeof readline.clearScreenDown = () => false;

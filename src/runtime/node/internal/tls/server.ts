@@ -1,5 +1,5 @@
 import type tls from "node:tls";
-import { createNotImplementedError } from "../../../_internal/utils";
+import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { Server as _Server } from "node:net";
 
 export class Server extends _Server implements tls.Server {

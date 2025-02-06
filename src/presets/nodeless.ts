@@ -1,5 +1,5 @@
-import { NodeBuiltinModules, mapArrToVal } from "../utils";
-import type { Preset } from "../types";
+import { NodeBuiltinModules, mapArrToVal } from "../utils.ts";
+import type { Preset } from "../types.ts";
 import { version } from "../../package.json";
 
 const nodeless: Preset & { alias: Map<string, string> } = {

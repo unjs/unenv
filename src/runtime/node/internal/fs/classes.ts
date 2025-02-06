@@ -1,5 +1,5 @@
 import type fs from "node:fs";
-import mock from "../../../mock/proxy";
+import mock from "../../../mock/proxy.ts";
 
 export const Dir: typeof fs.Dir = mock.__createMock__("fs.Dir");
 

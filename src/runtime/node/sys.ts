@@ -1,2 +1,2 @@
-export * from "./util";
-export { default } from "./util";
+export * from "./util.ts";
+export { default } from "./util.ts";

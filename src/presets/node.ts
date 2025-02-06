@@ -1,5 +1,5 @@
-import { NodeBuiltinModules } from "../utils";
-import type { Preset } from "../types";
+import { NodeBuiltinModules } from "../utils.ts";
+import type { Preset } from "../types.ts";
 import { version } from "../../package.json";
 
 export default {

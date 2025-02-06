@@ -1,6 +1,6 @@
 import { resolvePathSync, type ResolveOptions } from "mlly";
-import type { Preset, Environment, CreateEnvOptions } from "./types";
-import nodeCompatPreset from "./presets/nodeless";
+import type { Preset, Environment, CreateEnvOptions } from "./types.ts";
+import nodeCompatPreset from "./presets/nodeless.ts";
 
 /**
  * Configure a target environment.

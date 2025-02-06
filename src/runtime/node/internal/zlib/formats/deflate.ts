@@ -1,11 +1,11 @@
 import type zlib from "node:zlib";
-import { createNotImplementedError } from "../../../../_internal/utils";
-import { notImplemented } from "../../../../_internal/utils";
+import { createNotImplementedError } from "../../../../_internal/utils.ts";
+import { notImplemented } from "../../../../_internal/utils.ts";
 import {
   ZlibCompress,
   ZLibDecompress,
   notImplementedCompress,
-} from "./_shared";
+} from "./_shared.ts";
 
 // Deflate Compression
 

@@ -1,6 +1,9 @@
 import type fs from "node:fs";
-import { notImplemented, notImplementedAsync } from "../../../_internal/utils";
-import * as fsp from "./promises";
+import {
+  notImplemented,
+  notImplementedAsync,
+} from "../../../_internal/utils.ts";
+import * as fsp from "./promises.ts";
 
 function callbackify(fn: (...args: any[]) => Promise<any>) {
   const fnc = function (...args: any[]) {

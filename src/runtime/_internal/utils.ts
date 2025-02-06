@@ -1,4 +1,4 @@
-import type { HeadersObject } from "./types";
+import type { HeadersObject } from "./types.ts";
 
 export function rawHeaders(headers: HeadersObject) {
   const rawHeaders = [];

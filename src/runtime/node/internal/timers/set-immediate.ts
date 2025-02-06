@@ -1,4 +1,4 @@
-import { Immediate } from "./immediate";
+import { Immediate } from "./immediate.ts";
 
 export function setImmediateFallbackPromises<T = void>(value?: T): Promise<T> {
   return new Promise((res) => {

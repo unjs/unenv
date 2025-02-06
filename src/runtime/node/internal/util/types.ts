@@ -1,5 +1,5 @@
 import type utilTypes from "node:util/types";
-import { notImplemented } from "../../../_internal/utils";
+import { notImplemented } from "../../../_internal/utils.ts";
 
 export const isExternal: typeof utilTypes.isExternal = (_obj) => false;
 

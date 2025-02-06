@@ -1,6 +1,6 @@
 // https://nodejs.org/api/inspector.html
-import noop from "../mock/noop";
-import mock from "../mock/proxy";
+import noop from "../mock/noop.ts";
+import mock from "../mock/proxy.ts";
 import type inspector from "node:inspector";
 
 export const close: typeof inspector.close = noop;

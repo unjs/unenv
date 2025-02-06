@@ -1,4 +1,4 @@
-import { MessagePort } from "./message-port";
+import { MessagePort } from "./message-port.ts";
 import type worker_threads from "node:worker_threads";
 
 export class MessageChannel implements worker_threads.MessageChannel {

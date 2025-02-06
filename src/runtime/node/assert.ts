@@ -25,7 +25,7 @@
 import type nodeAssert from "node:assert";
 
 import { isEqual as _ohashIsEqual } from "ohash";
-import { notImplementedClass } from "../_internal/utils";
+import { notImplementedClass } from "../_internal/utils.ts";
 
 // TODO: Implement Error classes
 const ERR_AMBIGUOUS_ARGUMENT = Error;

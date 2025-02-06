@@ -1,5 +1,5 @@
 import type * as streamWeb from "node:stream/web";
-import { notImplemented } from "../../_internal/utils";
+import { notImplemented } from "../../_internal/utils.ts";
 
 export const ReadableStream =
   globalThis.ReadableStream || notImplemented("stream.web.ReadableStream");

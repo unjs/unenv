@@ -25,13 +25,16 @@ import type nodeUrl from "node:url";
 
 import * as querystring from "node:querystring";
 
-import * as punnycode from "./punycode";
+import * as punnycode from "./punycode.ts";
 
-import { encodeStr, hexTable } from "./internal/querystring/querystring";
+import { encodeStr, hexTable } from "./internal/querystring/querystring.ts";
 
-import { spliceOne } from "./internal/url/util";
+import { spliceOne } from "./internal/url/util.ts";
 
-import { ERR_INVALID_ARG_TYPE, ERR_INVALID_URL } from "./internal/url/errors";
+import {
+  ERR_INVALID_ARG_TYPE,
+  ERR_INVALID_URL,
+} from "./internal/url/errors.ts";
 
 import {
   pathToFileURL as _pathToFileURL,
@@ -40,7 +43,7 @@ import {
   hostlessProtocol,
   slashedProtocol,
   urlToHttpOptions,
-} from "./internal/url/url";
+} from "./internal/url/url.ts";
 
 import {
   CHAR_SPACE,
@@ -68,7 +71,7 @@ import {
   CHAR_VERTICAL_LINE,
   CHAR_AT,
   CHAR_COLON,
-} from "./internal/url/constants";
+} from "./internal/url/constants.ts";
 
 class Url implements nodeUrl.Url {
   auth: string | null = null;

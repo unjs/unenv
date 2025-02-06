@@ -1,15 +1,19 @@
 // https://nodejs.org/api/net.html
 import type net from "node:net";
 
-import { notImplemented, notImplementedClass } from "../_internal/utils";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
-import { Socket, SocketAddress } from "./internal/net/socket";
-import { Server } from "./internal/net/server";
+import { Socket, SocketAddress } from "./internal/net/socket.ts";
+import { Server } from "./internal/net/server.ts";
 
-export { Server } from "./internal/net/server";
+export { Server } from "./internal/net/server.ts";
 
 // require('node:net').Socket === require('node:net').Stream
-export { Socket, SocketAddress, Socket as Stream } from "./internal/net/socket";
+export {
+  Socket,
+  SocketAddress,
+  Socket as Stream,
+} from "./internal/net/socket.ts";
 
 export const createServer = notImplemented(
   "net.createServer",
