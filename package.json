@@ -7,10 +7,20 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs",
-    "./mock/proxy-cjs": "./lib/mock.cjs",
-    "./mock/proxy-cjs/*": "./lib/mock.cjs",
-    "./*": "./dist/runtime/*.mjs"
+    ".": {
+      "types": "./lib/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./mock/proxy-cjs": {
+      "default": "./dist/mock.cjs"
+    },
+    "./mock/proxy-cjs/*": {
+      "default": "./dist/mock.cjs"
+    },
+    "./*": {
+      "types": "./dist/*.d.mts",
+      "default": "./dist/runtime/*.mjs"
+    }
   },
   "files": [
     "dist",
@@ -21,7 +31,7 @@
     "dev": "vitest",
     "lint": "eslint . && prettier -c src test",
     "lint:fix": "automd && eslint --fix . && prettier -w src test",
-    "prepack": "unbuild",
+    "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release --push --publish --prerelease --publishTag rc",
     "test": "pnpm lint && pnpm vitest --run && pnpm test:types && pnpm test:node",
     "test:node": "node --test --import jiti/register ./test/node/test-*",
