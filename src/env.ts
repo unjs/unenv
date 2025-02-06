@@ -39,7 +39,7 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
       ...presets
         .map((preset) => preset.meta?.url)
         .filter((v) => v !== undefined),
-      __filename, // unenv
+      import.meta.url,
     ];
     const resolveOpts: ResolveOptions = {
       url: resolvePaths,
