@@ -10,16 +10,11 @@
     ".": "./dist/index.mjs",
     "./mock/proxy-cjs": "./dist/runtime/mock/proxy.cjs",
     "./mock/proxy-cjs/*": "./dist/runtime/mock/proxy.cjs",
-    "./*": {
-      "types": "./dist/runtime/*.d.ts",
-      "require": "./dist/runtime/*.cjs",
-      "import": "./dist/runtime/*.mjs"
-    }
+    "./*": "./dist/runtime/*.mjs"
   },
-  "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "runtime"
+    "lib"
   ],
   "scripts": {
     "build": "node --watch --experimental-strip-types scripts/build.ts",
@@ -52,6 +47,8 @@
     "eslint": "^9.19.0",
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
+    "oxc-parser": "^0.48.2",
+    "oxc-resolver": "^4.0.0",
     "oxc-transform": "^0.48.2",
     "prettier": "^3.4.2",
     "rolldown": "1.0.0-beta.3",

@@ -1,7 +1,10 @@
 import noop from "../mock/noop";
 import type v8 from "node:v8";
 import { Readable } from "node:stream";
-import { Deserializer, DefaultDeserializer } from "./internal/v8/deserializer";
+import {
+  Deserializer,
+  DefaultDeserializer,
+} from "./internal/v8/deserializer.ts";
 import { Serializer, DefaultSerializer } from "./internal/v8/serializer";
 import { GCProfiler } from "./internal/v8/profiler";
 

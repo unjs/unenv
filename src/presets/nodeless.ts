@@ -10,7 +10,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 
   alias: {
     // Generic mock for built-ins
-    ...mapArrToVal("unenv/runtime/mock/proxy-cjs", NodeBuiltinModules),
+    ...mapArrToVal("unenv/mock/proxy-cjs", NodeBuiltinModules),
 
     // Built-ins implemented by unenv
     "buffer/index.js": "buffer",
@@ -65,39 +65,39 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "wasi",
         "worker_threads",
         "zlib",
-      ].map((m) => [m, `unenv/runtime/node/${m}`]),
+      ].map((m) => [m, `unenv/node/${m}`]),
     ),
 
-    "path/posix": "unenv/runtime/node/path",
-    "path/win32": "unenv/runtime/node/path",
-    "inspector/promises": "unenv/runtime/node/inspector",
+    "path/posix": "unenv/node/path",
+    "path/win32": "unenv/node/path",
+    "inspector/promises": "unenv/node/inspector",
 
     // The sys module is deprecated and has been renamed util
     // https://github.com/nodejs/node/blob/main/lib/sys.js#L27
-    sys: "unenv/runtime/node/util",
+    sys: "unenv/node/util",
 
     // npm
-    fsevents: "unenv/runtime/npm/fsevents",
-    "node-fetch": "unenv/runtime/npm/node-fetch",
-    "node-fetch-native": "unenv/runtime/npm/node-fetch",
-    "node-fetch-native/polyfill": "unenv/runtime/mock/empty",
-    "cross-fetch": "unenv/runtime/npm/cross-fetch",
-    "cross-fetch/polyfill": "unenv/runtime/mock/empty",
-    "isomorphic-fetch": "unenv/runtime/mock/empty",
-    inherits: "unenv/runtime/npm/inherits",
+    fsevents: "unenv/npm/fsevents",
+    "node-fetch": "unenv/npm/node-fetch",
+    "node-fetch-native": "unenv/npm/node-fetch",
+    "node-fetch-native/polyfill": "unenv/mock/empty",
+    "cross-fetch": "unenv/npm/cross-fetch",
+    "cross-fetch/polyfill": "unenv/mock/empty",
+    "isomorphic-fetch": "unenv/mock/empty",
+    inherits: "unenv/npm/inherits",
   },
 
   inject: {
-    global: "unenv/runtime/node/_global",
-    process: "unenv/runtime/node/process",
-    Buffer: ["unenv/runtime/node/buffer", "Buffer"],
-    performance: "unenv/runtime/polyfill/performance",
+    global: "unenv/node/_global",
+    process: "unenv/node/process",
+    Buffer: ["unenv/node/buffer", "Buffer"],
+    performance: "unenv/polyfill/performance",
   },
 
   polyfill: [
-    "unenv/runtime/polyfill/node-global",
-    "unenv/runtime/polyfill/process",
-    "unenv/runtime/polyfill/performance",
+    "unenv/polyfill/node-global",
+    "unenv/polyfill/process",
+    "unenv/polyfill/performance",
   ],
 };
 
