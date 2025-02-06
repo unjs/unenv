@@ -1,10 +1,13 @@
+import type nodeTimers from "node:timers";
 import { Timeout } from "./timeout";
 
 export function setTimeoutFallbackPromises<T = void>(
   delay?: number,
   value?: T,
+  options?: nodeTimers.TimerOptions,
 ): Promise<T> {
   return new Promise((res) => {
+    // NOTE: we are ignoring options?.signal? as promise is immediately resolved
     res(value as T | PromiseLike<T>);
   });
 }
