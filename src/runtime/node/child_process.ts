@@ -24,7 +24,7 @@ export const spawn: typeof child_process.spawn = /*@__PURE__*/ notImplemented(
 export const spawnSync: typeof child_process.spawnSync =
   /*@__PURE__*/ notImplemented("child_process.spawnSync");
 
-export default <typeof child_process>{
+export default {
   ChildProcess,
   _forkChild,
   exec,
@@ -34,4 +34,4 @@ export default <typeof child_process>{
   fork,
   spawn,
   spawnSync,
-};
+} as typeof child_process;

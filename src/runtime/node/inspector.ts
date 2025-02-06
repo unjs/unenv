@@ -25,7 +25,7 @@ export const Session: typeof inspector.Session =
 
 export const Network = mock.__createMock__("inspector.Network");
 
-export default <typeof inspector>{
+export default {
   Session,
   close,
   console,
@@ -33,4 +33,4 @@ export default <typeof inspector>{
   url,
   waitForDebugger,
   Network,
-};
+} satisfies typeof inspector;

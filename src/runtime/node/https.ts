@@ -20,11 +20,11 @@ export const createServer =
 export const request =
   /*@__PURE__*/ notImplemented<typeof nodeHttps.request>("https.request");
 
-export default <typeof nodeHttps>{
+export default {
   Server,
   Agent,
   globalAgent,
   get,
   createServer,
   request,
-};
+} satisfies typeof nodeHttps;

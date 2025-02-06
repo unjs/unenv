@@ -37,7 +37,7 @@ export const constants = {
   MAX_STRING_LENGTH: kStringMaxLength,
 };
 
-export default <typeof buffer>{
+export default {
   Buffer,
   SlowBuffer: SlowBuffer as any as typeof buffer.SlowBuffer,
   kMaxLength,
@@ -52,4 +52,4 @@ export default <typeof buffer>{
   isUtf8,
   isAscii,
   File,
-};
+} satisfies typeof buffer;

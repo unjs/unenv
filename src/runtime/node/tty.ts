@@ -9,8 +9,8 @@ export const isatty: typeof tty.isatty = function () {
   return false;
 };
 
-export default <typeof tty>{
+export default {
   ReadStream,
   WriteStream,
   isatty,
-};
+} satisfies typeof tty;

@@ -10,8 +10,8 @@ export const createSocket: typeof dgram.createSocket = function () {
   return new Socket();
 };
 
-export default <typeof dgram>{
+export default {
   Socket,
   _createSocketHandle,
   createSocket,
-};
+} as typeof dgram;

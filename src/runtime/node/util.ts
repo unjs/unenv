@@ -73,7 +73,7 @@ export const getSystemErrorMessage = /*@__PURE__*/ notImplemented<
   typeof util.getSystemErrorMessage
 >("util.getSystemErrorMessage");
 
-export default <typeof util>{
+export default {
   _errnoException,
   _exceptionWithHostPort,
   _extend,
@@ -100,4 +100,4 @@ export default <typeof util>{
   ...mime,
   ...logUtils,
   ...legacyTypes,
-};
+} satisfies typeof util;

@@ -57,7 +57,7 @@ export const postMessageToThread = /*@__PURE__*/ notImplemented(
   "worker_threads.postMessageToThread",
 );
 
-export default <typeof worker_threads>{
+export default {
   BroadcastChannel,
   MessageChannel,
   MessagePort,
@@ -76,4 +76,4 @@ export default <typeof worker_threads>{
   postMessageToThread,
   threadId,
   workerData,
-};
+} as typeof worker_threads;

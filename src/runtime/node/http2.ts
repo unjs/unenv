@@ -46,7 +46,7 @@ export const sensitiveHeaders: typeof http2.sensitiveHeaders = Symbol(
   "nodejs.http2.sensitiveHeaders",
 );
 
-export default <typeof http2>{
+export default {
   constants,
   createSecureServer,
   createServer,
@@ -58,4 +58,4 @@ export default <typeof http2>{
   getUnpackedSettings,
   performServerHandshake,
   sensitiveHeaders,
-};
+} satisfies typeof http2;

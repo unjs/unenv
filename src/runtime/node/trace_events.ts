@@ -7,7 +7,7 @@ export const createTracing: typeof trace_events.createTracing = function () {
 export const getEnabledCategories: typeof trace_events.getEnabledCategories =
   () => "";
 
-export default <typeof trace_events>{
+export default {
   createTracing,
   getEnabledCategories,
-};
+} satisfies typeof trace_events;

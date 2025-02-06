@@ -8,8 +8,8 @@ export { Readline } from "../internal/readline/promises/readline.ts";
 export const createInterface: typeof readline.createInterface = () =>
   new Interface();
 
-export default <typeof readline>{
+export default {
   Interface,
   Readline,
   createInterface,
-};
+} as typeof readline;

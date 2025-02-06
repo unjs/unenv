@@ -117,7 +117,7 @@ export function queryObjects(
   return [];
 }
 
-export default <typeof v8>{
+export default {
   DefaultDeserializer,
   Deserializer,
   GCProfiler,
@@ -138,4 +138,4 @@ export default <typeof v8>{
   takeCoverage,
   writeHeapSnapshot,
   queryObjects,
-};
+} satisfies typeof v8;

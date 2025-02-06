@@ -47,11 +47,11 @@ export const tracingChannel: typeof diagnostics_channel.tracingChannel =
 
 // TracingChannel is incorrectly exposed on the `diagnostics_channel` type. In addition, its type
 // takes a constructor with no arguments, whereas the node implementation takes a name (matching `tracingChannel`)
-export default <Omit<typeof diagnostics_channel, "TracingChannel">>{
+export default {
   Channel,
   channel,
   hasSubscribers,
   subscribe,
   tracingChannel,
   unsubscribe,
-};
+} satisfies Omit<typeof diagnostics_channel, "TracingChannel">;
