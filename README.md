@@ -94,8 +94,8 @@ const envConfig = env(nodeless, {});
 
 <!-- automd:file src="./coverage/unenv.md" -->
 
-- 🚧 [node:assert](https://nodejs.org/api/assert.html) <!-- missing partialDeepStrictEqual exports -->
-- 🚧 [node:assert/strict](https://nodejs.org/api/assert.html) <!-- missing partialDeepStrictEqual exports -->
+- ✅ [node:assert](https://nodejs.org/api/assert.html)
+- ✅ [node:assert/strict](https://nodejs.org/api/assert.html)
 - ✅ [node:async_hooks](https://nodejs.org/api/async_hooks.html)
 - ✅ [node:buffer](https://nodejs.org/api/buffer.html)
 - ✅ [node:child_process](https://nodejs.org/api/child_process.html)
@@ -128,8 +128,8 @@ const envConfig = env(nodeless, {});
 - ✅ [node:querystring](https://nodejs.org/api/querystring.html)
 - ✅ [node:readline](https://nodejs.org/api/readline.html)
 - ✅ [node:readline/promises](https://nodejs.org/api/readline.html)
-- 🚧 [node:repl](https://nodejs.org/api/repl.html) <!-- missing builtinModules exports -->
-- 🚧 [node:stream](https://nodejs.org/api/stream.html) <!-- missing _isArrayBufferView, duplexPair, getDefaultHighWaterMark, isDestroyed, isWritable, promises, setDefaultHighWaterMark exports -->
+- ✅ [node:repl](https://nodejs.org/api/repl.html)
+- ✅ [node:stream](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/consumers](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/promises](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/web](https://nodejs.org/api/stream.html)
@@ -147,7 +147,7 @@ const envConfig = env(nodeless, {});
 - ✅ [node:vm](https://nodejs.org/api/vm.html)
 - ✅ [node:wasi](https://nodejs.org/api/wasi.html)
 - ✅ [node:worker_threads](https://nodejs.org/api/worker_threads.html)
-- 🚧 [node:zlib](https://nodejs.org/api/zlib.html) <!-- missing crc32 exports -->
+- ✅ [node:zlib](https://nodejs.org/api/zlib.html)
 
 <!-- /automd -->
 

@@ -9,6 +9,8 @@ import { Transform } from "./internal/stream/transform.ts";
 
 import promises from "./stream/promises.ts";
 
+export { default as promises } from "./stream/promises.ts";
+
 export { Readable } from "./internal/stream/readable.ts";
 export { Writable } from "./internal/stream/writable.ts";
 export { Duplex } from "./internal/stream/duplex.ts";
@@ -28,16 +30,6 @@ export const addAbortSignal = /*@__PURE__*/ notImplemented<
   typeof stream.addAbortSignal
 >("stream.addAbortSignal");
 
-// Internal
-interface StreamInternal {
-  isDisturbed: any;
-  isReadable: any;
-  compose: any;
-  isErrored: any;
-  destroy: any;
-  _isUint8Array: any;
-  _uint8ArrayToBuffer: any;
-}
 export const isDisturbed = /*@__PURE__*/ notImplemented("stream.isDisturbed");
 export const isReadable = /*@__PURE__*/ notImplemented("stream.isReadable");
 export const compose = /*@__PURE__*/ notImplemented("stream.compose");
@@ -48,6 +40,24 @@ export const _isUint8Array = /*@__PURE__*/ notImplemented(
 );
 export const _uint8ArrayToBuffer = /*@__PURE__*/ notImplemented(
   "stream._uint8ArrayToBuffer",
+);
+
+export const _isArrayBufferView = /*@__PURE__*/ notImplemented(
+  "stream._isArrayBufferView",
+);
+
+export const duplexPair = /*@__PURE__*/ notImplemented("stream.duplexPair");
+
+export const getDefaultHighWaterMark = /*@__PURE__*/ notImplemented(
+  "stream.getDefaultHighWaterMark",
+);
+
+export const isDestroyed = /*@__PURE__*/ notImplemented("stream.isDestroyed");
+
+export const isWritable = /*@__PURE__*/ notImplemented("stream.isWritable");
+
+export const setDefaultHighWaterMark = /*@__PURE__*/ notImplemented(
+  "stream.setDefaultHighWaterMark",
 );
 
 export default {
@@ -68,4 +78,24 @@ export default {
   isErrored,
   destroy,
   _isUint8Array,
-} as /* TODO: use satisfies */ typeof stream & StreamInternal;
+  _isArrayBufferView,
+  duplexPair,
+  getDefaultHighWaterMark,
+  isDestroyed,
+  isWritable,
+  setDefaultHighWaterMark,
+} as /* TODO: use satisfies */ typeof stream & {
+  isDisturbed: any;
+  isReadable: any;
+  compose: any;
+  isErrored: any;
+  destroy: any;
+  _isUint8Array: any;
+  _uint8ArrayToBuffer: any;
+  _isArrayBufferView: any;
+  duplexPair: any;
+  getDefaultHighWaterMark: any;
+  isDestroyed: any;
+  isWritable: any;
+  setDefaultHighWaterMark: any;
+};

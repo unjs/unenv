@@ -1,4 +1,5 @@
 import type nodeRepl from "node:repl";
+import { builtinModules as _builtinModules } from "node:module";
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
 export const writer =
@@ -23,11 +24,16 @@ export const REPL_MODE_SLOPPY: unique symbol =
 export const REPL_MODE_STRICT: unique symbol =
   /*@__PURE__*/ Symbol("repl-strict");
 
+export const builtinModules = /*@__PURE__*/ _builtinModules.filter(
+  (m) => m[0] !== "_",
+);
+
 export default {
   writer,
   start,
   Recoverable,
   REPLServer,
+  builtinModules,
   // @ts-expect-error
   REPL_MODE_SLOPPY,
   // @ts-expect-error

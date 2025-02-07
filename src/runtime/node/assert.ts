@@ -22,10 +22,10 @@
 // Based on Node.js' assert module
 // https://github.com/nodejs/node/blob/0db95d371274104a5acf09214bf8325c45bfb64a/lib/assert.js
 
-import type nodeAssert from "node:assert";
+import nodeAssert from "node:assert";
 
 import { isEqual as _ohashIsEqual } from "ohash";
-import { notImplementedClass } from "../_internal/utils.ts";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
 // TODO: Implement Error classes
 const ERR_AMBIGUOUS_ARGUMENT = Error;
@@ -931,6 +931,10 @@ const assert = Object.assign(ok, {}) as typeof nodeAssert;
 export const CallTracker = /*@__PURE__*/ notImplementedClass(
   "asset.CallTracker",
 ) as typeof nodeAssert.CallTracker;
+
+export const partialDeepStrictEqual = /* @__PURE__ */ notImplemented(
+  "assert.partialDeepStrictEqual",
+);
 
 assert.fail = fail;
 assert.ok = ok;
