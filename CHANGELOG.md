@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.3
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.2...v2.0.0-rc.3)
+
+### 🩹 Fixes
+
+- **defineEnv:** Use `import.meta.url` ([890c145](https://github.com/unjs/unenv/commit/890c145))
+- Fix coverage and add `node:repl` + `node:inspector/promises` ([#424](https://github.com/unjs/unenv/pull/424))
+- Full coverage for (esm) node exports ([#425](https://github.com/unjs/unenv/pull/425))
+- Add missing default exports ([#426](https://github.com/unjs/unenv/pull/426))
+- **defineEnv:** Ignore falst ids ([21dea9b](https://github.com/unjs/unenv/commit/21dea9b))
+
+### 💅 Refactors
+
+- ⚠️  Only export `defineEnv` from main ([#421](https://github.com/unjs/unenv/pull/421))
+- ⚠️  Only export defineEnv from main ([#421](https://github.com/unjs/unenv/pull/421))
+- Use same `builtinModules` from runtime ([041d4f6](https://github.com/unjs/unenv/commit/041d4f6))
+- Mark notImplemented constructors as side-effect free ([#422](https://github.com/unjs/unenv/pull/422))
+- Explicit imports with extension ([#416](https://github.com/unjs/unenv/pull/416))
+- Use `satisfies T` when possible ([#423](https://github.com/unjs/unenv/pull/423))
+- ⚠️  Reduce `inject` and `polyfill` for nodeCompat ([#427](https://github.com/unjs/unenv/pull/427))
+
+### 📦 Build
+
+- Sync main subpath types ([a65352f](https://github.com/unjs/unenv/commit/a65352f))
+- Avoid bundling dependencies ([de43cd2](https://github.com/unjs/unenv/commit/de43cd2))
+
+### ✅ Tests
+
+- Make expect error better ([cc5dad3](https://github.com/unjs/unenv/commit/cc5dad3))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Only export `defineEnv` from main ([#421](https://github.com/unjs/unenv/pull/421))
+- ⚠️  Only export defineEnv from main ([#421](https://github.com/unjs/unenv/pull/421))
+- ⚠️  Reduce `inject` and `polyfill` for nodeCompat ([#427](https://github.com/unjs/unenv/pull/427))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v2.0.0-rc.2
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.1...v2.0.0-rc.2)
