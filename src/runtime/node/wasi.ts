@@ -1,9 +1,9 @@
-import type wasi from "node:wasi";
+import type nodeWasi from "node:wasi";
 import { notImplementedClass } from "../_internal/utils.ts";
 
-export const WASI: typeof wasi.WASI =
+export const WASI: typeof nodeWasi.WASI =
   /*@__PURE__*/ notImplementedClass("wasi.WASI");
 
 export default {
   WASI,
-} satisfies typeof wasi;
+} satisfies typeof nodeWasi;

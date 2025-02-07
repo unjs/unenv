@@ -1,6 +1,6 @@
 import { notImplemented } from "../_internal/utils.ts";
 import noop from "../mock/noop.ts";
-import type timers from "node:timers";
+import type nodeTimers from "node:timers";
 import promises from "./timers/promises.ts";
 import { setTimeoutFallback } from "./internal/timers/set-timeout.ts";
 import {
@@ -11,18 +11,18 @@ import { setIntervalFallback } from "./internal/timers/set-interval.ts";
 
 export * as promises from "./timers/promises.ts";
 
-export const clearImmediate: typeof timers.clearImmediate =
+export const clearImmediate: typeof nodeTimers.clearImmediate =
   globalThis.clearImmediate?.bind(globalThis) || clearImmediateFallback;
-export const clearInterval: typeof timers.clearInterval =
+export const clearInterval: typeof nodeTimers.clearInterval =
   globalThis.clearInterval?.bind(globalThis) || noop;
-export const clearTimeout: typeof timers.clearTimeout =
+export const clearTimeout: typeof nodeTimers.clearTimeout =
   globalThis.clearTimeout?.bind(globalThis) || noop;
 
-export const setImmediate: typeof timers.setImmediate =
+export const setImmediate: typeof nodeTimers.setImmediate =
   globalThis.setImmediate?.bind(globalThis) || setImmediateFallback;
-export const setTimeout: typeof timers.setTimeout =
+export const setTimeout: typeof nodeTimers.setTimeout =
   globalThis.setTimeout?.bind(globalThis) || setTimeoutFallback;
-export const setInterval: typeof timers.setInterval =
+export const setInterval: typeof nodeTimers.setInterval =
   globalThis.setInterval?.bind(globalThis) || setIntervalFallback;
 
 export const active = function active(timeout: NodeJS.Timeout | undefined) {
@@ -45,4 +45,4 @@ export default {
   setInterval,
   setTimeout,
   unenroll,
-} satisfies typeof timers;
+} satisfies typeof nodeTimers;

@@ -1,4 +1,4 @@
-import type perf_hooks from "node:perf_hooks";
+import type nodePerfHooks from "node:perf_hooks";
 import {
   IntervalHistogram,
   RecordableHistogram,
@@ -18,12 +18,12 @@ export { constants } from "./internal/perf_hooks/constants.ts";
 
 export * from "./internal/perf_hooks/performance.ts";
 
-export const monitorEventLoopDelay: typeof perf_hooks.monitorEventLoopDelay =
+export const monitorEventLoopDelay: typeof nodePerfHooks.monitorEventLoopDelay =
   function (_options) {
     return new IntervalHistogram();
   };
 
-export const createHistogram: typeof perf_hooks.createHistogram = function (
+export const createHistogram: typeof nodePerfHooks.createHistogram = function (
   _options,
 ) {
   return new RecordableHistogram();
@@ -45,4 +45,4 @@ export default {
   createHistogram,
   monitorEventLoopDelay,
   performance,
-} satisfies Omit<typeof perf_hooks, "PerformanceNodeTiming">; // @types/node bug: PerformanceNodeTiming is included in the types but doesn't exist in the runtime
+} satisfies Omit<typeof nodePerfHooks, "PerformanceNodeTiming">; // @types/node bug: PerformanceNodeTiming is included in the types but doesn't exist in the runtime

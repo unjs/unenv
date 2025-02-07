@@ -1,5 +1,5 @@
 // https://nodejs.org/api/buffer.html
-import type buffer from "node:buffer";
+import type nodeBuffer from "node:buffer";
 import { notImplemented } from "../_internal/utils.ts";
 import {
   Buffer as _Buffer,
@@ -20,7 +20,7 @@ export const Buffer = globalThis.Buffer || _Buffer;
 export { File } from "./internal/buffer/file.ts";
 
 // @ts-expect-eerror https://github.com/unjs/unenv/issues/64
-export const Blob = globalThis.Blob as unknown as typeof buffer.Blob;
+export const Blob = globalThis.Blob as unknown as typeof nodeBuffer.Blob;
 export const resolveObjectURL = /*@__PURE__*/ notImplemented(
   "buffer.resolveObjectURL",
 );
@@ -39,7 +39,7 @@ export const constants = {
 
 export default {
   Buffer,
-  SlowBuffer: SlowBuffer as any as typeof buffer.SlowBuffer,
+  SlowBuffer: SlowBuffer as any as typeof nodeBuffer.SlowBuffer,
   kMaxLength,
   INSPECT_MAX_BYTES,
   Blob,
@@ -52,4 +52,4 @@ export default {
   isUtf8,
   isAscii,
   File,
-} satisfies typeof buffer;
+} satisfies typeof nodeBuffer;

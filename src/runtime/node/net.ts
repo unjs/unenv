@@ -1,5 +1,5 @@
 // https://nodejs.org/api/net.html
-import type net from "node:net";
+import type nodeNet from "node:net";
 
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
@@ -17,45 +17,47 @@ export {
 
 export const createServer = /*@__PURE__*/ notImplemented(
   "net.createServer",
-) as typeof net.createServer;
+) as typeof nodeNet.createServer;
 
 export const BlockList = /*@__PURE__*/ notImplementedClass(
   "net.BlockList",
-) as typeof net.BlockList;
+) as typeof nodeNet.BlockList;
 
 export const connect = /*@__PURE__*/ notImplemented(
   "net.connect",
-) as typeof net.connect;
+) as typeof nodeNet.connect;
 
 export const createConnection = /*@__PURE__*/ notImplemented(
   "net.createConnection",
-) as typeof net.createConnection;
+) as typeof nodeNet.createConnection;
 
 export const getDefaultAutoSelectFamily = /*@__PURE__*/ notImplemented(
   "net.getDefaultAutoSelectFamily",
-) as typeof net.getDefaultAutoSelectFamily;
+) as typeof nodeNet.getDefaultAutoSelectFamily;
 
 export const setDefaultAutoSelectFamily = /*@__PURE__*/ notImplemented(
   "net.setDefaultAutoSelectFamily",
-) as typeof net.setDefaultAutoSelectFamily;
+) as typeof nodeNet.setDefaultAutoSelectFamily;
 
 export const getDefaultAutoSelectFamilyAttemptTimeout =
   /*@__PURE__*/ notImplemented(
     "net.getDefaultAutoSelectFamilyAttemptTimeout",
-  ) as typeof net.getDefaultAutoSelectFamilyAttemptTimeout;
+  ) as typeof nodeNet.getDefaultAutoSelectFamilyAttemptTimeout;
 
 export const setDefaultAutoSelectFamilyAttemptTimeout =
   /*@__PURE__*/ notImplemented(
     "net.setDefaultAutoSelectFamilyAttemptTimeout",
-  ) as typeof net.setDefaultAutoSelectFamilyAttemptTimeout;
+  ) as typeof nodeNet.setDefaultAutoSelectFamilyAttemptTimeout;
 
 const IPV4Regex = /^(?:\d{1,3}\.){3}\d{1,3}$/;
-export const isIPv4: typeof net.isIPv4 = (host: string) => IPV4Regex.test(host);
+export const isIPv4: typeof nodeNet.isIPv4 = (host: string) =>
+  IPV4Regex.test(host);
 
 const IPV6Regex = /^([\dA-Fa-f]{1,4}:){7}[\dA-Fa-f]{1,4}$/;
-export const isIPv6: typeof net.isIPv6 = (host: string) => IPV6Regex.test(host);
+export const isIPv6: typeof nodeNet.isIPv6 = (host: string) =>
+  IPV6Regex.test(host);
 
-export const isIP: typeof net.isIP = (host: string) => {
+export const isIP: typeof nodeNet.isIP = (host: string) => {
   if (isIPv4(host)) {
     return 4;
   }
@@ -77,7 +79,7 @@ export const _setSimultaneousAccepts = /*@__PURE__*/ notImplemented(
   "net._setSimultaneousAccepts",
 );
 
-export const exports: typeof net = {
+export const exports: typeof nodeNet = {
   Socket: Socket,
   // @ts-expect-error (deprecated alias)
   Stream: Socket,

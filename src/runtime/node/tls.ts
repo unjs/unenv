@@ -1,4 +1,4 @@
-import type tls from "node:tls";
+import type nodeTls from "node:tls";
 import { notImplemented } from "../_internal/utils.ts";
 import { TLSSocket } from "./internal/tls/tls-socket.ts";
 import { Server } from "./internal/tls/server.ts";
@@ -10,26 +10,27 @@ export { TLSSocket } from "./internal/tls/tls-socket.ts";
 export { Server } from "./internal/tls/server.ts";
 export { SecureContext } from "./internal/tls/secure-context.ts";
 
-export const connect: typeof tls.connect = function connect() {
+export const connect: typeof nodeTls.connect = function connect() {
   return new TLSSocket();
 };
 
-export const createServer: typeof tls.createServer = function createServer() {
-  return new Server();
-};
-export const checkServerIdentity: typeof tls.checkServerIdentity =
+export const createServer: typeof nodeTls.createServer =
+  function createServer() {
+    return new Server();
+  };
+export const checkServerIdentity: typeof nodeTls.checkServerIdentity =
   /*@__PURE__*/ notImplemented("tls.checkServerIdentity");
 export const convertALPNProtocols = /*@__PURE__*/ notImplemented(
   "tls.convertALPNProtocols",
 );
-export const createSecureContext: typeof tls.createSecureContext =
+export const createSecureContext: typeof nodeTls.createSecureContext =
   /*@__PURE__*/ notImplemented("tls.createSecureContext");
-export const createSecurePair: typeof tls.createSecurePair =
+export const createSecurePair: typeof nodeTls.createSecurePair =
   /*@__PURE__*/ notImplemented("tls.createSecurePair");
-export const getCiphers: typeof tls.getCiphers =
+export const getCiphers: typeof nodeTls.getCiphers =
   /*@__PURE__*/ notImplemented("tls.getCiphers");
 
-export const rootCertificates: typeof tls.rootCertificates = [];
+export const rootCertificates: typeof nodeTls.rootCertificates = [];
 
 export default {
   ...constants,
@@ -44,4 +45,4 @@ export default {
   createServer,
   getCiphers,
   rootCertificates,
-} as /* TODO: use satisfies */ typeof tls;
+} as /* TODO: use satisfies */ typeof nodeTls;

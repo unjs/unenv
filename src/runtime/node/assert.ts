@@ -22,7 +22,7 @@
 // Based on Node.js' assert module
 // https://github.com/nodejs/node/blob/0db95d371274104a5acf09214bf8325c45bfb64a/lib/assert.js
 
-import nodeAssert from "node:assert";
+import type nodeAssert from "node:assert";
 
 import { isEqual as _ohashIsEqual } from "ohash";
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";

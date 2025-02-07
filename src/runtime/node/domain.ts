@@ -1,12 +1,12 @@
-import type domain from "node:domain";
+import type nodeDomain from "node:domain";
 import { Domain } from "./internal/domain/domain.ts";
 
 export { Domain } from "./internal/domain/domain.ts";
 
-export const create: typeof domain.create = function () {
+export const create: typeof nodeDomain.create = function () {
   return new Domain();
 };
-export const createDomain: typeof domain.create = create;
+export const createDomain: typeof nodeDomain.create = create;
 const _domain = create();
 export const active = () => _domain;
 export const _stack = [];
@@ -17,4 +17,4 @@ export default {
   active,
   create,
   createDomain,
-} as /* TODO: use satisfies */ typeof domain;
+} as /* TODO: use satisfies */ typeof nodeDomain;

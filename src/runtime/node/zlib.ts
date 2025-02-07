@@ -1,4 +1,4 @@
-import type zlib from "node:zlib";
+import type nodeZlib from "node:zlib";
 
 import { constants } from "./internal/zlib/constants.ts";
 import { codes } from "./internal/zlib/codes.ts";
@@ -18,14 +18,14 @@ export * from "./internal/zlib/formats/gzip.ts";
 export * from "./internal/zlib/formats/zip.ts";
 
 export const crc32 =
-  /*@__PURE__*/ notImplemented<typeof zlib.crc32>("zlib.crc32");
+  /*@__PURE__*/ notImplemented<typeof nodeZlib.crc32>("zlib.crc32");
 
 // Deprecated constants
-const Z_BINARY: typeof zlib.Z_BINARY = 0;
-const Z_TEXT: typeof zlib.Z_TEXT = 1;
-const Z_ASCII: typeof zlib.Z_ASCII = 1;
-const Z_UNKNOWN: typeof zlib.Z_UNKNOWN = 2;
-const Z_DEFLATED: typeof zlib.Z_DEFLATED = 8;
+const Z_BINARY: typeof nodeZlib.Z_BINARY = 0;
+const Z_TEXT: typeof nodeZlib.Z_TEXT = 1;
+const Z_ASCII: typeof nodeZlib.Z_ASCII = 1;
+const Z_UNKNOWN: typeof nodeZlib.Z_UNKNOWN = 2;
+const Z_DEFLATED: typeof nodeZlib.Z_DEFLATED = 8;
 
 export default {
   ...constants,
@@ -42,4 +42,4 @@ export default {
   Z_ASCII,
   Z_UNKNOWN,
   Z_DEFLATED,
-} satisfies typeof zlib;
+} satisfies typeof nodeZlib;
