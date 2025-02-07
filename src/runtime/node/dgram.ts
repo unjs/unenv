@@ -14,4 +14,4 @@ export default {
   Socket,
   _createSocketHandle,
   createSocket,
-} as typeof dgram;
+} as /* TODO: use satisfies */ typeof dgram;

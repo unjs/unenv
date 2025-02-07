@@ -34,4 +34,4 @@ export default {
   fork,
   spawn,
   spawnSync,
-} as typeof child_process;
+} as /* TODO: use satisfies */ typeof child_process;

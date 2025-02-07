@@ -44,4 +44,4 @@ export default {
   createServer,
   getCiphers,
   rootCertificates,
-} as typeof tls;
+} as /* TODO: use satisfies */ typeof tls;

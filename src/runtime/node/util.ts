@@ -100,4 +100,4 @@ export default {
   ...mime,
   ...logUtils,
   ...legacyTypes,
-} as typeof util;
+} as /* TODO: use satisfies */ typeof util;

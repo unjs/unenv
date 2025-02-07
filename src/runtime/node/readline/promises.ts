@@ -12,4 +12,4 @@ export default {
   Interface,
   Readline,
   createInterface,
-} as typeof readline;
+} as /* TODO: use satisfies */ typeof readline;

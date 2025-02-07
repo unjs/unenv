@@ -53,4 +53,7 @@ export default {
   runInContext,
   runInNewContext,
   runInThisContext,
-} as Omit<typeof vm, "Module" | "SourceTextModule" | "SyntheticModule">;
+} as /* TODO: use satisfies */ Omit<
+  typeof vm,
+  "Module" | "SourceTextModule" | "SyntheticModule"
+>;

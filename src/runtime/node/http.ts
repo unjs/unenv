@@ -76,4 +76,4 @@ export default {
   validateHeaderValue,
   setMaxIdleHTTPParsers,
   _connectionListener,
-} as typeof http;
+} as /* TODO: use satisfies */ typeof http;

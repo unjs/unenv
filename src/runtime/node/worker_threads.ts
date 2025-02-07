@@ -76,4 +76,4 @@ export default {
   postMessageToThread,
   threadId,
   workerData,
-} as typeof worker_threads;
+} as /* TODO: use satisfies */ typeof worker_threads;

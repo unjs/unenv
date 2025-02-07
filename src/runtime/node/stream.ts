@@ -68,4 +68,4 @@ export default {
   isErrored,
   destroy,
   _isUint8Array,
-} as typeof stream & StreamInternal;
+} as /* TODO: use satisfies */ typeof stream & StreamInternal;

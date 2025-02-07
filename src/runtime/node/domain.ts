@@ -17,4 +17,4 @@ export default {
   active,
   create,
   createDomain,
-} as typeof domain;
+} as /* TODO: use satisfies */ typeof domain;

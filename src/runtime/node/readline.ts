@@ -25,4 +25,4 @@ export default {
   emitKeypressEvents,
   moveCursor,
   promises,
-} as typeof readline;
+} as /* TODO: use satisfies */ typeof readline;

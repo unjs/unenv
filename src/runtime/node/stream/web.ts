@@ -75,4 +75,4 @@ export default {
   TextDecoderStream,
   DecompressionStream,
   CompressionStream,
-} as typeof streamWeb;
+} as /* TODO: use satisfies */ typeof streamWeb;
