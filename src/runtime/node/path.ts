@@ -27,4 +27,4 @@ export const _makeLong = _pathModule._makeLong;
 
 export const matchesGlob = _pathModule.matchesGlob;
 
-export default <typeof nodePath>_pathModule;
+export default _pathModule satisfies typeof nodePath;
