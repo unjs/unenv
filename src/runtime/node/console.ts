@@ -73,7 +73,6 @@ export default {
   error,
   // @ts-expect-error
   context,
-  // @ts-expect-error
   createTask,
   group,
   groupEnd,
