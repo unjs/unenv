@@ -53,6 +53,9 @@ export function defineEnv(opts: CreateEnvOptions = {}): {
     };
 
     const _resolve = (id: string) => {
+      if (!id) {
+        return id;
+      }
       let resolved = _tryResolve(id);
       if (!resolved && id.startsWith("unenv/")) {
         resolved = _tryResolve(id.replace("unenv/", "unenv-nightly/"));
