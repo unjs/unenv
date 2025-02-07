@@ -36,6 +36,7 @@ export default {
   // @ts-expect-error @types/node is missing this one - this is a bug in typings
   codes,
   constants,
+  crc32,
   Z_BINARY,
   Z_TEXT,
   Z_ASCII,

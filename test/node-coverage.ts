@@ -16,6 +16,7 @@ for (const module of builtinModules) {
   try {
     const nodeMod = await import(`node:${module}`);
     const unenvMod = await import(`../src/runtime/node/${module}.ts`);
+
     const supportedExports = [] as string[];
     const unsupportedExports = [] as string[];
     for (const exportName in nodeMod) {
@@ -25,6 +26,16 @@ for (const module of builtinModules) {
         unsupportedExports.push(exportName);
       }
     }
+
+    for (const defExportName in nodeMod) {
+      if (defExportName === "default") {
+        continue;
+      }
+      if (!(defExportName in (unenvMod.default || {}))) {
+        unsupportedExports.push(`default.${defExportName}`);
+      }
+    }
+
     modulesCoverage.push({
       name: module,
       supportedExports,

@@ -383,4 +383,5 @@ export const process = {
   uptime,
   version,
   versions,
+  _linkedBinding,
 } satisfies typeof nodeProcess;
