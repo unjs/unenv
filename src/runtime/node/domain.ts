@@ -11,10 +11,10 @@ const _domain = create();
 export const active = () => _domain;
 export const _stack = [];
 
-export default <typeof domain>{
+export default {
   Domain,
   _stack,
   active,
   create,
   createDomain,
-};
+} as /* TODO: use satisfies */ typeof domain;

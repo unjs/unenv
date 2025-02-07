@@ -57,7 +57,7 @@ export const CompressionStream =
   /*@__PURE__*/ notImplemented("stream.web.CompressionStream");
 
 // @ts-ignore
-export default <typeof streamWeb>{
+export default {
   ReadableStream,
   ReadableStreamDefaultReader,
   ReadableStreamBYOBReader,
@@ -75,4 +75,4 @@ export default <typeof streamWeb>{
   TextDecoderStream,
   DecompressionStream,
   CompressionStream,
-};
+} as /* TODO: use satisfies */ typeof streamWeb;

@@ -57,7 +57,7 @@ export const MessageEvent =
   globalThis.MessageEvent ||
   /*@__PURE__*/ notImplementedClass<MessageEvent>("MessageEvent");
 
-export default <typeof http>{
+export default {
   ...consts,
   IncomingMessage: IncomingMessage as any as typeof http.IncomingMessage,
   ServerResponse: ServerResponse as any as typeof http.ServerResponse,
@@ -76,4 +76,4 @@ export default <typeof http>{
   validateHeaderValue,
   setMaxIdleHTTPParsers,
   _connectionListener,
-};
+} as /* TODO: use satisfies */ typeof http;

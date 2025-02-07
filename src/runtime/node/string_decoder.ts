@@ -6,6 +6,6 @@ export const StringDecoder: typeof stringDecoder.StringDecoder =
   (globalThis as any).StringDecoder ||
   /*@__PURE__*/ notImplementedClass("string_decoder.StringDecoder");
 
-export default <typeof stringDecoder>{
+export default {
   StringDecoder,
-};
+} satisfies typeof stringDecoder;

@@ -9,8 +9,8 @@ export * from "./internal/constants/os.ts";
 export * from "./internal/constants/fs.ts";
 export * from "./internal/constants/crypto.ts";
 
-export default <typeof constants>{
+export default {
   ...crypto,
   ...fs,
   ...os,
-};
+} satisfies typeof constants;

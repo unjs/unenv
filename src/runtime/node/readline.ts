@@ -15,7 +15,7 @@ export const cursorTo: typeof readline.cursorTo = () => false;
 export const emitKeypressEvents: typeof readline.emitKeypressEvents = noop;
 export const moveCursor: typeof readline.moveCursor = () => false;
 
-export default <typeof readline>{
+export default {
   Interface,
   Readline: Interface,
   clearLine,
@@ -25,4 +25,4 @@ export default <typeof readline>{
   emitKeypressEvents,
   moveCursor,
   promises,
-};
+} as /* TODO: use satisfies */ typeof readline;

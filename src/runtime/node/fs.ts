@@ -13,9 +13,9 @@ export * from "./internal/fs/fs.ts";
 
 export const promises = _promises;
 
-export default <typeof nodeFS>{
+export default {
   ..._classes,
   ..._constants,
   ..._fs,
   promises,
-};
+} satisfies typeof nodeFS;

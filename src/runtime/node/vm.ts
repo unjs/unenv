@@ -42,9 +42,7 @@ export const runInNewContext: typeof vm.runInNewContext =
 export const runInThisContext: typeof vm.runInThisContext =
   /*@__PURE__*/ notImplemented("vm.runInThisContext");
 
-export default <
-  Omit<typeof vm, "Module" | "SourceTextModule" | "SyntheticModule">
->{
+export default {
   Script,
   compileFunction,
   constants,
@@ -55,4 +53,7 @@ export default <
   runInContext,
   runInNewContext,
   runInThisContext,
-};
+} as /* TODO: use satisfies */ Omit<
+  typeof vm,
+  "Module" | "SourceTextModule" | "SyntheticModule"
+>;

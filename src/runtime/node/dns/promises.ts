@@ -46,7 +46,7 @@ export const reverse: typeof dns.reverse =
 export const setDefaultResultOrder: typeof dns.setDefaultResultOrder = noop;
 export const setServers: typeof dns.setServers = noop;
 
-export default <typeof dns>{
+export default {
   ...constants,
   Resolver,
   getDefaultResultOrder,
@@ -69,4 +69,4 @@ export default <typeof dns>{
   reverse,
   setDefaultResultOrder,
   setServers,
-};
+} satisfies typeof dns;

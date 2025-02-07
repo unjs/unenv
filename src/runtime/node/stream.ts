@@ -50,7 +50,7 @@ export const _uint8ArrayToBuffer = /*@__PURE__*/ notImplemented(
   "stream._uint8ArrayToBuffer",
 );
 
-export default <typeof stream & StreamInternal>{
+export default {
   Readable: Readable as unknown as typeof stream.Readable,
   Writable: Writable as unknown as typeof stream.Writable,
   Duplex: Duplex as unknown as typeof stream.Duplex,
@@ -68,4 +68,4 @@ export default <typeof stream & StreamInternal>{
   isErrored,
   destroy,
   _isUint8Array,
-};
+} as /* TODO: use satisfies */ typeof stream & StreamInternal;

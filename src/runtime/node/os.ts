@@ -98,7 +98,7 @@ export const userInfo: typeof os.userInfo = (opts) => {
 
 export const EOL: typeof os.EOL = "\n";
 
-export default <typeof os>{
+export default {
   arch,
   availableParallelism,
   constants,
@@ -122,4 +122,4 @@ export default <typeof os>{
   uptime,
   userInfo,
   version,
-};
+} satisfies typeof os;

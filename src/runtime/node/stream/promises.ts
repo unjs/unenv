@@ -8,7 +8,7 @@ export const pipeline = /*@__PURE__*/ notImplemented(
   "stream.promises.pipeline",
 );
 
-export default <typeof streamPromises>{
+export default {
   finished,
   pipeline,
-};
+} satisfies typeof streamPromises;

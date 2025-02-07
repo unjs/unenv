@@ -31,7 +31,7 @@ export const getCiphers: typeof tls.getCiphers =
 
 export const rootCertificates: typeof tls.rootCertificates = [];
 
-export default <typeof tls>{
+export default {
   ...constants,
   SecureContext,
   Server,
@@ -44,4 +44,4 @@ export default <typeof tls>{
   createServer,
   getCiphers,
   rootCertificates,
-};
+} as /* TODO: use satisfies */ typeof tls;
