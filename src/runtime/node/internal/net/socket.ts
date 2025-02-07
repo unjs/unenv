@@ -1,5 +1,8 @@
 import type * as net from "node:net";
-import { Callback, BufferEncoding } from "../../../_internal/types.ts";
+import {
+  type Callback,
+  type BufferEncoding,
+} from "../../../_internal/types.ts";
 // Relative stream import required, see https://github.com/unjs/unenv/issues/353
 import { Duplex } from "../stream/duplex.ts";
 

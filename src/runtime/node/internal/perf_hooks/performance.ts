@@ -57,7 +57,7 @@ export const Performance = class Performance
   }
 
   eventLoopUtilization() {
-    return <perf_hooks.EventLoopUtilization>{};
+    return {} as perf_hooks.EventLoopUtilization;
   }
 
   mark(name: string, options?: PerformanceMarkOptions | undefined) {
