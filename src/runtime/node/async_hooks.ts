@@ -1,5 +1,5 @@
 // https://nodejs.org/api/events.html
-import type asyncHooks from "node:async_hooks";
+import type nodeAsyncHooks from "node:async_hooks";
 
 import { AsyncLocalStorage } from "./internal/async_hooks/async-local-storage.ts";
 import { AsyncResource } from "./internal/async_hooks/async-resource.ts";
@@ -15,4 +15,4 @@ export default {
   AsyncLocalStorage,
   AsyncResource,
   ...asyncHook,
-} satisfies typeof asyncHooks;
+} satisfies typeof nodeAsyncHooks;

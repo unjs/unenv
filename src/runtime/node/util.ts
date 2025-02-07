@@ -1,5 +1,5 @@
 // https://nodejs.org/api/util.html
-import type util from "node:util";
+import type nodeUtil from "node:util";
 import { notImplemented } from "../_internal/utils.ts";
 import inherits from "../npm/inherits.ts";
 import * as legacyTypes from "./internal/util/legacy-types.ts";
@@ -17,12 +17,12 @@ export { promisify } from "./internal/util/promisify.ts";
 export { default as types } from "./util/types.ts";
 
 // @ts-ignore
-export const TextDecoder: typeof util.TextDecoder = globalThis.TextDecoder;
+export const TextDecoder: typeof nodeUtil.TextDecoder = globalThis.TextDecoder;
 
 // @ts-ignore
-export const TextEncoder: typeof util.TextEncoder = globalThis.TextEncoder;
+export const TextEncoder: typeof nodeUtil.TextEncoder = globalThis.TextEncoder;
 
-export const deprecate: typeof util.deprecate = (fn) => fn;
+export const deprecate: typeof nodeUtil.deprecate = (fn) => fn;
 
 export const _errnoException = /*@__PURE__*/ notImplemented(
   "util._errnoException",
@@ -33,44 +33,46 @@ export const _exceptionWithHostPort = /*@__PURE__*/ notImplemented(
 export const _extend = /*@__PURE__*/ notImplemented("util._extend");
 
 export const aborted =
-  /*@__PURE__*/ notImplemented<typeof util.aborted>("util.aborted");
+  /*@__PURE__*/ notImplemented<typeof nodeUtil.aborted>("util.aborted");
 export const callbackify =
-  /*@__PURE__*/ notImplemented<typeof util.callbackify>("util.callbackify");
+  /*@__PURE__*/ notImplemented<typeof nodeUtil.callbackify>("util.callbackify");
 export const getSystemErrorMap = /*@__PURE__*/ notImplemented<
-  typeof util.getSystemErrorMap
+  typeof nodeUtil.getSystemErrorMap
 >("util.getSystemErrorMap");
 export const getSystemErrorName = /*@__PURE__*/ notImplemented<
-  typeof util.getSystemErrorName
+  typeof nodeUtil.getSystemErrorName
 >("util.getSystemErrorName");
 export const toUSVString =
-  /*@__PURE__*/ notImplemented<typeof util.toUSVString>("util.toUSVString");
+  /*@__PURE__*/ notImplemented<typeof nodeUtil.toUSVString>("util.toUSVString");
 export const stripVTControlCharacters = /*@__PURE__*/ notImplemented<
-  typeof util.stripVTControlCharacters
+  typeof nodeUtil.stripVTControlCharacters
 >("util.stripVTControlCharacters");
 
 export const transferableAbortController = /*@__PURE__*/ notImplemented<
-  typeof util.transferableAbortController
+  typeof nodeUtil.transferableAbortController
 >("util.transferableAbortController");
 export const transferableAbortSignal = /*@__PURE__*/ notImplemented<
-  typeof util.transferableAbortSignal
+  typeof nodeUtil.transferableAbortSignal
 >("util.transferableAbortSignal");
 export const parseArgs =
-  /*@__PURE__*/ notImplemented<typeof util.parseArgs>("util.parseArgs");
+  /*@__PURE__*/ notImplemented<typeof nodeUtil.parseArgs>("util.parseArgs");
 
 export const parseEnv =
-  /*@__PURE__*/ notImplemented<typeof util.parseEnv>("util.parseEnv");
+  /*@__PURE__*/ notImplemented<typeof nodeUtil.parseEnv>("util.parseEnv");
 
 export const styleText =
-  /*@__PURE__*/ notImplemented<typeof util.styleText>("util.styleText");
+  /*@__PURE__*/ notImplemented<typeof nodeUtil.styleText>("util.styleText");
 
 /** @deprecated */
 export const getCallSite = /*@__PURE__*/ notImplemented("util.getCallSite");
 
 export const getCallSites =
-  /*@__PURE__*/ notImplemented<typeof util.getCallSites>("util.getCallSites");
+  /*@__PURE__*/ notImplemented<typeof nodeUtil.getCallSites>(
+    "util.getCallSites",
+  );
 
 export const getSystemErrorMessage = /*@__PURE__*/ notImplemented<
-  typeof util.getSystemErrorMessage
+  typeof nodeUtil.getSystemErrorMessage
 >("util.getSystemErrorMessage");
 
 export default {
@@ -100,4 +102,4 @@ export default {
   ...mime,
   ...logUtils,
   ...legacyTypes,
-} as /* TODO: use satisfies */ typeof util;
+} as /* TODO: use satisfies */ typeof nodeUtil;

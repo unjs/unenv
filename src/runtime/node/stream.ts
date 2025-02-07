@@ -1,5 +1,5 @@
 // https://nodejs.org/api/stream.html
-import type stream from "node:stream";
+import type nodeStream from "node:stream";
 import mock from "../mock/proxy.ts";
 import { notImplemented } from "../_internal/utils.ts";
 import { Readable } from "./internal/stream/readable.ts";
@@ -16,18 +16,18 @@ export { Writable } from "./internal/stream/writable.ts";
 export { Duplex } from "./internal/stream/duplex.ts";
 export { Transform } from "./internal/stream/transform.ts";
 
-export const Stream: stream.Stream = mock.__createMock__("Stream");
-export const PassThrough: stream.PassThrough =
+export const Stream: nodeStream.Stream = mock.__createMock__("Stream");
+export const PassThrough: nodeStream.PassThrough =
   mock.__createMock__("PassThrough");
 
-export const pipeline = /*@__PURE__*/ notImplemented<typeof stream.pipeline>(
-  "stream.pipeline",
-) as any;
-export const finished = /*@__PURE__*/ notImplemented<typeof stream.finished>(
-  "stream.finished",
-) as any;
+export const pipeline = /*@__PURE__*/ notImplemented<
+  typeof nodeStream.pipeline
+>("stream.pipeline") as any;
+export const finished = /*@__PURE__*/ notImplemented<
+  typeof nodeStream.finished
+>("stream.finished") as any;
 export const addAbortSignal = /*@__PURE__*/ notImplemented<
-  typeof stream.addAbortSignal
+  typeof nodeStream.addAbortSignal
 >("stream.addAbortSignal");
 
 export const isDisturbed = /*@__PURE__*/ notImplemented("stream.isDisturbed");
@@ -61,12 +61,12 @@ export const setDefaultHighWaterMark = /*@__PURE__*/ notImplemented(
 );
 
 export default {
-  Readable: Readable as unknown as typeof stream.Readable,
-  Writable: Writable as unknown as typeof stream.Writable,
-  Duplex: Duplex as unknown as typeof stream.Duplex,
-  Transform: Transform as unknown as typeof stream.Transform,
-  Stream: Stream as unknown as typeof stream.Stream,
-  PassThrough: PassThrough as unknown as typeof stream.PassThrough,
+  Readable: Readable as unknown as typeof nodeStream.Readable,
+  Writable: Writable as unknown as typeof nodeStream.Writable,
+  Duplex: Duplex as unknown as typeof nodeStream.Duplex,
+  Transform: Transform as unknown as typeof nodeStream.Transform,
+  Stream: Stream as unknown as typeof nodeStream.Stream,
+  PassThrough: PassThrough as unknown as typeof nodeStream.PassThrough,
   pipeline,
   finished,
   addAbortSignal,
@@ -84,7 +84,7 @@ export default {
   isDestroyed,
   isWritable,
   setDefaultHighWaterMark,
-} as /* TODO: use satisfies */ typeof stream & {
+} as /* TODO: use satisfies */ typeof nodeStream & {
   isDisturbed: any;
   isReadable: any;
   compose: any;

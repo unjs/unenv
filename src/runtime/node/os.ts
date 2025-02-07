@@ -1,4 +1,4 @@
-import type os from "node:os";
+import type nodeOs from "node:os";
 import { notImplemented } from "../_internal/utils.ts";
 import { constants } from "./internal/os/constants.ts";
 
@@ -6,14 +6,14 @@ export { constants } from "./internal/os/constants.ts";
 
 const NUM_CPUS = 8;
 
-export const availableParallelism: typeof os.availableParallelism = () =>
+export const availableParallelism: typeof nodeOs.availableParallelism = () =>
   NUM_CPUS;
 
-export const arch: typeof os.arch = () => "";
-export const machine: typeof os.machine = () => "";
-export const endianness: typeof os.endianness = () => "LE";
-export const cpus: typeof os.cpus = () => {
-  const info: os.CpuInfo = {
+export const arch: typeof nodeOs.arch = () => "";
+export const machine: typeof nodeOs.machine = () => "";
+export const endianness: typeof nodeOs.endianness = () => "LE";
+export const cpus: typeof nodeOs.cpus = () => {
+  const info: nodeOs.CpuInfo = {
     model: "",
     speed: 0,
     times: {
@@ -27,21 +27,21 @@ export const cpus: typeof os.cpus = () => {
   return Array.from({ length: NUM_CPUS }, () => info);
 };
 
-export const getPriority: typeof os.getPriority = () => 0;
-export const setPriority: typeof os.setPriority =
-  /*@__PURE__*/ notImplemented<typeof os.setPriority>("os.setPriority");
+export const getPriority: typeof nodeOs.getPriority = () => 0;
+export const setPriority: typeof nodeOs.setPriority =
+  /*@__PURE__*/ notImplemented<typeof nodeOs.setPriority>("os.setPriority");
 
-export const homedir: typeof os.homedir = () => "/";
-export const tmpdir: typeof os.tmpdir = () => "/tmp";
-export const devNull: typeof os.devNull = "/dev/null";
+export const homedir: typeof nodeOs.homedir = () => "/";
+export const tmpdir: typeof nodeOs.tmpdir = () => "/tmp";
+export const devNull: typeof nodeOs.devNull = "/dev/null";
 
-export const freemem: typeof os.freemem = () => 0;
-export const totalmem: typeof os.totalmem = () => 0;
-export const loadavg: typeof os.loadavg = () => [0, 0, 0];
-export const uptime: typeof os.uptime = () => 0;
+export const freemem: typeof nodeOs.freemem = () => 0;
+export const totalmem: typeof nodeOs.totalmem = () => 0;
+export const loadavg: typeof nodeOs.loadavg = () => [0, 0, 0];
+export const uptime: typeof nodeOs.uptime = () => 0;
 
-export const hostname: typeof os.hostname = () => "";
-export const networkInterfaces: typeof os.networkInterfaces = () => {
+export const hostname: typeof nodeOs.hostname = () => "";
+export const networkInterfaces: typeof nodeOs.networkInterfaces = () => {
   return {
     lo0: [
       {
@@ -74,12 +74,12 @@ export const networkInterfaces: typeof os.networkInterfaces = () => {
   };
 };
 
-export const platform: typeof os.platform = () => "linux";
-export const type: typeof os.type = () => "Linux";
-export const release: typeof os.release = () => "";
-export const version: typeof os.version = () => "";
+export const platform: typeof nodeOs.platform = () => "linux";
+export const type: typeof nodeOs.type = () => "Linux";
+export const release: typeof nodeOs.release = () => "";
+export const version: typeof nodeOs.version = () => "";
 
-export const userInfo: typeof os.userInfo = (opts) => {
+export const userInfo: typeof nodeOs.userInfo = (opts) => {
   const encode = (str: string) => {
     if (opts?.encoding) {
       const buff = Buffer.from(str);
@@ -96,7 +96,7 @@ export const userInfo: typeof os.userInfo = (opts) => {
   } as any;
 };
 
-export const EOL: typeof os.EOL = "\n";
+export const EOL: typeof nodeOs.EOL = "\n";
 
 export default {
   arch,
@@ -122,4 +122,4 @@ export default {
   uptime,
   userInfo,
   version,
-} satisfies typeof os;
+} satisfies typeof nodeOs;

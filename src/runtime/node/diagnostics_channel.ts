@@ -1,4 +1,4 @@
-import type diagnostics_channel from "node:diagnostics_channel";
+import type nodeDiagnosticsChannel from "node:diagnostics_channel";
 import {
   Channel,
   getChannels,
@@ -7,7 +7,7 @@ import { TracingChannel } from "./internal/diagnostics_channel/tracing-channel.t
 
 export { Channel } from "./internal/diagnostics_channel/channel.ts";
 
-export const channel: typeof diagnostics_channel.channel = function (name) {
+export const channel: typeof nodeDiagnosticsChannel.channel = function (name) {
   const channels = getChannels();
   if (name in channels) {
     return channels[name];
@@ -15,32 +15,32 @@ export const channel: typeof diagnostics_channel.channel = function (name) {
   return new Channel(name);
 };
 
-export const hasSubscribers: typeof diagnostics_channel.hasSubscribers =
+export const hasSubscribers: typeof nodeDiagnosticsChannel.hasSubscribers =
   function (name) {
     const channels = getChannels();
     const channel = channels[name];
     return channel && channel.hasSubscribers;
   };
 
-export const subscribe: typeof diagnostics_channel.subscribe = function (
+export const subscribe: typeof nodeDiagnosticsChannel.subscribe = function (
   name,
   onMessage,
 ) {
   channel(name).subscribe(onMessage);
 };
 
-export const unsubscribe: typeof diagnostics_channel.unsubscribe = function (
+export const unsubscribe: typeof nodeDiagnosticsChannel.unsubscribe = function (
   name,
   onMessage,
 ) {
   return (channel(name) as Channel<unknown, object>).unsubscribe(onMessage);
 };
 
-export const tracingChannel: typeof diagnostics_channel.tracingChannel =
+export const tracingChannel: typeof nodeDiagnosticsChannel.tracingChannel =
   function <StoreType = unknown, ContextType extends object = object>(
     name:
       | string
-      | diagnostics_channel.TracingChannelCollection<StoreType, ContextType>,
+      | nodeDiagnosticsChannel.TracingChannelCollection<StoreType, ContextType>,
   ) {
     return new TracingChannel<StoreType, ContextType>(name);
   };
@@ -54,4 +54,4 @@ export default {
   subscribe,
   tracingChannel,
   unsubscribe,
-} satisfies Omit<typeof diagnostics_channel, "TracingChannel">;
+} satisfies Omit<typeof nodeDiagnosticsChannel, "TracingChannel">;

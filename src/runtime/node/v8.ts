@@ -1,5 +1,5 @@
 import noop from "../mock/noop.ts";
-import type v8 from "node:v8";
+import type nodeV8 from "node:v8";
 import { Readable } from "node:stream";
 import {
   Deserializer,
@@ -23,27 +23,29 @@ const getMockHeapSpaceStats = (name: string) => ({
   physical_space_size: 0,
 });
 
-export const cachedDataVersionTag: typeof v8.cachedDataVersionTag = () => 0;
-export const deserialize: typeof v8.deserialize = noop;
-export const getHeapCodeStatistics: typeof v8.getHeapCodeStatistics = () => ({
-  code_and_metadata_size: 0,
-  bytecode_and_metadata_size: 0,
-  external_script_source_size: 0,
-  cpu_profiler_metadata_size: 0,
-});
-export const getHeapSpaceStatistics: typeof v8.getHeapSpaceStatistics = () =>
-  [
-    "read_only_space",
-    "new_space",
-    "old_space",
-    "code_space",
-    "map_space",
-    "large_object_space",
-    "code_large_object_space",
-    "new_large_object_space",
-  ].map((space) => getMockHeapSpaceStats(space));
+export const cachedDataVersionTag: typeof nodeV8.cachedDataVersionTag = () => 0;
+export const deserialize: typeof nodeV8.deserialize = noop;
+export const getHeapCodeStatistics: typeof nodeV8.getHeapCodeStatistics =
+  () => ({
+    code_and_metadata_size: 0,
+    bytecode_and_metadata_size: 0,
+    external_script_source_size: 0,
+    cpu_profiler_metadata_size: 0,
+  });
+export const getHeapSpaceStatistics: typeof nodeV8.getHeapSpaceStatistics =
+  () =>
+    [
+      "read_only_space",
+      "new_space",
+      "old_space",
+      "code_space",
+      "map_space",
+      "large_object_space",
+      "code_large_object_space",
+      "new_large_object_space",
+    ].map((space) => getMockHeapSpaceStats(space));
 
-export const getHeapStatistics: typeof v8.getHeapStatistics = () => ({
+export const getHeapStatistics: typeof nodeV8.getHeapStatistics = () => ({
   total_heap_size: 0,
   total_heap_size_executable: 0,
   total_physical_size: 0,
@@ -60,7 +62,7 @@ export const getHeapStatistics: typeof v8.getHeapStatistics = () => ({
   external_memory: 0,
 });
 
-export const getHeapSnapshot: typeof v8.getHeapSnapshot = () => {
+export const getHeapSnapshot: typeof nodeV8.getHeapSnapshot = () => {
   return Readable.from(`{
     snapshot: {},
     nodes: [],
@@ -73,7 +75,7 @@ export const getHeapSnapshot: typeof v8.getHeapSnapshot = () => {
   }`);
 };
 
-export const promiseHooks: typeof v8.promiseHooks = {
+export const promiseHooks: typeof nodeV8.promiseHooks = {
   onInit: () => noop,
   onSettled: () => noop,
   onBefore: () => noop,
@@ -81,20 +83,20 @@ export const promiseHooks: typeof v8.promiseHooks = {
   createHook: () => noop,
 };
 
-export const serialize: typeof v8.serialize = (value: any) =>
+export const serialize: typeof nodeV8.serialize = (value: any) =>
   Buffer.from(value);
-export const setFlagsFromString: typeof v8.setFlagsFromString = noop;
-export const setHeapSnapshotNearHeapLimit: typeof v8.setHeapSnapshotNearHeapLimit =
+export const setFlagsFromString: typeof nodeV8.setFlagsFromString = noop;
+export const setHeapSnapshotNearHeapLimit: typeof nodeV8.setHeapSnapshotNearHeapLimit =
   noop;
-export const startupSnapshot: typeof v8.startupSnapshot = {
+export const startupSnapshot: typeof nodeV8.startupSnapshot = {
   addDeserializeCallback: noop,
   addSerializeCallback: noop,
   setDeserializeMainFunction: noop,
   isBuildingSnapshot: () => false,
 };
-export const stopCoverage: typeof v8.stopCoverage = noop;
-export const takeCoverage: typeof v8.takeCoverage = noop;
-export const writeHeapSnapshot: typeof v8.writeHeapSnapshot = () => "";
+export const stopCoverage: typeof nodeV8.stopCoverage = noop;
+export const takeCoverage: typeof nodeV8.takeCoverage = noop;
+export const writeHeapSnapshot: typeof nodeV8.writeHeapSnapshot = () => "";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 type _Function = Function;
@@ -138,4 +140,4 @@ export default {
   takeCoverage,
   writeHeapSnapshot,
   queryObjects,
-} satisfies typeof v8;
+} satisfies typeof nodeV8;

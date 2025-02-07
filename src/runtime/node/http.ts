@@ -1,5 +1,5 @@
 // https://nodejs.org/api/http.html
-import type http from "node:http";
+import type nodeHttp from "node:http";
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 import mock from "../mock/proxy.ts";
 import * as consts from "./internal/http/consts.ts";
@@ -11,34 +11,37 @@ export * from "./internal/http/request.ts";
 export * from "./internal/http/response.ts";
 
 export const createServer =
-  /*@__PURE__*/ notImplemented<typeof http.createServer>("http.createServer");
+  /*@__PURE__*/ notImplemented<typeof nodeHttp.createServer>(
+    "http.createServer",
+  );
 export const request =
-  /*@__PURE__*/ notImplemented<typeof http.request>("http.request");
-export const get = /*@__PURE__*/ notImplemented<typeof http.get>("http.get");
+  /*@__PURE__*/ notImplemented<typeof nodeHttp.request>("http.request");
+export const get =
+  /*@__PURE__*/ notImplemented<typeof nodeHttp.get>("http.get");
 
-export const Server: typeof http.Server = mock.__createMock__("http.Server");
+export const Server: typeof nodeHttp.Server =
+  mock.__createMock__("http.Server");
 
-export const OutgoingMessage: typeof http.OutgoingMessage = mock.__createMock__(
-  "http.OutgoingMessage",
-);
+export const OutgoingMessage: typeof nodeHttp.OutgoingMessage =
+  mock.__createMock__("http.OutgoingMessage");
 
-export const ClientRequest: typeof http.ClientRequest =
+export const ClientRequest: typeof nodeHttp.ClientRequest =
   mock.__createMock__("http.ClientRequest");
 
-export const Agent: typeof http.Agent = mock.__createMock__("http.Agent");
+export const Agent: typeof nodeHttp.Agent = mock.__createMock__("http.Agent");
 
-export const globalAgent: typeof http.globalAgent = new Agent();
+export const globalAgent: typeof nodeHttp.globalAgent = new Agent();
 
 export const validateHeaderName = /*@__PURE__*/ notImplemented<
-  typeof http.validateHeaderName
+  typeof nodeHttp.validateHeaderName
 >("http.validateHeaderName");
 
 export const validateHeaderValue = /*@__PURE__*/ notImplemented<
-  typeof http.validateHeaderValue
+  typeof nodeHttp.validateHeaderValue
 >("http.validateHeaderValue");
 
 export const setMaxIdleHTTPParsers = /*@__PURE__*/ notImplemented<
-  typeof http.setMaxIdleHTTPParsers
+  typeof nodeHttp.setMaxIdleHTTPParsers
 >("http.setMaxIdleHTTPParsers");
 
 export const _connectionListener = /*@__PURE__*/ notImplemented(
@@ -59,11 +62,11 @@ export const MessageEvent =
 
 export default {
   ...consts,
-  IncomingMessage: IncomingMessage as any as typeof http.IncomingMessage,
-  ServerResponse: ServerResponse as any as typeof http.ServerResponse,
-  WebSocket: WebSocket as any as typeof http.WebSocket,
-  CloseEvent: CloseEvent as any as typeof http.CloseEvent,
-  MessageEvent: MessageEvent as any as typeof http.MessageEvent,
+  IncomingMessage: IncomingMessage as any as typeof nodeHttp.IncomingMessage,
+  ServerResponse: ServerResponse as any as typeof nodeHttp.ServerResponse,
+  WebSocket: WebSocket as any as typeof nodeHttp.WebSocket,
+  CloseEvent: CloseEvent as any as typeof nodeHttp.CloseEvent,
+  MessageEvent: MessageEvent as any as typeof nodeHttp.MessageEvent,
   createServer,
   request,
   get,
@@ -76,4 +79,4 @@ export default {
   validateHeaderValue,
   setMaxIdleHTTPParsers,
   _connectionListener,
-} as /* TODO: use satisfies */ typeof http;
+} as /* TODO: use satisfies */ typeof nodeHttp;
