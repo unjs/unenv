@@ -71,5 +71,5 @@
     "workerd": "^1.20250204.0",
     "wrangler": "^3.107.3"
   },
-  "packageManager": "pnpm@10.2.0"
+  "packageManager": "pnpm@10.2.1"
 }
