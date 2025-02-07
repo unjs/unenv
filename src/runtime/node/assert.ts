@@ -953,6 +953,7 @@ assert.doesNotReject = doesNotReject;
 assert.ifError = ifError;
 assert.match = match;
 assert.doesNotMatch = doesNotMatch;
+assert.partialDeepStrictEqual = partialDeepStrictEqual;
 
 assert.AssertionError = AssertionError;
 assert.CallTracker = CallTracker;

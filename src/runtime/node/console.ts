@@ -71,6 +71,10 @@ export default {
   dir,
   dirxml,
   error,
+  // @ts-expect-error
+  context,
+  // @ts-expect-error
+  createTask,
   group,
   groupEnd,
   groupCollapsed,
