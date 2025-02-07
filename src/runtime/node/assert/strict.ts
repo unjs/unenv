@@ -21,6 +21,7 @@ import {
   notStrictEqual as notEqual,
   deepStrictEqual,
   deepStrictEqual as deepEqual,
+  partialDeepStrictEqual,
 } from "../assert.ts";
 
 export {
@@ -44,6 +45,7 @@ export {
   notStrictEqual as notEqual,
   deepStrictEqual,
   deepStrictEqual as deepEqual,
+  partialDeepStrictEqual,
 } from "../assert.ts";
 
 export default Object.assign(ok, {
@@ -67,4 +69,5 @@ export default Object.assign(ok, {
   notEqual,
   deepStrictEqual,
   deepEqual,
+  partialDeepStrictEqual,
 }) as typeof nodeAssert.strict; // TODO: utils are strict by default so should be typed as strict!
