@@ -100,4 +100,4 @@ export default {
   ...mime,
   ...logUtils,
   ...legacyTypes,
-} satisfies typeof util;
+} as typeof util;
