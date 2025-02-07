@@ -539,8 +539,10 @@ class Comparison {
           obj[key] instanceof RegExp &&
           obj[key].exec(actual[key]) !== null
         ) {
+          // @ts-expect-error
           this[key] = actual[key];
         } else {
+          // @ts-expect-error
           this[key] = obj[key];
         }
       }
@@ -633,6 +635,7 @@ function expectedException(
       }
       for (const key of keys) {
         if (
+          // @ts-expect-error
           typeof actual[key] === "string" &&
           // @ts-expect-error
           expected[key] instanceof RegExp &&
