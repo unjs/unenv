@@ -34,11 +34,11 @@ describe("defineEnv", () => {
   describe("resolvePath", () => {
     it("resolves all nodeCompat paths", () => {
       const { env } = defineEnv({ nodeCompat: true, resolve: true });
-      for (const path of Object.values(env.alias)) {
-        if (path.startsWith("node:")) {
+      for (const [from, to] of Object.entries(env.alias)) {
+        if (to.startsWith("node:")) {
           continue; // recursive
         }
-        expect(existsSync(path), path).toBe(true);
+        expect(existsSync(to), `Alias: ${from} ~> ${to}`).toBe(true);
       }
       for (const path of env.polyfill) {
         expect(existsSync(path), path).toBe(true);
