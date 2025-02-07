@@ -89,7 +89,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
   },
 
   inject: {
-    global: "unenv/polyfill/global-this", // no side effects
+    global: "unenv/polyfill/globalthis", // no side effects
     process: "unenv/node/process",
     Buffer: ["unenv/node/buffer", "Buffer"],
   },
