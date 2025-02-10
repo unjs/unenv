@@ -80,6 +80,15 @@ export const npmShims = {
   inherits: "unenv/npm/inherits",
 } as const;
 
+export const npmNodeShims = {
+  "buffer/": "node:buffer",
+  "buffer/index.js": "node:buffer",
+  "readable-stream": "node:stream",
+  "readable-stream/": "node:stream",
+  // "string_decoder/": "node:string_decoder",
+  // "string_decoder/index": "node:string_decoder",
+};
+
 export const nodeCompatInjects = {
   global: "unenv/polyfill/globalthis",
   process: "unenv/node/process",

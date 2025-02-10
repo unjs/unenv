@@ -51,14 +51,18 @@ You can then integrate the env object with your build tool:
 ### Options
 
 - `nodeCompat`: (default: `true`)
-   - Add `alias` entries for Node.js builtins both as `id` and `node:id`.
-   - Add `inject` entries for Node.js globals `global`, `Buffer`, and `process`.
+  - Add `alias` entries for Node.js builtins both as `id` and `node:id`.
+  - Add `inject` entries for Node.js globals `global`, `Buffer`, and `process`.
 - `npmShims`: (default: `true`)
-   - Add `alias` entries to replace common NPM packages such as `node-fetch` with native Web APIs .
-- `resolve`: (default: `false`) Resolve config values to absolute paths.
-- `overrides`: Additional overrides for env config.
-- `presets`: Additional presets (for example [`@cloudflare/unenv-preset`](https://npmjs.com/@cloudflare/unenv-preset/).
-
+  - Add `alias` entries to replace common NPM packages such as `node-fetch` with native Web APIs.
+- `npmNodeShims`: (default: `true`)
+  - Add `alias` entries to replace npm packages with the same name of Node.js built-in modules.
+- `resolve`: (default: `false`)
+  - Resolve config values to absolute paths.
+- `overrides`:
+  - Additional overrides for env config.
+- `presets`:
+  - Additional presets (for example [`@cloudflare/unenv-preset`](https://npmjs.com/@cloudflare/unenv-preset/).
 
 ### Using direct imports
 
@@ -139,7 +143,7 @@ You can also directly import `unenv/` polyfills:
 
 </details>
 
-## Manual mocking 
+## Manual mocking
 
 <details>
 
