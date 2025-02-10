@@ -19,7 +19,7 @@ export interface CreateEnvOptions {
    *
    * Default: `true`
    */
-  npmCompat?: boolean;
+  npmShims?: boolean;
 
   /**
    * Additional presets.

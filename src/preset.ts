@@ -69,7 +69,7 @@ export const nodeCompatAliases = {
   zlib: "unenv/node/zlib",
 } as const;
 
-export const npmCompatAliases = {
+export const npmShims = {
   fsevents: "unenv/npm/fsevents",
   "node-fetch": "unenv/npm/node-fetch",
   "node-fetch-native": "unenv/npm/node-fetch",
