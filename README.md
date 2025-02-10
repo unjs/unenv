@@ -1,4 +1,4 @@
-# unenv
+# 🕊️ unenv
 
 <!-- automd:badges color=yellow packagephobia -->
 
@@ -10,7 +10,7 @@
 > [!NOTE]
 > You are on the development (v2) branch. Check out [v1](https://github.com/unjs/unenv/tree/v1) for the current release.
 
-unenv, provides (build-time) polyfills to add [Node.js](https://nodejs.org/) compatibility for any JavaScript runtime, including browsers and edge workers.
+unenv provides polyfills to add [Node.js](https://nodejs.org/) compatibility for any JavaScript runtime, including browsers and edge workers.
 
 ## 🌟 Used by
 
@@ -35,6 +35,8 @@ const { alias, inject, external, polyfill } = env;
 
 You can then integrate the env object with your build tool:
 
+<details>
+
 | Bundler  | `alias`                                                                       | `inject`                                                                       | `external`                                                               |
 | -------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | rollup   | [`@rollup/plugin-alias`](https://www.npmjs.com/package/@rollup/plugin-alias)  | [`@rollup/plugin-inject`](https://www.npmjs.com/package/@rollup/plugin-inject) | [`external`](https://rollupjs.org/configuration-options/#external)       |
@@ -44,16 +46,19 @@ You can then integrate the env object with your build tool:
 | rspack   | [`resolve.alias`](https://rspack.dev/config/resolve#resolvealias)             | -                                                                              | [`externals`](https://rspack.dev/config/externals#externals-1)           |
 | webpack  | [`resolve.alias`](https://webpack.js.org/configuration/resolve/#resolvealias) | [`webpack-plugin-inject`](https://www.npmjs.com/package/webpack-inject-plugin) | [`externals`](https://webpack.js.org/configuration/externals/#externals) |
 
-**Note:** You can provide as many presets as you want. unenv will merge them internally and the right-most preset has a higher priority.
+</details>
 
 ### Options
 
-- `nodeCompat`: Add `alias` entries for node builtins both as `id` and `node:id` + `inject` entries for Node.js globals 
- such as `global`, `Buffer`, and `process` (default: `true`).
-- `npmShims`: Add `alias` entries to replace common NPM packages such as `node-fetch` with native Web APIs (default: `true`).
-- `presets`: Additional presets (for example [`@cloudflare/unenv-preset`](https://npmjs.com/@cloudflare/unenv-preset/).
+- `nodeCompat`: (default: `true`)
+   - Add `alias` entries for Node.js builtins both as `id` and `node:id`.
+   - Add `inject` entries for Node.js globals `global`, `Buffer`, and `process`.
+- `npmShims`: (default: `true`)
+   - Add `alias` entries to replace common NPM packages such as `node-fetch` with native Web APIs .
+- `resolve`: (default: `false`) Resolve config values to absolute paths.
 - `overrides`: Additional overrides for env config.
-- `resolve`: Resolve config values to absolute paths (default: `false`).
+- `presets`: Additional presets (for example [`@cloudflare/unenv-preset`](https://npmjs.com/@cloudflare/unenv-preset/).
+
 
 ### Using direct imports
 
@@ -134,7 +139,9 @@ You can also directly import `unenv/` polyfills:
 
 </details>
 
-## Manual mocking utils
+## Manual mocking 
+
+<details>
 
 ```js
 // Magic proxy to replace any unknown API
@@ -145,6 +152,8 @@ const lib = MockProxy.__createMock__("lib", {
   /* overrides */
 });
 ```
+
+</details>
 
 [(view source)](./src/runtime/mock)
 
