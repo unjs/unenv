@@ -83,8 +83,8 @@ export const npmShims = {
 export const npmNodeShims = {
   "buffer/": "node:buffer",
   "buffer/index.js": "node:buffer",
-  "readable-stream": "node:stream",
-  "readable-stream/": "node:stream",
+  // "readable-stream": "node:stream",
+  // "readable-stream/": "node:stream",
   // "string_decoder/": "node:string_decoder",
   // "string_decoder/index": "node:string_decoder",
 };
