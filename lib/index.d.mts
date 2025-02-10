@@ -1,14 +1,5 @@
 /**
  * Configure a target environment.
- *
- * @example
- * ```ts
- * const { env } = defineEnv({
- *  nodeCompat: true,
- *  resolve: true,
- *  presets: [myPreset],
- *  overrides: {}
- * });
  */
 export declare function defineEnv(opts?: CreateEnvOptions): {
   env: Environment;
@@ -17,19 +8,29 @@ export declare function defineEnv(opts?: CreateEnvOptions): {
 
 export interface CreateEnvOptions {
   /**
-   * Enable Node.js compatibility (nodeless) preset.
+   * Node.js compatibility aliases.
    *
-   * Default: `false`
+   * Default: `true`
    */
   nodeCompat?: boolean;
+
+  /**
+   * NPM compatibility aliases.
+   *
+   * Default: `true`
+   */
+  npmCompat?: boolean;
+
   /**
    * Additional presets.
    */
   presets?: Preset[];
+
   /**
    * Additional overrides.
    */
   overrides?: Partial<Environment>;
+
   /**
    * Resolve paths in the environment to absolute paths.
    *
@@ -48,17 +49,13 @@ export interface EnvResolveOptions {
 }
 
 export interface Environment {
-  alias: {
-    [key: string]: string;
-  };
-  inject: {
-    [key: string]: string | string[];
-  };
-  polyfill: string[];
-  external: string[];
+  alias: Readonly<Record<string, string>>;
+  inject: Readonly<Record<string, string | readonly string[] | false>>;
+  polyfill: readonly string[];
+  external: readonly string[];
 }
 
-export interface Preset {
+export interface Preset extends Partial<Environment> {
   meta?: {
     /**
      * Preset name.
@@ -73,10 +70,4 @@ export interface Preset {
      */
     readonly url?: string | URL;
   };
-  alias?: Environment["alias"];
-  inject?: {
-    [key: string]: string | string[] | false;
-  };
-  polyfill?: Environment["polyfill"];
-  external?: Environment["external"];
 }

@@ -11,6 +11,7 @@
       "types": "./lib/index.d.mts",
       "default": "./dist/index.mjs"
     },
+    "./package.json": "./package.json",
     "./mock/proxy-cjs": {
       "types": "./lib/mock.d.cts",
       "default": "./lib/mock.cjs"

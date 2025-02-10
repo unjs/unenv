@@ -7,86 +7,58 @@
 
 <!-- /automd -->
 
-unenv provides a collection of Node.js and Web polyfills and mocking utilities with configurable presets for converting JavaScript code and libraries to be platform and runtime agnostic, working in any environment including Browsers, Workers, Node.js, Cloudflare Workers, Deno.
-
-Unenv is used by [Nitro](https://nitro.unjs.io/) and [Nuxt](https://nuxt.com/) today.
-
 > [!NOTE]
 > You are on the development (v2) branch. Check out [v1](https://github.com/unjs/unenv/tree/v1) for the current release.
 
-## Install
+Unjs, provides (build-time) polyfills to add [Node.js](https://nodejs.org/) compatibility to any JavaScript runtime, including Browsers and edge workers.
 
-<!-- automd:pm-i dev -->
+Unenv is used by [Nitro](https://nitro.unjs.io/) and [Nuxt](https://nuxt.com/) today.
 
-```sh
-# ✨ Auto-detect
-npx nypm install -D unenv
+## 🌟 Used by
 
-# npm
-npm install -D unenv
-
-# yarn
-yarn add -D unenv
-
-# pnpm
-pnpm install -D unenv
-
-# bun
-bun install -D unenv
-
-# deno
-deno install --dev unenv
-```
-
-<!-- /automd -->
+- [Nitro](https://nitro.build/)
+- [Nuxt](https://nuxt.com/)
+- [Cloudflare](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)
+- [ESM.sh](https://esm.sh/)
 
 ## Usage
 
-Using `env` utility and built-in presets, `unenv` will provide an abstract configuration that can be used in bundlers ([rollup.js](https://rollupjs.org), [webpack](https://webpack.js.org), etc.).
+You can use `defineEnv` utility in order to generate target environment configuration.
 
 ```js
 import { defineEnv } from "unenv";
 
 const { env } = defineEnv({
-  nodeCompat: true,
-  resolve: true,
-  presets: [],
-  overrides: {},
+  /* options */
 });
 
-const { alias, inject, polyfill, external } = env;
+const { alias, inject, external, polyfill } = env;
 ```
+
+You can then integrate env object with your build tool:
+
+| Bundler  | `alias`                                                                       | `inject`                                                                       | `external`                                                               |
+| -------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| rollup   | [`@rollup/plugin-alias`](https://www.npmjs.com/package/@rollup/plugin-alias)  | [`@rollup/plugin-inject`](https://www.npmjs.com/package/@rollup/plugin-inject) | [`external`](https://rollupjs.org/configuration-options/#external)       |
+| rolldown | [`resolve.alias`](https://rolldown.rs/reference/config-options#resolve-alias) | [`inject`](https://rolldown.rs/reference/config-options#inject)                | [`external`](https://rolldown.rs/reference/config-options#external)      |
+| vite     | [`resolve.alias`](https://vite.dev/config/shared-options#resolve-alias)       | [`@rollup/plugin-inject`](https://www.npmjs.com/package/@rollup/plugin-inject) | [`ssr.external`](https://vite.dev/config/ssr-options#ssr-external)       |
+| esbuild  | [`alias`](https://esbuild.github.io/api/#alias)                               | [`inject`](https://esbuild.github.io/api/#inject)                              | [`external`](https://esbuild.github.io/api/#external)                    |
+| rspack   | [`resolve.alias`](https://rspack.dev/config/resolve#resolvealias)             | -                                                                              | [`externals`](https://rspack.dev/config/externals#externals-1)           |
+| webpack  | [`resolve.alias`](https://webpack.js.org/configuration/resolve/#resolvealias) | [`webpack-plugin-inject`](https://www.npmjs.com/package/webpack-inject-plugin) | [`externals`](https://webpack.js.org/configuration/externals/#externals) |
 
 **Note:** You can provide as many presets as you want. unenv will merge them internally and the right-most preset has a higher priority.
 
-## Presets
+### Using direct imports
 
-### `node`
+You can also directly import `unenv/` polyfills:
 
-[(view source)](./src/presets/node.ts)
-
-Suitable to convert universal libraries working in Node.js.
-
-- Add supports for global [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- Set Node.js built-ins as externals
-
-```js
-import { env, node } from "unenv";
-
-const envConfig = env(node, {});
-```
-
-### `nodeless`
-
-[(view source)](./src/presets/nodeless.ts)
-
-Suitable to transform libraries made for Node.js to run in other JavaScript runtimes.
-
-```js
-import { env, nodeless } from "unenv";
-
-const envConfig = env(nodeless, {});
-```
+| Polyfills        | Description                                | Source                                                                                 |
+| ---------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `unenv/mock/*`   | Mocking utils                              | [`src/runtime/mock`](https://github.com/unjs/unenv/tree/main/src/runtime/mock)         |
+| `unenv/node/*`   | APIs compatible with `Node.js` API         | [`src/runtime/node`](https://github.com/unjs/unenv/tree/main/src/runtime/node)         |
+| `unenv/npm`      | NPM package shims for lighter replacements | [`src/runtime/npm`](https://github.com/unjs/unenv/tree/main/src/runtime/mock)          |
+| `unenv/polyfill` | Global polyfills                           | [`src/runtime/polyfill`](https://github.com/unjs/unenv/tree/main/src/runtime/polyfill) |
+| `unenv/web`      | Subset of Web APIs                         | [`src/runtime/web`](https://github.com/unjs/unenv/tree/main/src/runtime/web)           |
 
 ## Built-in Node.js modules
 
@@ -153,17 +125,11 @@ const envConfig = env(nodeless, {});
 
 [(view source)](./src/runtime/node)
 
-## Package replacements
-
-`unenv` provides a replacement for common npm packages for cross-platform compatibility.
-
-[(view source)](./src/runtime/npm)
-
 ## Manual mocking utils
 
 ```js
 // Magic proxy to replace any unknown API
-import MockProxy from "unenv/runtime/mock/proxy";
+import MockProxy from "unenv/mock/proxy";
 
 // You can also create named mocks
 const lib = MockProxy.__createMock__("lib", {
