@@ -38,6 +38,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "https",
         "http2",
         "inspector",
+        "inspector/promises",
         "module",
         "net",
         "os",
@@ -48,6 +49,7 @@ const nodeless: Preset & { alias: Map<string, string> } = {
         "querystring",
         "readline",
         "readline/promises",
+        "repl",
         "stream",
         "stream/promises",
         "stream/consumers",
@@ -71,7 +73,6 @@ const nodeless: Preset & { alias: Map<string, string> } = {
 
     "path/posix": "unenv/node/path",
     "path/win32": "unenv/node/path",
-    "inspector/promises": "unenv/node/inspector",
 
     // The sys module is deprecated and has been renamed util
     // https://github.com/nodejs/node/blob/main/lib/sys.js#L27
