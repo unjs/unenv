@@ -20,7 +20,7 @@
       "default": "./lib/mock.cjs"
     },
     "./*": {
-      "types": "./dist/*.d.mts",
+      "types": "./dist/runtime/*.d.mts",
       "default": "./dist/runtime/*.mjs"
     }
   },
