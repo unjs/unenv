@@ -1,7 +1,12 @@
 import { resolvePathSync, type ResolveOptions } from "mlly";
 import type { Preset, Environment, CreateEnvOptions } from "../lib/index.d.mts";
 import { version } from "../package.json" with { type: "json" };
-import { nodeCompatAliases, nodeCompatInjects, npmShims } from "./preset";
+import {
+  nodeCompatAliases,
+  nodeCompatInjects,
+  npmNodeShims,
+  npmShims,
+} from "./preset";
 
 export function defineEnv(opts: CreateEnvOptions = {}): {
   env: Environment;
@@ -48,6 +53,9 @@ function unenvPreset(opts: CreateEnvOptions) {
 
   if (opts.nodeCompat !== false) {
     Object.assign(preset.inject, nodeCompatInjects);
+    if (opts.npmNodeShims !== false) {
+      Object.assign(preset.alias, npmNodeShims);
+    }
     Object.assign(preset.alias, {
       ...Object.fromEntries(
         Object.entries(nodeCompatAliases).flatMap(([from, to]) => {
