@@ -1,6 +1,5 @@
-import mock from "../mock/proxy.ts";
 import type nodeHttp2 from "node:http2";
-import { notImplemented } from "../_internal/utils.ts";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 import { constants } from "./internal/http2/constants.ts";
 
 export { constants } from "./internal/http2/constants.ts";
@@ -8,19 +7,23 @@ export { constants } from "./internal/http2/constants.ts";
 export const createSecureServer = /*@__PURE__*/ notImplemented<
   typeof nodeHttp2.createSecureServer
 >("http2.createSecureServer");
+
 export const createServer =
   /*@__PURE__*/ notImplemented<typeof nodeHttp2.createServer>(
     "http2.createServer",
   );
+
 export const connect: typeof nodeHttp2.connect =
   /*@__PURE__*/ notImplemented("http2.connect");
+
 export const performServerHandshake: typeof nodeHttp2.performServerHandshake =
   /*@__PURE__*/ notImplemented("http2.performServerHandshake ");
 
 export const Http2ServerRequest: typeof nodeHttp2.Http2ServerRequest =
-  mock.__createMock__("http2.Http2ServerRequest");
+  /*@__PURE__*/ notImplementedClass("http2.Http2ServerRequest");
+
 export const Http2ServerResponse: typeof nodeHttp2.Http2ServerResponse =
-  mock.__createMock__("http2.Http2ServerResponse");
+  /*@__PURE__*/ notImplementedClass("http2.Http2ServerResponse");
 
 export const getDefaultSettings: typeof nodeHttp2.getDefaultSettings =
   function () {

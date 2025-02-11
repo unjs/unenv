@@ -1,5 +1,4 @@
 import { createNotImplementedError } from "../../_internal/utils.ts";
-import mock from "../../mock/proxy.ts";
 import { _PerformanceMark, _PerformanceMeasure } from "./_entry.ts";
 
 const _timeOrigin = Date.now();
@@ -18,8 +17,8 @@ export class _Performance<
   _entries: PerformanceEntry[] = [];
   _resourceTimingBufferSize = 0;
 
-  navigation = mock.__createMock__("PerformanceNavigation");
-  timing = mock.__createMock__("PerformanceTiming");
+  navigation = undefined as any;
+  timing = undefined as any;
 
   onresourcetimingbufferfull: ((this: Performance, ev: Event) => any) | null =
     null;

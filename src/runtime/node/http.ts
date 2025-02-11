@@ -1,7 +1,6 @@
 // https://nodejs.org/api/http.html
 import type nodeHttp from "node:http";
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
-import mock from "../mock/proxy.ts";
 import * as consts from "./internal/http/consts.ts";
 import { IncomingMessage } from "./internal/http/request.ts";
 import { ServerResponse } from "./internal/http/response.ts";
@@ -20,15 +19,16 @@ export const get =
   /*@__PURE__*/ notImplemented<typeof nodeHttp.get>("http.get");
 
 export const Server: typeof nodeHttp.Server =
-  mock.__createMock__("http.Server");
+  /*@__PURE__*/ notImplementedClass("http.Server");
 
 export const OutgoingMessage: typeof nodeHttp.OutgoingMessage =
-  mock.__createMock__("http.OutgoingMessage");
+  /*@__PURE__*/ notImplementedClass("http.OutgoingMessage");
 
 export const ClientRequest: typeof nodeHttp.ClientRequest =
-  mock.__createMock__("http.ClientRequest");
+  /*@__PURE__*/ notImplementedClass("http.ClientRequest");
 
-export const Agent: typeof nodeHttp.Agent = mock.__createMock__("http.Agent");
+export const Agent: typeof nodeHttp.Agent =
+  /*@__PURE__*/ notImplementedClass("http.Agent");
 
 export const globalAgent: typeof nodeHttp.globalAgent = new Agent();
 
