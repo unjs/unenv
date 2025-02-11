@@ -37,7 +37,7 @@ function unenvPreset(opts: CreateEnvOptions) {
   const preset = {
     meta: {
       name: "unenv",
-      version: version,
+      version,
       url: import.meta.url,
     },
     alias: {},
@@ -152,11 +152,9 @@ function mergePresets(...presets: Preset[]): Environment {
 
     // Inject
     if (preset.inject) {
-      for (const global in preset.inject) {
-        const globalValue = preset.inject[global];
+      for (const [global, globalValue] of Object.entries(preset.inject)) {
         if (Array.isArray(globalValue)) {
-          const [id, ...path] = globalValue;
-          env.inject[global] = [id, ...path];
+          env.inject[global] = globalValue;
         } else if (globalValue === false) {
           delete env.inject[global];
         } else {
@@ -167,7 +165,7 @@ function mergePresets(...presets: Preset[]): Environment {
 
     // Polyfill
     if (preset.polyfill) {
-      env.polyfill.push(...(preset.polyfill.filter(Boolean) as string[]));
+      env.polyfill.push(...preset.polyfill.filter(Boolean));
     }
 
     // External
