@@ -51,26 +51,26 @@ You can then integrate the env object with your build tool:
 ### Options
 
 - `nodeCompat`: (default: `true`)
-   - Add `alias` entries for Node.js builtins both as `id` and `node:id`.
+   - Add `alias` entries for Node.js builtins as `<id>` and `node:<id>`.
    - Add `inject` entries for Node.js globals `global`, `Buffer`, and `process`.
 - `npmShims`: (default: `true`)
-   - Add `alias` entries to replace common NPM packages such as `node-fetch` with native Web APIs .
+   - Add `alias` entries to replace npm packages like `node-fetch` with lighter shims.
 - `resolve`: (default: `false`) Resolve config values to absolute paths.
 - `overrides`: Additional overrides for env config.
-- `presets`: Additional presets (for example [`@cloudflare/unenv-preset`](https://npmjs.com/@cloudflare/unenv-preset/).
+- `presets`: Additional presets (for example [`@cloudflare/unenv-preset`](https://npmjs.com/@cloudflare/unenv-preset/)).
 
 
-### Using direct imports
+### `unenv/` polyfills
 
 You can also directly import `unenv/` polyfills:
 
 | Polyfills        | Description                                | Source                                                                                 |
 | ---------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
-| `unenv/mock/*`   | Mocking utils                              | [`src/runtime/mock`](https://github.com/unjs/unenv/tree/main/src/runtime/mock)         |
-| `unenv/node/*`   | APIs compatible with `Node.js` API         | [`src/runtime/node`](https://github.com/unjs/unenv/tree/main/src/runtime/node)         |
-| `unenv/npm`      | NPM package shims for lighter replacements | [`src/runtime/npm`](https://github.com/unjs/unenv/tree/main/src/runtime/mock)          |
-| `unenv/polyfill` | Global polyfills                           | [`src/runtime/polyfill`](https://github.com/unjs/unenv/tree/main/src/runtime/polyfill) |
-| `unenv/web`      | Subset of Web APIs                         | [`src/runtime/web`](https://github.com/unjs/unenv/tree/main/src/runtime/web)           |
+| `unenv/mock/*`   | Mocking utils                              | [`src/runtime/mock/`](https://github.com/unjs/unenv/tree/main/src/runtime/mock)         |
+| `unenv/node/*`   | APIs compatible with `Node.js` API         | [`src/runtime/node/`](https://github.com/unjs/unenv/tree/main/src/runtime/node)         |
+| `unenv/npm/*`      | NPM package shims | [`src/runtime/npm`](https://github.com/unjs/unenv/tree/main/src/runtime/npm)          |
+| `unenv/polyfill/*` | Global polyfills                           | [`src/runtime/polyfill/`](https://github.com/unjs/unenv/tree/main/src/runtime/polyfill) |
+| `unenv/web/*`      | Subset of Web APIs                         | [`src/runtime/web/`](https://github.com/unjs/unenv/tree/main/src/runtime/web)           |
 
 ## Node.js compatibility
 
