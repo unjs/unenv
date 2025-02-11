@@ -45,8 +45,14 @@ describe("mock utils", () => {
 
       it(".catch", async () => {
         const p = proxy();
-        const res = await p.catch(() => {}).then(() => true);
+        let caught = false;
+        const res = await p
+          .catch(() => {
+            caught = true;
+          })
+          .then(() => true);
         expect(res).toBe(true);
+        expect(caught).toBe(false);
       });
 
       it(".finally", async () => {

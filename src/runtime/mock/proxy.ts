@@ -20,7 +20,7 @@ function createMock(name: string, overrides: any = {}): any {
         return (fn: any) => Promise.resolve(fn());
       }
       if (prop === "catch") {
-        return (fn: any) => Promise.resolve(fn());
+        return (fn: any) => Promise.resolve();
       }
       if (prop === "finally") {
         return (fn: any) => Promise.resolve(fn());
