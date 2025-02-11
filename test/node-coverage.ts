@@ -12,7 +12,6 @@ for (const module of builtinModules) {
   if (module.startsWith("_")) {
     continue;
   }
-  let unenvMod: string;
   try {
     const nodeMod = await import(`node:${module}`);
     const unenvMod = await import(`../src/runtime/node/${module}.ts`);
@@ -46,6 +45,11 @@ for (const module of builtinModules) {
       cause: error,
     });
   }
+}
+
+if (process.argv.includes("--json")) {
+  console.log(JSON.stringify(modulesCoverage, null, 2));
+  process.exit(0); // eslint-disable-line unicorn/no-process-exit
 }
 
 for (const module of modulesCoverage) {

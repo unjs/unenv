@@ -22,13 +22,11 @@ describe("defineEnv", () => {
     expect(env.alias.foo).toBe("bar");
   });
 
-  describe("nodeCompat", () => {
-    it("has aliases for all builtinModules", () => {
-      const { env } = defineEnv({ nodeCompat: true });
-      for (const id of builtinModules) {
-        expect(env.alias[id]).toBeDefined();
-      }
-    });
+  it("has aliases for all builtinModules", () => {
+    const { env } = defineEnv({ nodeCompat: true });
+    for (const id of builtinModules) {
+      expect(env.alias[id]).toBeDefined();
+    }
   });
 
   describe("resolvePath", () => {
