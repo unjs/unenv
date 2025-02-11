@@ -1015,14 +1015,6 @@ function urlFormat(urlObject: string | Url, options: nodeUrl.URLFormatOptions) {
     if (!fragment) _url.hash = "";
     if (!search) _url.search = "";
     if (!auth) _url.username = _url.password = "";
-    // console.log({
-    //   fragment,
-    //   unicode,
-    //   search,
-    //   auth,
-    //   href: _url.href,
-    //   fmt: Url.prototype.format.call(_url),
-    // });
     if (unicode) {
       return Url.prototype.format.call(_url);
     }

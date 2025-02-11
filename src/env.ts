@@ -181,5 +181,3 @@ function mergePresets(...presets: Preset[]): Environment {
 
   return env;
 }
-
-console.log(defineEnv());
