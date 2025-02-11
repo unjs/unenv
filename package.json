@@ -35,15 +35,11 @@
     "node-ts": "node --disable-warning=ExperimentalWarning --experimental-strip-types",
     "dev": "vitest",
     "lint": "eslint . && prettier -c src test",
-    "lint:fix": "pnpm test:node-coverage && automd && eslint --fix . && prettier -w src test",
+    "lint:fix": "pnpm node-ts ./test/node-coverage.ts && automd && eslint --fix . && prettier -w src test",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release --push --publish --prerelease --publishTag rc",
-    "test": "pnpm lint && pnpm vitest --run && pnpm test:types && pnpm test:node",
-    "test:node": "node --test --import jiti/register ./test/node/test-*",
-    "test:node-coverage": "pnpm node-ts test/node-coverage.ts",
-    "test:node:watch": "node --test --watch --import jiti/register ./test/node/test-*",
-    "test:types": "tsc --noEmit",
-    "test:workerd": "node test/workerd/main.mjs"
+    "test": "pnpm lint && pnpm test:types && pnpm vitest --run",
+    "test:types": "tsc --noEmit"
   },
   "dependencies": {
     "defu": "^6.1.4",
@@ -67,6 +63,7 @@
     "oxc-transform": "^0.49.0",
     "prettier": "^3.5.0",
     "rolldown": "1.0.0-beta.3",
+    "tinyexec": "^0.3.2",
     "typescript": "^5.7.3",
     "vitest": "^3.0.5",
     "workerd": "^1.20250204.0",

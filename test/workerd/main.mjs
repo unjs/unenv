@@ -1,6 +1,6 @@
 import { dirname, join } from "node:path";
 import { existsSync } from "node:fs";
-import { readFile, mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
