@@ -50,13 +50,10 @@ function unenvPreset(opts: CreateEnvOptions) {
     Object.assign(preset.inject, nodeCompatInjects);
     Object.assign(preset.alias, {
       ...Object.fromEntries(
-        Object.entries(nodeCompatAliases).flatMap(([from, to]) => {
-          const aliases = [
-            [from, to], // <id> => unenv/node/id
-            [`node:${from}`, to], // node:<id> => unenv/node/id
-          ];
-          return aliases;
-        }),
+        Object.entries(nodeCompatAliases).flatMap(([from, to]) => [
+          [from, to], // <id> => unenv/node/id
+          [`node:${from}`, to], // node:<id> => unenv/node/id
+        ]),
       ),
     });
   }
