@@ -165,7 +165,7 @@ function mergePresets(...presets: Preset[]): Environment {
 
     // Polyfill
     if (preset.polyfill) {
-      env.polyfill.push(...(preset.polyfill.filter(Boolean)));
+      env.polyfill.push(...preset.polyfill.filter(Boolean));
     }
 
     // External
