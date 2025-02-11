@@ -1,9 +1,8 @@
-const fn = function () {};
-
 function createMock(name: string, overrides: any = {}): any {
-  fn.prototype.name = name;
+  const proxyFn = function () {};
+  proxyFn.prototype.name = name;
   const props: any = {};
-  return new Proxy(fn, {
+  const proxy = new Proxy(proxyFn, {
     get(_target, prop) {
       if (prop === "caller") {
         return null;
@@ -16,6 +15,15 @@ function createMock(name: string, overrides: any = {}): any {
       }
       if (prop in overrides) {
         return overrides[prop];
+      }
+      if (prop === "then") {
+        return (fn: any) => Promise.resolve(fn());
+      }
+      if (prop === "catch") {
+        return (fn: any) => Promise.resolve();
+      }
+      if (prop === "finally") {
+        return (fn: any) => Promise.resolve(fn());
       }
       // @ts-ignore
       return (props[prop] =
@@ -33,6 +41,7 @@ function createMock(name: string, overrides: any = {}): any {
       return [];
     },
   });
+  return proxy;
 }
 
 export default createMock("mock");
