@@ -1,9 +1,9 @@
 import type inspectorPromises from "node:inspector/promises";
 import { notImplemented, notImplementedClass } from "../../_internal/utils.ts";
 
-import { console as inspectorConsole } from "../inspector";
+import { console as inspectorConsole } from "../inspector.ts";
 
-export { console } from "../inspector";
+export { console } from "../inspector.ts";
 
 export const Network = /*@__PURE__*/ notImplementedClass<
   typeof inspectorPromises.Network
