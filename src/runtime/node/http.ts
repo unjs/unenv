@@ -4,10 +4,12 @@ import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 import * as consts from "./internal/http/consts.ts";
 import { IncomingMessage } from "./internal/http/request.ts";
 import { ServerResponse } from "./internal/http/response.ts";
+import { Agent } from "./internal/http/agent.ts";
 
 export * from "./internal/http/consts.ts";
 export * from "./internal/http/request.ts";
 export * from "./internal/http/response.ts";
+export { Agent } from "./internal/http/agent.ts";
 
 export const createServer =
   /*@__PURE__*/ notImplemented<typeof nodeHttp.createServer>(
@@ -26,9 +28,6 @@ export const OutgoingMessage: typeof nodeHttp.OutgoingMessage =
 
 export const ClientRequest: typeof nodeHttp.ClientRequest =
   /*@__PURE__*/ notImplementedClass("http.ClientRequest");
-
-export const Agent: typeof nodeHttp.Agent =
-  /*@__PURE__*/ notImplementedClass("http.Agent");
 
 export const globalAgent: typeof nodeHttp.globalAgent = new Agent();
 
