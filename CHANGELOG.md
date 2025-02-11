@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.4
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.3...v2.0.0-rc.4)
+
+### 🩹 Fixes
+
+- **mock/proxy:** Support promises ([#440](https://github.com/unjs/unenv/pull/440))
+
+### 💅 Refactors
+
+- Import node types as nodeSomeModule ([#429](https://github.com/unjs/unenv/pull/429))
+- Add `node:repl` and `node:inspector/promises` to the nodeless preset ([#431](https://github.com/unjs/unenv/pull/431))
+- ⚠️  Cleanup `defineEnv` and docs ([#434](https://github.com/unjs/unenv/pull/434))
+- ⚠️  Avoid proxy mock usage ([#438](https://github.com/unjs/unenv/pull/438))
+
+### 📦 Build
+
+- Fix path to type definitions ([#433](https://github.com/unjs/unenv/pull/433))
+- Add `types` to `package.json` ([f7a69b1](https://github.com/unjs/unenv/commit/f7a69b1))
+
+### 🏡 Chore
+
+- Update readme ([#435](https://github.com/unjs/unenv/pull/435))
+- Update readme ([57be824](https://github.com/unjs/unenv/commit/57be824))
+- Remove extra console log ([9921df5](https://github.com/unjs/unenv/commit/9921df5))
+- Run all tests through vitest runner ([#439](https://github.com/unjs/unenv/pull/439))
+- Sync `mock-cjs` ([ce0ca9a](https://github.com/unjs/unenv/commit/ce0ca9a))
+- Simplify code ([#441](https://github.com/unjs/unenv/pull/441))
+
+### ✅ Tests
+
+- **workerd:** Crypto.randomBytes() returns bytes ([#428](https://github.com/unjs/unenv/pull/428))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Cleanup `defineEnv` and docs ([#434](https://github.com/unjs/unenv/pull/434))
+- ⚠️  Avoid proxy mock usage ([#438](https://github.com/unjs/unenv/pull/438))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Victor Berchet ([@vicb](http://github.com/vicb))
+
 ## v2.0.0-rc.3
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.2...v2.0.0-rc.3)
