@@ -1,12 +1,10 @@
-// Reference: https://github.com/nodejs/node/blob/main/lib/internal/cluster/primary.js
-import mock from "../mock/proxy.ts";
-import { notImplemented } from "../_internal/utils.ts";
 import type nodeCluster from "node:cluster";
 import type {
   Cluster as NodeCluster,
   Worker as NodeClusterWorker,
 } from "node:cluster";
 import { EventEmitter } from "node:events";
+import { notImplemented } from "../_internal/utils.ts";
 
 export const SCHED_NONE: typeof nodeCluster.SCHED_NONE = 1;
 export const SCHED_RR: typeof nodeCluster.SCHED_RR = 2;
@@ -40,7 +38,7 @@ export class Worker extends EventEmitter implements NodeClusterWorker {
   _connected: boolean = false;
   id = 0;
   get process() {
-    return mock.process;
+    return globalThis.process as any;
   }
   get exitedAfterDisconnect() {
     return this._connected;

@@ -1,6 +1,9 @@
 import noop from "../mock/noop.ts";
-import mock from "../mock/proxy.ts";
-import { notImplemented, notImplementedAsync } from "../_internal/utils.ts";
+import {
+  notImplemented,
+  notImplementedAsync,
+  notImplementedClass,
+} from "../_internal/utils.ts";
 import type nodeDns from "node:dns";
 import promises from "./dns/promises.ts";
 import * as constants from "./internal/dns/constants.ts";
@@ -9,7 +12,8 @@ export * from "./internal/dns/constants.ts";
 export * as promises from "./dns/promises.ts";
 
 export const Resolver: typeof nodeDns.Resolver =
-  mock.__createMock__("dns.Resolver");
+  /*@__PURE__*/ notImplementedClass("dns.Resolver");
+
 export const getDefaultResultOrder: typeof nodeDns.getDefaultResultOrder = () =>
   "verbatim";
 export const getServers: typeof nodeDns.getServers = () => [];

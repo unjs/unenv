@@ -1,10 +1,9 @@
 import type inspectorPromises from "node:inspector/promises";
-import mock from "../../mock/proxy.ts";
 import { notImplemented, notImplementedClass } from "../../_internal/utils.ts";
 
-export const console: Console = /*@__PURE__*/ mock.__createMock__(
-  "inspectorPromises.console",
-);
+import { console as inspectorConsole } from "../inspector.ts";
+
+export { console } from "../inspector.ts";
 
 export const Network = /*@__PURE__*/ notImplementedClass<
   typeof inspectorPromises.Network
@@ -32,7 +31,7 @@ export const close = /*@__PURE__*/ notImplemented<
 
 export default {
   close,
-  console,
+  console: inspectorConsole,
   Network,
   open,
   Session,

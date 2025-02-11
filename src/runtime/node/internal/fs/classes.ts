@@ -1,20 +1,25 @@
 import type fs from "node:fs";
-import mock from "../../../mock/proxy.ts";
+import { notImplementedClass } from "../../../_internal/utils.ts";
 
-export const Dir: typeof fs.Dir = mock.__createMock__("fs.Dir");
+export const Dir: typeof fs.Dir = /*@__PURE__*/ notImplementedClass("fs.Dir");
 
-export const Dirent: typeof fs.Dirent = mock.__createMock__("fs.Dirent");
+export const Dirent: typeof fs.Dirent =
+  /*@__PURE__*/ notImplementedClass("fs.Dirent");
 
-export const Stats: typeof fs.Stats = mock.__createMock__("fs.Stats");
+export const Stats: typeof fs.Stats =
+  /*@__PURE__*/ notImplementedClass("fs.Stats");
 
 export const ReadStream: typeof fs.ReadStream =
-  mock.__createMock__("fs.ReadStream");
+  /*@__PURE__*/ notImplementedClass("fs.ReadStream");
 
 export const WriteStream: typeof fs.WriteStream =
-  mock.__createMock__("fs.WriteStream");
+  /*@__PURE__*/ notImplementedClass("fs.WriteStream");
 
-export const FileReadStream = mock.__createMock__("fs.FileReadStream");
+export const StatsFs: typeof fs.StatsFs =
+  /*@__PURE__*/ notImplementedClass("fs.StatsFs");
 
-export const FileWriteStream = mock.__createMock__("fs.FileWriteStream");
+export const FileReadStream =
+  /*@__PURE__*/ notImplementedClass("fs.FileReadStream"); // TODO: Does this exists??
 
-export const StatsFs: typeof fs.StatsFs = mock.__createMock__("fs.StatsFs");
+export const FileWriteStream =
+  /*@__PURE__*/ notImplementedClass("fs.FileWriteStream"); // TODO: Does this exists??

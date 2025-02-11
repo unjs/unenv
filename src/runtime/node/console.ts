@@ -1,8 +1,7 @@
 import type nodeConsole from "node:console";
 import { Writable } from "node:stream";
-import mock from "../mock/proxy.ts";
 import noop from "../mock/noop.ts";
-import { notImplemented } from "../_internal/utils.ts";
+import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
 const _console = globalThis.console;
 
@@ -48,9 +47,9 @@ export const timeStamp: typeof nodeConsole.timeStamp =
   _console?.timeStamp ?? noop;
 
 export const Console: typeof nodeConsole.Console =
-  _console?.Console ?? mock.__createMock__("console.Console");
+  _console?.Console ?? /*@__PURE__*/ notImplementedClass("console.Console");
 
-export { default as _times } from "../mock/proxy.ts";
+export const _time = /*@__PURE__*/ new Map();
 
 export function context() {
   // TODO: Should be Console with all the methods
