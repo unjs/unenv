@@ -45,9 +45,6 @@ class _AsyncHook implements NodeAsyncHook {
   }
 }
 
-export const AsyncHook: asyncHooks.AsyncHook =
-  (globalThis as any).AsyncHook || _AsyncHook;
-
 export const createHook: typeof asyncHooks.createHook = function createHook(
   callbacks,
 ) {

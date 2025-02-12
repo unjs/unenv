@@ -95,6 +95,8 @@ export const getgroups: Process["getgroups"] = function getgroups() {
   return [];
 };
 
+export const send = /*@__PURE__*/ notImplemented("process.send");
+
 export const getBuiltinModule = (_name: string) => undefined;
 
 // ---- Unimplemented utils ----
@@ -108,7 +110,7 @@ export const allowedNodeEnvironmentFlags: Process["allowedNodeEnvironmentFlags"]
 export const arch: Process["arch"] = "" as any;
 export const argv0: Process["argv0"] = "";
 export const config: Process["config"] = empty;
-const connected: Process["connected"] = false;
+export const connected: Process["connected"] = false;
 export const constrainedMemory: Process["constrainedMemory"] = () => 0;
 export const availableMemory: Process["availableMemory"] = () => 0;
 export const cpuUsage =
@@ -116,7 +118,7 @@ export const cpuUsage =
 export const debugPort: Process["debugPort"] = 0;
 export const dlopen =
   /*@__PURE__*/ notImplemented<Process["dlopen"]>("process.dlopen");
-const disconnect: Process["disconnect"] = noop;
+export const disconnect: Process["disconnect"] = noop;
 export const emitWarning: Process["emitWarning"] = noop;
 export const eventNames =
   /*@__PURE__*/ notImplemented<Process["eventNames"]>("process.eventNames");
@@ -225,7 +227,7 @@ const mainModule: Process["mainModule"] = undefined;
 const permission: Process["permission"] = {
   has: () => false,
 };
-const channel: Process["channel"] = {
+export const channel: Process["channel"] = {
   ref() {},
   unref() {},
 };
@@ -270,6 +272,18 @@ export const _linkedBinding = /*@__PURE__*/ notImplemented(
   "process._linkedBinding",
 );
 
+export const _disconnect = /*@__PURE__*/ notImplemented("process._disconnect");
+
+export const _handleQueue = /*@__PURE__*/ notImplemented(
+  "process._handleQueue",
+);
+
+export const _send = /*@__PURE__*/ notImplemented("process._send");
+
+export const _pendingMessage = undefined;
+
+export const _channel = undefined;
+
 // Mocking domain causes troubles, see unjs/unenv#367
 export const domain = undefined;
 export const initgroups = /*@__PURE__*/ notImplemented("process.initgroups");
@@ -298,6 +312,12 @@ export const process = {
   _startProfilerIdleNotifier,
   _stopProfilerIdleNotifier,
   _tickCallback,
+  _disconnect,
+  _handleQueue,
+  _pendingMessage,
+  _channel,
+  _send,
+  send,
   domain,
   initgroups,
   moduleLoadList,

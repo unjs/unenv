@@ -79,7 +79,7 @@ export const _setSimultaneousAccepts = /*@__PURE__*/ notImplemented(
   "net._setSimultaneousAccepts",
 );
 
-export const exports: typeof nodeNet = {
+const exports: typeof nodeNet = {
   Socket: Socket,
   // @ts-expect-error (deprecated alias)
   Stream: Socket,

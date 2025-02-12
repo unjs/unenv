@@ -4,12 +4,51 @@ import type nodePath from "node:path";
 
 import { notImplemented } from "../_internal/utils.ts";
 
-import * as _path from "pathe";
-export * from "pathe";
+import {
+  basename,
+  dirname,
+  extname,
+  format,
+  isAbsolute,
+  join,
+  normalize,
+  parse,
+  relative,
+  resolve,
+  toNamespacedPath,
+} from "pathe";
+
+export {
+  basename,
+  dirname,
+  extname,
+  format,
+  isAbsolute,
+  join,
+  normalize,
+  parse,
+  relative,
+  resolve,
+  toNamespacedPath,
+} from "pathe";
+
+export const sep = "/" as const;
+export const delimiter = ":" as const;
 
 const _pathModule = {
-  ..._path,
-  platform: "posix",
+  sep,
+  delimiter,
+  basename,
+  dirname,
+  extname,
+  format,
+  isAbsolute,
+  join,
+  normalize,
+  parse,
+  relative,
+  resolve,
+  toNamespacedPath,
   posix: undefined as any,
   win32: undefined as any,
   _makeLong: (path: string) => path,
@@ -21,7 +60,6 @@ _pathModule.win32 = _pathModule;
 
 export const posix: typeof nodePath.posix = _pathModule;
 export const win32: typeof nodePath.posix = _pathModule;
-export const platform = "posix";
 
 export const _makeLong = _pathModule._makeLong;
 

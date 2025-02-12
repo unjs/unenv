@@ -104,6 +104,11 @@ export const wrap: typeof nodeModule.wrap = function (source) {
   return `(function (exports, require, module, __filename, __dirname) { ${source}\n});`;
 };
 
+export const wrapper = [
+  "(function (exports, require, module, __filename, __dirname) { ",
+  "\n});",
+];
+
 export const stripTypeScriptTypes: typeof nodeModule.stripTypeScriptTypes =
   /*@__PURE__*/ notImplemented<typeof nodeModule.stripTypeScriptTypes>(
     "module.stripTypeScriptTypes",
@@ -130,28 +135,30 @@ export const _resolveFilename = /*@__PURE__*/ notImplemented(
 export const _resolveLookupPaths = /*@__PURE__*/ notImplemented(
   "module._resolveLookupPaths",
 );
+export const _stat = /*@__PURE__*/ notImplemented("module._stat");
+export const _readPackage = /*@__PURE__*/ notImplemented("module._readPackage");
 
 export const _pathCache = Object.create(null);
 export const globalPaths = ["node_modules"];
 
-export class _Module implements NodeJS.Module {
-  require: NodeJS.Require;
-  id: string;
-  filename: string;
-  exports = Object.create(null);
-  parent = undefined;
-  loaded = true;
-  children = [];
-  isPreloading: boolean = false;
-  path: string = "/";
-  paths: string[] = [];
+// export class _Module implements NodeJS.Module {
+//   require: NodeJS.Require;
+//   id: string;
+//   filename: string;
+//   exports = Object.create(null);
+//   parent = undefined;
+//   loaded = true;
+//   children = [];
+//   isPreloading: boolean = false;
+//   path: string = "/";
+//   paths: string[] = [];
 
-  constructor(id = "index.js") {
-    this.id = id;
-    this.filename = id;
-    this.require = createRequire(id);
-  }
-}
+//   constructor(id = "index.js") {
+//     this.id = id;
+//     this.filename = id;
+//     this.require = createRequire(id);
+//   }
+// }
 
 export const Module = {
   get Module() {
@@ -169,6 +176,8 @@ export const Module = {
   _preloadModules,
   _resolveFilename,
   _resolveLookupPaths,
+  _stat,
+  _readPackage,
   builtinModules,
   constants,
   createRequire,
@@ -181,6 +190,7 @@ export const Module = {
   runMain,
   syncBuiltinESMExports,
   wrap,
+  wrapper,
   flushCompileCache,
   stripTypeScriptTypes,
 } satisfies Omit<typeof nodeModule.Module, "Module" | "prototype"> &

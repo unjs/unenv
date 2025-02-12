@@ -1063,8 +1063,8 @@ export {
 
   // Utilities
   pathToFileURL,
-  fileURLToPath, // eslint-disable-line unicorn/prefer-export-from
-  urlToHttpOptions, // eslint-disable-line unicorn/prefer-export-from
+  fileURLToPath,
+  urlToHttpOptions,
 };
 
 export default {

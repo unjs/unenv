@@ -15,11 +15,6 @@ export const ReadStream: typeof fs.ReadStream =
 export const WriteStream: typeof fs.WriteStream =
   /*@__PURE__*/ notImplementedClass("fs.WriteStream");
 
-export const StatsFs: typeof fs.StatsFs =
-  /*@__PURE__*/ notImplementedClass("fs.StatsFs");
+export const FileReadStream = ReadStream;
 
-export const FileReadStream =
-  /*@__PURE__*/ notImplementedClass("fs.FileReadStream"); // TODO: Does this exists??
-
-export const FileWriteStream =
-  /*@__PURE__*/ notImplementedClass("fs.FileWriteStream"); // TODO: Does this exists??
+export const FileWriteStream = WriteStream;

@@ -17,7 +17,6 @@ export const moveCursor: typeof nodeReadline.moveCursor = () => false;
 
 export default {
   Interface,
-  Readline: Interface,
   clearLine,
   clearScreenDown,
   createInterface,
