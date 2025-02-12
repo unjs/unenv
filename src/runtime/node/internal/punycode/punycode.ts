@@ -479,8 +479,8 @@ const punycode = {
 export {
   version,
   ucs2,
-  ucs2decode,
-  ucs2encode,
+  // ucs2decode,
+  // ucs2encode,
   decode,
   encode,
   toASCII,
