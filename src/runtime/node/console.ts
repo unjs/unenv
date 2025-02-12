@@ -49,7 +49,7 @@ export const timeStamp: typeof nodeConsole.timeStamp =
 export const Console: typeof nodeConsole.Console =
   _console?.Console ?? /*@__PURE__*/ notImplementedClass("console.Console");
 
-export const _time = /*@__PURE__*/ new Map();
+export const _times = /*@__PURE__*/ new Map();
 
 export function context() {
   // TODO: Should be Console with all the methods
@@ -62,6 +62,8 @@ export {
 } from "../mock/noop.ts";
 
 export default {
+  // @ts-expect-error
+  _times,
   assert,
   clear,
   Console,
@@ -71,7 +73,6 @@ export default {
   dir,
   dirxml,
   error,
-  // @ts-expect-error
   context,
   createTask,
   group,
