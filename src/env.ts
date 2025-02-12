@@ -1,5 +1,10 @@
 import { resolvePathSync, type ResolveOptions } from "mlly";
-import type { Preset, Environment, CreateEnvOptions } from "../lib/index.d.mts";
+import type {
+  Preset,
+  Environment,
+  CreateEnvOptions,
+  ResolvedEnvironment,
+} from "../lib/index.d.mts";
 import { version } from "../package.json" with { type: "json" };
 import { nodeCompatAliases, nodeCompatInjects, npmShims } from "./preset";
 
@@ -129,13 +134,13 @@ function resolveEnvPaths(
   return env;
 }
 
-function mergePresets(...presets: Preset[]): Environment {
+function mergePresets(...presets: Preset[]): ResolvedEnvironment {
   const env = {
     alias: {} as Record<string, string>,
-    inject: {} as Record<string, string | string[] | false>,
+    inject: {} as Record<string, string | string[]>,
     polyfill: [] as string[],
     external: [] as string[],
-  } satisfies Environment;
+  } satisfies ResolvedEnvironment;
 
   for (const preset of presets) {
     // Alias
