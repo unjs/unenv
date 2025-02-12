@@ -64,7 +64,6 @@ export class Worker extends EventEmitter implements NodeClusterWorker {
 }
 
 class _Cluster extends EventEmitter implements NodeCluster {
-  worker?: Worker | undefined = undefined;
   Worker = Worker;
   isMaster = isMaster;
   isPrimary = isPrimary;

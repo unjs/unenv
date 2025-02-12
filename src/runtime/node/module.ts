@@ -141,24 +141,24 @@ export const _readPackage = /*@__PURE__*/ notImplemented("module._readPackage");
 export const _pathCache = Object.create(null);
 export const globalPaths = ["node_modules"];
 
-export class _Module implements NodeJS.Module {
-  require: NodeJS.Require;
-  id: string;
-  filename: string;
-  exports = Object.create(null);
-  parent = undefined;
-  loaded = true;
-  children = [];
-  isPreloading: boolean = false;
-  path: string = "/";
-  paths: string[] = [];
+// export class _Module implements NodeJS.Module {
+//   require: NodeJS.Require;
+//   id: string;
+//   filename: string;
+//   exports = Object.create(null);
+//   parent = undefined;
+//   loaded = true;
+//   children = [];
+//   isPreloading: boolean = false;
+//   path: string = "/";
+//   paths: string[] = [];
 
-  constructor(id = "index.js") {
-    this.id = id;
-    this.filename = id;
-    this.require = createRequire(id);
-  }
-}
+//   constructor(id = "index.js") {
+//     this.id = id;
+//     this.filename = id;
+//     this.require = createRequire(id);
+//   }
+// }
 
 export const Module = {
   get Module() {
