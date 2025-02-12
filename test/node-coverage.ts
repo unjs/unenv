@@ -6,6 +6,7 @@ const modulesCoverage = [] as {
   name: string;
   supportedExports: string[];
   unsupportedExports: string[];
+  extraExports: string[];
 }[];
 
 for (const module of builtinModules) {
@@ -18,11 +19,19 @@ for (const module of builtinModules) {
 
     const supportedExports = [] as string[];
     const unsupportedExports = [] as string[];
+    const extraExports = [] as string[];
+
     for (const exportName in nodeMod) {
-      if (exportName in (unenvMod || {})) {
+      if (exportName in unenvMod) {
         supportedExports.push(exportName);
       } else {
         unsupportedExports.push(exportName);
+      }
+    }
+
+    for (const exportName in unenvMod) {
+      if (!(exportName in nodeMod)) {
+        extraExports.push(exportName);
       }
     }
 
@@ -30,8 +39,17 @@ for (const module of builtinModules) {
       if (defExportName === "default") {
         continue;
       }
-      if (!(defExportName in (unenvMod.default || {}))) {
+      if (!(defExportName in unenvMod.default)) {
         unsupportedExports.push(`default.${defExportName}`);
+      }
+    }
+
+    for (const defExportName in unenvMod.default) {
+      if (defExportName === "default") {
+        continue;
+      }
+      if (!(defExportName in nodeMod)) {
+        extraExports.push(`default.${defExportName}`);
       }
     }
 
@@ -39,6 +57,7 @@ for (const module of builtinModules) {
       name: module,
       supportedExports,
       unsupportedExports,
+      extraExports,
     });
   } catch (error) {
     throw new Error(`Error while processing src/runtime/node/${module}.ts`, {
@@ -68,8 +87,12 @@ for (const module of modulesCoverage) {
   const missing = missingNames
     ? colorize("gray", ` (missing: ${missingNames})`)
     : "";
+  const extra =
+    module.extraExports.length > 0
+      ? colorize("yellow", ` (extra: ${module.extraExports.join(", ")})`)
+      : "";
   console.log(
-    `${colorize(supported ? (unsupported ? "yellow" : "green") : "red", `node:${module.name}`.padEnd(25))} ${status.padEnd(20)} ${missing}`,
+    `${colorize(supported ? (unsupported ? "yellow" : "green") : "red", `node:${module.name}`.padEnd(25))} ${status.padEnd(20)} ${missing} ${extra}`,
   );
 }
 
