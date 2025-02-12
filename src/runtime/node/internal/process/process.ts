@@ -5,7 +5,7 @@ import {
   createNotImplementedError,
 } from "../../../_internal/utils.ts";
 
-export class UnenvProcess extends EventEmitter implements NodeJS.Process {
+export class Process extends EventEmitter implements NodeJS.Process {
   env: NodeJS.ProcessEnv;
   hrtime: NodeJS.Process["hrtime"];
   nextTick: NodeJS.Process["nextTick"];
@@ -22,7 +22,7 @@ export class UnenvProcess extends EventEmitter implements NodeJS.Process {
     this.nextTick = impl.nextTick;
 
     for (const prop of [
-      ...Object.getOwnPropertyNames(UnenvProcess.prototype),
+      ...Object.getOwnPropertyNames(Process.prototype),
       ...Object.getOwnPropertyNames(EventEmitter.prototype),
     ]) {
       const value = this[prop as keyof typeof this];

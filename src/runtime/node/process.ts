@@ -1,12 +1,12 @@
 // https://nodejs.org/api/process.html
-import { UnenvProcess } from "./internal/process/process.ts";
+import { Process } from "./internal/process/process.ts";
 import { env as UnenvEnv } from "./internal/process/env.ts";
 import {
   hrtime as UnenvHrTime,
   nextTick as UnenvNextTick,
 } from "./internal/process/time.ts";
 
-const unenvProcess = new UnenvProcess({
+const unenvProcess = new Process({
   env: UnenvEnv,
   hrtime: UnenvHrTime,
   nextTick: UnenvNextTick,
