@@ -89,9 +89,9 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:buffer](https://nodejs.org/api/buffer.html)
 - ✅ [node:child_process](https://nodejs.org/api/child_process.html)
 - ✅ [node:cluster](https://nodejs.org/api/cluster.html)
-- ✅ [node:console](https://nodejs.org/api/console.html)
+- 🚧 [node:console](https://nodejs.org/api/console.html) <!-- missing default._stdoutErrorHandler, default._stderrErrorHandler, default._ignoreErrors, default._stdout, default._stderr exports -->
 - ✅ [node:constants](https://nodejs.org/api/constants.html)
-- ✅ [node:crypto](https://nodejs.org/api/crypto.html)
+- 🚧 [node:crypto](https://nodejs.org/api/crypto.html) <!-- missing default.prng, default.rng exports -->
 - ✅ [node:dgram](https://nodejs.org/api/dgram.html)
 - ✅ [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)
 - ✅ [node:dns](https://nodejs.org/api/dns.html)
@@ -105,7 +105,7 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:https](https://nodejs.org/api/https.html)
 - ✅ [node:inspector](https://nodejs.org/api/inspector.html)
 - ✅ [node:inspector/promises](https://nodejs.org/api/inspector.html)
-- ✅ [node:module](https://nodejs.org/api/module.html)
+- 🚧 [node:module](https://nodejs.org/api/module.html) <!-- missing default.length, default.name, default.prototype, default._stat, default.wrapper, default._readPackage exports -->
 - ✅ [node:net](https://nodejs.org/api/net.html)
 - ✅ [node:os](https://nodejs.org/api/os.html)
 - ✅ [node:path](https://nodejs.org/api/path.html)
@@ -117,8 +117,8 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:querystring](https://nodejs.org/api/querystring.html)
 - ✅ [node:readline](https://nodejs.org/api/readline.html)
 - ✅ [node:readline/promises](https://nodejs.org/api/readline.html)
-- ✅ [node:repl](https://nodejs.org/api/repl.html)
-- ✅ [node:stream](https://nodejs.org/api/stream.html)
+- 🚧 [node:repl](https://nodejs.org/api/repl.html) <!-- missing default._builtinLibs exports -->
+- 🚧 [node:stream](https://nodejs.org/api/stream.html) <!-- missing default.length, default.name, default.prototype exports -->
 - ✅ [node:stream/consumers](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/promises](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/web](https://nodejs.org/api/stream.html)
