@@ -48,7 +48,10 @@ for (const module of builtinModules) {
       if (defExportName === "default") {
         continue;
       }
-      if (!(defExportName in nodeMod)) {
+      if (
+        !(defExportName in nodeMod) &&
+        !extraExports.includes(defExportName)
+      ) {
         extraExports.push(`default.${defExportName}`);
       }
     }
