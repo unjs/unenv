@@ -62,7 +62,11 @@ for (const module of builtinModules) {
       ) {
         continue;
       }
-      if (!(defExportName in nodeMod)) {
+      if (
+        !(defExportName in nodeMod.default) &&
+        // Allow matching default and named exports in mixed CJS/ESM conditions
+        !(defExportName in nodeMod)
+      ) {
         extraExports.push(`default.${defExportName}`);
       }
     }

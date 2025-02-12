@@ -28,12 +28,15 @@ export const builtinModules = /*@__PURE__*/ _builtinModules.filter(
   (m) => m[0] !== "_",
 );
 
+export const _builtinLibs = builtinModules;
+
 export default {
   writer,
   start,
   Recoverable,
   REPLServer,
   builtinModules,
+  _builtinLibs,
   // @ts-expect-error
   REPL_MODE_SLOPPY,
   // @ts-expect-error

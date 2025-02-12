@@ -91,7 +91,7 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:cluster](https://nodejs.org/api/cluster.html)
 - ✅ [node:console](https://nodejs.org/api/console.html)
 - ✅ [node:constants](https://nodejs.org/api/constants.html)
-- 🚧 [node:crypto](https://nodejs.org/api/crypto.html) <!-- missing default.prng, default.rng exports -->
+- ✅ [node:crypto](https://nodejs.org/api/crypto.html)
 - ✅ [node:dgram](https://nodejs.org/api/dgram.html)
 - ✅ [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)
 - ✅ [node:dns](https://nodejs.org/api/dns.html)
@@ -105,7 +105,7 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:https](https://nodejs.org/api/https.html)
 - ✅ [node:inspector](https://nodejs.org/api/inspector.html)
 - ✅ [node:inspector/promises](https://nodejs.org/api/inspector.html)
-- 🚧 [node:module](https://nodejs.org/api/module.html) <!-- missing default._stat, default.wrapper, default._readPackage exports -->
+- ✅ [node:module](https://nodejs.org/api/module.html)
 - ✅ [node:net](https://nodejs.org/api/net.html)
 - ✅ [node:os](https://nodejs.org/api/os.html)
 - ✅ [node:path](https://nodejs.org/api/path.html)
@@ -117,7 +117,7 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:querystring](https://nodejs.org/api/querystring.html)
 - ✅ [node:readline](https://nodejs.org/api/readline.html)
 - ✅ [node:readline/promises](https://nodejs.org/api/readline.html)
-- 🚧 [node:repl](https://nodejs.org/api/repl.html) <!-- missing default._builtinLibs exports -->
+- ✅ [node:repl](https://nodejs.org/api/repl.html)
 - ✅ [node:stream](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/consumers](https://nodejs.org/api/stream.html)
 - ✅ [node:stream/promises](https://nodejs.org/api/stream.html)
