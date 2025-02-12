@@ -26,6 +26,7 @@ export default unjs(
       "@typescript-eslint/no-unused-expressions": 0,
       "unicorn/prefer-global-this": 0,
       "unicorn/prefer-math-min-max": 0,
+      "unicorn/prefer-export-from": 0,
       "no-restricted-imports": [
         "error",
         {

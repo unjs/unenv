@@ -56,14 +56,18 @@ export function context() {
   return _console;
 }
 
-export {
-  default as _stdoutErrorHandler,
-  default as _stderrErrorHandler,
-} from "../mock/noop.ts";
+export const _stdoutErrorHandler = noop;
+
+export const _stderrErrorHandler = noop;
 
 export default {
   // @ts-expect-error
   _times,
+  _ignoreErrors,
+  _stdoutErrorHandler,
+  _stderrErrorHandler,
+  _stdout,
+  _stderr,
   assert,
   clear,
   Console,

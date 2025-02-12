@@ -32,14 +32,21 @@ for (const module of builtinModules) {
 
     // Make sure no extra named exports are added
     for (const exportName of Object.getOwnPropertyNames(unenvMod)) {
-      if (!(exportName in nodeMod)) {
+      if (
+        !(exportName in nodeMod) &&
+        // Allow matching default and named exports in mixed CJS/ESM conditions
+        !(exportName in nodeMod.default)
+      ) {
         extraExports.push(exportName);
       }
     }
 
     // Make sure default export keys are covered
     for (const defExportName of Object.getOwnPropertyNames(nodeMod.default)) {
-      if (defExportName === "default") {
+      if (
+        defExportName === "default" ||
+        ["name", "length", "prototype"].includes(defExportName) /* fn props */
+      ) {
         continue;
       }
       if (!(defExportName in unenvMod.default)) {
@@ -55,10 +62,7 @@ for (const module of builtinModules) {
       ) {
         continue;
       }
-      if (
-        !(defExportName in nodeMod) &&
-        !extraExports.includes(defExportName)
-      ) {
+      if (!(defExportName in nodeMod)) {
         extraExports.push(`default.${defExportName}`);
       }
     }
