@@ -5,16 +5,20 @@ import {
   createNotImplementedError,
 } from "../../../_internal/utils.ts";
 
-import { env } from "./env.ts";
-import { hrtime, nextTick } from "./time.ts";
+export class UnenvProcess extends EventEmitter implements NodeJS.Process {
+  env: NodeJS.ProcessEnv;
+  hrtime: NodeJS.Process["hrtime"];
+  nextTick: NodeJS.Process["nextTick"];
 
-class _Process extends EventEmitter implements NodeJS.Process {
-  env = env;
-  hrtime = hrtime;
-  nextTick = nextTick;
-
-  constructor() {
+  constructor(impl: {
+    env: NodeJS.ProcessEnv;
+    hrtime: NodeJS.Process["hrtime"];
+    nextTick: NodeJS.Process["nextTick"];
+  }) {
     super();
+    this.env = impl.env;
+    this.hrtime = impl.hrtime;
+    this.nextTick = impl.nextTick;
     for (const prop in this) {
       if (typeof this[prop] === "function") {
         this[prop] = this[prop].bind(this);
@@ -30,14 +34,18 @@ class _Process extends EventEmitter implements NodeJS.Process {
     );
   }
 
-  // @ts-ignore
-  emit(...args: Parameters<NodeJS.Process["emit"]>) {
+  emit(...args: any[]) {
+    // @ts-ignore
     const res = super.emit(...args);
     const event = args[0] as string;
     if (event === "message" || event === "multipleResolves") {
       return process;
     }
     return res as any;
+  }
+
+  listeners(eventName: string | symbol) {
+    return super.listeners(eventName) as any;
   }
 
   // --- stdio (lazy initializers) ---
@@ -226,6 +234,10 @@ class _Process extends EventEmitter implements NodeJS.Process {
 
   // --- attached interfaces ---
 
+  permission: NodeJS.ProcessPermission = {
+    has: /*@__PURE__*/ notImplemented("process.permission.has"),
+  };
+
   report: NodeJS.ProcessReport = {
     directory: "",
     filename: "",
@@ -258,6 +270,7 @@ class _Process extends EventEmitter implements NodeJS.Process {
   );
 
   // --- undefined props ---
+  mainModule?: NodeJS.Module | undefined = undefined;
   // https://github.com/unjs/unenv/pull/367
   domain = undefined;
   // optional
@@ -297,5 +310,3 @@ class _Process extends EventEmitter implements NodeJS.Process {
   _send = undefined;
   _linkedBinding = undefined;
 }
-
-export const process = /*@__PURE__*/ new _Process();

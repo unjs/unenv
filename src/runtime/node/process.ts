@@ -1,8 +1,18 @@
 // https://nodejs.org/api/process.html
-import type nodeProcess from "node:process";
-import { process as unenvProcess } from "./internal/process/process.ts";
+import { UnenvProcess } from "./internal/process/process.ts";
+import { env as UnenvEnv } from "./internal/process/env.ts";
+import {
+  hrtime as UnenvHrTime,
+  nextTick as UnenvNextTick,
+} from "./internal/process/time.ts";
 
-export default unenvProcess;
+const unenvProcess = new UnenvProcess({
+  env: UnenvEnv,
+  hrtime: UnenvHrTime,
+  nextTick: UnenvNextTick,
+});
+
+export default unenvProcess satisfies NodeJS.Process;
 
 export const {
   abort,
@@ -74,7 +84,6 @@ export const {
   openStdin,
   assert,
   binding,
-  // optional
   send,
   exitCode,
   channel,
@@ -88,7 +97,8 @@ export const {
   setgid,
   setgroups,
   setuid,
-  // internals
+  permission,
+  mainModule,
   _events,
   _eventsCount,
   _exiting,
