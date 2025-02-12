@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.5
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.4...v2.0.0-rc.5)
+
+### 🩹 Fixes
+
+- **console:** Rename `_time` to `_times` ([#443](https://github.com/unjs/unenv/pull/443))
+- **util:** Import `types` from `node:util/types` ([#447](https://github.com/unjs/unenv/pull/447))
+- DefineEnv returns a ResolvedEnvironment where inject values are never `false` ([#448](https://github.com/unjs/unenv/pull/448))
+
+### 💅 Refactors
+
+- ⚠️  Add all npm shims with opt-in `npmShims` ([#444](https://github.com/unjs/unenv/pull/444))
+- ⚠️  Remove extra node exports ([#445](https://github.com/unjs/unenv/pull/445))
+- ⚠️  Rewrite `process` as class ([#450](https://github.com/unjs/unenv/pull/450))
+
+### 📦 Build
+
+- Copy non `.ts` files as is ([5d18c2b](https://github.com/unjs/unenv/commit/5d18c2b))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Add all npm shims with opt-in `npmShims` ([#444](https://github.com/unjs/unenv/pull/444))
+- ⚠️  Remove extra node exports ([#445](https://github.com/unjs/unenv/pull/445))
+- ⚠️  Rewrite `process` as class ([#450](https://github.com/unjs/unenv/pull/450))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Victor Berchet ([@vicb](http://github.com/vicb))
+
 ## v2.0.0-rc.4
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.3...v2.0.0-rc.4)
