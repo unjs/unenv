@@ -16,12 +16,18 @@ export class UnenvProcess extends EventEmitter implements NodeJS.Process {
     nextTick: NodeJS.Process["nextTick"];
   }) {
     super();
+
     this.env = impl.env;
     this.hrtime = impl.hrtime;
     this.nextTick = impl.nextTick;
-    for (const prop in this) {
-      if (typeof this[prop] === "function") {
-        this[prop] = this[prop].bind(this);
+
+    for (const prop of [
+      ...Object.getOwnPropertyNames(UnenvProcess.prototype),
+      ...Object.getOwnPropertyNames(EventEmitter.prototype),
+    ]) {
+      const value = this[prop as keyof typeof this];
+      if (typeof value === "function") {
+        this[prop as keyof typeof this] = value.bind(this);
       }
     }
   }
@@ -36,12 +42,7 @@ export class UnenvProcess extends EventEmitter implements NodeJS.Process {
 
   emit(...args: any[]) {
     // @ts-ignore
-    const res = super.emit(...args);
-    const event = args[0] as string;
-    if (event === "message" || event === "multipleResolves") {
-      return process;
-    }
-    return res as any;
+    return super.emit(...args) as any;
   }
 
   listeners(eventName: string | symbol) {
@@ -271,8 +272,7 @@ export class UnenvProcess extends EventEmitter implements NodeJS.Process {
 
   // --- undefined props ---
   mainModule?: NodeJS.Module | undefined = undefined;
-  // https://github.com/unjs/unenv/pull/367
-  domain = undefined;
+  domain = undefined; // https://github.com/unjs/unenv/pull/367
   // optional
   send = undefined;
   exitCode = undefined;
