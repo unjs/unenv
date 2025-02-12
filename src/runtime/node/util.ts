@@ -4,7 +4,7 @@ import { notImplemented } from "../_internal/utils.ts";
 import inherits from "../npm/inherits.ts";
 import * as legacyTypes from "./internal/util/legacy-types.ts";
 import * as logUtils from "./internal/util/log.ts";
-import types from "./util/types.ts";
+import types from "node:util/types";
 import { promisify } from "./internal/util/promisify.ts";
 import * as mime from "./internal/util/mime.ts";
 
@@ -14,7 +14,7 @@ export * from "./internal/util/log.ts";
 
 export { default as inherits } from "../npm/inherits.ts";
 export { promisify } from "./internal/util/promisify.ts";
-export { default as types } from "./util/types.ts";
+export { default as types } from "node:util/types";
 
 // @ts-ignore
 export const TextDecoder: typeof nodeUtil.TextDecoder = globalThis.TextDecoder;
