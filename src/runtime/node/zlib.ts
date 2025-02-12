@@ -28,6 +28,7 @@ const Z_UNKNOWN: typeof nodeZlib.Z_UNKNOWN = 2;
 const Z_DEFLATED: typeof nodeZlib.Z_DEFLATED = 8;
 
 export default {
+  ...constants,
   ..._brotli,
   ..._deflate,
   ..._gzip,

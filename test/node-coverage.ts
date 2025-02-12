@@ -21,7 +21,8 @@ for (const module of builtinModules) {
     const unsupportedExports = [] as string[];
     const extraExports = [] as string[];
 
-    for (const exportName in nodeMod) {
+    // Make sure named exports are covered
+    for (const exportName of Object.getOwnPropertyNames(nodeMod)) {
       if (exportName in unenvMod) {
         supportedExports.push(exportName);
       } else {
@@ -29,13 +30,15 @@ for (const module of builtinModules) {
       }
     }
 
-    for (const exportName in unenvMod) {
+    // Make sure no extra named exports are added
+    for (const exportName of Object.getOwnPropertyNames(unenvMod)) {
       if (!(exportName in nodeMod)) {
         extraExports.push(exportName);
       }
     }
 
-    for (const defExportName in nodeMod) {
+    // Make sure default export keys are covered
+    for (const defExportName of Object.getOwnPropertyNames(nodeMod.default)) {
       if (defExportName === "default") {
         continue;
       }
@@ -44,8 +47,12 @@ for (const module of builtinModules) {
       }
     }
 
-    for (const defExportName in unenvMod.default) {
-      if (defExportName === "default") {
+    // Make sure no extra default export keys are added
+    for (const defExportName of Object.getOwnPropertyNames(unenvMod.default)) {
+      if (
+        defExportName === "default" ||
+        ["name", "length", "prototype"].includes(defExportName) /* fn props */
+      ) {
         continue;
       }
       if (
@@ -90,12 +97,14 @@ for (const module of modulesCoverage) {
   const missing = missingNames
     ? colorize("gray", ` (missing: ${missingNames})`)
     : "";
-  const extra =
-    module.extraExports.length > 0
-      ? colorize("yellow", ` (extra: ${module.extraExports.join(", ")})`)
-      : "";
+  const extraNames =
+    module.extraExports.length > 3
+      ? module.extraExports.slice(0, 3).join(", ") +
+        `, and ${module.extraExports.length - 3} more...`
+      : module.extraExports.join(", ");
+  const extra = extraNames ? colorize("yellow", ` (extra: ${extraNames})`) : "";
   console.log(
-    `${colorize(supported ? (unsupported ? "yellow" : "green") : "red", `node:${module.name}`.padEnd(25))} ${status.padEnd(20)} ${missing} ${extra}`,
+    `${colorize(supported ? (unsupported ? "yellow" : "green") : "red", `node:${module.name}`.padEnd(25))} ${status.padEnd(20)}${missing}${extra}`,
   );
 }
 
