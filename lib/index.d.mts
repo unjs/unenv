@@ -8,16 +8,19 @@ export declare function defineEnv(opts?: CreateEnvOptions): {
 
 export interface CreateEnvOptions {
   /**
-   * Node.js compatibility aliases.
+   * Node.js compatibility.
+   *
+   * - Add `alias` entries for Node.js builtins as `<id>` and `node:<id>`.
+   * - Add `inject` entries for Node.js globals `global`, `Buffer`, and `process`.
    *
    * Default: `true`
    */
   nodeCompat?: boolean;
 
   /**
-   * NPM compatibility aliases.
+   * Add `alias` entries to replace npm packages like `node-fetch` with lighter shims.
    *
-   * Default: `true`
+   * Default: `false`
    */
   npmShims?: boolean;
 

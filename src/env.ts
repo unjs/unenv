@@ -61,7 +61,7 @@ function unenvPreset(opts: CreateEnvOptions) {
     });
   }
 
-  if (opts.npmShims !== false) {
+  if (opts.npmShims) {
     Object.assign(preset.alias, npmShims);
   }
 

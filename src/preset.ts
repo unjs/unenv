@@ -69,19 +69,22 @@ export const nodeCompatAliases = {
   zlib: "unenv/node/zlib",
 } as const;
 
-export const npmShims = {
-  fsevents: "unenv/npm/fsevents",
-  "node-fetch": "unenv/npm/node-fetch",
-  "node-fetch-native": "unenv/npm/node-fetch",
-  "node-fetch-native/polyfill": "unenv/mock/empty",
-  "cross-fetch": "unenv/npm/cross-fetch",
-  "cross-fetch/polyfill": "unenv/mock/empty",
-  "isomorphic-fetch": "unenv/mock/empty",
-  inherits: "unenv/npm/inherits",
-} as const;
-
 export const nodeCompatInjects = {
   global: "unenv/polyfill/globalthis",
   process: "unenv/node/process",
   Buffer: ["unenv/node/buffer", "Buffer"],
+} as const;
+
+export const npmShims = {
+  "cross-fetch": "unenv/npm/cross-fetch",
+  debug: "unenv/npm/debug",
+  fsevents: "unenv/npm/fsevents",
+  inherits: "unenv/npm/inherits",
+  "node-fetch": "unenv/npm/node-fetch",
+  "node-fetch-native": "unenv/npm/node-fetch",
+  "whatwg-url": "unenv/npm/whatwg-url",
+  // polyfills
+  "cross-fetch/polyfill": "unenv/mock/empty",
+  "node-fetch-native/polyfill": "unenv/mock/empty",
+  "isomorphic-fetch": "unenv/mock/empty",
 } as const;
