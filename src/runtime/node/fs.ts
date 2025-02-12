@@ -18,4 +18,4 @@ export default {
   ..._constants,
   ..._fs,
   promises,
-} satisfies typeof nodeFS;
+} satisfies Omit<typeof nodeFS, "StatsFs" /* interface only */>;
