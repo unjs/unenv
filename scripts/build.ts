@@ -7,7 +7,7 @@
  */
 
 import { fileURLToPath } from "node:url";
-import { dirname, join, relative } from "node:path";
+import { dirname, extname, join, relative } from "node:path";
 import { glob, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 
 import oxcTransform from "oxc-transform";
@@ -42,19 +42,36 @@ async function transformDir(cwd: string, input: string, output: string) {
   const srcDir = join(cwd, input);
   const distDir = join(cwd, output);
   const promises: Promise<void>[] = [];
-  for await (const entryName of glob("**/*.ts", { cwd: srcDir })) {
+  for await (const entryName of glob("**/*.*", { cwd: srcDir })) {
     promises.push(
       (async () => {
         const entryPath = join(srcDir, entryName);
-        const transformed = await transformModule(entryPath);
-        const entryDistPath = join(distDir, entryName.replace(/\.ts$/, ".mjs"));
-        await mkdir(dirname(entryDistPath), { recursive: true });
-        await writeFile(entryDistPath, transformed.code, "utf8");
-        await writeFile(
-          entryDistPath.replace(/\.mjs$/, ".d.mts"),
-          transformed.declaration!,
-          "utf8",
-        );
+        const ext = extname(entryPath);
+        switch (ext) {
+          case ".ts":
+            {
+              const transformed = await transformModule(entryPath);
+              const entryDistPath = join(
+                distDir,
+                entryName.replace(/\.ts$/, ".mjs"),
+              );
+              await mkdir(dirname(entryDistPath), { recursive: true });
+              await writeFile(entryDistPath, transformed.code, "utf8");
+              await writeFile(
+                entryDistPath.replace(/\.mjs$/, ".d.mts"),
+                transformed.declaration!,
+                "utf8",
+              );
+            }
+            break;
+          default:
+            {
+              const entryDistPath = join(distDir, entryName);
+              await mkdir(dirname(entryDistPath), { recursive: true });
+              await writeFile(entryDistPath, await readFile(entryPath), "utf8");
+            }
+            break;
+        }
       })(),
     );
   }
@@ -183,8 +200,4 @@ function resolvePath(id: string, parent: string) {
   const error = new Error(`Cannot resolve "${id}" from "${parent}"`);
   Error.captureStackTrace?.(error, resolvePath);
   throw error;
-}
-
-function relativeWithDot(path: string) {
-  return path.startsWith(".") ? path : `./${path}`;
 }
