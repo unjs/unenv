@@ -221,7 +221,7 @@ export class Process extends EventEmitter implements NodeJS.Process {
     throw createNotImplementedError("process.initgroups");
   }
 
-  openStdin(): NodeJS.ReadStream {
+  openStdin(): NodeJS.Socket {
     throw createNotImplementedError("process.openStdin");
   }
 
@@ -251,7 +251,7 @@ export class Process extends EventEmitter implements NodeJS.Process {
     writeReport: /*@__PURE__*/ notImplemented("process.report.writeReport"),
   };
 
-  finalization = {
+  finalization: NodeJS.Process["finalization"] = {
     register: /*@__PURE__*/ notImplemented("process.finalization.register"),
     unregister: /*@__PURE__*/ notImplemented("process.finalization.unregister"),
     registerBeforeExit: /*@__PURE__*/ notImplemented(
