@@ -12,7 +12,7 @@ export * from "./internal/util/mime.ts";
 export * from "./internal/util/legacy-types.ts";
 export * from "./internal/util/log.ts";
 
-export { default as inherits } from "../npm/inherits.ts";
+export { inherits } from "./internal/util/inherits.ts";
 export { promisify } from "./internal/util/promisify.ts";
 export { default as types } from "node:util/types";
 
