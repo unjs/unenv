@@ -3,9 +3,12 @@ import { notImplemented } from "../_internal/utils.ts";
 import { TLSSocket } from "./internal/tls/tls-socket.ts";
 import { Server } from "./internal/tls/server.ts";
 import { SecureContext } from "./internal/tls/secure-context.ts";
-import * as constants from "./internal/tls/constants.ts";
 
-export * from "./internal/tls/constants.ts";
+// prettier-ignore
+import { CLIENT_RENEG_LIMIT, CLIENT_RENEG_WINDOW, DEFAULT_CIPHERS, DEFAULT_ECDH_CURVE, DEFAULT_MAX_VERSION, DEFAULT_MIN_VERSION } from "./internal/constants/tls.ts"
+
+export * from "./internal/constants/tls.ts";
+
 export { TLSSocket } from "./internal/tls/tls-socket.ts";
 export { Server } from "./internal/tls/server.ts";
 export { SecureContext } from "./internal/tls/secure-context.ts";
@@ -33,7 +36,12 @@ export const getCiphers: typeof nodeTls.getCiphers =
 export const rootCertificates: typeof nodeTls.rootCertificates = [];
 
 export default {
-  ...constants,
+  CLIENT_RENEG_LIMIT,
+  CLIENT_RENEG_WINDOW,
+  DEFAULT_CIPHERS,
+  DEFAULT_ECDH_CURVE,
+  DEFAULT_MAX_VERSION,
+  DEFAULT_MIN_VERSION,
   SecureContext,
   Server,
   TLSSocket,
