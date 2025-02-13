@@ -90,7 +90,7 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:child_process](https://nodejs.org/api/child_process.html)
 - ✅ [node:cluster](https://nodejs.org/api/cluster.html)
 - ✅ [node:console](https://nodejs.org/api/console.html)
-- ✅ [node:constants](https://nodejs.org/api/constants.html)
+- 🚧 [node:constants](https://nodejs.org/api/constants.html) <!-- missing O_DIRECT, O_NOATIME, RTLD_DEEPBIND, SIGPOLL, SIGPWR, SIGSTKFLT, default.RTLD_DEEPBIND, default.SIGSTKFLT, default.SIGPOLL, default.SIGPWR, default.O_NOATIME, default.O_DIRECT exports -->
 - ✅ [node:crypto](https://nodejs.org/api/crypto.html)
 - ✅ [node:dgram](https://nodejs.org/api/dgram.html)
 - ✅ [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)
