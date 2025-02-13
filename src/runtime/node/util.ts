@@ -3,10 +3,34 @@ import type nodeUtil from "node:util";
 import types from "node:util/types";
 import { notImplemented } from "../_internal/utils.ts";
 import { inherits } from "./internal/util/inherits.ts";
-import * as legacyTypes from "./internal/util/legacy-types.ts";
-import * as logUtils from "./internal/util/log.ts";
 import { promisify } from "./internal/util/promisify.ts";
-import * as mime from "./internal/util/mime.ts";
+import { MIMEParams, MIMEType } from "./internal/util/mime.ts";
+import {
+  isArray,
+  isBoolean,
+  isBuffer,
+  isDate,
+  isDeepStrictEqual,
+  isError,
+  isFunction,
+  isNull,
+  isNullOrUndefined,
+  isNumber,
+  isObject,
+  isPrimitive,
+  isRegExp,
+  isString,
+  isSymbol,
+  isUndefined,
+} from "./internal/util/legacy-types.ts";
+import {
+  debug,
+  debuglog,
+  format,
+  formatWithOptions,
+  inspect,
+  log,
+} from "./internal/util/log.ts";
 
 export { MIMEParams, MIMEType } from "./internal/util/mime.ts";
 
@@ -20,10 +44,9 @@ export { promisify } from "./internal/util/promisify.ts";
 
 export { default as types } from "node:util/types";
 
-// @ts-ignore
+// @ts-expect-error
 export const TextDecoder: typeof nodeUtil.TextDecoder = globalThis.TextDecoder;
 
-// @ts-ignore
 export const TextEncoder: typeof nodeUtil.TextEncoder = globalThis.TextEncoder;
 
 export const deprecate: typeof nodeUtil.deprecate = (fn) => fn;
@@ -89,6 +112,7 @@ export const getSystemErrorMessage = /*@__PURE__*/ notImplemented<
 >("util.getSystemErrorMessage");
 
 export default {
+  // @ts-expect-error
   _errnoException,
   _exceptionWithHostPort,
   _extend,
@@ -112,7 +136,28 @@ export default {
   parseArgs,
   parseEnv,
   styleText,
-  ...mime,
-  ...logUtils,
-  ...legacyTypes,
-} as /* TODO: use satisfies */ typeof nodeUtil;
+  MIMEParams,
+  MIMEType,
+  isArray,
+  isBoolean,
+  isBuffer,
+  isDate,
+  isDeepStrictEqual,
+  isError,
+  isFunction,
+  isNull,
+  isNullOrUndefined,
+  isNumber,
+  isObject,
+  isPrimitive,
+  isRegExp,
+  isString,
+  isSymbol,
+  isUndefined,
+  debug,
+  debuglog,
+  format,
+  formatWithOptions,
+  inspect,
+  log,
+} satisfies typeof nodeUtil;
