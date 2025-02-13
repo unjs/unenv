@@ -1,5 +1,4 @@
-import type nodeProcess from "node:process";
-import unenvProcess from "../node/process.ts";
+import processModule from "node:process";
 
 const originalProcess = globalThis.process;
 
@@ -9,9 +8,9 @@ globalThis.process = originalProcess
         if (Reflect.has(target, prop)) {
           return Reflect.get(target, prop, receiver);
         }
-        return Reflect.get(unenvProcess, prop, receiver);
+        return Reflect.get(processModule, prop, receiver);
       },
     })
-  : unenvProcess;
+  : processModule;
 
-export default globalThis.process satisfies typeof nodeProcess;
+export default globalThis.process satisfies typeof processModule;
