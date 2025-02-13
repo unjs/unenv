@@ -90,7 +90,7 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:child_process](https://nodejs.org/api/child_process.html)
 - ✅ [node:cluster](https://nodejs.org/api/cluster.html)
 - ✅ [node:console](https://nodejs.org/api/console.html)
-- 🚧 [node:constants](https://nodejs.org/api/constants.html) <!-- missing O_DIRECT, O_NOATIME, RTLD_DEEPBIND, SIGPOLL, SIGPWR, SIGSTKFLT, default.RTLD_DEEPBIND, default.SIGSTKFLT, default.SIGPOLL, default.SIGPWR, default.O_NOATIME, default.O_DIRECT exports -->
+- ✅ [node:constants](https://nodejs.org/api/constants.html)
 - ✅ [node:crypto](https://nodejs.org/api/crypto.html)
 - ✅ [node:dgram](https://nodejs.org/api/dgram.html)
 - ✅ [node:diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)
@@ -105,14 +105,14 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:https](https://nodejs.org/api/https.html)
 - ✅ [node:inspector](https://nodejs.org/api/inspector.html)
 - ✅ [node:inspector/promises](https://nodejs.org/api/inspector.html)
-- 🚧 [node:module](https://nodejs.org/api/module.html) <!-- missing findPackageJSON, getSourceMapsSupport, setSourceMapsSupport, default.findPackageJSON, default.getSourceMapsSupport, default.setSourceMapsSupport exports -->
+- ✅ [node:module](https://nodejs.org/api/module.html)
 - ✅ [node:net](https://nodejs.org/api/net.html)
 - ✅ [node:os](https://nodejs.org/api/os.html)
 - ✅ [node:path](https://nodejs.org/api/path.html)
 - ✅ [node:path/posix](https://nodejs.org/api/path.html)
 - ✅ [node:path/win32](https://nodejs.org/api/path.html)
 - ✅ [node:perf_hooks](https://nodejs.org/api/perf_hooks.html)
-- 🚧 [node:process](https://nodejs.org/api/process.html) <!-- missing ref, unref, default.ref, default.unref exports -->
+- ✅ [node:process](https://nodejs.org/api/process.html)
 - ✅ [node:punycode](https://nodejs.org/api/punycode.html)
 - ✅ [node:querystring](https://nodejs.org/api/querystring.html)
 - ✅ [node:readline](https://nodejs.org/api/readline.html)
@@ -135,7 +135,7 @@ You can also directly import `unenv/` polyfills:
 - ✅ [node:v8](https://nodejs.org/api/v8.html)
 - ✅ [node:vm](https://nodejs.org/api/vm.html)
 - ✅ [node:wasi](https://nodejs.org/api/wasi.html)
-- 🚧 [node:worker_threads](https://nodejs.org/api/worker_threads.html) <!-- missing isInternalThread, default.isInternalThread exports -->
+- ✅ [node:worker_threads](https://nodejs.org/api/worker_threads.html)
 - ✅ [node:zlib](https://nodejs.org/api/zlib.html)
 
 <!-- /automd -->
