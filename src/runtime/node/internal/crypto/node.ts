@@ -67,8 +67,6 @@ export const prng = randomBytes;
 
 export const fips: typeof nodeCrypto.fips = false;
 
-export const constants = {} as typeof nodeCrypto.constants;
-
 // ---- Unimplemented utils ----
 
 export const checkPrime =

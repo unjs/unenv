@@ -1,7 +1,7 @@
 // https://nodejs.org/api/http.html
 import type nodeHttp from "node:http";
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
-import * as consts from "./internal/http/consts.ts";
+import * as constants from "./internal/http/consts.ts";
 import { IncomingMessage } from "./internal/http/request.ts";
 import { ServerResponse } from "./internal/http/response.ts";
 import { Agent } from "./internal/http/agent.ts";
@@ -60,7 +60,7 @@ export const MessageEvent =
   /*@__PURE__*/ notImplementedClass<MessageEvent>("MessageEvent");
 
 export default {
-  ...consts,
+  ...constants,
   IncomingMessage: IncomingMessage as any as typeof nodeHttp.IncomingMessage,
   ServerResponse: ServerResponse as any as typeof nodeHttp.ServerResponse,
   WebSocket: WebSocket as any as typeof nodeHttp.WebSocket,
