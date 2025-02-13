@@ -9,7 +9,7 @@ import { version } from "../package.json" with { type: "json" };
 import { nodeCompatAliases, nodeCompatInjects, npmShims } from "./preset";
 
 export function defineEnv(opts: CreateEnvOptions = {}): {
-  env: Environment;
+  env: ResolvedEnvironment;
   presets: Preset[];
 } {
   const presets: Preset[] = [];
