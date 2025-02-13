@@ -1,5 +1,5 @@
 // https://nodejs.org/api/process.html#processhrtime
-export const hrtime: NodeJS.Process["hrtime"] = Object.assign(
+export const hrtime: NodeJS.Process["hrtime"] = /*@__PURE__*/ Object.assign(
   function hrtime(startTime?: [number, number] | undefined) {
     const now = Date.now();
     // millis to seconds

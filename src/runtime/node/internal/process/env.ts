@@ -6,7 +6,7 @@ const _getEnv = (useShim?: boolean) =>
   (globalThis as any).__env__ ||
   (useShim ? _envShim : globalThis);
 
-export const env: NodeJS.Process["env"] = new Proxy(_envShim, {
+export const env: NodeJS.Process["env"] = /*@__PURE__*/ new Proxy(_envShim, {
   get(_, prop) {
     const env = _getEnv();
     return env[prop as string] ?? _envShim[prop];
