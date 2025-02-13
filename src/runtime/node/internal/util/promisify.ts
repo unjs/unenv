@@ -1,6 +1,6 @@
 import type util from "node:util";
 
-const customSymbol = Symbol("customPromisify");
+const customSymbol = /*@__PURE__*/ Symbol("customPromisify");
 
 type Fn = (...args: any[]) => any;
 
