@@ -73,8 +73,6 @@ export const {
   stdin,
   stdout,
   title,
-  throwDeprecation,
-  traceDeprecation,
   umask,
   uptime,
   version,
