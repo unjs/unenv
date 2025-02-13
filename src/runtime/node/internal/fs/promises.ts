@@ -67,5 +67,3 @@ export const statfs = /*@__PURE__*/ notImplemented<typeof fsp.statfs>(
   "fs.statfs",
 ) as typeof fsp.statfs;
 export const glob = /*@__PURE__*/ notImplemented<typeof fsp.glob>("fs.glob");
-
-export default {} as typeof fsp;
