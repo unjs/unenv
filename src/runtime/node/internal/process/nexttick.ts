@@ -4,10 +4,10 @@ export const nextTick: NodeJS.Process["nextTick"] = globalThis.queueMicrotask
   ? (cb, ...args) => {
       globalThis.queueMicrotask(cb.bind(undefined, ...args));
     }
-  : _createNextTickWithTimeout();
+  : /*@__PURE__*/ createNextTickWithTimeout();
 
-// Fallback for runtimes not implkementing queueMicrotask
-function _createNextTickWithTimeout() {
+// Fallback for runtimes not implementing queueMicrotask
+function createNextTickWithTimeout() {
   type Callback = () => any;
   let queue: Callback[] = [];
   let draining = false;
