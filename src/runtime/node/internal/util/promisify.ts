@@ -25,7 +25,10 @@ function _promisify(fn: Fn & { [customSymbol]?: Fn }) {
   };
 }
 
-_promisify.custom = customSymbol;
-
 // @ts-ignore
-export const promisify: typeof util.promisify = _promisify;
+export const promisify: typeof util.promisify = /*@__PURE__*/ Object.assign(
+  _promisify,
+  {
+    custom: customSymbol,
+  },
+);
