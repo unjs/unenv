@@ -1,19 +1,23 @@
 // https://nodejs.org/api/util.html
 import type nodeUtil from "node:util";
+import types from "node:util/types";
 import { notImplemented } from "../_internal/utils.ts";
-import inherits from "../npm/inherits.ts";
+import { inherits } from "./internal/util/inherits.ts";
 import * as legacyTypes from "./internal/util/legacy-types.ts";
 import * as logUtils from "./internal/util/log.ts";
-import types from "node:util/types";
 import { promisify } from "./internal/util/promisify.ts";
 import * as mime from "./internal/util/mime.ts";
 
-export * from "./internal/util/mime.ts";
+export { MIMEParams, MIMEType } from "./internal/util/mime.ts";
+
 export * from "./internal/util/legacy-types.ts";
+
 export * from "./internal/util/log.ts";
 
-export { default as inherits } from "../npm/inherits.ts";
+export { inherits } from "./internal/util/inherits.ts";
+
 export { promisify } from "./internal/util/promisify.ts";
+
 export { default as types } from "node:util/types";
 
 // @ts-ignore
@@ -27,23 +31,30 @@ export const deprecate: typeof nodeUtil.deprecate = (fn) => fn;
 export const _errnoException = /*@__PURE__*/ notImplemented(
   "util._errnoException",
 );
+
 export const _exceptionWithHostPort = /*@__PURE__*/ notImplemented(
   "util._exceptionWithHostPort",
 );
+
 export const _extend = /*@__PURE__*/ notImplemented("util._extend");
 
 export const aborted =
   /*@__PURE__*/ notImplemented<typeof nodeUtil.aborted>("util.aborted");
+
 export const callbackify =
   /*@__PURE__*/ notImplemented<typeof nodeUtil.callbackify>("util.callbackify");
+
 export const getSystemErrorMap = /*@__PURE__*/ notImplemented<
   typeof nodeUtil.getSystemErrorMap
 >("util.getSystemErrorMap");
+
 export const getSystemErrorName = /*@__PURE__*/ notImplemented<
   typeof nodeUtil.getSystemErrorName
 >("util.getSystemErrorName");
+
 export const toUSVString =
   /*@__PURE__*/ notImplemented<typeof nodeUtil.toUSVString>("util.toUSVString");
+
 export const stripVTControlCharacters = /*@__PURE__*/ notImplemented<
   typeof nodeUtil.stripVTControlCharacters
 >("util.stripVTControlCharacters");
@@ -51,9 +62,11 @@ export const stripVTControlCharacters = /*@__PURE__*/ notImplemented<
 export const transferableAbortController = /*@__PURE__*/ notImplemented<
   typeof nodeUtil.transferableAbortController
 >("util.transferableAbortController");
+
 export const transferableAbortSignal = /*@__PURE__*/ notImplemented<
   typeof nodeUtil.transferableAbortSignal
 >("util.transferableAbortSignal");
+
 export const parseArgs =
   /*@__PURE__*/ notImplemented<typeof nodeUtil.parseArgs>("util.parseArgs");
 

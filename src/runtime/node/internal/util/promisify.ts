@@ -1,6 +1,6 @@
 import type util from "node:util";
 
-const customSymbol = Symbol("customPromisify");
+const customSymbol = /*@__PURE__*/ Symbol("customPromisify");
 
 type Fn = (...args: any[]) => any;
 
@@ -25,7 +25,10 @@ function _promisify(fn: Fn & { [customSymbol]?: Fn }) {
   };
 }
 
-_promisify.custom = customSymbol;
-
 // @ts-ignore
-export const promisify: typeof util.promisify = _promisify;
+export const promisify: typeof util.promisify = /*@__PURE__*/ Object.assign(
+  _promisify,
+  {
+    custom: customSymbol,
+  },
+);
