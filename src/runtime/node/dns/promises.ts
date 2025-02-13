@@ -5,8 +5,16 @@ import {
   notImplementedClass,
 } from "../../_internal/utils.ts";
 import type dns from "node:dns/promises";
-import * as constants from "../internal/dns/constants.ts";
-export * from "../internal/dns/constants.ts";
+
+// prettier-ignore
+import {
+  NODATA, FORMERR, SERVFAIL, NOTFOUND, NOTIMP, REFUSED, BADQUERY, BADNAME, BADFAMILY, BADRESP, CONNREFUSED, TIMEOUT, EOF, FILE, NOMEM, DESTRUCTION, BADSTR, BADFLAGS, NONAME, BADHINTS, NOTINITIALIZED, LOADIPHLPAPI, ADDRGETNETWORKPARAMS, CANCELLED
+} from "../internal/constants/dns.ts";
+
+// prettier-ignore
+export {
+  NODATA, FORMERR, SERVFAIL, NOTFOUND, NOTIMP, REFUSED, BADQUERY, BADNAME, BADFAMILY, BADRESP, CONNREFUSED, TIMEOUT, EOF, FILE, NOMEM, DESTRUCTION, BADSTR, BADFLAGS, NONAME, BADHINTS, NOTINITIALIZED, LOADIPHLPAPI, ADDRGETNETWORKPARAMS, CANCELLED
+} from "../internal/constants/dns.ts";
 
 export const Resolver: typeof dns.Resolver =
   /*@__PURE__*/ notImplementedClass("dns.Resolver");
@@ -68,8 +76,9 @@ export const setDefaultResultOrder: typeof dns.setDefaultResultOrder = noop;
 
 export const setServers: typeof dns.setServers = noop;
 
+// prettier-ignore
 export default {
-  ...constants,
+  NODATA, FORMERR, SERVFAIL, NOTFOUND, NOTIMP, REFUSED, BADQUERY, BADNAME, BADFAMILY, BADRESP, CONNREFUSED, TIMEOUT, EOF, FILE, NOMEM, DESTRUCTION, BADSTR, BADFLAGS, NONAME, BADHINTS, NOTINITIALIZED, LOADIPHLPAPI, ADDRGETNETWORKPARAMS, CANCELLED,
   Resolver,
   getDefaultResultOrder,
   getServers,

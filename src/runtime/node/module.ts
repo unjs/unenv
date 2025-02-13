@@ -138,6 +138,18 @@ export const _resolveLookupPaths = /*@__PURE__*/ notImplemented(
 export const _stat = /*@__PURE__*/ notImplemented("module._stat");
 export const _readPackage = /*@__PURE__*/ notImplemented("module._readPackage");
 
+export const findPackageJSON = /*@__PURE__*/ notImplemented(
+  "module.findPackageJSON",
+);
+
+export const getSourceMapsSupport = /*@__PURE__*/ notImplemented(
+  "module.getSourceMapsSupport",
+);
+
+export const setSourceMapsSupport = /*@__PURE__*/ notImplemented(
+  "module.setSourceMapsSupport",
+);
+
 export const _pathCache = Object.create(null);
 export const globalPaths = ["node_modules"];
 
@@ -193,6 +205,9 @@ export const Module = {
   wrapper,
   flushCompileCache,
   stripTypeScriptTypes,
+  findPackageJSON,
+  getSourceMapsSupport,
+  setSourceMapsSupport,
 } satisfies Omit<typeof nodeModule.Module, "Module" | "prototype"> &
   Record<string, any>;
 

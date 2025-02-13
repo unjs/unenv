@@ -1,10 +1,11 @@
 import type nodeVm from "node:vm";
 import { notImplemented } from "../_internal/utils.ts";
 import { Script } from "./internal/vm/script.ts";
-import * as constants from "./internal/vm/constants.ts";
+import * as constants from "./internal/constants/vm.ts";
 
 export { Script } from "./internal/vm/script.ts";
-export * as constants from "./internal/vm/constants.ts";
+
+export * as constants from "./internal/constants/vm.ts";
 
 export const compileFunction: typeof nodeVm.compileFunction =
   /*@__PURE__*/ notImplemented("vm.compileFunction");
@@ -46,15 +47,16 @@ export const runInThisContext: typeof nodeVm.runInThisContext =
 export default {
   Script,
   compileFunction,
-  constants,
+  constants: constants as unknown as typeof nodeVm.constants,
   createContext,
-  createScript,
   isContext,
   measureMemory,
   runInContext,
   runInNewContext,
   runInThisContext,
-} as /* TODO: use satisfies */ Omit<
+  // @ts-expect-error
+  createScript,
+} satisfies Omit<
   typeof nodeVm,
   "Module" | "SourceTextModule" | "SyntheticModule"
 >;

@@ -5,11 +5,10 @@ import {
   notImplementedClass,
 } from "../_internal/utils.ts";
 import type nodeDns from "node:dns";
-import promises from "./dns/promises.ts";
-import * as constants from "./internal/dns/constants.ts";
 
-export * from "./internal/dns/constants.ts";
-export * as promises from "./dns/promises.ts";
+import promises from "node:dns/promises";
+
+export { promises };
 
 export const Resolver: typeof nodeDns.Resolver =
   /*@__PURE__*/ notImplementedClass("dns.Resolver");
@@ -53,8 +52,19 @@ export const reverse: typeof nodeDns.reverse =
 export const setDefaultResultOrder: typeof nodeDns.setDefaultResultOrder = noop;
 export const setServers: typeof nodeDns.setServers = noop;
 
+// prettier-ignore
+import {
+  NODATA, FORMERR, SERVFAIL, NOTFOUND, NOTIMP, REFUSED, BADQUERY, BADNAME, BADFAMILY, BADRESP, CONNREFUSED, TIMEOUT, EOF, FILE, NOMEM, DESTRUCTION, BADSTR, BADFLAGS, NONAME, BADHINTS, NOTINITIALIZED, LOADIPHLPAPI, ADDRGETNETWORKPARAMS, CANCELLED, ADDRCONFIG, ALL, V4MAPPED
+} from "./internal/constants/dns.ts";
+
+// prettier-ignore
+export {
+  NODATA, FORMERR, SERVFAIL, NOTFOUND, NOTIMP, REFUSED, BADQUERY, BADNAME, BADFAMILY, BADRESP, CONNREFUSED, TIMEOUT, EOF, FILE, NOMEM, DESTRUCTION, BADSTR, BADFLAGS, NONAME, BADHINTS, NOTINITIALIZED, LOADIPHLPAPI, ADDRGETNETWORKPARAMS, CANCELLED, ADDRCONFIG, ALL, V4MAPPED
+} from "./internal/constants/dns.ts";
+
+// prettier-ignore
 export default {
-  ...constants,
+  NODATA, FORMERR, SERVFAIL, NOTFOUND, NOTIMP, REFUSED, BADQUERY, BADNAME, BADFAMILY, BADRESP, CONNREFUSED, TIMEOUT, EOF, FILE, NOMEM, DESTRUCTION, BADSTR, BADFLAGS, NONAME, BADHINTS, NOTINITIALIZED, LOADIPHLPAPI, ADDRGETNETWORKPARAMS, CANCELLED, ADDRCONFIG, ALL, V4MAPPED,
   Resolver,
   getDefaultResultOrder,
   getServers,
