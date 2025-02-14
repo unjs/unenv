@@ -1,4 +1,4 @@
-import type dns from "node:dns";
+import type nodeDns from "node:dns";
 
 /*
 All of these constant definitions should be of the form:
@@ -37,32 +37,33 @@ When this change is released and the version of @types/node is bumped, revert ba
   export const TIMEOUT: typeof dns.TIMEOUT = "TIMEOUT";
 */
 
-export const ADDRCONFIG: typeof dns.ADDRCONFIG = 0;
-export const ALL: typeof dns.ALL = 0;
-export const V4MAPPED: typeof dns.V4MAPPED = 2048;
+export const ADDRCONFIG: typeof nodeDns.ADDRCONFIG = 0;
+export const ALL: typeof nodeDns.ALL = 0;
+export const V4MAPPED: typeof nodeDns.V4MAPPED = 2048;
 
 export const ADDRGETNETWORKPARAMS =
-  "EADDRGETNETWORKPARAMS" as typeof dns.ADDRGETNETWORKPARAMS;
-export const BADFAMILY = "EBADFAMILY" as typeof dns.BADFAMILY;
-export const BADFLAGS = "EBADFLAGS" as typeof dns.BADFLAGS;
-export const BADHINTS = "EBADHINTS" as typeof dns.BADHINTS;
-export const BADNAME = "EBADNAME" as typeof dns.BADNAME;
-export const BADQUERY = "EBADQUERY" as typeof dns.BADQUERY;
-export const BADRESP = "EBADRESP" as typeof dns.BADRESP;
-export const BADSTR = "EBADSTR" as typeof dns.BADSTR;
-export const CANCELLED = "ECANCELLED" as typeof dns.CANCELLED;
-export const CONNREFUSED = "ECONNREFUSED" as typeof dns.CONNREFUSED;
-export const DESTRUCTION = "EDESTRUCTION" as typeof dns.DESTRUCTION;
-export const EOF = "EEOF" as typeof dns.EOF;
-export const FILE = "EFILE" as typeof dns.FILE;
-export const FORMERR = "EFORMERR" as typeof dns.FORMERR;
-export const LOADIPHLPAPI = "ELOADIPHLPAPI" as typeof dns.LOADIPHLPAPI;
-export const NODATA = "ENODATA" as typeof dns.NODATA;
-export const NOMEM = "ENOMEM" as typeof dns.NOMEM;
-export const NONAME = "ENONAME" as typeof dns.NONAME;
-export const NOTFOUND = "ENOTFOUND" as typeof dns.NOTFOUND;
-export const NOTIMP = "ENOTIMP" as typeof dns.NOTIMP;
-export const NOTINITIALIZED = "ENOTINITIALIZED" as typeof dns.NOTINITIALIZED;
-export const REFUSED = "EREFUSED" as typeof dns.REFUSED;
-export const SERVFAIL = "ESERVFAIL" as typeof dns.SERVFAIL;
-export const TIMEOUT = "ETIMEOUT" as typeof dns.TIMEOUT;
+  "EADDRGETNETWORKPARAMS" as typeof nodeDns.ADDRGETNETWORKPARAMS;
+export const BADFAMILY = "EBADFAMILY" as typeof nodeDns.BADFAMILY;
+export const BADFLAGS = "EBADFLAGS" as typeof nodeDns.BADFLAGS;
+export const BADHINTS = "EBADHINTS" as typeof nodeDns.BADHINTS;
+export const BADNAME = "EBADNAME" as typeof nodeDns.BADNAME;
+export const BADQUERY = "EBADQUERY" as typeof nodeDns.BADQUERY;
+export const BADRESP = "EBADRESP" as typeof nodeDns.BADRESP;
+export const BADSTR = "EBADSTR" as typeof nodeDns.BADSTR;
+export const CANCELLED = "ECANCELLED" as typeof nodeDns.CANCELLED;
+export const CONNREFUSED = "ECONNREFUSED" as typeof nodeDns.CONNREFUSED;
+export const DESTRUCTION = "EDESTRUCTION" as typeof nodeDns.DESTRUCTION;
+export const EOF = "EEOF" as typeof nodeDns.EOF;
+export const FILE = "EFILE" as typeof nodeDns.FILE;
+export const FORMERR = "EFORMERR" as typeof nodeDns.FORMERR;
+export const LOADIPHLPAPI = "ELOADIPHLPAPI" as typeof nodeDns.LOADIPHLPAPI;
+export const NODATA = "ENODATA" as typeof nodeDns.NODATA;
+export const NOMEM = "ENOMEM" as typeof nodeDns.NOMEM;
+export const NONAME = "ENONAME" as typeof nodeDns.NONAME;
+export const NOTFOUND = "ENOTFOUND" as typeof nodeDns.NOTFOUND;
+export const NOTIMP = "ENOTIMP" as typeof nodeDns.NOTIMP;
+export const NOTINITIALIZED =
+  "ENOTINITIALIZED" as typeof nodeDns.NOTINITIALIZED;
+export const REFUSED = "EREFUSED" as typeof nodeDns.REFUSED;
+export const SERVFAIL = "ESERVFAIL" as typeof nodeDns.SERVFAIL;
+export const TIMEOUT = "ETIMEOUT" as typeof nodeDns.TIMEOUT;

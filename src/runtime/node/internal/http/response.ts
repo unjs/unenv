@@ -1,4 +1,4 @@
-import type http from "node:http";
+import type nodeHttp from "node:http";
 import type { Socket } from "node:net";
 import type { Callback } from "../../../_internal/types.ts";
 import { Writable } from "node:stream";
@@ -6,7 +6,10 @@ import { Writable } from "node:stream";
 // Docs: https://nodejs.org/api/http.html#http_class_http_serverresponse
 // Implementation: https://github.com/nodejs/node/blob/master/lib/_http_outgoing.js
 
-export class ServerResponse extends Writable implements http.ServerResponse {
+export class ServerResponse
+  extends Writable
+  implements nodeHttp.ServerResponse
+{
   readonly __unenv__ = true;
 
   statusCode: number = 200;
@@ -22,11 +25,11 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   connection: Socket | null = null;
   socket: Socket | null = null;
 
-  req: http.IncomingMessage;
+  req: nodeHttp.IncomingMessage;
 
   _headers: Record<string, number | string | string[] | undefined> = {};
 
-  constructor(req: http.IncomingMessage) {
+  constructor(req: nodeHttp.IncomingMessage) {
     super();
     this.req = req;
   }
@@ -51,8 +54,11 @@ export class ServerResponse extends Writable implements http.ServerResponse {
 
   writeHead(
     statusCode: number,
-    arg1?: string | http.OutgoingHttpHeaders | http.OutgoingHttpHeader[],
-    arg2?: http.OutgoingHttpHeaders | http.OutgoingHttpHeader[],
+    arg1?:
+      | string
+      | nodeHttp.OutgoingHttpHeaders
+      | nodeHttp.OutgoingHttpHeader[],
+    arg2?: nodeHttp.OutgoingHttpHeaders | nodeHttp.OutgoingHttpHeader[],
   ) {
     if (statusCode) {
       this.statusCode = statusCode;
@@ -113,7 +119,7 @@ export class ServerResponse extends Writable implements http.ServerResponse {
     return this._headers[name.toLowerCase()];
   }
 
-  getHeaders(): http.OutgoingHttpHeaders {
+  getHeaders(): nodeHttp.OutgoingHttpHeaders {
     return this._headers;
   }
 
@@ -130,12 +136,15 @@ export class ServerResponse extends Writable implements http.ServerResponse {
   }
 
   addTrailers(
-    _headers: http.OutgoingHttpHeaders | ReadonlyArray<[string, string]>,
+    _headers: nodeHttp.OutgoingHttpHeaders | ReadonlyArray<[string, string]>,
   ): void {}
 
   flushHeaders(): void {}
 
-  writeEarlyHints(_headers: http.OutgoingHttpHeaders, cb: () => void): void {
+  writeEarlyHints(
+    _headers: nodeHttp.OutgoingHttpHeaders,
+    cb: () => void,
+  ): void {
     if (typeof cb === "function") {
       cb();
     }

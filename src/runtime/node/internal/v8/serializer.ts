@@ -1,6 +1,6 @@
-import type v8 from "node:v8";
+import type nodeV8 from "node:v8";
 
-export class Serializer implements v8.Serializer {
+export class Serializer implements nodeV8.Serializer {
   writeHeader() {}
   writeValue(val: any) {
     return false;

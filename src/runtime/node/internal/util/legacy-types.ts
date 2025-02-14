@@ -1,40 +1,42 @@
-import type util from "node:util";
+import type nodeUtil from "node:util";
 
-export const isRegExp: typeof util.isRegExp = (val): val is RegExp =>
+export const isRegExp: typeof nodeUtil.isRegExp = (val): val is RegExp =>
   val instanceof RegExp;
 
-export const isDate: typeof util.isDate = (val): val is Date =>
+export const isDate: typeof nodeUtil.isDate = (val): val is Date =>
   val instanceof Date;
 
-export const isArray: typeof util.isArray = (val): val is unknown[] =>
+export const isArray: typeof nodeUtil.isArray = (val): val is unknown[] =>
   Array.isArray(val);
 
-export const isBoolean: typeof util.isBoolean = (val): val is boolean =>
+export const isBoolean: typeof nodeUtil.isBoolean = (val): val is boolean =>
   typeof val === "boolean";
 
-export const isNull: typeof util.isNull = (val): val is null => val === null;
+export const isNull: typeof nodeUtil.isNull = (val): val is null =>
+  val === null;
 
-export const isNullOrUndefined: typeof util.isNullOrUndefined = (
+export const isNullOrUndefined: typeof nodeUtil.isNullOrUndefined = (
   val,
 ): val is null | undefined => val === null || val === undefined;
 
-export const isNumber: typeof util.isNumber = (val): val is number =>
+export const isNumber: typeof nodeUtil.isNumber = (val): val is number =>
   typeof val === "number";
 
-export const isString: typeof util.isString = (val): val is string =>
+export const isString: typeof nodeUtil.isString = (val): val is string =>
   typeof val === "string";
 
-export const isSymbol: typeof util.isSymbol = (val): val is symbol =>
+export const isSymbol: typeof nodeUtil.isSymbol = (val): val is symbol =>
   typeof val === "symbol";
 
-export const isUndefined: typeof util.isUndefined = (val): val is undefined =>
-  val === undefined;
+export const isUndefined: typeof nodeUtil.isUndefined = (
+  val,
+): val is undefined => val === undefined;
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-export const isFunction: typeof util.isFunction = (val): val is Function =>
+export const isFunction: typeof nodeUtil.isFunction = (val): val is Function =>
   typeof val === "function";
 
-export const isBuffer: typeof util.isBuffer = (val: any): val is Buffer => {
+export const isBuffer: typeof nodeUtil.isBuffer = (val: any): val is Buffer => {
   return (
     val &&
     typeof val === "object" &&
@@ -44,20 +46,20 @@ export const isBuffer: typeof util.isBuffer = (val: any): val is Buffer => {
   );
 };
 
-export const isDeepStrictEqual: typeof util.isDeepStrictEqual = (a, b) =>
+export const isDeepStrictEqual: typeof nodeUtil.isDeepStrictEqual = (a, b) =>
   JSON.stringify(a) === JSON.stringify(b);
 
-export const isObject: typeof util.isObject = (val) =>
+export const isObject: typeof nodeUtil.isObject = (val) =>
   val !== null &&
   typeof val === "object" &&
   // eslint-disable-next-line no-prototype-builtins
   Object.getPrototypeOf(val).isPrototypeOf(Object);
 
-export const isError: typeof util.isError = (val): val is Error =>
+export const isError: typeof nodeUtil.isError = (val): val is Error =>
   val instanceof Error;
 
 // Source https://github.com/jonschlinkert/is-primitive/blob/b22c524da5cbac075f14145780ec4b3637afd7dc/index.js
-export const isPrimitive: typeof util.isPrimitive = (val) => {
+export const isPrimitive: typeof nodeUtil.isPrimitive = (val) => {
   if (typeof val === "object") {
     return val === null;
   }

@@ -1,20 +1,20 @@
-import type * as stream from "node:stream";
+import type nodeStream from "node:stream";
 import { Duplex } from "./duplex.ts";
 
 // Docs: https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/transform.js
 
-export class _Transform extends Duplex implements stream.Transform {
+export class _Transform extends Duplex implements nodeStream.Transform {
   readonly __unenv__ = true;
 
   _transform(
     chunk: any,
     encoding: globalThis.BufferEncoding,
-    callback: stream.TransformCallback,
+    callback: nodeStream.TransformCallback,
   ): void {}
 
-  _flush(callback: stream.TransformCallback): void {}
+  _flush(callback: nodeStream.TransformCallback): void {}
 }
 
-export const Transform: typeof stream.Transform =
+export const Transform: typeof nodeStream.Transform =
   (globalThis as any).Transform || _Transform;

@@ -1,8 +1,8 @@
 import { EventEmitter } from "node:events";
-import type net from "node:net";
-import type dgram from "node:dgram";
+import type nodeNet from "node:net";
+import type nodeDgram from "node:dgram";
 
-export class Socket extends EventEmitter implements dgram.Socket {
+export class Socket extends EventEmitter implements nodeDgram.Socket {
   readonly __unenv__ = true;
 
   bind(): this {
@@ -38,11 +38,11 @@ export class Socket extends EventEmitter implements dgram.Socket {
   setTTL(): number {
     return 1;
   }
-  address(): net.AddressInfo {
+  address(): nodeNet.AddressInfo {
     return { address: "127.0.0.1", family: "IPv4", port: 1234 };
   }
 
-  remoteAddress(): net.AddressInfo {
+  remoteAddress(): nodeNet.AddressInfo {
     throw new Error("ERR_SOCKET_DGRAM_NOT_CONNECTED");
   }
 

@@ -1,4 +1,4 @@
-import type zlib from "node:zlib";
+import type nodeZlib from "node:zlib";
 
 export const constants = {
   Z_NO_FLUSH: 0,
@@ -109,4 +109,4 @@ export const constants = {
   BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: -27,
   BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: -30,
   BROTLI_DECODER_ERROR_UNREACHABLE: -31,
-} satisfies typeof zlib.constants;
+} satisfies typeof nodeZlib.constants;

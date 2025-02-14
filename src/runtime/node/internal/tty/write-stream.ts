@@ -1,13 +1,13 @@
-import type tty from "node:tty";
+import type nodeTty from "node:tty";
 import { Socket } from "node:net";
 
-export class WriteStream extends Socket implements tty.WriteStream {
+export class WriteStream extends Socket implements nodeTty.WriteStream {
   fd: number;
   constructor(fd: number) {
     super();
     this.fd = fd;
   }
-  clearLine(dir: tty.Direction, callback?: (() => void) | undefined) {
+  clearLine(dir: nodeTty.Direction, callback?: (() => void) | undefined) {
     callback && callback();
     return false;
   }

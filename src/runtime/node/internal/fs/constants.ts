@@ -1,11 +1,11 @@
-import type fs from "node:fs";
+import type noedFs from "node:fs";
 
 export const F_OK = 0;
 export const R_OK = 4;
 export const W_OK = 2;
 export const X_OK = 1;
 
-export const constants: typeof fs.constants = Object.create({
+export const constants: typeof noedFs.constants = Object.create({
   UV_FS_SYMLINK_DIR: 1,
   UV_FS_SYMLINK_JUNCTION: 2,
   O_RDONLY: 0,

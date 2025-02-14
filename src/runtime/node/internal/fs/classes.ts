@@ -1,18 +1,19 @@
-import type fs from "node:fs";
+import type nodeFs from "node:fs";
 import { notImplementedClass } from "../../../_internal/utils.ts";
 
-export const Dir: typeof fs.Dir = /*@__PURE__*/ notImplementedClass("fs.Dir");
+export const Dir: typeof nodeFs.Dir =
+  /*@__PURE__*/ notImplementedClass("fs.Dir");
 
-export const Dirent: typeof fs.Dirent =
+export const Dirent: typeof nodeFs.Dirent =
   /*@__PURE__*/ notImplementedClass("fs.Dirent");
 
-export const Stats: typeof fs.Stats =
+export const Stats: typeof nodeFs.Stats =
   /*@__PURE__*/ notImplementedClass("fs.Stats");
 
-export const ReadStream: typeof fs.ReadStream =
+export const ReadStream: typeof nodeFs.ReadStream =
   /*@__PURE__*/ notImplementedClass("fs.ReadStream");
 
-export const WriteStream: typeof fs.WriteStream =
+export const WriteStream: typeof nodeFs.WriteStream =
   /*@__PURE__*/ notImplementedClass("fs.WriteStream");
 
 export const FileReadStream = ReadStream;

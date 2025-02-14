@@ -1,17 +1,17 @@
-import type tls from "node:tls";
+import type nodeTls from "node:tls";
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { Server as _Server } from "node:net";
 
-export class Server extends _Server implements tls.Server {
+export class Server extends _Server implements nodeTls.Server {
   constructor(
-    arg1?: tls.TlsOptions | ((socket: tls.TLSSocket) => void),
-    arg2?: (socket: tls.TLSSocket) => void,
+    arg1?: nodeTls.TlsOptions | ((socket: nodeTls.TLSSocket) => void),
+    arg2?: (socket: nodeTls.TLSSocket) => void,
   ) {
     super(arg1 as any, arg2 as any);
   }
 
-  addContext(hostname: string, context: tls.SecureContextOptions) {}
-  setSecureContext(options: tls.SecureContextOptions) {}
+  addContext(hostname: string, context: nodeTls.SecureContextOptions) {}
+  setSecureContext(options: nodeTls.SecureContextOptions) {}
   setTicketKeys(_keys: Buffer) {
     throw createNotImplementedError("Server.setTicketKeys");
   }

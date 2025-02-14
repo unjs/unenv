@@ -1,6 +1,6 @@
-import type buffer from "node:buffer";
+import type nodeBuffer from "node:buffer";
 
-export class File extends Blob implements buffer.File {
+export class File extends Blob implements nodeBuffer.File {
   readonly __unenv__ = true;
 
   size: number = 0;
