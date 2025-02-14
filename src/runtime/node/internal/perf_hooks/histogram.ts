@@ -1,7 +1,7 @@
-import type perf_hooks from "node:perf_hooks";
+import type nodePerfHooks from "node:perf_hooks";
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 
-class Histogram implements perf_hooks.Histogram {
+class Histogram implements nodePerfHooks.Histogram {
   min = 9_223_372_036_854_776_000;
   max = 0;
   mean = Number.NaN;
@@ -27,7 +27,7 @@ class Histogram implements perf_hooks.Histogram {
 
 export class IntervalHistogram
   extends Histogram
-  implements perf_hooks.IntervalHistogram
+  implements nodePerfHooks.IntervalHistogram
 {
   enable() {
     return true;
@@ -39,7 +39,7 @@ export class IntervalHistogram
 
 export class RecordableHistogram
   extends Histogram
-  implements perf_hooks.RecordableHistogram
+  implements nodePerfHooks.RecordableHistogram
 {
   record(val: number | bigint): void {
     throw createNotImplementedError("RecordableHistogram.record");
@@ -47,7 +47,7 @@ export class RecordableHistogram
   recordDelta(): void {
     throw createNotImplementedError("RecordableHistogram.recordDelta");
   }
-  add(other: perf_hooks.RecordableHistogram): void {
+  add(other: nodePerfHooks.RecordableHistogram): void {
     throw createNotImplementedError("RecordableHistogram.add");
   }
 }

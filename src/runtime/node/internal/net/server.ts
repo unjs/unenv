@@ -1,9 +1,9 @@
-import type * as net from "node:net";
+import type nodeNet from "node:net";
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { EventEmitter } from "node:events";
 
 // Docs: https://nodejs.org/api/net.html#net_class_net_server
-export class Server extends EventEmitter implements net.Server {
+export class Server extends EventEmitter implements nodeNet.Server {
   readonly __unenv__ = true;
 
   maxConnections: number = 1;
@@ -11,8 +11,8 @@ export class Server extends EventEmitter implements net.Server {
   readonly listening: boolean = false;
 
   constructor(
-    arg1?: net.ServerOpts | ((socket: net.Socket) => void),
-    arg2?: (socket: net.Socket) => void,
+    arg1?: nodeNet.ServerOpts | ((socket: nodeNet.Socket) => void),
+    arg2?: (socket: nodeNet.Socket) => void,
   ) {
     super();
   }
@@ -25,7 +25,7 @@ export class Server extends EventEmitter implements net.Server {
     throw createNotImplementedError("node:net.Server.close()");
   }
 
-  address(): net.AddressInfo | string | null {
+  address(): nodeNet.AddressInfo | string | null {
     return null;
   }
 

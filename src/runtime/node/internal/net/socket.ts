@@ -1,4 +1,4 @@
-import type * as net from "node:net";
+import type nodeNet from "node:net";
 import {
   type Callback,
   type BufferEncoding,
@@ -7,7 +7,7 @@ import {
 import { Duplex } from "../stream/duplex.ts";
 
 // Docs: https://nodejs.org/api/net.html#net_class_net_socket
-export class Socket extends Duplex implements net.Socket {
+export class Socket extends Duplex implements nodeNet.Socket {
   readonly __unenv__ = true;
 
   readonly bufferSize: number = 0;
@@ -22,9 +22,9 @@ export class Socket extends Duplex implements net.Socket {
   readonly remoteFamily?: string = "";
   readonly remotePort?: number = 0;
   readonly autoSelectFamilyAttemptedAddresses = [];
-  readonly readyState: net.SocketReadyState = "readOnly";
+  readonly readyState: nodeNet.SocketReadyState = "readOnly";
 
-  constructor(_options?: net.SocketConstructorOpts) {
+  constructor(_options?: nodeNet.SocketConstructorOpts) {
     super();
   }
 
@@ -37,7 +37,7 @@ export class Socket extends Duplex implements net.Socket {
   }
 
   connect(
-    _arg1: number | string | net.SocketConnectOpts,
+    _arg1: number | string | nodeNet.SocketConnectOpts,
     _arg2?: string | Callback,
     _arg3?: Callback,
   ) {
@@ -100,7 +100,7 @@ export class Socket extends Duplex implements net.Socket {
   }
 }
 
-export class SocketAddress implements net.SocketAddress {
+export class SocketAddress implements nodeNet.SocketAddress {
   readonly __unenv__ = true;
 
   address: string;
@@ -112,7 +112,7 @@ export class SocketAddress implements net.SocketAddress {
     return undefined; // successful
   }
 
-  constructor(options: net.SocketAddress) {
+  constructor(options: nodeNet.SocketAddress) {
     this.address = options.address;
     this.family = options.family;
     this.port = options.port;

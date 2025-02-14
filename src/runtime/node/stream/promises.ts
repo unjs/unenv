@@ -1,4 +1,4 @@
-import type * as streamPromises from "node:stream/promises";
+import type nodeStreamPromises from "node:stream/promises";
 import { notImplemented } from "../../_internal/utils.ts";
 
 export const finished = /*@__PURE__*/ notImplemented(
@@ -11,4 +11,4 @@ export const pipeline = /*@__PURE__*/ notImplemented(
 export default {
   finished,
   pipeline,
-} satisfies typeof streamPromises;
+} satisfies typeof nodeStreamPromises;

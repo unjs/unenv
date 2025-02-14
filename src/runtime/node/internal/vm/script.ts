@@ -1,20 +1,20 @@
-import type vm from "node:vm";
+import type nodeVm from "node:vm";
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 
-export class Script implements vm.Script {
+export class Script implements nodeVm.Script {
   runInContext(
-    contextifiedObject: vm.Context,
-    options?: vm.RunningScriptOptions | undefined,
+    contextifiedObject: nodeVm.Context,
+    options?: nodeVm.RunningScriptOptions | undefined,
   ) {
     throw createNotImplementedError("Script.runInContext");
   }
   runInNewContext(
-    contextObject?: vm.Context | undefined,
-    options?: vm.RunningScriptInNewContextOptions | undefined,
+    contextObject?: nodeVm.Context | undefined,
+    options?: nodeVm.RunningScriptInNewContextOptions | undefined,
   ) {
     throw createNotImplementedError("Script.runInNewContext");
   }
-  runInThisContext(options?: vm.RunningScriptOptions | undefined) {
+  runInThisContext(options?: nodeVm.RunningScriptOptions | undefined) {
     throw createNotImplementedError("Script.runInThisContext");
   }
   createCachedData(): Buffer {

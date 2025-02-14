@@ -1,4 +1,4 @@
-import type fs from "node:fs";
+import type nodeFs from "node:fs";
 import {
   notImplemented,
   notImplementedAsync,
@@ -18,169 +18,171 @@ function callbackify(fn: (...args: any[]) => Promise<any>) {
 }
 
 // Async
-export const access: typeof fs.access = callbackify(fsp.access);
-export const appendFile: typeof fs.appendFile = callbackify(fsp.appendFile);
-export const chown: typeof fs.chown = callbackify(fsp.chown);
-export const chmod: typeof fs.chmod = callbackify(fsp.chmod);
-export const copyFile: typeof fs.copyFile = callbackify(fsp.copyFile);
-export const cp: typeof fs.cp = callbackify(fsp.cp);
-export const lchown: typeof fs.lchown = callbackify(fsp.lchown);
-export const lchmod: typeof fs.lchmod = callbackify(fsp.lchmod);
-export const link: typeof fs.link = callbackify(fsp.link);
-export const lstat: typeof fs.lstat = callbackify(fsp.lstat);
-export const lutimes: typeof fs.lutimes = callbackify(fsp.lutimes);
-export const mkdir: typeof fs.mkdir = callbackify(fsp.mkdir);
-export const mkdtemp: typeof fs.mkdtemp = callbackify(fsp.mkdtemp);
-export const realpath: typeof fs.realpath = callbackify(fsp.realpath);
-export const open: typeof fs.open = callbackify(fsp.open);
-export const opendir: typeof fs.opendir = callbackify(fsp.opendir);
-export const readdir: typeof fs.readdir = callbackify(fsp.readdir);
-export const readFile: typeof fs.readFile = callbackify(fsp.readFile);
-export const readlink: typeof fs.readlink = callbackify(fsp.readlink);
-export const rename: typeof fs.rename = callbackify(fsp.rename);
-export const rm: typeof fs.rm = callbackify(fsp.rm);
-export const rmdir: typeof fs.rmdir = callbackify(fsp.rmdir);
-export const stat: typeof fs.stat = callbackify(fsp.stat);
-export const symlink: typeof fs.symlink = callbackify(fsp.symlink);
-export const truncate: typeof fs.truncate = callbackify(fsp.truncate);
-export const unlink: typeof fs.unlink = callbackify(fsp.unlink);
-export const utimes: typeof fs.utimes = callbackify(fsp.utimes);
-export const writeFile: typeof fs.writeFile = callbackify(fsp.writeFile);
-export const statfs: typeof fs.statfs = callbackify(fsp.statfs);
+export const access: typeof nodeFs.access = callbackify(fsp.access);
+export const appendFile: typeof nodeFs.appendFile = callbackify(fsp.appendFile);
+export const chown: typeof nodeFs.chown = callbackify(fsp.chown);
+export const chmod: typeof nodeFs.chmod = callbackify(fsp.chmod);
+export const copyFile: typeof nodeFs.copyFile = callbackify(fsp.copyFile);
+export const cp: typeof nodeFs.cp = callbackify(fsp.cp);
+export const lchown: typeof nodeFs.lchown = callbackify(fsp.lchown);
+export const lchmod: typeof nodeFs.lchmod = callbackify(fsp.lchmod);
+export const link: typeof nodeFs.link = callbackify(fsp.link);
+export const lstat: typeof nodeFs.lstat = callbackify(fsp.lstat);
+export const lutimes: typeof nodeFs.lutimes = callbackify(fsp.lutimes);
+export const mkdir: typeof nodeFs.mkdir = callbackify(fsp.mkdir);
+export const mkdtemp: typeof nodeFs.mkdtemp = callbackify(fsp.mkdtemp);
+export const realpath: typeof nodeFs.realpath = callbackify(fsp.realpath);
+export const open: typeof nodeFs.open = callbackify(fsp.open);
+export const opendir: typeof nodeFs.opendir = callbackify(fsp.opendir);
+export const readdir: typeof nodeFs.readdir = callbackify(fsp.readdir);
+export const readFile: typeof nodeFs.readFile = callbackify(fsp.readFile);
+export const readlink: typeof nodeFs.readlink = callbackify(fsp.readlink);
+export const rename: typeof nodeFs.rename = callbackify(fsp.rename);
+export const rm: typeof nodeFs.rm = callbackify(fsp.rm);
+export const rmdir: typeof nodeFs.rmdir = callbackify(fsp.rmdir);
+export const stat: typeof nodeFs.stat = callbackify(fsp.stat);
+export const symlink: typeof nodeFs.symlink = callbackify(fsp.symlink);
+export const truncate: typeof nodeFs.truncate = callbackify(fsp.truncate);
+export const unlink: typeof nodeFs.unlink = callbackify(fsp.unlink);
+export const utimes: typeof nodeFs.utimes = callbackify(fsp.utimes);
+export const writeFile: typeof nodeFs.writeFile = callbackify(fsp.writeFile);
+export const statfs: typeof nodeFs.statfs = callbackify(fsp.statfs);
 
-export const close: typeof fs.close =
+export const close: typeof nodeFs.close =
   /*@__PURE__*/ notImplementedAsync("fs.close");
-export const createReadStream: typeof fs.createReadStream =
+export const createReadStream: typeof nodeFs.createReadStream =
   /*@__PURE__*/ notImplementedAsync("fs.createReadStream");
-export const createWriteStream: typeof fs.createWriteStream =
+export const createWriteStream: typeof nodeFs.createWriteStream =
   /*@__PURE__*/ notImplementedAsync("fs.createWriteStream");
-export const exists: typeof fs.exists =
+export const exists: typeof nodeFs.exists =
   /*@__PURE__*/ notImplementedAsync("fs.exists");
-export const fchown: typeof fs.fchown =
+export const fchown: typeof nodeFs.fchown =
   /*@__PURE__*/ notImplementedAsync("fs.fchown");
-export const fchmod: typeof fs.fchmod =
+export const fchmod: typeof nodeFs.fchmod =
   /*@__PURE__*/ notImplementedAsync("fs.fchmod");
-export const fdatasync: typeof fs.fdatasync =
+export const fdatasync: typeof nodeFs.fdatasync =
   /*@__PURE__*/ notImplementedAsync("fs.fdatasync");
-export const fstat: typeof fs.fstat =
+export const fstat: typeof nodeFs.fstat =
   /*@__PURE__*/ notImplementedAsync("fs.fstat");
-export const fsync: typeof fs.fsync =
+export const fsync: typeof nodeFs.fsync =
   /*@__PURE__*/ notImplementedAsync("fs.fsync");
-export const ftruncate: typeof fs.ftruncate =
+export const ftruncate: typeof nodeFs.ftruncate =
   /*@__PURE__*/ notImplementedAsync("fs.ftruncate");
-export const futimes: typeof fs.futimes =
+export const futimes: typeof nodeFs.futimes =
   /*@__PURE__*/ notImplementedAsync("fs.futimes");
-export const lstatSync: typeof fs.lstatSync =
+export const lstatSync: typeof nodeFs.lstatSync =
   /*@__PURE__*/ notImplementedAsync("fs.lstatSync");
-export const read: typeof fs.read =
+export const read: typeof nodeFs.read =
   /*@__PURE__*/ notImplementedAsync("fs.read");
-export const readv: typeof fs.readv =
+export const readv: typeof nodeFs.readv =
   /*@__PURE__*/ notImplementedAsync("fs.readv");
-export const realpathSync: typeof fs.realpathSync =
+export const realpathSync: typeof nodeFs.realpathSync =
   /*@__PURE__*/ notImplementedAsync("fs.realpathSync");
-export const statSync: typeof fs.statSync =
+export const statSync: typeof nodeFs.statSync =
   /*@__PURE__*/ notImplementedAsync("fs.statSync");
-export const unwatchFile: typeof fs.unwatchFile =
+export const unwatchFile: typeof nodeFs.unwatchFile =
   /*@__PURE__*/ notImplementedAsync("fs.unwatchFile");
-export const watch: typeof fs.watch =
+export const watch: typeof nodeFs.watch =
   /*@__PURE__*/ notImplementedAsync("fs.watch");
-export const watchFile: typeof fs.watchFile =
+export const watchFile: typeof nodeFs.watchFile =
   /*@__PURE__*/ notImplementedAsync("fs.watchFile");
-export const write: typeof fs.write =
+export const write: typeof nodeFs.write =
   /*@__PURE__*/ notImplementedAsync("fs.write");
-export const writev: typeof fs.writev =
+export const writev: typeof nodeFs.writev =
   /*@__PURE__*/ notImplementedAsync("fs.writev");
 export const _toUnixTimestamp = /*@__PURE__*/ notImplementedAsync(
   "fs._toUnixTimestamp",
 );
-export const openAsBlob: typeof fs.openAsBlob =
+export const openAsBlob: typeof nodeFs.openAsBlob =
   /*@__PURE__*/ notImplementedAsync("fs.openAsBlob");
-export const glob: typeof fs.glob =
+export const glob: typeof nodeFs.glob =
   /*@__PURE__*/ notImplementedAsync("fs.glob");
 
 // Sync
 export const appendFileSync =
-  /*@__PURE__*/ notImplemented<typeof fs.appendFileSync>("fs.appendFileSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.appendFileSync>(
+    "fs.appendFileSync",
+  );
 export const accessSync =
-  /*@__PURE__*/ notImplemented<typeof fs.accessSync>("fs.accessSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.accessSync>("fs.accessSync");
 export const chownSync =
-  /*@__PURE__*/ notImplemented<typeof fs.chownSync>("fs.chownSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.chownSync>("fs.chownSync");
 export const chmodSync =
-  /*@__PURE__*/ notImplemented<typeof fs.chmodSync>("fs.chmodSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.chmodSync>("fs.chmodSync");
 export const closeSync =
-  /*@__PURE__*/ notImplemented<typeof fs.closeSync>("fs.closeSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.closeSync>("fs.closeSync");
 export const copyFileSync =
-  /*@__PURE__*/ notImplemented<typeof fs.copyFileSync>("fs.copyFileSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.copyFileSync>("fs.copyFileSync");
 export const cpSync =
-  /*@__PURE__*/ notImplemented<typeof fs.cpSync>("fs.cpSync");
-export const existsSync: typeof fs.existsSync = () => false;
+  /*@__PURE__*/ notImplemented<typeof nodeFs.cpSync>("fs.cpSync");
+export const existsSync: typeof nodeFs.existsSync = () => false;
 export const fchownSync =
-  /*@__PURE__*/ notImplemented<typeof fs.fchownSync>("fs.fchownSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.fchownSync>("fs.fchownSync");
 export const fchmodSync =
-  /*@__PURE__*/ notImplemented<typeof fs.fchmodSync>("fs.fchmodSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.fchmodSync>("fs.fchmodSync");
 export const fdatasyncSync =
-  /*@__PURE__*/ notImplemented<typeof fs.fdatasyncSync>("fs.fdatasyncSync");
-export const fstatSync = /*@__PURE__*/ notImplemented<typeof fs.fstatSync>(
+  /*@__PURE__*/ notImplemented<typeof nodeFs.fdatasyncSync>("fs.fdatasyncSync");
+export const fstatSync = /*@__PURE__*/ notImplemented<typeof nodeFs.fstatSync>(
   "fs.fstatSync",
-) as typeof fs.fstatSync;
+) as typeof nodeFs.fstatSync;
 export const fsyncSync =
-  /*@__PURE__*/ notImplemented<typeof fs.fsyncSync>("fs.fsyncSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.fsyncSync>("fs.fsyncSync");
 export const ftruncateSync =
-  /*@__PURE__*/ notImplemented<typeof fs.ftruncateSync>("fs.ftruncateSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.ftruncateSync>("fs.ftruncateSync");
 export const futimesSync =
-  /*@__PURE__*/ notImplemented<typeof fs.futimesSync>("fs.futimesSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.futimesSync>("fs.futimesSync");
 export const lchownSync =
-  /*@__PURE__*/ notImplemented<typeof fs.lchownSync>("fs.lchownSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.lchownSync>("fs.lchownSync");
 export const lchmodSync =
-  /*@__PURE__*/ notImplemented<typeof fs.lchmodSync>("fs.lchmodSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.lchmodSync>("fs.lchmodSync");
 export const linkSync =
-  /*@__PURE__*/ notImplemented<typeof fs.linkSync>("fs.linkSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.linkSync>("fs.linkSync");
 export const lutimesSync =
-  /*@__PURE__*/ notImplemented<typeof fs.lutimesSync>("fs.lutimesSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.lutimesSync>("fs.lutimesSync");
 export const mkdirSync =
-  /*@__PURE__*/ notImplemented<typeof fs.mkdirSync>("fs.mkdirSync");
-export const mkdtempSync = /*@__PURE__*/ notImplemented<typeof fs.mkdtempSync>(
-  "fs.mkdtempSync",
-) as typeof fs.mkdtempSync;
+  /*@__PURE__*/ notImplemented<typeof nodeFs.mkdirSync>("fs.mkdirSync");
+export const mkdtempSync = /*@__PURE__*/ notImplemented<
+  typeof nodeFs.mkdtempSync
+>("fs.mkdtempSync") as typeof nodeFs.mkdtempSync;
 export const openSync =
-  /*@__PURE__*/ notImplemented<typeof fs.openSync>("fs.openSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.openSync>("fs.openSync");
 export const opendirSync =
-  /*@__PURE__*/ notImplemented<typeof fs.opendirSync>("fs.opendirSync");
-export const readdirSync = /*@__PURE__*/ notImplemented<typeof fs.readdirSync>(
-  "fs.readdirSync",
-) as unknown as typeof fs.readdirSync;
+  /*@__PURE__*/ notImplemented<typeof nodeFs.opendirSync>("fs.opendirSync");
+export const readdirSync = /*@__PURE__*/ notImplemented<
+  typeof nodeFs.readdirSync
+>("fs.readdirSync") as unknown as typeof nodeFs.readdirSync;
 export const readSync =
-  /*@__PURE__*/ notImplemented<typeof fs.readSync>("fs.readSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.readSync>("fs.readSync");
 export const readvSync =
-  /*@__PURE__*/ notImplemented<typeof fs.readvSync>("fs.readvSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.readvSync>("fs.readvSync");
 export const readFileSync = /*@__PURE__*/ notImplemented<
-  typeof fs.readFileSync
->("fs.readFileSync") as typeof fs.readFileSync;
+  typeof nodeFs.readFileSync
+>("fs.readFileSync") as typeof nodeFs.readFileSync;
 export const readlinkSync = /*@__PURE__*/ notImplemented<
-  typeof fs.readlinkSync
->("fs.readlinkSync") as typeof fs.readlinkSync;
+  typeof nodeFs.readlinkSync
+>("fs.readlinkSync") as typeof nodeFs.readlinkSync;
 export const renameSync =
-  /*@__PURE__*/ notImplemented<typeof fs.renameSync>("fs.renameSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.renameSync>("fs.renameSync");
 export const rmSync =
-  /*@__PURE__*/ notImplemented<typeof fs.rmSync>("fs.rmSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.rmSync>("fs.rmSync");
 export const rmdirSync =
-  /*@__PURE__*/ notImplemented<typeof fs.rmdirSync>("fs.rmdirSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.rmdirSync>("fs.rmdirSync");
 export const symlinkSync =
-  /*@__PURE__*/ notImplemented<typeof fs.symlinkSync>("fs.symlinkSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.symlinkSync>("fs.symlinkSync");
 export const truncateSync =
-  /*@__PURE__*/ notImplemented<typeof fs.truncateSync>("fs.truncateSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.truncateSync>("fs.truncateSync");
 export const unlinkSync =
-  /*@__PURE__*/ notImplemented<typeof fs.unlinkSync>("fs.unlinkSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.unlinkSync>("fs.unlinkSync");
 export const utimesSync =
-  /*@__PURE__*/ notImplemented<typeof fs.utimesSync>("fs.utimesSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.utimesSync>("fs.utimesSync");
 export const writeFileSync =
-  /*@__PURE__*/ notImplemented<typeof fs.writeFileSync>("fs.writeFileSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.writeFileSync>("fs.writeFileSync");
 export const writeSync =
-  /*@__PURE__*/ notImplemented<typeof fs.writeSync>("fs.writeSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.writeSync>("fs.writeSync");
 export const writevSync =
-  /*@__PURE__*/ notImplemented<typeof fs.writevSync>("fs.writevSync");
-export const statfsSync = /*@__PURE__*/ notImplemented<typeof fs.statfsSync>(
-  "fs.statfsSync",
-) as typeof fs.statfsSync;
+  /*@__PURE__*/ notImplemented<typeof nodeFs.writevSync>("fs.writevSync");
+export const statfsSync = /*@__PURE__*/ notImplemented<
+  typeof nodeFs.statfsSync
+>("fs.statfsSync") as typeof nodeFs.statfsSync;
 export const globSync =
-  /*@__PURE__*/ notImplemented<typeof fs.globSync>("fs.globSync");
+  /*@__PURE__*/ notImplemented<typeof nodeFs.globSync>("fs.globSync");

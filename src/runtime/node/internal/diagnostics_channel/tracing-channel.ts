@@ -1,11 +1,11 @@
 import { createNotImplementedError } from "../../../_internal/utils.ts";
-import type diagnostics_channel from "node:diagnostics_channel";
+import type nodeDagnosticsChannel from "node:diagnostics_channel";
 import { Channel } from "./channel.ts";
 
 export class TracingChannel<
   StoreType = unknown,
   ContextType extends object = object,
-> implements diagnostics_channel.TracingChannel<StoreType, ContextType>
+> implements nodeDagnosticsChannel.TracingChannel<StoreType, ContextType>
 {
   readonly __unenv__ = true;
 
@@ -18,7 +18,7 @@ export class TracingChannel<
   constructor(
     nameOrChannels:
       | string
-      | diagnostics_channel.TracingChannelCollection<StoreType, ContextType>,
+      | nodeDagnosticsChannel.TracingChannelCollection<StoreType, ContextType>,
   ) {
     if (typeof nameOrChannels === "string") {
       this.asyncEnd = new Channel<StoreType, ContextType>(
@@ -52,38 +52,40 @@ export class TracingChannel<
   }
 
   subscribe(
-    handlers: diagnostics_channel.TracingChannelSubscribers<ContextType>,
+    handlers: nodeDagnosticsChannel.TracingChannelSubscribers<ContextType>,
   ): void {
     this.asyncEnd?.subscribe(
-      handlers.asyncEnd as diagnostics_channel.ChannelListener,
+      handlers.asyncEnd as nodeDagnosticsChannel.ChannelListener,
     );
     this.asyncStart?.subscribe(
-      handlers.asyncStart as diagnostics_channel.ChannelListener,
+      handlers.asyncStart as nodeDagnosticsChannel.ChannelListener,
     );
-    this.end?.subscribe(handlers.end as diagnostics_channel.ChannelListener);
+    this.end?.subscribe(handlers.end as nodeDagnosticsChannel.ChannelListener);
     this.error?.subscribe(
-      handlers.error as diagnostics_channel.ChannelListener,
+      handlers.error as nodeDagnosticsChannel.ChannelListener,
     );
     this.start?.subscribe(
-      handlers.start as diagnostics_channel.ChannelListener,
+      handlers.start as nodeDagnosticsChannel.ChannelListener,
     );
   }
 
   unsubscribe(
-    handlers: diagnostics_channel.TracingChannelSubscribers<ContextType>,
+    handlers: nodeDagnosticsChannel.TracingChannelSubscribers<ContextType>,
   ): void {
     this.asyncEnd?.unsubscribe(
-      handlers.asyncEnd as diagnostics_channel.ChannelListener,
+      handlers.asyncEnd as nodeDagnosticsChannel.ChannelListener,
     );
     this.asyncStart?.unsubscribe(
-      handlers.asyncStart as diagnostics_channel.ChannelListener,
+      handlers.asyncStart as nodeDagnosticsChannel.ChannelListener,
     );
-    this.end?.unsubscribe(handlers.end as diagnostics_channel.ChannelListener);
+    this.end?.unsubscribe(
+      handlers.end as nodeDagnosticsChannel.ChannelListener,
+    );
     this.error?.unsubscribe(
-      handlers.error as diagnostics_channel.ChannelListener,
+      handlers.error as nodeDagnosticsChannel.ChannelListener,
     );
     this.start?.unsubscribe(
-      handlers.start as diagnostics_channel.ChannelListener,
+      handlers.start as nodeDagnosticsChannel.ChannelListener,
     );
   }
 

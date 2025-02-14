@@ -1,7 +1,7 @@
-import type readline from "node:readline/promises";
+import type nodeReadlinePromises from "node:readline/promises";
 import type { Direction } from "node:readline";
 
-export class Readline implements readline.Readline {
+export class Readline implements nodeReadlinePromises.Readline {
   clearLine(dir: Direction) {
     return this;
   }

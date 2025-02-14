@@ -1,6 +1,6 @@
-import type v8 from "node:v8";
+import type nodeV8 from "node:v8";
 
-export class Deserializer implements v8.Deserializer {
+export class Deserializer implements nodeV8.Deserializer {
   readHeader() {
     return false;
   }

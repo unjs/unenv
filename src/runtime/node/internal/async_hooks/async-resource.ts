@@ -1,22 +1,22 @@
-import type asyncHooks from "node:async_hooks";
+import type nodeAsyncHooks from "node:async_hooks";
 import { executionAsyncId } from "./async-hook.ts";
 
 // https://nodejs.org/api/async_context.html#class-asyncresource
 
 let _asyncIdCounter = 100;
 
-class _AsyncResource implements asyncHooks.AsyncResource {
+class _AsyncResource implements nodeAsyncHooks.AsyncResource {
   readonly __unenv__ = true;
 
   type: string;
   _asyncId: undefined | number;
-  _triggerAsyncId: undefined | number | asyncHooks.AsyncResourceOptions;
+  _triggerAsyncId: undefined | number | nodeAsyncHooks.AsyncResourceOptions;
 
   constructor(
     type: string,
     triggerAsyncId:
       | number
-      | asyncHooks.AsyncResourceOptions = executionAsyncId(),
+      | nodeAsyncHooks.AsyncResourceOptions = executionAsyncId(),
   ) {
     this.type = type;
     this._asyncId = -1 * _asyncIdCounter++;
@@ -64,5 +64,5 @@ class _AsyncResource implements asyncHooks.AsyncResource {
   }
 }
 
-export const AsyncResource: typeof asyncHooks.AsyncResource =
+export const AsyncResource: typeof nodeAsyncHooks.AsyncResource =
   (globalThis as any).AsyncResource || _AsyncResource;

@@ -1,4 +1,4 @@
-import type util from "node:util";
+import type nodeUtil from "node:util";
 
 const customSymbol = /*@__PURE__*/ Symbol("customPromisify");
 
@@ -26,7 +26,7 @@ function _promisify(fn: Fn & { [customSymbol]?: Fn }) {
 }
 
 // @ts-ignore
-export const promisify: typeof util.promisify = /*@__PURE__*/ Object.assign(
+export const promisify: typeof nodeUtil.promisify = /*@__PURE__*/ Object.assign(
   _promisify,
   {
     custom: customSymbol,

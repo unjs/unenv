@@ -1,4 +1,4 @@
-import type zlib from "node:zlib";
+import type nodeZlib from "node:zlib";
 import { notImplemented } from "../../../../_internal/utils.ts";
 import { ZlibCompress } from "./_shared.ts";
 
@@ -8,10 +8,10 @@ export class Unzip extends ZlibCompress {
   readonly _format = "zip";
 }
 
-export const createUnzip: typeof zlib.createUnzip = () => new Unzip();
+export const createUnzip: typeof nodeZlib.createUnzip = () => new Unzip();
 
-export const unzip: typeof zlib.unzip =
+export const unzip: typeof nodeZlib.unzip =
   /*@__PURE__*/ notImplemented("zlib.unzip");
 
-export const unzipSync: typeof zlib.unzipSync =
+export const unzipSync: typeof nodeZlib.unzipSync =
   /*@__PURE__*/ notImplemented("zlib.unzipSync");

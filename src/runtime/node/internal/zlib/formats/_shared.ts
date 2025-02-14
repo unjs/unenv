@@ -1,4 +1,4 @@
-import type zlib from "node:zlib";
+import type nodeZlib from "node:zlib";
 import { Transform, type TransformOptions } from "node:stream";
 import { createNotImplementedError } from "../../../../_internal/utils.ts";
 
@@ -43,16 +43,20 @@ export abstract class ZLibDecompress extends ZlibCompress {}
 // Mock Compress/Decompress Function factory
 
 export interface CompressFunction {
-  (buf: zlib.InputType, options?: any, callback?: zlib.CompressCallback): void;
-  (buf: Buffer, callback?: zlib.CompressCallback): void;
-  __promisify__(buffer: zlib.InputType, options?: any): Promise<Buffer>;
+  (
+    buf: nodeZlib.InputType,
+    options?: any,
+    callback?: nodeZlib.CompressCallback,
+  ): void;
+  (buf: Buffer, callback?: nodeZlib.CompressCallback): void;
+  __promisify__(buffer: nodeZlib.InputType, options?: any): Promise<Buffer>;
 }
 
 export function notImplementedCompress(format: string): CompressFunction {
   const fn = function (
-    _buf: zlib.InputType,
-    arg2?: zlib.ZlibOptions | zlib.CompressCallback,
-    arg3?: zlib.CompressCallback,
+    _buf: nodeZlib.InputType,
+    arg2?: nodeZlib.ZlibOptions | nodeZlib.CompressCallback,
+    arg3?: nodeZlib.CompressCallback,
   ) {
     const cb = typeof arg2 === "function" ? arg2 : arg3;
     const err = new Error(`[unenv] zlib ${format} compression not supported.`);
@@ -63,7 +67,7 @@ export function notImplementedCompress(format: string): CompressFunction {
     }
   };
   return Object.assign(fn, {
-    __promisify__: (buffer: zlib.InputType, options: any) => {
+    __promisify__: (buffer: nodeZlib.InputType, options: any) => {
       return new Promise<Buffer>((resolve, reject) => {
         fn(buffer, options, (err, result) =>
           err ? reject(err) : resolve(result),

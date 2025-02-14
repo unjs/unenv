@@ -1,8 +1,8 @@
 import { EventEmitter } from "node:events";
-import type worker_threads from "node:worker_threads";
+import type nodeWorkerThreads from "node:worker_threads";
 import { Readable } from "node:stream";
 
-export class Worker extends EventEmitter implements worker_threads.Worker {
+export class Worker extends EventEmitter implements nodeWorkerThreads.Worker {
   stdin = null;
   stdout = new Readable();
   stderr = new Readable();
@@ -12,7 +12,7 @@ export class Worker extends EventEmitter implements worker_threads.Worker {
   };
   postMessage(
     _value: any,
-    _transferList?: readonly worker_threads.TransferListItem[] | undefined,
+    _transferList?: readonly nodeWorkerThreads.TransferListItem[] | undefined,
   ) {}
   postMessageToThread(
     _threadId: unknown,

@@ -1,8 +1,8 @@
-import type tls from "node:tls";
+import type nodeTls from "node:tls";
 import { Socket } from "node:net";
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 
-export class TLSSocket extends Socket implements tls.TLSSocket {
+export class TLSSocket extends Socket implements nodeTls.TLSSocket {
   authorized = false;
   encrypted = true as const;
   alpnProtocol = null;
@@ -12,17 +12,17 @@ export class TLSSocket extends Socket implements tls.TLSSocket {
   exportKeyingMaterial(): Buffer {
     throw createNotImplementedError("TLSSocket.exportKeyingMaterial");
   }
-  getCipher(): tls.CipherNameAndProtocol {
+  getCipher(): nodeTls.CipherNameAndProtocol {
     throw createNotImplementedError("TLSSocket.getCipher");
   }
-  getPeerCertificate(detailed: true): tls.DetailedPeerCertificate;
-  getPeerCertificate(detailed?: false): tls.PeerCertificate;
+  getPeerCertificate(detailed: true): nodeTls.DetailedPeerCertificate;
+  getPeerCertificate(detailed?: false): nodeTls.PeerCertificate;
   getPeerCertificate(
     detailed?: boolean,
-  ): tls.PeerCertificate | tls.DetailedPeerCertificate;
+  ): nodeTls.PeerCertificate | nodeTls.DetailedPeerCertificate;
   getPeerCertificate(
     _detailed?: boolean,
-  ): tls.PeerCertificate | tls.DetailedPeerCertificate {
+  ): nodeTls.PeerCertificate | nodeTls.DetailedPeerCertificate {
     throw createNotImplementedError("TLSSocket.getPeerCertificate");
   }
   getCertificate() {

@@ -1,6 +1,6 @@
-import type trace_events from "node:trace_events";
+import type nodeTraceEvents from "node:trace_events";
 
-export class Tracing implements trace_events.Tracing {
+export class Tracing implements nodeTraceEvents.Tracing {
   categories = "";
   enabled = false;
   disable() {

@@ -1,8 +1,8 @@
-import type asyncHooks from "node:async_hooks";
+import type nodeAsyncHooks from "node:async_hooks";
 
 // https://nodejs.org/api/async_context.html#class-asynclocalstorage
 
-class _AsyncLocalStorage<T> implements asyncHooks.AsyncLocalStorage<T> {
+class _AsyncLocalStorage<T> implements nodeAsyncHooks.AsyncLocalStorage<T> {
   readonly __unenv__ = true;
 
   _currentStore: undefined | T;
@@ -52,5 +52,5 @@ class _AsyncLocalStorage<T> implements asyncHooks.AsyncLocalStorage<T> {
   }
 }
 
-export const AsyncLocalStorage: typeof asyncHooks.AsyncLocalStorage =
+export const AsyncLocalStorage: typeof nodeAsyncHooks.AsyncLocalStorage =
   (globalThis as any).AsyncLocalStorage || _AsyncLocalStorage;

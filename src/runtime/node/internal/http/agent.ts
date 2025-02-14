@@ -1,7 +1,7 @@
-import type http from "node:http";
+import type nodeHttp from "node:http";
 import { EventEmitter } from "node:events";
 
-export class Agent extends EventEmitter implements http.Agent {
+export class Agent extends EventEmitter implements nodeHttp.Agent {
   public __unenv__ = {};
   maxFreeSockets = 256;
   maxSockets: number = Infinity;

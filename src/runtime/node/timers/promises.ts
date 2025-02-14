@@ -1,4 +1,4 @@
-import type timers from "node:timers/promises";
+import type nodeTimersPromises from "node:timers/promises";
 import { Scheduler } from "../internal/timers/scheduler.ts";
 import { setTimeoutFallbackPromises } from "../internal/timers/set-timeout.ts";
 import { setIntervalFallbackPromises } from "../internal/timers/set-interval.ts";
@@ -15,4 +15,4 @@ export default {
   setImmediate: setImmediateFallbackPromises,
   setInterval: setIntervalFallbackPromises,
   setTimeout: setTimeoutFallbackPromises,
-} satisfies typeof timers;
+} satisfies typeof nodeTimersPromises;

@@ -1,23 +1,23 @@
 import { createNotImplementedError } from "../../../_internal/utils.ts";
-import type diagnostics_channel from "node:diagnostics_channel";
+import type nodeDiagnosticsChannel from "node:diagnostics_channel";
 
-const channels: Record<string | symbol, diagnostics_channel.Channel> = {};
+const channels: Record<string | symbol, nodeDiagnosticsChannel.Channel> = {};
 export const getChannels = () => channels;
 
 export class Channel<StoreType, ContextType>
-  implements diagnostics_channel.Channel<StoreType, ContextType>
+  implements nodeDiagnosticsChannel.Channel<StoreType, ContextType>
 {
   readonly __unenv__ = true;
 
-  name: diagnostics_channel.Channel["name"];
+  name: nodeDiagnosticsChannel.Channel["name"];
 
   get hasSubscribers() {
     return this._subscribers.length > 0;
   }
 
-  _subscribers: diagnostics_channel.ChannelListener[];
+  _subscribers: nodeDiagnosticsChannel.ChannelListener[];
 
-  constructor(name: diagnostics_channel.Channel["name"]) {
+  constructor(name: nodeDiagnosticsChannel.Channel["name"]) {
     this.name = name;
     this._subscribers = [];
 
@@ -25,11 +25,11 @@ export class Channel<StoreType, ContextType>
     channels[name] = this;
   }
 
-  subscribe(onMessage: diagnostics_channel.ChannelListener) {
+  subscribe(onMessage: nodeDiagnosticsChannel.ChannelListener) {
     this._subscribers.push(onMessage);
   }
 
-  unsubscribe(onMessage: diagnostics_channel.ChannelListener) {
+  unsubscribe(onMessage: nodeDiagnosticsChannel.ChannelListener) {
     const index = this._subscribers.indexOf(onMessage);
     if (index === -1) return false;
 

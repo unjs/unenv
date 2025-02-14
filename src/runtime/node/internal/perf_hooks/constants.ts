@@ -1,8 +1,8 @@
-import type perf_hooks from "node:perf_hooks";
+import type nodePerfHooks from "node:perf_hooks";
 
 // captured from Node.js v22.3.0 using
 // Object.getOwnPropertyDescriptors(require('perf_hooks').constants)
-const constants: typeof perf_hooks.constants = Object.create(null, {
+const constants: typeof nodePerfHooks.constants = Object.create(null, {
   NODE_PERFORMANCE_ENTRY_TYPE_GC: {
     value: 0,
     enumerable: false,

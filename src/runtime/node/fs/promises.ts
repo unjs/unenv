@@ -1,4 +1,4 @@
-import type fsp from "node:fs/promises";
+import type nodeFsPromises from "node:fs/promises";
 
 import {
   access,
@@ -70,4 +70,4 @@ export default {
   utimes,
   watch,
   writeFile,
-} satisfies typeof fsp;
+} satisfies typeof nodeFsPromises;

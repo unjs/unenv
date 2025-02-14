@@ -1,10 +1,10 @@
-import type util from "node:util";
+import type nodeUtil from "node:util";
 
 export const log = (...args: any[]) => {
   console.log(...args);
 };
 
-export const debuglog: typeof util.debuglog = (section, _cb) => {
+export const debuglog: typeof nodeUtil.debuglog = (section, _cb) => {
   const fn = (msg: string, ...params: any[]) => {
     if (fn.enabled) {
       console.debug(`[${section}] ${msg}`, ...params);
@@ -14,15 +14,15 @@ export const debuglog: typeof util.debuglog = (section, _cb) => {
   return fn;
 };
 
-export const debug: typeof util.debug = debuglog;
+export const debug: typeof nodeUtil.debug = debuglog;
 
 // @ts-ignore
-export const inspect: typeof util.inspect = (object) =>
+export const inspect: typeof nodeUtil.inspect = (object) =>
   JSON.stringify(object, null, 2);
 
-export const format: typeof util.format = (...args) => _format(...args);
+export const format: typeof nodeUtil.format = (...args) => _format(...args);
 
-export const formatWithOptions: typeof util.formatWithOptions = (
+export const formatWithOptions: typeof nodeUtil.formatWithOptions = (
   _options,
   ...args
 ) => _format(...args);

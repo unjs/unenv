@@ -1,7 +1,7 @@
-import type tty from "node:tty";
+import type nodeTty from "node:tty";
 import { Socket } from "node:net";
 
-export class ReadStream extends Socket implements tty.ReadStream {
+export class ReadStream extends Socket implements nodeTty.ReadStream {
   fd: number;
   constructor(fd: number) {
     super();

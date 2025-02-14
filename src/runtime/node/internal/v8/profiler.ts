@@ -1,6 +1,6 @@
-import type v8 from "node:v8";
+import type nodeV8 from "node:v8";
 
-export class GCProfiler implements v8.GCProfiler {
+export class GCProfiler implements nodeV8.GCProfiler {
   start() {}
   stop() {
     return {

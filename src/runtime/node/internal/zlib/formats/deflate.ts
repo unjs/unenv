@@ -1,4 +1,4 @@
-import type zlib from "node:zlib";
+import type nodeZlib from "node:zlib";
 import { createNotImplementedError } from "../../../../_internal/utils.ts";
 import { notImplemented } from "../../../../_internal/utils.ts";
 import {
@@ -20,11 +20,12 @@ export class Deflate extends ZlibCompress {
   }
 }
 
-export const deflate: typeof zlib.deflate = notImplementedCompress("deflate");
+export const deflate: typeof nodeZlib.deflate =
+  notImplementedCompress("deflate");
 
-export const createDeflate: typeof zlib.createDeflate = () => new Deflate();
+export const createDeflate: typeof nodeZlib.createDeflate = () => new Deflate();
 
-export const deflateSync: typeof zlib.deflateSync =
+export const deflateSync: typeof nodeZlib.deflateSync =
   /*@__PURE__*/ notImplemented("zlib.deflateSync");
 
 // Deflate Decompress(Inflate)
@@ -37,35 +38,36 @@ export class Inflate extends ZLibDecompress {
   }
 }
 
-export const inflate: typeof zlib.inflate = notImplementedCompress("inflate");
+export const inflate: typeof nodeZlib.inflate =
+  notImplementedCompress("inflate");
 
-export const createInflate: typeof zlib.createInflate = () => new Inflate();
+export const createInflate: typeof nodeZlib.createInflate = () => new Inflate();
 
-export const inflateSync: typeof zlib.inflateSync =
+export const inflateSync: typeof nodeZlib.inflateSync =
   /*@__PURE__*/ notImplemented("zlib.inflateSync");
 
 // Deflate Raw Compression
 
 export class DeflateRaw extends Deflate {}
 
-export const deflateRaw: typeof zlib.deflateRaw =
+export const deflateRaw: typeof nodeZlib.deflateRaw =
   notImplementedCompress("deflateRaw");
 
-export const createDeflateRaw: typeof zlib.createDeflateRaw = () =>
+export const createDeflateRaw: typeof nodeZlib.createDeflateRaw = () =>
   new DeflateRaw();
 
-export const deflateRawSync: typeof zlib.deflateRawSync =
+export const deflateRawSync: typeof nodeZlib.deflateRawSync =
   /*@__PURE__*/ notImplemented("zlib.deflateRawSync");
 
 // Inflate Raw Decompress (Inflate Raw)
 
 export class InflateRaw extends Inflate {}
 
-export const inflateRaw: typeof zlib.inflateRaw =
+export const inflateRaw: typeof nodeZlib.inflateRaw =
   notImplementedCompress("inflateRaw");
 
-export const createInflateRaw: typeof zlib.createInflateRaw = () =>
+export const createInflateRaw: typeof nodeZlib.createInflateRaw = () =>
   new InflateRaw();
 
-export const inflateRawSync: typeof zlib.inflateRawSync =
+export const inflateRawSync: typeof nodeZlib.inflateRawSync =
   /*@__PURE__*/ notImplemented("zlib.inflateRawSync");

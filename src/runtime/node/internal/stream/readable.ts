@@ -1,4 +1,4 @@
-import type * as stream from "node:stream";
+import type nodeStream from "node:stream";
 import type { BufferEncoding, Callback } from "../../../_internal/types.ts";
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { EventEmitter } from "node:events";
@@ -13,7 +13,7 @@ interface ArrayOptions {
   signal?: AbortSignal;
 }
 
-export class _Readable extends EventEmitter implements stream.Readable {
+export class _Readable extends EventEmitter implements nodeStream.Readable {
   __unenv__: unknown = true;
 
   readonly readableEncoding: BufferEncoding | null = null;
@@ -32,12 +32,12 @@ export class _Readable extends EventEmitter implements stream.Readable {
 
   static from(
     _iterable: Iterable<any> | AsyncIterable<any>,
-    options?: stream.ReadableOptions,
+    options?: nodeStream.ReadableOptions,
   ) {
     return new _Readable(options);
   }
 
-  constructor(_opts?: stream.ReadableOptions) {
+  constructor(_opts?: nodeStream.ReadableOptions) {
     super();
   }
 
@@ -115,7 +115,7 @@ export class _Readable extends EventEmitter implements stream.Readable {
   map(
     fn: (data: any, options?: Pick<ArrayOptions, "signal"> | undefined) => any,
     options?: ArrayOptions | undefined,
-  ): stream.Readable {
+  ): nodeStream.Readable {
     throw createNotImplementedError("Readable.map");
   }
 
@@ -125,7 +125,7 @@ export class _Readable extends EventEmitter implements stream.Readable {
       options?: Pick<ArrayOptions, "signal"> | undefined,
     ) => boolean,
     options?: ArrayOptions | undefined,
-  ): stream.Readable {
+  ): nodeStream.Readable {
     throw createNotImplementedError("Readable.filter");
   }
 
@@ -198,30 +198,30 @@ export class _Readable extends EventEmitter implements stream.Readable {
   flatMap(
     fn: (data: any, options?: Pick<ArrayOptions, "signal"> | undefined) => any,
     options?: ArrayOptions | undefined,
-  ): stream.Readable {
+  ): nodeStream.Readable {
     throw createNotImplementedError("Readable.flatMap");
   }
 
   drop(
     limit: number,
     options?: Pick<ArrayOptions, "signal"> | undefined,
-  ): stream.Readable {
+  ): nodeStream.Readable {
     throw createNotImplementedError("Readable.drop");
   }
 
   take(
     limit: number,
     options?: Pick<ArrayOptions, "signal"> | undefined,
-  ): stream.Readable {
+  ): nodeStream.Readable {
     throw createNotImplementedError("Readable.take");
   }
 
   asIndexedPairs(
     options?: Pick<ArrayOptions, "signal"> | undefined,
-  ): stream.Readable {
+  ): nodeStream.Readable {
     throw createNotImplementedError("Readable.asIndexedPairs");
   }
 }
 
-export const Readable: typeof stream.Readable =
+export const Readable: typeof nodeStream.Readable =
   (globalThis as any).Readable || _Readable;

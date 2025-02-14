@@ -1,16 +1,16 @@
-import type asyncHooks from "node:async_hooks";
+import type nodeAsyncHooks from "node:async_hooks";
 
 // https://nodejs.org/api/async_hooks.html
 
-type NodeAsyncHook = ReturnType<typeof asyncHooks.createHook>;
+type NodeAsyncHook = ReturnType<typeof nodeAsyncHooks.createHook>;
 
 class _AsyncHook implements NodeAsyncHook {
   readonly __unenv__ = true;
 
   _enabled: boolean = false;
-  _callbacks: asyncHooks.HookCallbacks = {};
+  _callbacks: nodeAsyncHooks.HookCallbacks = {};
 
-  constructor(callbacks: asyncHooks.HookCallbacks = {}) {
+  constructor(callbacks: nodeAsyncHooks.HookCallbacks = {}) {
     this._callbacks = callbacks;
   }
 
@@ -45,29 +45,30 @@ class _AsyncHook implements NodeAsyncHook {
   }
 }
 
-export const createHook: typeof asyncHooks.createHook = function createHook(
+export const createHook: typeof nodeAsyncHooks.createHook = function createHook(
   callbacks,
 ) {
   const asyncHook = new _AsyncHook(callbacks);
   return asyncHook;
 };
 
-export const executionAsyncId: typeof asyncHooks.executionAsyncId =
+export const executionAsyncId: typeof nodeAsyncHooks.executionAsyncId =
   function executionAsyncId() {
     return 0;
   };
 
-export const executionAsyncResource: typeof asyncHooks.executionAsyncResource =
+export const executionAsyncResource: typeof nodeAsyncHooks.executionAsyncResource =
   function () {
     return Object.create(null);
   };
 
-export const triggerAsyncId: typeof asyncHooks.triggerAsyncId = function () {
-  return 0;
-};
+export const triggerAsyncId: typeof nodeAsyncHooks.triggerAsyncId =
+  function () {
+    return 0;
+  };
 
 // @ts-expect-error @types/node is missing this one - this is a bug in typings
-export const asyncWrapProviders: typeof asyncHooks.asyncWrapProviders =
+export const asyncWrapProviders: typeof nodeAsyncHooks.asyncWrapProviders =
   Object.assign(Object.create(null), {
     NONE: 0,
     DIRHANDLE: 1,

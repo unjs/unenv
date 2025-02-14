@@ -1,4 +1,4 @@
-import type http from "node:http";
+import type NodeHttp from "node:http";
 import { Socket } from "node:net";
 import { Readable } from "node:stream";
 import { rawHeaders } from "../../../_internal/utils.ts";
@@ -6,7 +6,10 @@ import { rawHeaders } from "../../../_internal/utils.ts";
 // Docs: https://nodejs.org/api/http.html#http_class_http_incomingmessage
 // Implementation: https://github.com/nodejs/node/blob/master/lib/_http_incoming.js
 
-export class IncomingMessage extends Readable implements http.IncomingMessage {
+export class IncomingMessage
+  extends Readable
+  implements NodeHttp.IncomingMessage
+{
   public __unenv__ = {};
 
   public aborted: boolean = false;
@@ -16,7 +19,7 @@ export class IncomingMessage extends Readable implements http.IncomingMessage {
   public complete: boolean = true;
   public connection: Socket;
   public socket: Socket;
-  public headers: http.IncomingHttpHeaders = {};
+  public headers: NodeHttp.IncomingHttpHeaders = {};
   public trailers = {};
   public method: string = "GET";
   public url: string = "/";
