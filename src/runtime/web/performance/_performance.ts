@@ -93,11 +93,9 @@ export class _Performance<
       end = this.getEntriesByName(endMark!, "mark")[0]?.startTime;
     } else {
       start =
-        Number.parseFloat(startOrMeasureOptions?.start as string) ||
-        performance.now();
+        Number.parseFloat(startOrMeasureOptions?.start as string) || this.now();
       end =
-        Number.parseFloat(startOrMeasureOptions?.end as string) ||
-        performance.now();
+        Number.parseFloat(startOrMeasureOptions?.end as string) || this.now();
     }
     const entry = new _PerformanceMeasure(measureName, {
       startTime: start,
