@@ -42,10 +42,12 @@ describe("defineEnv", () => {
         expect(existsSync(path), path).toBe(true);
       }
       for (const inject of Object.values(env.inject)) {
-        expect(
-          existsSync(Array.isArray(inject) ? inject[0] : inject),
-          inject.toString(),
-        ).toBe(true);
+        const to = Array.isArray(inject) ? inject[0] : inject;
+        // TODO: Resolve with aliases
+        if (to.startsWith("node:")) {
+          continue;
+        }
+        expect(existsSync(to), inject.toString()).toBe(true);
       }
     });
   });
