@@ -6,9 +6,9 @@ import { Writable } from "./internal/stream/writable.ts";
 import { Duplex } from "./internal/stream/duplex.ts";
 import { Transform } from "./internal/stream/transform.ts";
 
-import promises from "./stream/promises.ts";
+import promises from "node:stream/promises";
 
-export { default as promises } from "./stream/promises.ts";
+export { promises };
 
 export { Readable } from "./internal/stream/readable.ts";
 export { Writable } from "./internal/stream/writable.ts";
