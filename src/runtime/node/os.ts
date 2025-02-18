@@ -7,7 +7,7 @@ import {
   errno,
   signals,
   priority,
-} from "./internal/constants/os.ts";
+} from "./internal/os/constants.ts";
 
 export const constants = {
   UV_UDP_REUSEADDR,

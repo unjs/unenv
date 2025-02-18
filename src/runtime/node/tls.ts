@@ -5,9 +5,9 @@ import { Server } from "./internal/tls/server.ts";
 import { SecureContext } from "./internal/tls/secure-context.ts";
 
 // prettier-ignore
-import { CLIENT_RENEG_LIMIT, CLIENT_RENEG_WINDOW, DEFAULT_CIPHERS, DEFAULT_ECDH_CURVE, DEFAULT_MAX_VERSION, DEFAULT_MIN_VERSION } from "./internal/constants/tls.ts"
+import { CLIENT_RENEG_LIMIT, CLIENT_RENEG_WINDOW, DEFAULT_CIPHERS, DEFAULT_ECDH_CURVE, DEFAULT_MAX_VERSION, DEFAULT_MIN_VERSION } from "./internal/tls/constants.ts"
 
-export * from "./internal/constants/tls.ts";
+export * from "./internal/tls/constants.ts";
 
 export { TLSSocket } from "./internal/tls/tls-socket.ts";
 export { Server } from "./internal/tls/server.ts";
