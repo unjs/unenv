@@ -1,10 +1,11 @@
 // https://nodejs.org/api/readline.html#readlineclearlinestream-dir-callback
 import type nodeReadline from "node:readline";
 import noop from "../mock/noop.ts";
-import promises from "./readline/promises.ts";
+import promises from "node:readline";
 import { Interface } from "./internal/readline/interface.ts";
 
-export * as promises from "./readline/promises.ts";
+export { promises };
+
 export { Interface } from "./internal/readline/interface.ts";
 
 export const clearLine: typeof nodeReadline.clearLine = () => false;
@@ -16,12 +17,14 @@ export const emitKeypressEvents: typeof nodeReadline.emitKeypressEvents = noop;
 export const moveCursor: typeof nodeReadline.moveCursor = () => false;
 
 export default {
-  Interface,
   clearLine,
   clearScreenDown,
   createInterface,
   cursorTo,
   emitKeypressEvents,
   moveCursor,
+  // @ts-expect-error
+  Interface,
+  // @ts-expect-error
   promises,
-} as /* TODO: use satisfies */ typeof nodeReadline;
+} satisfies typeof nodeReadline;

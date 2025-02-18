@@ -1,40 +1,61 @@
-import type inspectorPromises from "node:inspector/promises";
+import type nodeInspectorPromises from "node:inspector/promises";
 import { notImplemented, notImplementedClass } from "../../_internal/utils.ts";
+import noop from "../../mock/noop.ts";
 
-import { console as inspectorConsole } from "../inspector.ts";
-
-export { console } from "../inspector.ts";
+export const console: typeof nodeInspectorPromises.console = {
+  debug: noop,
+  error: noop,
+  info: noop,
+  log: noop,
+  warn: noop,
+  dir: noop,
+  dirxml: noop,
+  table: noop,
+  trace: noop,
+  group: noop,
+  groupCollapsed: noop,
+  groupEnd: noop,
+  clear: noop,
+  count: noop,
+  countReset: noop,
+  assert: noop,
+  profile: noop,
+  profileEnd: noop,
+  time: noop,
+  timeLog: noop,
+  timeStamp: noop,
+};
 
 export const Network = /*@__PURE__*/ notImplementedClass<
-  typeof inspectorPromises.Network
+  typeof nodeInspectorPromises.Network
 >("inspectorPromises.Network");
 
 export const Session = /*@__PURE__*/ notImplementedClass<
-  typeof inspectorPromises.Session
+  typeof nodeInspectorPromises.Session
 >("inspectorPromises.Session");
 
-export const url = /*@__PURE__*/ notImplemented<typeof inspectorPromises.url>(
-  "inspectorPromises.url",
-);
+export const url = /*@__PURE__*/ notImplemented<
+  typeof nodeInspectorPromises.url
+>("inspectorPromises.url");
 
 export const waitForDebugger = /*@__PURE__*/ notImplemented<
-  typeof inspectorPromises.waitForDebugger
+  typeof nodeInspectorPromises.waitForDebugger
 >("inspectorPromises.waitForDebugger");
 
-export const open = /*@__PURE__*/ notImplemented<typeof inspectorPromises.open>(
-  "inspectorPromises.open",
-);
+export const open = /*@__PURE__*/ notImplemented<
+  typeof nodeInspectorPromises.open
+>("inspectorPromises.open");
 
 export const close = /*@__PURE__*/ notImplemented<
-  typeof inspectorPromises.close
+  typeof nodeInspectorPromises.close
 >("inspectorPromises.close");
 
 export default {
   close,
-  console: inspectorConsole,
+  console,
   Network,
   open,
   Session,
   url,
   waitForDebugger,
-} satisfies typeof inspectorPromises;
+} satisfies typeof nodeInspectorPromises;
