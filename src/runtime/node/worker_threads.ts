@@ -57,6 +57,8 @@ export const postMessageToThread = /*@__PURE__*/ notImplemented(
   "worker_threads.postMessageToThread",
 );
 
+export const isInternalThread = false;
+
 export default {
   BroadcastChannel,
   MessageChannel,
@@ -76,4 +78,5 @@ export default {
   postMessageToThread,
   threadId,
   workerData,
+  isInternalThread,
 } as /* TODO: use satisfies */ typeof nodeWorkerThreads;

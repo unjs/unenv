@@ -1,84 +1,66 @@
-// collected from Node.js v18.20.3, v20.14.0, and v22.3.0 using:
-// require('crypto').constants
-// require('crypto').constants.defaultCipherList
-const constants = {
-  ALPN_ENABLED: 1, // Node.js v18 only
-  DH_CHECK_P_NOT_PRIME: 1,
-  DH_CHECK_P_NOT_SAFE_PRIME: 2,
-  DH_NOT_SUITABLE_GENERATOR: 8,
-  DH_UNABLE_TO_CHECK_GENERATOR: 4,
-  ENGINE_METHOD_ALL: 65_535,
-  ENGINE_METHOD_CIPHERS: 64,
-  ENGINE_METHOD_DH: 4,
-  ENGINE_METHOD_DIGESTS: 128,
-  ENGINE_METHOD_DSA: 2,
-  ENGINE_METHOD_EC: 2048,
-  ENGINE_METHOD_NONE: 0,
-  ENGINE_METHOD_PKEY_ASN1_METHS: 1024,
-  ENGINE_METHOD_PKEY_METHS: 512,
-  ENGINE_METHOD_RAND: 8,
-  ENGINE_METHOD_RSA: 1,
-  OPENSSL_VERSION_NUMBER: 0, // explicitly set to 0 to avoid version misdetection
-  POINT_CONVERSION_COMPRESSED: 2,
-  POINT_CONVERSION_HYBRID: 6,
-  POINT_CONVERSION_UNCOMPRESSED: 4,
-  RSA_NO_PADDING: 3,
-  RSA_PKCS1_OAEP_PADDING: 4,
-  RSA_PKCS1_PADDING: 1,
-  RSA_PKCS1_PSS_PADDING: 6,
-  RSA_PSS_SALTLEN_AUTO: -2,
-  RSA_PSS_SALTLEN_DIGEST: -1,
-  RSA_PSS_SALTLEN_MAX_SIGN: -2,
-  RSA_X931_PADDING: 5,
-  SSL_OP_ALL: 2_147_485_776,
-  SSL_OP_ALLOW_NO_DHE_KEX: 1024,
-  SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: 262_144,
-  SSL_OP_CIPHER_SERVER_PREFERENCE: 4_194_304,
-  SSL_OP_CISCO_ANYCONNECT: 32_768,
-  SSL_OP_COOKIE_EXCHANGE: 8192,
-  SSL_OP_CRYPTOPRO_TLSEXT_BUG: 2_147_483_648,
-  SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS: 2048,
-  SSL_OP_EPHEMERAL_RSA: 0, // Node.js v18 only
-  SSL_OP_LEGACY_SERVER_CONNECT: 4,
-  SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER: 0, // Node.js v18 only
-  SSL_OP_MICROSOFT_SESS_ID_BUG: 0, // Node.js v18 only
-  SSL_OP_MSIE_SSLV2_RSA_PADDING: 0, // Node.js v18 only
-  SSL_OP_NETSCAPE_CA_DN_BUG: 0, // Node.js v18 only
-  SSL_OP_NETSCAPE_CHALLENGE_BUG: 0, // Node.js v18 only
-  SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG: 0, // Node.js v18 only
-  SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG: 0, // Node.js v18 only
-  SSL_OP_NO_COMPRESSION: 131_072,
-  SSL_OP_NO_ENCRYPT_THEN_MAC: 524_288,
-  SSL_OP_NO_QUERY_MTU: 4096,
-  SSL_OP_NO_RENEGOTIATION: 1_073_741_824,
-  SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: 65_536,
-  SSL_OP_NO_SSLv2: 0,
-  SSL_OP_NO_SSLv3: 33_554_432,
-  SSL_OP_NO_TICKET: 16_384,
-  SSL_OP_NO_TLSv1_1: 268_435_456,
-  SSL_OP_NO_TLSv1_2: 134_217_728,
-  SSL_OP_NO_TLSv1_3: 536_870_912,
-  SSL_OP_NO_TLSv1: 67_108_864,
-  SSL_OP_PKCS1_CHECK_1: 0, // Node.js v18 only
-  SSL_OP_PKCS1_CHECK_2: 0, // Node.js v18 only
-  SSL_OP_PRIORITIZE_CHACHA: 2_097_152,
-  SSL_OP_SINGLE_DH_USE: 0, // Node.js v18 only
-  SSL_OP_SINGLE_ECDH_USE: 0, // Node.js v18 only
-  SSL_OP_SSLEAY_080_CLIENT_DH_BUG: 0, // Node.js v18 only
-  SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG: 0, // Node.js v18 only
-  SSL_OP_TLS_BLOCK_PADDING_BUG: 0, // Node.js v18 only
-  SSL_OP_TLS_D5_BUG: 0, // Node.js v18 only
-  SSL_OP_TLS_ROLLBACK_BUG: 8_388_608,
-  TLS1_1_VERSION: 0, // explicitly set to 0 to avoid version misdetection
-  TLS1_2_VERSION: 0, // explicitly set to 0 to avoid version misdetection
-  TLS1_3_VERSION: 0, // explicitly set to 0 to avoid version misdetection
-  TLS1_VERSION: 0, // explicitly set to 0 to avoid version misdetection
+// npx -y node@22.14 -e 'const{constants}=require("crypto");console.log(Object.entries(constants).map(([k,v]) => `export const ${k} = ${JSON.stringify(v)}`).join("\n"))'
 
-  defaultCoreCipherList: "", // explicitly set to "" to avoid version misdetection
-  get defaultCipherList() {
-    return constants.defaultCoreCipherList;
-  },
-  set defaultCipherList(_ignored) {},
-};
+export const SSL_OP_ALL = 2_147_485_776;
+export const SSL_OP_ALLOW_NO_DHE_KEX = 1024;
+export const SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION = 262_144;
+export const SSL_OP_CIPHER_SERVER_PREFERENCE = 4_194_304;
+export const SSL_OP_CISCO_ANYCONNECT = 32_768;
+export const SSL_OP_COOKIE_EXCHANGE = 8192;
+export const SSL_OP_CRYPTOPRO_TLSEXT_BUG = 2_147_483_648;
+export const SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS = 2048;
+export const SSL_OP_LEGACY_SERVER_CONNECT = 4;
+export const SSL_OP_NO_COMPRESSION = 131_072;
+export const SSL_OP_NO_ENCRYPT_THEN_MAC = 524_288;
+export const SSL_OP_NO_QUERY_MTU = 4096;
+export const SSL_OP_NO_RENEGOTIATION = 1_073_741_824;
+export const SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION = 65_536;
+export const SSL_OP_NO_SSLv2 = 0;
+export const SSL_OP_NO_SSLv3 = 33_554_432;
+export const SSL_OP_NO_TICKET = 16_384;
+export const SSL_OP_NO_TLSv1 = 67_108_864;
+export const SSL_OP_NO_TLSv1_1 = 268_435_456;
+export const SSL_OP_NO_TLSv1_2 = 134_217_728;
+export const SSL_OP_NO_TLSv1_3 = 536_870_912;
+export const SSL_OP_PRIORITIZE_CHACHA = 2_097_152;
+export const SSL_OP_TLS_ROLLBACK_BUG = 8_388_608;
 
-export default constants;
+export const ENGINE_METHOD_RSA = 1;
+export const ENGINE_METHOD_DSA = 2;
+export const ENGINE_METHOD_DH = 4;
+export const ENGINE_METHOD_RAND = 8;
+export const ENGINE_METHOD_EC = 2048;
+export const ENGINE_METHOD_CIPHERS = 64;
+export const ENGINE_METHOD_DIGESTS = 128;
+export const ENGINE_METHOD_PKEY_METHS = 512;
+export const ENGINE_METHOD_PKEY_ASN1_METHS = 1024;
+export const ENGINE_METHOD_ALL = 65_535;
+export const ENGINE_METHOD_NONE = 0;
+
+export const DH_CHECK_P_NOT_SAFE_PRIME = 2;
+export const DH_CHECK_P_NOT_PRIME = 1;
+export const DH_UNABLE_TO_CHECK_GENERATOR = 4;
+export const DH_NOT_SUITABLE_GENERATOR = 8;
+
+export const RSA_PKCS1_PADDING = 1;
+export const RSA_NO_PADDING = 3;
+export const RSA_PKCS1_OAEP_PADDING = 4;
+export const RSA_X931_PADDING = 5;
+export const RSA_PKCS1_PSS_PADDING = 6;
+export const RSA_PSS_SALTLEN_DIGEST = -1;
+export const RSA_PSS_SALTLEN_MAX_SIGN = -2;
+export const RSA_PSS_SALTLEN_AUTO = -2;
+
+export const POINT_CONVERSION_COMPRESSED = 2;
+export const POINT_CONVERSION_UNCOMPRESSED = 4;
+export const POINT_CONVERSION_HYBRID = 6;
+
+// Versions explicitly set to 0 to avoid version misdetections
+
+export const defaultCoreCipherList = "";
+export const defaultCipherList = "";
+
+export const OPENSSL_VERSION_NUMBER = 0;
+export const TLS1_VERSION = 0;
+export const TLS1_1_VERSION = 0;
+export const TLS1_2_VERSION = 0;
+export const TLS1_3_VERSION = 0;

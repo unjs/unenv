@@ -97,6 +97,8 @@ export const {
   setuid,
   permission,
   mainModule,
+  ref,
+  unref,
   _events,
   _eventsCount,
   _exiting,

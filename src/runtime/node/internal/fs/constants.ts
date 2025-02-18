@@ -1,65 +1,54 @@
-import type noedFs from "node:fs";
+// npx -y node@22.14 -e 'const{constants}=require("fs");console.log(Object.entries(constants).map(([k,v]) => `export const ${k} = ${JSON.stringify(v)}`).join("\n"))'
 
+export const UV_FS_SYMLINK_DIR = 1;
+export const UV_FS_SYMLINK_JUNCTION = 2;
+export const O_RDONLY = 0;
+export const O_WRONLY = 1;
+export const O_RDWR = 2;
+export const UV_DIRENT_UNKNOWN = 0;
+export const UV_DIRENT_FILE = 1;
+export const UV_DIRENT_DIR = 2;
+export const UV_DIRENT_LINK = 3;
+export const UV_DIRENT_FIFO = 4;
+export const UV_DIRENT_SOCKET = 5;
+export const UV_DIRENT_CHAR = 6;
+export const UV_DIRENT_BLOCK = 7;
+export const EXTENSIONLESS_FORMAT_JAVASCRIPT = 0;
+export const EXTENSIONLESS_FORMAT_WASM = 1;
+export const S_IFMT = 61_440;
+export const S_IFREG = 32_768;
+export const S_IFDIR = 16_384;
+export const S_IFCHR = 8192;
+export const S_IFBLK = 24_576;
+export const S_IFIFO = 4096;
+export const S_IFLNK = 40_960;
+export const S_IFSOCK = 49_152;
+export const O_CREAT = 64;
+export const O_EXCL = 128;
+export const UV_FS_O_FILEMAP = 0;
+export const O_NOCTTY = 256;
+export const O_TRUNC = 512;
+export const O_APPEND = 1024;
+export const O_DIRECTORY = 65_536;
+export const O_NOATIME = 262_144;
+export const O_NOFOLLOW = 131_072;
+export const O_SYNC = 1_052_672;
+export const O_DSYNC = 4096;
+export const O_DIRECT = 16_384;
+export const O_NONBLOCK = 2048;
+export const S_IRWXU = 448;
+export const S_IRUSR = 256;
+export const S_IWUSR = 128;
+export const S_IXUSR = 64;
+export const S_IRWXG = 56;
+export const S_IRGRP = 32;
+export const S_IWGRP = 16;
+export const S_IXGRP = 8;
+export const S_IRWXO = 7;
+export const S_IROTH = 4;
+export const S_IWOTH = 2;
+export const S_IXOTH = 1;
 export const F_OK = 0;
 export const R_OK = 4;
 export const W_OK = 2;
 export const X_OK = 1;
-
-export const constants: typeof noedFs.constants = Object.create({
-  UV_FS_SYMLINK_DIR: 1,
-  UV_FS_SYMLINK_JUNCTION: 2,
-  O_RDONLY: 0,
-  O_WRONLY: 1,
-  O_RDWR: 2,
-  UV_DIRENT_UNKNOWN: 0,
-  UV_DIRENT_FILE: 1,
-  UV_DIRENT_DIR: 2,
-  UV_DIRENT_LINK: 3,
-  UV_DIRENT_FIFO: 4,
-  UV_DIRENT_SOCKET: 5,
-  UV_DIRENT_CHAR: 6,
-  UV_DIRENT_BLOCK: 7,
-  S_IFMT: 61_440,
-  S_IFREG: 32_768,
-  S_IFDIR: 16_384,
-  S_IFCHR: 8192,
-  S_IFBLK: 24_576,
-  S_IFIFO: 4096,
-  S_IFLNK: 40_960,
-  S_IFSOCK: 49_152,
-  O_CREAT: 64,
-  O_EXCL: 128,
-  UV_FS_O_FILEMAP: 0,
-  O_NOCTTY: 256,
-  O_TRUNC: 512,
-  O_APPEND: 1024,
-  O_DIRECTORY: 65_536,
-  O_NOATIME: 262_144,
-  O_NOFOLLOW: 131_072,
-  O_SYNC: 1_052_672,
-  O_DSYNC: 4096,
-  O_DIRECT: 16_384,
-  O_NONBLOCK: 2048,
-  S_IRWXU: 448,
-  S_IRUSR: 256,
-  S_IWUSR: 128,
-  S_IXUSR: 64,
-  S_IRWXG: 56,
-  S_IRGRP: 32,
-  S_IWGRP: 16,
-  S_IXGRP: 8,
-  S_IRWXO: 7,
-  S_IROTH: 4,
-  S_IWOTH: 2,
-  S_IXOTH: 1,
-  F_OK: 0,
-  R_OK: 4,
-  W_OK: 2,
-  X_OK: 1,
-  UV_FS_COPYFILE_EXCL: 1,
-  COPYFILE_EXCL: 1,
-  UV_FS_COPYFILE_FICLONE: 2,
-  COPYFILE_FICLONE: 2,
-  UV_FS_COPYFILE_FICLONE_FORCE: 4,
-  COPYFILE_FICLONE_FORCE: 4,
-});

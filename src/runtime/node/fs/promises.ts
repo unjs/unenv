@@ -5,7 +5,6 @@ import {
   appendFile,
   chmod,
   chown,
-  constants,
   copyFile,
   cp,
   glob,
@@ -35,14 +34,18 @@ import {
   writeFile,
 } from "../internal/fs/promises.ts";
 
+import * as constants from "../internal/fs/constants.ts";
+
+export { constants };
+
 export * from "../internal/fs/promises.ts";
 
 export default {
+  constants: constants as any,
   access,
   appendFile,
   chmod,
   chown,
-  constants,
   copyFile,
   cp,
   glob,
