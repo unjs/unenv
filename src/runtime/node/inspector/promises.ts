@@ -28,27 +28,27 @@ export const console: typeof nodeInspectorPromises.console = {
 
 export const Network = /*@__PURE__*/ notImplementedClass<
   typeof nodeInspectorPromises.Network
->("nodeInspectorPromises.Network");
+>("inspectorPromises.Network");
 
 export const Session = /*@__PURE__*/ notImplementedClass<
   typeof nodeInspectorPromises.Session
->("nodeInspectorPromises.Session");
+>("inspectorPromises.Session");
 
 export const url = /*@__PURE__*/ notImplemented<
   typeof nodeInspectorPromises.url
->("nodeInspectorPromises.url");
+>("inspectorPromises.url");
 
 export const waitForDebugger = /*@__PURE__*/ notImplemented<
   typeof nodeInspectorPromises.waitForDebugger
->("nodeInspectorPromises.waitForDebugger");
+>("inspectorPromises.waitForDebugger");
 
 export const open = /*@__PURE__*/ notImplemented<
   typeof nodeInspectorPromises.open
->("nodeInspectorPromises.open");
+>("inspectorPromises.open");
 
 export const close = /*@__PURE__*/ notImplemented<
   typeof nodeInspectorPromises.close
->("nodeInspectorPromises.close");
+>("inspectorPromises.close");
 
 export default {
   close,
