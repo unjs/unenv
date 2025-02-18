@@ -1,4 +1,4 @@
-import type perf_hooks from "node:perf_hooks";
+import type nodePerfHooks from "node:perf_hooks";
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 import {
   _Performance,
@@ -32,24 +32,24 @@ const nodeTiming = {
   uvMetricsInfo: { loopCount: 0, events: 0, eventsWaiting: 0 },
   // only present in Node.js 18.x
   detail: undefined,
-} satisfies Omit<perf_hooks.PerformanceNodeTiming, "toJSON">;
+} satisfies Omit<nodePerfHooks.PerformanceNodeTiming, "toJSON">;
 
 // Performance
 export const Performance = class Performance
-  extends _Performance<perf_hooks.PerformanceEntry>
-  implements perf_hooks.Performance
+  extends _Performance<nodePerfHooks.PerformanceEntry>
+  implements nodePerfHooks.Performance
 {
   constructor() {
     super();
   }
   timerify<T extends (...params: any[]) => any>(
     _fn: T,
-    _options?: perf_hooks.TimerifyOptions | undefined,
+    _options?: nodePerfHooks.TimerifyOptions | undefined,
   ): T {
     throw createNotImplementedError("Performance.timerify");
   }
 
-  get nodeTiming(): perf_hooks.PerformanceNodeTiming {
+  get nodeTiming(): nodePerfHooks.PerformanceNodeTiming {
     return {
       ...nodeTiming,
       toJSON: () => nodeTiming,
@@ -57,7 +57,7 @@ export const Performance = class Performance
   }
 
   eventLoopUtilization() {
-    return {} as perf_hooks.EventLoopUtilization;
+    return {} as nodePerfHooks.EventLoopUtilization;
   }
 
   mark(name: string, options?: PerformanceMarkOptions | undefined) {
@@ -83,7 +83,7 @@ export const Performance = class Performance
     bodyInfo: object,
     responseStatus: number,
     deliveryType?: string,
-  ): perf_hooks.PerformanceResourceTiming {
+  ): nodePerfHooks.PerformanceResourceTiming {
     // TODO: create a new PerformanceResourceTiming entry
     // so that performance.getEntries, getEntriesByName, and getEntriesByType return it
     // see: https://nodejs.org/api/perf_hooks.html#performancemarkresourcetimingtiminginfo-requestedurl-initiatortype-global-cachemode-bodyinfo-responsestatus-deliverytype
@@ -93,12 +93,12 @@ export const Performance = class Performance
 
 // performance (instance)
 export const performance = (globalThis.performance ??
-  new Performance()) as unknown as perf_hooks.Performance;
+  new Performance()) as unknown as nodePerfHooks.Performance;
 
 // PerformanceMark
-export const PerformanceMark: typeof perf_hooks.PerformanceMark = class PerformanceMark
+export const PerformanceMark: typeof nodePerfHooks.PerformanceMark = class PerformanceMark
   extends _PerformanceMark
-  implements perf_hooks.PerformanceMark
+  implements nodePerfHooks.PerformanceMark
 {
   constructor() {
     // @ts-ignore
@@ -110,9 +110,9 @@ export const PerformanceMark: typeof perf_hooks.PerformanceMark = class Performa
 };
 
 // PerformanceObserver
-export const PerformanceObserver: typeof perf_hooks.PerformanceObserver = class PerformanceObserver
+export const PerformanceObserver: typeof nodePerfHooks.PerformanceObserver = class PerformanceObserver
   extends _PerformanceObserver
-  implements perf_hooks.PerformanceObserver
+  implements nodePerfHooks.PerformanceObserver
 {
   static override supportedEntryTypes = [
     // Web
@@ -129,7 +129,7 @@ export const PerformanceObserver: typeof perf_hooks.PerformanceObserver = class 
     "net",
   ] as any[] /* sadly types mismatch */;
 
-  constructor(callback: perf_hooks.PerformanceObserverCallback) {
+  constructor(callback: nodePerfHooks.PerformanceObserverCallback) {
     super(callback as any);
   }
 

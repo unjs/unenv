@@ -1,6 +1,6 @@
-import type worker_threads from "node:worker_threads";
+import type nodeWorkerThreads from "node:worker_threads";
 
-export class BroadcastChannel implements worker_threads.BroadcastChannel {
+export class BroadcastChannel implements nodeWorkerThreads.BroadcastChannel {
   name = "";
   onmessage = (message: unknown) => {};
   onmessageerror = (message: unknown) => {};

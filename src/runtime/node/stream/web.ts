@@ -1,4 +1,4 @@
-import type * as streamWeb from "node:stream/web";
+import type nodeStreamWeb from "node:stream/web";
 import { notImplemented } from "../../_internal/utils.ts";
 
 export const ReadableStream =
@@ -75,4 +75,4 @@ export default {
   TextDecoderStream,
   DecompressionStream,
   CompressionStream,
-} as /* TODO: use satisfies */ typeof streamWeb;
+} as /* TODO: use satisfies */ typeof nodeStreamWeb;

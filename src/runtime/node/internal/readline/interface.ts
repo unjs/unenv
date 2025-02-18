@@ -1,8 +1,8 @@
-import type readline from "node:readline";
+import type nodeReadline from "node:readline";
 import type { Abortable } from "node:events";
 import { EventEmitter } from "node:events";
 
-export class Interface extends EventEmitter implements readline.Interface {
+export class Interface extends EventEmitter implements nodeReadline.Interface {
   terminal = false;
   line = "";
   cursor = 0;
@@ -26,10 +26,10 @@ export class Interface extends EventEmitter implements readline.Interface {
     return this;
   }
   close() {}
-  write(data: string | Buffer, key?: readline.Key | undefined): void;
-  write(data: string | Buffer | null | undefined, key: readline.Key): void;
+  write(data: string | Buffer, key?: nodeReadline.Key | undefined): void;
+  write(data: string | Buffer | null | undefined, key: nodeReadline.Key): void;
   write(data: unknown, key?: unknown): void {}
-  getCursorPos(): readline.CursorPos {
+  getCursorPos(): nodeReadline.CursorPos {
     return {
       rows: 0,
       cols: 0,

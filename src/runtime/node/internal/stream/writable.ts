@@ -1,4 +1,4 @@
-import type * as stream from "node:stream";
+import type nodeStream from "node:stream";
 import type { BufferEncoding, Callback } from "../../../_internal/types.ts";
 
 import { EventEmitter } from "node:events";
@@ -6,7 +6,7 @@ import { EventEmitter } from "node:events";
 // Docs: https://nodejs.org/api/stream.html#stream_writable_streams
 // Implementation: https://github.com/nodejs/node/blob/master/lib/internal/streams/writable.js
 
-class _Writable extends EventEmitter implements stream.Writable {
+class _Writable extends EventEmitter implements nodeStream.Writable {
   readonly __unenv__ = true;
 
   readonly writable: boolean = true;
@@ -25,7 +25,7 @@ class _Writable extends EventEmitter implements stream.Writable {
   _data: unknown;
   _encoding: BufferEncoding = "utf-8";
 
-  constructor(_opts?: stream.WritableOptions) {
+  constructor(_opts?: nodeStream.WritableOptions) {
     super();
   }
 
@@ -134,5 +134,5 @@ class _Writable extends EventEmitter implements stream.Writable {
   }
 }
 
-export const Writable: typeof stream.Writable =
+export const Writable: typeof nodeStream.Writable =
   (globalThis as any).Writable || _Writable;

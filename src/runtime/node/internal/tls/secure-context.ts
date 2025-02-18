@@ -1,5 +1,5 @@
-import type tls from "node:tls";
+import type nodeTls from "node:tls";
 
-export class SecureContext implements tls.SecureContext {
+export class SecureContext implements nodeTls.SecureContext {
   context = {};
 }

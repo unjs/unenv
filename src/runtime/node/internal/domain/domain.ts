@@ -1,8 +1,8 @@
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 import { EventEmitter } from "node:events";
-import type domain from "node:domain";
+import type nodeDomain from "node:domain";
 
-export class Domain extends EventEmitter implements domain.Domain {
+export class Domain extends EventEmitter implements nodeDomain.Domain {
   readonly __unenv__ = true;
 
   members = [];
