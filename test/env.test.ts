@@ -33,9 +33,6 @@ describe("defineEnv", () => {
     it("resolves all nodeCompat paths", () => {
       const { env } = defineEnv({ nodeCompat: true, resolve: true });
       for (const [from, to] of Object.entries(env.alias)) {
-        if (to.startsWith("node:")) {
-          continue; // recursive
-        }
         expect(existsSync(to), `Alias: ${from} ~> ${to}`).toBe(true);
       }
       for (const path of env.polyfill) {
@@ -43,10 +40,6 @@ describe("defineEnv", () => {
       }
       for (const inject of Object.values(env.inject)) {
         const to = Array.isArray(inject) ? inject[0] : inject;
-        // TODO: Resolve with aliases
-        if (to.startsWith("node:")) {
-          continue;
-        }
         expect(existsSync(to), inject.toString()).toBe(true);
       }
     });
