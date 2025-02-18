@@ -1,4 +1,5 @@
 import { resolvePathSync, type ResolveOptions } from "mlly";
+import { resolveAlias } from "pathe/utils";
 import type {
   Preset,
   Environment,
@@ -104,6 +105,7 @@ function resolveEnvPaths(
     if (!id) {
       return id;
     }
+    id = resolveAlias(id, env.alias);
     let resolved = _tryResolve(id);
     if (!resolved && id.startsWith("unenv/")) {
       resolved = _tryResolve(id.replace("unenv/", "unenv-nightly/"));
