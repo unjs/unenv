@@ -70,9 +70,11 @@ export const nodeCompatAliases = {
 } as const;
 
 export const nodeCompatInjects = {
-  global: "unenv/polyfill/globalthis",
   process: "unenv/node/process",
-  Buffer: ["unenv/node/buffer", "Buffer"],
+  global: "unenv/polyfill/globalthis",
+  Buffer: ["node:buffer", "Buffer"],
+  clearImmediate: ["node:timers", "clearImmediate"],
+  setImmediate: ["node:timers", "setImmediate"],
 } as const;
 
 export const npmShims = {
