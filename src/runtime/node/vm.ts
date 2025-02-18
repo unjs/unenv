@@ -10,7 +10,7 @@ export * as constants from "./internal/vm/constants.ts";
 export const compileFunction: typeof nodeVm.compileFunction =
   /*@__PURE__*/ notImplemented("vm.compileFunction");
 
-const _contextSymbol = Symbol("uenv.vm.context");
+const _contextSymbol = /*@__PURE__*/ Symbol("uenv.vm.context");
 
 export const createContext: typeof nodeVm.createContext =
   function createContext() {

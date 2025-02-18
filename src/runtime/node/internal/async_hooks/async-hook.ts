@@ -4,6 +4,12 @@ import type nodeAsyncHooks from "node:async_hooks";
 
 type NodeAsyncHook = ReturnType<typeof nodeAsyncHooks.createHook>;
 
+const kInit = /*@__PURE__*/ Symbol("init");
+const kBefore = /*@__PURE__*/ Symbol("before");
+const kAfter = /*@__PURE__*/ Symbol("after");
+const kDestroy = /*@__PURE__*/ Symbol("destroy");
+const kPromiseResolve = /*@__PURE__*/ Symbol("promiseResolve");
+
 class _AsyncHook implements NodeAsyncHook {
   readonly __unenv__ = true;
 
@@ -24,23 +30,23 @@ class _AsyncHook implements NodeAsyncHook {
     return this;
   }
 
-  get [Symbol("init")]() {
+  get [kInit]() {
     return this._callbacks.init;
   }
 
-  get [Symbol("before")]() {
+  get [kBefore]() {
     return this._callbacks.before;
   }
 
-  get [Symbol("after")]() {
+  get [kAfter]() {
     return this._callbacks.after;
   }
 
-  get [Symbol("destroy")]() {
+  get [kDestroy]() {
     return this._callbacks.destroy;
   }
 
-  get [Symbol("promiseResolve")]() {
+  get [kPromiseResolve]() {
     return this._callbacks.promiseResolve;
   }
 }

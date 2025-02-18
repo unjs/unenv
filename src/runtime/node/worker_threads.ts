@@ -42,7 +42,7 @@ export const parentPort: typeof nodeWorkerThreads.parentPort = null;
 export const receiveMessageOnPort: typeof nodeWorkerThreads.receiveMessageOnPort =
   () => undefined;
 
-export const SHARE_ENV = Symbol.for(
+export const SHARE_ENV = /*@__PURE__*/ Symbol.for(
   "nodejs.worker_threads.SHARE_ENV",
 ) as typeof nodeWorkerThreads.SHARE_ENV;
 

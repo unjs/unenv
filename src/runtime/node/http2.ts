@@ -52,9 +52,8 @@ export const getUnpackedSettings: typeof nodeHttp2.getUnpackedSettings =
     return Object.create({});
   };
 
-export const sensitiveHeaders: typeof nodeHttp2.sensitiveHeaders = Symbol(
-  "nodejs.http2.sensitiveHeaders",
-);
+export const sensitiveHeaders: typeof nodeHttp2.sensitiveHeaders =
+  /*@__PURE__*/ Symbol("nodejs.http2.sensitiveHeaders");
 
 export default {
   constants,
