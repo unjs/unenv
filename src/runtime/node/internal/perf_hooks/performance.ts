@@ -32,16 +32,14 @@ const nodeTiming = {
   uvMetricsInfo: { loopCount: 0, events: 0, eventsWaiting: 0 },
   // only present in Node.js 18.x
   detail: undefined,
-} satisfies Omit<nodePerfHooks.PerformanceNodeTiming, "toJSON">;
+  toJSON: () => this,
+} satisfies nodePerfHooks.PerformanceNodeTiming;
 
 // Performance
 export const Performance = class Performance
   extends _Performance<nodePerfHooks.PerformanceEntry>
   implements nodePerfHooks.Performance
 {
-  constructor() {
-    super();
-  }
   timerify<T extends (...params: any[]) => any>(
     _fn: T,
     _options?: nodePerfHooks.TimerifyOptions | undefined,
@@ -50,10 +48,7 @@ export const Performance = class Performance
   }
 
   get nodeTiming(): nodePerfHooks.PerformanceNodeTiming {
-    return {
-      ...nodeTiming,
-      toJSON: () => nodeTiming,
-    };
+    return nodeTiming;
   }
 
   eventLoopUtilization() {

@@ -9,17 +9,13 @@ import {
   PerformanceResourceTiming,
 } from "../web/performance/index.ts";
 
-globalThis.performance = globalThis.performance || performance;
-globalThis.Performance = globalThis.Performance || Performance;
-globalThis.PerformanceEntry = globalThis.PerformanceEntry || PerformanceEntry;
-globalThis.PerformanceMark = globalThis.PerformanceMark || PerformanceMark;
-globalThis.PerformanceMeasure =
-  globalThis.PerformanceMeasure || PerformanceMeasure;
-globalThis.PerformanceObserver =
-  globalThis.PerformanceObserver || PerformanceObserver;
-globalThis.PerformanceObserverEntryList =
-  globalThis.PerformanceObserverEntryList || PerformanceObserverEntryList;
-globalThis.PerformanceResourceTiming =
-  globalThis.PerformanceResourceTiming || PerformanceResourceTiming;
+globalThis.performance ||= performance;
+globalThis.Performance ||= Performance;
+globalThis.PerformanceEntry ||= PerformanceEntry;
+globalThis.PerformanceMark ||= PerformanceMark;
+globalThis.PerformanceMeasure ||= PerformanceMeasure;
+globalThis.PerformanceObserver ||= PerformanceObserver;
+globalThis.PerformanceObserverEntryList ||= PerformanceObserverEntryList;
+globalThis.PerformanceResourceTiming ||= PerformanceResourceTiming;
 
 export default globalThis.performance;
