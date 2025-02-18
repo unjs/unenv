@@ -46,18 +46,24 @@ const AbortError = Error;
 const genericNodeError = Error;
 
 // Symbols
-const kRejection = Symbol.for("nodejs.rejection");
-const kCapture = Symbol.for("kCapture");
-const kErrorMonitor = Symbol.for("events.errorMonitor");
-const kShapeMode = Symbol.for("shapeMode");
-const kMaxEventTargetListeners = Symbol.for("events.maxEventTargetListeners");
-const kEnhanceStackBeforeInspector = Symbol.for("kEnhanceStackBeforeInspector");
-const kWatermarkData = Symbol.for("nodejs.watermarkData");
-const kEventEmitter = Symbol.for("kEventEmitter");
-const kAsyncResource = Symbol.for("kAsyncResource");
-const kFirstEventParam = Symbol.for("kFirstEventParam");
-const kResistStopPropagation = Symbol.for("kResistStopPropagation");
-const kMaxEventTargetListenersWarned = Symbol.for(
+const kRejection = /*@__PURE__*/ Symbol.for("nodejs.rejection");
+const kCapture = /*@__PURE__*/ Symbol.for("kCapture");
+const kErrorMonitor = /*@__PURE__*/ Symbol.for("events.errorMonitor");
+const kShapeMode = /*@__PURE__*/ Symbol.for("shapeMode");
+const kMaxEventTargetListeners = /*@__PURE__*/ Symbol.for(
+  "events.maxEventTargetListeners",
+);
+const kEnhanceStackBeforeInspector = /*@__PURE__*/ Symbol.for(
+  "kEnhanceStackBeforeInspector",
+);
+const kWatermarkData = /*@__PURE__*/ Symbol.for("nodejs.watermarkData");
+const kEventEmitter = /*@__PURE__*/ Symbol.for("kEventEmitter");
+const kAsyncResource = /*@__PURE__*/ Symbol.for("kAsyncResource");
+const kFirstEventParam = /*@__PURE__*/ Symbol.for("kFirstEventParam");
+const kResistStopPropagation = /*@__PURE__*/ Symbol.for(
+  "kResistStopPropagation",
+);
+const kMaxEventTargetListenersWarned = /*@__PURE__*/ Symbol.for(
   "events.maxEventTargetListenersWarned",
 );
 
