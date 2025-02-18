@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.6
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.5...v2.0.0-rc.6)
+
+### 🩹 Fixes
+
+- DefineEnv returns a ResolvedEnvironment ([#451](https://github.com/unjs/unenv/pull/451))
+- **process:** Refine types ([#452](https://github.com/unjs/unenv/pull/452))
+- Use `node:process` for polyfill ([#453](https://github.com/unjs/unenv/pull/453))
+- Resolve tree-shaking issues with `node/util` ([#458](https://github.com/unjs/unenv/pull/458))
+- Allow tree-shaking with default exports ([#459](https://github.com/unjs/unenv/pull/459))
+- Circular dependency between node and web `performance.now()` ([#463](https://github.com/unjs/unenv/pull/463))
+
+### 💅 Refactors
+
+- **process:** ⚠️  Extract nextTick to a separate file ([#454](https://github.com/unjs/unenv/pull/454))
+- Mark `process` internals as side-effect free ([#455](https://github.com/unjs/unenv/pull/455))
+- Improve `node:util` tree-shaking ([#456](https://github.com/unjs/unenv/pull/456))
+- Overhaul node constants ([#460](https://github.com/unjs/unenv/pull/460))
+
+### 🏡 Chore
+
+- Rename internal node type imports ([#461](https://github.com/unjs/unenv/pull/461))
+
+#### ⚠️ Breaking Changes
+
+- **process:** ⚠️  Extract nextTick to a separate file ([#454](https://github.com/unjs/unenv/pull/454))
+
+### ❤️ Contributors
+
+- Victor Berchet ([@vicb](http://github.com/vicb))
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v2.0.0-rc.5
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.4...v2.0.0-rc.5)
