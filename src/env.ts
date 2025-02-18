@@ -184,8 +184,23 @@ function mergePresets(...presets: Preset[]): ResolvedEnvironment {
     }
   }
 
-  env.polyfill = [...new Set(env.polyfill)];
-  env.external = [...new Set(env.external)];
+  env.polyfill = resolveArray(env.polyfill);
+  env.external = resolveArray(env.external);
 
   return env;
+}
+
+/**
+ * - Deduplicates items
+ * - Removes nagate items with ! prefix
+ */
+function resolveArray(arr: string[]) {
+  const set = new Set<string>(arr);
+  for (const item of arr) {
+    if (item.startsWith("!")) {
+      set.delete(item);
+      set.delete(item.slice(1));
+    }
+  }
+  return [...set];
 }

@@ -29,6 +29,18 @@ describe("defineEnv", () => {
     }
   });
 
+  it("nagate", () => {
+    const { env } = defineEnv({
+      nodeCompat: false,
+      overrides: {
+        polyfill: ["foo", "bar", "!foo"],
+        external: ["foo", "bar", "!foo"],
+      },
+    });
+    expect(env.polyfill).toEqual(["bar"]);
+    expect(env.external).toEqual(["bar"]);
+  });
+
   describe("resolvePath", () => {
     it("resolves all nodeCompat paths", () => {
       const { env } = defineEnv({ nodeCompat: true, resolve: true });
