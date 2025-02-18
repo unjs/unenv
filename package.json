@@ -46,30 +46,30 @@
     "defu": "^6.1.4",
     "mlly": "^1.7.4",
     "ohash": "^1.1.4",
-    "pathe": "^1.1.2",
+    "pathe": "^2.0.3",
     "ufo": "^1.5.4"
   },
   "devDependencies": {
     "@parcel/watcher": "^2.5.1",
-    "@types/node": "^22.13.1",
-    "@vitest/coverage-v8": "3.0.5",
+    "@types/node": "^22.13.4",
+    "@vitest/coverage-v8": "^3.0.6",
     "automd": "^0.3.12",
     "changelogen": "^0.5.7",
     "consola": "^3.4.0",
     "esbuild": "^0.25.0",
-    "eslint": "^9.20.0",
+    "eslint": "^9.20.1",
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
-    "oxc-parser": "^0.49.0",
-    "oxc-resolver": "^4.0.0",
-    "oxc-transform": "^0.49.0",
-    "prettier": "^3.5.0",
-    "rolldown": "1.0.0-beta.3",
+    "oxc-parser": "^0.51.0",
+    "oxc-resolver": "^4.1.0",
+    "oxc-transform": "^0.51.0",
+    "prettier": "^3.5.1",
+    "rolldown": "^1.0.0-beta.3",
     "tinyexec": "^0.3.2",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.5",
-    "workerd": "^1.20250204.0",
-    "wrangler": "^3.107.3"
+    "vitest": "^3.0.6",
+    "workerd": "^1.20250214.0",
+    "wrangler": "^3.109.2"
   },
-  "packageManager": "pnpm@10.2.1"
+  "packageManager": "pnpm@10.4.1"
 }
