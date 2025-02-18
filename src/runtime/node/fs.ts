@@ -1,6 +1,8 @@
 // https://nodejs.org/api/fs.html
 import type nodeFS from "node:fs";
 
+import promises from "node:fs/promises";
+
 import {
   Dir,
   Dirent,
@@ -10,8 +12,6 @@ import {
   Stats,
   WriteStream,
 } from "./internal/fs/classes.ts";
-
-import * as _constants from "./internal/fs/constants.ts";
 
 import {
   _toUnixTimestamp,
@@ -109,20 +109,27 @@ import {
   writevSync,
 } from "./internal/fs/fs.ts";
 
-import * as _promises from "./internal/fs/promises.ts";
+import * as constants from "./internal/fs/constants.ts";
 
-export * from "./internal/fs/classes.ts";
-export * from "./internal/fs/constants.ts";
+import { F_OK, R_OK, W_OK, X_OK } from "./internal/fs/constants.ts";
+
+export { F_OK, R_OK, W_OK, X_OK } from "./internal/fs/constants.ts";
+
+export { promises, constants };
+
 export * from "./internal/fs/fs.ts";
 
-export const promises = _promises;
+export * from "./internal/fs/classes.ts";
 
 export default {
-  ..._constants,
+  F_OK,
+  R_OK,
+  W_OK,
+  X_OK,
+  constants: constants as any,
   promises,
   Dir,
   Dirent,
-  // @ts-expect-error
   FileReadStream,
   FileWriteStream,
   ReadStream,
@@ -221,4 +228,12 @@ export default {
   writeSync,
   writev,
   writevSync,
-} satisfies Omit<typeof nodeFS, "StatsFs" /* interface only */>;
+} satisfies Omit<typeof nodeFS, "StatsFs" /* interface only */> & {
+  F_OK: number;
+  R_OK: number;
+  W_OK: number;
+  X_OK: number;
+  FileReadStream: typeof ReadStream;
+  FileWriteStream: typeof WriteStream;
+  _toUnixTimestamp: typeof _toUnixTimestamp;
+};

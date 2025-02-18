@@ -1,8 +1,21 @@
 import type nodeOs from "node:os";
 import { notImplemented } from "../_internal/utils.ts";
-import { constants } from "./internal/os/constants.ts";
 
-export { constants } from "./internal/os/constants.ts";
+import {
+  UV_UDP_REUSEADDR,
+  dlopen,
+  errno,
+  signals,
+  priority,
+} from "./internal/os/constants.ts";
+
+export const constants = {
+  UV_UDP_REUSEADDR,
+  dlopen,
+  errno,
+  signals,
+  priority,
+} as unknown as typeof nodeOs.constants;
 
 const NUM_CPUS = 8;
 

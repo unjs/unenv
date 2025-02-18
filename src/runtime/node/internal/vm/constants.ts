@@ -1,6 +1,5 @@
-import type vm from "node:vm";
+export const USE_MAIN_CONTEXT_DEFAULT_LOADER = /*@__PURE__*/ Symbol(
+  "vm_dynamic_import_main_context_default",
+);
 
-// Actual values in Node are Symbols
-// See https://github.com/nodejs/node/blob/92c7dde/lib/vm.js#L66
-export const USE_MAIN_CONTEXT_DEFAULT_LOADER: typeof vm.constants.USE_MAIN_CONTEXT_DEFAULT_LOADER = 0;
-export const DONT_CONTEXTIFY: typeof vm.constants.DONT_CONTEXTIFY = 1;
+export const DONT_CONTEXTIFY = /*@__PURE__*/ Symbol("vm_context_no_contextify");

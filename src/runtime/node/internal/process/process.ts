@@ -155,6 +155,16 @@ export class Process extends EventEmitter implements NodeJS.Process {
     return {} as NodeJS.ResourceUsage;
   }
 
+  // --- noop methods ---
+
+  ref() {
+    // noop
+  }
+
+  unref() {
+    // noop
+  }
+
   // --- unimplemented methods ---
 
   umask(): number {
