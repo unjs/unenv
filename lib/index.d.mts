@@ -2,7 +2,7 @@
  * Configure a target environment.
  */
 export declare function defineEnv(opts?: CreateEnvOptions): {
-  env: Environment;
+  env: ResolvedEnvironment;
   presets: Preset[];
 };
 
