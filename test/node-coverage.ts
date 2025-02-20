@@ -71,19 +71,22 @@ for (const module of builtinModules) {
       }
     }
 
-    if (module === 'constants') {
+    if (module === "constants") {
       // TODO: Should we remove this always?
       const osConstants = [
         // not availablein macos
-        'O_SYMLINK',
-        'SIGINFO',
+        "O_SYMLINK",
+        "SIGINFO",
         // macos specific
-        'O_DIRECT',
-        'O_NOATIME'
-      ]
-      const isOsSpecific = (name: string) => name => !osConstants.find(c => name === c || name === `default.${c}`)
-      unsupportedExports = unsupportedExports.filter(name => !isOsSpecific(name))
-      extraExports = unsupportedExports.filter(name => !isOsSpecific(name))
+        "O_DIRECT",
+        "O_NOATIME",
+      ];
+      const isOsSpecific = (name) =>
+        !osConstants.some((c) => name === c || name === `default.${c}`);
+      unsupportedExports = unsupportedExports.filter(
+        (name) => !isOsSpecific(name),
+      );
+      extraExports = unsupportedExports.filter((name) => !isOsSpecific(name));
     }
 
     modulesCoverage.push({
