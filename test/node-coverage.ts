@@ -18,8 +18,8 @@ for (const module of builtinModules) {
     const unenvMod = await import(`../src/runtime/node/${module}.ts`);
 
     const supportedExports = [] as string[];
-    const unsupportedExports = [] as string[];
-    const extraExports = [] as string[];
+    let unsupportedExports = [] as string[];
+    let extraExports = [] as string[];
 
     // Make sure named exports are covered
     for (const exportName of Object.getOwnPropertyNames(nodeMod)) {
@@ -69,6 +69,21 @@ for (const module of builtinModules) {
       ) {
         extraExports.push(`default.${defExportName}`);
       }
+    }
+
+    if (module === 'constants') {
+      // TODO: Should we remove this always?
+      const osConstants = [
+        // not availablein macos
+        'O_SYMLINK',
+        'SIGINFO',
+        // macos specific
+        'O_DIRECT',
+        'O_NOATIME'
+      ]
+      const isOsSpecific = (name: string) => name => !osConstants.find(c => name === c || name === `default.${c}`)
+      unsupportedExports = unsupportedExports.filter(name => !isOsSpecific(name))
+      extraExports = unsupportedExports.filter(name => !isOsSpecific(name))
     }
 
     modulesCoverage.push({
