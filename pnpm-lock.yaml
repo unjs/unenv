@@ -15,8 +15,8 @@ importers:
         specifier: ^1.7.4
         version: 1.7.4
       ohash:
-        specifier: ^1.1.4
-        version: 1.1.4
+        specifier: ^2.0.2
+        version: 2.0.2
       pathe:
         specifier: ^2.0.3
         version: 2.0.3
@@ -2158,6 +2158,9 @@ packages:
 
   ohash@1.1.4:
     resolution: {integrity: sha512-FlDryZAahJmEF3VR3w1KogSEdWX3WhA5GPakFx4J81kEAiHyLMpdLLElS8n8dfNadMgAne/MywcvmogzscVt4g==}
+
+  ohash@2.0.2:
+    resolution: {integrity: sha512-A2CLcYHM2RlOWMz4jKKfAMO9rz7gJ4EV5XbI2CfHMv1hWm24Gc4JqkoA4Dps1H8rD2cbiqXrwLO6mxoIZNyf1Q==}
 
   open@10.1.0:
     resolution: {integrity: sha512-mnkeQ1qP5Ue2wd+aivTD3NHd/lZ96Lu0jgf0pwktLPtx6cTZiH7tyeGRRHs0zX0rbrahXPnXlUnbeXyaBBuIaw==}
@@ -4595,6 +4598,8 @@ snapshots:
       ufo: 1.5.4
 
   ohash@1.1.4: {}
+
+  ohash@2.0.2: {}
 
   open@10.1.0:
     dependencies:
