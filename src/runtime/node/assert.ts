@@ -24,7 +24,7 @@
 
 import type nodeAssert from "node:assert";
 
-import { isEqual as _ohashIsEqual } from "ohash";
+import { isEqual as _ohashIsEqual } from "ohash/utils";
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
 // TODO: Implement Error classes
