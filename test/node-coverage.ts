@@ -82,7 +82,7 @@ for (const module of builtinModules) {
         "O_NOATIME",
       ];
       const isOsSpecific = (name) =>
-        !osConstants.some((c) => name === c || name === `default.${c}`);
+        osConstants.some((c) => name === c || name === `default.${c}`);
       unsupportedExports = unsupportedExports.filter(
         (name) => !isOsSpecific(name),
       );
