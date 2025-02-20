@@ -61,7 +61,7 @@
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
     "oxc-parser": "^0.51.0",
-    "oxc-resolver": "^4.1.0",
+    "oxc-resolver": "^4.2.0",
     "oxc-transform": "^0.51.0",
     "prettier": "^3.5.1",
     "rolldown": "^1.0.0-beta.3",
