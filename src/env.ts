@@ -1,4 +1,4 @@
-import { resolvePathSync, type ResolveOptions } from "mlly";
+import { createResolver } from "exsolve";
 import { resolveAlias } from "pathe/utils";
 import type {
   Preset,
@@ -86,29 +86,26 @@ function resolveEnvPaths(
     return;
   }
 
-  const resolvePaths: (string | URL)[] = [
-    ...(opts.resolve === true ? [] : opts.resolve.paths || []),
-    ...presets.map((preset) => preset.meta?.url).filter((v) => v !== undefined),
-    import.meta.url,
-  ];
-  const resolveOpts: ResolveOptions = {
-    url: resolvePaths,
-  };
-
-  const _tryResolve = (id: string) => {
-    try {
-      return resolvePathSync(id, resolveOpts);
-    } catch {}
-  };
+  const { resolveModulePath } = createResolver({
+    from: [
+      ...(opts.resolve === true ? [] : opts.resolve.paths || []),
+      ...presets
+        .map((preset) => preset.meta?.url)
+        .filter((v) => v !== undefined),
+      import.meta.url,
+    ],
+  });
 
   const _resolve = (id: string) => {
     if (!id) {
       return id;
     }
     id = resolveAlias(id, env.alias);
-    let resolved = _tryResolve(id);
+    let resolved = resolveModulePath(id, { try: true });
     if (!resolved && id.startsWith("unenv/")) {
-      resolved = _tryResolve(id.replace("unenv/", "unenv-nightly/"));
+      resolved = resolveModulePath(id.replace("unenv/", "unenv-nightly/"), {
+        try: true,
+      });
     }
     return resolved || id;
   };
