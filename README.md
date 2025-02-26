@@ -4,6 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/unenv?color=yellow)](https://npmjs.com/package/unenv)
 [![npm downloads](https://img.shields.io/npm/dm/unenv?color=yellow)](https://npm.chart.dev/unenv)
+[![install size](https://badgen.net/packagephobia/install/unenv?color=yellow)](https://packagephobia.com/result?p=unenv)
 
 <!-- /automd -->
 
