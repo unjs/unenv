@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.8
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.7...v2.0.0-rc.8)
+
+### 🩹 Fixes
+
+- Resolve built-in modules as `node:` ([6fb091b](https://github.com/unjs/unenv/commit/6fb091b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.7
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.6...v2.0.0-rc.7)
