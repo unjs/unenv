@@ -1,5 +1,6 @@
-import { createResolver } from "exsolve";
+import { builtinModules } from "node:module";
 import { resolveAlias } from "pathe/utils";
+import { createResolver } from "exsolve";
 import type {
   Preset,
   Environment,
@@ -101,6 +102,12 @@ function resolveEnvPaths(
       return id;
     }
     id = resolveAlias(id, env.alias);
+    if (id.startsWith("node:")) {
+      return id;
+    }
+    if (builtinModules.includes(id)) {
+      return `node:${id}`;
+    }
     let resolved = resolveModulePath(id, { try: true });
     if (!resolved && id.startsWith("unenv/")) {
       resolved = resolveModulePath(id.replace("unenv/", "unenv-nightly/"), {
