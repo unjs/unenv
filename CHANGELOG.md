@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.9
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.8...v2.0.0-rc.9)
+
+### 🚀 Enhancements
+
+- Add opt-in polyfills for timers and buffer ([#474](https://github.com/unjs/unenv/pull/474))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.8
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.7...v2.0.0-rc.8)
