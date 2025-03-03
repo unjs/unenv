@@ -1,6 +1,6 @@
 const _envShim = Object.create(null);
 
-// Keep a reference to the original process.env to avoid circular references after polyfilling
+// Keep a reference to the original process to avoid circular references after polyfilling
 const originalProcess = globalThis["process"];
 
 const _getEnv = (useShim?: boolean) =>

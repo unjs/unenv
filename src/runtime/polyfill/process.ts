@@ -1,6 +1,7 @@
 import processModule from "node:process";
 
-const originalProcess = globalThis.process;
+// Keep a reference to the original process to avoid circular references after polyfilling
+const originalProcess = globalThis["process"];
 
 globalThis.process = originalProcess
   ? new Proxy(originalProcess, {
