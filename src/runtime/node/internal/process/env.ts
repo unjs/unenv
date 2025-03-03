@@ -1,9 +1,8 @@
 const _envShim = Object.create(null);
-const _processEnv = globalThis.process?.env;
 
 const _getEnv = (useShim?: boolean) =>
-  _processEnv ||
   (globalThis as any).__env__ ||
+  globalThis["process"]?.env ||
   (useShim ? _envShim : globalThis);
 
 export const env: NodeJS.Process["env"] = /*@__PURE__*/ new Proxy(_envShim, {
@@ -28,5 +27,17 @@ export const env: NodeJS.Process["env"] = /*@__PURE__*/ new Proxy(_envShim, {
   ownKeys() {
     const env = _getEnv();
     return Object.keys(env);
+  },
+  getOwnPropertyDescriptor(_, prop) {
+    const env = _getEnv();
+    if (prop in env) {
+      return {
+        value: env[prop as string],
+        writable: true,
+        enumerable: true,
+        configurable: true,
+      };
+    }
+    return undefined;
   },
 });
