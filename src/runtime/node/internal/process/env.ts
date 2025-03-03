@@ -1,8 +1,11 @@
 const _envShim = Object.create(null);
 
+// Keep a reference to the original process.env to avoid circular references after polyfilling
+const originalProcess = globalThis["process"];
+
 const _getEnv = (useShim?: boolean) =>
   (globalThis as any).__env__ ||
-  globalThis["process"]?.env ||
+  originalProcess?.env ||
   (useShim ? _envShim : globalThis);
 
 export const env: NodeJS.Process["env"] = /*@__PURE__*/ new Proxy(_envShim, {
