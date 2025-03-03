@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.10
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.9...v2.0.0-rc.10)
+
+### 🩹 Fixes
+
+- **node:** Add `getOwnPropertyDescriptor` for `process.env` ([#475](https://github.com/unjs/unenv/pull/475))
+- Keep original process ref in top level ([3abdebc](https://github.com/unjs/unenv/commit/3abdebc))
+
+### 🏡 Chore
+
+- Update deps ([32235c7](https://github.com/unjs/unenv/commit/32235c7))
+- Minor refactor ([d2219ed](https://github.com/unjs/unenv/commit/d2219ed))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.9
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.8...v2.0.0-rc.9)
