@@ -13,6 +13,7 @@ import { glob, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import oxcTransform from "oxc-transform";
 import oxcParser from "oxc-parser";
 import oxcResolver from "oxc-resolver";
+import MagicString from 'magic-string'
 import { rolldown } from "rolldown";
 import { builtinModules } from "node:module";
 
@@ -102,6 +103,8 @@ async function transformModule(entryPath: string) {
     });
   }
 
+  const magicString = new MagicString(sourceText)
+
   // Rewrite relative imports
   const updatedStarts = new Set<number>();
   const rewriteSpecifier = (req: {
@@ -122,8 +125,8 @@ async function transformModule(entryPath: string) {
       dirname(entryPath),
       resolvedAbsolute.replace(/\.ts$/, ".mjs"),
     );
-    parsed.magicString.remove(req.start, req.end);
-    parsed.magicString.prependLeft(
+    magicString.remove(req.start, req.end);
+    magicString.prependLeft(
       req.start,
       JSON.stringify(newId.startsWith(".") ? newId : `./${newId}`),
     );
@@ -132,6 +135,7 @@ async function transformModule(entryPath: string) {
   for (const staticImport of parsed.module.staticImports) {
     rewriteSpecifier(staticImport.moduleRequest);
   }
+
   for (const staticExport of parsed.module.staticExports) {
     for (const staticExportEntry of staticExport.entries) {
       if (staticExportEntry.moduleRequest) {
@@ -139,7 +143,8 @@ async function transformModule(entryPath: string) {
       }
     }
   }
-  sourceText = parsed.magicString.toString();
+
+  sourceText = magicString.toString();
 
   const transformed = oxcTransform.transform(entryPath, sourceText, {
     ...sourceOptions,

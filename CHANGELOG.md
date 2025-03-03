@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.9
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.8...v2.0.0-rc.9)
+
+### 🚀 Enhancements
+
+- Add opt-in polyfills for timers and buffer ([#474](https://github.com/unjs/unenv/pull/474))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
+## v2.0.0-rc.8
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.7...v2.0.0-rc.8)
+
+### 🩹 Fixes
+
+- Resolve built-in modules as `node:` ([6fb091b](https://github.com/unjs/unenv/commit/6fb091b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
+## v2.0.0-rc.7
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.6...v2.0.0-rc.7)
+
+### 🚀 Enhancements
+
+- Update node compat injects ([#465](https://github.com/unjs/unenv/pull/465))
+- **defineEnv:** Support disabling `polyfill` and `external` with `!` prefix ([#467](https://github.com/unjs/unenv/pull/467))
+
+### 🩹 Fixes
+
+- **defineEnv:** Resolve paths with aliases ([#466](https://github.com/unjs/unenv/pull/466))
+
+### 💅 Refactors
+
+- Prefer `node:*/promises` for `promises` export ([#468](https://github.com/unjs/unenv/pull/468))
+- Mark all symbol inits as pure to allow treeshake ([#469](https://github.com/unjs/unenv/pull/469))
+- Use `exsolve` to resolve paths ([#472](https://github.com/unjs/unenv/pull/472))
+
+### 🌊 Types
+
+- Fix `defineEnv` ([#464](https://github.com/unjs/unenv/pull/464))
+
+### 🏡 Chore
+
+- Update deps ([260e9b9](https://github.com/unjs/unenv/commit/260e9b9))
+- Update  dev dependencies ([8cb0284](https://github.com/unjs/unenv/commit/8cb0284))
+- Update ohash to v2 ([abad8c8](https://github.com/unjs/unenv/commit/abad8c8))
+- Update node-coverage test ([928cc97](https://github.com/unjs/unenv/commit/928cc97))
+- Update node-coverage test ([80f62db](https://github.com/unjs/unenv/commit/80f62db))
+- Update deps ([cac609d](https://github.com/unjs/unenv/commit/cac609d))
+- Update readme ([ce2d331](https://github.com/unjs/unenv/commit/ce2d331))
+
+### ✅ Tests
+
+- Update snapshot ([50872c3](https://github.com/unjs/unenv/commit/50872c3))
+- Ignore os specific constants ([3cd59e6](https://github.com/unjs/unenv/commit/3cd59e6))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Victor Berchet ([@vicb](https://github.com/vicb))
+
 ## v2.0.0-rc.6
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.5...v2.0.0-rc.6)
