@@ -32,12 +32,25 @@ export const defineEnv: typeof defineEnvType = (
     presets.push(opts.overrides);
   }
 
+  // resolve paths for each individual preset with meta.url
+  if (opts.resolve) {
+    for (const preset of presets) {
+      if (preset.meta?.url) {
+        resolvePaths(preset, [preset.meta.url], opts);
+      }
+    }
+  }
+
   // Merge all presets
   const env = mergePresets(...presets);
 
-  // Optionally resolve paths
+  // resolve paths for merged presets
   if (opts.resolve) {
-    resolveEnvPaths(env, presets, opts);
+    resolvePaths(
+      env,
+      presets.map((preset) => preset.meta?.url).filter((v) => v !== undefined),
+      opts,
+    );
   }
 
   return { env, presets };
@@ -78,9 +91,9 @@ function unenvPreset(opts: CreateEnvOptions) {
   return preset;
 }
 
-function resolveEnvPaths(
-  env: Environment,
-  presets: Preset[],
+function resolvePaths(
+  env: Environment | Preset,
+  from: (string | URL)[],
   opts: CreateEnvOptions = {},
 ) {
   if (!opts.resolve) {
@@ -90,10 +103,9 @@ function resolveEnvPaths(
   const { resolveModulePath } = createResolver({
     from: [
       ...(opts.resolve === true ? [] : opts.resolve.paths || []),
-      ...presets
-        .map((preset) => preset.meta?.url)
-        .filter((v) => v !== undefined),
+      ...from,
       import.meta.url,
+      process.cwd() + "/",
     ],
   });
 
@@ -101,7 +113,9 @@ function resolveEnvPaths(
     if (!id) {
       return id;
     }
-    id = resolveAlias(id, env.alias);
+    if (env.alias) {
+      id = resolveAlias(id, env.alias);
+    }
     if (id.startsWith("node:")) {
       return id;
     }
@@ -123,9 +137,11 @@ function resolveEnvPaths(
     env.alias[alias] = _resolve(env.alias[alias]);
   }
   // Resolve polyfills
-  for (let i = 0; i < env.polyfill.length; i++) {
-    // @ts-expect-error readonly
-    env.polyfill[i] = _resolve(env.polyfill[i]);
+  if (env.polyfill) {
+    for (let i = 0; i < env.polyfill.length; i++) {
+      // @ts-expect-error readonly
+      env.polyfill[i] = _resolve(env.polyfill[i]);
+    }
   }
   // Resolve injects
   for (const global in env.inject) {
