@@ -32,7 +32,9 @@ const nodeTiming = {
   uvMetricsInfo: { loopCount: 0, events: 0, eventsWaiting: 0 },
   // only present in Node.js 18.x
   detail: undefined,
-  toJSON: () => this,
+  toJSON() {
+    return this;
+  },
 } satisfies nodePerfHooks.PerformanceNodeTiming;
 
 // Performance
