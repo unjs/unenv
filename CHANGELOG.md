@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.11
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.10...v2.0.0-rc.11)
+
+### 🩹 Fixes
+
+- **node:perf_hooks:** Avoid referencing to global ([b6fef5b](https://github.com/unjs/unenv/commit/b6fef5b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.10
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.9...v2.0.0-rc.10)
