@@ -2,15 +2,6 @@ import type nodePerfHooks from "node:perf_hooks";
 
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 
-export type _PerformanceEntryType = "mark" | "measure" | "resource" | "event";
-
-export const _supportedEntryTypes: _PerformanceEntryType[] = [
-  "event", // PerformanceEntry
-  "mark", // PerformanceMark
-  "measure", // PerformanceMeasure
-  "resource", // PerformanceResourceTiming
-] as const;
-
 const _timeOrigin = Date.now();
 
 const _performanceNow = globalThis.performance?.now
