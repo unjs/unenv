@@ -1,38 +1,47 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Performance_API
 
-export { Performance, _Performance, performance } from "./_performance.ts";
-
-export {
-  PerformanceObserver,
-  _PerformanceObserver,
-  PerformanceObserverEntryList,
-  _PerformanceObserverEntryList,
-} from "./_observer.ts";
-
-export {
-  PerformanceEntry,
+import {
+  type _PerformanceEntryType,
   _PerformanceEntry,
-  PerformanceMark,
   _PerformanceMark,
-  PerformanceMeasure,
   _PerformanceMeasure,
-  PerformanceResourceTiming,
   _PerformanceResourceTiming,
-} from "./_entry.ts";
+  _Performance,
+  _PerformanceObserver,
+  _PerformanceObserverEntryList,
+} from "./_polyfills.ts";
 
-// Not implemented:
-// EventCounts
-// PerformanceEventTiming
-// PerformanceLongTaskTiming
-// PerformanceServerTiming
-// TaskAttributionTiming
-// LargestContentfulPaint (browser)
-// LayoutShift (browser)
-// LayoutShiftAttribution (browser)
-// VisibilityStateEntry (browser)
-// PerformancePaintTiming (browser)
-// PerformanceLongAnimationFrameTiming (browser)
-// PerformanceScriptTiming (browser)
-// PerformanceNavigation (browser)
-// PerformanceNavigationTiming (browser)
-// PerformanceElementTiming (browser)
+export {
+  type _PerformanceEntryType,
+  _PerformanceEntry,
+  _PerformanceMark,
+  _PerformanceMeasure,
+  _PerformanceResourceTiming,
+  _Performance,
+  _PerformanceObserver,
+  _PerformanceObserverEntryList,
+} from "./_polyfills.ts";
+
+export const PerformanceEntry: typeof globalThis.PerformanceEntry =
+  globalThis.PerformanceEntry || _PerformanceEntry;
+
+export const PerformanceMark: typeof globalThis.PerformanceMark =
+  globalThis.PerformanceMark || _PerformanceMark;
+
+export const PerformanceMeasure: typeof globalThis.PerformanceMeasure =
+  globalThis.PerformanceMeasure || _PerformanceMeasure;
+
+export const PerformanceResourceTiming: typeof globalThis.PerformanceResourceTiming =
+  globalThis.PerformanceResourceTiming || _PerformanceResourceTiming;
+
+export const PerformanceObserver: typeof globalThis.PerformanceObserver =
+  globalThis.PerformanceObserver || _PerformanceObserver;
+
+export const Performance: typeof globalThis.Performance =
+  globalThis.Performance || _Performance;
+
+export const PerformanceObserverEntryList: typeof globalThis.PerformanceObserverEntryList =
+  globalThis.PerformanceObserverEntryList || _PerformanceObserverEntryList;
+
+export const performance: typeof globalThis.performance =
+  globalThis.performance || new _Performance();
