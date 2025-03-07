@@ -1,7 +1,151 @@
 import { createNotImplementedError } from "../../_internal/utils.ts";
-import { _PerformanceMark, _PerformanceMeasure } from "./_entry.ts";
+
+export type _PerformanceEntryType = "mark" | "measure" | "resource" | "event";
 
 const _timeOrigin = Date.now();
+
+// --------------------------------------
+// Performance entry polyfills
+// --------------------------------------
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver/supportedEntryTypes_static
+export const _supportedEntryTypes: _PerformanceEntryType[] = [
+  "event", // PerformanceEntry
+  "mark", // PerformanceMark
+  "measure", // PerformanceMeasure
+  "resource", // PerformanceResourceTiming
+] as const;
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry
+export class _PerformanceEntry implements globalThis.PerformanceEntry {
+  readonly __unenv__ = true;
+
+  detail: any | undefined;
+  entryType: _PerformanceEntryType = "event";
+
+  name: string;
+  startTime: number;
+
+  constructor(name: string, options?: PerformanceMarkOptions) {
+    this.name = name;
+    this.startTime = options?.startTime || performance.now();
+    this.detail = options?.detail;
+  }
+
+  get duration(): number {
+    return performance.now() - this.startTime;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      entryType: this.entryType,
+      startTime: this.startTime,
+      duration: this.duration,
+      detail: this.detail,
+    };
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMark
+export class _PerformanceMark
+  extends _PerformanceEntry
+  implements globalThis.PerformanceMark
+{
+  entryType = "mark" as const;
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMeasure
+export class _PerformanceMeasure
+  extends _PerformanceEntry
+  implements globalThis.PerformanceMeasure
+{
+  entryType = "measure" as const;
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming
+export class _PerformanceResourceTiming
+  extends _PerformanceEntry
+  implements globalThis.PerformanceResourceTiming
+{
+  entryType = "resource" as const;
+  serverTiming: readonly PerformanceServerTiming[] = [];
+  connectEnd: number = 0;
+  connectStart: number = 0;
+  decodedBodySize: number = 0;
+  domainLookupEnd: number = 0;
+  domainLookupStart: number = 0;
+  encodedBodySize: number = 0;
+  fetchStart: number = 0;
+  initiatorType = "";
+  name = "";
+  nextHopProtocol = "";
+  redirectEnd: number = 0;
+  redirectStart: number = 0;
+  requestStart: number = 0;
+  responseEnd: number = 0;
+  responseStart: number = 0;
+  secureConnectionStart: number = 0;
+  startTime: number = 0;
+  transferSize: number = 0;
+  workerStart: number = 0;
+  responseStatus: number = 0;
+}
+
+// --------------------------------------
+// PerformanceObserver polyfill
+// --------------------------------------
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver
+export class _PerformanceObserver implements globalThis.PerformanceObserver {
+  readonly __unenv__ = true;
+
+  static supportedEntryTypes: ReadonlyArray<string> = _supportedEntryTypes;
+
+  _callback: PerformanceObserverCallback | null = null;
+
+  constructor(callback: PerformanceObserverCallback) {
+    this._callback = callback;
+  }
+
+  takeRecords() {
+    return [];
+  }
+
+  disconnect(): void {
+    throw createNotImplementedError("PerformanceObserver.disconnect");
+  }
+
+  observe(options: PerformanceObserverInit): void {
+    throw createNotImplementedError("PerformanceObserver.observe");
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserverEntryList
+export class _PerformanceObserverEntryList
+  implements globalThis.PerformanceObserverEntryList
+{
+  readonly __unenv__ = true;
+
+  getEntries(): PerformanceEntryList {
+    return [];
+  }
+
+  getEntriesByName(
+    _name: string,
+    _type?: string | undefined,
+  ): PerformanceEntryList {
+    return [];
+  }
+
+  getEntriesByType(type: string): PerformanceEntryList {
+    return [];
+  }
+}
+
+// --------------------------------------
+// Performance polyfill
+// --------------------------------------
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Performance
 export class _Performance<
@@ -149,9 +293,3 @@ export class _Performance<
     throw createNotImplementedError("Performance.dispatchEvent");
   }
 }
-
-export const Performance: typeof globalThis.Performance =
-  globalThis.Performance || _Performance;
-
-export const performance: typeof globalThis.performance =
-  globalThis.performance || new Performance();

@@ -62,7 +62,7 @@
     "jiti": "^2.4.2",
     "magic-string": "^0.30.17",
     "oxc-parser": "^0.53.0",
-    "oxc-resolver": "^4.2.0",
+    "oxc-resolver": "^5.0.0",
     "oxc-transform": "^0.53.0",
     "prettier": "^3.5.3",
     "rolldown": "^1.0.0-beta.3",
