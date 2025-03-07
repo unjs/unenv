@@ -4,8 +4,9 @@ export type _PerformanceEntryType = "mark" | "measure" | "resource" | "event";
 
 const _timeOrigin = Date.now();
 
-const _performanceNow = () =>
-  globalThis.performance?.now?.() || Date.now() - _timeOrigin;
+const _performanceNow = globalThis.performance?.now
+  ? globalThis.performance.now.bind(globalThis.performance)
+  : () => Date.now() - _timeOrigin;
 
 // --------------------------------------
 // Performance entry polyfills
