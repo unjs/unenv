@@ -297,7 +297,7 @@ export class Performance implements nodePerfHooks.Performance {
 
 // PerformanceObserver
 export class PerformanceObserver implements nodePerfHooks.PerformanceObserver {
-  readonly __unenv__ = true
+  readonly __unenv__ = true;
 
   static supportedEntryTypes: ReadonlyArray<string> = [];
 
