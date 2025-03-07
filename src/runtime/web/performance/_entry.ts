@@ -92,6 +92,3 @@ export class _PerformanceResourceTiming
   workerStart: number = 0;
   responseStatus: number = 0;
 }
-
-export const PerformanceResourceTiming: typeof globalThis.PerformanceResourceTiming =
-  globalThis.PerformanceResourceTiming || _PerformanceResourceTiming;
