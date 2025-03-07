@@ -42,11 +42,15 @@ export class PerformanceEntry implements nodePerfHooks.PerformanceEntry {
   startTime: number;
   constructor(name: string, options?: PerformanceMarkOptions) {
     this.name = name;
-    this.startTime = options?.startTime || performance.now();
+    this.startTime =
+      options?.startTime || globalThis.performance?.now?.() || Date.now();
     this.detail = options?.detail;
   }
   get duration(): number {
-    return performance.now() - this.startTime;
+    if (globalThis.performance?.now) {
+      return globalThis.performance.now() - this.startTime;
+    }
+    return Date.now() - this.startTime;
   }
   toJSON() {
     return {
@@ -178,7 +182,7 @@ export class Performance implements nodePerfHooks.Performance {
   now(): number {
     // https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
     // Prefer performance.now() if available
-    if (globalThis?.performance?.now && this.timeOrigin === _timeOrigin) {
+    if (globalThis.performance?.now && this.timeOrigin === _timeOrigin) {
       return globalThis.performance.now();
     }
     // performance.now() - (Date.now()-performance.timeOrigin) ~= 0

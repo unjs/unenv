@@ -48,6 +48,7 @@ export default {
   PerformanceMeasure,
   // @ts-expect-error TODO: resolve type-mismatch between web and node
   PerformanceObserverEntryList,
+  // @ts-expect-error TODO: resolve type-mismatch between web and node
   PerformanceObserver,
   // @ts-expect-error TODO: resolve type-mismatch between web and node
   PerformanceResourceTiming,
