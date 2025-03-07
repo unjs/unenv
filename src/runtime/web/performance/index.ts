@@ -1,27 +1,26 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Performance_API
 
 import {
+  type _PerformanceEntryType,
   _PerformanceEntry,
   _PerformanceMark,
   _PerformanceMeasure,
   _PerformanceResourceTiming,
   _Performance,
-  _PerformanceEntryType,
   _PerformanceObserver,
   _PerformanceObserverEntryList,
-} from "./_polyfills"
+} from "./_polyfills.ts";
 
 export {
+  type _PerformanceEntryType,
   _PerformanceEntry,
   _PerformanceMark,
   _PerformanceMeasure,
   _PerformanceResourceTiming,
   _Performance,
-  _PerformanceEntryType,
   _PerformanceObserver,
-  _PerformanceObserverEntryList
+  _PerformanceObserverEntryList,
 } from "./_polyfills.ts";
-
 
 export const PerformanceEntry: typeof globalThis.PerformanceEntry =
   globalThis.PerformanceEntry || _PerformanceEntry;
@@ -41,7 +40,8 @@ export const PerformanceObserver: typeof globalThis.PerformanceObserver =
 export const Performance: typeof globalThis.Performance =
   globalThis.Performance || _Performance;
 
-export const PerformanceObserverEntryList: typeof globalThis.PerformanceObserverEntryList = globalThis.PerformanceObserverEntryList || _PerformanceObserverEntryList
+export const PerformanceObserverEntryList: typeof globalThis.PerformanceObserverEntryList =
+  globalThis.PerformanceObserverEntryList || _PerformanceObserverEntryList;
 
 export const performance: typeof globalThis.performance =
   globalThis.performance || new _Performance();

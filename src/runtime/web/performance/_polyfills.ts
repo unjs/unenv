@@ -63,7 +63,6 @@ export class _PerformanceMeasure
   entryType = "measure" as const;
 }
 
-
 // https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming
 export class _PerformanceResourceTiming
   extends _PerformanceEntry
@@ -121,7 +120,6 @@ export class _PerformanceObserver implements globalThis.PerformanceObserver {
     throw createNotImplementedError("PerformanceObserver.observe");
   }
 }
-
 
 // https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserverEntryList
 export class _PerformanceObserverEntryList
@@ -295,4 +293,3 @@ export class _Performance<
     throw createNotImplementedError("Performance.dispatchEvent");
   }
 }
-
