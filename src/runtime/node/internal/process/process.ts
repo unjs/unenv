@@ -172,7 +172,7 @@ export class Process extends EventEmitter implements NodeJS.Process {
   }
 
   getBuiltinModule(): any {
-    throw createNotImplementedError("process.getBuiltinModule");
+    return undefined;
   }
 
   getActiveResourcesInfo(): string[] {
