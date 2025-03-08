@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.14
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.13...v2.0.0-rc.14)
+
+### 🩹 Fixes
+
+- **node:process:** Return undefined for `getBuiltinModule` ([#485](https://github.com/unjs/unenv/pull/485))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.13
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.12...v2.0.0-rc.13)
