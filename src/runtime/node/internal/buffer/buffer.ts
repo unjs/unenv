@@ -8,7 +8,7 @@
  * @license  MIT
  */
 
-import * as base64 from "./base64.ts";
+import * as base64 from "./base64.js";
 import * as ieee754 from "./ieee754.ts";
 
 const customInspectSymbol =
@@ -419,6 +419,7 @@ Buffer.isEncoding = function isEncoding(encoding) {
     case "latin1":
     case "binary":
     case "base64":
+    case "base64url":
     case "ucs2":
     case "ucs-2":
     case "utf16le":
@@ -510,6 +511,8 @@ function byteLength(string, encoding) {
         return len >>> 1;
       case "base64":
         return base64ToBytes(string).length;
+      case "base64url":
+        return base64ToBytes(string).length;
       default:
         if (loweredCase) {
           return mustMatch ? -1 : utf8ToBytes(string).length; // assume utf8
@@ -578,6 +581,9 @@ function slowToString(encoding, start, end) {
 
       case "base64":
         return base64Slice(this, start, end);
+
+      case "base64url":
+        return base64Slice(this, start, end, true);
 
       case "ucs2":
       case "ucs-2":
@@ -1032,6 +1038,7 @@ Buffer.prototype.write = function write(string, offset, length, encoding) {
       case "binary":
         return asciiWrite(this, string, offset, length);
 
+      case "base64url":
       case "base64":
         // Warning: maxLength not taken into account in base64Write
         return base64Write(this, string, offset, length);
@@ -1059,10 +1066,10 @@ Buffer.prototype.toJSON = function toJSON() {
   };
 };
 
-function base64Slice(buf, start, end) {
+function base64Slice(buf, start, end, base64url?: boolean) {
   return start === 0 && end === buf.length
-    ? base64.fromByteArray(buf)
-    : base64.fromByteArray(buf.slice(start, end));
+    ? base64.fromUint8Array(buf, base64url)
+    : base64.fromUint8Array(buf.slice(start, end), base64url);
 }
 
 function utf8Slice(buf, start, end) {
@@ -2428,7 +2435,7 @@ function utf16leToBytes(str, units) {
 }
 
 function base64ToBytes(str) {
-  return base64.toByteArray(base64clean(str));
+  return base64.toUint8Array(base64clean(str));
 }
 
 function blitBuffer(src, dst, offset, length) {
