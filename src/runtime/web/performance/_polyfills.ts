@@ -4,6 +4,10 @@ export type _PerformanceEntryType = "mark" | "measure" | "resource" | "event";
 
 const _timeOrigin = Date.now();
 
+const _performanceNow = globalThis.performance?.now
+  ? globalThis.performance.now.bind(globalThis.performance)
+  : () => Date.now() - _timeOrigin;
+
 // --------------------------------------
 // Performance entry polyfills
 // --------------------------------------
@@ -28,12 +32,12 @@ export class _PerformanceEntry implements globalThis.PerformanceEntry {
 
   constructor(name: string, options?: PerformanceMarkOptions) {
     this.name = name;
-    this.startTime = options?.startTime || performance.now();
+    this.startTime = options?.startTime || _performanceNow();
     this.detail = options?.detail;
   }
 
   get duration(): number {
-    return performance.now() - this.startTime;
+    return _performanceNow() - this.startTime;
   }
 
   toJSON() {
@@ -169,11 +173,9 @@ export class _Performance<
 
   now(): number {
     // https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
-    // Prefer performance.now() if available
-    if (globalThis?.performance?.now && this.timeOrigin === _timeOrigin) {
-      return globalThis.performance.now();
+    if (this.timeOrigin === _timeOrigin) {
+      return _performanceNow();
     }
-    // performance.now() - (Date.now()-performance.timeOrigin) ~= 0
     return Date.now() - this.timeOrigin;
   }
 
