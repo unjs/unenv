@@ -1,7 +1,7 @@
 // https://nodejs.org/api/readline.html#readlineclearlinestream-dir-callback
 import type nodeReadline from "node:readline";
 import noop from "../mock/noop.ts";
-import promises from "node:readline";
+import promises from "node:readline/promises";
 import { Interface } from "./internal/readline/interface.ts";
 
 export { promises };
@@ -25,6 +25,5 @@ export default {
   moveCursor,
   // @ts-expect-error
   Interface,
-  // @ts-expect-error
   promises,
 } satisfies typeof nodeReadline;
