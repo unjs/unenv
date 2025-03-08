@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.13
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.12...v2.0.0-rc.13)
+
+### 🩹 Fixes
+
+- **readline:** Fixed import of `readline/promise` ([#482](https://github.com/unjs/unenv/pull/482))
+- **web/performance:** Use consistent performance.now checks ([#481](https://github.com/unjs/unenv/pull/481))
+- Validate `globalThis.performance` before reexporting it ([#483](https://github.com/unjs/unenv/pull/483))
+
+### 💅 Refactors
+
+- **web/performance:** Clean ordering ([#479](https://github.com/unjs/unenv/pull/479))
+- **node:performance:** Standalone implementation ([#478](https://github.com/unjs/unenv/pull/478))
+- **node:events:** Simple top level exports ([#484](https://github.com/unjs/unenv/pull/484))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Mo36924 ([@mo36924](https://github.com/mo36924))
+
 ## v2.0.0-rc.12
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.11...v2.0.0-rc.12)
