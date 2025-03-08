@@ -25,6 +25,5 @@ export default {
   moveCursor,
   // @ts-expect-error
   Interface,
-  // @ts-expect-error
   promises,
 } satisfies typeof nodeReadline;
