@@ -2,7 +2,7 @@ import type nodePerfHooks from "node:perf_hooks";
 
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 
-const _timeOrigin = Date.now();
+const _timeOrigin = globalThis.performance?.timeOrigin ?? Date.now();
 
 const _performanceNow = globalThis.performance?.now
   ? globalThis.performance.now.bind(globalThis.performance)
