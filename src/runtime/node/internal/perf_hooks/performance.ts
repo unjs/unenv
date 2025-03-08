@@ -2,7 +2,7 @@ import type nodePerfHooks from "node:perf_hooks";
 
 import { createNotImplementedError } from "../../../_internal/utils.ts";
 
-const _timeOrigin = Date.now();
+const _timeOrigin = globalThis.performance?.timeOrigin ?? Date.now();
 
 const _performanceNow = globalThis.performance?.now
   ? globalThis.performance.now.bind(globalThis.performance)
@@ -337,5 +337,10 @@ export class PerformanceObserver implements nodePerfHooks.PerformanceObserver {
   }
 }
 
-export const performance = (globalThis.performance ??
-  new Performance()) as unknown as nodePerfHooks.Performance;
+// workerd implements a subset of globalThis.performance (as of last check, only timeOrigin set to 0 + now() implemented)
+// We already use performance.now() from globalThis.performance, if provided (see top of this file)
+// If we detect this condition, we can just use polyfill instead.
+export const performance =
+  globalThis.performance && "addEventListener" in globalThis.performance
+    ? globalThis.performance
+    : (new Performance() as unknown as nodePerfHooks.Performance);

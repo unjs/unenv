@@ -2,7 +2,7 @@ import { createNotImplementedError } from "../../_internal/utils.ts";
 
 export type _PerformanceEntryType = "mark" | "measure" | "resource" | "event";
 
-const _timeOrigin = Date.now();
+const _timeOrigin = globalThis.performance?.timeOrigin ?? Date.now();
 
 const _performanceNow = globalThis.performance?.now
   ? globalThis.performance.now.bind(globalThis.performance)
