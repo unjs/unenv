@@ -52,8 +52,9 @@ export default {
   PerformanceObserver,
   // @ts-expect-error TODO: resolve type-mismatch between web and node
   PerformanceResourceTiming,
+  // @ts-expect-error TODO: resolve type-mismatch between web and node
+  performance,
   constants,
   createHistogram,
   monitorEventLoopDelay,
-  performance,
 } satisfies Omit<typeof nodePerfHooks, "PerformanceNodeTiming">; // @types/node bug: PerformanceNodeTiming is included in the types but doesn't exist in the runtime
