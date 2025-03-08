@@ -43,5 +43,10 @@ export const Performance: typeof globalThis.Performance =
 export const PerformanceObserverEntryList: typeof globalThis.PerformanceObserverEntryList =
   globalThis.PerformanceObserverEntryList || _PerformanceObserverEntryList;
 
-export const performance: typeof globalThis.performance =
-  globalThis.performance || new _Performance();
+// workerd implements a subset of globalThis.performance (as of last check, only timeOrigin set to 0 + now() implemented)
+// We already use performance.now() from globalThis.performance, if provided (see top of this file)
+// If we detect this condition, we can just use polyfill instead.
+export const performance =
+  globalThis.performance && "addEventListener" in globalThis.performance
+    ? globalThis.performance
+    : new _Performance();
