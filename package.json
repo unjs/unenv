@@ -70,7 +70,7 @@
     "typescript": "^5.8.2",
     "vitest": "^3.0.7",
     "workerd": "^1.20250224.0",
-    "wrangler": "^3.111.0"
+    "wrangler": "^4.0.0"
   },
   "packageManager": "pnpm@10.5.2"
 }
