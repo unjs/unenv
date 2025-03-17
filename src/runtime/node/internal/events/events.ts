@@ -1110,7 +1110,9 @@ function addCatch(
       then.call(promise, undefined, function (err: Error) {
         // The callback is called with nextTick to avoid a follow-up
         // rejection from this promise.
-        process.nextTick(emitUnhandledRejectionOrErr, that, err, type, args);
+        // Avoid using process. from events to avoid circular dependency
+        // process.nextTick(emitUnhandledRejectionOrErr, that, err, type, args);
+        setTimeout(emitUnhandledRejectionOrErr, 0, that, err, type, args);
       });
     }
   } catch (error_) {
@@ -1241,7 +1243,8 @@ function _addListener(
           count: existing.length,
         },
       );
-      process.emitWarning(w);
+      // Avoid using process from events to avoid circular dependency
+      console.warn(w);
     }
   }
 
