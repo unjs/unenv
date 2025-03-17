@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.15
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.14...v2.0.0-rc.15)
+
+### 🩹 Fixes
+
+- Avoid circular dependency between `process` and `node:events` ([#489](https://github.com/unjs/unenv/pull/489))
+
+### 💅 Refactors
+
+- **node:tty:** Standalone implementations ([#488](https://github.com/unjs/unenv/pull/488))
+
+### 🏡 Chore
+
+- Update deps ([bd867e9](https://github.com/unjs/unenv/commit/bd867e9))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.14
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.13...v2.0.0-rc.14)
