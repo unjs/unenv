@@ -10,7 +10,7 @@ export const isatty: typeof nodeTty.isatty = function () {
 };
 
 export default {
-  ReadStream,
-  WriteStream,
+  ReadStream: WriteStream as unknown as typeof nodeTty.ReadStream,
+  WriteStream: WriteStream as unknown as typeof nodeTty.WriteStream,
   isatty,
 } satisfies typeof nodeTty;
