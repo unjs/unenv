@@ -6,3 +6,5 @@ dist
 .tmp
 .wrangler
 coverage
+# Generated at build time
+/src/runtime/node/internal/process/node-version.ts

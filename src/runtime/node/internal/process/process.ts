@@ -4,8 +4,8 @@ import {
   notImplemented,
   createNotImplementedError,
 } from "../../../_internal/utils.ts";
-
-const NODE_VERSION = "22.14.0";
+// node-version.ts is generated at build time
+import { NODE_VERSION } from "./node-version.ts";
 
 export class Process extends EventEmitter implements NodeJS.Process {
   env: NodeJS.ProcessEnv;
