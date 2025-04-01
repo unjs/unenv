@@ -213,5 +213,5 @@ async function generateNodeVersion(rootDir: string, outPath: string) {
   if (!m?.groups?.version) {
     throw new Error('.nvrmc does not contain a valid Node version');
   }
-  await writeFile(join(rootDir, outPath, 'node-version.ts'), `// Extracted from .nvmrc\nexport const NODE_VERSION = ${JSON.stringify(m.groups.version)};`, 'utf8');
+  await writeFile(join(rootDir, outPath, 'node-version.ts'), `// Extracted from .nvmrc\nexport const NODE_VERSION = ${JSON.stringify(m.groups.version)};\n`, 'utf8');
 }
