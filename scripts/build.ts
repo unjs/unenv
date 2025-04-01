@@ -30,6 +30,7 @@ console.log(`Bundling src/index...`);
 await rolldownBuild(rootDir, "src/index.ts", "dist/index.mjs");
 
 console.log(`Building src/runtime...`);
+await generateNodeVersion(rootDir, "src/runtime/node/internal/process");
 await transformDir(rootDir, "src/runtime", "dist/runtime");
 
 console.log(`Build finished in ${Date.now() - start}ms`);
@@ -205,4 +206,12 @@ function resolvePath(id: string, parent: string) {
   const error = new Error(`Cannot resolve "${id}" from "${parent}"`);
   Error.captureStackTrace?.(error, resolvePath);
   throw error;
+}
+
+async function generateNodeVersion(rootDir: string, outPath: string) {
+  const m = (await readFile(join(rootDir, ".nvmrc"), "utf8")).match(/(?<version>\d+\.\d+\.\d+)/);
+  if (!m?.groups?.version) {
+    throw new Error('.nvrmc does not contain a valid Node version');
+  }
+  await writeFile(join(rootDir, outPath, 'node-version.ts'), `// Extracted from .nvmrc\nexport const NODE_VERSION = ${JSON.stringify(m.groups.version)};\n`, 'utf8');
 }

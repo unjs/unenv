@@ -4,6 +4,8 @@ import {
   notImplemented,
   createNotImplementedError,
 } from "../../../_internal/utils.ts";
+// node-version.ts is generated at build time
+import { NODE_VERSION } from "./node-version.ts";
 
 export class Process extends EventEmitter implements NodeJS.Process {
   env: NodeJS.ProcessEnv;
@@ -92,11 +94,11 @@ export class Process extends EventEmitter implements NodeJS.Process {
   ppid: number = 100;
 
   get version() {
-    return "";
+    return `v${NODE_VERSION}`;
   }
 
   get versions() {
-    return {} as NodeJS.Process["versions"];
+    return { node: NODE_VERSION } as NodeJS.Process["versions"];
   }
 
   get allowedNodeEnvironmentFlags() {
