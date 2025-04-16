@@ -7,7 +7,7 @@ import type {
   CreateEnvOptions,
   ResolvedEnvironment,
   defineEnv as defineEnvType,
-} from "../lib/index.d.mts";
+} from "./types";
 import { version } from "../package.json" with { type: "json" };
 import { nodeCompatAliases, nodeCompatInjects, npmShims } from "./preset";
 
