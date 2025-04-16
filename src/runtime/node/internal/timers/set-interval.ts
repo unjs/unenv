@@ -3,7 +3,7 @@ import { Timeout } from "./timeout.ts";
 export async function* setIntervalFallbackPromises<T = void>(
   delay?: number,
   value?: T,
-): AsyncIterable<T> {
+): NodeJS.AsyncIterator<T> {
   yield value as T;
 }
 
