@@ -25,7 +25,7 @@
       "default": "./dist/runtime/*.mjs"
     }
   },
-  "types": "./lib/index.d.mts",
+  "types": "./dist/index.d.mts",
   "files": [
     "dist",
     "lib"
