@@ -28,7 +28,7 @@ console.log(`Cleaning up dist/ ...`);
 await rm(join(rootDir, "dist"), { recursive: true, force: true });
 
 console.log(`Bundling src/index...`);
-await rolldownBuild(rootDir, "src/index.ts", "dist/index.mjs");
+await rolldownBuild(rootDir, "src/index.ts", "dist");
 
 console.log(`Building src/runtime...`);
 await generateNodeVersion(rootDir, "src/runtime/node/internal/process");
@@ -176,16 +176,14 @@ async function transformModule(entryPath: string) {
   return transformed;
 }
 
-async function rolldownBuild(cwd: string, input: string, output: string) {
+async function rolldownBuild(cwd: string, input: string, outputDir: string) {
   const start = Date.now();
   const res = await rolldown({
     cwd,
     input: input,
     plugins: [
-      dts({
-        // https://github.com/sxzz/rolldown-plugin-dts#options
-        // isolatedDeclaration: true,
-      }),
+      // https://github.com/sxzz/rolldown-plugin-dts#options
+      dts({}),
     ],
     external: [
       ...builtinModules,
@@ -193,9 +191,13 @@ async function rolldownBuild(cwd: string, input: string, output: string) {
       ...Object.keys(pkg.dependencies),
     ],
   });
-  await res.write({ file: output });
+  await res.write({
+    dir: outputDir,
+    entryFileNames: "[name].mjs",
+    chunkFileNames: "[name].mjs",
+  });
   await res.close();
-  console.log(`Bundled ${input} into ${output} in ${Date.now() - start}ms`);
+  console.log(`Bundled ${input} into ${outputDir} in ${Date.now() - start}ms`);
 }
 
 function resolvePath(id: string, parent: string) {
