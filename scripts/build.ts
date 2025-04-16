@@ -13,9 +13,10 @@ import { glob, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import oxcTransform from "oxc-transform";
 import oxcParser from "oxc-parser";
 import oxcResolver from "oxc-resolver";
-import MagicString from 'magic-string'
+import MagicString from "magic-string";
 import { rolldown } from "rolldown";
 import { builtinModules } from "node:module";
+import { dts } from "rolldown-plugin-dts";
 
 import pkg from "../package.json" with { type: "json" };
 
@@ -104,7 +105,7 @@ async function transformModule(entryPath: string) {
     });
   }
 
-  const magicString = new MagicString(sourceText)
+  const magicString = new MagicString(sourceText);
 
   // Rewrite relative imports
   const updatedStarts = new Set<number>();
@@ -180,6 +181,12 @@ async function rolldownBuild(cwd: string, input: string, output: string) {
   const res = await rolldown({
     cwd,
     input: input,
+    plugins: [
+      dts({
+        // https://github.com/sxzz/rolldown-plugin-dts#options
+        isolatedDeclaration: true,
+      }),
+    ],
     external: [
       ...builtinModules,
       ...builtinModules.map((m) => `node:${m}`),
@@ -209,9 +216,15 @@ function resolvePath(id: string, parent: string) {
 }
 
 async function generateNodeVersion(rootDir: string, outPath: string) {
-  const m = (await readFile(join(rootDir, ".nvmrc"), "utf8")).match(/(?<version>\d+\.\d+\.\d+)/);
+  const m = (await readFile(join(rootDir, ".nvmrc"), "utf8")).match(
+    /(?<version>\d+\.\d+\.\d+)/,
+  );
   if (!m?.groups?.version) {
-    throw new Error('.nvrmc does not contain a valid Node version');
+    throw new Error(".nvrmc does not contain a valid Node version");
   }
-  await writeFile(join(rootDir, outPath, 'node-version.ts'), `// Extracted from .nvmrc\nexport const NODE_VERSION = ${JSON.stringify(m.groups.version)};\n`, 'utf8');
+  await writeFile(
+    join(rootDir, outPath, "node-version.ts"),
+    `// Extracted from .nvmrc\nexport const NODE_VERSION = ${JSON.stringify(m.groups.version)};\n`,
+    "utf8",
+  );
 }
