@@ -183,7 +183,7 @@ async function rolldownBuild(cwd: string, input: string, outputDir: string) {
     input: input,
     plugins: [
       // https://github.com/sxzz/rolldown-plugin-dts#options
-      dts({}),
+      dts({ isolatedDeclaration: true }),
     ],
     external: [
       ...builtinModules,
