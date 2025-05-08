@@ -39,7 +39,7 @@
     "lint:fix": "pnpm node-ts ./test/node-coverage.ts && automd && eslint --fix . && prettier -w src test",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release --push --publish --prerelease --publishTag rc",
-    "test": "pnpm lint && pnpm test:types && pnpm vitest --run",
+    "test": "pnpm lint && pnpm test:types && pnpm build && pnpm vitest --run",
     "test:types": "tsc --noEmit"
   },
   "dependencies": {
