@@ -3,6 +3,8 @@ import { defineEnv } from "../src";
 import { builtinModules } from "node:module";
 import { existsSync } from "node:fs";
 
+const nodeBuiltinModules = ["node:sqlite"];
+
 describe("defineEnv", () => {
   it("defaults", () => {
     const { env } = defineEnv();
@@ -25,6 +27,16 @@ describe("defineEnv", () => {
   it("has aliases for all builtinModules", () => {
     const { env } = defineEnv({ nodeCompat: true });
     for (const id of builtinModules) {
+      expect(env.alias[id]).toBeDefined();
+    }
+  });
+
+  it("has aliases for all node: builtin modules", () => {
+    const { env } = defineEnv({ nodeCompat: true });
+    for (const id of builtinModules) {
+      expect(`node:` + env.alias[id]).toBeDefined();
+    }
+    for (const id of nodeBuiltinModules) {
       expect(env.alias[id]).toBeDefined();
     }
   });

@@ -74,10 +74,12 @@ function unenvPreset(opts: CreateEnvOptions) {
     Object.assign(preset.alias, {
       ...Object.fromEntries(
         Object.entries(nodeCompatAliases).flatMap(([from, to]) => {
-          const aliases = [
-            [from, to], // <id> => unenv/node/id
-            [`node:${from}`, to], // node:<id> => unenv/node/id
-          ];
+          const aliases = from.startsWith("node:")
+            ? [[from, to]] // node:<id> => unenv/node/id
+            : [
+                [from, to], // <id> => unenv/node/id
+                [`node:${from}`, to], // node:<id> => unenv/node/id
+              ];
           return aliases;
         }),
       ),
