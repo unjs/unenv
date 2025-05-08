@@ -9,8 +9,8 @@ export class Agent extends EventEmitter implements nodeHttp.Agent {
   readonly freeSockets = {};
   readonly sockets = {};
   readonly requests = {};
-  readonly options: nodeHttp.AgentOptions | undefined;
-  constructor(opts?: nodeHttp.AgentOptions) {
+  readonly options: nodeHttp.AgentOptions;
+  constructor(opts: nodeHttp.AgentOptions = {}) {
     super();
     this.options = opts;
   }
