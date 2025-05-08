@@ -31,7 +31,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "pnpm node-ts ./scripts/build.ts",
+    "build": "obuild",
     "build:watch": "pnpm node-ts --watch ./scripts/build.ts",
     "node-ts": "node --disable-warning=ExperimentalWarning --experimental-strip-types",
     "dev": "vitest",
@@ -61,12 +61,8 @@
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
     "magic-string": "^0.30.17",
-    "oxc-parser": "^0.58.1",
-    "oxc-resolver": "^5.2.0",
-    "oxc-transform": "^0.58.1",
+    "obuild": "^0.0.5",
     "prettier": "^3.5.3",
-    "rolldown": "1.0.0-beta.7",
-    "rolldown-plugin-dts": "^0.5.2",
     "tinyexec": "^1.0.1",
     "typescript": "^5.8.3",
     "vitest": "^3.1.1",
