@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { readFile, writeFile } from "node:fs/promises";
 
 export default defineBuildConfig({
-  entries: ["./src/runtime/", "./src/index.ts"],
+  entries: ["src/runtime/:dist/runtime", "src/index.ts"],
   hooks: {
     start: async (ctx) => {
       const m = (await readFile(join(ctx.pkgDir, ".nvmrc"), "utf8")).match(
