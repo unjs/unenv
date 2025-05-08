@@ -19,8 +19,5 @@ export default defineBuildConfig({
         "utf8",
       );
     },
-    rolldownConfig(config) {
-      // (config.external as (string | RegExp)[]).push(/node_modules\/pathe/);
-    },
   },
 });

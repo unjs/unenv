@@ -58,8 +58,8 @@ importers:
         specifier: ^0.30.17
         version: 0.30.17
       obuild:
-        specifier: ^0.0.5
-        version: 0.0.5(magicast@0.3.5)(typescript@5.8.3)
+        specifier: ^0.0.6
+        version: 0.0.6(magicast@0.3.5)(typescript@5.8.3)
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -1852,8 +1852,8 @@ packages:
     engines: {node: ^14.16.0 || >=16.10.0}
     hasBin: true
 
-  obuild@0.0.5:
-    resolution: {integrity: sha512-jRIkFxs+s19K5DrNfcb2cEz3lmr6NX4Grrk6wUQe9NuE2QIpjVXuzK3dyoFOHST4i5VIxHn0PKBbxFMKo8i28Q==}
+  obuild@0.0.6:
+    resolution: {integrity: sha512-wHa0iUPi6Q68Hrsso9gt2v0DDN1gAMtDk31BY9K5GgJ+boGFXhGAwBvWkBUv/SMI6PCw8flich84sLg57cRtqg==}
     hasBin: true
 
   ofetch@1.4.1:
@@ -3975,7 +3975,7 @@ snapshots:
       pkg-types: 2.1.0
       tinyexec: 0.3.2
 
-  obuild@0.0.5(magicast@0.3.5)(typescript@5.8.3):
+  obuild@0.0.6(magicast@0.3.5)(typescript@5.8.3):
     dependencies:
       c12: 3.0.3(magicast@0.3.5)
       consola: 3.4.2
