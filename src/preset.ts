@@ -67,6 +67,9 @@ export const nodeCompatAliases = {
   wasi: "unenv/node/wasi",
   worker_threads: "unenv/node/worker_threads",
   zlib: "unenv/node/zlib",
+
+  // These only are available via "node:" protocol
+  "node:sqlite": "unenv/node/sqlite",
 } as const;
 
 export const nodeCompatInjects = {
