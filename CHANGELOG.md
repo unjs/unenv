@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.17
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.16...v2.0.0-rc.17)
+
+### 📦 Build
+
+- Export entry types ([c6a5f89](https://github.com/unjs/unenv/commit/c6a5f89))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.16
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.15...v2.0.0-rc.16)
