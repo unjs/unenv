@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.16
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.15...v2.0.0-rc.16)
+
+### 🚀 Enhancements
+
+- **node:process:** Add `version` and `versions.node` ([#493](https://github.com/unjs/unenv/pull/493))
+- **node:** Add mock for `node:sqlite` ([#503](https://github.com/unjs/unenv/pull/503))
+
+### 🩹 Fixes
+
+- **node:timers:** Add missing methods to `Timeout` polyfill ([b6934a5](https://github.com/unjs/unenv/commit/b6934a5))
+- **npm:debug:** Add missing named exports ([#501](https://github.com/unjs/unenv/pull/501))
+- **node:http:** Add `Agent.options` property ([#502](https://github.com/unjs/unenv/pull/502))
+
+### 📦 Build
+
+- Bundle entry types with `rolldown-plugin-dts` ([#497](https://github.com/unjs/unenv/pull/497))
+- Migrate to obuild ([#504](https://github.com/unjs/unenv/pull/504))
+
+### 🏡 Chore
+
+- Update deps ([5f58e4d](https://github.com/unjs/unenv/commit/5f58e4d))
+- Build before test command ([4fdc3c2](https://github.com/unjs/unenv/commit/4fdc3c2))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Pete Bacon Darwin <pbacondarwin@cloudflare.com>
+- Victor Berchet ([@vicb](https://github.com/vicb))
+
 ## v2.0.0-rc.15
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.14...v2.0.0-rc.15)
