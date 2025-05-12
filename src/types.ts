@@ -1,11 +1,3 @@
-/**
- * Configure a target environment.
- */
-export declare function defineEnv(opts?: CreateEnvOptions): {
-  env: ResolvedEnvironment;
-  presets: Preset[];
-};
-
 export interface CreateEnvOptions {
   /**
    * Node.js compatibility.
@@ -65,7 +57,7 @@ export interface Environment {
 /**
  * Environment returned by `defineEnv`.
  *
- * It differs from the preset's Environment as the `inject` map nevers contains a `false` value.
+ * It differs from the preset's Environment as the `inject` map never contains a `false` value.
  */
 export interface ResolvedEnvironment extends Environment {
   inject: Readonly<Record<string, string | readonly string[]>>;

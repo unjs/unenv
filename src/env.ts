@@ -1,22 +1,23 @@
 import { builtinModules } from "node:module";
 import { resolveAlias } from "pathe/utils";
 import { createResolver } from "exsolve";
+import { version } from "../package.json" with { type: "json" };
+import { nodeCompatAliases, nodeCompatInjects, npmShims } from "./preset";
+
 import type {
   Preset,
   Environment,
   CreateEnvOptions,
   ResolvedEnvironment,
-  defineEnv as defineEnvType,
 } from "./types";
-import { version } from "../package.json" with { type: "json" };
-import { nodeCompatAliases, nodeCompatInjects, npmShims } from "./preset";
 
-export const defineEnv: typeof defineEnvType = (
-  opts: CreateEnvOptions = {},
-): {
+/**
+ * Configure a target environment.
+ */
+export function defineEnv(opts: CreateEnvOptions = {}): {
   env: ResolvedEnvironment;
   presets: Preset[];
-} => {
+} {
   const presets: Preset[] = [];
 
   // Dynamically create unenv preset
@@ -54,7 +55,7 @@ export const defineEnv: typeof defineEnvType = (
   }
 
   return { env, presets };
-};
+}
 
 function unenvPreset(opts: CreateEnvOptions) {
   const preset = {
