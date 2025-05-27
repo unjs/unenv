@@ -87,7 +87,8 @@ export const npmShims = {
   inherits: "unenv/npm/inherits",
   "node-fetch": "unenv/npm/node-fetch",
   "node-fetch-native": "unenv/npm/node-fetch",
-  "whatwg-url": "unenv/npm/whatwg-url",
+  "whatwg-url": "unenv/npm/whatwg-url/index",
+  "whatwg-url/webidl2js-wrapper": "unenv/npm/whatwg-url/webidl2js-wrapper",
   // polyfills
   "cross-fetch/polyfill": "unenv/mock/empty",
   "node-fetch-native/polyfill": "unenv/mock/empty",
