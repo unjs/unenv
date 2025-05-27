@@ -1,1 +1,2 @@
-export { URL, URLSearchParams } from "./index.ts";
+export const URL = globalThis.URL;
+export const URLSearchParams = globalThis.URLSearchParams;
