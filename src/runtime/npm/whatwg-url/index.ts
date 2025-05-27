@@ -1,5 +1,5 @@
 // https://www.npmjs.com/package/whatwg-url
-import { notImplemented } from "../_internal/utils.ts";
+import { notImplemented } from "../../_internal/utils.ts";
 
 export const URL = globalThis.URL;
 export const URLSearchParams = globalThis.URLSearchParams;
