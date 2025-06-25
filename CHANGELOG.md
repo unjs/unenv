@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.18
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.17...v2.0.0-rc.18)
+
+### 🩹 Fixes
+
+- Add missing `whatwg-url/webidl2js-wrapper` npm shim ([#505](https://github.com/unjs/unenv/pull/505))
+
+### 🏡 Chore
+
+- Update deps ([a15e7a6](https://github.com/unjs/unenv/commit/a15e7a6))
+- Update snapshot test ([57fd97f](https://github.com/unjs/unenv/commit/57fd97f))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- A ([@crwnd](https://github.com/crwnd))
+
 ## v2.0.0-rc.17
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.16...v2.0.0-rc.17)
