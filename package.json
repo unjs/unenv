@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "defu": "^6.1.4",
-    "exsolve": "^1.0.4",
+    "exsolve": "^1.0.7",
     "ohash": "^2.0.11",
     "pathe": "^2.0.3",
     "ufo": "^1.6.1"
@@ -52,22 +52,22 @@
   "devDependencies": {
     "@parcel/watcher": "^2.5.1",
     "@types/node": "^22.14.1",
-    "@vitest/coverage-v8": "^3.1.1",
+    "@vitest/coverage-v8": "^3.2.4",
     "automd": "^0.4.0",
     "changelogen": "^0.6.1",
     "consola": "^3.4.2",
-    "esbuild": "^0.25.2",
-    "eslint": "^9.24.0",
+    "esbuild": "^0.25.5",
+    "eslint": "^9.29.0",
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
     "magic-string": "^0.30.17",
-    "obuild": "^0.0.6",
-    "prettier": "^3.5.3",
+    "obuild": "^0.2.1",
+    "prettier": "^3.6.1",
     "tinyexec": "^1.0.1",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.1",
-    "workerd": "^1.20250416.0",
-    "wrangler": "^4.11.1"
+    "vitest": "^3.2.4",
+    "workerd": "^1.20250620.0",
+    "wrangler": "^4.21.2"
   },
-  "packageManager": "pnpm@10.6.3"
+  "packageManager": "pnpm@10.12.3"
 }
