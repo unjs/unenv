@@ -9,7 +9,7 @@ describe("tests in workerd", () => {
       },
     });
     expect(exitCode).toBe(0);
-    expect(stderr.replaceAll(/\(node:\d+\) |^.+: debug: /gm, ""))
+    expect(stderr.replaceAll(/\(node:\d+\) |^.+: debug: | \(.+\)$/gm, ""))
       .toMatchInlineSnapshot(`
         "[ TEST ] tests:crypto_getRandomValues
         [ PASS ] tests:crypto_getRandomValues
