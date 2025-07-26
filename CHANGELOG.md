@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.19
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.18...v2.0.0-rc.19)
+
+### 🚀 Enhancements
+
+- Polyfill to enable node sourcemaps ([#511](https://github.com/unjs/unenv/pull/511))
+
+### 🩹 Fixes
+
+- Conditionally call `getSourceMapsSupport` ([4d8a6b7](https://github.com/unjs/unenv/commit/4d8a6b7))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.18
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.17...v2.0.0-rc.18)
