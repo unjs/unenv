@@ -4,7 +4,7 @@
 try {
   const nodeModule = globalThis.process?.getBuiltinModule?.("node:module");
   // @ts-expect-error TODO: update Node.js types
-  if (nodeModule && !nodeModule.getSourceMapsSupport()?.enabled) {
+  if (nodeModule && !nodeModule.getSourceMapsSupport?.()?.enabled) {
     // @ts-expect-error
     nodeModule.setSourceMapsSupport?.(true, {
       generatedCode: true,
