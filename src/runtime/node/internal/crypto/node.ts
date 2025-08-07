@@ -267,10 +267,10 @@ export const hash =
 // ---- Unimplemented Classes ----
 
 /** @deprecated https://nodejs.org/docs/latest/api/deprecations.html#dep0106-cryptocreatecipher-and-cryptocreatedecipher */
-export const Cipher = undefined;
+export const Cipher = undefined as unknown as typeof nodeCrypto.Cipher;
 
 /** @deprecated https://nodejs.org/docs/latest/api/deprecations.html#dep0106-cryptocreatecipher-and-cryptocreatedecipher */
-export const Decipher = undefined;
+export const Decipher = undefined as unknown as typeof nodeCrypto.Decipher;
 
 export const Certificate = /*@__PURE__*/ notImplementedClass(
   "crypto.Certificate",
