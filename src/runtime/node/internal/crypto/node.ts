@@ -78,13 +78,11 @@ export const checkPrimeSync = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.checkPrimeSync
 >("crypto.checkPrimeSync");
 
-/** @deprecated */
-export const createCipher = /*@__PURE__*/ notImplemented("crypto.createCipher");
+/** @deprecated https://nodejs.org/docs/latest/api/deprecations.html#dep0106-cryptocreatecipher-and-cryptocreatedecipher */
+export const createCipher = undefined;
 
-/** @deprecated */
-export const createDecipher = /*@__PURE__*/ notImplemented(
-  "crypto.createDecipher",
-);
+/** @deprecated https://nodejs.org/docs/latest/api/deprecations.html#dep0106-cryptocreatecipher-and-cryptocreatedecipher */
+export const createDecipher = undefined;
 
 export const pseudoRandomBytes = /*@__PURE__*/ notImplemented<
   typeof nodeCrypto.pseudoRandomBytes
@@ -268,22 +266,20 @@ export const hash =
 
 // ---- Unimplemented Classes ----
 
+/** @deprecated https://nodejs.org/docs/latest/api/deprecations.html#dep0106-cryptocreatecipher-and-cryptocreatedecipher */
+export const Cipher = undefined as unknown as typeof nodeCrypto.Cipher;
+
+/** @deprecated https://nodejs.org/docs/latest/api/deprecations.html#dep0106-cryptocreatecipher-and-cryptocreatedecipher */
+export const Decipher = undefined as unknown as typeof nodeCrypto.Decipher;
+
 export const Certificate = /*@__PURE__*/ notImplementedClass(
   "crypto.Certificate",
 ) as unknown as typeof nodeCrypto.Certificate;
-
-export const Cipher = /*@__PURE__*/ notImplementedClass(
-  "crypto.Cipher",
-) as unknown as typeof nodeCrypto.Cipher;
 
 export const Cipheriv = /*@__PURE__*/ notImplementedClass(
   "crypto.Cipheriv",
   // @ts-expect-error not typed yet
 ) as unknown as typeof nodeCrypto.Cipheriv;
-
-export const Decipher = /*@__PURE__*/ notImplementedClass(
-  "crypto.Decipher",
-) as unknown as typeof nodeCrypto.Decipher;
 
 export const Decipheriv = /*@__PURE__*/ notImplementedClass(
   "crypto.Decipheriv",
