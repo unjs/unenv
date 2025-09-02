@@ -8,7 +8,7 @@ describe("tests in workerd", () => {
         cwd: __dirname,
       },
     });
-    expect(exitCode).toBe(0);
+    expect(exitCode, stderr).toBe(0);
     expect(stderr.replaceAll(/\(node:\d+\) |^.+: debug: | \(.+\)$/gm, ""))
       .toMatchInlineSnapshot(`
         "[ TEST ] tests:crypto_getRandomValues
