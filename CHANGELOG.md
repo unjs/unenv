@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.20
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.19...v2.0.0-rc.20)
+
+### 🩹 Fixes
+
+- **node:** Tty default export for `ReadStream` ([#513](https://github.com/unjs/unenv/pull/513))
+
+### 💅 Refactors
+
+- **node:crypto:** Nullify create(de)Cipher (de)Cipher exports ([#515](https://github.com/unjs/unenv/pull/515))
+- **node:util:** Safer type checks ([d6ac405](https://github.com/unjs/unenv/commit/d6ac405))
+
+### 🏡 Chore
+
+- Update tests ([867d2bc](https://github.com/unjs/unenv/commit/867d2bc))
+- Fix type issue ([6d95673](https://github.com/unjs/unenv/commit/6d95673))
+- Update deps ([f28d91f](https://github.com/unjs/unenv/commit/f28d91f))
+
+### ✅ Tests
+
+- Partially skip workerd dns test ([fea8bdb](https://github.com/unjs/unenv/commit/fea8bdb))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- James M Snell ([@jasnell](https://github.com/jasnell))
+
 ## v2.0.0-rc.19
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.18...v2.0.0-rc.19)
