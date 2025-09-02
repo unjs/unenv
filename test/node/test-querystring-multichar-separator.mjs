@@ -5,7 +5,7 @@ import assert from "node:assert";
 import qs from "../../src/runtime/node/querystring.ts";
 
 function check(actual, expected) {
-  assert(!(actual instanceof Object));
+  assert.ok(!(actual instanceof Object));
   assert.deepStrictEqual(
     Object.keys(actual).sort(),
     Object.keys(expected).sort(),

@@ -203,7 +203,7 @@ assert.strictEqual(
 );
 
 function check(actual, expected, input) {
-  assert(!(actual instanceof Object));
+  assert.ok(!(actual instanceof Object));
   const actualKeys = Object.keys(actual).sort();
   const expectedKeys = Object.keys(expected).sort();
   let msg;
