@@ -11,23 +11,23 @@ export const isArgumentsObject = /*@__PURE__*/ notImplemented<
 >("util.types.isArgumentsObject");
 
 export const isBigIntObject = (val: any): val is bigint =>
-  val instanceof BigInt;
+  typeof val === "bigint";
 
 export const isBooleanObject: typeof nodeUtilTypes.isBooleanObject = (
   val,
-): val is boolean => val instanceof Boolean;
+): val is boolean => typeof val === "boolean";
 
 export const isNumberObject: typeof nodeUtilTypes.isNumberObject = (
   val,
-): val is number => val instanceof Number;
+): val is number => typeof val === "number";
 
 export const isStringObject: typeof nodeUtilTypes.isStringObject = (
   val,
-): val is string => val instanceof String;
+): val is string => typeof val === "string";
 
 export const isSymbolObject: typeof nodeUtilTypes.isSymbolObject = (
   val,
-): val is symbol => val instanceof Symbol;
+): val is symbol => typeof val === "symbol";
 
 export const isNativeError = /*@__PURE__*/ notImplemented<
   typeof nodeUtilTypes.isNativeError
