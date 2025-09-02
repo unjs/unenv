@@ -29,7 +29,7 @@ export class File extends Blob implements nodeBuffer.File {
     throw new Error("Not implemented");
   }
 
-  bytes(): Promise<Uint8Array> {
+  bytes(): Promise<Uint8Array<ArrayBuffer>> {
     throw new Error("Not implemented");
   }
 }
