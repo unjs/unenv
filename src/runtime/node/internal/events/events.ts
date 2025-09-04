@@ -1310,8 +1310,7 @@ function arrayClone(arr: any[]) {
     case 6:
       return [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]];
   }
-  // @ts-expect-error
-  return Array.prototype.slice(arr);
+  return Array.prototype.slice.call(arr);
 }
 
 function unwrapListeners(arr: Listener[]) {
