@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.21
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.20...v2.0.0-rc.21)
+
+### 🩹 Fixes
+
+- **node:events:** Call to `Array.prototype.slice` with context ([#518](https://github.com/unjs/unenv/pull/518))
+
+### ❤️ Contributors
+
+- TwistedKap <william.kapke@gmail.com>
+
 ## v2.0.0-rc.20
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.19...v2.0.0-rc.20)
