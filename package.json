@@ -66,8 +66,8 @@
     "tinyexec": "^1.0.1",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4",
-    "workerd": "^1.20250902.0",
-    "wrangler": "^4.33.1"
+    "workerd": "^1.20250904.0",
+    "wrangler": "^4.33.2"
   },
-  "packageManager": "pnpm@10.12.3"
+  "packageManager": "pnpm@10.15.1"
 }
