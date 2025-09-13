@@ -57,17 +57,17 @@
     "changelogen": "^0.6.2",
     "consola": "^3.4.2",
     "esbuild": "^0.25.9",
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "eslint-config-unjs": "^0.5.0",
     "jiti": "^2.5.1",
-    "magic-string": "^0.30.18",
+    "magic-string": "^0.30.19",
     "obuild": "^0.2.1",
     "prettier": "^3.6.2",
     "tinyexec": "^1.0.1",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4",
-    "workerd": "^1.20250904.0",
-    "wrangler": "^4.33.2"
+    "workerd": "^1.20250913.0",
+    "wrangler": "^4.36.0"
   },
-  "packageManager": "pnpm@10.15.1"
+  "packageManager": "pnpm@10.16.0"
 }
