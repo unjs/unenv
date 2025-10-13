@@ -84,7 +84,7 @@ class _Cluster extends EventEmitter implements NodeCluster {
   disconnect(): void {
     disconnect();
   }
-  fork(env?: Record<string, string>): NodeClusterWorker {
+  fork(env?: any): NodeClusterWorker {
     return fork(env);
   }
 }
