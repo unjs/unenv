@@ -2,6 +2,7 @@ import type nodeCluster from "node:cluster";
 import type {
   Cluster as NodeCluster,
   Worker as NodeClusterWorker,
+  ClusterSettings as NodeClusterSettings,
 } from "node:cluster";
 import { EventEmitter } from "node:events";
 import { notImplemented } from "../_internal/utils.ts";
@@ -58,8 +59,9 @@ export class Worker extends EventEmitter implements NodeClusterWorker {
   destroy(signal?: string): void {
     this._connected = false;
   }
-  disconnect(): void {
+  disconnect(): this {
     this._connected = false;
+    return this;
   }
 }
 
@@ -73,17 +75,17 @@ class _Cluster extends EventEmitter implements NodeCluster {
   schedulingPolicy = SCHED_RR;
   settings = settings;
   workers = workers;
-  setupPrimary() {
-    return setupPrimary();
+  setupPrimary(_settings?: NodeClusterSettings): void {
+    setupPrimary();
   }
-  setupMaster() {
-    return setupPrimary();
+  setupMaster(_settings?: NodeClusterSettings): void {
+    setupMaster();
   }
-  disconnect() {
-    return disconnect();
+  disconnect(): void {
+    disconnect();
   }
-  fork() {
-    return fork();
+  fork(env?: any): NodeClusterWorker {
+    return fork(env);
   }
 }
 
