@@ -57,8 +57,8 @@
     "automd": "^0.4.2",
     "changelogen": "^0.6.2",
     "consola": "^3.4.2",
-    "esbuild": "^0.25.10",
-    "eslint": "^9.37.0",
+    "esbuild": "^0.25.11",
+    "eslint": "^9.38.0",
     "eslint-config-unjs": "^0.5.0",
     "jiti": "^2.6.1",
     "magic-string": "^0.30.19",
@@ -67,8 +67,8 @@
     "tinyexec": "^1.0.1",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4",
-    "workerd": "^1.20251011.0",
-    "wrangler": "^4.42.2"
+    "workerd": "^1.20251023.0",
+    "wrangler": "^4.45.0"
   },
-  "packageManager": "pnpm@10.18.2"
+  "packageManager": "pnpm@10.19.0"
 }
