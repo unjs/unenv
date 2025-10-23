@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.22
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.21...v2.0.0-rc.22)
+
+### 🩹 Fixes
+
+- **node:cluster:** Minor fixes ([#521](https://github.com/unjs/unenv/pull/521))
+
+### 💅 Refactors
+
+- Rewrite `debug` npm shim ([#525](https://github.com/unjs/unenv/pull/525))
+
+### 🏡 Chore
+
+- Update ci ([#526](https://github.com/unjs/unenv/pull/526))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Victor Berchet ([@vicb](https://github.com/vicb))
+
 ## v2.0.0-rc.21
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.20...v2.0.0-rc.21)
