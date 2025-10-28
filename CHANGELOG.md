@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.23
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.22...v2.0.0-rc.23)
+
+### 📦 Build
+
+- Reduce external dependencies ([#530](https://github.com/unjs/unenv/pull/530))
+
+### 🏡 Chore
+
+- Update lockfile ([1b15ec7](https://github.com/unjs/unenv/commit/1b15ec7))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.22
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.21...v2.0.0-rc.22)
