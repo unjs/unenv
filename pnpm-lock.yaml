@@ -8,21 +8,9 @@ importers:
 
   .:
     dependencies:
-      defu:
-        specifier: ^6.1.4
-        version: 6.1.4
-      exsolve:
-        specifier: ^1.0.7
-        version: 1.0.7
-      ohash:
-        specifier: ^2.0.11
-        version: 2.0.11
       pathe:
         specifier: ^2.0.3
         version: 2.0.3
-      ufo:
-        specifier: ^1.6.1
-        version: 1.6.1
     devDependencies:
       '@parcel/watcher':
         specifier: ^2.5.1
@@ -54,6 +42,9 @@ importers:
       eslint-config-unjs:
         specifier: ^0.5.0
         version: 0.5.0(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3)
+      exsolve:
+        specifier: ^1.0.7
+        version: 1.0.7
       jiti:
         specifier: ^2.6.1
         version: 2.6.1

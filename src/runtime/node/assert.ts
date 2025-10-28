@@ -24,7 +24,6 @@
 
 import type nodeAssert from "node:assert";
 
-import { isEqual as _ohashIsEqual } from "ohash/utils";
 import { notImplemented, notImplementedClass } from "../_internal/utils.ts";
 
 // TODO: Implement Error classes
@@ -60,9 +59,11 @@ export class AssertionError extends Error implements nodeAssert.AssertionError {
 
 const inspect = (val?: unknown, opts?: unknown) => val;
 
-// Using ohash instead of internal/util/comparisons
-const isDeepEqual = _ohashIsEqual;
-const isDeepStrictEqual = _ohashIsEqual;
+const isEqual = (a: unknown, b: unknown) =>
+  a === b || JSON.stringify(a) === JSON.stringify(b);
+
+const isDeepEqual = isEqual;
+const isDeepStrictEqual = isEqual;
 
 let warned = false;
 
