@@ -53,7 +53,7 @@
     "@parcel/watcher": "^2.5.1",
     "@types/debug": "^4.1.12",
     "@types/node": "22.14.1",
-    "@vitest/coverage-v8": "^4.0.2",
+    "@vitest/coverage-v8": "^4.0.4",
     "automd": "^0.4.2",
     "changelogen": "^0.6.2",
     "consola": "^3.4.2",
@@ -61,14 +61,14 @@
     "eslint": "^9.38.0",
     "eslint-config-unjs": "^0.5.0",
     "jiti": "^2.6.1",
-    "magic-string": "^0.30.19",
-    "obuild": "^0.2.1",
+    "magic-string": "^0.30.21",
+    "obuild": "^0.3.0",
     "prettier": "^3.6.2",
     "tinyexec": "^1.0.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.2",
-    "workerd": "^1.20251023.0",
-    "wrangler": "^4.45.0"
+    "vitest": "^4.0.4",
+    "workerd": "^1.20251024.0",
+    "wrangler": "^4.45.1"
   },
   "packageManager": "pnpm@10.19.0"
 }
