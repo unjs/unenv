@@ -4,12 +4,16 @@ import type { Debug, Debugger, Formatters } from "debug";
 
 function createDebug(namespace: string): Debugger {
   return Object.assign(
-    (formatter: string, ...args: any[]) => console.debug(formatter, ...args),
+    (...args: any[]) => {
+      const env = globalThis.process?.env.DEBUG;
+      if (!env || (env !== "*" && !env.startsWith(namespace))) return;
+      console.debug(...args);
+    },
     {
       color: "#000000",
       diff: 0,
       enabled: true,
-      log: console.debug,
+      log: console.debug.bind(console),
       namespace,
       destroy: () => false,
       extend: (ns: string, _del?: string) => createDebug(namespace + ns),
@@ -25,7 +29,7 @@ const debug: Debug = Object.assign(createDebug, {
   formatArgs(this: Debugger, args: any[]) {
     args[0] = `${this.namespace} ${args[0]}`;
   },
-  log: console.debug,
+  log: console.debug.bind(console),
   selectColor: (_namespace: string) => 0,
   humanize: (num: any) => `${num}ms` as any,
   inspectOpts: {},
