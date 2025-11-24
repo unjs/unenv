@@ -136,13 +136,11 @@ function resolvePaths(
 
   // Resolve aliases
   for (const alias in env.alias) {
-    // @ts-expect-error readonly
     env.alias[alias] = _resolve(env.alias[alias]);
   }
   // Resolve polyfills
   if (env.polyfill) {
     for (let i = 0; i < env.polyfill.length; i++) {
-      // @ts-expect-error readonly
       env.polyfill[i] = _resolve(env.polyfill[i]);
     }
   }
@@ -151,11 +149,9 @@ function resolvePaths(
     const inject = env.inject[global];
     if (Array.isArray(inject)) {
       const [id, ...path] = inject;
-      // @ts-expect-error readonly
       env.inject[global] = [_resolve(id), ...path];
     } else {
-      // @ts-expect-error readonly
-      env.inject[global] = _resolve(inject);
+      env.inject[global] = inject ? _resolve(inject) : false;
     }
   }
 
@@ -215,7 +211,7 @@ function mergePresets(...presets: Preset[]): ResolvedEnvironment {
 
 /**
  * - Deduplicates items
- * - Removes nagate items with ! prefix
+ * - Removes negate items with ! prefix
  */
 function resolveArray(arr: string[]) {
   const set = new Set<string>(arr);

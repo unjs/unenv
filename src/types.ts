@@ -47,11 +47,11 @@ export interface EnvResolveOptions {
  * Environment defined by presets.
  */
 export interface Environment {
-  alias: Readonly<Record<string, string>>;
+  alias: Record<string, string>;
   // A `false` value is used to drop an inject entry from a parent Environment.
-  inject: Readonly<Record<string, string | readonly string[] | false>>;
-  polyfill: readonly string[];
-  external: readonly string[];
+  inject: Record<string, string | string[] | false>;
+  polyfill: string[];
+  external: string[];
 }
 
 /**
@@ -60,7 +60,9 @@ export interface Environment {
  * It differs from the preset's Environment as the `inject` map never contains a `false` value.
  */
 export interface ResolvedEnvironment extends Environment {
-  inject: Readonly<Record<string, string | readonly string[]>>;
+  inject: Record<string, string | string[]>;
+  polyfill: string[];
+  external: string[];
 }
 
 export interface Preset extends Partial<Environment> {
