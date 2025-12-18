@@ -30,21 +30,42 @@ class _AsyncLocalStorage<T> implements nodeAsyncHooks.AsyncLocalStorage<T> {
     callback: (...args: TArgs) => R,
     ...args: TArgs
   ): R {
+    const previousStore = this._currentStore;
     this._currentStore = store;
-    const res = callback(...args);
-    this._currentStore = undefined;
-    return res;
+    try {
+      const res = callback(...args);
+      if (res != null && typeof (res as any).then === "function") {
+        return Promise.resolve(res).finally(() => {
+          this._currentStore = previousStore;
+        }) as R;
+      }
+      this._currentStore = previousStore;
+      return res;
+    } catch (error_) {
+      this._currentStore = previousStore;
+      throw error_;
+    }
   }
 
   exit<R, TArgs extends any[]>(
     callback: (...args: TArgs) => R,
     ...args: TArgs
   ): R {
-    const _previousStore = this._currentStore;
+    const previousStore = this._currentStore;
     this._currentStore = undefined;
-    const res = callback(...args);
-    this._currentStore = _previousStore;
-    return res;
+    try {
+      const res = callback(...args);
+      if (res != null && typeof (res as any).then === "function") {
+        return Promise.resolve(res).finally(() => {
+          this._currentStore = previousStore;
+        }) as R;
+      }
+      this._currentStore = previousStore;
+      return res;
+    } catch (error_) {
+      this._currentStore = previousStore;
+      throw error_;
+    }
   }
 
   static snapshot(): any {
