@@ -13,64 +13,64 @@ importers:
         version: 2.0.3
     devDependencies:
       '@parcel/watcher':
-        specifier: ^2.5.1
+        specifier: 2.5.1
         version: 2.5.1
       '@types/debug':
-        specifier: ^4.1.12
+        specifier: 4.1.12
         version: 4.1.12
       '@types/node':
         specifier: 22.14.1
         version: 22.14.1
       '@vitest/coverage-v8':
-        specifier: ^4.0.13
+        specifier: 4.0.13
         version: 4.0.13(vitest@4.0.13(@types/debug@4.1.12)(@types/node@22.14.1)(jiti@2.6.1))
       automd:
-        specifier: ^0.4.2
+        specifier: 0.4.2
         version: 0.4.2(magicast@0.5.1)
       changelogen:
-        specifier: ^0.6.2
+        specifier: 0.6.2
         version: 0.6.2(magicast@0.5.1)
       consola:
-        specifier: ^3.4.2
+        specifier: 3.4.2
         version: 3.4.2
       esbuild:
-        specifier: ^0.27.0
+        specifier: 0.27.0
         version: 0.27.0
       eslint:
-        specifier: ^9.39.1
+        specifier: 9.39.1
         version: 9.39.1(jiti@2.6.1)
       eslint-config-unjs:
-        specifier: ^0.5.0
+        specifier: 0.5.0
         version: 0.5.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       exsolve:
-        specifier: ^1.0.8
+        specifier: 1.0.8
         version: 1.0.8
       jiti:
-        specifier: ^2.6.1
+        specifier: 2.6.1
         version: 2.6.1
       magic-string:
-        specifier: ^0.30.21
+        specifier: 0.30.21
         version: 0.30.21
       obuild:
-        specifier: ^0.4.2
+        specifier: 0.4.2
         version: 0.4.2(magicast@0.5.1)(typescript@5.9.3)
       prettier:
-        specifier: ^3.6.2
+        specifier: 3.6.2
         version: 3.6.2
       tinyexec:
-        specifier: ^1.0.2
+        specifier: 1.0.2
         version: 1.0.2
       typescript:
-        specifier: ^5.9.3
+        specifier: 5.9.3
         version: 5.9.3
       vitest:
-        specifier: ^4.0.13
+        specifier: 4.0.13
         version: 4.0.13(@types/debug@4.1.12)(@types/node@22.14.1)(jiti@2.6.1)
       workerd:
-        specifier: ^1.20251121.0
+        specifier: 1.20251121.0
         version: 1.20251121.0
       wrangler:
-        specifier: ^4.50.0
+        specifier: 4.50.0
         version: 4.50.0
 
 packages:
