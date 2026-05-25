@@ -5,8 +5,7 @@ import { Channel } from "./channel.ts";
 export class TracingChannel<
   StoreType = unknown,
   ContextType extends object = object,
-> implements nodeDagnosticsChannel.TracingChannel<StoreType, ContextType>
-{
+> implements nodeDagnosticsChannel.TracingChannel<StoreType, ContextType> {
   readonly __unenv__ = true;
 
   asyncEnd: Channel<StoreType, ContextType> = new Channel("asyncEnd");
