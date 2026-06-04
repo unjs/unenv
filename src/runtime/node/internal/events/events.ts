@@ -74,7 +74,7 @@ type Listener = (...args: any[]) => void;
 // EventEmitter
 // ----------------------------------------------------------------------------
 
-export class _EventEmitter implements NodeEventEmitter {
+class _EventEmitterClass implements NodeEventEmitter {
   // Internal state
   _events: any = undefined;
   _eventsCount: number = 0;
@@ -171,27 +171,7 @@ export class _EventEmitter implements NodeEventEmitter {
 
   // Constructor
   constructor(opts?: any) {
-    if (
-      this._events === undefined ||
-      this._events === Object.getPrototypeOf(this)._events
-    ) {
-      this._events = { __proto__: null };
-      this._eventsCount = 0;
-      this[kShapeMode] = false;
-    } else {
-      this[kShapeMode] = true;
-    }
-
-    this._maxListeners = this._maxListeners || undefined;
-
-    if (opts?.captureRejections) {
-      // validateBoolean(opts.captureRejections, "options.captureRejections");
-      this[kCapture] = Boolean(opts.captureRejections);
-    } else {
-      // Assigning the kCapture property directly saves an expensive
-      // prototype lookup in a very sensitive hot path.
-      this[kCapture] = _EventEmitter.prototype[kCapture];
-    }
+    initEventEmitter.call(this, opts);
   }
 
   /**
@@ -521,6 +501,50 @@ export class _EventEmitter implements NodeEventEmitter {
     return 0;
   }
 }
+
+// Initialization logic shared between `new EventEmitter()` and the
+// function-style `EventEmitter.call(this)` invocation handled by the Proxy
+// below. Kept as a standalone function so it can run against an arbitrary
+// `this`, mirroring Node.js's `EventEmitter.init`.
+function initEventEmitter(this: any, opts?: any) {
+  if (
+    this._events === undefined ||
+    this._events === Object.getPrototypeOf(this)._events
+  ) {
+    this._events = { __proto__: null };
+    this._eventsCount = 0;
+    this[kShapeMode] = false;
+  } else {
+    this[kShapeMode] = true;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+
+  if (opts?.captureRejections) {
+    // validateBoolean(opts.captureRejections, "options.captureRejections");
+    this[kCapture] = Boolean(opts.captureRejections);
+  } else {
+    // Assigning the kCapture property directly saves an expensive
+    // prototype lookup in a very sensitive hot path.
+    this[kCapture] = _EventEmitter.prototype[kCapture];
+  }
+}
+
+// In Node.js, `EventEmitter` is a plain function and can therefore be invoked
+// without the `new` keyword. Libraries inherit from it using the prototypal
+// `EventEmitter.call(this)` pattern (e.g. `readable-stream`, `N3.js`). An ES
+// class constructor throws "Class constructor cannot be invoked without 'new'"
+// when called that way, so we wrap the class in a Proxy whose `apply` trap runs
+// the initialization logic against the provided `this`, while `new` keeps using
+// the class constructor. See: https://github.com/unjs/unenv/issues/552
+type _EventEmitter = _EventEmitterClass;
+const _EventEmitter = new Proxy(_EventEmitterClass, {
+  apply(_target, thisArg: any, args: any[]) {
+    initEventEmitter.call(thisArg, args[0]);
+    return thisArg;
+  },
+}) as unknown as typeof _EventEmitterClass;
+export { _EventEmitter };
 
 // ----------------------------------------------------------------------------
 // EventEmitterAsyncResource
