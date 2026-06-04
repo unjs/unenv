@@ -22,6 +22,22 @@ describe("node:events EventEmitter", () => {
     expect(received).toBe(42);
   });
 
+  it("initializes a plain object passed as the receiver via `.call`", () => {
+    const obj: any = {};
+    const result = (EventEmitter as any).call(obj);
+    // Like Node, the init runs against (and returns) the provided receiver.
+    expect(result).toBe(obj);
+    expect(EventEmitter.prototype.listenerCount.call(obj, "x")).toBe(0);
+  });
+
+  it("throws like Node when invoked with no receiver", () => {
+    // Node's `EventEmitter` is strict-mode, so a bare `EventEmitter()` call has
+    // `this === undefined` and throws while reading `this._events`. The polyfill
+    // mirrors this exactly rather than silently returning a new instance.
+    const callWithoutReceiver = EventEmitter as unknown as () => void;
+    expect(() => callWithoutReceiver()).toThrow(TypeError);
+  });
+
   it("still works when constructed with `new`", () => {
     const ee = new EventEmitter();
     expect(ee).toBeInstanceOf(EventEmitter);

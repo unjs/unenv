@@ -114,7 +114,7 @@ class _EventEmitterClass implements NodeEventEmitter {
 
   static setMaxListeners(
     n = defaultMaxListeners,
-    ...eventTargets: (_EventEmitter | EventTarget)[]
+    ...eventTargets: (_EventEmitterClass | EventTarget)[]
   ) {
     // validateNumber(n, "setMaxListeners", 0);
     if (eventTargets.length === 0) {
@@ -537,13 +537,23 @@ function initEventEmitter(this: any, opts?: any) {
 // when called that way, so we wrap the class in a Proxy whose `apply` trap runs
 // the initialization logic against the provided `this`, while `new` keeps using
 // the class constructor. See: https://github.com/unjs/unenv/issues/552
-type _EventEmitter = _EventEmitterClass;
 const _EventEmitter = new Proxy(_EventEmitterClass, {
   apply(_target, thisArg: any, args: any[]) {
+    // `thisArg` is the receiver of the function-style call. For
+    // `EventEmitter.call(obj)` it is `obj`; for a bare `EventEmitter()` with no
+    // receiver it is `undefined`, in which case `initEventEmitter` throws the
+    // same `TypeError` Node does (`Cannot read properties of undefined`),
+    // preserving faithful polyfill behavior.
     initEventEmitter.call(thisArg, args[0]);
     return thisArg;
   },
 }) as unknown as typeof _EventEmitterClass;
+
+// Preserve the original `export class EventEmitter` surface, where the name is
+// both a runtime value (the callable Proxy above) and an instance type. Internal
+// type references use `_EventEmitterClass` directly; this alias only exists so
+// the public `EventEmitter` export remains usable in type position.
+export type _EventEmitter = _EventEmitterClass;
 export { _EventEmitter };
 
 // ----------------------------------------------------------------------------
@@ -1116,7 +1126,7 @@ function checkListener(listener: Listener) {
 }
 
 function addCatch(
-  that: _EventEmitter,
+  that: _EventEmitterClass,
   promise: Promise<any>,
   type: string | symbol,
   args: any[],
@@ -1145,7 +1155,7 @@ function addCatch(
 }
 
 function emitUnhandledRejectionOrErr(
-  ee: _EventEmitter,
+  ee: _EventEmitterClass,
   err: Error,
   type: string | symbol,
   args: any[],
@@ -1172,7 +1182,7 @@ function emitUnhandledRejectionOrErr(
   }
 }
 
-function _getMaxListeners(that: _EventEmitter) {
+function _getMaxListeners(that: _EventEmitterClass) {
   if (that._maxListeners === undefined) return defaultMaxListeners; // EventEmitter.defaultMaxListeners;
   return that._maxListeners;
 }
@@ -1205,7 +1215,7 @@ function enhanceStackTrace(err: Error, own: Error) {
 }
 
 function _addListener(
-  target: _EventEmitter,
+  target: _EventEmitterClass,
   type: string | symbol,
   listener: Listener,
   prepend: boolean,
@@ -1302,7 +1312,7 @@ function _onceWrap(
 }
 
 function _listeners(
-  target: _EventEmitter,
+  target: _EventEmitterClass,
   type: string | symbol,
   unwrap: boolean,
 ) {
