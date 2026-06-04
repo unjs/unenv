@@ -74,11 +74,17 @@ type Listener = (...args: any[]) => void;
 // EventEmitter
 // ----------------------------------------------------------------------------
 
-export class _EventEmitter implements NodeEventEmitter {
+class _EventEmitterClass implements NodeEventEmitter {
   // Internal state
   _events: any = undefined;
   _eventsCount: number = 0;
-  _maxListeners: number | undefined = defaultMaxListeners;
+  // Left `undefined` (not `defaultMaxListeners`) so `getMaxListeners()` resolves
+  // it dynamically via `_getMaxListeners`, matching Node — where instances track
+  // later changes to `defaultMaxListeners` rather than pinning the value at
+  // construction time. This also keeps `new EventEmitter()` and the function-style
+  // `EventEmitter.call(this)` path identical: the latter skips class field
+  // initializers, so pinning here would diverge the two paths. See unjs/unenv#552.
+  _maxListeners: number | undefined = undefined;
   [kCapture]: boolean = false;
   [kShapeMode]: boolean = false;
 
@@ -114,7 +120,7 @@ export class _EventEmitter implements NodeEventEmitter {
 
   static setMaxListeners(
     n = defaultMaxListeners,
-    ...eventTargets: (_EventEmitter | EventTarget)[]
+    ...eventTargets: (_EventEmitterClass | EventTarget)[]
   ) {
     // validateNumber(n, "setMaxListeners", 0);
     if (eventTargets.length === 0) {
@@ -171,27 +177,7 @@ export class _EventEmitter implements NodeEventEmitter {
 
   // Constructor
   constructor(opts?: any) {
-    if (
-      this._events === undefined ||
-      this._events === Object.getPrototypeOf(this)._events
-    ) {
-      this._events = { __proto__: null };
-      this._eventsCount = 0;
-      this[kShapeMode] = false;
-    } else {
-      this[kShapeMode] = true;
-    }
-
-    this._maxListeners = this._maxListeners || undefined;
-
-    if (opts?.captureRejections) {
-      // validateBoolean(opts.captureRejections, "options.captureRejections");
-      this[kCapture] = Boolean(opts.captureRejections);
-    } else {
-      // Assigning the kCapture property directly saves an expensive
-      // prototype lookup in a very sensitive hot path.
-      this[kCapture] = _EventEmitter.prototype[kCapture];
-    }
+    initEventEmitter.call(this, opts);
   }
 
   /**
@@ -521,6 +507,60 @@ export class _EventEmitter implements NodeEventEmitter {
     return 0;
   }
 }
+
+// Initialization logic shared between `new EventEmitter()` and the
+// function-style `EventEmitter.call(this)` invocation handled by the Proxy
+// below. Kept as a standalone function so it can run against an arbitrary
+// `this`, mirroring Node.js's `EventEmitter.init`.
+function initEventEmitter(this: any, opts?: any) {
+  if (
+    this._events === undefined ||
+    this._events === Object.getPrototypeOf(this)._events
+  ) {
+    this._events = { __proto__: null };
+    this._eventsCount = 0;
+    this[kShapeMode] = false;
+  } else {
+    this[kShapeMode] = true;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+
+  if (opts?.captureRejections) {
+    // validateBoolean(opts.captureRejections, "options.captureRejections");
+    this[kCapture] = Boolean(opts.captureRejections);
+  } else {
+    // Assigning the kCapture property directly saves an expensive
+    // prototype lookup in a very sensitive hot path.
+    this[kCapture] = _EventEmitter.prototype[kCapture];
+  }
+}
+
+// In Node.js, `EventEmitter` is a plain function and can therefore be invoked
+// without the `new` keyword. Libraries inherit from it using the prototypal
+// `EventEmitter.call(this)` pattern (e.g. `readable-stream`, `N3.js`). An ES
+// class constructor throws "Class constructor cannot be invoked without 'new'"
+// when called that way, so we wrap the class in a Proxy whose `apply` trap runs
+// the initialization logic against the provided `this`, while `new` keeps using
+// the class constructor. See: https://github.com/unjs/unenv/issues/552
+const _EventEmitter = new Proxy(_EventEmitterClass, {
+  apply(_target, thisArg: any, args: any[]) {
+    // `thisArg` is the receiver of the function-style call. For
+    // `EventEmitter.call(obj)` it is `obj`; for a bare `EventEmitter()` with no
+    // receiver it is `undefined`, in which case `initEventEmitter` throws the
+    // same `TypeError` Node does (`Cannot read properties of undefined`),
+    // preserving faithful polyfill behavior.
+    initEventEmitter.call(thisArg, args[0]);
+    return thisArg;
+  },
+}) as unknown as typeof _EventEmitterClass;
+
+// Preserve the original `export class EventEmitter` surface, where the name is
+// both a runtime value (the callable Proxy above) and an instance type. Internal
+// type references use `_EventEmitterClass` directly; this alias only exists so
+// the public `EventEmitter` export remains usable in type position.
+export type _EventEmitter = _EventEmitterClass;
+export { _EventEmitter };
 
 // ----------------------------------------------------------------------------
 // EventEmitterAsyncResource
@@ -1092,7 +1132,7 @@ function checkListener(listener: Listener) {
 }
 
 function addCatch(
-  that: _EventEmitter,
+  that: _EventEmitterClass,
   promise: Promise<any>,
   type: string | symbol,
   args: any[],
@@ -1121,7 +1161,7 @@ function addCatch(
 }
 
 function emitUnhandledRejectionOrErr(
-  ee: _EventEmitter,
+  ee: _EventEmitterClass,
   err: Error,
   type: string | symbol,
   args: any[],
@@ -1148,7 +1188,7 @@ function emitUnhandledRejectionOrErr(
   }
 }
 
-function _getMaxListeners(that: _EventEmitter) {
+function _getMaxListeners(that: _EventEmitterClass) {
   if (that._maxListeners === undefined) return defaultMaxListeners; // EventEmitter.defaultMaxListeners;
   return that._maxListeners;
 }
@@ -1181,7 +1221,7 @@ function enhanceStackTrace(err: Error, own: Error) {
 }
 
 function _addListener(
-  target: _EventEmitter,
+  target: _EventEmitterClass,
   type: string | symbol,
   listener: Listener,
   prepend: boolean,
@@ -1278,7 +1318,7 @@ function _onceWrap(
 }
 
 function _listeners(
-  target: _EventEmitter,
+  target: _EventEmitterClass,
   type: string | symbol,
   unwrap: boolean,
 ) {
