@@ -78,7 +78,13 @@ class _EventEmitterClass implements NodeEventEmitter {
   // Internal state
   _events: any = undefined;
   _eventsCount: number = 0;
-  _maxListeners: number | undefined = defaultMaxListeners;
+  // Left `undefined` (not `defaultMaxListeners`) so `getMaxListeners()` resolves
+  // it dynamically via `_getMaxListeners`, matching Node — where instances track
+  // later changes to `defaultMaxListeners` rather than pinning the value at
+  // construction time. This also keeps `new EventEmitter()` and the function-style
+  // `EventEmitter.call(this)` path identical: the latter skips class field
+  // initializers, so pinning here would diverge the two paths. See unjs/unenv#552.
+  _maxListeners: number | undefined = undefined;
   [kCapture]: boolean = false;
   [kShapeMode]: boolean = false;
 

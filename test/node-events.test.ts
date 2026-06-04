@@ -60,6 +60,52 @@ describe("node:events EventEmitter", () => {
     expect(hit).toBe(true);
   });
 
+  it("forwards options (e.g. `captureRejections`) through the `.call` path", () => {
+    // The callable path must preserve the options argument, matching the
+    // constructor — `EventEmitter.call(this, { captureRejections: true })`.
+    function MyStream(this: any) {
+      EventEmitter.call(this, { captureRejections: true });
+    }
+    Object.setPrototypeOf(MyStream.prototype, EventEmitter.prototype);
+    Object.setPrototypeOf(MyStream, EventEmitter);
+
+    const stream = new (MyStream as any)();
+    expect(stream).toBeInstanceOf(EventEmitter);
+    // The capture flag is stored under the registered `kCapture` symbol.
+    expect(stream[Symbol.for("kCapture")]).toBe(true);
+
+    // Normal event wiring still works.
+    let received: unknown;
+    stream.on("data", (d: unknown) => {
+      received = d;
+    });
+    expect(stream.listenerCount("data")).toBe(1);
+    stream.emit("data", 42);
+    expect(received).toBe(42);
+  });
+
+  it("tracks later `defaultMaxListeners` changes on both construction paths", () => {
+    // Node leaves `_maxListeners` unset so instances resolve it dynamically,
+    // rather than pinning the value at construction time. Both `new` and the
+    // `.call` path must behave identically here (unjs/unenv#552).
+    function MyStream(this: any) {
+      EventEmitter.call(this);
+    }
+    Object.setPrototypeOf(MyStream.prototype, EventEmitter.prototype);
+    Object.setPrototypeOf(MyStream, EventEmitter);
+
+    const viaNew = new EventEmitter();
+    const viaCall = new (MyStream as any)();
+    const original = EventEmitter.defaultMaxListeners;
+    try {
+      EventEmitter.defaultMaxListeners = original + 7;
+      expect(viaNew.getMaxListeners()).toBe(original + 7);
+      expect(viaCall.getMaxListeners()).toBe(original + 7);
+    } finally {
+      EventEmitter.defaultMaxListeners = original;
+    }
+  });
+
   it("exposes static members through the callable wrapper", () => {
     expect(EventEmitter.defaultMaxListeners).toBe(10);
     expect(typeof EventEmitter.once).toBe("function");
