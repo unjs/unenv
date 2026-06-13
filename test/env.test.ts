@@ -54,6 +54,21 @@ describe("defineEnv", () => {
   });
 
   describe("resolvePath", () => {
+    it("strips trailing slash when resolving builtin aliases", () => {
+      const { env } = defineEnv({
+        nodeCompat: false,
+        resolve: true,
+        overrides: {
+          alias: {
+            punycode: "node:punycode",
+            foo: "punycode/",
+          },
+        },
+      });
+
+      expect(env.alias.foo).toBe("node:punycode");
+    });
+
     it("resolves all nodeCompat paths", () => {
       const { env } = defineEnv({ nodeCompat: true, resolve: true });
       for (const [from, to] of Object.entries(env.alias)) {
