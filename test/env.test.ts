@@ -67,5 +67,42 @@ describe("defineEnv", () => {
         expect(existsSync(to), inject.toString()).toBe(true);
       }
     });
+
+    it("strips trailing slash when an alias chains to a node: builtin", () => {
+      const { env } = defineEnv({
+        nodeCompat: false,
+        resolve: true,
+        overrides: {
+          alias: {
+            punycode: "node:punycode",
+            foo: "punycode/",
+          },
+        },
+      });
+      // `node:punycode/` would throw ERR_UNKNOWN_BUILTIN_MODULE at runtime.
+      expect(env.alias.foo).toBe("node:punycode");
+    });
+
+    it("leaves a literal node: specifier without a trailing slash unchanged", () => {
+      const { env } = defineEnv({
+        nodeCompat: false,
+        resolve: true,
+        overrides: {
+          alias: { foo: "node:punycode" },
+        },
+      });
+      expect(env.alias.foo).toBe("node:punycode");
+    });
+
+    it("does not strip a trailing slash from non-builtin node:-prefixed values", () => {
+      const { env } = defineEnv({
+        nodeCompat: false,
+        resolve: true,
+        overrides: {
+          alias: { foo: "node:not-a-real-builtin/" },
+        },
+      });
+      expect(env.alias.foo).toBe("node:not-a-real-builtin/");
+    });
   });
 });

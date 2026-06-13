@@ -120,6 +120,16 @@ function resolvePaths(
       id = resolveAlias(id, env.alias);
     }
     if (id.startsWith("node:")) {
+      // `node:` builtin specifiers must not carry a trailing slash; Node throws
+      // ERR_UNKNOWN_BUILTIN_MODULE for `node:punycode/` even though the package
+      // form `punycode/` is legal. Strip the slash only when the rest is a
+      // real builtin, so unrelated `node:`-prefixed strings are untouched.
+      if (id.endsWith("/")) {
+        const trimmed = id.slice(0, -1);
+        if (builtinModules.includes(trimmed.slice("node:".length))) {
+          return trimmed;
+        }
+      }
       return id;
     }
     if (builtinModules.includes(id)) {
