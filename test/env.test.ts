@@ -54,6 +54,27 @@ describe("defineEnv", () => {
   });
 
   describe("resolvePath", () => {
+    it("resolves chained aliases without replacing the preset alias object", () => {
+      const alias = {
+        foo: "unenv/mock/empty",
+        bar: "foo",
+      };
+      const preset = {
+        meta: { url: import.meta.url },
+        alias,
+      };
+
+      const { env } = defineEnv({
+        nodeCompat: false,
+        presets: [preset],
+        resolve: true,
+      });
+
+      expect(preset.alias).toBe(alias);
+      expect(env.alias.foo).toBe(env.alias.bar);
+      expect(existsSync(env.alias.foo)).toBe(true);
+    });
+
     it("resolves all nodeCompat paths", () => {
       const { env } = defineEnv({ nodeCompat: true, resolve: true });
       for (const [from, to] of Object.entries(env.alias)) {
