@@ -1,5 +1,5 @@
 import { builtinModules } from "node:module";
-import { resolveAlias } from "pathe/utils";
+import { normalizeAliases, resolveAlias } from "pathe/utils";
 import { createResolver } from "exsolve";
 import { version } from "../package.json" with { type: "json" };
 import { nodeCompatAliases, nodeCompatInjects, npmShims } from "./preset";
@@ -111,13 +111,14 @@ function resolvePaths(
       process.cwd() + "/",
     ],
   });
+  const aliases = env.alias ? normalizeAliases(env.alias) : undefined;
 
   const _resolve = (id: string) => {
     if (!id) {
       return id;
     }
-    if (env.alias) {
-      id = resolveAlias(id, env.alias);
+    if (aliases) {
+      id = resolveAlias(id, aliases);
     }
     if (id.startsWith("node:")) {
       return id;
