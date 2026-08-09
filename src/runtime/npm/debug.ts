@@ -2,11 +2,49 @@
 
 import type { Debug, Debugger, Formatters } from "debug";
 
+const enabledPatterns: RegExp[] = [];
+const skippedPatterns: RegExp[] = [];
+// DEBUG is read for every log call, so only recompile when its value changes.
+let cachedDebugEnv: string | undefined;
+
+function compileNamespacePattern(pattern: string): RegExp {
+  const source = pattern
+    .split("*")
+    .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`))
+    .join(".*");
+  return new RegExp(`^${source}$`);
+}
+
+function isNamespaceEnabled(namespace: string): boolean {
+  const env = globalThis.process?.env.DEBUG;
+
+  if (env !== cachedDebugEnv) {
+    cachedDebugEnv = env;
+    enabledPatterns.length = 0;
+    skippedPatterns.length = 0;
+
+    for (const entry of env?.split(/[\s,]+/) ?? []) {
+      if (!entry) continue;
+      const isSkip = entry.startsWith("-");
+      const pattern = isSkip ? entry.slice(1) : entry;
+      if (!pattern) continue;
+      (isSkip ? skippedPatterns : enabledPatterns).push(
+        compileNamespacePattern(pattern),
+      );
+    }
+  }
+
+  if (!env) return false;
+  return (
+    !skippedPatterns.some((pattern) => pattern.test(namespace)) &&
+    enabledPatterns.some((pattern) => pattern.test(namespace))
+  );
+}
+
 function createDebug(namespace: string): Debugger {
   return Object.assign(
     (...args: any[]) => {
-      const env = globalThis.process?.env.DEBUG;
-      if (!env || (env !== "*" && !env.startsWith(namespace))) return;
+      if (!isNamespaceEnabled(namespace)) return;
       console.debug(...args);
     },
     {
