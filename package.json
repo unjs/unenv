@@ -49,7 +49,7 @@
     "@parcel/watcher": "^2.5.1",
     "@types/debug": "^4.1.12",
     "@types/node": "22.14.1",
-    "@vitest/coverage-v8": "^4.0.13",
+    "@vitest/coverage-v8": "^5.0.0",
     "automd": "^0.4.2",
     "changelogen": "^0.6.2",
     "consola": "^3.4.2",
@@ -63,7 +63,7 @@
     "prettier": "^3.6.2",
     "tinyexec": "^1.0.2",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.13",
+    "vitest": "^5.0.0",
     "workerd": "^1.20251121.0",
     "wrangler": "^4.50.0"
   },
