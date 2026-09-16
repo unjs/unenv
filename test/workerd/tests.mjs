@@ -50,6 +50,21 @@ export const unenv_polyfills_buffer = {
     assert.strictEqual(typeof buffer.INSPECT_MAX_BYTES, "number");
     assert.strictEqual(typeof buffer.resolveObjectURL, "function");
     assert.strictEqual(typeof Buffer.from, "function");
+    assert.strictEqual(Buffer.isEncoding("base64url"), true);
+    // encode: base64url uses - and _ instead of + and /, strips padding
+    const enc = Buffer.from("???").toString("base64url");
+    assert.strictEqual(enc, "Pz8_");
+    assert.strictEqual(enc.includes("+"), false);
+    assert.strictEqual(enc.includes("/"), false);
+    assert.strictEqual(enc.includes("="), false);
+    // decode: URL-safe chars (-, _) round-trip
+    assert.strictEqual(Buffer.from("Pz8_", "base64url").toString(), "???");
+    assert.strictEqual(
+      Buffer.from("aGVsbG8td29ybGQ", "base64url").toString(),
+      "hello-world",
+    );
+    // byteLength respects base64url
+    assert.strictEqual(Buffer.byteLength("aGVsbG8td29ybGQ", "base64url"), 11);
   },
 };
 

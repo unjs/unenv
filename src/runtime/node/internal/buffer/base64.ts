@@ -36,6 +36,11 @@ function getLens(b64) {
 }
 
 // base64 is 4/3 + up to two characters of the original data
+/**
+ * Calculate the byte length of a base64 string.
+ * @param b64 - The base64 string to calculate the byte length for.
+ * @returns The number of bytes that would be produced by decoding the base64 string.
+ */
 export function byteLength(b64) {
   const lens = getLens(b64);
   const validLen = lens[0];
@@ -47,6 +52,11 @@ function _byteLength(b64, validLen, placeHoldersLen) {
   return ((validLen + placeHoldersLen) * 3) / 4 - placeHoldersLen;
 }
 
+/**
+ * Decode a base64 string to a Uint8Array.
+ * @param b64 - The base64 string to decode.
+ * @returns A Uint8Array containing the decoded bytes.
+ */
 export function toByteArray(b64) {
   let tmp;
   const lens = getLens(b64);
@@ -113,6 +123,11 @@ function encodeChunk(uint8, start, end) {
   return output.join("");
 }
 
+/**
+ * Encode a Uint8Array to a base64 string.
+ * @param uint8 - The Uint8Array to encode.
+ * @returns A base64 encoded string.
+ */
 export function fromByteArray(uint8) {
   let tmp;
   const len = uint8.length;
@@ -146,4 +161,17 @@ export function fromByteArray(uint8) {
   }
 
   return parts.join("");
+}
+
+/**
+ * Encode a Uint8Array to a URL-safe base64 string.
+ * This is the base64url encoding as defined in RFC 4648 section 5.
+ * @param uint8 - The Uint8Array to encode.
+ * @returns A URL-safe base64 string without padding.
+ */
+export function toBase64URL(uint8) {
+  return fromByteArray(uint8)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/g, "");
 }

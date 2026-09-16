@@ -410,6 +410,12 @@ Buffer.compare = function compare(a, b) {
   return 0;
 };
 
+/**
+ * Check if the specified encoding is supported.
+ * Supports 'base64url' which is the URL-safe base64 encoding without padding.
+ * @param encoding - The encoding name to check.
+ * @returns True if the encoding is supported, false otherwise.
+ */
 Buffer.isEncoding = function isEncoding(encoding) {
   switch (String(encoding).toLowerCase()) {
     case "hex":
@@ -419,6 +425,7 @@ Buffer.isEncoding = function isEncoding(encoding) {
     case "latin1":
     case "binary":
     case "base64":
+    case "base64url":
     case "ucs2":
     case "ucs-2":
     case "utf16le":
@@ -509,6 +516,7 @@ function byteLength(string, encoding) {
       case "hex":
         return len >>> 1;
       case "base64":
+      case "base64url":
         return base64ToBytes(string).length;
       default:
         if (loweredCase) {
@@ -579,6 +587,9 @@ function slowToString(encoding, start, end) {
       case "base64":
         return base64Slice(this, start, end);
 
+      case "base64url":
+        return base64URLSlice(this, start, end);
+
       case "ucs2":
       case "ucs-2":
       case "utf16le":
@@ -646,6 +657,14 @@ Buffer.prototype.swap64 = function swap64() {
   return this;
 };
 
+/**
+ * Converts a Buffer to a string using the specified encoding.
+ * Supports 'base64url' encoding for URL-safe base64 output without padding.
+ * @param encoding - The encoding to use (default: 'utf8').
+ * @param start - The starting position in the buffer.
+ * @param end - The ending position in the buffer.
+ * @returns The string representation of the buffer slice.
+ */
 Buffer.prototype.toString = function toString() {
   const length = this.length;
   if (length === 0) {
@@ -972,6 +991,15 @@ function ucs2Write(buf, string, offset, length) {
   );
 }
 
+/**
+ * Writes a string to the buffer at the specified offset.
+ * Supports 'base64url' encoding for URL-safe base64 input.
+ * @param string - The string to write to the buffer.
+ * @param offset - The offset to start writing at.
+ * @param length - The maximum number of bytes to write.
+ * @param encoding - The encoding to use (default: 'utf8').
+ * @returns The offset plus the number of bytes actually written.
+ */
 Buffer.prototype.write = function write(string, offset, length, encoding) {
   // Buffer#write(string)
   if (offset === undefined) {
@@ -1033,6 +1061,7 @@ Buffer.prototype.write = function write(string, offset, length, encoding) {
         return asciiWrite(this, string, offset, length);
 
       case "base64":
+      case "base64url":
         // Warning: maxLength not taken into account in base64Write
         return base64Write(this, string, offset, length);
 
@@ -1063,6 +1092,12 @@ function base64Slice(buf, start, end) {
   return start === 0 && end === buf.length
     ? base64.fromByteArray(buf)
     : base64.fromByteArray(buf.slice(start, end));
+}
+
+function base64URLSlice(buf, start, end) {
+  return start === 0 && end === buf.length
+    ? base64.toBase64URL(buf)
+    : base64.toBase64URL(buf.slice(start, end));
 }
 
 function utf8Slice(buf, start, end) {
