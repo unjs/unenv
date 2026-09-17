@@ -57,6 +57,11 @@ export const unenv_polyfills_buffer = {
     assert.strictEqual(enc.includes("+"), false);
     assert.strictEqual(enc.includes("/"), false);
     assert.strictEqual(enc.includes("="), false);
+    // encode: padding-removal is what matters — one- and two-byte inputs
+    // exercise the code path that strips "=" padding; a broken removal step
+    // can still pass on three-byte inputs like "???" above.
+    assert.strictEqual(Buffer.from([0xfb]).toString("base64url"), "-w");
+    assert.strictEqual(Buffer.from([0xff, 0xff]).toString("base64url"), "__8");
     // decode: URL-safe chars (-, _) round-trip
     assert.strictEqual(Buffer.from("Pz8_", "base64url").toString(), "???");
     assert.strictEqual(
