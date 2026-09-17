@@ -998,7 +998,7 @@ function ucs2Write(buf, string, offset, length) {
  * @param offset - The offset to start writing at.
  * @param length - The maximum number of bytes to write.
  * @param encoding - The encoding to use (default: 'utf8').
- * @returns The offset plus the number of bytes actually written.
+ * @returns The number of bytes actually written.
  */
 Buffer.prototype.write = function write(string, offset, length, encoding) {
   // Buffer#write(string)

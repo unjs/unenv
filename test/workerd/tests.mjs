@@ -65,6 +65,9 @@ export const unenv_polyfills_buffer = {
     );
     // byteLength respects base64url
     assert.strictEqual(Buffer.byteLength("aGVsbG8td29ybGQ", "base64url"), 11);
+    const destination = Buffer.alloc(8);
+    assert.strictEqual(destination.write("aGVsbG8", 2, 3, "base64url"), 3);
+    assert.deepStrictEqual([...destination], [0, 0, 104, 101, 108, 0, 0, 0]);
   },
 };
 
