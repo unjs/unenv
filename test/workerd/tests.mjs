@@ -50,6 +50,29 @@ export const unenv_polyfills_buffer = {
     assert.strictEqual(typeof buffer.INSPECT_MAX_BYTES, "number");
     assert.strictEqual(typeof buffer.resolveObjectURL, "function");
     assert.strictEqual(typeof Buffer.from, "function");
+    assert.strictEqual(Buffer.isEncoding("base64url"), true);
+    // encode: base64url uses - and _ instead of + and /, strips padding
+    const enc = Buffer.from("???").toString("base64url");
+    assert.strictEqual(enc, "Pz8_");
+    assert.strictEqual(enc.includes("+"), false);
+    assert.strictEqual(enc.includes("/"), false);
+    assert.strictEqual(enc.includes("="), false);
+    // encode: padding-removal is what matters — one- and two-byte inputs
+    // exercise the code path that strips "=" padding; a broken removal step
+    // can still pass on three-byte inputs like "???" above.
+    assert.strictEqual(Buffer.from([0xfb]).toString("base64url"), "-w");
+    assert.strictEqual(Buffer.from([0xff, 0xff]).toString("base64url"), "__8");
+    // decode: URL-safe chars (-, _) round-trip
+    assert.strictEqual(Buffer.from("Pz8_", "base64url").toString(), "???");
+    assert.strictEqual(
+      Buffer.from("aGVsbG8td29ybGQ", "base64url").toString(),
+      "hello-world",
+    );
+    // byteLength respects base64url
+    assert.strictEqual(Buffer.byteLength("aGVsbG8td29ybGQ", "base64url"), 11);
+    const destination = Buffer.alloc(8);
+    assert.strictEqual(destination.write("aGVsbG8", 2, 3, "base64url"), 3);
+    assert.deepStrictEqual([...destination], [0, 0, 104, 101, 108, 0, 0, 0]);
   },
 };
 

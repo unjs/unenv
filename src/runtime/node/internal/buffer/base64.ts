@@ -16,6 +16,11 @@ for (let i = 0, len = code.length; i < len; ++i) {
 revLookup["-".charCodeAt(0)] = 62;
 revLookup["_".charCodeAt(0)] = 63;
 
+/**
+ * Calculate lens values for base64 string decoding.
+ * @param b64 - The base64 string.
+ * @returns Tuple of [validLength, placeholderLength].
+ */
 function getLens(b64) {
   const len = b64.length;
 
@@ -35,6 +40,11 @@ function getLens(b64) {
   return [validLen, placeHoldersLen];
 }
 
+/**
+ * Calculate the byte length of a base64 string.
+ * @param b64 - The base64 string to calculate the byte length for.
+ * @returns The number of bytes that would be produced by decoding the base64 string.
+ */
 // base64 is 4/3 + up to two characters of the original data
 export function byteLength(b64) {
   const lens = getLens(b64);
@@ -43,10 +53,18 @@ export function byteLength(b64) {
   return ((validLen + placeHoldersLen) * 3) / 4 - placeHoldersLen;
 }
 
+/**
+ * Internal helper for byte length calculation.
+ */
 function _byteLength(b64, validLen, placeHoldersLen) {
   return ((validLen + placeHoldersLen) * 3) / 4 - placeHoldersLen;
 }
 
+/**
+ * Decode a base64 string to a Uint8Array.
+ * @param b64 - The base64 string to decode.
+ * @returns A Uint8Array containing the decoded bytes.
+ */
 export function toByteArray(b64) {
   let tmp;
   const lens = getLens(b64);
@@ -91,6 +109,11 @@ export function toByteArray(b64) {
   return arr;
 }
 
+/**
+ * Convert a number to base64 characters.
+ * @param num - A 24-bit number to encode.
+ * @returns A 4-character base64 string.
+ */
 function tripletToBase64(num) {
   return (
     lookup[(num >> 18) & 0x3f] +
@@ -100,6 +123,13 @@ function tripletToBase64(num) {
   );
 }
 
+/**
+ * Encode a chunk of a Uint8Array to base64.
+ * @param uint8 - The Uint8Array to encode.
+ * @param start - Start index in the array.
+ * @param end - End index in the array.
+ * @returns Base64 string for the chunk.
+ */
 function encodeChunk(uint8, start, end) {
   let tmp;
   const output = [];
@@ -113,6 +143,11 @@ function encodeChunk(uint8, start, end) {
   return output.join("");
 }
 
+/**
+ * Encode a Uint8Array to a base64 string.
+ * @param uint8 - The Uint8Array to encode.
+ * @returns A base64 encoded string.
+ */
 export function fromByteArray(uint8) {
   let tmp;
   const len = uint8.length;
@@ -146,4 +181,17 @@ export function fromByteArray(uint8) {
   }
 
   return parts.join("");
+}
+
+/**
+ * Encode a Uint8Array to a URL-safe base64 string.
+ * This is the base64url encoding as defined in RFC 4648 section 5.
+ * @param uint8 - The Uint8Array to encode.
+ * @returns A URL-safe base64 string without padding.
+ */
+export function toBase64URL(uint8) {
+  return fromByteArray(uint8)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/g, "");
 }
