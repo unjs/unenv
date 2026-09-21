@@ -31,9 +31,16 @@ import { AsyncResource } from "node:async_hooks";
 // added to it. This is a useful default which helps finding memory leaks.
 let defaultMaxListeners = 10;
 
-const AsyncIteratorPrototype = Object.getPrototypeOf(
-  Object.getPrototypeOf(async function* () {}).prototype,
-);
+let AsyncIteratorPrototype: object = Object.prototype;
+try {
+  AsyncIteratorPrototype =
+    Object.getPrototypeOf(
+      Object.getPrototypeOf(async function* () {}).prototype,
+    ) || Object.prototype;
+} catch {
+  // Async generators are unavailable when bundled below ES2018.
+  // on() will not support async iteration, but the module can still load.
+}
 
 // Inspect (mocked)
 const inspect = (value: any, _opts?: any) => value;
