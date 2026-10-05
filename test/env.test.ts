@@ -24,6 +24,26 @@ describe("defineEnv", () => {
     expect(env.alias.foo).toBe("bar");
   });
 
+  it("npm shims", () => {
+    const disabled = defineEnv({ nodeCompat: false });
+    expect(disabled.env.alias).toEqual({});
+
+    const { env } = defineEnv({ nodeCompat: false, npmShims: true });
+    expect(env.alias).toEqual({
+      "node-fetch": "unenv/npm/node-fetch",
+      "node-fetch-native": "unenv/npm/node-fetch",
+      "cross-fetch": "unenv/npm/cross-fetch",
+      debug: "unenv/npm/debug",
+      fsevents: "unenv/npm/fsevents",
+      inherits: "unenv/npm/inherits",
+      "whatwg-url": "unenv/npm/whatwg-url/index",
+      "whatwg-url/webidl2js-wrapper": "unenv/npm/whatwg-url/webidl2js-wrapper",
+      "cross-fetch/polyfill": "unenv/mock/empty",
+      "node-fetch-native/polyfill": "unenv/mock/empty",
+      "isomorphic-fetch": "unenv/mock/empty",
+    });
+  });
+
   it("has aliases for all builtinModules", () => {
     const { env } = defineEnv({ nodeCompat: true });
     for (const id of builtinModules) {
