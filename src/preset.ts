@@ -87,6 +87,7 @@ export const npmShims = {
   inherits: "unenv/npm/inherits",
   "node-fetch": "unenv/npm/node-fetch",
   "node-fetch-native": "unenv/npm/node-fetch",
+  "safer-buffer": "unenv/npm/safer-buffer",
   "whatwg-url": "unenv/npm/whatwg-url/index",
   "whatwg-url/webidl2js-wrapper": "unenv/npm/whatwg-url/webidl2js-wrapper",
   // polyfills
