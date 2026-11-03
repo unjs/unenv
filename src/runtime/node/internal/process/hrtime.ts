@@ -9,7 +9,7 @@ export const hrtime: NodeJS.Process["hrtime"] = /*@__PURE__*/ Object.assign(
 
     if (startTime) {
       let diffSeconds = seconds - startTime[0];
-      let diffNanos = nanos - startTime[0];
+      let diffNanos = nanos - startTime[1];
 
       if (diffNanos < 0) {
         diffSeconds = diffSeconds - 1;
