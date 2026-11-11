@@ -25,7 +25,22 @@ export const resolveObjectURL = /*@__PURE__*/ notImplemented(
   "buffer.resolveObjectURL",
 );
 export const transcode = /*@__PURE__*/ notImplemented("buffer.transcode");
-export const isUtf8 = /*@__PURE__*/ notImplemented("buffer.isUtf8");
+export const isUtf8: (typeof nodeBuffer)["isUtf8"] = (input) => {
+  const buffer = ArrayBuffer.isView(input) ? input.buffer : input;
+  // In Node >=v26.8.0, this returns true instead of throwing
+  if ("detached" in buffer && buffer.detached) {
+    throw Object.assign(new Error("Cannot validate on a detached buffer"), {
+      code: "ERR_INVALID_STATE",
+    });
+  }
+  const textDecoder = new globalThis.TextDecoder("utf-8", { fatal: true });
+  try {
+    textDecoder.decode(input);
+    return true;
+  } catch {
+    return false;
+  }
+};
 export const isAscii = /*@__PURE__*/ notImplemented("buffer.isAscii");
 
 export const btoa = globalThis.btoa.bind(globalThis);
