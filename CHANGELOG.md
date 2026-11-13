@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.0-rc.25
+
+[compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.24...v2.0.0-rc.25)
+
+### 🩹 Fixes
+
+- Avoid marking resolved preset values as readonly ([#534](https://github.com/unjs/unenv/pull/534))
+
+### 🏡 Chore
+
+- Update deps ([040a15a](https://github.com/unjs/unenv/commit/040a15a))
+- Update deps ([39cc8fa](https://github.com/unjs/unenv/commit/39cc8fa))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v2.0.0-rc.24
 
 [compare changes](https://github.com/unjs/unenv/compare/v2.0.0-rc.23...v2.0.0-rc.24)
