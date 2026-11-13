@@ -4,9 +4,10 @@ import type nodeDiagnosticsChannel from "node:diagnostics_channel";
 const channels: Record<string | symbol, nodeDiagnosticsChannel.Channel> = {};
 export const getChannels = () => channels;
 
-export class Channel<StoreType, ContextType>
-  implements nodeDiagnosticsChannel.Channel<StoreType, ContextType>
-{
+export class Channel<
+  StoreType,
+  ContextType,
+> implements nodeDiagnosticsChannel.Channel<StoreType, ContextType> {
   readonly __unenv__ = true;
 
   name: nodeDiagnosticsChannel.Channel["name"];

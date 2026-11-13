@@ -33,8 +33,8 @@ const debug: Debug = Object.assign(createDebug, {
   selectColor: (_namespace: string) => 0,
   humanize: (num: any) => `${num}ms` as any,
   inspectOpts: {},
-  names: [] as RegExp[],
-  skips: [] as RegExp[],
+  names: [] as string[],
+  skips: [] as string[],
   formatters: {} as Formatters,
 });
 

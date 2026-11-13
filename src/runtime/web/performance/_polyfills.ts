@@ -154,13 +154,16 @@ export class _PerformanceObserverEntryList
 // https://developer.mozilla.org/en-US/docs/Web/API/Performance
 export class _Performance<
   PerformanceEntryT extends PerformanceEntry = PerformanceEntry,
-> implements globalThis.Performance
+>
+  implements globalThis.Performance
 {
   readonly __unenv__ = true;
 
   timeOrigin: number = _timeOrigin;
 
   eventCounts: EventCounts = new Map<string, number>();
+
+  interactionCount = 0;
 
   _entries: PerformanceEntry[] = [];
   _resourceTimingBufferSize = 0;

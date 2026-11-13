@@ -47,13 +47,13 @@ export const randomBytes: typeof nodeCrypto.randomBytes = (
         bytes,
         generated,
         generated + MAX_RANDOM_VALUE_BYTES,
-      ),
+      ) as Uint8Array<ArrayBuffer>,
     );
   }
 
   if (typeof cb === "function") {
     cb(null, bytes);
-    return undefined as any /* type override fix */;
+    return undefined as any; /* type override fix */
   }
 
   return bytes;

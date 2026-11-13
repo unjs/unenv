@@ -15,8 +15,7 @@ class _AsyncResource implements nodeAsyncHooks.AsyncResource {
   constructor(
     type: string,
     triggerAsyncId:
-      | number
-      | nodeAsyncHooks.AsyncResourceOptions = executionAsyncId(),
+      number | nodeAsyncHooks.AsyncResourceOptions = executionAsyncId(),
   ) {
     this.type = type;
     this._asyncId = -1 * _asyncIdCounter++;

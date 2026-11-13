@@ -27,6 +27,8 @@ export default unjs(
       "unicorn/prefer-global-this": 0,
       "unicorn/prefer-math-min-max": 0,
       "unicorn/prefer-export-from": 0,
+      "unicorn/prefer-bigint-literals": 0,
+      "unicorn/prefer-class-fields": 0,
       "no-restricted-imports": [
         "error",
         {

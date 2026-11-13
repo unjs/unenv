@@ -184,6 +184,6 @@ export const workerd_net = {
   async test() {
     const net = await import("node:net");
     assert.strictEqual(typeof net.createConnection, "function");
-    assert.throws(() => net.createServer(), /not implemented/);
+    assert.strictEqual(typeof net.createServer().listen, "function");
   },
 };

@@ -269,8 +269,8 @@ function getPathFromURLPosix(url: URL) {
 function isURL(self: any): self is URL {
   return Boolean(
     self?.href &&
-      self.protocol &&
-      self.auth === undefined &&
-      self.path === undefined,
+    self.protocol &&
+    self.auth === undefined &&
+    self.path === undefined,
   );
 }

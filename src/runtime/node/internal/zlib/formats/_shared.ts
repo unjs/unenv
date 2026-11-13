@@ -11,12 +11,7 @@ export abstract class ZlibCompress extends Transform {
   readonly bytesWritten = 0;
 
   abstract readonly _format:
-    | undefined
-    | "deflate"
-    | "gzip"
-    | "zlib"
-    | "brotli"
-    | "zip";
+    undefined | "deflate" | "gzip" | "zlib" | "brotli" | "zip";
 
   constructor(opts?: TransformOptions) {
     super(opts);

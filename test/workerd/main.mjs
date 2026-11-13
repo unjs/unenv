@@ -151,7 +151,7 @@ async function createModuleServer(port = 8888) {
 
       // Load node module
       // prettier-ignore
-      const entryFile = join(srcDir, "runtime", unenvPath) + '.ts'
+      const entryFile = join(srcDir, "runtime", unenvPath) + '.ts';
 
       const transpiled = await build({
         entryPoints: [entryFile],
