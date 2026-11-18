@@ -31,9 +31,17 @@ import { AsyncResource } from "node:async_hooks";
 // added to it. This is a useful default which helps finding memory leaks.
 let defaultMaxListeners = 10;
 
-const AsyncIteratorPrototype = Object.getPrototypeOf(
-  Object.getPrototypeOf(async function* () {}).prototype,
-);
+const AsyncIteratorPrototype = (() => {
+  try {
+    return (
+      Object.getPrototypeOf(
+        Object.getPrototypeOf(async function* () {}).prototype,
+      ) || Object.prototype
+    );
+  } catch {
+    return Object.prototype;
+  }
+})();
 
 // Inspect (mocked)
 const inspect = (value: any, _opts?: any) => value;
