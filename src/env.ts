@@ -120,10 +120,15 @@ function resolvePaths(
       id = resolveAlias(id, env.alias);
     }
     if (id.startsWith("node:")) {
+      const builtinId = id.slice(5).replace(/\/$/, "");
+      if (builtinModules.includes(builtinId)) {
+        return `node:${builtinId}`;
+      }
       return id;
     }
-    if (builtinModules.includes(id)) {
-      return `node:${id}`;
+    const builtinId = id.replace(/\/$/, "");
+    if (builtinModules.includes(builtinId)) {
+      return `node:${builtinId}`;
     }
     let resolved = resolveModulePath(id, { try: true });
     if (!resolved && id.startsWith("unenv/")) {
