@@ -9,7 +9,7 @@ globalThis.process = originalProcess
         if (Reflect.has(target, prop)) {
           return Reflect.get(target, prop, receiver);
         }
-        return Reflect.get(processModule, prop, receiver);
+        return Reflect.get(processModule, prop, processModule);
       },
     })
   : processModule;
